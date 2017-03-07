@@ -1,0 +1,37 @@
+@font-face {
+    font-family: "Panton";
+    src: url("../fonts/panton/Panton-BlackCaps.otf");
+}
+
+nav {
+    background-color: white;
+    font-family: "Panton";
+}
+
+.brand-logo {
+    margin-left: 2%;
+}
+
+nav-wrapper {
+    position: fixed;
+}
+
+.nam {
+    font-size: 75%;
+    text-align: center;
+}
+
+.reg {
+    font-size: 120%;
+    border-bottom: 1px solid red;
+}
+
+.box {
+    min-height: 20px;
+    line-height: 100%;
+    padding-top: 15%;
+    padding-bottom: 20%;
+}
+
+.si {
+}
