@@ -36,6 +36,7 @@ then check http://localhost:8000
 ## Conventions
 ------------
 ``` For the back-end part ```
+
 1. Use snake_case for variable names
 
 	e.g.:
