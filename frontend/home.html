@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--Import Google Icon Font-->
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+        <link type="text/css" rel="stylesheet" href="css/home.css"  media="screen,projection"/>
+
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>MalICSi</title>
+    </head>
+
+    <body>
+        <!--Import jQuery before materialize.js-->
+        <script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
+        <script type="text/javascript" src="js/materialize.js"></script>
+        <script type="text/javascript" src="js/home.js"></script>
+
+        <div class="navbar-fixed">
+            <nav>
+               <!-- <div class="container"> -->
+                    <div class="nav-wrapper">
+                        <a href="#" class="brand-logo black-text">MalICSi</a>
+                        <ul id="nav-mobile" class="right hide-on-med-and-down">
+                            <li class="waves-effect waves-light"><a href="#modal2">
+                                <div class="black-text box">
+                                    <span class="nam">not a member?</span><br>
+                                    <span class="reg">register</span>
+                                </div>
+                            </a></li>
+                            <li><a class="teal accent-3" href="#modal1"><span class="white-text si">sign in</span></a></li>
+                        <ul>
+                    </div>
+                <!-- </div> -->
+            </nav>
+        </div>
+
+        <!-- Modal Structure -->
+        <div id="modal1" class="modal modal-fixed-footer">
+            <div class="teal accent-3 content">
+                <h4 class="login white-text">LOGIN</h4>
+            </div>
+            <div class="form-content">
+                <div class="row">
+                    <form id="login-form" class="col s12">
+                        <div id="login-users" class="row">
+                          <div class="input-field col s10">
+                                <input id="field-inputs" type="text" class="validate">
+                                <label id="labels" for="user_name">Username:</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s10">
+                                <input id="field-inputs" type="password" class="validate">
+                                <label id="labels" for="password">Password:</label>
+                            </div>
+                        </div>
+                        <div id="row-password" class="row">
+                            <label id="label-forgot" for="forgot_password">forgot password?</label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div id="modal-button">
+                <a href="#!" id="label-enter" class="teal accent-3 modal-action modal-close waves-effect waves-green btn-flat white-text">Enter</a>
+            </div>
+        </div>
+
+        <!-- Modal Structure -->
+        <div id="modal2" class="modal modal-fixed-footer">
+            <div id="content-register" class="teal accent-3 content">
+                <h4 class="register white-text">REGISTER</h4>
+            </div>
+            <div class="form-content">
+                <div class="row">
+                    <form id="register-form" class="col s12">
+                        <div id="register-name" class="row">
+                            <div class="input-field col s10">
+                                <input id="field-inputs" type="text" class="validate">
+                                <label id="labels" for="name">Name:</label>
+                            </div>
+                        </div>
+                        <div id="register-users" class="row">
+                            <div class="input-field col s10">
+                                <input id="field-inputs" type="text" class="validate">
+                                <label id="labels" for="college">College:</label>
+                            </div>
+                        </div>
+                        <div id="register-users" class="row">
+                            <div class="input-field col s10">
+                                <input id="field-inputs" type="text" class="validate">
+                                <label id="labels" for="course">Course:</label>
+                            </div>
+                        </div>
+                        <div id="register-users" class="row">
+                            <div class="input-field col s10">
+                                <input id="field-inputs" type="text" class="validate">
+                                <label id="labels" for="stud_no">Student Number:</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s10">
+                                <input id="field-inputs" type="text" class="validate">
+                                <label id="labels" for="email">Email Address:</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div id="modal-button">
+                <a href="#!" id="label-enter" class="teal accent-3 modal-action modal-close waves-effect waves-green btn-flat white-text">Register</a>
+            </div>
+        </div>
+
+    </body>
+</html>
