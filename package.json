@@ -1,0 +1,19 @@
+{
+  "name": "malicsiapp_cmsc128_a-5l",
+  "version": "1.0.0",
+  "description": "PalICSihan Sports Scheduling and Event App",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EddieVallejos/MalICSiApp_CMSC128_A5L.git"
+  },
+  "author": "cmsc128-a5l",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EddieVallejos/MalICSiApp_CMSC128_A5L/issues"
+  },
+  "homepage": "https://github.com/EddieVallejos/MalICSiApp_CMSC128_A5L#readme"
+}
