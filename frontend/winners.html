@@ -4,7 +4,7 @@
         <!--Import Google Icon Font-->
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!--Import materialize.css-->
-        <link type="text/css" rel="stylesheet" href="../bower_components/materialize/dist/css/materialize.css"  media="screen,projection"/>
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
         <link type="text/css" rel="stylesheet" href="css/winners.css"  media="screen,projection"/>
 
         <!--Let browser know website is optimized for mobile-->
@@ -14,9 +14,9 @@
 
     <body>
       <!--Import jQuery before materialize.js-->
-      <script type="text/javascript" src="../bower_components/jquery/dist/jquery.js"></script>
-      <script type="text/javascript" src="../bower_components/materialize/dist/js/materialize.js"></script>
-      <script type="text/javascript" src="js/index.js"></script>
+      <script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+      <script type="text/javascript" src="js/winners.js"></script>
 
       <div class="navbar-fixed">
         <nav>
@@ -44,7 +44,7 @@
       </ul>
 
       <!-- button for adding new winner-->
-      <a class="btn-floating btn-large waves-effect waves-light" id = "add_button"><i class="material-icons">add</i></a>
+      <a class="btn-floating btn-large waves-effect waves-light z-depth-5 teal accent-4" id = "add_button"><i class="material-icons">add</i></a>
 
       <!-- Search -->
       <div class="row">
@@ -61,10 +61,9 @@
 
       <h3 id = "label">PALICSIHAN</h3>
 
-      <!-- contents -->
+      <!-- Contents -->
       <div class="row">
-        <div class="col s12 m11 l11">
-          <div class="card-panel">
+        <div class="card-panel col offset-l1 s12 m11 l10 z-depth-5">
               <ul class = "left" id = "overall_champs">
                 <li class="collection-header center teal accent-3"><h5>OVERALL CHAMPION</h5></li>
                 <div>
@@ -79,59 +78,88 @@
                 </div>
               </ul>
 
+              <!-- Dropdown Trigger -->
+              <a class="dropdown-button right" href="#" data-activates="dropdownOptions"><i class="medium material-icons">arrow_drop_down</i></a>
+
+              <!-- List of Games -->
               <div class = "row right col s1 m6 l8" id = "game_list">
-                <ul class="collection with-header col s1 m3 l4">
+                <ul class="col s1 m3 l4">
                   <li class="collection-header"><h6>BASKETBALL</h6></li>
-                  <li class="collection-item team_rank">RED TEAM</li>
-                  <li class="collection-item team_rank">BLUE TEAM</li>
-                  <li class="collection-item team_rank">GREEN TEAM</li>
-                  <li class="collection-item team_rank">YELLOW TEAM</li>
+                  <li class="col offset-s1 team_rank">1st - RED TEAM</li>
+                  <li class="col offset-s1 team_rank">2nd - BLUE TEAM</li>
+                  <li class="col offset-s1 team_rank">3rd - GREEN TEAM</li>
+                  <li class="col offset-s1 team_rank">4th - YELLOW TEAM</li>
                 </ul>
 
-                <ul class="collection with-header col s1 m3 l4">
+                <ul class="col s1 m3 l4">
                   <li class="collection-header"><h6>VOLLEYBALL</h6></li>
-                  <li class="collection-item team_rank">RED TEAM</li>
-                  <li class="collection-item team_rank">BLUE TEAM</li>
-                  <li class="collection-item team_rank">GREEN TEAM</li>
-                  <li class="collection-item team_rank">YELLOW TEAM</li>
+                  <li class="col offset-s1 team_rank">1st - RED TEAM</li>
+                  <li class="col offset-s1 team_rank">2nd - BLUE TEAM</li>
+                  <li class="col offset-s1 team_rank">3rd - GREEN TEAM</li>
+                  <li class="col offset-s1 team_rank">4th - YELLOW TEAM</li>
                 </ul>
 
-                <ul class="collection with-header col s1 m3 l4">
+                <ul class="col s1 m3 l4">
                   <li class="collection-header"><h6>BADMINTON</h6></li>
-                  <li class="collection-item team_rank team_rank">RED TEAM</li>
-                  <li class="collection-item team_rank">BLUE TEAM</li>
-                  <li class="collection-item team_rank">GREEN TEAM</li>
-                  <li class="collection-item team_rank">YELLOW TEAM</li>
+                  <li class="col offset-s1 team_rank">1st - RED TEAM</li>
+                  <li class="col offset-s1 team_rank">2nd - BLUE TEAM</li>
+                  <li class="col offset-s1 team_rank">3rd - GREEN TEAM</li>
+                  <li class="col offset-s1 team_rank">4th - YELLOW TEAM</li>
                 </ul>
 
-                <ul class="collection with-header col s1 m3 l4">
+                <ul class="col s1 m3 l4">
                   <li class="collection-header"><h6>TENNIS</h6></li>
-                  <li class="collection-item team_rank">RED TEAM</li>
-                  <li class="collection-item team_rank">BLUE TEAM</li>
-                  <li class="collection-item team_rank">GREEN TEAM</li>
-                  <li class="collection-item team_rank">YELLOW TEAM</li>
+                  <li class="col offset-s1 team_rank">1st - RED TEAM</li>
+                  <li class="col offset-s1 team_rank">2nd - BLUE TEAM</li>
+                  <li class="col offset-s1 team_rank">3rd - GREEN TEAM</li>
+                  <li class="col offset-s1 team_rank">4th - YELLOW TEAM</li>
                 </ul>
 
-                <ul class="collection with-header col s1 m3 l4">
+                <ul class="col s1 m3 l4">
                   <li class="collection-header"><h6>PHILIPPINE GAMES</h6></li>
-                  <li class="collection-item team_rank">RED TEAM</li>
-                  <li class="collection-item team_rank">BLUE TEAM</li>
-                  <li class="collection-item team_rank">GREEN TEAM</li>
-                  <li class="collection-item team_rank">YELLOW TEAM</li>
+                  <li class="col offset-s1 team_rank">1st - RED TEAM</li>
+                  <li class="col offset-s1 team_rank">2nd - BLUE TEAM</li>
+                  <li class="col offset-s1 team_rank">3rd - GREEN TEAM</li>
+                  <li class="col offset-s1 team_rank">4th - YELLOW TEAM</li>
                 </ul>
 
-                <ul class="collection with-header col s1 m3 l4">
+                <ul class="col s1 m3 l4">
                   <li class="collection-header"><h6>TABLE TENNIS</h6></li>
-                  <li class="collection-item team_rank">RED TEAM</li>
-                  <li class="collection-item team_rank">BLUE TEAM</li>
-                  <li class="collection-item team_rank">GREEN TEAM</li>
-                  <li class="collection-item team_rank">YELLOW TEAM</li>
+                  <li class="col offset-s1 team_rank">1st - RED TEAM</li>
+                  <li class="col offset-s1 team_rank">2nd - BLUE TEAM</li>
+                  <li class="col offset-s1 team_rank">3rd - GREEN TEAM</li>
+                  <li class="col offset-s1 team_rank">4th - YELLOW TEAM</li>
                 </ul>
               </div>
 
-          </div>
-
+              <!-- Dropdown Structure -->
+              <ul id='dropdownOptions' class='dropdown-content'>
+                <li><a href="#!">edit</a></li>
+                <li><a href="#!">remove</a></li>
+              </ul>
         </div>
+
       </div>
+
+      <!-- Footer -->
+      <footer class="page-footer teal lighten-1">
+        <div class="container">
+          <div class="row">
+            <div class="col 16 s12">
+
+              <p class="grey-text text-lighten-4">
+                MalICSihan is a sports management application catered for UPLB individuals which aims to showcase reliable person-game information and interaction. MalICSihan is developed by 21 undergraduate students from the Institue of Computer Science to achieve an academic requirement in their CMSC 128: An Introduction to Software Engineering class.
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="footer-copyright">
+          <div class="container center">
+            Copyright 2017 CMSC 128 | A-5L
+          </div>
+        </div>
+      </footer>
     </body>
 </html>

@@ -55,7 +55,7 @@ nav-wrapper {
 #add_button {
   margin-top: 2%;
   margin-left: 5%;
-  margin-bottom: 2%;
+  margin-bottom: 1%;
   float: left;
 }
 
@@ -73,19 +73,15 @@ nav-wrapper {
 }
 
 #label {
-  margin-left: 7%;
+  margin-left: 8%;
   font-size: 250%;
   font-family: Blogger;
 }
 
-.card-panel {
-  margin-left: 8%;
-  box-shadow: 0px 2px 3px 2px rgba(0, 0, 0, 0.3);
-}
 
 #overall_champs {
-  margin-top: -2%;
-  margin-left: -2%;
+  margin-top: 0%;
+  margin-left: -1%;
   width: 30%;
   font-family: Blogger;
   border-width-style: solid;
@@ -112,5 +108,5 @@ nav-wrapper {
 }
 
 .team_rank {
-  font-size: 130%;
+  font-size: 120%;
 }
