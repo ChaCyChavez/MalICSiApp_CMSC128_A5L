@@ -3,7 +3,7 @@ use malicsi;
 insert into account values (NULL, 'regular@gmail.com', true, false, false, false, 'ken', 'pass', 'regular', 'bravo', 'mercado', 'bscs', CURDATE(), 'CAS', true);
 insert into account values (NULL, 'admin@gmail.com', false, true, false, false, 'admin', 'pass', 'admin', 'bravo', 'mercado', 'bscs', CURDATE(), 'CAS', true);
 insert into account values (NULL, 'gamehead@gmail.com', false, false, true, false, 'gamehead', 'pass', 'gamehead', 'bravo', 'mercado', 'bscs', CURDATE(), 'CAS', true);
-insert into account values (NULL, 'player@gmail.com', false, false, true, false, 'player', 'pass', 'player', 'bravo', 'mercado', 'bscs', CURDATE(), 'CAS', true);
+insert into account values (NULL, 'player@gmail.com', false, false, false, true, 'player', 'pass', 'player', 'bravo', 'mercado', 'bscs', CURDATE(), 'CAS', true);
 
 
 insert into game values (NULL, 'Game 2', 'UPLB', CURDATE(), CURDATE(), 3);
