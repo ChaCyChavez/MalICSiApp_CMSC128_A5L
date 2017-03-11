@@ -2,15 +2,17 @@
 
 const config        = require(__dirname + '/config/config');
 const express       = require('express');
+const session       = require('express-session');
 const body_parser   = require('body-parser');
 const redis         = require('redis');
-const redis_store    = require('connect-redis')(session);
+const redis_store   = require('connect-redis')(session);
 const client        = redis.createClient();
 
-let handler = start();
+let start;
+let handler;
 let app;
 
-let start = () => {
+start = () => {
     
     if (handler) {
         handler.close();
@@ -44,6 +46,8 @@ let start = () => {
     return app.listen(config.PORT, config.IP);
 
 }
+
+handler = start();
 
 module.exports = {
     app,
