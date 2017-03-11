@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--Import Google Icon Font-->
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="../bower_components/materialize/dist/css/materialize.css"  media="screen,projection"/>
+        <link type="text/css" rel="stylesheet" href="css/winners.css"  media="screen,projection"/>
+
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>MalICSi</title>
+    </head>
+
+    <body>
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="../bower_components/jquery/dist/jquery.js"></script>
+      <script type="text/javascript" src="../bower_components/materialize/dist/js/materialize.js"></script>
+      <script type="text/javascript" src="js/index.js"></script>
+
+      <div class="navbar-fixed">
+        <nav>
+          <!-- <div class="container"> -->
+            <div class="nav-wrapper">
+              <a href="#" data-activates="slide-out" class="brand-logo left black-text" id="butones"><i class="material-icons center-align">menu</i></a>
+              <span class="brand-logo black-text" id = "logo">MalICSi</span>
+              <span class="brand-logo black-text center" id = "page">WINNERS</span>
+              <ul id="nav-mobile" class="right">
+                <li><div class="black-text" id="hello">Welcome, Juan Dela Cruz</div></li>
+                <li><a href="#" data-activates="dropdown1" class="teal accent-3" id="dr"><i class="material-icons center-align">perm_identity</i></a></li>
+              </ul>
+            </div>
+        </nav>
+      </div>
+
+      <ul id="slide-out" class="side-nav teal accent-3">
+        <li><h3 class="center-align valign white-text">MalICSi</h3></li>
+        <li><div class="container"><div class="divider"></div></div></li>
+        <li><a href="#"><h5 class="center-align valign white-text">GAMES</h5></a></li>
+        <li><a href="#"><h5 class="center-align valign white-text">SPORTS</h5></a></li>
+        <li><a href="#"><h5 class="center-align valign white-text">WINNERS</h5></a></li>
+        <li><a href="#"><h5 class="center-align valign white-text">PLAYERS</h5></a></li>
+        <li><a href="#"><h5 class="center-align valign white-text">SPONSORING INSTITUTES</h5></a></li>
+      </ul>
+
+      <!-- button for adding new winner-->
+      <a class="btn-floating btn-large waves-effect waves-light" id = "add_button"><i class="material-icons">add</i></a>
+
+      <!-- Search -->
+      <div class="row">
+        <form class="col s6 right">
+          <div class="row">
+            <div class="input-field col s6 right" id = "search">
+              <i class="material-icons prefix">search</i>
+              <input id="icon_prefix" type="text" class="validate">
+              <label for="icon_prefix">Search winner</label>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <h3 id = "label">PALICSIHAN</h3>
+
+      <!-- contents -->
+      <div class="row">
+        <div class="col s12 m11 l11">
+          <div class="card-panel">
+              <ul class = "left" id = "overall_champs">
+                <li class="collection-header center teal accent-3"><h5>OVERALL CHAMPION</h5></li>
+                <div>
+                  <li class="champ center">1st - RED TEAM</li>
+                  <li class="champ_awards center">&nbsp 10g &nbsp 4s &nbsp 2b</li>
+                  <li class="champ center">2nd - BLUE TEAM</li>
+                  <li class="champ_awards center">&nbsp 10g &nbsp 4s &nbsp 2b</li>
+                  <li class="champ center">3rd - GREEN TEAM</li>
+                  <li class="champ_awards center">&nbsp 10g &nbsp 4s &nbsp 2b</li>
+                  <li class="champ center">4th - YELLOW TEAM</li>
+                  <li class="champ_awards center">&nbsp 10g &nbsp 4s &nbsp 2b</li>
+                </div>
+              </ul>
+
+              <div class = "row right col s1 m6 l8" id = "game_list">
+                <ul class="collection with-header col s1 m3 l4">
+                  <li class="collection-header"><h6>BASKETBALL</h6></li>
+                  <li class="collection-item team_rank">RED TEAM</li>
+                  <li class="collection-item team_rank">BLUE TEAM</li>
+                  <li class="collection-item team_rank">GREEN TEAM</li>
+                  <li class="collection-item team_rank">YELLOW TEAM</li>
+                </ul>
+
+                <ul class="collection with-header col s1 m3 l4">
+                  <li class="collection-header"><h6>VOLLEYBALL</h6></li>
+                  <li class="collection-item team_rank">RED TEAM</li>
+                  <li class="collection-item team_rank">BLUE TEAM</li>
+                  <li class="collection-item team_rank">GREEN TEAM</li>
+                  <li class="collection-item team_rank">YELLOW TEAM</li>
+                </ul>
+
+                <ul class="collection with-header col s1 m3 l4">
+                  <li class="collection-header"><h6>BADMINTON</h6></li>
+                  <li class="collection-item team_rank team_rank">RED TEAM</li>
+                  <li class="collection-item team_rank">BLUE TEAM</li>
+                  <li class="collection-item team_rank">GREEN TEAM</li>
+                  <li class="collection-item team_rank">YELLOW TEAM</li>
+                </ul>
+
+                <ul class="collection with-header col s1 m3 l4">
+                  <li class="collection-header"><h6>TENNIS</h6></li>
+                  <li class="collection-item team_rank">RED TEAM</li>
+                  <li class="collection-item team_rank">BLUE TEAM</li>
+                  <li class="collection-item team_rank">GREEN TEAM</li>
+                  <li class="collection-item team_rank">YELLOW TEAM</li>
+                </ul>
+
+                <ul class="collection with-header col s1 m3 l4">
+                  <li class="collection-header"><h6>PHILIPPINE GAMES</h6></li>
+                  <li class="collection-item team_rank">RED TEAM</li>
+                  <li class="collection-item team_rank">BLUE TEAM</li>
+                  <li class="collection-item team_rank">GREEN TEAM</li>
+                  <li class="collection-item team_rank">YELLOW TEAM</li>
+                </ul>
+
+                <ul class="collection with-header col s1 m3 l4">
+                  <li class="collection-header"><h6>TABLE TENNIS</h6></li>
+                  <li class="collection-item team_rank">RED TEAM</li>
+                  <li class="collection-item team_rank">BLUE TEAM</li>
+                  <li class="collection-item team_rank">GREEN TEAM</li>
+                  <li class="collection-item team_rank">YELLOW TEAM</li>
+                </ul>
+              </div>
+
+          </div>
+
+        </div>
+      </div>
+    </body>
+</html>

@@ -1,0 +1,116 @@
+@font-face {
+  font-family: "Panton";
+  src: url("../fonts/panton/Panton-BlackCaps.otf");
+}
+
+@font-face {
+  font-family: "Blogger";
+  src: url("../fonts/blogger-sans/Blogger_Sans-Bold.otf");
+}
+
+nav {
+  background-color: white;
+  font-family: "Panton";
+}
+
+.brand-logo {
+  line-height: 75px;
+  font-size: 350% !important;
+  margin-left: 2%;
+}
+
+nav-wrapper {
+  position: fixed;
+}
+
+#slide-out {
+  font-family: "Panton";
+}
+
+#slide-out li a{
+  padding-bottom: 0;
+}
+
+@media only screen and (min-width: 1px) {
+  nav .brand-logo {
+    margin-left: 15px !important;
+    position: absolute;
+  }
+}
+
+#slide-out {
+  font-family: "Panton";
+}
+
+#slide-out li a{
+  padding-bottom: 0;
+}
+
+#hello {
+  line-height: 75px;
+  font-family: "Blogger";
+  font-size: 25px;
+}
+
+#add_button {
+  margin-top: 2%;
+  margin-left: 5%;
+  margin-bottom: 2%;
+  float: left;
+}
+
+#page {
+  font-size: 200% !important;
+}
+
+#logo {
+  margin-left: 5% !important;
+}
+
+#search {
+  margin-right: 30px;
+  float: left;
+}
+
+#label {
+  margin-left: 7%;
+  font-size: 250%;
+  font-family: Blogger;
+}
+
+.card-panel {
+  margin-left: 8%;
+  box-shadow: 0px 2px 3px 2px rgba(0, 0, 0, 0.3);
+}
+
+#overall_champs {
+  margin-top: -2%;
+  margin-left: -2%;
+  width: 30%;
+  font-family: Blogger;
+  border-width-style: solid;
+}
+
+#overall_champs div {
+  margin: 5%;
+  margin-right: 0%;
+  border-right-style: solid;
+}
+
+#overall_champs .collection-header {
+  border-style: solid;
+  border-width: thick;
+  border-color: rgb(29, 233, 182);
+}
+
+.champ {
+  font-size: 180%;
+}
+
+#game_list {
+  font-family: Blogger;
+}
+
+.team_rank {
+  font-size: 130%;
+}
