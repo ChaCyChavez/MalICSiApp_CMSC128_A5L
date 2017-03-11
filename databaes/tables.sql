@@ -178,7 +178,3 @@ create table game_game_type (
     Constraint      `fk_game_game_type_game`
         foreign key (game_id) references game (game_id)
 );
-
-update game_game_type set
-    game_type = ?
-where game_id = ? and game_type = ?;
