@@ -133,6 +133,7 @@ create table account(
     course			    varchar(256) not null,
     birthday		    date not null,
     college			    enum('CA', 'CAS', 'CDC', 'CEAT', 'CEM', 'CFNR', 'CHE', 'CPAf', 'CVM', 'SESAM', 'GS') not null,
+    status              boolean,
     PRIMARY KEY	(account_id)
 );
 
