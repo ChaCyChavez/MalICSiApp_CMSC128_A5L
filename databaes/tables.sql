@@ -6,9 +6,9 @@ create table account(
     account_id          int auto_increment not null,
     email               varchar(256) not null,
     is_regular_account  boolean,
-    Is_admin            boolean,
-    Is_game_head        boolean,
-    Is_player           boolean,
+    is_admin            boolean,
+    is_game_head        boolean,
+    is_player           boolean,
     username            varchar(256) not null,
     password            varchar(256) not null,
     firstname           varchar(256) not null,
@@ -33,6 +33,7 @@ create table game (
         foreign key (account_id) references account (account_id)
 );
 
+
 create table team (
     team_id             int auto_increment not null,
     team_name           varchar(256) not null,
@@ -40,6 +41,8 @@ create table team (
     team_coach          varchar(256) not null,
     PRIMARY KEY         (team_id)
 );
+
+
 
 create table player (
     player_id                   int auto_increment not null,
@@ -72,11 +75,10 @@ create table court (
     PRIMARY KEY     (court_id)
 );
 
-
 create table sport (
     sport_id                int auto_increment not null,
     sport_type              varchar(256) not null,
-    number_of_participant   int not null,
+    number_of_participants   int not null,
     date_time               date not null,
     division                enum('men','women','mixed') not null,
     game_id                 int not null,
@@ -88,7 +90,6 @@ create table sport (
         foreign key (court_id) references court (court_id)
 );
 
-
 create table sport_player (
     sport_id        int not null,
     player_id       int not null,
@@ -98,7 +99,6 @@ create table sport_player (
     Constraint      `fk_sport_player_player`
         foreign key (player_id) references player (player_id)
 );
-
 
 create table sponsor (
     sponsor_id      int auto_increment not null,
@@ -110,6 +110,12 @@ create table sponsor (
     Constraint      `fk_sponsor_game`
         foreign key (game_id) references game (game_id)
 );
+
+update sponsor set
+    sponsor_name = ?,
+    sponsor_affiliation = ?,
+    sponsor_logo = ?
+where sponsor_id = ?;
 
 
 create table game_sponsor (
@@ -132,6 +138,9 @@ create table score (
     Constraint      `fk_score_sport`
         foreign key (sport_id) references sport (sport_id)
 );
+
+
+
 
 create table log ( 
     log_id        int auto_increment not null,
@@ -169,3 +178,7 @@ create table game_game_type (
     Constraint      `fk_game_game_type_game`
         foreign key (game_id) references game (game_id)
 );
+
+update game_game_type set
+    game_type = ?
+where game_id = ? and game_type = ?;
