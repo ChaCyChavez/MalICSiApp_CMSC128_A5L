@@ -24,7 +24,6 @@ create table account(
 create table game (
     game_id                 int auto_increment not null,
     game_name               varchar(256) not null,
-    game_type               varchar(256) not null,
     game_place              varchar(256) not null,
     game_starting_time_date date not null,
     game_ending_time_date   date not null,
@@ -45,17 +44,12 @@ create table team (
 create table player (
     player_id                   int auto_increment not null,
     account_id                  int not null,
-    player_firstname            varchar(256) not null,
-    player_middlename           varchar(256) not null,  
-    player_lastname             varchar(256) not null,
-    player_participating_sport  varchar(256) not null,
-    team_id                     int not null,
     player_jersey_number        int not null,
     is_coach                    boolean,
     game_id                     int not null,
     PRIMARY KEY                 (player_id),
-    Constraint      `fk_player_team`
-        foreign key (team_id) references team (team_id),
+    Constraint      `fk_player_account`
+        foreign key (account_id) references account (account_id),
     Constraint      `fk_player_game`
         foreign key (game_id) references game (game_id)
 );
@@ -140,10 +134,10 @@ create table score (
 );
 
 create table log ( 
-    sport_id        int not null,
+    log_id        int auto_increment not null,
     log_description     varchar(256) not null,
     account_id      int not null,
-    PRIMARY KEY (sport_id),
+    PRIMARY KEY (log_id),
     Constraint      `fk_log_account`
         foreign key (account_id) references account (account_id)
 );
