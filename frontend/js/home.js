@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  
+  $('.carousel.carousel-slider').carousel({fullWidth: true});
   $('.modal').modal({
     // size: 'small',
     dismissible: true,

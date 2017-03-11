@@ -3,22 +3,53 @@
     src: url("../fonts/panton/Panton-BlackCaps.otf");
 }
 
+@font-face {
+    font-family: "Blogger";
+    src: url("../fonts/blogger-sans/Blogger_Sans-Bold.otf");
+}
+
 nav {
     background-color: white;
     font-family: "Panton";
 }
 
-.brand-logo {
-    margin-left: 2%;
+#slide-out {
+    font-family: "Panton";
 }
 
-nav-wrapper {
+#slide-out li a{
+    padding-bottom: 0;
+}
+
+#hello {
+    padding-right: 5%;
+}
+
+#deets {
+    width: 35%;
+}
+
+.brand-logo {
+    margin-left: 2%;
+    line-height: 75px;
+    font-size: 350% !important;
+}
+
+.nav-wrapper {
     position: fixed;
+    height: 75px !important;
+    background-color: #fff;
+    box-shadow: 0px 2px 3px 2px rgba(0, 0, 0, 0.3);
 }
 
 .nam {
     font-size: 75%;
     text-align: center;
+}
+
+#dr {
+    padding-top: 5px;
+    height: 75px;
 }
 
 .reg {
@@ -33,5 +64,57 @@ nav-wrapper {
     padding-bottom: 20%;
 }
 
+#logo {
+    margin: 65px;
+    font-size: 50px;
+    line-height: 75px;
+}
+
+@media only screen and (min-width: 1px) {
+  nav .brand-logo {
+    margin-left: 15px !important;
+    position: absolute;
+  }
+}
+
+#slide-out {
+    font-family: "Panton";
+}
+
+#slide-out li a{
+    padding-bottom: 0;
+}
+
+#hello {
+    line-height: 75px;
+    font-family: "Blogger";
+    font-size: 25px;
+}
+
+#deets {
+    width: 35%;
+}
+
+.reg {
+    font-size: 150%;
+}
+
 .si {
+    font-size: 150%;
+}
+
+.carousel {
+   box-shadow: 1px 2px 3px 1px rgba(0, 0, 0, 0.5);
+}
+
+.card large .card-content{
+    line-height: 34px; 
+}
+
+.news-announcement {
+    font-family: "Blogger";
+}
+
+.footer {
+    box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.5);
 }
