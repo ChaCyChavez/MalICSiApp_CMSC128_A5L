@@ -65,7 +65,7 @@ exports.update_sport = (res, req, next) => {
 	db.query(query_string, payload, callback);
 };
 
-exports.update_sport = (res, req, next) => {
+exports.update_sponsor = (res, req, next) => {
 	const query_string = 'UPDATE sponsor set sponsor_name = ?, sponsor_affiliation = ?, sponsor_logo = ? WHERE sponsor_id = ?;';
 	const payload = [req.body.sponsor_name, req.body.sponsor_affiliation, req.body.sponsor_logo, req.body.sponsor_id];
     const callback = (err, data) => {
@@ -85,7 +85,7 @@ exports.update_score = (res, req, next) => {
 	db.query(query_string, payload, callback);
 };
 
-exports.update_game_game_type = (res, req, next) => {
+exports.update_game_type = (res, req, next) => {
 	const query_string = 'UPDATE game_game_typeset game_type = ? WHERE game_id = ? AND game_type = ?;';
 	const payload = [req.body.game_type, req.body.game_id, req.body.game_type];
     const callback = (err, data) => {
