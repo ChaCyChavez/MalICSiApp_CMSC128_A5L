@@ -2,6 +2,25 @@ drop database if exists malicsi;
 create database malicsi;
 use malicsi;
 
+create table account(
+    account_id		    int auto_increment not null,
+    email			    varchar(256) not null,
+    is_regular_account	boolean,
+    Is_admin	        boolean,
+    Is_game_head        boolean,
+    Is_player	        boolean,
+    username		    varchar(256) not null,
+    password		    varchar(256) not null,
+    firstname		    varchar(256) not null,
+    middlename		    varchar(256) not null,
+    lastname		    varchar(256) not null,
+    course			    varchar(256) not null,
+    birthday		    date not null,
+    college			    enum('CA', 'CAS', 'CDC', 'CEAT', 'CEM', 'CFNR', 'CHE', 'CPAf', 'CVM', 'SESAM', 'GS') not null,
+    status              boolean,
+    PRIMARY KEY	(account_id)
+);
+
 create table game (
     game_id			        int auto_increment not null,
     game_name			    varchar(256) not null,
@@ -10,7 +29,9 @@ create table game (
     game_starting_time_date	date not null,
     game_ending_time_date	date not null,
     account_id			    int not null,
-    PRIMARY KEY		        (game_id)
+    PRIMARY KEY		        (game_id),
+    Constraint		`fk_game_account`
+        foreign key (account_id) references account (account_id)
 );
 
 create table team (
@@ -34,9 +55,9 @@ create table player (
     game_id 			        int not null,
     PRIMARY KEY		            (player_id),
     Constraint		`fk_player_team`
-    foreign key (team_id) references team (team_id),
+        foreign key (team_id) references team (team_id),
     Constraint		`fk_player_game`
-    foreign key (game_id) references game (game_id)
+        foreign key (game_id) references game (game_id)
 );
 
 create table team_player (
@@ -118,32 +139,12 @@ create table score (
         foreign key (sport_id) references sport (sport_id)
 );
 
-create table account(
-	account_id		    int auto_increment not null,
-    email			    varchar(256) not null,
-    is_regular_account	boolean,
-	Is_admin	        boolean,
-	Is_game_head        boolean,
-	Is_player	        boolean,
-    username		    varchar(256) not null,
-    password		    varchar(256) not null,
-    firstname		    varchar(256) not null,
-    middlename		    varchar(256) not null,
-    lastname		    varchar(256) not null,
-    course			    varchar(256) not null,
-    birthday		    date not null,
-    college			    enum('CA', 'CAS', 'CDC', 'CEAT', 'CEM', 'CFNR', 'CHE', 'CPAf', 'CVM', 'SESAM', 'GS') not null,
-    status              boolean,
-    PRIMARY KEY	(account_id)
-);
-
-
 create table log ( 
-	sport_id		int not null,
-	log_description 	varchar(256) not null,
-	account_id		int not null,
-	PRIMARY KEY	(sport_id),
-	Constraint		`fk_log_account`
+    sport_id		int not null,
+    log_description 	varchar(256) not null,
+    account_id		int not null,
+    PRIMARY KEY	(sport_id),
+    Constraint		`fk_log_account`
         foreign key (account_id) references account (account_id)
 );
 
