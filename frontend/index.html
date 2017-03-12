@@ -168,80 +168,87 @@
       </div>
     </footer>
 
-    <!-- Modal Structure -->
     <div id="modal1" class="modal modal-fixed-footer">
-      <div class="cyan darken-2 content">
-        <h4 class="login white-text">LOGIN</h4>
-      </div>
-      <div class="form-content">
-        <div class="row">
-          <form id="login-form" class="col s12">
-            <div id="login-users" class="row">
-              <div class="input-field col s10">
-                <input id="field-inputs" type="text" class="validate">
-                <label id="labels" for="user_name">Username:</label>
+      <div class="modal-content">
+        <div class="cyan darken-2 content-title">
+          <h4 class="login white-text">LOGIN</h4>
+        </div>
+        <div class="form-content" style="overflow-x: scroll; height: 287px;">
+          <div class="row">
+            <form id="login-form" class="col s12">
+              <div id="login-users" class="row">
+                <div class="input-field col s10">
+                  <input class="field-inputs" type="text" class="validate">
+                  <label class="labels cyan-text text-darken-4" for="user_name">Username:</label>
+                </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="input-field col s10">
-                <input id="field-inputs" type="password" class="validate">
-                <label id="labels" for="password">Password:</label>
+              <div class="row">
+                <div class="input-field col s10">
+                  <input class="field-inputs" type="password" class="validate">
+                  <label class="labels cyan-text text-darken-4" for="password">Password:</label>
+                </div>
               </div>
-            </div>
-            <div id="row-password" class="row">
-              <label id="label-forgot" for="forgot_password">forgot password?</label>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
       </div>
-      <div id="modal-button">
-        <a href="#!" id="label-enter" class="cyan darken-2 modal-action modal-close waves-effect waves-green btn-flat white-text">Enter</a>
-      </div>
+      <div id="login-btns" class="modal-footer">
+          <div id="row-password">
+            <label id="label-forgot" for="forgot_password">forgot password?</label>
+          </div>
+          <div id="modal-button">
+            <a href="#!" id="label-enter" class="cyan darken-2 modal-action modal-close waves-effect waves-green btn-flat white-text">Enter</a>
+          </div>
+        </div>
     </div>
 
     <!-- Modal Structure -->
     <div id="modal2" class="modal modal-fixed-footer">
-      <div id="content-register" class="cyan darken-2 content">
-        <h4 class="register white-text">REGISTER</h4>
-      </div>
-      <div class="form-content">
-        <div class="row">
-          <form id="register-form" class="col s12">
-            <div id="register-name" class="row">
-              <div class="input-field col s10">
-                <input id="field-inputs" type="text" class="validate">
-                <label id="labels" for="name">Name:</label>
+      <div class="modal-content">
+        <div class="content-title cyan darken-2">
+          <h4 class="register white-text">REGISTER</h4>
+        </div>
+        <div class="form-content" style="overflow-y: scroll; height: 287px;">
+          <div class="row">
+            <form id="register-form" class="col s12">
+              <div id="register-name" class="row">
+                <div class="input-field col s10">
+                  <input class="field-inputs" type="text" class="validate">
+                  <label class="labels cyan-text text-darken-4" for="name">Name:</label>
+                </div>
               </div>
-            </div>
-            <div id="register-users" class="row">
-              <div class="input-field col s10">
-                <input id="field-inputs" type="text" class="validate">
-                <label id="labels" for="college">College:</label>
+              <div id="register-users" class="row">
+                <div class="input-field col s10">
+                  <input class="field-inputs" type="text" class="validate">
+                  <label class="labels cyan-text text-darken-4" for="college">College:</label>
+                </div>
               </div>
-            </div>
-            <div id="register-users" class="row">
-              <div class="input-field col s10">
-                <input id="field-inputs" type="text" class="validate">
-                <label id="labels" for="course">Course:</label>
+              <div id="register-users" class="row">
+                <div class="input-field col s10">
+                  <input class="field-inputs" type="text" class="validate">
+                  <label class="labels cyan-text text-darken-4" for="course">Course:</label>
+                </div>
               </div>
-            </div>
-            <div id="register-users" class="row">
-              <div class="input-field col s10">
-                <input id="field-inputs" type="text" class="validate">
-                <label id="labels" for="stud_no">Student Number:</label>
+              <div id="register-users" class="row">
+                <div class="input-field col s10">
+                  <input class="field-inputs" type="text" class="validate">
+                  <label class="labels cyan-text text-darken-4" for="stud_no">Student Number:</label>
+                </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="input-field col s10">
-                <input id="field-inputs" type="text" class="validate">
-                <label id="labels" for="email">Email Address:</label>
+              <div class="row">
+                <div class="input-field col s10">
+                  <input class="field-inputs" type="text" class="validate">
+                  <label class="labels cyan-text text-darken-4" for="email">Email Address:</label>
+                </div>
               </div>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
       </div>
-      <div id="modal-button">
-        <a href="#!" id="label-enter" class="cyan darken-2 modal-action modal-close waves-effect waves-green btn-flat white-text">Register</a>
+      <div class="modal-footer">
+        <div id="modal-button">
+          <a href="#!" id="label-enter" class="cyan darken-2 modal-action modal-close waves-effect waves-green btn-flat white-text">Register</a>
+        </div>
       </div>
     </div>
 
