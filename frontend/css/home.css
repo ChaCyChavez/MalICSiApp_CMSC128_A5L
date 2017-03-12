@@ -3,22 +3,57 @@
     src: url("../fonts/panton/Panton-BlackCaps.otf");
 }
 
+@font-face {
+    font-family: "Blogger";
+    src: url("../fonts/blogger-sans/Blogger_Sans-Bold.otf");
+}
+
+body {
+    color: #212121;
+}
+
 nav {
     background-color: white;
     font-family: "Panton";
 }
 
-.brand-logo {
-    margin-left: 2%;
+#slide-out {
+    font-family: "Panton";
 }
 
-nav-wrapper {
+#slide-out li a{
+    padding-bottom: 0;
+}
+
+#hello {
+    padding-right: 5%;
+}
+
+#deets {
+    width: 35%;
+}
+
+.brand-logo {
+    margin-left: 2%;
+    line-height: 75px;
+    font-size: 350% !important;
+}
+
+.nav-wrapper {
     position: fixed;
+    height: 75px !important;
+    background-color: #fff;
+    box-shadow: 0px 2px 3px 2px rgba(0, 0, 0, 0.3);
 }
 
 .nam {
     font-size: 75%;
     text-align: center;
+}
+
+#dr {
+    padding-top: 5px;
+    height: 75px;
 }
 
 .reg {
@@ -33,99 +68,98 @@ nav-wrapper {
     padding-bottom: 20%;
 }
 
-.si {
-}
-
-.modal {
-    max-width: 50%;
-    max-height: 100%;
-    overflow-y: hidden;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    margin: 0 auto;
-}
-
-.content {
-    width: 100%;
-    height: 30%;
-}
-
-.form-content {
-    width: 100%;
-    height: 58%;
-    background-color: white;
-}
-
-.register {
-    text-align: center;
-    padding-top: 2%;
+#logo {
+    margin: 65px;
     font-size: 50px;
+    line-height: 75px;
+}
+
+@media only screen and (min-width: 1px) {
+  nav .brand-logo {
+    margin-left: 15px !important;
+    position: absolute;
+  }
+}
+
+#slide-out {
     font-family: "Panton";
 }
 
-.login {
-    text-align: center;
-    padding-top: 8%;
-    font-size: 80px;
-    font-family: "Panton";
-
+#slide-out li a{
+    padding-bottom: 0;
 }
 
-#field-inputs {
-    margin-bottom: 1%;
+#hello {
+    line-height: 75px;
+    font-family: "Blogger";
+    font-size: 25px;
 }
 
-#content-register {
+#deets {
+    width: 35%;
+}
+
+.reg {
+    font-size: 150%;
+}
+
+.box {
+    min-height: 20px;
+    line-height: 100%;
+    padding-top: 15%;
+    padding-bottom: 20%;
+}
+
+
+.si {
+    font-size: 150%;
+}
+
+.carousel {
+   box-shadow: 1px 2px 3px 1px rgba(0, 0, 0, 0.5);
+}
+
+.contents {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.card large .card-content{
+    line-height: 34px; 
+}
+
+.news-announcement {
+    font-family: "Blogger";
     width: 100%;
-    height: 15%;
-}
-
-#register-name {
-    margin-top: 1%;
-    margin-bottom: -25%;
-}
-
-#login-users {
-    margin-top: 5%;
-    margin-bottom: 5%;
-}
-
-#register-users {
-    margin-top: 0%;
-    margin-bottom: -25%;
-}
-
-#labels {
-    color: black;
-    font-size: 13px;
-    font-family: "Panton";
-}
-
-#row-password {
+    padding: auto;
+    margin: auto;
     text-align: center;
-    margin-right: 16%;
 }
 
-#label-forgot {
-    color: black;
-    font-size: 13px;
-    font-family: "Panton";
-    text-decoration: underline;
+.page-footer {
+    box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.5);
+    text-align: center; 
 }
 
-#label-enter {
-    font-size: 20px;
-    font-family: "Panton";
-}
 
-#login-form, #register-form {
-    padding-left: 15%;
-}
-
-#modal-button {
+.side-logo {
+    font-size: 60px;
     text-align: center;
-    padding-bottom: 2%;
-    background-color: white;
+    width: 100%;
+}
+a.tab {
+    height: 60px;
+    font-size: 26px;
+    line-height: 60px;
+}
+a#spon {
+    height: 100px;
+    font-size: 26px;
+    line-height: 35px;
+    padding-top: 12px;
+}
+
+a#spon:hover, a.tab:hover {
+    background: #fafaff;
+    color: #0097a7 !important;
 }

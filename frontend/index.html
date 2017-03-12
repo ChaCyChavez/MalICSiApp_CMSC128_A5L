@@ -1,47 +1,35 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <link type="text/css" rel="stylesheet" href="../bower_components/materialize/dist/css/materialize.css"  media="screen,projection"/>
-      <link type="text/css" rel="stylesheet" href="css/index.css"  media="screen,projection"/>
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <link type="text/css" rel="stylesheet" href="../bower_components/materialize/dist/css/materialize.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="css/home.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="css/index.css"  media="screen,projection"/>
 
-      <meta charset="utf-8"/>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-      
-      <title>MalICSi</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>MalICSi</title>
   </head>
 
   <body>
     <div class="navbar-fixed">
       <nav>
         <div class="nav-wrapper">
-          <a href="#" data-activates="slide-out" class="brand-logo left black-text" id="butones"><i class="material-icons center-align">menu</i></a>
-          <span class="black-text center" id="logo">MalICSi</span>
+          <a href="#" class="grey-text text-darken-4 si" id="logo">MalICSi</a>
           <ul id="nav-mobile" class="right">
-            <li><div class="black-text" id="hello">Welcome, Juan Dela Cruz</div></li>
-            <li><a href="#" data-activates="dropdown1" class="teal accent-3" id="dr"><i class="material-icons center-align">perm_identity</i></a></li>
+            <li class="waves-effect waves-light"><a href="#modal2">
+              <div class="grey-text text-darken-4 box">
+                <span class="nam">not a member?</span><br>
+                <span class="reg">register</span>
+              </div>
+            </a></li>
+            <li><a class="cyan darken-2 si" href="#modal1"><span class="white-text ">sign in</span></a></li>
           </ul>
         </div>
       </nav>
     </div>
 
-    <ul id="slide-out" class="side-nav teal accent-3">
-      <li><h3 class="center-align valign white-text">MalICSi</h3></li>
-      <li><div class="container"><div class="divider"></div></div></li>
-      <li><a href="#"><h5 class="center-align valign white-text">GAMES</h5></a></li>
-      <li><a href="#"><h5 class="center-align valign white-text">SPORTS</h5></a></li>
-      <li><a href="#"><h5 class="center-align valign white-text">WINNERS</h5></a></li>
-      <li><a href="#"><h5 class="center-align valign white-text">PLAYERS</h5></a></li>
-      <li><a href="#"><h5 class="center-align valign white-text">SPONSORING INSTITUTES</h5></a></li>
-    </ul>
-
-    <ul id='dropdown1' class='dropdown-content'>
-      <li>
-        <div class="container" id="deets">
-        </div>
-      </li>
-    </ul>
-    
     <div class="carousel carousel-slider center" data-indicators="true">
       <div class="carousel-item blue white-text" href="#one!">
         <h2>First Panel</h2>
@@ -160,7 +148,7 @@
       </div>
     </div>
 
-    <footer class="page-footer teal lighten-1">
+    <footer class="page-footer cyan darken-2">
       <div class="container">
         <div class="row">
           <div class="col 16 s12">
@@ -169,7 +157,7 @@
               MalICSihan is a sports management application catered for UPLB individuals which aims to showcase reliable person-game information and interaction. MalICSihan is developed by 21 undergraduate students from the Institue of Computer Science to achieve an academic requirement in their CMSC 128: An Introduction to Software Engineering class.
             </p>
           </div>
-          
+
         </div>
       </div>
 
@@ -179,7 +167,84 @@
         </div>
       </div>
     </footer>
-          
+
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal modal-fixed-footer">
+      <div class="cyan darken-2 content">
+        <h4 class="login white-text">LOGIN</h4>
+      </div>
+      <div class="form-content">
+        <div class="row">
+          <form id="login-form" class="col s12">
+            <div id="login-users" class="row">
+              <div class="input-field col s10">
+                <input id="field-inputs" type="text" class="validate">
+                <label id="labels" for="user_name">Username:</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s10">
+                <input id="field-inputs" type="password" class="validate">
+                <label id="labels" for="password">Password:</label>
+              </div>
+            </div>
+            <div id="row-password" class="row">
+              <label id="label-forgot" for="forgot_password">forgot password?</label>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div id="modal-button">
+        <a href="#!" id="label-enter" class="cyan darken-2 modal-action modal-close waves-effect waves-green btn-flat white-text">Enter</a>
+      </div>
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="modal2" class="modal modal-fixed-footer">
+      <div id="content-register" class="cyan darken-2 content">
+        <h4 class="register white-text">REGISTER</h4>
+      </div>
+      <div class="form-content">
+        <div class="row">
+          <form id="register-form" class="col s12">
+            <div id="register-name" class="row">
+              <div class="input-field col s10">
+                <input id="field-inputs" type="text" class="validate">
+                <label id="labels" for="name">Name:</label>
+              </div>
+            </div>
+            <div id="register-users" class="row">
+              <div class="input-field col s10">
+                <input id="field-inputs" type="text" class="validate">
+                <label id="labels" for="college">College:</label>
+              </div>
+            </div>
+            <div id="register-users" class="row">
+              <div class="input-field col s10">
+                <input id="field-inputs" type="text" class="validate">
+                <label id="labels" for="course">Course:</label>
+              </div>
+            </div>
+            <div id="register-users" class="row">
+              <div class="input-field col s10">
+                <input id="field-inputs" type="text" class="validate">
+                <label id="labels" for="stud_no">Student Number:</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s10">
+                <input id="field-inputs" type="text" class="validate">
+                <label id="labels" for="email">Email Address:</label>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div id="modal-button">
+        <a href="#!" id="label-enter" class="cyan darken-2 modal-action modal-close waves-effect waves-green btn-flat white-text">Register</a>
+      </div>
+    </div>
+
     <script type="text/javascript" src="../bower_components/jquery/dist/jquery.js"></script>
     <script type="text/javascript" src="../bower_components/materialize/dist/js/materialize.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
