@@ -33,7 +33,6 @@ create table game (
         foreign key (account_id) references account (account_id)
 );
 
-
 create table team (
     team_id             int auto_increment not null,
     team_name           varchar(256) not null,
@@ -41,8 +40,6 @@ create table team (
     team_coach          varchar(256) not null,
     PRIMARY KEY         (team_id)
 );
-
-
 
 create table player (
     player_id                   int auto_increment not null,
@@ -111,13 +108,6 @@ create table sponsor (
         foreign key (game_id) references game (game_id)
 );
 
-update sponsor set
-    sponsor_name = ?,
-    sponsor_affiliation = ?,
-    sponsor_logo = ?
-where sponsor_id = ?;
-
-
 create table game_sponsor (
     game_id     int not null,
     sponsor_id      int not null,
@@ -138,9 +128,6 @@ create table score (
     Constraint      `fk_score_sport`
         foreign key (sport_id) references sport (sport_id)
 );
-
-
-
 
 create table log ( 
     log_id        int auto_increment not null,
