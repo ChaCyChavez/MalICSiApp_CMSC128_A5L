@@ -1,6 +1,6 @@
 'use strict';
 
-const controller = require(__dirname + '/controller');
+const controller = require(__dirname + '/controller/update');
 var path = require('path');
 
 module.exports = (router) => {

@@ -5,7 +5,6 @@ insert into account values (NULL, 'admin@gmail.com', false, true, false, false, 
 insert into account values (NULL, 'gamehead@gmail.com', false, false, true, false, 'gamehead', 'pass', 'gamehead', 'bravo', 'mercado', 'bscs', CURDATE(), 'CAS', true);
 insert into account values (NULL, 'player@gmail.com', false, false, false, true, 'player', 'pass', 'player', 'bravo', 'mercado', 'bscs', CURDATE(), 'CAS', true);
 
-
 insert into game values (NULL, 'Game 2', 'UPLB', CURDATE(), CURDATE(), 3);
 insert into game values (NULL, 'Game 3', 'UPLB', CURDATE(), CURDATE(), 3);
 insert into game values (NULL, 'Game 4', 'UPLB', CURDATE(), CURDATE(), 3);
