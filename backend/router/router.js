@@ -1,10 +1,10 @@
 'use strict';
 
-const update = require(__dirname + '/controller/update');
-const create = require(__dirname + '/controller/create');
-const retrieve = require(__dirname + '/controller/retrieve');
-const del = require(__dirname + '/controller/delete');
-var path = require('path');
+const update = require(__dirname + '/../controller/update');
+const create = require(__dirname + '/../controller/create');
+const retrieve = require(__dirname + '/../controller/retrieve');
+const del = require(__dirname + '/../controller/delete');
+let path = require('path');
 
 module.exports = (router) => {
 
