@@ -4,9 +4,10 @@ const db = require(__dirname+'/../lib/mariasql');
 
 //View the User Profile
 exports.get_account = (req, res, next) => {
-  const query_string = "SELECT account_id, email, is_regular_account, is_admin,
-  is_game_head, is_player, username, firstname, middlename, lastname, course,
-  birthday, college, status from account where account_id = ?;";  
+  const query_string = "SELECT account_id, email, is_regular_account, "
+      +"is_admin, is_game_head, is_player, username, firstname, middlename, "
+      +"lastname, course, birthday, college, status from account where "
+      +"account_id = ?;";  
   const payload = [req.params.account_id];
   const callback = (err, data) => {
      res.send(data);
