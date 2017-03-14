@@ -23,7 +23,7 @@ A repository of CMSC 128 A-5L students for their "MalICSi App" ( a web-based app
 * `cd MalICSiApp_CMSC128_A5L`
 * `npm install`
 To obtain packages that the front-end will be using..
-* `cd front-end`
+* `cd frontend`
 * `bower install`
 ```
 ## To start the web server
