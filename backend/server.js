@@ -44,7 +44,7 @@ start = () => {
     }))
     // other packages that is needed to make the app secured and stable
     winston.log('verbose', 'Binding 3rd-party middlewares');
-    app.use(express.static(__dirname + '/../front-end'));
+    app.use(express.static(__dirname + '/../frontend/'));
     app.use(require('method-override')());
     app.use(body_parser.urlencoded({extended: true}));
     app.use(body_parser.json());

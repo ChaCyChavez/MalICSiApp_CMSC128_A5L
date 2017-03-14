@@ -22,10 +22,18 @@ A repository of CMSC 128 A-5L students for their "MalICSi App" ( a web-based app
 * `git clone https://github.com/EddieVallejos/MalICSiApp_CMSC128_A5L.git`
 * `cd MalICSiApp_CMSC128_A5L`
 * `npm install`
+
 To obtain packages that the front-end will be using..
 * `cd frontend`
 * `bower install`
+
+To add npm packages to package.json..
+* `npm install --save <package>`
+
+To add npm packages to bower.json..
+* `bower install <package> --save`
 ```
+
 ## To start the web server
 ------------
 ```
