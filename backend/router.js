@@ -53,7 +53,6 @@ module.exports = (router) => {
     router.post('/api/delete-team/:team_id', del.delete_team);
     router.post('/api/delete-log/:log_id', del.delete_log);
     router.post('/api/delete-team-player/:team_id/:player_id', del.delete_team_player);
-    router.post('/api/delete-sport-player/:sport_id/:player_id', del.delete_sport_player);
     router.post('/api/delete-game-player/:game_id/:player_id', del.delete_game_player);
     router.post('/api/delete-participates/:player_id/:sport_id', del.delete_participates);
     router.post('/api/delete-registers/:player_id/:game_id', del.delete_registers);
