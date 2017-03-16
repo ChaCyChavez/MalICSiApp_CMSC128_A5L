@@ -1,0 +1,50 @@
+body {
+  font-family: "Blogger";
+}
+
+#search-user {
+  padding: 0;
+  background: #fff;
+  position: fixed;
+  width: 525px;
+  right: 10px;
+  top: 90px;
+  z-index: 100;
+  box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.5);
+}
+
+.user-header {
+  font-family: "Blogger";
+  margin-top: 40px;
+  text-align: center;
+}
+
+#search-user-btn {
+  margin-top: 25px;
+}
+
+.c-contents {
+  text-align: center;
+}
+
+.card-action {
+  width: 100%
+}
+
+.card-action a {
+  width: 100% !important;
+}
+
+.stud-num {
+  font-size: 20px;
+  font-family: "Blogger";
+}
+
+.option {
+  color: #fff;
+  position: absolute;
+  top: 0;
+  right: 0;
+  max-width: 100%;
+  padding: 5px;
+}
