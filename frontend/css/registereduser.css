@@ -1,0 +1,213 @@
+.playertable{
+	width: 1050px;
+	margin:auto;
+}
+
+.sb{
+	width: 800px;
+	margin: auto;
+}
+
+.circle{
+	width:20%;
+	height:20%;
+
+}
+
+tbody {
+   overflow-y: auto;
+   display: block;
+   max-height: 268px;   
+}
+
+thead {         
+   display: table;  
+   width: 100%;    
+}
+
+tbody tr {
+   display: table;
+   width: 100%;  
+}
+
+.searchbar{
+	align:center;
+	width: 100%;
+	
+}
+
+thead {
+   table-layout: fixed;  
+}
+tbody tr {
+   table-layout: fixed;   
+}
+th, td {
+   width: auto;   
+}    
+
+@font-face {
+    font-family: "Panton";
+    src: url("../fonts/panton/Panton-BlackCaps.otf");
+}
+
+@font-face {
+    font-family: "Blogger";
+    src: url("../fonts/blogger-sans/Blogger_Sans-Bold.otf");
+}
+
+body {
+    color: #212121;
+}
+
+nav {
+    background-color: white;
+    font-family: "Panton";
+}
+
+#slide-out {
+    font-family: "Panton";
+}
+
+#slide-out li a{
+    padding-bottom: 0;
+}
+
+#hello {
+    padding-right: 5%;
+}
+
+#deets {
+    width: 35%;
+}
+
+.brand-logo {
+    margin-left: 2%;
+    line-height: 75px;
+    font-size: 350% !important;
+}
+
+.nav-wrapper {
+    position: fixed;
+    height: 75px !important;
+    background-color: #fff;
+    box-shadow: 0px 2px 3px 2px rgba(0, 0, 0, 0.3);
+}
+
+.nam {
+    font-size: 75%;
+    text-align: center;
+}
+
+#dr {
+    padding-top: 5px;
+    height: 75px;
+}
+
+.reg {
+    font-size: 120%;
+    border-bottom: 1px solid red;
+}
+
+.box {
+    min-height: 20px;
+    line-height: 100%;
+    padding-top: 15%;
+    padding-bottom: 20%;
+}
+
+#logo {
+    margin: 65px;
+    font-size: 50px;
+    line-height: 75px;
+}
+
+@media only screen and (min-width: 1px) {
+  nav .brand-logo {
+    margin-left: 15px !important;
+    position: absolute;
+  }
+}
+
+#slide-out {
+    font-family: "Panton";
+}
+
+#slide-out li a{
+    padding-bottom: 0;
+}
+
+#hello {
+    line-height: 75px;
+    font-family: "Blogger";
+    font-size: 25px;
+}
+
+#deets {
+    width: 35%;
+}
+
+.reg {
+    font-size: 150%;
+}
+
+.box {
+    min-height: 20px;
+    line-height: 100%;
+    padding-top: 15%;
+    padding-bottom: 20%;
+}
+
+
+.si {
+    font-size: 150%;
+}
+
+.carousel {
+   box-shadow: 1px 2px 3px 1px rgba(0, 0, 0, 0.5);
+}
+
+.contents {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.card large .card-content{
+    line-height: 34px; 
+}
+
+.news-announcement {
+    font-family: "Blogger";
+    width: 100%;
+    padding: auto;
+    margin: auto;
+    text-align: center;
+}
+
+.page-footer {
+    box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.5);
+    text-align: center; 
+}
+
+
+.side-logo {
+    font-size: 60px;
+    text-align: center;
+    width: 100%;
+}
+a.tab {
+    height: 60px;
+    font-size: 26px;
+    line-height: 60px;
+}
+a#spon {
+    height: 100px;
+    font-size: 26px;
+    line-height: 35px;
+    padding-top: 12px;
+}
+
+a#spon:hover, a.tab:hover {
+    background: #fafaff;
+    color: #0097a7 !important;
+}
