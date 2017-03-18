@@ -14,22 +14,32 @@ A repository of CMSC 128 A-5L students for their "MalICSi App" ( a web-based app
 * `sudo npm install -g bower`
 * `sudo npm install -g n`
 * `sudo n stable` This part makes sure that our NodeJS version is the stable one.
-* The command "sudo n stable" will download the latest version of Node.js and if the version is not the latest after running the command, run `sudo ln -sf /usr/local/n/versions/node/<VERSION_OF_NODE>/bin/node /usr/bin/node` PLEASE DON'T TYPE `<VERSION_OF_NODE>`
+* The command "sudo n latest" will download the latest version of Node.js and if the version is not the latest after running the command, run `sudo ln -sf /usr/local/n/versions/node/7.7.2/bin/node /usr/bin/node` 
 ```
 ## Command(s)
 ------------
 ```
 * `git clone https://github.com/EddieVallejos/MalICSiApp_CMSC128_A5L.git`
 * `cd MalICSiApp_CMSC128_A5L`
+
+To obtain packages that the back-end will be using..
 * `npm install`
+
 To obtain packages that the front-end will be using..
-* `cd front-end`
+* `cd frontend`
 * `bower install`
+
+To add npm packages to package.json..
+* `npm install --save <package>`
+
+To add npm packages to bower.json..
+* `bower install <package> --save`
 ```
+
 ## To start the web server
 ------------
 ```
-* `npm start`
+* `npm start` or `sudo npm start` 
 
 then check http://localhost:8000
 ```

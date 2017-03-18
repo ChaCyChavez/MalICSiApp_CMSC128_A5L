@@ -13,8 +13,8 @@ const config = {
     DEVELOPMENT: {
         host: 'localhost',
         user: 'root',
-        password: 'PolaTan1012',
-        database: 'malicsi_app'
+        password: 'root',
+        database: 'malicsi'
     },
 
     ASSETS_DIR: path.normalize(__dirname + '/../front-end'),
