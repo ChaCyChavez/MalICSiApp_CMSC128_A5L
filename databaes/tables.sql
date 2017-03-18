@@ -2,31 +2,12 @@ drop database if exists malicsi;
 create database malicsi;
 use malicsi;
 
-create table account(
-    account_id          int auto_increment not null,
-    email               varchar(256) not null,
-    is_regular_account  boolean,
-    is_admin            boolean,
-    is_game_head        boolean,
-    is_player           boolean,
-    username            varchar(256) not null,
-    password            varchar(256) not null,
-    firstname           varchar(256) not null,
-    middlename          varchar(256) not null,
-    lastname            varchar(256) not null,
-    course              varchar(256) not null,
-    birthday            date not null,
-    college             enum('CA', 'CAS', 'CDC', 'CEAT', 'CEM', 'CFNR', 'CHE', 'CPAf', 'CVM', 'SESAM', 'GS') not null,
-    status              boolean,
-    PRIMARY KEY (account_id)
-);
 
-create table game (
+create table game_event (
     game_id                 int auto_increment not null,
     game_name               varchar(256) not null,
-    game_place              varchar(256) not null,
-    game_starting_time_date date not null,
-    game_ending_time_date   date not null,
+    game_starting_time_date datetime not null,
+    game_ending_time_date   datetime not null,
     account_id              int not null,
     PRIMARY KEY             (game_id),
     Constraint      `fk_game_account`
@@ -38,8 +19,36 @@ create table team (
     team_name           varchar(256) not null,
     team_color          varchar(256) not null,
     team_coach          varchar(256) not null,
+    game_id             int,
     PRIMARY KEY         (team_id)
+    Constraint          `fk_team_game`
+        foreign key (game_id) references game_event (game_id)
 );
+
+create table account(
+    account_id          int auto_increment not null,
+    firstname           varchar(256) not null,
+    middlename          varchar(256) not null,
+    lastname            varchar(256) not null,
+    email               varchar(256) not null,
+    username            varchar(256) not null,
+    password            varchar(256) not null,
+    course              varchar(256) not null,
+    birthday            date not null,
+    college             enum('CA', 'CAS', 'CDC', 'CEAT', 'CEM', 'CFNR', 'CHE', 'CPAf', 'CVM', 'SESAM', 'GS') not null,
+    status              boolean,
+    is_game_head        boolean,
+    position            varchar(256),
+    is_player           boolean
+    player_jersey_number int,
+    PRIMARY KEY (account_id),
+    Constraint      `fk_account_team`
+        foreign key (team_id) references team (team_id)
+);
+
+
+
+
 
 create table player (
     player_id                   int auto_increment not null,
@@ -51,7 +60,7 @@ create table player (
     Constraint      `fk_player_account`
         foreign key (account_id) references account (account_id),
     Constraint      `fk_player_game`
-        foreign key (game_id) references game (game_id)
+        foreign key (game_id) references game_event (game_id)
 );
 
 create table team_player (
@@ -75,16 +84,21 @@ create table court (
 create table sport (
     sport_id                int auto_increment not null,
     sport_type              varchar(256) not null,
-    number_of_participants   int not null,
-    date_time               date not null,
     division                enum('men','women','mixed') not null,
     game_id                 int not null,
-    court_id                int not null,
     PRIMARY KEY             (sport_id),
     Constraint      `fk_sport_game`
-        foreign key (game_id) references game (game_id),
-    Constraint      `fk_sport_court`
-        foreign key (court_id) references court (court_id)
+        foreign key (game_id) references game_event (game_id)
+);
+
+create table match (
+    match_id                int auto_increment not null,
+    status                  boolean,
+    match_date_time         datetime,
+    sport_id                int,
+    PRIMARY KEY             (match_id),
+    Constraint      `fk_match_sport`
+        foreign key (sport_id) references sport (sport_id)
 );
 
 create table sport_player (
@@ -100,12 +114,9 @@ create table sport_player (
 create table sponsor (
     sponsor_id      int auto_increment not null,
     sponsor_name    varchar(256) not null,
-    sponsor_affiliation varchar(256),
     sponsor_logo        varchar(256),
-    game_id     int not null,
-    PRIMARY KEY (sponsor_id),
-    Constraint      `fk_sponsor_game`
-        foreign key (game_id) references game (game_id)
+    sponsor_affiliation varchar(256),
+    PRIMARY KEY (sponsor_id)
 );
 
 create table game_sponsor (
@@ -113,21 +124,25 @@ create table game_sponsor (
     sponsor_id      int not null,
     PRIMARY KEY (game_id, sponsor_id),
     Constraint      `fk_game_sponsor_game`
-        foreign key (game_id) references game (game_id),
+        foreign key (game_id) references game_event (game_id),
     Constraint      `fk_game_sponsor_sponsor`
         foreign key (sponsor_id) references sponsor (sponsor_id)
 );
 
 create table score (
     score_id        int auto_increment not null,
-    sport_id        int not null,
-    winning_team    varchar(256) not null,
-    losing_team     varchar(256) not null,
+    score_value     int,
     series          enum('elims', 'semi-finals', 'finals') not null,
+    match_id        int,
+    account_id      int,
     PRIMARY KEY     (score_id),
-    Constraint      `fk_score_sport`
-        foreign key (sport_id) references sport (sport_id)
+    Constraint      `fk_score_match`
+        foreign key (match_id) references match (match_id)
+    Constraint      `fk_score_account`
+        foreign key (account_id) references account (account_id)
 );
+
+
 
 create table log ( 
     log_id        int auto_increment not null,
@@ -138,30 +153,44 @@ create table log (
         foreign key (account_id) references account (account_id)
 );
 
-create table participates (
-    player_id       int not null, 
+create table sponsor_game_event (
+    sponsor_id          int not null, 
+    game_id             int not null,
+    sponsorship_type    varchar(128),
+    PRIMARY KEY     (sponsor_id, sport_id, sponsorship_type),
+    Constraint      `fk_sponsor_game_event_sponsor`
+        foreign key (sponsor_id) references sponsor (sponsor_id),
+    Constraint      `fk_sponsor_game_event_game`
+        foreign key (game_id) references game_event (game_id)
+);
+
+
+create table player_team (
     sport_id        int not null,
-    PRIMARY KEY     (player_id, sport_id),
-    Constraint      `fk_participates_player`
-        foreign key (player_id) references player (player_id),
-    Constraint      `fk_participates_sport`
-        foreign key (sport_id) references sport (sport_id)
+    team_id         int not null, 
+    PRIMARY KEY     (sport_id, team_id),
+    Constraint      `fk_player_team_sport`
+        foreign key (sport_id) references sport (sport_id),
+    Constraint      `fk_player_team_team`
+        foreign key (team_id) references team (team_id)
 );
 
-create table registers (
-    player_id       int not null, 
-    game_id         int not null,
-    PRIMARY KEY     (player_id, game_id),
-    Constraint      `fk_registers_player`
-        foreign key (player_id) references player (player_id),
-    Constraint      `fk_registers_game`
-        foreign key (game_id) references game (game_id)
+create table player_match (
+    account_id        int not null,
+    match_id          int not null, 
+    PRIMARY KEY     (account_id, match_id),
+    Constraint      `fk_player_match_account`
+        foreign key (account_id) references account (account_id),
+    Constraint      `fk_player_match_match`
+        foreign key (match_id) references match (match_id)
 );
 
-create table game_game_type (
-    game_id         int not null, 
-    game_type       varchar(128) not null,
-    PRIMARY KEY     (game_id, game_type),
-    Constraint      `fk_game_game_type_game`
-        foreign key (game_id) references game (game_id)
+create table court_match (
+    court_id        int not null,
+    match_id        int not null, 
+    PRIMARY KEY     (court_id, match_id),
+    Constraint      `fk_court_match_court`
+        foreign key (court_id) references court (court_id),
+    Constraint      `fk_court_match_match`
+        foreign key (match_id) references match (match_id)
 );
