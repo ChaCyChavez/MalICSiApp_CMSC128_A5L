@@ -148,7 +148,7 @@ exports.get_court = (req, res, next) => {
   db.query(query_string, payload, callback);
 };
 
-//Search for a specified score
+//Search for a specified score given a score_id
 exports.get_score = (req, res, next) => {
   const query_string = "SELECT * from score where score_id = ?";  
   const payload = [req.params.score_id];
