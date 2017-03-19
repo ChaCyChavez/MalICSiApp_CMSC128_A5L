@@ -1,3 +1,7 @@
+'use strict';
+
+const db = require(__dirname + '/../lib/mariasql');
+
 exports.add_match_event = (req,res,next) => {
   const query_string = 'INSERT into match_event(status,' +
   		'match_date_time, score1, score2, series,sport_id,' +

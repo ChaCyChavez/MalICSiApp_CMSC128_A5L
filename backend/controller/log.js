@@ -1,3 +1,7 @@
+'use strict';
+
+const db = require(__dirname + '/../lib/mariasql');
+
 exports.add_log = (req,res,next) => {
 	const query_string = 'INSERT into log VALUES (?,?)'; 
 	const payload = [req.body.log_description, req.body.account_id];

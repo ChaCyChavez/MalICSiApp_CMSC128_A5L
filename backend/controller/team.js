@@ -1,3 +1,7 @@
+'use strict';
+
+const db = require(__dirname + '/../lib/mariasql');
+
 exports.add_team = (req,res,next) => {
 	const query_string = 'INSERT into team VALUES (?,?,?,?)'; 
 	const payload = [req.body.team_name, req.body.team_color, 

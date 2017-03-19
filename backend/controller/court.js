@@ -1,3 +1,7 @@
+'use strict';
+
+const db = require(__dirname + '/../lib/mariasql');
+
 exports.add_court = (req, res, next) => {
     const query_string = 'INSERT into court(court_name,court_location,court_type) VALUES (?,?,?)'; 
     const payload = [req.body.court_name,

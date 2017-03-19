@@ -1,3 +1,7 @@
+'use strict';
+
+const db = require(__dirname + '/../lib/mariasql');
+
 exports.add_game_event = (req, res, next) => {
     const query_string = 'INSERT into game_event(game_name,' +
         'game_starting_time_date, game_ending_time_date) VALUES (?,?,?)'; 

@@ -1,3 +1,7 @@
+'use strict';
+
+const db = require(__dirname + '/../lib/mariasql');
+
 exports.add_sport = (req,res,next) => {
   const query_string = 'INSERT into sport(sport_type,division,game_id) VALUES (?,?,?)'; 
   const payload = [req.body.sport_type, req.body.division,req.body.game_id];

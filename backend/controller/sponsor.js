@@ -1,3 +1,7 @@
+'use strict';
+
+const db = require(__dirname + '/../lib/mariasql');
+
 exports.add_sponsor = (req, res, next) => {
     const query_string = 'INSERT into sponsor(sponsor_name,sponsor_logo' +
             ',sponsor_affiliation) VALUES (?,?,?)'; 
