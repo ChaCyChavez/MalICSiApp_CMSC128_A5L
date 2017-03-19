@@ -1,6 +1,7 @@
 'use strict';
 
 const db = require(__dirname + '/../lib/mariasql');
+const winston = require('winston');
 
 exports.add_game_event = (req, res, next) => {
     const query_string = 'INSERT into game_event(game_name,' +
