@@ -1,13 +1,27 @@
-'use strict';
+  'use strict';
 
 const db = require(__dirname +'/../lib/mariasql');
 
+//Login
+exports.log_in_user = (req, res, next) => {
+  const query_string = "SELECT account_id from account where "
+      +"username = ? && password = ?;";
+  const payload = [req.params.account_id, crypto.
+    createHash('sha256').update(req.params.password).
+    digest('base64')];
+  const callback = (err, data) => {
+    res.send(data);
+  };
+
+  db.query(query_string, payload, callback);
+
+};
 //View the User Profile
 exports.get_account = (req, res, next) => {
   const query_string = "SELECT account_id, email, is_regular_account, "
       +"is_admin, is_game_head, is_player, username, firstname, middlename, "
       +"lastname, course, birthday, college, status from account where "
-      +"account_id = ?;";  
+      +"account_id = ? ;";  
   const payload = [req.params.account_id];
   const callback = (err, data) => {
     res.send(data);

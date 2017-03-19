@@ -9,6 +9,9 @@ const redis         = require('redis');
 const redis_store   = require('connect-redis')(session);
 const client        = redis.createClient();
 const winston       = require('winston');
+const nodemailer    = require('nodemailer');
+const fs            = require('fs');
+const crypto        = require('crypto');
 
 let start;
 let handler;
