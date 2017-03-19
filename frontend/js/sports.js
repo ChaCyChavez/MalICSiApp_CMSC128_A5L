@@ -18,4 +18,5 @@ $(document).ready(function(){
       stopPropagation: false // Stops event propagation
     }); 
     $('.modal').modal();
+    $('select').material_select();
 });
