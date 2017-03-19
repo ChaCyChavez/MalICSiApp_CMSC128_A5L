@@ -28,7 +28,8 @@ exports.add_game_event_sponsor = (req, res, next) => {
 
 //GET game_event_sponsor
 exports.get_game_event_sponsor = (req, res, next) => {
-  const query_string ='SELECT * FROM game_event_sponsor WHERE game_id = ? AND sponsor_id = ?';
+  const query_string ='SELECT * FROM game_event_sponsor WHERE game_id = ?'
+  +'AND sponsor_id = ?';
   const payload = [req.body.game_id,req.body.sponsor_id];
   const callback = (err, data) => {
     if(err){
@@ -54,8 +55,10 @@ exports.get_game_event_sponsor = (req, res, next) => {
 
 //UPDATE game_event_sponsor
 exports.get_game_event_sponsor = (req, res, next) => {
-  const query_string ='UPDATE game_event_sponsor SET game_id = ?, sponsor_id = ?, sponsor_type = ? WHERE game_id = ? AND sponsor_id = ?';
-  const payload = [req.body.game_id, req.body.sponsor_id, req.body.sponsor_type, req.params.game_id,req.params.sponsor_id];
+  const query_string ='UPDATE game_event_sponsor SET game_id = ?,'
+  +'sponsor_id = ?, sponsor_type = ? WHERE game_id = ? AND sponsor_id = ?';
+  const payload = [req.body.game_id, req.body.sponsor_id, req.body.sponsor_type,
+   req.params.game_id,req.params.sponsor_id];
   const callback = (err, data) => {
     if(err){
       winston.level = 'debug';
@@ -80,7 +83,8 @@ exports.get_game_event_sponsor = (req, res, next) => {
 
 //DELETE game_event_sponsor
 exports.get_game_event_sponsor = (req, res, next) => {
-  const query_string ='DELETE FROM game_event_sponsor WHERE game_id = ? AND sponsor_id = ?';
+  const query_string ='DELETE FROM game_event_sponsor WHERE game_id = ?'
+  + 'AND sponsor_id = ?';
   const payload = [req.params.game_id,req.params.sponsor_id];
   const callback = (err, data) => {
     if(err){
