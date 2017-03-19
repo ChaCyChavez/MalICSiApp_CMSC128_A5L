@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link type="text/css" rel="stylesheet" href="bower_components/materialize/dist/css/materialize.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="css/participant.css"  media="screen,projection"/>
+
+      <meta charset="utf-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      
+      <title>MalICSi | Home</title>
+  </head>
+
+  <body>
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper">
+          <a href="#" data-activates="slide-out" class="brand-logo left grey-text text-darken-4" id="butones"><i class="material-icons center-align">menu</i></a>
+          <a href="#" class="grey-text text-darken-4 center" id="logo">MalICSi</a>
+          <ul id="nav-mobile" class="right">
+            <li><div class="grey-text text-darken-4" id="hello">Welcome</div></li>
+            <li><a href="#" data-activates="dropdown1" class="cyan darken-2" id="dr"><i class="material-icons center-align">perm_identity</i></a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <ul id="slide-out" class="side-nav cyan darken-2">
+      <li><h2 class="center-align valign white-text side-logo">MalICSi</h2></li>
+      <li><div class="container"><div class="divider"></div></br></div></li>
+      <li><a href="#" class="tab center-align white-text">SPORTS</a></li>
+      <li><a href="#" class="tab center-align white-text">WINNERS</a></li>
+      <li><a href="#" class="tab center-align white-text">GAMES</a></li>
+      <li><a href="#" class="tab center-align white-text">PLAYERS</a></li>
+      <li><a href="#" class="tab center-align white-text" id="spon">SPONSORING INSTITUTES</a></li>
+    </ul>
+
+    <ul id='dropdown1' class='dropdown-content'>
+      <li>
+        <div class="container" id="deets">
+        </div>
+      </li>
+    </ul>
+
+    <br></br>
+    <form>
+    <div class= "container">
+    <select class="browser-default">
+    <option value="" disabled selected>SELECT SPORT</option>
+    <option value="1">Option 1</option>
+    <option value="2">Option 2</option>
+    <option value="3">Option 3</option>
+    </select>
+    </div>
+   
+
+        <div class="input-field container">
+          <input id="search" type="search" required>
+          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+          <i class="material-icons">close</i>
+        </div>
+      </form>
+
+    <div class = "table container">
+   <ul class="collection">
+    <li class="collection-item avatar">
+      <i class="material-icons circle red">play_arrow</i>
+      <span class="title">Paulo Quilos</span>
+      <p>Batch 2012 <br>
+         Blue Team
+      </p>
+      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+    </li>
+    <li class="collection-item avatar">
+      <i class="material-icons circle red">play_arrow</i>
+      <span class="title">Lily Puth</span>
+      <p>Batch 2015 <br>
+         Green Team
+      </p>
+      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+    </li>
+    <li class="collection-item avatar">
+      <i class="material-icons circle red">play_arrow</i>
+      <span class="title">Ash Ketchup</span>
+      <p>Batch 2013 <br>
+         Red Team
+      </p>
+      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+    </li>
+    <li class="collection-item avatar">
+      <i class="material-icons circle red">play_arrow</i>
+      <span class="title">Paul Guiao</span>
+      <p>Bacth 2012 <br>
+         Blue Team
+      </p>
+      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+    </li>
+  </ul>
+  </div>
+    
+   
+
+   
+
+    <footer class="page-footer cyan darken-2">
+      <div class="container">
+        <div class="row">
+          <div class="col 16 s12">
+            <p class="grey-text text-lighten-4">
+              MalICSihan is a sports management application catered for UPLB individuals which aims to showcase reliable person-game information and interaction. MalICSihan is developed by 21 undergraduate students from the Institue of Computer Science to achieve an academic requirement in their CMSC 128: An Introduction to Software Engineering class.
+            </p>
+          </div>
+          
+        </div>
+      </div>
+
+      <div class="footer-copyright">
+        <div class="container center">
+          Copyright 2017 CMSC 128 | A-5L
+        </div>
+      </div>
+    </footer>
+          
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="bower_components/materialize/dist/js/materialize.js"></script>
+    <script type="text/javascript" src="js/home.js"></script>
+  </body>
+</html>
