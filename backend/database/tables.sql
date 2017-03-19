@@ -117,7 +117,6 @@ CREATE TABLE `game_event` (
   `game_name` varchar(256) NOT NULL,
   `game_starting_time_date` datetime NOT NULL,
   `game_ending_time_date` datetime NOT NULL,
-  `account_id` int(11) NOT NULL,
   PRIMARY KEY (`game_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
