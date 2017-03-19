@@ -1,6 +1,6 @@
 'use strict'
 
-const db = require(__dirname + '/../lib/mariasql');
+const db = require(__dirname + '/../../lib/mariasql');
 
 exports.add_account = (req,res,next) => {
 

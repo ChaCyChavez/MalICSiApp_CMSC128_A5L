@@ -1,6 +1,6 @@
   'use strict';
 
-const db = require(__dirname +'/../lib/mariasql');
+const db = require(__dirname +'/../../lib/mariasql');
 
 //Login
 exports.log_in_user = (req, res, next) => {
@@ -18,9 +18,10 @@ exports.log_in_user = (req, res, next) => {
 };
 //View the User Profile
 exports.get_account = (req, res, next) => {
-  const query_string = "SELECT account_id, email, is_regular_account, "
-      +"is_admin, is_game_head, is_player, username, firstname, middlename, "
-      +"lastname, course, birthday, college, status from account where "
+  const query_string = "SELECT account_id, email, is_game_head,is_player "
+      +"is_game_head, is_player,username, firstname, middlename, "
+      +"lastname, course, birthday, college, status,player_jersey_num,"
+      +"player_role, team_id from account where "
       +"account_id = ? ;";  
   const payload = [req.params.account_id];
   const callback = (err, data) => {
