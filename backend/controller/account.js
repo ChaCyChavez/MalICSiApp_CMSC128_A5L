@@ -1,6 +1,7 @@
 'use strict';
 
 const db = require(__dirname + '/../lib/mariasql');
+const winston = require('winston');
 
 //Login
 exports.log_in_user = (req, res, next) => {
@@ -10,7 +11,13 @@ exports.log_in_user = (req, res, next) => {
     createHash('sha256').update(req.params.password).
     digest('base64')];
   const callback = (err, data) => {
-    res.send(data);
+    if (err) {
+      winston.level = 'debug';
+      winston.log('debug', 'err:', err);
+    } else {
+      winston.level = 'info';
+      winston.log('info', 'Login Successful!');
+    }
   };
 
   db.query(query_string, payload, callback);
@@ -29,7 +36,19 @@ exports.add_account = (req,res,next) => {
       	false, req.body.is_game_head, req.body.position, req.body.is_player,
       	req.body.player_jersey_num, req.body.player_role, req.body.team_id];
   const callback = (err,data) => {
-    res.send(data);
+    if(err){
+      winston.level = 'debug';
+      winston.log('debug', 'err: ', err);
+      return res.status(500).send({ error_code:err.code});
+    } else if (data == 0) {
+      winston.level = 'info';
+      winston.log('info', 'Not found!');
+      return res.status(404).send(data);
+    } else {
+      winston.level = 'info';
+      winston.log('info', 'Successfully added account!');
+      return res.status(200).send(data);
+    }
   };
 
   db.query(query_string, payload, callback);
@@ -48,7 +67,19 @@ exports.update_account = (req,res,next) => {
         req.body.player_jersey_num, req.body.player_role, req.body.team_id,
         req.body.account_id];
   const callback = (err,data) => {
-    res.send(data);
+    if(err){
+      winston.level = 'debug';
+      winston.log('debug', 'err: ', err);
+      return res.status(500).send({ error_code:err.code});
+    } else if (data == 0) {
+      winston.level = 'info';
+      winston.log('info', 'Not found!');
+      return res.status(404).send(data);
+    } else {
+      winston.level = 'info';
+      winston.log('info', 'Successfully updated account!');
+      return res.status(200).send(data);
+    }
   };
 
   db.query(query_string, payload, callback);
@@ -62,7 +93,19 @@ exports.get_account = (req, res, next) => {
       +"account_id = ? ;";  
   const payload = [req.params.account_id];
   const callback = (err, data) => {
-    res.send(data);
+    if(err){
+      winston.level = 'debug';
+      winston.log('debug', 'err: ', err);
+      return res.status(500).send({ error_code:err.code});
+    } else if (data == 0) {
+      winston.level = 'info';
+      winston.log('info', 'Not found!');
+      return res.status(404).send(data);
+    } else {
+      winston.level = 'info';
+      winston.log('info', 'Successfully retrieved account!');
+      return res.status(200).send(data);
+    }
  };
 
   db.query(query_string, payload, callback);
@@ -72,7 +115,19 @@ exports.delete_account = (req, res, next) => {
   const query_string ='DELETE FROM account WHERE account_id = ?'; 
   const payload = [req.params.account_id];
   const callback = (err, data) => {
-    res.send(data);
+    if(err){
+      winston.level = 'debug';
+      winston.log('debug', 'err: ', err);
+      return res.status(500).send({ error_code:err.code});
+    } else if (data == 0) {
+      winston.level = 'info';
+      winston.log('info', 'Not found!');
+      return res.status(404).send(data);
+    } else {
+      winston.level = 'info';
+      winston.log('info', 'Successfully deleted account!');
+      return res.status(200).send(data);
+    }
   };
 
   db.query(query_string, payload, callback);
