@@ -104,6 +104,7 @@ CREATE TABLE match_event (
 CREATE TABLE game_event_sponsor (
     game_id             int(11) NOT NULL,
     sponsor_id          int(11) NOT NULL,
+    sponsor_type	varchar(256) NOT NULL,
     PRIMARY KEY         (game_id,sponsor_id),
     CONSTRAINT          `fk_game_sponsor_game` 
         FOREIGN KEY (game_id) REFERENCES game_event (game_id),
