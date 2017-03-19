@@ -18,7 +18,7 @@ exports.add_game_event_sponsor = (req, res, next) => {
       return res.status(404).send(data);
     } else {
       winston.level = 'info';
-      winston.log('info', 'Successfully added!');
+      winston.log('info', 'Successfully added game event sponsor!');
       return res.status(200).send(data);
     }
   };
@@ -41,7 +41,7 @@ exports.get_game_event_sponsor = (req, res, next) => {
       return res.status(404).send(data);
     } else {
       winston.level = 'info';
-      winston.log('info', 'Successfully retrieved!');
+      winston.log('info', 'Successfully retrieved game event sponsor!');
       return res.status(200).send(data);
     }
     winston.log('info', 'data: ', data);
@@ -67,7 +67,7 @@ exports.get_game_event_sponsor = (req, res, next) => {
       return res.status(404).send(data);
     } else {
       winston.level = 'info';
-      winston.log('info', 'Successfully updated!');
+      winston.log('info', 'Successfully updated game event sponsor!');
       return res.status(200).send(data);
     }
     winston.log('info', 'data: ', data);
@@ -93,7 +93,7 @@ exports.get_game_event_sponsor = (req, res, next) => {
       return res.status(404).send(data);
     } else {
       winston.level = 'info';
-      winston.log('info', 'Successfully deleted!');
+      winston.log('info', 'Successfully deleted game event sponsor!');
       return res.status(200).send(data);
     }
     winston.log('info', 'data: ', data);
