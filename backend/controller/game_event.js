@@ -1,4 +1,4 @@
-exports.add_game_event = (req,res,next) => {
+exports.add_game_event = (req, res, next) => {
     const query_string = 'INSERT into game_event VALUES (NULL,?,?,?)'; 
     const payload = [req.body.game_name,
       req.body.game_starting_time_date, req.body.game_ending_time_date];
@@ -14,7 +14,7 @@ exports.add_game_event = (req,res,next) => {
 };
 
 exports.get_game_event = (req, res, next) => {
-    const query_string = "SELECT * from game_event WHERE game_id = ?";  
+    const query_string = 'SELECT * from game_event WHERE game_id = ?';  
     const payload = [req.params.game_id];
     const callback = (err, data) => {
         if (err) {
@@ -28,8 +28,10 @@ exports.get_game_event = (req, res, next) => {
 };
 
 exports.update_game_event = (req, res, next) => {
-    const query_string = 'UPDATE game_event SET game_name = ?, game_starting_time_date = ?, game_ending_time_date = ? WHERE game_id = ?;';
-    const payload = [req.body.game_name, req.body.game_starting_time_date, req.body.game_ending_time_date, req.body.game_id];
+    const query_string = 'UPDATE game_event SET game_name = ?, ' + 
+        'game_starting_time_date = ?, game_ending_time_date = ? WHERE game_id = ?;';
+    const payload = [req.body.game_name, req.body.game_starting_time_date, 
+        req.body.game_ending_time_date, req.body.game_id];
     const callback = (err, data) => {
         if (err) {
             res.status(500).send(err);
