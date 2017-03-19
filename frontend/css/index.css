@@ -159,6 +159,10 @@ nav-wrapper {
     padding: 0 !important;
 }
 
+/*.modal-footer {
+    padding: 10px !important;
+}*/
+
 .modal-footer .btn-flat {
     float: none !important;
 }
