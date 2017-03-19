@@ -83,23 +83,22 @@ CREATE TABLE match_event (
     match_id            int(11) NOT NULL AUTO_INCREMENT,
     status              boolean,
     match_date_time     datetime,
+    score1              int(11),
+    score2              int(11),
+    series              enum('elimination','semi-finals','finals') NOT NULL,
     sport_id            int(11),
+    team1_id            int(11),
+    team2_id            int(11),
+    court_id            int(11),
     PRIMARY KEY         (match_id),
     CONSTRAINT          `fk_match_sport`
-        FOREIGN KEY (sport_id) REFERENCES sport (sport_id)
-);
-
-CREATE TABLE score (
-    score_id            int(11) NOT NULL AUTO_INCREMENT,
-    score_value         int(11),
-    series              enum('elimination','semi-finals','finals') NOT NULL,
-    match_id            int(11),
-    team_id             int(11),
-    PRIMARY KEY         (score_id),
-    CONSTRAINT          `fk_score_match_event` 
-        FOREIGN KEY (match_id) REFERENCES match_event (match_id),
-    CONSTRAINT          `fk_score_team` 
-        FOREIGN KEY (team_id) REFERENCES team (team_id)
+        FOREIGN KEY (sport_id) REFERENCES sport (sport_id),
+    CONSTRAINT          `fk_score_team1` 
+        FOREIGN KEY (team1_id) REFERENCES team (team_id),
+    CONSTRAINT          `fk_score_team2` 
+        FOREIGN KEY (team1_id) REFERENCES team (team_id),
+    CONSTRAINT          `fk_match_event_court` 
+        FOREIGN KEY (court_id) REFERENCES court (court_id)
 );
 
 CREATE TABLE game_event_sponsor (
