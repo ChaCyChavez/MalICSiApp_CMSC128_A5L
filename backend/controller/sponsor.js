@@ -1,7 +1,8 @@
 exports.add_sponsor = (req, res, next) => {
-    const query_string = 'INSERT into sponsor VALUES (NULL,?,?,?)'; 
-    const payload = [req.body.sponsor_name,
-      req.body.sponsor_logo, req.body.sponsor_affiliation];
+    const query_string = 'INSERT into sponsor(sponsor_name,sponsor_logo' +
+            ',sponsor_affiliation) VALUES (?,?,?)'; 
+    const payload = [req.body.sponsor_name,req.body.sponsor_logo,
+            req.body.sponsor_affiliation];
     const callback = (err,data) => {
         if (err) {
             res.status(500).send(err);
