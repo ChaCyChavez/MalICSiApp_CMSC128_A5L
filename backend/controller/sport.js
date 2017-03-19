@@ -3,6 +3,7 @@
 const db = require(__dirname + '/../lib/mariasql');
 const winston = require('winston');
 
+//Controller to be used for adding a sport
 exports.add_sport = (req,res,next) => {
   const query_string = 'INSERT into sport(sport_type,'+
       'division,game_id) VALUES (?,?,?)'; 
@@ -26,6 +27,7 @@ exports.add_sport = (req,res,next) => {
   db.query(query_string, payload, callback);
 };
 
+//Controller to be used for retrieving a sport given a sport_id
 exports.get_sport = (req, res, next) => {
   const query_string = "SELECT * from sport where sport_id = ?";  
   const payload = [req.params.sport_id];
@@ -48,6 +50,7 @@ exports.get_sport = (req, res, next) => {
   db.query(query_string, payload, callback);
 };
 
+//Controller to be used for updating a sport given a sport_id
 exports.update_sport = (req, res, next) => {
   const query_string = 'UPDATE sport set sport_type = ?,division = ? WHERE sport_id = ?;';
   const payload = [req.body.sport_type,req.body.division,req.body.sport_id];
@@ -70,6 +73,7 @@ exports.update_sport = (req, res, next) => {
   db.query(query_string, payload, callback);
 };
 
+//Controller to be used for deleting a sport given a sport_id
 exports.delete_sport = (req, res, next) => {
   const query_string ='DELETE FROM sport WHERE sport_id = ?'; 
   const payload = [req.params.sport_id];

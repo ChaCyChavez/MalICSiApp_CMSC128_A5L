@@ -3,6 +3,7 @@
 const db = require(__dirname + '/../lib/mariasql');
 const winston = require('winston');
 
+//Controller to be used for adding a log
 exports.add_log = (req,res,next) => {
   const query_string = 'INSERT into log VALUES (?,?)'; 
   const payload = [req.body.log_description, req.body.account_id];
@@ -25,6 +26,7 @@ exports.add_log = (req,res,next) => {
     db.query(query_string, payload, callback);
 };
 
+//Controller to be used for retrieving a log given a account_id
 exports.get_log = (req, res, next) => {
   const query_string = "SELECT * from log where account_id = ?";  
   const payload = [req.params.account_id];
@@ -47,6 +49,7 @@ exports.get_log = (req, res, next) => {
     db.query(query_string, payload, callback);
 };
 
+//Controller to be used for updating a log given an account_id
 exports.update_log = (req, res, next) => {
   const query_string = 'UPDATE log set log_description = ?, account_id = ?' +
             'WHERE log_id = ?;';
@@ -71,6 +74,7 @@ exports.update_log = (req, res, next) => {
   db.query(query_string, payload, callback);
 };
 
+//Controller to be used for deleting a log given an account_id
 exports.delete_log = (req, res, next) => {
   const query_string ='DELETE FROM log WHERE log_id = ?'; 
   const payload = [req.params.log_id];

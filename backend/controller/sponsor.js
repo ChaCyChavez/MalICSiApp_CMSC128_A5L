@@ -3,6 +3,7 @@
 const db = require(__dirname + '/../lib/mariasql');
 const winston = require('winston');
 
+//Controller to be used for adding a sponsor given a court_id
 exports.add_sponsor = (req, res, next) => {
   const query_string = 'INSERT into sponsor(sponsor_name,sponsor_logo' +
           ',sponsor_affiliation) VALUES (?,?,?)'; 
@@ -27,6 +28,7 @@ exports.add_sponsor = (req, res, next) => {
   db.query(query_string, payload, callback);
 };
 
+//Controller to be used for retrieving a sponsor given a sponsor_id
 exports.get_sponsor = (req, res, next) => {
   const query_string = 'SELECT * from sponsor where sponsor_id = ?';  
   const payload = [req.params.sponsor_id];
@@ -49,6 +51,7 @@ exports.get_sponsor = (req, res, next) => {
   db.query(query_string, payload, callback);
 };
 
+//Controller to be used for updating a sponsor given a sponsor_id
 exports.update_sponsor = (req, res, next) => {
   const query_string = 'UPDATE sponsor SET sponsor_name = ?, ' + 
       'sponsor_logo = ?, sponsor_affiliation = ? WHERE sponsor_id = ?;';
@@ -73,6 +76,7 @@ exports.update_sponsor = (req, res, next) => {
   db.query(query_string, payload, callback);
 };
 
+//Controller to be used for deleting a sponsor given a sponsor_id
 exports.delete_sponsor = (req, res, next) => {
   const query_string ='DELETE FROM sponsor WHERE sponsor_id = ?'; 
   const payload = [req.params.sponsor_id];

@@ -24,6 +24,7 @@ exports.log_in_user = (req, res, next) => {
 
 };
 
+//Controller to be used for adding an account
 exports.add_account = (req,res,next) => {
   	const query_string = 'INSERT into account(firstname, middlename,'+
   		'lastname, email, username, password, course, birthday, college,'+
@@ -54,6 +55,7 @@ exports.add_account = (req,res,next) => {
   db.query(query_string, payload, callback);
 };
 
+//Controller to be used to update an account given an account_id
 exports.update_account = (req,res,next) => {
     const query_string = 'UPDATE account set firstname = ?, middlename = ?,'+
       'lastname = ?, username = ?, password = ?, course = ?, birthday = ?, '+
@@ -85,6 +87,7 @@ exports.update_account = (req,res,next) => {
   db.query(query_string, payload, callback);
 };
 
+//Controller to be used to retrieve an account given an account_id
 exports.get_account = (req, res, next) => {
   const query_string = "SELECT account_id, email, is_game_head,is_player "
       +"is_game_head, is_player,username, firstname, middlename, "
@@ -111,6 +114,7 @@ exports.get_account = (req, res, next) => {
   db.query(query_string, payload, callback);
 };
 
+//Controller to be used to delete an account given an account_id
 exports.delete_account = (req, res, next) => {
   const query_string ='DELETE FROM account WHERE account_id = ?'; 
   const payload = [req.params.account_id];

@@ -3,6 +3,7 @@
 const db = require(__dirname + '/../lib/mariasql');
 const winston = require('winston');
 
+//Controller to be used for adding a match_event
 exports.add_match_event = (req,res,next) => {
   const query_string = 'INSERT into match_event(status,' +
       'match_date_time, score1, score2, series,sport_id,' +
@@ -30,6 +31,7 @@ exports.add_match_event = (req,res,next) => {
   db.query(query_string, payload, callback);
 };
 
+//Controller to be used for retrieving a match_event given a match_id
 exports.get_match_event = (req, res, next) => {
   const query_string = "SELECT * from match_event where match_id = ?";  
   const payload = [req.params.match_id];
@@ -52,6 +54,7 @@ exports.get_match_event = (req, res, next) => {
   db.query(query_string, payload, callback);
 };
 
+//Controller to be used for updating a match_event given a match_id
 exports.update_match_event = (req, res, next) => {
   const query_string = 'UPDATE match_event set status = ?,' +
     'match_date_time = ?, score1 = ?, score2 = ?, series = ?,' + 
@@ -81,6 +84,7 @@ exports.update_match_event = (req, res, next) => {
   db.query(query_string, payload, callback);
 };
 
+//Controller to be used for deleting a match_event given a match_id
 exports.delete_match_event = (req, res, next) => {
   const query_string ='DELETE FROM match_event WHERE match_id = ?'; 
   const payload = [req.params.match_id];

@@ -3,7 +3,7 @@
 const db = require(__dirname + '/../lib/mariasql');
 const winston = require('winston');
 
-
+//Controller to be used for adding a court
 exports.add_court = (req, res, next) => {
   const query_string = 'INSERT into court(court_name,court_location,court_type)'+
       ' VALUES (?,?,?)'; 
@@ -28,6 +28,7 @@ exports.add_court = (req, res, next) => {
   db.query(query_string, payload, callback);
 };
 
+//Controller to be used for retrieving a court given a court_id
 exports.get_court = (req, res, next) => {
   const query_string = 'SELECT * from court WHERE court_id = ?';  
   const payload = [req.params.court_id];
@@ -50,6 +51,7 @@ exports.get_court = (req, res, next) => {
   db.query(query_string, payload, callback);
 };
 
+//Controller to be used for updating a court given a court_id
 exports.update_court = (req, res, next) => {
   const query_string = 'UPDATE court SET court_name = ?, ' + 
       'court_location = ?, court_type = ? WHERE court_id = ?';
@@ -74,6 +76,7 @@ exports.update_court = (req, res, next) => {
   db.query(query_string, payload, callback);
 };
 
+//Controller to be used for deleting a court given a court_id
 exports.delete_court = (req, res, next) => {
   const query_string ='DELETE FROM court WHERE court_id = ?'; 
   const payload = [req.params.court_id];

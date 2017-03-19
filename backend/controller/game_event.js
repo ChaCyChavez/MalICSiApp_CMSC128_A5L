@@ -3,6 +3,7 @@
 const db = require(__dirname + '/../lib/mariasql');
 const winston = require('winston');
 
+//Controller to be used for adding a game event
 exports.add_game_event = (req, res, next) => {
   const query_string = 'INSERT into game_event(game_name,' +
       'game_starting_time_date, game_ending_time_date) VALUES (?,?,?)'; 
@@ -27,6 +28,7 @@ exports.add_game_event = (req, res, next) => {
   db.query(query_string, payload, callback);
 };
 
+//Controller to be used for retrieving a game_event given a game_id
 exports.get_game_event = (req, res, next) => {
   const query_string = 'SELECT * from game_event WHERE game_id = ?';  
   const payload = [req.params.game_id];
@@ -49,6 +51,7 @@ exports.get_game_event = (req, res, next) => {
   db.query(query_string, payload, callback);
 };
 
+//Controller to be used for updating a game_event given a game_id
 exports.update_game_event = (req, res, next) => {
   const query_string = 'UPDATE game_event SET game_name = ?, ' + 
           'game_starting_time_date = ?, game_ending_time_date = ?' +
@@ -74,6 +77,7 @@ exports.update_game_event = (req, res, next) => {
   db.query(query_string, payload, callback);
 };
 
+//Controller to be used for deleting a game_event given a game_id
 exports.delete_game_event = (req, res, next) => {
   const query_string ='DELETE FROM game_event WHERE game_id = ?'; 
   const payload = [req.params.game_id];
