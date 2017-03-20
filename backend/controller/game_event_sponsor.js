@@ -52,7 +52,7 @@ exports.get_game_event_sponsor = (req, res, next) => {
 
 
 //UPDATE game_event_sponsor
-exports.get_game_event_sponsor = (req, res, next) => {
+exports.update_game_event_sponsor = (req, res, next) => {
   const query_string ='UPDATE game_event_sponsor SET game_id = ?,'
   +'sponsor_id = ?, sponsor_type = ? WHERE game_id = ? AND sponsor_id = ?';
   const payload = [req.body.game_id, req.body.sponsor_id, req.body.sponsor_type,
@@ -78,7 +78,7 @@ exports.get_game_event_sponsor = (req, res, next) => {
 
 
 //DELETE game_event_sponsor
-exports.get_game_event_sponsor = (req, res, next) => {
+exports.delete_game_event_sponsor = (req, res, next) => {
   const query_string ='DELETE FROM game_event_sponsor WHERE game_id = ?'
   + 'AND sponsor_id = ?';
   const payload = [req.params.game_id,req.params.sponsor_id];

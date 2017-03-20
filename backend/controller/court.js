@@ -9,7 +9,7 @@ exports.add_court = (req, res, next) => {
       ' VALUES (?,?,?)'; 
   const payload = [req.body.court_name,
     req.body.court_location, req.body.court_type];
-  const callback = (err,data) => {
+  const callback = (err, data) => {
     if(err){
       winston.level = 'debug';
       winston.log('debug', 'err: ', err);
@@ -24,7 +24,6 @@ exports.add_court = (req, res, next) => {
       return res.status(200).send(data);
     }
   };
-
   db.query(query_string, payload, callback);
 };
 
