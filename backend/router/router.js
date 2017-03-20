@@ -21,7 +21,7 @@ module.exports = (router) => {
 
 //account routers
     //login_account
-    router.post('/api/login-account', account.login_account);
+    router.post('/api/login-account/:account_id', account.login_account);
     //create account
     router.post('/api/add-account', account.add_account);
     //retrieve account
@@ -29,7 +29,7 @@ module.exports = (router) => {
     //update account
     router.post('/api/update-account', account.update_account);
     //delete account
-    router.post('/api/delete-account', account.delete_account);
+    router.post('/api/delete-account/:account_id', account.delete_account);
 
 //court routers
     //create court
@@ -39,7 +39,7 @@ module.exports = (router) => {
     //update court
     router.post('/api/update-court', court.update_court);
     //delete court
-    router.post('/api/delete-court', court.delete_court);
+    router.post('/api/delete-court/:court_id', court.delete_court);
 
 //game_event routers
     //create game_event
@@ -69,7 +69,7 @@ module.exports = (router) => {
     //update log
     router.post('/api/update-log', log.update_log);
     //delete log
-    router.post('/api/delete-log', log.delete_log);
+    router.post('/api/delete-log/:log_id', log.delete_log);
 
 //match_event routers
     //create match_event
@@ -89,7 +89,7 @@ module.exports = (router) => {
     //update sponsor
     router.post('/api/update-sponsor', sponsor.update_sponsor);
     //delete sponsor
-    router.post('/api/delete-sponsor', sponsor.delete_sponsor);
+    router.post('/api/delete-sponsor/:sponsor_id', sponsor.delete_sponsor);
 
 //sport routers
     //create sport
@@ -99,7 +99,7 @@ module.exports = (router) => {
     //update sport
     router.post('/api/update-sport', sport.update_sport);
     //delete sport
-    router.post('/api/delete-sport', sport.delete_sport);
+    router.post('/api/delete-sport/:sport_id', sport.delete_sport);
 
 //team routers
     //create team
@@ -109,7 +109,7 @@ module.exports = (router) => {
     //update team
     router.post('/api/update-team', team.update_team);
     //delete team
-    router.post('/api/delete-team', team.delete_team);
+    router.post('/api/delete-team/:team_id', team.delete_team);
 
 /* old routers
     //create routers
