@@ -2,6 +2,18 @@
 
 const db = require(__dirname + '/../lib/mariasql');
 const winston = require('winston');
+const crypto        = require('crypto');
+const nodemailer    = require('nodemailer');
+const fs            = require('fs');
+const file = "../mailbody/body.txt";  //path to file of body message here    
+const transporter = nodemailer.createTransport({
+    service: 'Gmail',
+    auth: {
+        user: 'johndoecmsc128@gmail.com',
+        pass: 'johndoe128'
+    }
+});
+
 
 //Login
 exports.login_account = (req, res, next) => {
@@ -26,7 +38,6 @@ exports.login_account = (req, res, next) => {
   };
 
   db.query(query_string, payload, callback);
-
 };
 
 //Controller to be used for adding an account
@@ -54,6 +65,30 @@ exports.add_account = (req,res,next) => {
   };
 
   db.query(query_string, payload, callback);
+
+
+
+  fs.readFile(file, 'utf8', function (err,data) {
+    if (err) {
+        return console.log(err);
+    } else{
+        var body = data;
+        var mailOptions = {
+            from: 'johndoecmsc128@gmail.com',
+            to: req.body.email,
+            subject: 'MaliCSI App Registration',
+            text: body,
+        };
+    }
+  });
+
+  transporter.sendMail(mailOptions, (err, info) =>{
+    if (err) {
+        return console.log(err);
+    } else{
+        console.log('Message %s send: %s', info.messageId, info.response);
+    }
+  });
 };
 
 //Controller to be used to update an account given an account_id
