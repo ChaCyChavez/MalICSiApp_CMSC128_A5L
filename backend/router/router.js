@@ -1,13 +1,125 @@
 'use strict';
+/* old controllers
+const update = require(__dirname + '/../controller/old-controllers/update');
+const create = require(__dirname + '/../controller/old-controller/create');
+const retrieve = require(__dirname + '/../controller/old-controller/retrieve');
+const del = require(__dirname + '/../controller/old-controller/delete');
+*/
+const account = require(__dirname + '/../controller/account');
+const court = require(__dirname + '/../controller/court');
+const game_event = require(__dirname + '/../controller/game_event');
+const game_event_sponsor = require(__dirname + '/../controller/game_event_sponsor');
+const log = require(__dirname + '/../controller/log');
+const match_event = require(__dirname + '/../controller/match_event');
+const sponsor = require(__dirname + '/../controller/sponsor');
+const sport = require(__dirname + '/../controller/sport');
+const team = require(__dirname + '/../controller/team');
 
-const update = require(__dirname + '/../controller/update');
-const create = require(__dirname + '/../controller/create');
-const retrieve = require(__dirname + '/../controller/retrieve');
-const del = require(__dirname + '/../controller/delete');
 let path = require('path');
 
 module.exports = (router) => {
 
+//account routers
+    //login_account
+    router.post('/api/login-account', account.login_account);
+    //create account
+    router.post('/api/add-account', account.add_account);
+    //retrieve account
+    router.get('/api/get-account', account.get_account);
+    //update account
+    router.post('/api/update-account', account.update_account);
+    //delete account
+    router.post('/api/delete-account', account.delete_account);
+
+//court routers
+    //retrieve court
+    router.get('/api/get-court', court.get_account);
+/*
+    //create court
+    router.post('/api/add-court', court.add_account);
+    //update court
+    router.post('/api/update-court', court.update_account);
+    //delete court
+    router.post('/api/delete-court', court.delete_account);
+*/
+//account routers
+    //login_account
+    router.post('/api/login-account', account.login_account);
+    //create account
+    router.post('/api/add-account', account.add_account);
+    //retrieve account
+    router.post('/api/update-account', account.update_account);
+    //update account
+    router.post('/api/get-account', account.get_account);
+    //delete account
+    router.post('/api/delete-account', account.delete_account);
+//account routers
+    //login_account
+    router.post('/api/login-account', account.login_account);
+    //create account
+    router.post('/api/add-account', account.add_account);
+    //retrieve account
+    router.post('/api/update-account', account.update_account);
+    //update account
+    router.post('/api/get-account', account.get_account);
+    //delete account
+    router.post('/api/delete-account', account.delete_account);
+//account routers
+    //login_account
+    router.post('/api/login-account', account.login_account);
+    //create account
+    router.post('/api/add-account', account.add_account);
+    //retrieve account
+    router.post('/api/update-account', account.update_account);
+    //update account
+    router.post('/api/get-account', account.get_account);
+    //delete account
+    router.post('/api/delete-account', account.delete_account);
+//account routers
+    //login_account
+    router.post('/api/login-account', account.login_account);
+    //create account
+    router.post('/api/add-account', account.add_account);
+    //retrieve account
+    router.post('/api/update-account', account.update_account);
+    //update account
+    router.post('/api/get-account', account.get_account);
+    //delete account
+    router.post('/api/delete-account', account.delete_account);
+//account routers
+    //login_account
+    router.post('/api/login-account', account.login_account);
+    //create account
+    router.post('/api/add-account', account.add_account);
+    //retrieve account
+    router.post('/api/update-account', account.update_account);
+    //update account
+    router.post('/api/get-account', account.get_account);
+    //delete account
+    router.post('/api/delete-account', account.delete_account);
+//account routers
+    //login_account
+    router.post('/api/login-account', account.login_account);
+    //create account
+    router.post('/api/add-account', account.add_account);
+    //retrieve account
+    router.post('/api/update-account', account.update_account);
+    //update account
+    router.post('/api/get-account', account.get_account);
+    //delete account
+    router.post('/api/delete-account', account.delete_account);
+//account routers
+    //login_account
+    router.post('/api/login-account', account.login_account);
+    //create account
+    router.post('/api/add-account', account.add_account);
+    //retrieve account
+    router.post('/api/update-account', account.update_account);
+    //update account
+    router.post('/api/get-account', account.get_account);
+    //delete account
+    router.post('/api/delete-account', account.delete_account);
+/* old routers
     //create routers
     router.post('/api/add-account', create.add_account);
     router.post('/api/add-court', create.add_court);
@@ -59,12 +171,11 @@ module.exports = (router) => {
     router.post('/api/delete-registers/:player_id/:game_id', del.delete_registers);
     router.post('/api/delete-game-game-type/:game_id/:game_type_id', del.delete_game_game_type);
     router.post('/api/delete-game-sponsor/:game_id/:sponsor_id', del.delete_game_sponsor);
-/*
 */    
 
     router.all('*', (req, res, next) => {
         res.status(404).send({
-            message: 'Not Found!'
+            'message': 'Not Found!'
         });
     });
 

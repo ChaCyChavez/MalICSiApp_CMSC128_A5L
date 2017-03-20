@@ -45,8 +45,6 @@ exports.get_game_event_sponsor = (req, res, next) => {
       winston.log('info', 'Successfully retrieved game event sponsor!');
       return res.status(200).send(data);
     }
-    winston.log('info', 'data: ', data);
-    res.send(data);
   };
 
   db.query(query_string, payload, callback);
@@ -73,8 +71,6 @@ exports.get_game_event_sponsor = (req, res, next) => {
       winston.log('info', 'Successfully updated game event sponsor!');
       return res.status(200).send(data);
     }
-    winston.log('info', 'data: ', data);
-    res.send(data);
   };
 
   db.query(query_string, payload, callback);
@@ -100,8 +96,6 @@ exports.get_game_event_sponsor = (req, res, next) => {
       winston.log('info', 'Successfully deleted game event sponsor!');
       return res.status(200).send(data);
     }
-    winston.log('info', 'data: ', data);
-    res.send(data);
   };
 
   db.query(query_string, payload, callback);

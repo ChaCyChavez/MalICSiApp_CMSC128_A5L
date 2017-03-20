@@ -4,7 +4,7 @@ const db = require(__dirname + '/../lib/mariasql');
 const winston = require('winston');
 
 //Login
-exports.log_in_user = (req, res, next) => {
+exports.login_account = (req, res, next) => {
   const query_string = "SELECT account_id from account where "
       +"username = ? && password = ?;";
   const payload = [req.params.account_id, crypto.
