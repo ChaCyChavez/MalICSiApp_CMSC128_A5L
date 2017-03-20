@@ -26,7 +26,7 @@ exports.add_game_event_sponsor = (req, res, next) => {
 exports.get_game_event_sponsor = (req, res, next) => {
   const query_string ='SELECT * FROM game_event_sponsor WHERE game_id = ?'
   +'AND sponsor_id = ?';
-  const payload = [req.body.game_id,req.body.sponsor_id];
+  const payload = [req.params.game_id,req.params.sponsor_id];
   const callback = (err, data) => {
     if(err){
       winston.level = 'debug';
