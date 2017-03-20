@@ -118,6 +118,7 @@ nav-wrapper {
     margin: 0 auto;
 }
 
+
 .teams {
     text-align: center;
     padding-top: 2%;
@@ -135,4 +136,27 @@ nav-wrapper {
     text-align: center;
     padding-bottom: 2%;
     background-color: white;
+}
+
+.add {
+    height: 100px;
+    text-align: center;
+    padding-top: 2%;
+    font-size: 65px;
+    font-family: "Panton";
+    /*padding: 0 !important;*/
+}
+
+#modal_add {
+  padding: 0 !important;
+}
+
+#add_game_form {
+    padding-left: 15%;
+}
+
+.edit_btn {
+    position:absolute;
+    z-index: 100;
+    font-color: white;
 }
