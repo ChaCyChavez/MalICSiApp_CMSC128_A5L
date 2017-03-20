@@ -13,10 +13,6 @@ exports.add_sport = (req,res,next) => {
       winston.level = 'debug';
       winston.log('debug', 'err: ', err);
       return res.status(500).send({ error_code:err.code});
-    } else if (data == 0) {
-      winston.level = 'info';
-      winston.log('info', 'Not found!');
-      return res.status(404).send(data);
     } else {
       winston.level = 'info';
       winston.log('info', 'Successfully added sport!');
@@ -36,7 +32,7 @@ exports.get_sport = (req, res, next) => {
       winston.level = 'debug';
       winston.log('debug', 'err: ', err);
       return res.status(500).send({ error_code:err.code});
-    } else if (data == 0) {
+    } else if (data.length == 0) {
       winston.level = 'info';
       winston.log('info', 'Not found!');
       return res.status(404).send(data);
@@ -59,10 +55,10 @@ exports.update_sport = (req, res, next) => {
       winston.level = 'debug';
       winston.log('debug', 'err: ', err);
       return res.status(500).send({ error_code:err.code});
-    } else if (data == 0) {
+    } else if (data.info.affectedRows == 0) {
       winston.level = 'info';
-      winston.log('info', 'Not found!');
-      return res.status(404).send(data);
+      winston.log('info', 'Not found! Update failed');
+      return res.status(404).send();
     } else {
       winston.level = 'info';
       winston.log('info', 'Successfully updated sport!');
@@ -76,16 +72,16 @@ exports.update_sport = (req, res, next) => {
 //Controller to be used for deleting a sport given a sport_id
 exports.delete_sport = (req, res, next) => {
   const query_string ='DELETE FROM sport WHERE sport_id = ?'; 
-  const payload = [req.params.sport_id];
+  const payload = [req.body.sport_id];
   const callback = (err, data) => {
     if(err){
       winston.level = 'debug';
       winston.log('debug', 'err: ', err);
       return res.status(500).send({ error_code:err.code});
-    } else if (data == 0) {
+    } else if (data.info.affectedRows == 0) {
       winston.level = 'info';
-      winston.log('info', 'Not found!');
-      return res.status(404).send(data);
+      winston.log('info', 'Not found! Delete failed');
+      return res.status(404).send();
     } else {
       winston.level = 'info';
       winston.log('info', 'Successfully deleted sport!');

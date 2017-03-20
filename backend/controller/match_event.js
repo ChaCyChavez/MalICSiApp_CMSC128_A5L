@@ -17,10 +17,6 @@ exports.add_match_event = (req,res,next) => {
       winston.level = 'debug';
       winston.log('debug', 'err: ', err);
       return res.status(500).send({ error_code:err.code});
-    } else if (data == 0) {
-      winston.level = 'info';
-      winston.log('info', 'Not found!');
-      return res.status(404).send(data);
     } else {
       winston.level = 'info';
       winston.log('info', 'Successfully added match!');
@@ -40,7 +36,7 @@ exports.get_match_event = (req, res, next) => {
       winston.level = 'debug';
       winston.log('debug', 'err: ', err);
       return res.status(500).send({ error_code:err.code});
-    } else if (data == 0) {
+    } else if (data.length == 0) {
       winston.level = 'info';
       winston.log('info', 'Not found!');
       return res.status(404).send(data);
@@ -70,10 +66,10 @@ exports.update_match_event = (req, res, next) => {
       winston.level = 'debug';
       winston.log('debug', 'err: ', err);
       return res.status(500).send({ error_code:err.code});
-    } else if (data == 0) {
+    } else if (data.info.affectedRows == 0) {
       winston.level = 'info';
-      winston.log('info', 'Not found!');
-      return res.status(404).send(data);
+      winston.log('info', 'Not found! Update failed');
+      return res.status(404).send();
     } else {
       winston.level = 'info';
       winston.log('info', 'Successfully updated match!');
@@ -87,16 +83,16 @@ exports.update_match_event = (req, res, next) => {
 //Controller to be used for deleting a match_event given a match_id
 exports.delete_match_event = (req, res, next) => {
   const query_string ='DELETE FROM match_event WHERE match_id = ?'; 
-  const payload = [req.params.match_id];
+  const payload = [req.body.match_id];
   const callback = (err, data) => {
     if(err){
       winston.level = 'debug';
       winston.log('debug', 'err: ', err);
       return res.status(500).send({ error_code:err.code});
-    } else if (data == 0) {
+    } else if (data.info.affectedRows == 0) {
       winston.level = 'info';
-      winston.log('info', 'Not found!');
-      return res.status(404).send(data);
+      winston.log('info', 'Not found! Delete failed');
+      return res.status(404).send();
     } else {
       winston.level = 'info';
       winston.log('info', 'Successfully deleted match!');

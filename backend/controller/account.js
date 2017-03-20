@@ -7,16 +7,21 @@ const winston = require('winston');
 exports.login_account = (req, res, next) => {
   const query_string = "SELECT account_id from account where "
       +"username = ? && password = ?;";
-  const payload = [req.params.account_id, crypto.
-    createHash('sha256').update(req.params.password).
+  const payload = [req.body.account_id, crypto.
+    createHash('sha256').update(req.body.password).
     digest('base64')];
   const callback = (err, data) => {
     if (err) {
       winston.level = 'debug';
       winston.log('debug', 'err:', err);
+    } else if (data.length == 0) {
+      winston.level = 'info';
+      winston.log('info', 'Login failed.');
+      return res.status(404).send();
     } else {
       winston.level = 'info';
       winston.log('info', 'Login Successful!');
+      return res.status(200).send();
     }
   };
 
@@ -41,10 +46,6 @@ exports.add_account = (req,res,next) => {
       winston.level = 'debug';
       winston.log('debug', 'err: ', err);
       return res.status(500).send({ error_code:err.code});
-    } else if (data == 0) {
-      winston.level = 'info';
-      winston.log('info', 'Not found!');
-      return res.status(404).send(data);
     } else {
       winston.level = 'info';
       winston.log('info', 'Successfully added account!');
@@ -73,10 +74,10 @@ exports.update_account = (req,res,next) => {
       winston.level = 'debug';
       winston.log('debug', 'err: ', err);
       return res.status(500).send({ error_code:err.code});
-    } else if (data == 0) {
+    } else if (data.info.affectedRows == 0) {
       winston.level = 'info';
-      winston.log('info', 'Not found!');
-      return res.status(404).send(data);
+      winston.log('info', 'Not found! Update failed');
+      return res.status(404).send();
     } else {
       winston.level = 'info';
       winston.log('info', 'Successfully updated account!');
@@ -100,7 +101,7 @@ exports.get_account = (req, res, next) => {
       winston.level = 'debug';
       winston.log('debug', 'err: ', err);
       return res.status(500).send({ error_code:err.code});
-    } else if (data == 0) {
+    } else if (data.length == 0) {
       winston.level = 'info';
       winston.log('info', 'Not found!');
       return res.status(404).send(data);
@@ -117,15 +118,15 @@ exports.get_account = (req, res, next) => {
 //Controller to be used to delete an account given an account_id
 exports.delete_account = (req, res, next) => {
   const query_string ='DELETE FROM account WHERE account_id = ?'; 
-  const payload = [req.params.account_id];
+  const payload = [req.body.account_id];
   const callback = (err, data) => {
     if(err){
       winston.level = 'debug';
       winston.log('debug', 'err: ', err);
       return res.status(500).send({ error_code:err.code});
-    } else if (data == 0) {
+    } else if (data.info.affectedRows == 0) {
       winston.level = 'info';
-      winston.log('info', 'Not found!');
+      winston.log('info', 'Not found! Delete failed');
       return res.status(404).send(data);
     } else {
       winston.level = 'info';

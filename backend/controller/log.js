@@ -12,10 +12,6 @@ exports.add_log = (req,res,next) => {
       winston.level = 'debug';
       winston.log('debug', 'err: ', err);
       return res.status(500).send({ error_code:err.code});
-    } else if (data == 0) {
-      winston.level = 'info';
-      winston.log('info', 'Not found!');
-      return res.status(404).send(data);
     } else {
       winston.level = 'info';
       winston.log('info', 'Successfully added log!');
@@ -35,7 +31,7 @@ exports.get_log = (req, res, next) => {
       winston.level = 'debug';
       winston.log('debug', 'err: ', err);
       return res.status(500).send({ error_code:err.code});
-    } else if (data == 0) {
+    } else if (data.length == 0) {
       winston.level = 'info';
       winston.log('info', 'Not found!');
       return res.status(404).send(data);
@@ -60,10 +56,10 @@ exports.update_log = (req, res, next) => {
       winston.level = 'debug';
       winston.log('debug', 'err: ', err);
       return res.status(500).send({ error_code:err.code});
-    } else if (data == 0) {
+    } else if (data.info.affectedRows == 0) {
       winston.level = 'info';
-      winston.log('info', 'Not found!');
-      return res.status(404).send(data);
+      winston.log('info', 'Not found! Update failed');
+      return res.status(404).send();
     } else {
       winston.level = 'info';
       winston.log('info', 'Successfully updated log!');
@@ -77,16 +73,16 @@ exports.update_log = (req, res, next) => {
 //Controller to be used for deleting a log given an account_id
 exports.delete_log = (req, res, next) => {
   const query_string ='DELETE FROM log WHERE log_id = ?'; 
-  const payload = [req.params.log_id];
+  const payload = [req.body.log_id];
   const callback = (err, data) => {
     if(err){
       winston.level = 'debug';
       winston.log('debug', 'err: ', err);
       return res.status(500).send({ error_code:err.code});
-    } else if (data == 0) {
+    } else if (data.info.affectedRows == 0) {
       winston.level = 'info';
-      winston.log('info', 'Not found!');
-      return res.status(404).send(data);
+      winston.log('info', 'Not found! Delete failed');
+      return res.status(404).send();
     } else {
       winston.level = 'info';
       winston.log('info', 'Successfully deleted log!');

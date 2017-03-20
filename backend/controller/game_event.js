@@ -14,10 +14,6 @@ exports.add_game_event = (req, res, next) => {
       winston.level = 'debug';
       winston.log('debug', 'err: ', err);
       return res.status(500).send({ error_code:err.code});
-    } else if (data == 0) {
-      winston.level = 'info';
-      winston.log('info', 'Not found!');
-      return res.status(404).send(data);
     } else {
       winston.level = 'info';
       winston.log('info', 'Successfully added event!');
@@ -37,10 +33,10 @@ exports.get_game_event = (req, res, next) => {
       winston.level = 'debug';
       winston.log('debug', 'err: ', err);
       return res.status(500).send({ error_code:err.code});
-    } else if (data == 0) {
+    } else if (data.length == 0) {
       winston.level = 'info';
       winston.log('info', 'Not found!');
-      return res.status(404).send(data);
+      return res.status(404).send();
     } else {
       winston.level = 'info';
       winston.log('info', 'Successfully retrieved event!');
@@ -63,9 +59,9 @@ exports.update_game_event = (req, res, next) => {
       winston.level = 'debug';
       winston.log('debug', 'err: ', err);
       return res.status(500).send({ error_code:err.code});
-    } else if (data == 0) {
+    } else if (data.info.affectedRows == 0) {
       winston.level = 'info';
-      winston.log('info', 'Not found!');
+      winston.log('info', 'Not found! Update failed');
       return res.status(404).send(data);
     } else {
       winston.level = 'info';
@@ -80,15 +76,15 @@ exports.update_game_event = (req, res, next) => {
 //Controller to be used for deleting a game_event given a game_id
 exports.delete_game_event = (req, res, next) => {
   const query_string ='DELETE FROM game_event WHERE game_id = ?'; 
-  const payload = [req.params.game_id];
+  const payload = [req.body.game_id];
   const callback = (err, data) => {
     if(err){
       winston.level = 'debug';
       winston.log('debug', 'err: ', err);
       return res.status(500).send({ error_code:err.code});
-    } else if (data == 0) {
+    } else if (data.info.affectedRows == 0) {
       winston.level = 'info';
-      winston.log('info', 'Not found!');
+      winston.log('info', 'Not found! Delete failed');
       return res.status(404).send(data);
     } else {
       winston.level = 'info';
