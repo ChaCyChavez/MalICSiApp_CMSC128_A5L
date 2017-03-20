@@ -32,7 +32,7 @@ exports.get_game_event_sponsor = (req, res, next) => {
       winston.level = 'debug';
       winston.log('debug', 'err: ', err);
       return res.status(500).send({ error_code:err.code});
-    } else if (data = 0) {
+    } else if (data == 0) {
       winston.level = 'info';
       winston.log('info', 'Not found!');
       return res.status(404).send(data);
