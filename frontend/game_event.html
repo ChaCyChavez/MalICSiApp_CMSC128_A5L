@@ -24,7 +24,7 @@
             <div class="nav-wrapper">
               <a href="#" data-activates="slide-out" class="brand-logo left black-text" id="butones"><i class="material-icons center-align">menu</i></a>
               <span class="brand-logo black-text" id = "logo">MalICSi</span>
-              <span class="brand-logo black-text center" id = "page">WINNERS</span>
+              <span class="brand-logo black-text center" id = "page">GAMES</span>
               <ul id="nav-mobile" class="right">
                 <li><div class="black-text" id="hello">Welcome, Juan Dela Cruz</div></li>
                 <li><a href="#" data-activates="dropdown1" class="teal accent-3" id="dr"><i class="material-icons center-align">perm_identity</i></a></li>
@@ -43,8 +43,8 @@
         <li><a href="#"><h5 class="center-align valign white-text">SPONSORING INSTITUTES</h5></a></li>
       </ul>
 
-      <!-- button for adding new winner-->
-      <a class="btn-floating btn-large waves-effect waves-light z-depth-5 teal accent-4" id = "add_button"><i class="material-icons">add</i></a>
+      <!-- button for adding new game-->
+      <a class="btn-floating btn-large waves-effect waves-light z-depth-5 teal accent-4" id = "add_button" href="#modal2"><i class="material-icons">add</i></a>
 
       <!-- Search -->
       <div class="row">
@@ -53,7 +53,7 @@
             <div class="input-field col s6 right" id = "search">
               <i class="material-icons prefix">search</i>
               <input id="icon_prefix" type="text" class="validate">
-              <label for="icon_prefix">Search winner</label>
+              <label for="icon_prefix">Search games</label>
             </div>
           </div>
         </form>
@@ -64,25 +64,167 @@
       <!-- Contents -->
       <div class="row">
         <div class="card-panel col offset-l1 s12 m11 l10 z-depth-5">
-              <ul class = "left" id = "current_games">
-                <li class="collection-header center teal accent-3">
-                  <a href="#modal1" class="white-text">
-                    <h5>view more..</h5>
-                  </a>
-                </li>
+              <div class="col s12 m6">
+                <div class="card">
+                  <div class="card-image">
+                    <a class="edit_btn dropdown-button btn-flat right" data-activates="dropdownOptions1"><i class="material-icons">mode_edit</i></a>
+                    <img src="img/sample-1.jpg">
+                  </div>
+                  <div class="card-action center-align">
+                    <a class="btn white-text" href="#modal1">
+                       view more ...
+                    </a>
+                  </div>
+                </div>
+              </div>
 
-              </ul>
-
-              <!-- Dropdown Trigger -->
-              <a class="dropdown-button right" href="#" data-activates="dropdownOptions"><i class="medium material-icons">arrow_drop_down</i></a>
-
-              <!-- Dropdown Structure -->
-              <ul id='dropdownOptions' class='dropdown-content'>
-                <li><a href="#!">edit</a></li>
-                <li><a href="#!">remove</a></li>
-              </ul>
+              <div class="col s12 m6">
+                <div class="card">
+                  <div class="card-image">
+                    <a class="edit_btn dropdown-button btn-flat right" data-activates="dropdownOptions2"><i class="material-icons">mode_edit</i></a>
+                    <img src="img/sample-1.jpg">
+                  </div>
+                  <div class="card-action center-align">
+                    <a class="btn white-text" href="#modal1">
+                       view more ...
+                    </a>
+                  </div>
+                </div>
+              </div>
         </div>
+      </div>
 
+      <h3 id = "label">INCOMING GAMES</h3>
+
+      <!-- Contents -->
+      <div class="row">
+        <div class="card-panel col offset-l1 s12 m11 l10 z-depth-5">
+              <div class="col s12 m3">
+                <div class="card">
+                  <div class="card-image">
+                    <a class="edit_btn dropdown-button btn-flat right" data-activates="dropdownOptions3"><i class="material-icons">mode_edit</i></a>
+                    <img src="img/sample-1.jpg">
+                  </div>
+                  <!-- <div class="card-action center-align">
+                    <a class="btn white-text" href="#modal1">
+                       view more ...
+                    </a>
+                  </div> -->
+                </div>
+              </div>
+
+              <div class="col s12 m3">
+                <div class="card">
+                  <div class="card-image">
+                    <a class="edit_btn dropdown-button btn-flat right" data-activates="dropdownOptions4"><i class="material-icons">mode_edit</i></a>
+                    <img src="img/sample-1.jpg">
+                  </div>
+                  <!-- <div class="card-action center-align">
+                    <a class="btn white-text" href="#modal1">
+                       view more ...
+                    </a>
+                  </div> -->
+                </div>
+              </div>
+
+              <div class="col s12 m3">
+                <div class="card">
+                  <div class="card-image">
+                    <a class="edit_btn dropdown-button btn-flat right" data-activates="dropdownOptions5"><i class="material-icons">mode_edit</i></a>
+                    <img src="img/sample-1.jpg">
+                  </div>
+                  <!-- <div class="card-action center-align">
+                    <a class="btn white-text" href="#modal1">
+                       view more ...
+                    </a>
+                  </div> -->
+                </div>
+              </div>
+
+              <div class="col s12 m3">
+                <div class="card">
+                  <div class="card-image">
+                    <a class="edit_btn dropdown-button btn-flat right" data-activates="dropdownOptions6"><i class="material-icons">mode_edit</i></a>
+                    <img src="img/sample-1.jpg">
+                  </div>
+                 <!--  <div class="card-action center-align">
+                    <a class="btn white-text" href="#modal1">
+                       view more ...
+                    </a>
+                  </div> -->
+                </div>
+              </div>
+        </div>
+      </div>
+
+      <!-- Dropdown Structure -->
+      <ul id='dropdownOptions1' class='dropdown-content'>
+        <li><a href="#!">edit</a></li>
+        <li class="divider"></li>
+        <li><a href="#!">remove</a></li>
+      </ul>
+
+      <ul id='dropdownOptions2' class='dropdown-content'>
+        <li><a href="#!">edit</a></li>
+        <li class="divider"></li>
+        <li><a href="#!">remove</a></li>
+      </ul>
+
+      <ul id='dropdownOptions3' class='dropdown-content'>
+        <li><a href="#!">edit</a></li>
+        <li class="divider"></li>
+        <li><a href="#!">remove</a></li>
+      </ul>
+
+      <ul id='dropdownOptions4' class='dropdown-content'>
+        <li><a href="#!">edit</a></li>
+        <li class="divider"></li>
+        <li><a href="#!">remove</a></li>
+      </ul>
+
+      <ul id='dropdownOptions5' class='dropdown-content'>
+        <li><a href="#!">edit</a></li>
+        <li class="divider"></li>
+        <li><a href="#!">remove</a></li>
+      </ul>
+
+      <ul id='dropdownOptions6' class='dropdown-content'>
+        <li><a href="#!">edit</a></li>
+        <li class="divider"></li>
+        <li><a href="#!">remove</a></li>
+      </ul>
+
+      <!-- Modal Structure -->
+      <div id="modal2" class="modal modal-fixed-footer">
+        <div class="modal-content" id="modal_add">
+          <div class="cyan darken-2 content-title">
+            <h4 class="add white-text center-align">ADD GAME</h4>
+          </div>
+          <div class="form-content" style="height: 287px;">
+            <div class="row">
+              <form id="add_game_form" class="col s12">
+                <div class="row">
+                  <div class="inputfield col s10">
+                    <label class="labels cyan-text text-darken-4" for="name">Name:</label>
+                    <input class="field-inputs" type="text">
+                  </div>
+                   <div class="inputfield col s10">
+                    <label class="labels cyan-text text-darken-4" for="name">Type:</label>
+                    <input class="field-inputs" type="text">
+                  </div>
+                  <div class="inputfield col s10">
+                    <label class="labels cyan-text text-darken-4" for="name">Start date:</label>
+                    <input class="datepicker" type="date">
+                  </div>
+                  <div class="inputfield col s10">
+                    <label class="labels cyan-text text-darken-4" for="name">End date:</label>
+                    <input class="datepicker" type="date">
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- Modal Structure -->
