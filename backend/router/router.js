@@ -31,10 +31,10 @@ module.exports = (router) => {
     //delete account
     router.post('/api/delete-account', account.delete_account);
 
+/*
 //court routers
     //retrieve court
     router.get('/api/get-court', court.get_account);
-/*
     //create court
     router.post('/api/add-court', court.add_account);
     //update court
