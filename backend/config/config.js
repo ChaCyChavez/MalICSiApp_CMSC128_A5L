@@ -12,8 +12,8 @@ const config = {
 
     DEVELOPMENT: {
         host: 'localhost',
-        user: 'root',
-        password: 'root',
+        user: 'CMSC128',
+        password: 'project128',
         database: 'malicsi'
     },
 
