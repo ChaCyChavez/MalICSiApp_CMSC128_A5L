@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--Import Google Icon Font-->
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+        <link type="text/css" rel="stylesheet" href="css/game_event.css"  media="screen,projection"/>
+
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>MalICSi</title>
+    </head>
+
+    <body>
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+      <script type="text/javascript" src="js/game_event.js"></script>
+
+      <div class="navbar-fixed">
+        <nav>
+          <!-- <div class="container"> -->
+            <div class="nav-wrapper">
+              <a href="#" data-activates="slide-out" class="brand-logo left black-text" id="butones"><i class="material-icons center-align">menu</i></a>
+              <span class="brand-logo black-text" id = "logo">MalICSi</span>
+              <span class="brand-logo black-text center" id = "page">GAMES</span>
+              <ul id="nav-mobile" class="right">
+                <li><div class="black-text" id="hello">Welcome, Juan Dela Cruz</div></li>
+                <li><a href="#" data-activates="dropdown1" class="teal accent-3" id="dr"><i class="material-icons center-align">perm_identity</i></a></li>
+              </ul>
+            </div>
+        </nav>
+      </div>
+
+      <ul id="slide-out" class="side-nav teal accent-3">
+        <li><h3 class="center-align valign white-text">MalICSi</h3></li>
+        <li><div class="container"><div class="divider"></div></div></li>
+        <li><a href="#"><h5 class="center-align valign white-text">GAMES</h5></a></li>
+        <li><a href="#"><h5 class="center-align valign white-text">SPORTS</h5></a></li>
+        <li><a href="#"><h5 class="center-align valign white-text">WINNERS</h5></a></li>
+        <li><a href="#"><h5 class="center-align valign white-text">PLAYERS</h5></a></li>
+        <li><a href="#"><h5 class="center-align valign white-text">SPONSORING INSTITUTES</h5></a></li>
+      </ul>
+
+      <!-- button for adding new game-->
+      <a class="btn-floating btn-large waves-effect waves-light z-depth-5 teal accent-4" id = "add_button" href="#modal2"><i class="material-icons">add</i></a>
+
+      <!-- Search -->
+      <div class="row">
+        <form class="col s6 right">
+          <div class="row">
+            <div class="input-field col s6 right" id = "search">
+              <i class="material-icons prefix">search</i>
+              <input id="icon_prefix" type="text" class="validate">
+              <label for="icon_prefix">Search games</label>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <h3 id = "label">CURRENT GAMES</h3>
+
+      <!-- Contents -->
+      <div class="row">
+        <div class="card-panel col offset-l1 s12 m11 l10 z-depth-5">
+              <div class="col s12 m6">
+                <div class="card">
+                  <div class="card-image">
+                    <a class="edit_btn dropdown-button btn-flat right" data-activates="dropdownOptions1"><i class="material-icons">mode_edit</i></a>
+                    <img src="img/sample-1.jpg">
+                  </div>
+                  <div class="card-action center-align">
+                    <a class="btn white-text" href="#modal1">
+                       view more ...
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col s12 m6">
+                <div class="card">
+                  <div class="card-image">
+                    <a class="edit_btn dropdown-button btn-flat right" data-activates="dropdownOptions2"><i class="material-icons">mode_edit</i></a>
+                    <img src="img/sample-1.jpg">
+                  </div>
+                  <div class="card-action center-align">
+                    <a class="btn white-text" href="#modal1">
+                       view more ...
+                    </a>
+                  </div>
+                </div>
+              </div>
+        </div>
+      </div>
+
+      <h3 id = "label">INCOMING GAMES</h3>
+
+      <!-- Contents -->
+      <div class="row">
+        <div class="card-panel col offset-l1 s12 m11 l10 z-depth-5">
+              <div class="col s12 m3">
+                <div class="card">
+                  <div class="card-image">
+                    <a class="edit_btn dropdown-button btn-flat right" data-activates="dropdownOptions3"><i class="material-icons">mode_edit</i></a>
+                    <img src="img/sample-1.jpg">
+                  </div>
+                  <!-- <div class="card-action center-align">
+                    <a class="btn white-text" href="#modal1">
+                       view more ...
+                    </a>
+                  </div> -->
+                </div>
+              </div>
+
+              <div class="col s12 m3">
+                <div class="card">
+                  <div class="card-image">
+                    <a class="edit_btn dropdown-button btn-flat right" data-activates="dropdownOptions4"><i class="material-icons">mode_edit</i></a>
+                    <img src="img/sample-1.jpg">
+                  </div>
+                  <!-- <div class="card-action center-align">
+                    <a class="btn white-text" href="#modal1">
+                       view more ...
+                    </a>
+                  </div> -->
+                </div>
+              </div>
+
+              <div class="col s12 m3">
+                <div class="card">
+                  <div class="card-image">
+                    <a class="edit_btn dropdown-button btn-flat right" data-activates="dropdownOptions5"><i class="material-icons">mode_edit</i></a>
+                    <img src="img/sample-1.jpg">
+                  </div>
+                  <!-- <div class="card-action center-align">
+                    <a class="btn white-text" href="#modal1">
+                       view more ...
+                    </a>
+                  </div> -->
+                </div>
+              </div>
+
+              <div class="col s12 m3">
+                <div class="card">
+                  <div class="card-image">
+                    <a class="edit_btn dropdown-button btn-flat right" data-activates="dropdownOptions6"><i class="material-icons">mode_edit</i></a>
+                    <img src="img/sample-1.jpg">
+                  </div>
+                 <!--  <div class="card-action center-align">
+                    <a class="btn white-text" href="#modal1">
+                       view more ...
+                    </a>
+                  </div> -->
+                </div>
+              </div>
+        </div>
+      </div>
+
+      <!-- Dropdown Structure -->
+      <ul id='dropdownOptions1' class='dropdown-content'>
+        <li><a href="#!">edit</a></li>
+        <li class="divider"></li>
+        <li><a href="#!">remove</a></li>
+      </ul>
+
+      <ul id='dropdownOptions2' class='dropdown-content'>
+        <li><a href="#!">edit</a></li>
+        <li class="divider"></li>
+        <li><a href="#!">remove</a></li>
+      </ul>
+
+      <ul id='dropdownOptions3' class='dropdown-content'>
+        <li><a href="#!">edit</a></li>
+        <li class="divider"></li>
+        <li><a href="#!">remove</a></li>
+      </ul>
+
+      <ul id='dropdownOptions4' class='dropdown-content'>
+        <li><a href="#!">edit</a></li>
+        <li class="divider"></li>
+        <li><a href="#!">remove</a></li>
+      </ul>
+
+      <ul id='dropdownOptions5' class='dropdown-content'>
+        <li><a href="#!">edit</a></li>
+        <li class="divider"></li>
+        <li><a href="#!">remove</a></li>
+      </ul>
+
+      <ul id='dropdownOptions6' class='dropdown-content'>
+        <li><a href="#!">edit</a></li>
+        <li class="divider"></li>
+        <li><a href="#!">remove</a></li>
+      </ul>
+
+      <!-- Modal Structure -->
+      <div id="modal2" class="modal modal-fixed-footer">
+        <div class="modal-content" id="modal_add">
+          <div class="cyan darken-2 content-title">
+            <h4 class="add white-text center-align">ADD GAME</h4>
+          </div>
+          <div class="form-content" style="height: 287px;">
+            <div class="row">
+              <form id="add_game_form" class="col s12">
+                <div class="row">
+                  <div class="inputfield col s10">
+                    <label class="labels cyan-text text-darken-4" for="name">Name:</label>
+                    <input class="field-inputs" type="text">
+                  </div>
+                   <div class="inputfield col s10">
+                    <label class="labels cyan-text text-darken-4" for="name">Type:</label>
+                    <input class="field-inputs" type="text">
+                  </div>
+                  <div class="inputfield col s10">
+                    <label class="labels cyan-text text-darken-4" for="name">Start date:</label>
+                    <input class="datepicker" type="date">
+                  </div>
+                  <div class="inputfield col s10">
+                    <label class="labels cyan-text text-darken-4" for="name">End date:</label>
+                    <input class="datepicker" type="date">
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Structure -->
+      <div id="modal1" class="modal modal-fixed-footer">
+        <div class="modal-content">
+            <img class="image" src="images/sample-1.jpg">
+            <span>
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+              industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+              scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
+              into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the
+              release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing
+              software like Aldus PageMaker including versions of Lorem Ipsum.
+            </span>
+        </div>
+        <div class="modal-footer">
+          <div id="modal-button">
+            <a href="#!" id="label-enter" class="teal accent-3 modal-action modal-close waves-effect waves-green btn-flat white-text">view sponsors</a>
+            <a href="#!" id="label-enter" class="teal accent-3 modal-action modal-close waves-effect waves-green btn-flat white-text">view sports</a>
+            <a href="#!" id="label-enter" class="teal accent-3 modal-action modal-close waves-effect waves-green btn-flat white-text">view participants</a>
+            <a href="#modal3" id="label-enter" class="teal accent-3 modal-action modal-close waves-effect waves-green btn-flat white-text">register to this game</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Structure -->
+      <div id="modal3" class="modal modal-fixed-footer">
+        <div class="modal-content">
+          <h1 class="teams black-text">Choose a team</h1>
+          <span>
+            <a href="#!"><h6 class="team black-text">Team A</h6></a>
+            <a href="#!"><h6 class="team black-text">Team B</h6></a>
+            <a href="#!"><h6 class="team black-text">Team C</h6></a>
+            <a href="#!"><h6 class="team black-text">Team D</h6></a>
+          </span>
+        </div>
+        <div id="hey" class="modal-footer">
+          <div id="modal-button">
+            <a href="#modal1" id="label-enter" class="teal accent-3 modal-action modal-close waves-effect waves-green btn-flat white-text">Cancel</a>
+            <a href="#!" id="label-enter" class="teal accent-3 modal-action modal-close waves-effect waves-green btn-flat white-text">Join</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer class="page-footer teal lighten-1">
+        <div class="container">
+          <div class="row">
+            <div class="col 16 s12">
+
+              <p class="grey-text text-lighten-4">
+                MalICSihan is a sports management application catered for UPLB individuals which aims to showcase reliable person-game information and interaction. MalICSihan is developed by 21 undergraduate students from the Institue of Computer Science to achieve an academic requirement in their CMSC 128: An Introduction to Software Engineering class.
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="footer-copyright">
+          <div class="container center">
+            Copyright 2017 CMSC 128 | A-5L
+          </div>
+        </div>
+      </footer>
+    </body>
+</html>

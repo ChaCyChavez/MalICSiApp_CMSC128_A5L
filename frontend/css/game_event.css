@@ -1,0 +1,162 @@
+@font-face {
+  font-family: "Panton";
+  src: url("../fonts/panton/Panton-BlackCaps.otf");
+}
+
+@font-face {
+  font-family: "Blogger";
+  src: url("../fonts/blogger-sans/Blogger_Sans-Bold.otf");
+}
+
+nav {
+  background-color: white;
+  font-family: "Panton";
+}
+
+.brand-logo {
+  line-height: 75px;
+  font-size: 350% !important;
+  margin-left: 2%;
+}
+
+nav-wrapper {
+  position: fixed;
+}
+
+#slide-out {
+  font-family: "Panton";
+}
+
+#slide-out li a{
+  padding-bottom: 0;
+}
+
+@media only screen and (min-width: 1px) {
+  nav .brand-logo {
+    margin-left: 15px !important;
+    position: absolute;
+  }
+}
+
+#slide-out {
+  font-family: "Panton";
+}
+
+#slide-out li a{
+  padding-bottom: 0;
+}
+
+#hello {
+  line-height: 75px;
+  font-family: "Blogger";
+  font-size: 25px;
+}
+
+#add_button {
+  margin-top: 2%;
+  margin-left: 5%;
+  margin-bottom: 1%;
+  float: left;
+}
+
+#page {
+  font-size: 200% !important;
+}
+
+#logo {
+  margin-left: 5% !important;
+}
+
+#label {
+  margin-left: 8%;
+  font-size: 250%;
+  font-family: Blogger;
+}
+
+
+#current_games {
+  margin-top: 0%;
+  margin-left: -1%;
+  width: 30%;
+  font-family: Blogger;
+  border-width-style: solid;
+}
+
+#current_games div {
+  margin: 5%;
+  margin-right: 0%;
+  border-right-style: solid;
+}
+
+#current_games .collection-header {
+  border-style: solid;
+  border-width: thick;
+  border-color: rgb(29, 233, 182);
+}
+
+/*modals*/
+.team {
+    text-align: left;
+    padding-top: 2%;
+    padding-left: 10%;
+    font-size: 40px;
+    font-family: "Blogger";
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+}
+
+.modal {
+    max-width: 70%;
+    max-height: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: 0 auto;
+}
+
+
+.teams {
+    text-align: center;
+    padding-top: 2%;
+    font-size: 50px;
+    font-family: "Panton";
+}
+
+#label-enter {
+    font-size: 12px;
+    font-family: "Panton";
+    margin-left: 1%;
+}
+
+#modal-button {
+    text-align: center;
+    padding-bottom: 2%;
+    background-color: white;
+}
+
+.add {
+    height: 100px;
+    text-align: center;
+    padding-top: 2%;
+    font-size: 65px;
+    font-family: "Panton";
+    /*padding: 0 !important;*/
+}
+
+#modal_add {
+  padding: 0 !important;
+}
+
+#add_game_form {
+    padding-left: 15%;
+}
+
+.edit_btn {
+    position:absolute;
+    z-index: 100;
+    font-color: white;
+}
