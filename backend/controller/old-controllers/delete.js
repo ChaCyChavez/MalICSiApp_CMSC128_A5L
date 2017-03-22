@@ -1,6 +1,6 @@
 'use strict';
 
-const db = require(__dirname + '/../../lib/mariasql');
+const db = require(__dirname + '/../../lib/mysql');
 
 //DELETE an ACCOUNT
 exports.delete_account = (req, res, next) => {

@@ -1,6 +1,6 @@
 'use strict';
 
-const db = require(__dirname + '/../lib/mariasql');
+const db = require(__dirname + '/../lib/mysql');
 const winston = require('winston');
 //Controller to be used to add a team
 exports.add_team = (req,res,next) => {
