@@ -1,0 +1,34 @@
+.brand-logo {
+  line-height: 75px;
+  font-size: 350% !important;
+  margin-left: 2%;
+}
+#page {
+  font-size: 200% !important;
+}
+#logo {
+  margin-left: 5% !important;
+}
+#modal_add {
+  padding: 0 !important;
+}
+.modal {
+    max-width: 70%;
+    max-height: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: 0 auto;
+}
+.add {
+    height: 100px;
+    text-align: center;
+    padding-top: 2%;
+    font-size: 65px;
+    font-family: "Panton";
+    /*padding: 0 !important;*/
+}
+#add_game_form {
+    padding-left: 15%;
+}
