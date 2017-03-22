@@ -44,7 +44,7 @@ exports.login_account = (req, res, next) => {
 exports.add_account = (req,res,next) => {
   	const query_string = 'INSERT into account(firstname, middlename,'+
   		'lastname, email, username, password, course, birthday, college,'+
-  		'status, is_game_head, position, is_player, player_jersey_num,' +
+  		'is_approved, is_game_head, position, is_player, player_jersey_num,' +
   		'player_role, team_id) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)'; 
   	const payload = [req.body.firstname, req.body.middlename, 
       	req.body.lastname, req.body.email, req.body.username,

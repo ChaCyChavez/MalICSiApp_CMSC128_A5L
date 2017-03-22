@@ -1,4 +1,7 @@
-
+-- game event, team N-m
+-- team, player N-M
+-- team, match N-M
+-- Participates rel. attribute(score)
 DROP USER 'CMSC128'@'localhost';
 CREATE USER 'CMSC128'@'localhost' IDENTIFIED BY 'project128';
 DROP DATABASE IF EXISTS malicsi;
@@ -37,7 +40,7 @@ CREATE TABLE account (
     course              varchar(256) NOT NULL,
     birthday            date NOT NULL,
     college             enum('CA','CAS','CDC','CEAT','CEM','CFNR','CHE','CPAf','CVM','SESAM','GS') NOT NULL,
-    status              boolean,
+    is_approved         boolean, -- DEFAULT FALSE
     is_game_head        boolean,
     position            varchar(256),
     is_player           boolean,
@@ -53,6 +56,7 @@ CREATE TABLE log (
     log_id              int(11) NOT NULL AUTO_INCREMENT,
     log_description     varchar(256) NOT NULL,
     account_id          int(11) NOT NULL,
+    -- add timestamp
     PRIMARY KEY         (log_id),
     CONSTRAINT          `fk_log_account`
         FOREIGN KEY (account_id) REFERENCES account (account_id)
@@ -88,9 +92,9 @@ CREATE TABLE match_event (
     match_id            int(11) NOT NULL AUTO_INCREMENT,
     status              boolean,
     match_date_time     datetime,
-    score1              int(11),
+    score1              int(11), -- separate table
     score2              int(11),
-    series              enum('elimination','semi-finals','finals') NOT NULL,
+    series	              enum('elimination','semi-finals','finals') NOT NULL,
     sport_id            int(11),
     team1_id            int(11),
     team2_id            int(11),
@@ -105,14 +109,20 @@ CREATE TABLE match_event (
     CONSTRAINT          `fk_match_event_court` 
         FOREIGN KEY (court_id) REFERENCES court (court_id)
 );
-
+-- TEAM_MATCH_SCORE table
 CREATE TABLE game_event_sponsor (
     game_id             int(11) NOT NULL,
     sponsor_id          int(11) NOT NULL,
-    sponsor_type	varchar(256) NOT NULL,
+    sponsor_type		varchar(256) NOT NULL,
+    -- ^change to enum	Minor, Major, Off. Partner
     PRIMARY KEY         (game_id,sponsor_id),
     CONSTRAINT          `fk_game_sponsor_game` 
         FOREIGN KEY (game_id) REFERENCES game_event (game_id),
     CONSTRAINT          `fk_game_sponsor_sponsor`
         FOREIGN KEY (sponsor_id) REFERENCES sponsor (sponsor_id)
 );
+
+
+
+-- triggers
+-- procedures 
