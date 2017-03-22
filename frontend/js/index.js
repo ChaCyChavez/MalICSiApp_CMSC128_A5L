@@ -10,6 +10,9 @@ $(document).ready(function(){
     ending_top: '10%',
   });
 
-  // $(".modal").width($(".modal").width());
-  // $(".modal").height($(".modal").height());
+  $("#modal-login").width($(".modal").width());
+  $("#modal-login").height($(".modal").height());
+
+  $("#modal-register").width($(".modal").width());
+  $("#modal-register").height($(".modal").height());
 });
