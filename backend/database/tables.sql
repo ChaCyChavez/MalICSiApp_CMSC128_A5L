@@ -1,30 +1,12 @@
-
+-- game event, team N-m
+-- team, player N-M
+-- team_match_score
 DROP USER 'CMSC128'@'localhost';
 CREATE USER 'CMSC128'@'localhost' IDENTIFIED BY 'project128';
 DROP DATABASE IF EXISTS malicsi;
 CREATE DATABASE malicsi;
 GRANT ALL PRIVILEGES ON malicsi.* TO 'CMSC128'@'localhost' WITH GRANT OPTION;
 USE malicsi;
-
-
-CREATE TABLE game_event (
-    game_id             int(11) NOT NULL AUTO_INCREMENT,
-    game_name           varchar(256) NOT NULL,
-    game_starting_time_date     datetime NOT NULL,
-    game_ending_time_date       datetime NOT NULL,
-    PRIMARY KEY         (game_id)
-);
-
-CREATE TABLE team (
-    team_id             int(11) NOT NULL AUTO_INCREMENT,
-    team_name           varchar(256) NOT NULL,
-    team_color          varchar(256) NOT NULL,
-    team_coach          varchar(256) NOT NULL,
-    game_id             int(11),
-    PRIMARY KEY         (team_id),
-    CONSTRAINT          `fk_team_game`
-        FOREIGN KEY (game_id) REFERENCES game_event (game_id)
-);
 
 CREATE TABLE account (
     account_id          int(11) NOT NULL AUTO_INCREMENT,
@@ -37,22 +19,41 @@ CREATE TABLE account (
     course              varchar(256) NOT NULL,
     birthday            date NOT NULL,
     college             enum('CA','CAS','CDC','CEAT','CEM','CFNR','CHE','CPAf','CVM','SESAM','GS') NOT NULL,
-    status              boolean,
+    is_approved         boolean, -- DEFAULT FALSE
     is_game_head        boolean,
     position            varchar(256),
     is_player           boolean,
     player_jersey_num   int(11),
     player_role         varchar(256),
     team_id             int(11),
-    PRIMARY KEY                     (account_id),
-    CONSTRAINT         `fk_account_team`
-        FOREIGN KEY (team_id) REFERENCES team (team_id)
+    PRIMARY KEY         (account_id)
+);
+
+CREATE TABLE game_event (
+    game_id             int(11) NOT NULL AUTO_INCREMENT,
+    game_name           varchar(256) NOT NULL,
+    game_starting_time_date     datetime NOT NULL,
+    game_ending_time_date       datetime NOT NULL,
+    account_id          int(11) NOT NULL,
+    PRIMARY KEY         (game_id),
+    CONSTRAINT          `fk_game_account`
+        FOREIGN KEY (account_id) REFERENCES account (account_id)
+);
+
+CREATE TABLE team (
+    team_id             int(11) NOT NULL AUTO_INCREMENT,
+    team_name           varchar(256) NOT NULL,
+    team_color          varchar(256) NOT NULL,
+    team_coach          varchar(256) NOT NULL,
+    game_id             int(11),
+    PRIMARY KEY         (team_id)
 );
 
 CREATE TABLE log (
     log_id              int(11) NOT NULL AUTO_INCREMENT,
     log_description     varchar(256) NOT NULL,
     account_id          int(11) NOT NULL,
+    log_data            timestamp NOT NULL,
     PRIMARY KEY         (log_id),
     CONSTRAINT          `fk_log_account`
         FOREIGN KEY (account_id) REFERENCES account (account_id)
@@ -88,20 +89,12 @@ CREATE TABLE match_event (
     match_id            int(11) NOT NULL AUTO_INCREMENT,
     status              boolean,
     match_date_time     datetime,
-    score1              int(11),
-    score2              int(11),
     series              enum('elimination','semi-finals','finals') NOT NULL,
     sport_id            int(11),
-    team1_id            int(11),
-    team2_id            int(11),
     court_id            int(11),
     PRIMARY KEY         (match_id),
     CONSTRAINT          `fk_match_sport`
         FOREIGN KEY (sport_id) REFERENCES sport (sport_id),
-    CONSTRAINT          `fk_score_team1` 
-        FOREIGN KEY (team1_id) REFERENCES team (team_id),
-    CONSTRAINT          `fk_score_team2` 
-        FOREIGN KEY (team1_id) REFERENCES team (team_id),
     CONSTRAINT          `fk_match_event_court` 
         FOREIGN KEY (court_id) REFERENCES court (court_id)
 );
@@ -109,10 +102,44 @@ CREATE TABLE match_event (
 CREATE TABLE game_event_sponsor (
     game_id             int(11) NOT NULL,
     sponsor_id          int(11) NOT NULL,
-    sponsor_type	varchar(256) NOT NULL,
+    sponsor_type        enum('minor','major','official partner') NOT NULL,
     PRIMARY KEY         (game_id,sponsor_id),
     CONSTRAINT          `fk_game_sponsor_game` 
         FOREIGN KEY (game_id) REFERENCES game_event (game_id),
     CONSTRAINT          `fk_game_sponsor_sponsor`
         FOREIGN KEY (sponsor_id) REFERENCES sponsor (sponsor_id)
 );
+
+CREATE TABLE game_event_team (
+    game_id             int(11) NOT NULL,
+    team_id             int(11) NOT NULL,
+    PRIMARY KEY         (game_id,team_id),
+    CONSTRAINT          `fk_game_team_game` 
+        FOREIGN KEY (game_id) REFERENCES game_event (game_id),
+    CONSTRAINT          `fk_game_team_team` 
+        FOREIGN KEY (team_id) REFERENCES team (team_id)
+);
+
+CREATE TABLE account_team (
+    account_id          int(11) NOT NULL,
+    team_id             int(11) NOT NULL,
+    PRIMARY KEY         (account_id, team_id),
+    CONSTRAINT          `fk_account_team_account`
+        FOREIGN KEY (account_id) REFERENCES account (account_id),
+    CONSTRAINT          `fk_account_team_team`
+        FOREIGN KEY (team_id) REFERENCES team (team_id)
+);
+
+CREATE TABLE team_match(
+    team_id             int(11) NOT NULL,
+    match_id            int(11) NOT NULL,
+    PRIMARY KEY         (team_id, match_id),
+    score               int(11),
+    CONSTRAINT          `fk_team_match_team`
+        FOREIGN KEY (team_id) REFERENCES team (team_id),
+    CONSTRAINT          `fk_team_match_match`
+        FOREIGN KEY (match_id) REFERENCES match_event (match_id)
+);
+
+-- triggers
+-- procedures 
