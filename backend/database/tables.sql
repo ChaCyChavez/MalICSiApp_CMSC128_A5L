@@ -41,6 +41,7 @@ CREATE TABLE game_event (
         ON UPDATE CASCADE ON DELETE CASCADE
 );
 
+
 CREATE TABLE team (
     team_id             int(11) NOT NULL AUTO_INCREMENT,
     team_name           varchar(256) NOT NULL,
@@ -104,6 +105,8 @@ CREATE TABLE match_event (
         ON UPDATE CASCADE ON DELETE CASCADE
 );
 
+
+-- TABLE FOR N-M RELATIONSHIPS
 CREATE TABLE game_event_sponsor (
     game_id             int(11) NOT NULL,
     sponsor_id          int(11) NOT NULL,
