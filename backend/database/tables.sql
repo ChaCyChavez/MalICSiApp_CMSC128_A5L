@@ -38,6 +38,7 @@ CREATE TABLE game_event (
     PRIMARY KEY         (game_id),
     CONSTRAINT          `fk_game_account`
         FOREIGN KEY (account_id) REFERENCES account (account_id)
+        ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE team (
@@ -57,6 +58,7 @@ CREATE TABLE log (
     PRIMARY KEY         (log_id),
     CONSTRAINT          `fk_log_account`
         FOREIGN KEY (account_id) REFERENCES account (account_id)
+        ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE court (
@@ -83,6 +85,7 @@ CREATE TABLE sport (
     PRIMARY KEY         (sport_id),
     CONSTRAINT          `fk_sport_game`
         FOREIGN KEY (game_id) REFERENCES game_event (game_id)
+        ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE match_event (
@@ -94,9 +97,11 @@ CREATE TABLE match_event (
     court_id            int(11),
     PRIMARY KEY         (match_id),
     CONSTRAINT          `fk_match_sport`
-        FOREIGN KEY (sport_id) REFERENCES sport (sport_id),
+        FOREIGN KEY (sport_id) REFERENCES sport (sport_id)
+        ON UPDATE CASCADE ON DELETE CASCADE,
     CONSTRAINT          `fk_match_event_court` 
         FOREIGN KEY (court_id) REFERENCES court (court_id)
+        ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE game_event_sponsor (
@@ -105,9 +110,11 @@ CREATE TABLE game_event_sponsor (
     sponsor_type        enum('minor','major','official partner') NOT NULL,
     PRIMARY KEY         (game_id,sponsor_id),
     CONSTRAINT          `fk_game_sponsor_game` 
-        FOREIGN KEY (game_id) REFERENCES game_event (game_id),
+        FOREIGN KEY (game_id) REFERENCES game_event (game_id)
+        ON UPDATE CASCADE ON DELETE CASCADE,
     CONSTRAINT          `fk_game_sponsor_sponsor`
         FOREIGN KEY (sponsor_id) REFERENCES sponsor (sponsor_id)
+        ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE game_event_team (
@@ -115,9 +122,11 @@ CREATE TABLE game_event_team (
     team_id             int(11) NOT NULL,
     PRIMARY KEY         (game_id,team_id),
     CONSTRAINT          `fk_game_team_game` 
-        FOREIGN KEY (game_id) REFERENCES game_event (game_id),
+        FOREIGN KEY (game_id) REFERENCES game_event (game_id)
+        ON UPDATE CASCADE ON DELETE CASCADE,
     CONSTRAINT          `fk_game_team_team` 
         FOREIGN KEY (team_id) REFERENCES team (team_id)
+        ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE account_team (
@@ -125,9 +134,11 @@ CREATE TABLE account_team (
     team_id             int(11) NOT NULL,
     PRIMARY KEY         (account_id, team_id),
     CONSTRAINT          `fk_account_team_account`
-        FOREIGN KEY (account_id) REFERENCES account (account_id),
+        FOREIGN KEY (account_id) REFERENCES account (account_id)
+        ON UPDATE CASCADE ON DELETE CASCADE,
     CONSTRAINT          `fk_account_team_team`
         FOREIGN KEY (team_id) REFERENCES team (team_id)
+        ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE team_match(
