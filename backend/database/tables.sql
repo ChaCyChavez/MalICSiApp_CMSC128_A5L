@@ -46,17 +46,6 @@ CREATE TABLE team (
     PRIMARY KEY         (team_id)
 );
 
-CREATE TABLE log (
-    log_id              int(11) NOT NULL AUTO_INCREMENT,
-    log_description     varchar(256) NOT NULL,
-    account_id          int(11) NOT NULL,
-    log_date            timestamp DEFAULT now(),
-    PRIMARY KEY         (log_id),
-    CONSTRAINT          `fk_log_account`
-        FOREIGN KEY (account_id) REFERENCES account (account_id)
-        ON UPDATE CASCADE ON DELETE CASCADE
-);
-
 CREATE TABLE court (
     court_id            int(11) NOT NULL AUTO_INCREMENT,
     court_name          varchar(256) NOT NULL,
@@ -150,3 +139,13 @@ CREATE TABLE match_event_team(
         FOREIGN KEY (match_id) REFERENCES match_event (match_id)
 );
 
+CREATE TABLE log (
+    log_id              int(11) NOT NULL AUTO_INCREMENT,
+    log_description     text NOT NULL,
+    log_date            timestamp DEFAULT now(),
+    account_id          int(11) NOT NULL,
+    PRIMARY KEY         (log_id),
+    CONSTRAINT          `fk_log_account`
+        FOREIGN KEY (account_id) REFERENCES account (account_id)
+        ON UPDATE CASCADE ON DELETE CASCADE
+);

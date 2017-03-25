@@ -299,11 +299,11 @@ delimiter ;
 drop procedure if exists add_log;
 delimiter //
     create procedure add_log (
-        IN log_description     varchar(256),
-        IN account_id      int
+        IN _log_description     varchar(256),
+        IN _account_id          int
     )
     BEGIN
-        INSERT into game_sponsor(
+        INSERT into log(
             log_description,
             account_id
             )
