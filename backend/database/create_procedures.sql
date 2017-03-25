@@ -77,7 +77,6 @@ delimiter ;
 drop procedure if exists add_game_event;
 delimiter //
     create procedure add_game_event (
-        IN _game_id                     int(11),
         IN _game_name                   varchar(256),
         IN _game_starting_time_date     datetime,
         IN _game_ending_time_date       datetime
