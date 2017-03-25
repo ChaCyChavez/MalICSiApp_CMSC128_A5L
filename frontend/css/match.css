@@ -60,24 +60,16 @@ nav-wrapper {
   margin-left: 5% !important;
 }
 
+#match-content {
+  font-family: Blogger
+}
+
 th {
-  font-family: Blogger;
-  border-bottom: 2px solid black;
   text-indent: 20%;
 }
 
 td {
-  font-family: Blogger;
   text-indent: 20%;
-}
-
-.table-time {
-  border-right: 2px solid black;
-  width: 30%;
-}
-
-.table-this {
-  border: 1px solid blue;
 }
 
 img {
@@ -85,10 +77,6 @@ img {
   margin-top: 2%;
   max-width: 10%;
   max-height: 10%;
-}
-
-.form-search {
-  margin-top: -20%;
 }
 
 .username {
