@@ -43,7 +43,6 @@ CREATE TABLE team (
     team_id             int(11) NOT NULL AUTO_INCREMENT,
     team_name           varchar(256) NOT NULL,
     team_color          varchar(256) NOT NULL,
-    game_id             int(11),
     PRIMARY KEY         (team_id)
 );
 
