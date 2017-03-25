@@ -5,10 +5,10 @@ insert into account values (NULL, 'Juan', 'Dela', 'Cruz', 'gamehead@gmail.com', 
 insert into account values (NULL, 'Christian', 'Timothy', 'Grey', 'player@gmail.com', 'christian', 'pass', 'bscs', CURDATE(), 'CAS', true, false, NULL, true, 2, NULL);
 insert into account values (NULL, 'David', 'Nix', 'Main', 'regular@gmail.com', 'david', 'pass', 'bscs', CURDATE(), 'CAS', true, false, NULL, false, NULL, NULL);
 
-insert into game_event values (NULL, 'Game 1', CURDATE(), CURDATE(), 1);
-insert into game_event values (NULL, 'Game 2', CURDATE(), CURDATE(), 1);
-insert into game_event values (NULL, 'Game 3', CURDATE(), CURDATE(), 2);
-insert into game_event values (NULL, 'Game 4', CURDATE(), CURDATE(), 3);
+CALL add_game_event ('Game 1', CURDATE(), CURDATE());
+CALL add_game_event ('Game 2', CURDATE(), CURDATE());
+CALL add_game_event ('Game 3', CURDATE(), CURDATE());
+CALL add_game_event ('Game 4', CURDATE(), CURDATE());
 
 insert into team values (NULL, 'Blue Job', 'Blue', 'Clinton');
 insert into team values (NULL, 'Red Job', 'Red', 'Clinton');
@@ -25,10 +25,10 @@ insert into court values (NULL, 'Copeland', 'UPLB', 'Gym');
 insert into court values (NULL, 'Physci', 'UPLB', 'Building');
 insert into court values (NULL, 'Freedom Park', 'UPLB', 'Park');
 
-insert into sponsor values (NULL, 'Ian', 'http://logos.com/logo2.png', 'Intel');
-insert into sponsor values (NULL, 'Miles', 'http://logos.com/logo3.png', 'ACSS');
-insert into sponsor values (NULL, 'Emy', 'http://logos.com/logo4.png', 'YSES');
-insert into sponsor values (NULL, 'Maria', 'http://logos.com/logo2.png', 'COSS');
+CALL add_sponsor ('Ian', 'http://logos.com/logo2.png', 'Intel');
+CALL add_sponsor ('Miles', 'http://logos.com/logo3.png', 'ACSS');
+CALL add_sponsor ('Emy', 'http://logos.com/logo4.png', 'YSES');
+CALL add_sponsor ('Maria', 'http://logos.com/logo2.png', 'COSS');
 
 insert into sport values (NULL, 'Volleyball', 'men', 1);
 insert into sport values (NULL, 'Volleyball', 'men', 2);
