@@ -5,20 +5,20 @@ insert into account values (NULL, 'Juan', 'Dela', 'Cruz', 'gamehead@gmail.com', 
 insert into account values (NULL, 'Christian', 'Timothy', 'Grey', 'player@gmail.com', 'christian', 'pass', 'bscs', CURDATE(), 'CAS', true, false, NULL, true, 2, NULL);
 insert into account values (NULL, 'David', 'Nix', 'Main', 'regular@gmail.com', 'david', 'pass', 'bscs', CURDATE(), 'CAS', true, false, NULL, false, NULL, NULL);
 
-CALL add_game_event ('Game 1', CURDATE(), CURDATE());
-CALL add_game_event ('Game 2', CURDATE(), CURDATE());
-CALL add_game_event ('Game 3', CURDATE(), CURDATE());
-CALL add_game_event ('Game 4', CURDATE(), CURDATE());
+CALL add_game_event ('Game 1', CURDATE(), CURDATE(), 1);
+CALL add_game_event ('Game 2', CURDATE(), CURDATE(), 2);
+CALL add_game_event ('Game 3', CURDATE(), CURDATE(), 1);
+CALL add_game_event ('Game 4', CURDATE(), CURDATE(), 3);
 
-insert into team values (NULL, 'Blue Job', 'Blue', 'Clinton');
-insert into team values (NULL, 'Red Job', 'Red', 'Clinton');
-insert into team values (NULL, 'Green Job', 'Green', 'Clinton');
-insert into team values (NULL, 'White Job', 'White', 'Clinton');
+insert into team values (NULL, 'Blue Job', 'Blue');
+insert into team values (NULL, 'Red Job', 'Red');
+insert into team values (NULL, 'Green Job', 'Green');
+insert into team values (NULL, 'White Job', 'White');
 
-insert into log values (NULL, 'Sample Log 2', 1, NULL);
-insert into log values (NULL, 'Sample Log 3', 2, NULL);
-insert into log values (NULL, 'Sample Log 4', 3, NULL);
-insert into log values (NULL, 'Sample Log 4', 4, NULL);
+insert into activity_log values (NULL, 'Sample Log 2', 1, NULL);
+insert into activity_log values (NULL, 'Sample Log 3', 2, NULL);
+insert into activity_log values (NULL, 'Sample Log 4', 3, NULL);
+insert into activity_log values (NULL, 'Sample Log 4', 4, NULL);
 
 insert into court values (NULL, 'Baker Hall', 'UPLB', 'Gym');
 insert into court values (NULL, 'Copeland', 'UPLB', 'Gym');

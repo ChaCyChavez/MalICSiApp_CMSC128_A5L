@@ -79,18 +79,21 @@ delimiter //
     create procedure add_game_event (
         IN _game_name                   varchar(256),
         IN _game_starting_time_date     datetime,
-        IN _game_ending_time_date       datetime
+        IN _game_ending_time_date       datetime,
+        IN _account_id                  int
     )
     BEGIN
         INSERT into game_event(
             game_name,
             game_starting_time_date,
-            game_ending_time_date
+            game_ending_time_date,
+            account_id
             )
         values(
             _game_name,
             _game_starting_time_date,
-            _game_ending_time_date
+            _game_ending_time_date,
+            _account_id
             );
     END;
 // 

@@ -12,7 +12,7 @@ CREATE TABLE account (
     middlename          varchar(256) NOT NULL,
     lastname            varchar(256) NOT NULL,
     email               varchar(256) NOT NULL,
-    username            varchar(256) NOT NULL,
+    username            varchar(100) NOT NULL,
     password            varchar(256) NOT NULL,
     course              varchar(256) NOT NULL,
     birthday            date NOT NULL,
@@ -23,6 +23,8 @@ CREATE TABLE account (
     is_player           boolean DEFAULT false,
     player_jersey_num   int(11) DEFAULT NULL,
     player_role         varchar(256) DEFAULT NULL,
+
+    UNIQUE              (username),
     PRIMARY KEY         (account_id)
 );
 
