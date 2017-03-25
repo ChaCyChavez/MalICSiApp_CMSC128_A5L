@@ -77,21 +77,21 @@ DELIMITER //
 
 DELIMITER ;
 
-drop procedure if exists get_log;
+drop procedure if exists get_activity_log;
 DELIMITER //
-  CREATE PROCEDURE get_log(IN logid int)
+  CREATE PROCEDURE get_activity_log(IN logid int)
   BEGIN
-    SELECT * from log where log_id = logid;
+    SELECT * from activity_log where log_id = logid;
   END;
 //
 
 DELIMITER ;
 
-drop procedure if exists get_all_log;
+drop procedure if exists get_all_activity_log;
 DELIMITER //
-  CREATE PROCEDURE get_all_log()
+  CREATE PROCEDURE get_all_activity_log()
   BEGIN
-    SELECT * from log;
+    SELECT * from activity_log;
   END;
 //
 

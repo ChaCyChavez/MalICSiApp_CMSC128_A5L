@@ -139,11 +139,11 @@ CREATE TABLE match_event_team(
         FOREIGN KEY (match_id) REFERENCES match_event (match_id)
 );
 
-CREATE TABLE log (
+CREATE TABLE activity_log (
     log_id              int(11) NOT NULL AUTO_INCREMENT,
     log_description     text NOT NULL,
     log_date            timestamp DEFAULT now(),
-    account_id          int(11) NOT NULL,
+    account_id          int(11),
     PRIMARY KEY         (log_id),
     CONSTRAINT          `fk_log_account`
         FOREIGN KEY (account_id) REFERENCES account (account_id)

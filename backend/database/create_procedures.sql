@@ -296,14 +296,14 @@ delimiter //
 delimiter ;
 
 
-drop procedure if exists add_log;
+drop procedure if exists add_activity_log;
 delimiter //
-    create procedure add_log (
+    create procedure add_activity_log (
         IN _log_description     varchar(256),
         IN _account_id          int
     )
     BEGIN
-        INSERT into log(
+        INSERT into activity_log(
             log_description,
             account_id
             )

@@ -106,22 +106,22 @@ DELIMITER //
 DELIMITER ;
 
 
-/* delete log */
-drop procedure if exists delete_log;
+/* delete activity_log */
+drop procedure if exists delete_activity_logg;
 DELIMITER //
-  CREATE PROCEDURE delete_log(IN del_id int)
+  CREATE PROCEDURE delete_activity_log(IN del_id int)
   BEGIN
-    DELETE FROM log WHERE log_id = del_id;
+    DELETE FROM activity_log WHERE log_id = del_id;
   END;
 //
 DELIMITER ;
 
 
-drop procedure if exists delete_all_log;
+drop procedure if exists delete_all_activity_log;
 DELIMITER //
-  CREATE PROCEDURE delete_all_log()
+  CREATE PROCEDURE delete_all_activity_log()
   BEGIN
-    Delete FROM log;
+    Delete FROM activity_log;
   END;
 //
 DELIMITER ;
