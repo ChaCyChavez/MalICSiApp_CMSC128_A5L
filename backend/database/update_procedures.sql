@@ -3,12 +3,10 @@ use malicsi;
 drop procedure if exists update_account;
 delimiter //
     create procedure update_account (
-        IN _account_id          int(11),
         IN _firstname           varchar(256),
         IN _middlename          varchar(256),
         IN _lastname            varchar(256),
         IN _email               varchar(256),
-        IN _username            varchar(256),
         IN _password            varchar(256),
         IN _course              varchar(256),
         IN _birthday            date,
@@ -16,7 +14,8 @@ delimiter //
         IN _position            varchar(256),
         IN _is_player           boolean,
         IN _player_jersey_num   int(11),
-        IN _player_role         varchar(256)
+        IN _player_role         varchar(256),
+        IN _account_id          int(11)
     )
     BEGIN
         UPDATE account set
