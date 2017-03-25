@@ -65,6 +65,7 @@ DELIMITER //
     SELECT * from game_event where game_id = gameid;
   END;
 //
+DELIMITER ;
 
 drop procedure if exists get_all_game_event;
 DELIMITER //

@@ -166,9 +166,9 @@ delimiter ;
 drop procedure if exists add_team;
 delimiter //
     create procedure add_team (
-        IN _team_name           varchar(256) not null,
-        IN _team_color          varchar(256) not null,
-        IN _team_coach          varchar(256) not null,
+        IN _team_name           varchar(256),
+        IN _team_color          varchar(256),
+        IN _team_coach          varchar(256),
         IN _game_id             int
     )
     BEGIN
@@ -191,10 +191,10 @@ delimiter ;
 drop procedure if exists add_player;
 delimiter //
     create procedure add_player (
-        IN _account_id                  int not null,
-        IN _player_jersey_number        int not null,
+        IN _account_id                  int,
+        IN _player_jersey_number        int,
         IN _is_coach                    boolean,
-        IN _game_id                     int not null,
+        IN _game_id                     int
     )
     BEGIN
         INSERT into player(
@@ -216,8 +216,8 @@ delimiter ;
 drop procedure if exists add_team_player;
 delimiter //
     create procedure add_team_player (
-        IN _team_id         int not null,
-        IN _player_id       int not null
+        IN _team_id         int,
+        IN _player_id       int
     )
     BEGIN
         INSERT into team_player(
@@ -235,8 +235,8 @@ delimiter ;
 drop procedure if exists add_sport_player;
 delimiter //
     create procedure add_sport_player (
-        IN _sport_id         int not null,
-        IN _player_id       int not null
+        IN _sport_id        int,
+        IN _player_id       int
     )
     BEGIN
         INSERT into sport_player(
@@ -254,8 +254,8 @@ delimiter ;
 drop procedure if exists add_game_sponsor;
 delimiter //
     create procedure add_game_sponsor (
-        IN _game_id         int not null,
-        IN _sponsor_id       int not null
+        IN _game_id         int,
+        IN _sponsor_id      int
     )
     BEGIN
         INSERT into game_sponsor(
@@ -275,7 +275,7 @@ drop procedure if exists add_score;
 delimiter //
     create procedure add_score (
         IN _score_value     int,
-        IN _series          enum('elims', 'semi-finals', 'finals') not null,
+        IN _series          enum('elims', 'semi-finals', 'finals'),
         IN _match_id        int,
         IN _account_id      int
     )
@@ -300,8 +300,8 @@ delimiter ;
 drop procedure if exists add_log;
 delimiter //
     create procedure add_log (
-        IN log_description     varchar(256) not null,
-        IN account_id      int not null,
+        IN log_description     varchar(256),
+        IN account_id      int
     )
     BEGIN
         INSERT into game_sponsor(
@@ -319,8 +319,8 @@ delimiter ;
 drop procedure if exists add_player_match;
 delimiter //
     create procedure add_player_match(
-        IN _account_id         int not null,
-        IN _match_id       int not null
+        IN _account_id     int,
+        IN _match_id       int
     )
     BEGIN
         INSERT into player_match(
@@ -338,8 +338,8 @@ delimiter ;
 drop procedure if exists add_court_match;
 delimiter //
     create procedure add_court_match(
-        IN _court_id         int not null,
-        IN _match_id       int not null
+        IN _court_id       int,
+        IN _match_id       int
     )
     BEGIN
         INSERT into player_match(

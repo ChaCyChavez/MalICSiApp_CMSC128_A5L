@@ -15,7 +15,7 @@ drop procedure if exists delete_all_account;
 DELIMITER //
   CREATE PROCEDURE delete_all_account()
   BEGIN
-    DELETE * FROM account;
+    DELETE FROM account;
   END;
 //
 DELIMITER ;
@@ -43,7 +43,7 @@ drop procedure if exists delete_all_court;
 DELIMITER //
   CREATE PROCEDURE delete_all_court()
   BEGIN
-    DELETE * FROM court;
+    DELETE FROM court;
   END;
 //
 DELIMITER ;
@@ -62,7 +62,7 @@ drop procedure if exists delete_all_team;
 DELIMITER //
   CREATE PROCEDURE delete_all_team()
   BEGIN
-    DELETE * FROM team;
+    Delete FROM team;
   END;
 //
 DELIMITER ;
@@ -100,7 +100,7 @@ drop procedure if exists delete_all_game_event;
 DELIMITER //
   CREATE PROCEDURE delete_all_game_event()
   BEGIN
-    DELETE * FROM game_event;
+    Delete FROM game_event;
   END;
 //
 DELIMITER ;
@@ -121,7 +121,7 @@ drop procedure if exists delete_all_log;
 DELIMITER //
   CREATE PROCEDURE delete_all_log()
   BEGIN
-    DELETE * FROM log;
+    Delete FROM log;
   END;
 //
 DELIMITER ;
@@ -142,7 +142,7 @@ drop procedure if exists delete_all_sponsor;
 DELIMITER //
   CREATE PROCEDURE delete_all_sponsor()
   BEGIN
-    DELETE * FROM sponsor;
+    Delete FROM sponsor;
   END;
 //
 DELIMITER ;
@@ -173,7 +173,7 @@ drop procedure if exists delete_all_sport;
 DELIMITER //
   CREATE PROCEDURE delete_all_sport()
   BEGIN
-    DELETE * FROM sport;
+    Delete FROM sport;
   END;
 //
 DELIMITER ;
@@ -194,7 +194,7 @@ drop procedure if exists delete_all_match_event;
 DELIMITER //
   CREATE PROCEDURE delete_all_match_event()
   BEGIN
-    DELETE * FROM match_event;
+    Delete FROM match_event;
   END;
 //
 DELIMITER ;
