@@ -15,9 +15,9 @@ insert into team values (NULL, 'Red Job', 'Red');
 insert into team values (NULL, 'Green Job', 'Green');
 insert into team values (NULL, 'White Job', 'White');
 
-insert into activity_log values (NULL, 'Sample Log 2', 1, NULL);
-insert into activity_log values (NULL, 'Sample Log 3', 2, NULL);
-insert into activity_log values (NULL, 'Sample Log 4', 3, NULL);
+insert into activity_log values (NULL, 'Sample Log 1', 1, NULL);
+insert into activity_log values (NULL, 'Sample Log 2', 2, NULL);
+insert into activity_log values (NULL, 'Sample Log 3', 3, NULL);
 insert into activity_log values (NULL, 'Sample Log 4', 4, NULL);
 
 insert into court values (NULL, 'Baker Hall', 'UPLB', 'Gym');

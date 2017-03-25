@@ -152,3 +152,35 @@ delimiter //
     END;
 //
 delimiter ;
+
+drop procedure if exists update_team;
+delimiter //
+    create procedure update_team (
+        IN _team_id             int(11),
+        IN _team_name           varchar(256),
+        IN _team_color          varchar(256)
+    )
+    BEGIN
+        UPDATE team SET
+            team_name = _team_name,
+            team_color = _team_color
+        WHERE team_id = _team_id;
+    END;
+//
+delimiter ;
+
+drop procedure if exists update_activity_log;
+delimiter //
+    create procedure update_activity_log (
+        IN _log_id              int(11),
+        IN _log_description     text,
+        IN _log_date            timestamp,
+    )
+    BEGIN
+        UPDATE activity_log SET
+            log_description = _log_description,
+            log_date = _log_date
+        WHERE log_id = _log_id;
+    END;
+//
+delimiter ;

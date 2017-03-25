@@ -1,11 +1,11 @@
 'use strict';
 
-const db = require(__dirname + '/../lib/mariasql');
+const db = require(__dirname + '/../lib/mysql');
 const winston = require('winston');
 
 //Controller to be used for adding a log
 exports.add_log = (req,res,next) => {
-  const query_string = 'INSERT into log VALUES (?,?)'; 
+  const query_string = 'CALL add_activity_log(?, ?)'; 
   const payload = [req.body.log_description, req.body.account_id];
   const callback = (err,data) => {
     if(err){
@@ -22,10 +22,10 @@ exports.add_log = (req,res,next) => {
     db.query(query_string, payload, callback);
 };
 
-//Controller to be used for retrieving a log given a account_id
+//Controller to be used for retrieving a log given a log_id
 exports.get_log = (req, res, next) => {
-  const query_string = "SELECT * from log where account_id = ?";  
-  const payload = [req.params.account_id];
+  const query_string = "CALL get_activity_log(?)";  
+  const payload = [req.params.log_id];
   const callback = (err, data) => {
     if(err){
       winston.level = 'debug';
@@ -45,12 +45,11 @@ exports.get_log = (req, res, next) => {
     db.query(query_string, payload, callback);
 };
 
-//Controller to be used for updating a log given an account_id
+//Controller to be used for updating a log given an log_id
 exports.update_log = (req, res, next) => {
-  const query_string = 'UPDATE log set log_description = ?, account_id = ?' +
-            'WHERE log_id = ?;';
-  const payload = [req.body.team_name, req.body.log_description, 
-      req.body.account_id, req.log_id];
+  const query_string = 'CALL update_activity_log(?, ?, ?)';
+  const payload = [req.log_id, req.body.log_description, 
+      req.body.log_date];
   const callback = (err, data) => {
     if(err){
       winston.level = 'debug';
@@ -72,7 +71,7 @@ exports.update_log = (req, res, next) => {
 
 //Controller to be used for deleting a log given an account_id
 exports.delete_log = (req, res, next) => {
-  const query_string ='DELETE FROM log WHERE log_id = ?'; 
+  const query_string ='CAll delete_activity_log(?)'; 
   const payload = [req.body.log_id];
   const callback = (err, data) => {
     if(err){

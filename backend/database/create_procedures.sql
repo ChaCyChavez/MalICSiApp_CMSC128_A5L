@@ -170,20 +170,17 @@ delimiter //
     create procedure add_team (
         IN _team_name           varchar(256),
         IN _team_color          varchar(256),
-        IN _team_coach          varchar(256),
         IN _game_id             int
     )
     BEGIN
         INSERT into sport(
             team_name,
             team_color,
-            team_coach,
             game_id
             )
         values(
             _team_name,
             _team_color,
-            _team_coach,
             _game_id
             );
     END;
