@@ -1,6 +1,16 @@
 use malicsi;
 
 
+/* LOGGING IN AN ACCOUNT */
+drop procedure if exists login_account;
+DELIMITER //
+  CREATE PROCEDURE login_account(IN acctid int, IN pw varchar)
+  BEGIN
+    SELECT account_id, firstname, middlename, lastname, email, username, course,
+    birthday, college FROM account where account_id = acctid and password = pw;
+  END;
+//
+
 /* RETRIEVING AN ACCOUNT */
 drop procedure if exists get_account;
 DELIMITER //
