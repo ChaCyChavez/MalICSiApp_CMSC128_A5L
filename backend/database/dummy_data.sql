@@ -30,15 +30,15 @@ CALL add_sponsor ('Miles', 'http://logos.com/logo3.png', 'ACSS');
 CALL add_sponsor ('Emy', 'http://logos.com/logo4.png', 'YSES');
 CALL add_sponsor ('Maria', 'http://logos.com/logo2.png', 'COSS');
 
-insert into sport values (NULL, 'Volleyball', 'men', 1);
-insert into sport values (NULL, 'Volleyball', 'men', 2);
-insert into sport values (NULL, 'Volleyball', 'men', 3);
-insert into sport values (NULL, 'Volleyball', 'men', 4);
+insert into sport values (1, 'Volleyball', 'men', 1);
+insert into sport values (2, 'Volleyball', 'men', 2);
+insert into sport values (3, 'Volleyball', 'men', 3);
+insert into sport values (4, 'Volleyball', 'men', 4);
 
-insert into match_event values (NULL, true, CURDATE(), 'elimination', 1, 2);
-insert into match_event values (NULL, true, CURDATE(), 'semi-finals', 1, 2);
-insert into match_event values (NULL, true, CURDATE(), 'finals', 2, 1);
-insert into match_event values (NULL, true, CURDATE(), 'finals', 2, 1);
+insert into match_event values (1,true, CURDATE(), 'elimination', 1, 2);
+insert into match_event values (2,true, CURDATE(), 'semi-finals', 1, 2);
+insert into match_event values (3,true, CURDATE(), 'finals', 2, 1);
+insert into match_event values (4,true, CURDATE(), 'finals', 2, 1);
 
 insert into game_event_sponsor values (1, 1, "Type 1");
 insert into game_event_sponsor values (1, 2, "Type 2");
