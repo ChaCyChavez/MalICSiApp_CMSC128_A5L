@@ -1,3 +1,6 @@
+use malicsi;
+
+
 /* delete account */
 drop procedure if exists delete_account;
 DELIMITER //

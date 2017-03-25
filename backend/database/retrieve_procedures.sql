@@ -1,3 +1,6 @@
+use malicsi;
+
+
 /* RETRIEVING AN ACCOUNT */
 drop procedure if exists get_account;
 DELIMITER //
