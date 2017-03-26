@@ -17,10 +17,6 @@ nav {
     font-family: "Panton";
 }
 
-#hello {
-    padding-right: 5%;
-}
-
 #deets {
     width: 35%;
 }
@@ -81,11 +77,6 @@ nav {
     padding-bottom: 0;
 }
 
-#hello {
-    line-height: 75px;
-    font-family: "Blogger";
-    font-size: 25px;
-}
 
 #deets {
     width: 35%;

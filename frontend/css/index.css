@@ -8,6 +8,10 @@
     src: url("../fonts/blogger-sans/Blogger_Sans-Bold.otf");
 }
 
+body {
+    color: #101010;
+}
+
 nav {
     background-color: white;
     font-family: "Panton";
@@ -81,12 +85,6 @@ nav-wrapper {
     font-size: 65px;
     font-family: "Panton";
 
-}
-
-#logo {
-    margin: 65px;
-    font-size: 50px;
-    line-height: 75px;
 }
 
 .field-inputs {
@@ -169,6 +167,10 @@ nav-wrapper {
 .modal-content {
     padding: 0 !important;
 }
+
+/*.modal-footer {
+    padding: 10px !important;
+}*/
 
 .modal-footer .btn-flat {
     float: none !important;

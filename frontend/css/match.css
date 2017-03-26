@@ -46,18 +46,8 @@ nav-wrapper {
   padding-bottom: 0;
 }
 
-#hello {
-  line-height: 75px;
-  font-family: "Blogger";
-  font-size: 25px;
-}
-
 #page {
   font-size: 200% !important;
-}
-
-#logo {
-  margin-left: 5% !important;
 }
 
 #match-content {
@@ -72,12 +62,13 @@ td {
   text-indent: 20%;
 }
 
-img {
+/*img {
   position: absolute;
   margin-top: 2%;
   max-width: 10%;
   max-height: 10%;
 }
+}*/
 
 .username {
   font-family: Blogger;

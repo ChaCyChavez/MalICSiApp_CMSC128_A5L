@@ -46,12 +46,6 @@ nav-wrapper {
   padding-bottom: 0;
 }
 
-#hello {
-  line-height: 75px;
-  font-family: "Blogger";
-  font-size: 25px;
-}
-
 #add_button {
   position: absolute;
   display: inline-block;
@@ -63,9 +57,6 @@ nav-wrapper {
   font-size: 200% !important;
 }
 
-#logo {
-  margin-left: 5% !important;
-}
 
 #label {
   margin-left: 8%;

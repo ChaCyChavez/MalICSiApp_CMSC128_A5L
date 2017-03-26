@@ -1,167 +1,128 @@
-drop database if exists malicsi;
-create database malicsi;
-use malicsi;
+-- game event, team N-m
+-- team, player N-M
+-- team, match N-M
+-- Participates rel. attribute(score)
+DROP USER 'CMSC128'@'localhost';
+CREATE USER 'CMSC128'@'localhost' IDENTIFIED BY 'project128';
+DROP DATABASE IF EXISTS malicsi;
+CREATE DATABASE malicsi;
+GRANT ALL PRIVILEGES ON malicsi.* TO 'CMSC128'@'localhost' WITH GRANT OPTION;
+USE malicsi;
 
-create table account(
-    account_id          int auto_increment not null,
-    email               varchar(256) not null,
-    is_regular_account  boolean,
-    is_admin            boolean,
+
+CREATE TABLE game_event (
+    game_id             int(11) NOT NULL AUTO_INCREMENT,
+    game_name           varchar(256) NOT NULL,
+    game_starting_time_date     datetime NOT NULL,
+    game_ending_time_date       datetime NOT NULL,
+    PRIMARY KEY         (game_id)
+);
+
+CREATE TABLE team (
+    team_id             int(11) NOT NULL AUTO_INCREMENT,
+    team_name           varchar(256) NOT NULL,
+    team_color          varchar(256) NOT NULL,
+    team_coach          varchar(256) NOT NULL,
+    game_id             int(11),
+    PRIMARY KEY         (team_id),
+    CONSTRAINT          `fk_team_game`
+        FOREIGN KEY (game_id) REFERENCES game_event (game_id)
+);
+
+CREATE TABLE account (
+    account_id          int(11) NOT NULL AUTO_INCREMENT,
+    firstname           varchar(256) NOT NULL,
+    middlename          varchar(256) NOT NULL,
+    lastname            varchar(256) NOT NULL,
+    email               varchar(256) NOT NULL,
+    username            varchar(256) NOT NULL,
+    password            varchar(256) NOT NULL,
+    course              varchar(256) NOT NULL,
+    birthday            date NOT NULL,
+    college             enum('CA','CAS','CDC','CEAT','CEM','CFNR','CHE','CPAf','CVM','SESAM','GS') NOT NULL,
+    is_approved         boolean, -- DEFAULT FALSE
     is_game_head        boolean,
+    position            varchar(256),
     is_player           boolean,
-    username            varchar(256) not null,
-    password            varchar(256) not null,
-    firstname           varchar(256) not null,
-    middlename          varchar(256) not null,
-    lastname            varchar(256) not null,
-    course              varchar(256) not null,
-    birthday            date not null,
-    college             enum('CA', 'CAS', 'CDC', 'CEAT', 'CEM', 'CFNR', 'CHE', 'CPAf', 'CVM', 'SESAM', 'GS') not null,
-    status              boolean,
-    PRIMARY KEY (account_id)
+    player_jersey_num   int(11),
+    player_role         varchar(256),
+    team_id             int(11),
+    PRIMARY KEY                     (account_id),
+    CONSTRAINT         `fk_account_team`
+        FOREIGN KEY (team_id) REFERENCES team (team_id)
 );
 
-create table game (
-    game_id                 int auto_increment not null,
-    game_name               varchar(256) not null,
-    game_place              varchar(256) not null,
-    game_starting_time_date date not null,
-    game_ending_time_date   date not null,
-    account_id              int not null,
-    PRIMARY KEY             (game_id),
-    Constraint      `fk_game_account`
-        foreign key (account_id) references account (account_id)
+CREATE TABLE log (
+    log_id              int(11) NOT NULL AUTO_INCREMENT,
+    log_description     varchar(256) NOT NULL,
+    account_id          int(11) NOT NULL,
+    -- add timestamp
+    PRIMARY KEY         (log_id),
+    CONSTRAINT          `fk_log_account`
+        FOREIGN KEY (account_id) REFERENCES account (account_id)
 );
 
-create table team (
-    team_id             int auto_increment not null,
-    team_name           varchar(256) not null,
-    team_color          varchar(256) not null,
-    team_coach          varchar(256) not null,
-    PRIMARY KEY         (team_id)
+CREATE TABLE court (
+    court_id            int(11) NOT NULL AUTO_INCREMENT,
+    court_name          varchar(256) NOT NULL,
+    court_location      varchar(256) NOT NULL,
+    court_type          varchar(256) NOT NULL,
+    PRIMARY KEY         (court_id)
 );
 
-create table player (
-    player_id                   int auto_increment not null,
-    account_id                  int not null,
-    player_jersey_number        int not null,
-    is_coach                    boolean,
-    game_id                     int not null,
-    PRIMARY KEY                 (player_id),
-    Constraint      `fk_player_account`
-        foreign key (account_id) references account (account_id),
-    Constraint      `fk_player_game`
-        foreign key (game_id) references game (game_id)
-);
-
-create table team_player (
-    team_id         int not null,
-    player_id       int not null,
-    PRIMARY KEY     (team_id, player_id),
-    Constraint      `fk_team_player_team`
-        foreign key (team_id) references team (team_id),
-    Constraint      `fk_team_player_player`
-        foreign key (player_id) references player (player_id)
-);
-
-create table court (
-    court_id        int auto_increment not null,
-    court_name      varchar(256) not null,
-    court_location  varchar(256) not null,
-    court_type      varchar(256) not null,
-    PRIMARY KEY     (court_id)
-);
-
-create table sport (
-    sport_id                int auto_increment not null,
-    sport_type              varchar(256) not null,
-    number_of_participants   int not null,
-    date_time               date not null,
-    division                enum('men','women','mixed') not null,
-    game_id                 int not null,
-    court_id                int not null,
-    PRIMARY KEY             (sport_id),
-    Constraint      `fk_sport_game`
-        foreign key (game_id) references game (game_id),
-    Constraint      `fk_sport_court`
-        foreign key (court_id) references court (court_id)
-);
-
-create table sport_player (
-    sport_id        int not null,
-    player_id       int not null,
-    PRIMARY KEY     (sport_id, player_id),
-    Constraint      `fk_sport_player_sport`
-        foreign key (sport_id) references sport (sport_id),
-    Constraint      `fk_sport_player_player`
-        foreign key (player_id) references player (player_id)
-);
-
-create table sponsor (
-    sponsor_id      int auto_increment not null,
-    sponsor_name    varchar(256) not null,
-    sponsor_affiliation varchar(256),
+CREATE TABLE sponsor (
+    sponsor_id          int(11) NOT NULL AUTO_INCREMENT,
+    sponsor_name        varchar(256) NOT NULL,
     sponsor_logo        varchar(256),
-    game_id     int not null,
-    PRIMARY KEY (sponsor_id),
-    Constraint      `fk_sponsor_game`
-        foreign key (game_id) references game (game_id)
+    sponsor_affiliation varchar(256),
+    PRIMARY KEY         (sponsor_id)
 );
 
-create table game_sponsor (
-    game_id     int not null,
-    sponsor_id      int not null,
-    PRIMARY KEY (game_id, sponsor_id),
-    Constraint      `fk_game_sponsor_game`
-        foreign key (game_id) references game (game_id),
-    Constraint      `fk_game_sponsor_sponsor`
-        foreign key (sponsor_id) references sponsor (sponsor_id)
+CREATE TABLE sport (
+    sport_id            int(11) NOT NULL AUTO_INCREMENT,
+    sport_type          varchar(256) NOT NULL,
+    division            enum('men','women','mixed') NOT NULL,
+    game_id             int(11) NOT NULL,
+    PRIMARY KEY         (sport_id),
+    CONSTRAINT          `fk_sport_game`
+        FOREIGN KEY (game_id) REFERENCES game_event (game_id)
 );
 
-create table score (
-    score_id        int auto_increment not null,
-    sport_id        int not null,
-    winning_team    varchar(256) not null,
-    losing_team     varchar(256) not null,
-    series          enum('elims', 'semi-finals', 'finals') not null,
-    PRIMARY KEY     (score_id),
-    Constraint      `fk_score_sport`
-        foreign key (sport_id) references sport (sport_id)
+CREATE TABLE match_event (
+    match_id            int(11) NOT NULL AUTO_INCREMENT,
+    status              boolean,
+    match_date_time     datetime,
+    score1              int(11), -- separate table
+    score2              int(11),
+    series	              enum('elimination','semi-finals','finals') NOT NULL,
+    sport_id            int(11),
+    team1_id            int(11),
+    team2_id            int(11),
+    court_id            int(11),
+    PRIMARY KEY         (match_id),
+    CONSTRAINT          `fk_match_sport`
+        FOREIGN KEY (sport_id) REFERENCES sport (sport_id),
+    CONSTRAINT          `fk_score_team1` 
+        FOREIGN KEY (team1_id) REFERENCES team (team_id),
+    CONSTRAINT          `fk_score_team2` 
+        FOREIGN KEY (team1_id) REFERENCES team (team_id),
+    CONSTRAINT          `fk_match_event_court` 
+        FOREIGN KEY (court_id) REFERENCES court (court_id)
+);
+-- TEAM_MATCH_SCORE table
+CREATE TABLE game_event_sponsor (
+    game_id             int(11) NOT NULL,
+    sponsor_id          int(11) NOT NULL,
+    sponsor_type		varchar(256) NOT NULL,
+    -- ^change to enum	Minor, Major, Off. Partner
+    PRIMARY KEY         (game_id,sponsor_id),
+    CONSTRAINT          `fk_game_sponsor_game` 
+        FOREIGN KEY (game_id) REFERENCES game_event (game_id),
+    CONSTRAINT          `fk_game_sponsor_sponsor`
+        FOREIGN KEY (sponsor_id) REFERENCES sponsor (sponsor_id)
 );
 
-create table log ( 
-    log_id        int auto_increment not null,
-    log_description     varchar(256) not null,
-    account_id      int not null,
-    PRIMARY KEY (log_id),
-    Constraint      `fk_log_account`
-        foreign key (account_id) references account (account_id)
-);
 
-create table participates (
-    player_id       int not null, 
-    sport_id        int not null,
-    PRIMARY KEY     (player_id, sport_id),
-    Constraint      `fk_participates_player`
-        foreign key (player_id) references player (player_id),
-    Constraint      `fk_participates_sport`
-        foreign key (sport_id) references sport (sport_id)
-);
 
-create table registers (
-    player_id       int not null, 
-    game_id         int not null,
-    PRIMARY KEY     (player_id, game_id),
-    Constraint      `fk_registers_player`
-        foreign key (player_id) references player (player_id),
-    Constraint      `fk_registers_game`
-        foreign key (game_id) references game (game_id)
-);
-
-create table game_game_type (
-    game_id         int not null, 
-    game_type       varchar(128) not null,
-    PRIMARY KEY     (game_id, game_type),
-    Constraint      `fk_game_game_type_game`
-        foreign key (game_id) references game (game_id)
-);
+-- triggers
+-- procedures 
