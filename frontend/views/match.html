@@ -1,6 +1,7 @@
 
-<div ng-controller="profile-controller">
+<div ng-controller="match-controller">
   <div class="navbar-fixed">
+    <div class="navbar-fixed">
     <nav>
       <div class="nav-wrapper">
         <a href="javascript:void(0)" class="grey-text text-darken-4 center" id="logo" ng-click="back_to_home()">MalICSi</a>
@@ -24,77 +25,79 @@
     <li><a href="javascript:void(0)"><p class="right-align valign red-text" ng-click="logout()">X logout</p></a></li>
   </ul>
 
-  <div id="all" class="row font2">
-      <div class="col s12 m12 l6 xl6">
-        <div class="card">
-          <div class="card-content"> 
-            <!-- <div class="row"> -->
-              <div class="container">
-                <img class="circle" src="img/placeholder.png">
-              </div>
-            </div>
-          <!-- </div> -->
-          <div class="card-content teal lighten-1">
-            <!-- <div class="row"> -->
-              <div class="card-content center-align white-text">
-                <h1>JUAN DELA CRUZ</h1>
-                <h3>2014-12345</h3>
-                <h3>CAS</h3>
-                <h3>BSCS</h3>
-              </div>
-            <!-- </div> -->
+  <!-- Contents -->
+  <div class="row contents" id="match-content">
+    <div class="col s0 m0 l1">&nbsp</div>
+    <!-- Score Table -->
+    <div class="col s12 m0">
+      <div class="col s6 m6">
+        <div class="card-panel">
+          <table class="highlight">
+            <thead>
+              <tr>
+                <th><h5>TEAM</h5></th>
+                <th><h5>SCORE</h5></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Team A</td>
+                <td>Score A</td>
+              </tr>
+              <tr>
+                <td>Team B</td>
+                <td>Score B</td>
+              </tr>
+              <tr>
+                <td>Team C</td>
+                <td>Score C</td>
+              </tr>
+              <tr>
+                <td>Team D</td>
+                <td>Score D</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="col s6 m6">
+        <!-- Winner -->
+        <div class="card-panel">
+          <div>
+            <h4 class="card-title center">WINNER</h4>
+          </div>
+          <div class="card-content">
+            <h5 id="match-winner">Winning Team</h5>
+          </div>
+        </div>
+
+        <!-- Court -->
+        <div class="card-panel">
+          <div>
+            <h4 class="card-title center">COURT</h4>
+          </div>
+          <div class="card-content">
+            <h5 id="match-winner">Court in Match</h5>
           </div>
         </div>
       </div>
 
-      <div class="col s12 m12 l6 xl6">
-        <div class="card">
-          <div class="card-content">
-            <h3 class="teal-text text-lighten-1">UPCOMING EVENTS</h3>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-content">
-            <h3 class="teal-text text-lighten-1">EVENTS PLAYED</h3>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-          </div>
-        </div>
-      </div>
-</div>
+      
+    </div>
+  </div>
 
-  <footer class="page-footer cyan darken-2">
+  <!-- Footer -->
+  <footer class="page-footer teal lighten-1">
     <div class="container">
       <div class="row">
         <div class="col 16 s12">
+
           <p class="grey-text text-lighten-4">
             MalICSihan is a sports management application catered for UPLB individuals which aims to showcase reliable person-game information and interaction. MalICSihan is developed by 21 undergraduate students from the Institue of Computer Science to achieve an academic requirement in their CMSC 128: An Introduction to Software Engineering class.
           </p>
         </div>
-        
+
       </div>
     </div>
 

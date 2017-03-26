@@ -17,18 +17,6 @@ nav {
     font-family: "Panton";
 }
 
-#slide-out {
-    font-family: "Panton";
-}
-
-#slide-out li a{
-    padding-bottom: 0;
-}
-
-#hello {
-    padding-right: 5%;
-}
-
 #deets {
     width: 35%;
 }
@@ -64,9 +52,10 @@ nav {
 }
 
 #logo {
-    margin: 65px;
     font-size: 50px;
     line-height: 75px;
+    margin-left: 2% !important;
+    margin-right: 0 !important;
 }
 
 @media only screen and (min-width: 1px) {
@@ -85,9 +74,16 @@ nav {
 }
 
 #hello {
+    padding-right: 5%;
     line-height: 75px;
     font-family: "Blogger";
     font-size: 25px;
+}
+
+@media only screen and (max-width: 700px) {
+  #hello {
+    display: none;
+  }
 }
 
 #deets {

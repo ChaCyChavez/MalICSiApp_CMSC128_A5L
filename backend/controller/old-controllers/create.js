@@ -1,13 +1,15 @@
 'use strict'
 
-const db = require(__dirname + '/../lib/mariasql');
+const db = require(__dirname + '/../../lib/mysql');
 
 exports.add_account = (req,res,next) => {
+
   const query_string = 'INSERT into account VALUES (NULL,?,?,?,?,?,?,?,?,?,'
       +'?,?,?,?,?)'; 
   const payload = [req.body.email, req.body.is_regular_account, 
       req.body.is_admin, req.body.is_game_head, req.body.is_player,
-      req.body.username, req.body.password, req.body.firstname, 
+      req.body.username, crypto.createHash('sha256').
+      update(req.body.password).digest('base64'),req.body.firstname,
       req.body.middlename, req.body.lastname, req.body.course,
       req.body.birthday, req.body.college, req.body.status];
   const callback = (err,data) => {

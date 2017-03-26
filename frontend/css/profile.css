@@ -99,41 +99,8 @@ nav {
     width: 35%;
 }
 
-.reg {
-    font-size: 150%;
-}
-
-.box {
-    min-height: 20px;
-    line-height: 100%;
-    padding-top: 15%;
-    padding-bottom: 20%;
-}
-
-
 .si {
     font-size: 150%;
-}
-
-.carousel {
-   box-shadow: 1px 2px 3px 1px rgba(0, 0, 0, 0.5);
-}
-
-.contents {
-    margin-left: 50px;
-    margin-right: 50px;
-}
-
-.card large .card-content{
-    line-height: 34px; 
-}
-
-.news-announcement {
-    font-family: "Blogger";
-    width: 100%;
-    padding: auto;
-    margin: auto;
-    text-align: center;
 }
 
 .page-footer {
@@ -152,8 +119,6 @@ a.tab {
     font-size: 26px;
     line-height: 60px;
 }
-
-
 a#spon {
     height: 100px;
     font-size: 26px;
@@ -188,23 +153,14 @@ img {
     max-height: 100%;
 }
 
-.circle {
-    background-color: white;
+#all {
+    margin: 3%;
 }
 
-.row-left, .column-split {
-    height: 50%;
-    font-family: Blogger;
+.font1{
+    font-family: "Panton";
 }
 
-.pic-left {
-    padding-top: 10%;
-}
-
-.card-panel {
-    padding: 0;
-}
-
-.cyan-text {
-    padding: 2%;
+.font2{
+    font-family: "Blogger";
 }

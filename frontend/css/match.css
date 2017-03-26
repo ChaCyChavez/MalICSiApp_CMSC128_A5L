@@ -1,0 +1,77 @@
+@font-face {
+  font-family: "Panton";
+  src: url("../fonts/panton/Panton-BlackCaps.otf");
+}
+
+@font-face {
+  font-family: "Blogger";
+  src: url("../fonts/blogger-sans/Blogger_Sans-Bold.otf");
+}
+
+nav {
+  background-color: white;
+  font-family: "Panton";
+}
+
+.brand-logo {
+  line-height: 75px;
+  font-size: 350% !important;
+  margin-left: 2%;
+}
+
+nav-wrapper {
+  position: fixed;
+}
+
+#slide-out {
+  font-family: "Panton";
+}
+
+#slide-out li a{
+  padding-bottom: 0;
+}
+
+@media only screen and (min-width: 1px) {
+  nav .brand-logo {
+    margin-left: 15px !important;
+    position: absolute;
+  }
+}
+
+#slide-out {
+  font-family: "Panton";
+}
+
+#slide-out li a{
+  padding-bottom: 0;
+}
+
+#page {
+  font-size: 200% !important;
+}
+
+#match-content {
+  font-family: Blogger
+}
+
+th {
+  text-indent: 20%;
+}
+
+td {
+  text-indent: 20%;
+}
+
+/*img {
+  position: absolute;
+  margin-top: 2%;
+  max-width: 10%;
+  max-height: 10%;
+}*/
+
+.username {
+  font-family: Blogger;
+  padding-top: 8%;
+  padding-left: 5%;
+  text-align: center;
+}

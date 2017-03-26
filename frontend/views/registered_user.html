@@ -1,5 +1,4 @@
-
-<div ng-controller="participant-controller">
+<div ng-controller="registered-user-controller">
   <div class="navbar-fixed">
     <nav>
       <div class="nav-wrapper">
@@ -23,66 +22,94 @@
     </div></li>
     <li><a href="javascript:void(0)"><p class="right-align valign red-text" ng-click="logout()">X logout</p></a></li>
   </ul>
-
-  <br></br>
-  <form>
-  <div class= "container">
-  <select class="browser-default">
-  <option value="javascript:void(0)" disabled selected>SELECT SPORT</option>
-  <option value="1">Option 1</option>
-  <option value="2">Option 2</option>
-  <option value="3">Option 3</option>
-  </select>
-  </div>
- 
-
-      <div class="input-field container">
+  
+ <div class="sb">
+    <form>
+      <div class="input-field">
         <input id="search" type="search" required>
         <label class="label-icon" for="search"><i class="material-icons">search</i></label>
         <i class="material-icons">close</i>
       </div>
     </form>
-
-  <div class = "table container">
- <ul class="collection">
-  <li class="collection-item avatar">
-    <i class="material-icons circle red">play_arrow</i>
-    <span class="title">Paulo Quilos</span>
-    <p>Batch 2012 <br>
-       Blue Team
-    </p>
-    <a href="javascript:void(0)" class="secondary-content"><i class="material-icons">grade</i></a>
-  </li>
-  <li class="collection-item avatar">
-    <i class="material-icons circle red">play_arrow</i>
-    <span class="title">Lily Puth</span>
-    <p>Batch 2015 <br>
-       Green Team
-    </p>
-    <a href="javascript:void(0)" class="secondary-content"><i class="material-icons">grade</i></a>
-  </li>
-  <li class="collection-item avatar">
-    <i class="material-icons circle red">play_arrow</i>
-    <span class="title">Ash Ketchup</span>
-    <p>Batch 2013 <br>
-       Red Team
-    </p>
-    <a href="javascript:void(0)" class="secondary-content"><i class="material-icons">grade</i></a>
-  </li>
-  <li class="collection-item avatar">
-    <i class="material-icons circle red">play_arrow</i>
-    <span class="title">Paul Guiao</span>
-    <p>Bacth 2012 <br>
-       Blue Team
-    </p>
-    <a href="javascript:void(0)" class="secondary-content"><i class="material-icons">grade</i></a>
-  </li>
-</ul>
-</div>
+  </div>
   
- 
+	<div class="playertable shadow-z">
+  	<table class="highlight">
+  	<thead>
+		 <tr>
+  		<th>Player</th>
+  		<th>Course</th> 
+  		<th>College</th>
+  		<th>Team Name</th>
+		</tr>
+		<thead>
+		<tbody>
+		<tr>
+  		<td><i class="material-icons circle">folder</i>Pearl</td>
+  		<td>BSCS</td> 
+  		<td>CAS</td>
+  		<td>Team<a href="javascript:void(0)" class="secondary-content"><i class="material-icons">send</i></a></td>
+  		
+		</tr>
+		<tr>
+  		<td><i class="material-icons circle">folder</i>Pawi</td>
+  		<td>BSCS</td> 
+  		<td>CAS</td>
+  		<td>Team<a href="javascript:void(0)" class="secondary-content"><i class="material-icons">send</i></a>send</i></td>
+		</tr>
+		<tr>
+  		<td><i class="material-icons circle">folder</i>Pol</td>
+  		<td>BSCS</td> 
+  		<td>CAS</td>
+  		<td>Team<a href="javascript:void(0)" class="secondary-content"><i class="material-icons">send</i></a></td>
+		</tr>
+		<tr>
+  		<td><i class="material-icons circle">folder</i>Cyrus</td>
+  		<td>BSCS</td> 
+  		<td>CAS</td>
+  		<td>Team<a href="javascript:void(0)" class="secondary-content"><i class="material-icons">send</i></a></td>
+		</tr>
+		<tr>
+  		<td><i class="material-icons circle">folder</i>Alvin</td>
+  		<td>BSCS</td> 
+  		<td>CAS</td>
+  		<td>Team<a href="javascript:void(0)" class="secondary-content"><i class="material-icons">send</i></a></td>
+		</tr>
+		<tr>
+  		<td><i class="material-icons circle">folder</i>Alvin</td>
+  		<td>BSCS</td> 
+  		<td>CAS</td>
+  		<td>Team<a href="javascript:void(0)" class="secondary-content"><i class="material-icons">send</i></a></td>
+		</tr>
+		<tr>
+  		<td><i class="material-icons circle">folder</i>Alvin</td>
+  		<td>BSCS</td> 
+  		<td>CAS</td>
+  		<td>Team<a href="javascript:void(0)" class="secondary-content"><i class="material-icons">send</i></a></td>
+		</tr>
+		<tr>
+  		<td><i class="material-icons circle">folder</i>Alvin</td>
+  		<td>BSCS</td> 
+  		<td>CAS</td>
+  		<td>Team<a href="javascript:void(0)" class="secondary-content"><i class="material-icons">send</i></a></td>
+		</tr>
+		<tr>
+  		<td><i class="material-icons circle">folder</i>Alvin</td>
+  		<td>BSCS</td> 
+  		<td>CAS</td>
+  		<td>Team<a href="javascript:void(0)" class="secondary-content"><i class="material-icons">send</i></a></td>
+		</tr>
+		<tr>
+  		<td><i class="material-icons circle">folder</i>Alvin</td>
+  		<td>BSCS</td> 
+  		<td>CAS</td>
+  		<td>Team<a href="javascript:void(0)" class="secondary-content"><i class="material-icons">send</i></a></td>
+		</tr>
+		</tbody>
+	</table>
+  </div>
+  <!--end-->
 
- 
 
   <footer class="page-footer cyan darken-2">
     <div class="container">
