@@ -82,6 +82,7 @@ nav-wrapper {
     font-family: "Panton";
 
 }
+
 #logo {
     margin: 65px;
     font-size: 50px;
@@ -140,7 +141,12 @@ nav-wrapper {
     font-family: "Panton";
 }
 
-#login-form, #register-form {
+#register-form {
+    padding-left: 15%;
+}
+
+#login-form {
+    padding-top: 3%;
     padding-left: 15%;
 }
 
@@ -152,7 +158,12 @@ nav-wrapper {
 
 .page-footer {
     box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.5);
-    text-align: center; 
+    text-align: center;
+}
+
+.modal {
+    max-height: 70% !important;
+    background-color: #ffffff;
 }
 
 .modal-content {

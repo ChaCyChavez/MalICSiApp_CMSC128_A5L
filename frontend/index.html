@@ -2,7 +2,7 @@
 <html>
   <head>
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    
+
     <link type="text/css" rel="stylesheet" href="bower_components/materialize/dist/css/materialize.css"  media="screen,projection"/>
     <link type="text/css" rel="stylesheet" href="css/home.css"  media="screen,projection"/>
     <link type="text/css" rel="stylesheet" href="css/index.css"  media="screen,projection"/>
@@ -24,13 +24,13 @@
         <div class="nav-wrapper">
           <a href="#" class="grey-text text-darken-4 si" id="logo">MalICSi</a>
           <ul id="nav-mobile" class="right">
-            <li class="waves-effect waves-light"><a href="#modal2">
+            <li class="waves-effect waves-light"><a href="#modal-register">
               <div class="grey-text text-darken-4 box">
                 <span class="nam">not a member?</span><br>
                 <span class="reg">register</span>
               </div>
             </a></li>
-            <li><a class="cyan darken-2 si" href="#modal1"><span class="white-text ">sign in</span></a></li>
+            <li><a class="cyan darken-2 si" href="#modal-login"><span class="white-text ">sign in</span></a></li>
           </ul>
         </div>
       </nav>
@@ -68,13 +68,13 @@
             <div class="card-content">
               <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
             </div>
-            
+
             <div class="card-action">
               <a href="#">Read More</a>
             </div>
           </div>
         </div>
-        
+
         <div class="col s12 m4">
           <div class="card large z-depth-3">
             <div class="card-image">
@@ -84,7 +84,7 @@
             <div class="card-content">
               <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
             </div>
-            
+
             <div class="card-action">
               <a href="#">Read More</a>
             </div>
@@ -96,7 +96,7 @@
             <div class="card-image">
             <img src="img/sample-2.jpg">
             <span class="card-title">Card Title</span>
-            
+
             </div>
             <div class="card-content">
               <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
@@ -174,14 +174,15 @@
       </div>
     </footer>
 
-    <div id="modal1" class="modal modal-fixed-footer">
+    <!-- Modal Structure -->
+    <div id="modal-login" class="modal modal-fixed-footer">
       <div class="modal-content">
-        <div class="cyan darken-2 content-title">
+        <div class="cyan darken-2 content-title row">
           <h4 class="login white-text">LOGIN</h4>
         </div>
-        <div class="form-content" style="overflow-x: scroll; height: 287px;">
+        <div class="form-content">
           <div class="row">
-            <form id="login-form" class="col s12">
+            <form id="login-form">
               <div id="login-users" class="row">
                 <div class="input-field col s10">
                   <input class="field-inputs" type="text" class="validate">
@@ -209,12 +210,12 @@
     </div>
 
     <!-- Modal Structure -->
-    <div id="modal2" class="modal modal-fixed-footer">
+    <div id="modal-register" class="modal modal-fixed-footer">
       <div class="modal-content">
         <div class="content-title cyan darken-2">
           <h4 class="register white-text">REGISTER</h4>
         </div>
-        <div class="form-content" style="overflow-y: scroll; height: 287px;">
+        <div class="form-content">
           <div class="row">
             <form id="register-form" class="col s12">
               <div id="register-name" class="row">

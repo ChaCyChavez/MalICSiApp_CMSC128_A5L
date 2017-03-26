@@ -15,7 +15,6 @@
     <div class="navbar-fixed">
       <nav>
         <div class="nav-wrapper">
-          <a href="#" data-activates="slide-out" class="brand-logo left grey-text text-darken-4" id="butones"><i class="material-icons center-align">menu</i></a>
           <a href="#" class="grey-text text-darken-4 center" id="logo">MalICSi</a>
           <ul id="nav-mobile" class="right">
             <li><div class="grey-text text-darken-4" id="hello">Welcome</div></li>
@@ -25,16 +24,6 @@
       </nav>
     </div>
 
-    <ul id="slide-out" class="side-nav cyan darken-2">
-      <li><h2 class="center-align valign white-text side-logo">MalICSi</h2></li>
-      <li><div class="container"><div class="divider"></div></br></div></li>
-      <li><a href="#" class="tab center-align white-text">SPORTS</a></li>
-      <li><a href="#" class="tab center-align white-text">WINNERS</a></li>
-      <li><a href="#" class="tab center-align white-text">GAMES</a></li>
-      <li><a href="#" class="tab center-align white-text">PLAYERS</a></li>
-      <li><a href="#" class="tab center-align white-text" id="spon">SPONSORING INSTITUTES</a></li>
-    </ul>
-
     <ul id='dropdown1' class='dropdown-content'>
       <li>
         <div class="container" id="deets">
@@ -42,27 +31,32 @@
       </li>
     </ul>
 
-    <br></br>
-    <form>
-    <div class= "container">
-    <select class="browser-default">
-    <option value="" disabled selected>SELECT SPORT</option>
-    <option value="1">Option 1</option>
-    <option value="2">Option 2</option>
-    <option value="3">Option 3</option>
-    </select>
-    </div>
-   
-
-        <div class="input-field container">
-          <input id="search" type="search" required>
-          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-          <i class="material-icons">close</i>
+    <!-- Search -->
+    <div class="row">
+      <form class="col s12 m12">
+        <div class="row">
+          <div class="input-field col s12 m12 right" id = "search">
+            <i class="material-icons prefix">search</i>
+            <input id="icon_prefix" type="text" class="validate">
+            <label for="icon_prefix">Search Player</label>
+          </div>
         </div>
       </form>
+    </div>
+
+    <form>
+      <div class= "container">
+        <select class="browser-default">
+          <option value="" disabled selected>SELECT SPORT</option>
+          <option value="1">Option 1</option>
+          <option value="2">Option 2</option>
+          <option value="3">Option 3</option>
+        </select>
+      </div>
+    </form>
 
     <div class = "table container">
-   <ul class="collection">
+    <ul class="collection">
     <li class="collection-item avatar">
       <i class="material-icons circle red">play_arrow</i>
       <span class="title">Paulo Quilos</span>
@@ -96,11 +90,7 @@
       <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
     </li>
   </ul>
-  </div>
-    
-   
-
-   
+  </div> 
 
     <footer class="page-footer cyan darken-2">
       <div class="container">
