@@ -46,11 +46,17 @@ nav-wrapper {
   padding-bottom: 0;
 }
 
-#add_button {
-  position: absolute;
+.add-button {
+  position: fixed;
   display: inline-block;
   right: 15px;
   bottom: 30px;
+}
+
+#search {
+  font-size: 50px;
+  margin-top: 40px;
+  margin-bottom: 0;
 }
 
 #page {
@@ -59,6 +65,7 @@ nav-wrapper {
 
 
 #label {
+  margin-top: 0;
   margin-left: 8%;
   font-size: 250%;
   font-family: Blogger;
