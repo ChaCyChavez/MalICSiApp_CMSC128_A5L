@@ -46,6 +46,9 @@ mainApp.config(function($routeProvider) {
 			templateUrl: 'views/match.html',
 			controller: 'match-controller'
 		})
+		.when('/activity-log', {
+			templateUrl: 'views/activity_log.html'
+		})
 		.when('/error_404', {
 			templateUrl: 'views/error_404.html',
 			controller: 'error-404-controller'
