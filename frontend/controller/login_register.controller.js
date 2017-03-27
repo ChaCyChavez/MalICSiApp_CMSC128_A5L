@@ -7,7 +7,7 @@
     function login_register_controller($scope, $location) {
         
         $scope.login = () => {
-        		$("#modal1").modal('close');
+        		$("#modal-login").modal('close');
         		
             $location.path("/game-event").replace();
         }

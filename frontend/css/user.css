@@ -2,17 +2,6 @@ body {
   font-family: "Blogger";
 }
 
-#search-user {
-  padding: 0;
-  background: #fff;
-  position: fixed;
-  width: 525px;
-  right: 10px;
-  top: 90px;
-  z-index: 100;
-  box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.5);
-}
-
 .user-header {
   font-family: "Blogger";
   margin-top: 40px;
@@ -47,4 +36,45 @@ body {
   right: 0;
   max-width: 100%;
   padding: 5px;
+}
+.header {
+  width: 100%;
+  margin-left: 5%;
+}
+
+h3.header {
+  margin-left: 0;
+  text-align: center;
+}
+
+.carousel {
+  margin: auto !important;
+  width: 95% !important;
+  height: 350px !important;
+  padding: 10px !important;
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.125) !important;
+}
+
+.carousel-item {
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+  width: 25% !important;
+}
+
+@media only screen and (max-width: 800px) {
+  .carousel-item {
+    width: 33% !important;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .carousel-item {
+    width: 50% !important;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .carousel-item {
+    width: 100% !important;
+  }
 }
