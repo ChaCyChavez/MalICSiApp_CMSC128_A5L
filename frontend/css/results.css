@@ -12,10 +12,6 @@ body {
     color: #212121;
 }
 
-nav {
-    background-color: white;
-    font-family: "Panton";
-}
 
 #deets {
     width: 35%;
@@ -27,12 +23,6 @@ nav {
     font-size: 350% !important;
 }
 
-.nav-wrapper {
-    position: fixed;
-    height: 75px !important;
-    background-color: #fff;
-    box-shadow: 0px 2px 3px 2px rgba(0, 0, 0, 0.3);
-}
 
 .nam {
     font-size: 75%;
@@ -68,15 +58,6 @@ nav {
     position: absolute;
   }
 }
-
-#slide-out {
-    font-family: "Panton";
-}
-
-#slide-out li a{
-    padding-bottom: 0;
-}
-
 
 #deets {
     width: 35%;
@@ -114,12 +95,6 @@ nav {
     margin: auto;
     text-align: center;
 }
-
-.page-footer {
-    box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.5);
-    text-align: center;
-}
-
 
 .side-logo {
     font-size: 60px;

@@ -19,18 +19,6 @@ nav {
   margin-left: 2%;
 }
 
-nav-wrapper {
-  position: fixed;
-}
-
-#slide-out {
-  font-family: "Panton";
-}
-
-#slide-out li a{
-  padding-bottom: 0;
-}
-
 @media only screen and (min-width: 1px) {
   nav .brand-logo {
     margin-left: 15px !important;
