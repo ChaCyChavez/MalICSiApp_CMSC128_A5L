@@ -1,6 +1,6 @@
 'use strict';
 
-const db = require(__dirname + '/../lib/mariasql');
+const db = require(__dirname + '/../lib/mysql');
 const winston = require('winston');
 const crypto        = require('crypto');
 const nodemailer    = require('nodemailer');
@@ -161,19 +161,41 @@ exports.get_account = (req, res, next) => {
   db.query(query_string, payload, callback);
 };
 
-//Controller to be used to delete an account given an account_id
-exports.delete_account = (req, res, next) => {
-  const query_string ='CALL delete_account(?)'; 
-  const payload = [req.body.account_id];
+//Controller to be used to retrieve all account
+exports.get_all_account = (req, res, next) => {
+  const query_string = "CALL get_all_account()";  
+  const payload = [];
   const callback = (err, data) => {
     if(err){
       winston.level = 'debug';
       winston.log('debug', 'err: ', err);
       return res.status(500).send({ error_code:err.code});
-    } else if (data.info.affectedRows == 0) {
+    } else if (data[0].length == 0) {
+      winston.level = 'info';
+      winston.log('info', 'Empty');
+      return res.status(404).send({ message: 'Empty! Retrieve failed'});
+    } else {
+      winston.level = 'info';
+      winston.log('info', 'Successfully retrieved accounts!');
+      return res.status(200).send(data);
+    }
+ };
+
+  db.query(query_string, payload, callback);
+};
+//Controller to be used to delete an account given an account_id
+exports.delete_account = (req, res, next) => {
+  const query_string ='CALL delete_account(?)'; 
+  const payload = [req.params.account_id];
+  const callback = (err, data) => {
+    if(err){
+      winston.level = 'debug';
+      winston.log('debug', '\n', err);
+      return res.status(500).send({ error_code:err.code});
+    } else if (data.affectedRows == 0) {
       winston.level = 'info';
       winston.log('info', 'Not found! Delete failed');
-      return res.status(404).send(data);
+      return res.status(404).send({ message: 'Not found! Delete failed'});
     } else {
       winston.level = 'info';
       winston.log('info', 'Successfully deleted account!');

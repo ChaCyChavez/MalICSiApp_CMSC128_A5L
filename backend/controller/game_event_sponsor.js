@@ -1,6 +1,6 @@
 'use strict';
 
-const db = require(__dirname + '/../lib/mariasql');
+const db = require(__dirname + '/../lib/mysql');
 const winston = require('winston');
 
 //ADD game_event_sponsor

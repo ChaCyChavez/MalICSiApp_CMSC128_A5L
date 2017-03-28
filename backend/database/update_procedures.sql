@@ -173,7 +173,7 @@ delimiter //
     create procedure update_activity_log (
         IN _log_id              int(11),
         IN _log_description     text,
-        IN _log_date            timestamp,
+        IN _log_date            timestamp
     )
     BEGIN
         UPDATE activity_log SET
