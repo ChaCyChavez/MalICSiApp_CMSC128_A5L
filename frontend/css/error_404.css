@@ -1,9 +1,9 @@
-body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
+
+#error-content {
+	margin: auto;
+	text-align: center;
 }
 
-main {
-    flex: 1 0 auto;
+#error-content h1 {
+	font-size: 100px;
 }

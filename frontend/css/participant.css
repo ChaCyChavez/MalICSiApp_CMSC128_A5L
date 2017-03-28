@@ -149,3 +149,8 @@ a#spon:hover, a.tab:hover {
     background: #fafaff;
     color: #0097a7 !important;
 }
+
+.participant-list {
+    margin: auto;
+    width: 90% !important;
+}

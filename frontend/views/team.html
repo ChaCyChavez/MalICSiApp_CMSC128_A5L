@@ -1,128 +1,129 @@
-<div>
-  <div class="navbar-fixed">
-    <nav>
-      <div class="nav-wrapper">
-        <a href="javascript:void(0)" class="grey-text text-darken-4 center" id="logo" ng-click="back_to_home()">MalICSi</a>
-        <ul id="nav-mobile" class="right">
-          <li><div class="grey-text text-darken-4" id="hello">Welcome, Juan Dela Cruz</div></li>
-          <li><a href="javascript:void(0)" data-activates="dropdown1" class="teal dropdown-button" id="dr" dropdown><i class="material-icons center-align">perm_identity</i></a></li>
-        </ul>
+<div class="main-container">
+  <div class="content">
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper">
+          <a href="javascript:void(0)" class="grey-text text-darken-4 center" id="logo" ng-click="back_to_home()">MalICSi</a>
+          <ul id="nav-mobile" class="right">
+            <li><div class="grey-text text-darken-4" id="hello">Welcome, Juan Dela Cruz</div></li>
+            <li><a href="javascript:void(0)" data-activates="dropdown1" class="teal dropdown-button" id="dr" dropdown><i class="material-icons center-align">perm_identity</i></a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <ul id='dropdown1' class='dropdown-content'>
+      <li><div class="container teal center-align" id="upper">
+          <img class="circle profpic" src="img/placeholder.png">
+      </li>
+      <li><div class="container" id="lower">
+        <h5 class="center-align valign">Juan Dela Cruz</h5>
+        <p class="center-align valign">2014-01234</p>
+        <a href="javascript:void(0)"><p class="center-align valign black-text" ng-click="view_profile()">VIEW PROFILE</h6></p>
+      </div></li>
+      <li><a href="javascript:void(0)"><p class="right-align valign red-text" ng-click="logout()">X logout</p></a></li>
+    </ul>
+
+    <h4 class="header">Team 1</h4>
+    <div class="row contents">
+      <div class="team-member">
+        <table>
+          <thead>
+            <tr>
+              <th>Player Name</th>
+              <th>Course</th>
+              <th>College</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Pedro Santos</td>
+              <td>BSCS</td>
+              <td>CAS</td>
+            </tr>
+            <tr>
+              <td>Pedro Santos</td>
+              <td>BSCS</td>
+              <td>CAS</td>
+            </tr>
+            <tr>
+              <td>Pedro Santos</td>
+              <td>BSCS</td>
+              <td>CAS</td>
+            </tr>
+            <tr>
+              <td>Pedro Santos</td>
+              <td>BSCS</td>
+              <td>CAS</td>
+            </tr>
+            <tr>
+              <td>Pedro Santos</td>
+              <td>BSCS</td>
+              <td>CAS</td>
+            </tr>
+            <tr>
+              <td>Pedro Santos</td>
+              <td>BSCS</td>
+              <td>CAS</td>
+            </tr>
+            <tr>
+              <td>Pedro Santos</td>
+              <td>BSCS</td>
+              <td>CAS</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-    </nav>
-  </div>
-
-  <ul id='dropdown1' class='dropdown-content'>
-    <li><div class="container teal center-align" id="upper">
-        <img class="circle profpic" src="img/placeholder.png">
-    </li>
-    <li><div class="container" id="lower">
-      <h5 class="center-align valign">Juan Dela Cruz</h5>
-      <p class="center-align valign">2014-01234</p>
-      <a href="javascript:void(0)"><p class="center-align valign black-text" ng-click="view_profile()">VIEW PROFILE</h6></p>
-    </div></li>
-    <li><a href="javascript:void(0)"><p class="right-align valign red-text" ng-click="logout()">X logout</p></a></li>
-  </ul>
-
-  <h4 class="header">Team 1</h4>
-  <div class="row contents">
-    <div class="team-member">
-      <table>
-        <thead>
-          <tr>
-            <th>Player Name</th>
-            <th>Course</th>
-            <th>College</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Pedro Santos</td>
-            <td>BSCS</td>
-            <td>CAS</td>
-          </tr>
-          <tr>
-            <td>Pedro Santos</td>
-            <td>BSCS</td>
-            <td>CAS</td>
-          </tr>
-          <tr>
-            <td>Pedro Santos</td>
-            <td>BSCS</td>
-            <td>CAS</td>
-          </tr>
-          <tr>
-            <td>Pedro Santos</td>
-            <td>BSCS</td>
-            <td>CAS</td>
-          </tr>
-          <tr>
-            <td>Pedro Santos</td>
-            <td>BSCS</td>
-            <td>CAS</td>
-          </tr>
-          <tr>
-            <td>Pedro Santos</td>
-            <td>BSCS</td>
-            <td>CAS</td>
-          </tr>
-          <tr>
-            <td>Pedro Santos</td>
-            <td>BSCS</td>
-            <td>CAS</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="team-matches">
-      <table>
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Opponent</th>
-            <th>Result</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>9999-12-31 23:59:59</td>
-            <td>Team 2</td>
-            <td>Win</td>
-          </tr>
-          <tr>
-            <td>9999-12-31 23:59:59</td>
-            <td>Team 2</td>
-            <td>Win</td>
-          </tr>
-          <tr>
-            <td>9999-12-31 23:59:59</td>
-            <td>Team 5</td>
-            <td>Win</td>
-          </tr>
-          <tr>
-            <td>9999-12-31 23:59:59</td>
-            <td>Team 3</td>
-            <td>Win</td>
-          </tr>
-          <tr>
-            <td>9999-12-31 23:59:59</td>
-            <td>Team 4</td>
-            <td>Win</td>
-          </tr>
-          <tr>
-            <td>9999-12-31 23:59:59</td>
-            <td>Team 3</td>
-            <td>Win</td>
-          </tr>
-          <tr>
-            <td>9999-12-31 23:59:59</td>
-            <td>Team 3</td>
-            <td>Win</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="team-matches">
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Opponent</th>
+              <th>Result</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>9999-12-31 23:59:59</td>
+              <td>Team 2</td>
+              <td>Win</td>
+            </tr>
+            <tr>
+              <td>9999-12-31 23:59:59</td>
+              <td>Team 2</td>
+              <td>Win</td>
+            </tr>
+            <tr>
+              <td>9999-12-31 23:59:59</td>
+              <td>Team 5</td>
+              <td>Win</td>
+            </tr>
+            <tr>
+              <td>9999-12-31 23:59:59</td>
+              <td>Team 3</td>
+              <td>Win</td>
+            </tr>
+            <tr>
+              <td>9999-12-31 23:59:59</td>
+              <td>Team 4</td>
+              <td>Win</td>
+            </tr>
+            <tr>
+              <td>9999-12-31 23:59:59</td>
+              <td>Team 3</td>
+              <td>Win</td>
+            </tr>
+            <tr>
+              <td>9999-12-31 23:59:59</td>
+              <td>Team 3</td>
+              <td>Win</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
-
 
   <footer class="page-footer teal">
     <p class="footer-content grey-text text-lighten-4">

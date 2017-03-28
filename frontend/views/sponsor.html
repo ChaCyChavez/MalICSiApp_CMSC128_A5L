@@ -1,280 +1,282 @@
-<div ng-controller="sponsor-controller">
- <div class="navbar-fixed">
-    <nav>
-      <div class="nav-wrapper">
-        <a href="javascript:void(0)" class="grey-text text-darken-4 center" id="logo" ng-click="back_to_home()">MalICSi</a>
-        <ul id="nav-mobile" class="right">
-          <li><div class="grey-text text-darken-4" id="hello">Welcome, Juan Dela Cruz</div></li>
-          <li><a href="javascript:void(0)" data-activates="dropdown1" class="teal dropdown-button" id="dr" dropdown><i class="material-icons center-align">perm_identity</i></a></li>
-        </ul>
+<div ng-controller="sponsor-controller" class="main-container">
+  <div class="content">
+   <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper">
+          <a href="javascript:void(0)" class="grey-text text-darken-4 center" id="logo" ng-click="back_to_home()">MalICSi</a>
+          <ul id="nav-mobile" class="right">
+            <li><div class="grey-text text-darken-4" id="hello">Welcome, Juan Dela Cruz</div></li>
+            <li><a href="javascript:void(0)" data-activates="dropdown1" class="teal dropdown-button" id="dr" dropdown><i class="material-icons center-align">perm_identity</i></a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <ul id='dropdown1' class='dropdown-content'>
+      <li><div class="container teal center-align" id="upper">
+          <img class="circle profpic" src="img/placeholder.png">
+      </li>
+      <li><div class="container" id="lower">
+        <h5 class="center-align valign">Juan Dela Cruz</h5>
+        <p class="center-align valign">2014-01234</p>
+        <a href="javascript:void(0)"><p class="center-align valign black-text" ng-click="view_profile()">VIEW PROFILE</h6></p>
+      </div></li>
+      <li><a href="javascript:void(0)"><p class="right-align valign red-text" ng-click="logout()">X logout</p></a></li>
+    </ul>
+
+    <br>
+
+    <div class="container">
+      <h5 class="center-align" id="spon">SPONSORING INSTITUTES</h5>
+      <br>
+      <hr class="style18">
+      <br>
+    </div>
+
+
+    <!-- UNCOMMENT THIS FOR CAROUSEL VERSION -->
+    <!-- <div class="container">
+  	
+  		<div class="carousel">
+  		
+      		<a href="#modal1" class="carousel-item">
+      			<img src="images/Spon/san-miguel-logo.png">
+      		</a>
+
+      		<a href="#modal2" class="carousel-item">
+      			<img src="images/Spon/nasa.png">
+      		</a>
+
+      		<a href="#modal3" class="carousel-item">
+      			<img src="images/Spon/adidas.png">
+      		</a>
+
+      		<a href="#modal4" class="carousel-item"javascript:void(0)">
+      			<img src="images/Spon/underarmour.png">
+      		</a>
+
+      		<a href="#modal5" class="carousel-item"javascript:void(0)">
+      			<img src="images/Spon/codeninjas.png">
+      		</a>
+
+      		<a href="#modal6" class="carousel-item"javascript:void(0)">
+      			<img src="images/Spon/mozilla.png">
+      		</a>
+
+
       </div>
-    </nav>
-  </div>
-
-  <ul id='dropdown1' class='dropdown-content'>
-    <li><div class="container teal center-align" id="upper">
-        <img class="circle profpic" src="img/placeholder.png">
-    </li>
-    <li><div class="container" id="lower">
-      <h5 class="center-align valign">Juan Dela Cruz</h5>
-      <p class="center-align valign">2014-01234</p>
-      <a href="javascript:void(0)"><p class="center-align valign black-text" ng-click="view_profile()">VIEW PROFILE</h6></p>
-    </div></li>
-    <li><a href="javascript:void(0)"><p class="right-align valign red-text" ng-click="logout()">X logout</p></a></li>
-  </ul>
-
-  <br>
-
-  <div class="container">
-    <h5 class="center-align" id="spon">SPONSORING INSTITUTES</h5>
-    <br>
-    <hr class="style18">
-    <br>
-  </div>
+    </div> -->
 
 
-  <!-- UNCOMMENT THIS FOR CAROUSEL VERSION -->
-  <!-- <div class="container">
-	
-		<div class="carousel">
-		
-    		<a href="#modal1" class="carousel-item">
-    			<img src="images/Spon/san-miguel-logo.png">
-    		</a>
+    
 
-    		<a href="#modal2" class="carousel-item">
-    			<img src="images/Spon/nasa.png">
-    		</a>
-
-    		<a href="#modal3" class="carousel-item">
-    			<img src="images/Spon/adidas.png">
-    		</a>
-
-    		<a href="#modal4" class="carousel-item"javascript:void(0)">
-    			<img src="images/Spon/underarmour.png">
-    		</a>
-
-    		<a href="#modal5" class="carousel-item"javascript:void(0)">
-    			<img src="images/Spon/codeninjas.png">
-    		</a>
-
-    		<a href="#modal6" class="carousel-item"javascript:void(0)">
-    			<img src="images/Spon/mozilla.png">
-    		</a>
+  <!-- Modal Structure -->
 
 
+
+
+    <div class="container">
+      <div class="row">
+
+
+      	<div class="col s2 m4">
+      		<a href="javascript:void(0)" data-target="modal1" modal>
+      			<img src="img/san-miguel-logo.png">
+      		</a>
+
+        	<div id="modal1" class="modal">
+      				<div class="modal-content">
+        				<h4>San Miguel Corporation</h4>
+        				<p>
+        					San Miguel Corporation is one of the Philippines’ largest and most diversified conglomerates, generating about 5.1% (as of 2015) of the country’s gross domestic product through its highly integrated operations in beverages, food, packaging, fuel and oil, power and infrastructure.
+      					</p>
+
+      					<div class="modal-footer">
+      						<div class="left">
+      							<a href="javascript:void(0)" class=" modal-action modal-close waves-effect waves-green btn-flat">Delete</a>
+      							<a href="javascript:void(0)" class=" modal-action modal-close waves-effect waves-green btn-flat">Edit</a>
+      						</div>
+     							<a href="http://www.sanmiguel.com.ph" class="waves-effect waves-green btn">Visit Website</a>
+    						</div>
+
+      				</div>
+    			</div>    		
+      	</div>
+
+      	<div class="col s2 m4">
+      		<a href="javascript:void(0)" data-target="modal2" modal>
+      			<img src="img/nasa.png">
+      		</a>
+
+        	<div id="modal2" class="modal">
+      				<div class="modal-content">
+        				<h4>NASA</h4>
+        				<p>
+        					Led by acting administrator, Robert Lightfoot, NASA reaches new heights and unveils the unknown for the benefit of humankind. To achieve such feat, thousands of people toil around and outside the world to answer a very simple yet significant question- <i>What is out there in space?</i>
+      					</p>
+
+      					<div class="modal-footer">
+      						<div class="left">
+      							<a href="javascript:void(0)" class=" modal-action modal-close waves-effect waves-green btn-flat">Delete</a>
+      							<a href="javascript:void(0)" class=" modal-action modal-close waves-effect waves-green btn-flat">Edit</a>
+      						</div>
+     							 <a href="http://www.nasa.gov" class="waves-effect waves-green btn">Visit Website</a>
+    						</div>
+
+      				</div>
+    			</div>    		
+      	</div>
+       <div class="col s2 m4">
+      		<a href="javascript:void(0)" data-target="modal3" modal>
+      			<img src="img/adidas.png">
+      		</a>
+
+        	<div id="modal3" class="modal">
+      				<div class="modal-content">
+        				<h4>ADIDAS</h4>
+        				<p>
+        					The brands of the adidas Group complement each other in a unique way to help athletes perform better, play better, feel better. Our products break records, set trends, make history. Every day. Here, our love for sport drives who we are and what we do. Every day.
+      					</p>
+
+      					<div class="modal-footer">
+      						<div class="left">
+      							<a href="javascript:void(0)" class=" modal-action modal-close waves-effect waves-green btn-flat">Delete</a>
+      							<a href="javascript:void(0)" class=" modal-action modal-close waves-effect waves-green btn-flat">Edit</a>
+      						</div>
+     							<a href="http://adidas.com.ph" class="waves-effect waves-green btn">Visit Website</a>
+    						</div>
+
+      				</div>
+    			</div>    		
+      	</div>
+
+        <div class="col s2 m4">
+      		<a href="javascript:void(0)" data-target="modal4" modal>
+      			<img src="img/Underarmour.png">
+      		</a>
+
+        	<div id="modal4" class="modal">
+      				<div class="modal-content">
+        				<h4>Under Armour</h4>
+        				<p>
+        					Founded in 1996 by former University of Maryland football player Kevin Plank, Under Armour is the originator of performance apparel - gear engineered to keep athletes cool, dry and light throughout the course of a game, practice or workout
+      					</p>
+
+      					<div class="modal-footer">
+      						<div class="left">
+      							<a href="javascript:void(0)" class=" modal-action modal-close waves-effect waves-green btn-flat">Delete</a>
+      							<a href="javascript:void(0)" class=" modal-action modal-close waves-effect waves-green btn-flat">Edit</a>
+      						</div>
+     							<a href="http://underarmour.com.ph/en-ph" class="waves-effect waves-green btn">Visit Website</a>
+    						</div>
+
+      				</div>
+    			</div>    		
+      	</div>
+
+        <div class="col s2 m4">
+      		<a href="javascript:void(0)" data-target="modal5" modal>
+      			<img src="img/codeninjas.png">
+      		</a>
+
+        	<div id="modal5" class="modal">
+      				<div class="modal-content">
+        				<h4>Code Ninjas</h4>
+        				<p>
+        					Code Ninja provides accelerated learning programs, which help inspired coders become awesome! Code Ninjas offers a variety of programs to help individuals at every skill level excel in a career of software development.
+      					</p>
+
+      					<div class="modal-footer">
+      						<div class="left">
+      							<a href="javascript:void(0)" class=" modal-action modal-close waves-effect waves-green btn-flat">Delete</a>
+      							<a href="javascript:void(0)" class=" modal-action modal-close waves-effect waves-green btn-flat">Edit</a>
+      						</div>
+     							<a href="code-ninja.co" class="waves-effect waves-green btn">Visit Website</a>
+    						</div>
+      				</div>
+    			</div>    		
+      	</div>
+
+      	<div class="col s2 m4">
+      		<a href="javascript:void(0)" data-target="modal6" modal>
+      			<img src="img/mozilla.png">
+      		</a>
+
+        	<div id="modal6" class="modal">
+      				<div class="modal-content">
+        				<h4>Mozilla Corporation</h4>
+        				<p>
+        					The Mozilla Corporation was established in August 2005 as a wholly owned taxable subsidiary that serves the non-profit, public benefit goals of its parent, the Mozilla Foundation, and the vast Mozilla community.
+      					</p>
+
+      					<div class="modal-footer">
+      						<div class="left">
+      							<a href="javascript:void(0)" class=" modal-action modal-close waves-effect waves-green btn-flat">Delete</a>
+      							<a href="javascript:void(0)" class=" modal-action modal-close waves-effect waves-green btn-flat">Edit</a>
+      						</div>
+     							<a href="http://wwww.mozilla.org" class="waves-effect waves-green btn">Visit Website</a>
+    						</div>
+
+      				</div>
+    			</div>    		
+      	</div>
+
+
+
+      </div>
     </div>
-  </div> -->
+
+    <div class="container">
+      <br>
+      <hr class="style18">
+      <br>
+
+      <div class="center-align">
+      	<a href="javascript:void(0)" data-target="modal7" class="btn" modal> Add Sponsor </a>
+      	<br>
+      	<br>
+      	<div id="modal7" class="modal">
+      		<div class="modal-content">
+      			<div class="row">
+  				    <form class="col s12">
+  				      <div class="row">
+  				        <div class="input-field col s6">
+  				          <input placeholder="e.g. Google Chrome" id="first_name" type="text" class="validate">
+  				          <label for="first_name">Company Name</label>
+  				        </div>
+  				        <div class="input-field col s6">
+  				          <input placeholder="e.g. San Diego, California" id="first_name" type="text" class="validate">
+  				          <label for="first_name">Company Location</label>
+  				        </div>
+  				      </div>
+  				      </div>
+  				      <div class="row">
+  				        <div class="input-field col s12">
+  				          <textarea id="textarea1" class="materialize-textarea"></textarea>
+  				          <label for="textarea1">Enter Company Description</label>
+  			        	</div>
+
+  			        	
+  				      </div>
+  				      <div class="row">
+  				        <div class="col s12">
+  				          <div class="input-field inline">
+  				            <input placeholder="e.g. http://facebook.com" id="email" type="email" class="validate">
+  				          	<label for="email">Website url</label>
+  				          </div>
+  				        </div>
+  				      </div>
+
+  				      <a href="http://wwww.mozilla.org" class="waves-effect waves-green btn">Submit</a>
+  				    </form>
+  					</div>
+      		</div>
+    		</div> 
 
 
-  
-
-<!-- Modal Structure -->
-
-
-
-
-  <div class="container">
-    <div class="row">
-
-
-    	<div class="col s2 m4">
-    		<a href="javascript:void(0)" data-target="modal1" modal>
-    			<img src="img/san-miguel-logo.png">
-    		</a>
-
-      	<div id="modal1" class="modal">
-    				<div class="modal-content">
-      				<h4>San Miguel Corporation</h4>
-      				<p>
-      					San Miguel Corporation is one of the Philippines’ largest and most diversified conglomerates, generating about 5.1% (as of 2015) of the country’s gross domestic product through its highly integrated operations in beverages, food, packaging, fuel and oil, power and infrastructure.
-    					</p>
-
-    					<div class="modal-footer">
-    						<div class="left">
-    							<a href="javascript:void(0)" class=" modal-action modal-close waves-effect waves-green btn-flat">Delete</a>
-    							<a href="javascript:void(0)" class=" modal-action modal-close waves-effect waves-green btn-flat">Edit</a>
-    						</div>
-   							<a href="http://www.sanmiguel.com.ph" class="waves-effect waves-green btn">Visit Website</a>
-  						</div>
-
-    				</div>
-  			</div>    		
-    	</div>
-
-    	<div class="col s2 m4">
-    		<a href="javascript:void(0)" data-target="modal2" modal>
-    			<img src="img/nasa.png">
-    		</a>
-
-      	<div id="modal2" class="modal">
-    				<div class="modal-content">
-      				<h4>NASA</h4>
-      				<p>
-      					Led by acting administrator, Robert Lightfoot, NASA reaches new heights and unveils the unknown for the benefit of humankind. To achieve such feat, thousands of people toil around and outside the world to answer a very simple yet significant question- <i>What is out there in space?</i>
-    					</p>
-
-    					<div class="modal-footer">
-    						<div class="left">
-    							<a href="javascript:void(0)" class=" modal-action modal-close waves-effect waves-green btn-flat">Delete</a>
-    							<a href="javascript:void(0)" class=" modal-action modal-close waves-effect waves-green btn-flat">Edit</a>
-    						</div>
-   							 <a href="http://www.nasa.gov" class="waves-effect waves-green btn">Visit Website</a>
-  						</div>
-
-    				</div>
-  			</div>    		
-    	</div>
-     <div class="col s2 m4">
-    		<a href="javascript:void(0)" data-target="modal3" modal>
-    			<img src="img/adidas.png">
-    		</a>
-
-      	<div id="modal3" class="modal">
-    				<div class="modal-content">
-      				<h4>ADIDAS</h4>
-      				<p>
-      					The brands of the adidas Group complement each other in a unique way to help athletes perform better, play better, feel better. Our products break records, set trends, make history. Every day. Here, our love for sport drives who we are and what we do. Every day.
-    					</p>
-
-    					<div class="modal-footer">
-    						<div class="left">
-    							<a href="javascript:void(0)" class=" modal-action modal-close waves-effect waves-green btn-flat">Delete</a>
-    							<a href="javascript:void(0)" class=" modal-action modal-close waves-effect waves-green btn-flat">Edit</a>
-    						</div>
-   							<a href="http://adidas.com.ph" class="waves-effect waves-green btn">Visit Website</a>
-  						</div>
-
-    				</div>
-  			</div>    		
-    	</div>
-
-      <div class="col s2 m4">
-    		<a href="javascript:void(0)" data-target="modal4" modal>
-    			<img src="img/Underarmour.png">
-    		</a>
-
-      	<div id="modal4" class="modal">
-    				<div class="modal-content">
-      				<h4>Under Armour</h4>
-      				<p>
-      					Founded in 1996 by former University of Maryland football player Kevin Plank, Under Armour is the originator of performance apparel - gear engineered to keep athletes cool, dry and light throughout the course of a game, practice or workout
-    					</p>
-
-    					<div class="modal-footer">
-    						<div class="left">
-    							<a href="javascript:void(0)" class=" modal-action modal-close waves-effect waves-green btn-flat">Delete</a>
-    							<a href="javascript:void(0)" class=" modal-action modal-close waves-effect waves-green btn-flat">Edit</a>
-    						</div>
-   							<a href="http://underarmour.com.ph/en-ph" class="waves-effect waves-green btn">Visit Website</a>
-  						</div>
-
-    				</div>
-  			</div>    		
-    	</div>
-
-      <div class="col s2 m4">
-    		<a href="javascript:void(0)" data-target="modal5" modal>
-    			<img src="img/codeninjas.png">
-    		</a>
-
-      	<div id="modal5" class="modal">
-    				<div class="modal-content">
-      				<h4>Code Ninjas</h4>
-      				<p>
-      					Code Ninja provides accelerated learning programs, which help inspired coders become awesome! Code Ninjas offers a variety of programs to help individuals at every skill level excel in a career of software development.
-    					</p>
-
-    					<div class="modal-footer">
-    						<div class="left">
-    							<a href="javascript:void(0)" class=" modal-action modal-close waves-effect waves-green btn-flat">Delete</a>
-    							<a href="javascript:void(0)" class=" modal-action modal-close waves-effect waves-green btn-flat">Edit</a>
-    						</div>
-   							<a href="code-ninja.co" class="waves-effect waves-green btn">Visit Website</a>
-  						</div>
-    				</div>
-  			</div>    		
-    	</div>
-
-    	<div class="col s2 m4">
-    		<a href="javascript:void(0)" data-target="modal6" modal>
-    			<img src="img/mozilla.png">
-    		</a>
-
-      	<div id="modal6" class="modal">
-    				<div class="modal-content">
-      				<h4>Mozilla Corporation</h4>
-      				<p>
-      					The Mozilla Corporation was established in August 2005 as a wholly owned taxable subsidiary that serves the non-profit, public benefit goals of its parent, the Mozilla Foundation, and the vast Mozilla community.
-    					</p>
-
-    					<div class="modal-footer">
-    						<div class="left">
-    							<a href="javascript:void(0)" class=" modal-action modal-close waves-effect waves-green btn-flat">Delete</a>
-    							<a href="javascript:void(0)" class=" modal-action modal-close waves-effect waves-green btn-flat">Edit</a>
-    						</div>
-   							<a href="http://wwww.mozilla.org" class="waves-effect waves-green btn">Visit Website</a>
-  						</div>
-
-    				</div>
-  			</div>    		
-    	</div>
-
-
-
-    </div>
+      </div>
+    </div> 
   </div>
-
-  <div class="container">
-    <br>
-    <hr class="style18">
-    <br>
-
-    <div class="center-align">
-    	<a href="javascript:void(0)" data-target="modal7" class="btn" modal> Add Sponsor </a>
-    	<br>
-    	<br>
-    	<div id="modal7" class="modal">
-    		<div class="modal-content">
-    			<div class="row">
-				    <form class="col s12">
-				      <div class="row">
-				        <div class="input-field col s6">
-				          <input placeholder="e.g. Google Chrome" id="first_name" type="text" class="validate">
-				          <label for="first_name">Company Name</label>
-				        </div>
-				        <div class="input-field col s6">
-				          <input placeholder="e.g. San Diego, California" id="first_name" type="text" class="validate">
-				          <label for="first_name">Company Location</label>
-				        </div>
-				      </div>
-				      </div>
-				      <div class="row">
-				        <div class="input-field col s12">
-				          <textarea id="textarea1" class="materialize-textarea"></textarea>
-				          <label for="textarea1">Enter Company Description</label>
-			        	</div>
-
-			        	
-				      </div>
-				      <div class="row">
-				        <div class="col s12">
-				          <div class="input-field inline">
-				            <input placeholder="e.g. http://facebook.com" id="email" type="email" class="validate">
-				          	<label for="email">Website url</label>
-				          </div>
-				        </div>
-				      </div>
-
-				      <a href="http://wwww.mozilla.org" class="waves-effect waves-green btn">Submit</a>
-				    </form>
-					</div>
-    		</div>
-  		</div> 
-
-
-    </div>
-  </div> 
   
 
   <footer class="page-footer teal">
