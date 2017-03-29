@@ -25,7 +25,7 @@ module.exports = (router) => {
     //create account
     router.post('/api/add-account', account.add_account);
     //retrieve account
-    router.get('/api/get-account/:account_id', account.get_account);
+    router.get('/api/get-account/:username', account.get_account);
     router.get('/api/get-all-account/', account.get_all_account);
     //update account
     router.post('/api/update-account', account.update_account);
