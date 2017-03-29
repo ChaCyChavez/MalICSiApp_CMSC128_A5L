@@ -107,7 +107,7 @@ DELIMITER ;
 
 
 /* delete activity_log */
-drop procedure if exists delete_activity_logg;
+drop procedure if exists delete_activity_log;
 DELIMITER //
   CREATE PROCEDURE delete_activity_log(IN del_id int)
   BEGIN

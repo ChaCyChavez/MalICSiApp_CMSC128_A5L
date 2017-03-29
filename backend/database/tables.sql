@@ -1,7 +1,4 @@
--- game event, team N-m
--- team, player N-M
--- team, match N-M
--- Participates rel. attribute(score)
+
 DROP USER 'CMSC128'@'localhost';
 CREATE USER 'CMSC128'@'localhost' IDENTIFIED BY 'project128';
 DROP DATABASE IF EXISTS malicsi;
@@ -20,27 +17,6 @@ CREATE TABLE account (
     course              varchar(256) NOT NULL,
     birthday            date NOT NULL,
     college             enum('CA','CAS','CDC','CEAT','CEM','CFNR','CHE','CPAf','CVM','SESAM','GS') NOT NULL,
-<<<<<<< HEAD
-    is_approved         boolean, -- DEFAULT FALSE
-    is_game_head        boolean,
-    position            varchar(256),
-    is_player           boolean,
-    player_jersey_num   int(11),
-    player_role         varchar(256),
-    team_id             int(11),
-    PRIMARY KEY                     (account_id),
-    CONSTRAINT         `fk_account_team`
-        FOREIGN KEY (team_id) REFERENCES team (team_id)
-);
-
-CREATE TABLE log (
-    log_id              int(11) NOT NULL AUTO_INCREMENT,
-    log_description     varchar(256) NOT NULL,
-    account_id          int(11) NOT NULL,
-    -- add timestamp
-    PRIMARY KEY         (log_id),
-    CONSTRAINT          `fk_log_account`
-=======
     is_approved         boolean DEFAULT false, 
     is_game_head        boolean DEFAULT false,
     position            varchar(256) DEFAULT NULL,
@@ -60,7 +36,6 @@ CREATE TABLE game_event (
     account_id                  int(11) NOT NULL,
     PRIMARY KEY                 (game_id),
     CONSTRAINT                  `fk_game_account`
->>>>>>> pseudo-main-back-end
         FOREIGN KEY (account_id) REFERENCES account (account_id)
         ON UPDATE CASCADE ON DELETE CASCADE
 );
@@ -102,23 +77,11 @@ CREATE TABLE sport (
 
 CREATE TABLE match_event (
     match_id            int(11) NOT NULL AUTO_INCREMENT,
-<<<<<<< HEAD
-    status              boolean,
-    match_date_time     datetime,
-    score1              int(11), -- separate table
-    score2              int(11),
-    series	              enum('elimination','semi-finals','finals') NOT NULL,
-    sport_id            int(11),
-    team1_id            int(11),
-    team2_id            int(11),
-    court_id            int(11),
-=======
     status              boolean NOT NULL,
     match_date_time     datetime NOT NULL,
     series              enum('elimination','semi-finals','finals') NOT NULL,
     sport_id            int(11) NOT NULL,
     court_id            int(11) NOT NULL,
->>>>>>> pseudo-main-back-end
     PRIMARY KEY         (match_id),
     CONSTRAINT          `fk_match_event_sport`
         FOREIGN KEY (sport_id) REFERENCES sport (sport_id)
@@ -127,24 +90,14 @@ CREATE TABLE match_event (
         FOREIGN KEY (court_id) REFERENCES court (court_id)
         ON UPDATE CASCADE ON DELETE CASCADE
 );
-<<<<<<< HEAD
--- TEAM_MATCH_SCORE table
-=======
 
 
 -- TABLE FOR N-M RELATIONSHIPS
->>>>>>> pseudo-main-back-end
 CREATE TABLE game_event_sponsor (
     sponsor_id          int(11) NOT NULL,
-<<<<<<< HEAD
-    sponsor_type		varchar(256) NOT NULL,
-    -- ^change to enum	Minor, Major, Off. Partner
-    PRIMARY KEY         (game_id,sponsor_id),
-=======
     game_id             int(11) NOT NULL,
     sponsor_type        enum('minor','major','official partner') NOT NULL,
     PRIMARY KEY         (sponsor_id, game_id, sponsor_type),
->>>>>>> pseudo-main-back-end
     CONSTRAINT          `fk_game_sponsor_game` 
         FOREIGN KEY (game_id) REFERENCES game_event (game_id)
         ON UPDATE CASCADE ON DELETE CASCADE,
@@ -153,12 +106,6 @@ CREATE TABLE game_event_sponsor (
         ON UPDATE CASCADE ON DELETE CASCADE
 );
 
-<<<<<<< HEAD
-
-
--- triggers
--- procedures 
-=======
 CREATE TABLE game_event_team (
     team_id             int(11) NOT NULL,
     game_id             int(11) NOT NULL,
@@ -203,4 +150,3 @@ CREATE TABLE activity_log (
     account_id          int(11),
     PRIMARY KEY         (log_id)
 );
->>>>>>> pseudo-main-back-end
