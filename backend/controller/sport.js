@@ -5,9 +5,8 @@ const winston = require('winston');
 
 //Controller to be used for adding a sport
 exports.add_sport = (req,res,next) => {
-  const query_string = 'INSERT into sport(sport_type,'+
-      'division,game_id) VALUES (?,?,?)'; 
-  const payload = [req.body.sport_type, req.body.division,req.body.game_id];
+  const query_string = 'CALL add_sport(?,?)'; 
+  const payload = [req.body.sport_type, req.body.division];
   const callback = (err,data) => {
     if(err){
       winston.level = 'debug';
@@ -25,7 +24,7 @@ exports.add_sport = (req,res,next) => {
 
 //Controller to be used for retrieving a sport given a sport_id
 exports.get_sport = (req, res, next) => {
-  const query_string = "SELECT * from sport where sport_id = ?";  
+  const query_string = 'CALL get_sport(?)';  
   const payload = [req.params.sport_id];
   const callback = (err, data) => {
     if(err){
@@ -48,7 +47,7 @@ exports.get_sport = (req, res, next) => {
 
 //Controller to be used for updating a sport given a sport_id
 exports.update_sport = (req, res, next) => {
-  const query_string = 'UPDATE sport set sport_type = ?,division = ? WHERE sport_id = ?;';
+  const query_string = 'CALL update_sport(?,?,?);';
   const payload = [req.body.sport_type,req.body.division,req.body.sport_id];
   const callback = (err, data) => {
     if(err){
@@ -71,7 +70,7 @@ exports.update_sport = (req, res, next) => {
 
 //Controller to be used for deleting a sport given a sport_id
 exports.delete_sport = (req, res, next) => {
-  const query_string ='DELETE FROM sport WHERE sport_id = ?'; 
+  const query_string ='CALL delete_sport(?)'; 
   const payload = [req.body.sport_id];
   const callback = (err, data) => {
     if(err){

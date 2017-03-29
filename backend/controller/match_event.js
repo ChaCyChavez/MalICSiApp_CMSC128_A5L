@@ -5,13 +5,9 @@ const winston = require('winston');
 
 //Controller to be used for adding a match_event
 exports.add_match_event = (req,res,next) => {
-  const query_string = 'INSERT into match_event(status,' +
-      'match_date_time, score1, score2, series,sport_id,' +
-      ' team1_id, team2_id, court_id) VALUES (?,?,?,?,?,?,?,?,?)'; 
-  const payload = [req.body.status, req.body.match_date_time,
-      req.body.sport_id, req.body.score1, req.body.score2,
-      req.body.series, req.body.sport_id, req.body.team1_id,
-      req.body.team2_id, req.body.court_id];
+  const query_string = 'CALL add_match_event(?,?,?,?)'; 
+  const payload = [req.body.match_date_time,req.body.status, 
+      req.body.sport_id,req.body.court_id];
   const callback = (err,data) => {
     if(err){
       winston.level = 'debug';
@@ -29,7 +25,7 @@ exports.add_match_event = (req,res,next) => {
 
 //Controller to be used for retrieving a match_event given a match_id
 exports.get_match_event = (req, res, next) => {
-  const query_string = "SELECT * from match_event where match_id = ?";  
+  const query_string = 'CALL get_match_event(?)';  
   const payload = [req.params.match_id];
   const callback = (err, data) => {
     if(err){
@@ -52,15 +48,9 @@ exports.get_match_event = (req, res, next) => {
 
 //Controller to be used for updating a match_event given a match_id
 exports.update_match_event = (req, res, next) => {
-  const query_string = 'UPDATE match_event set status = ?,' +
-    'match_date_time = ?, score1 = ?, score2 = ?, series = ?,' + 
-    ' sport_id = ?, team1_id = ?, team2_id = ?, court_id = ? ' +
-    'WHERE match_id = ?';
-  const payload = [req.body.status, req.body.match_date_time,
-      req.body.sport_id, req.body.score1, req.body.score2,
-      req.body.series, req.body.sport_id, req.body.team1_id,
-      req.body.team2_id, req.body.court_id, req.body.match_id];
-
+  const query_string = 'CALL update_match_event(?,?,?,?)';
+  const payload = [req.body.match_date_time,
+      req.body.sport_id,req.body.court_id, req.body.match_id];
   const callback = (err, data) => {
     if(err){
       winston.level = 'debug';
@@ -82,7 +72,7 @@ exports.update_match_event = (req, res, next) => {
 
 //Controller to be used for deleting a match_event given a match_id
 exports.delete_match_event = (req, res, next) => {
-  const query_string ='DELETE FROM match_event WHERE match_id = ?'; 
+  const query_string ='CALL delete_match_event(?)'; 
   const payload = [req.body.match_id];
   const callback = (err, data) => {
     if(err){
