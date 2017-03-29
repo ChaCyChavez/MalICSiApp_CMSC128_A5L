@@ -1,153 +1,155 @@
-<div ng-controller="login-register-controller">
-  <div id="loader-wrapper">
-    <div id="loader"></div>
-    <div class="loader-section section-left"></div>
-    <div class="loader-section section-right"></div>
-  </div>
-  <div class="navbar-fixed">
-    <nav>
-      <div class="nav-wrapper">
-        <a href="javascript:void(0)" class="grey-text text-darken-4 si" id="logo" ng-click="back_to_home()">MalICSi</a>
-        <ul id="nav-mobile" class="right">
-          <li class="waves-effect waves-light"><a data-target='modal-register' modal>
-            <div class="grey-text text-darken-4 box">
-              <span class="nam">not a member?</span><br>
-              <span class="reg">register</span>
-            </div>
-          </a></li>
-          <li><a class="teal si" data-target='modal-login' modal><span class="white-text">sign in</span></a></li>
+<div ng-controller="login-register-controller" class="main-container">
+  <div class="content">
+    <div id="loader-wrapper">
+      <div id="loader"></div>
+      <div class="loader-section section-left"></div>
+      <div class="loader-section section-right"></div>
+    </div>
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper">
+          <a href="javascript:void(0)" class="grey-text text-darken-4 si" id="logo" ng-click="back_to_home()">MalICSi</a>
+          <ul id="nav-mobile" class="right">
+            <li class="waves-effect waves-light"><a data-target='modal-register' modal>
+              <div class="grey-text text-darken-4 box">
+                <span class="nam">not a member?</span><br>
+                <span class="reg">register</span>
+              </div>
+            </a></li>
+            <li><a class="teal si" data-target='modal-login' modal><span class="white-text">sign in</span></a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="slider">
+        <ul class="slides">
+            <li>
+                <img src="http://lorempixel.com/580/250/nature/1"> <!-- random image -->
+                <div class="caption center-align">
+                    <h3>This is our big Tagline!</h3>
+                    <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                </div>
+            </li>
+            <li>
+                <img src="http://lorempixel.com/580/250/nature/2"> <!-- random image -->
+                <div class="caption left-align">
+                    <h3>Left Aligned Caption</h3>
+                    <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                </div>
+            </li>
+            <li>
+                    <img src="http://lorempixel.com/580/250/nature/3"> <!-- random image -->
+                    <div class="caption right-align">
+                <h3>Right Aligned Caption</h3>
+                <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                </div>
+            </li>
+            <li>
+                <img src="http://lorempixel.com/580/250/nature/4"> <!-- random image -->
+                <div class="caption center-align">
+                    <h3>This is our big Tagline!</h3>
+                    <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                </div>
+            </li>
         </ul>
-      </div>
-    </nav>
-  </div>
+    </div>
+    
 
-  <div class="slider">
-      <ul class="slides">
-          <li>
-              <img src="http://lorempixel.com/580/250/nature/1"> <!-- random image -->
-              <div class="caption center-align">
-                  <h3>This is our big Tagline!</h3>
-                  <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-              </div>
-          </li>
-          <li>
-              <img src="http://lorempixel.com/580/250/nature/2"> <!-- random image -->
-              <div class="caption left-align">
-                  <h3>Left Aligned Caption</h3>
-                  <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-              </div>
-          </li>
-          <li>
-                  <img src="http://lorempixel.com/580/250/nature/3"> <!-- random image -->
-                  <div class="caption right-align">
-              <h3>Right Aligned Caption</h3>
-              <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-              </div>
-          </li>
-          <li>
-              <img src="http://lorempixel.com/580/250/nature/4"> <!-- random image -->
-              <div class="caption center-align">
-                  <h3>This is our big Tagline!</h3>
-                  <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-              </div>
-          </li>
-      </ul>
-  </div>
-  
+    <div class="row contents">
+      <div class="col s0 m0 l1">&nbsp</div>
+      <div class="col s12 m0">
+        <h4 class="news-announcement"><u>News and Announcements</u></h4>
+        <div class="col s12 m4">
+          <div class="card large z-depth-3">
+            <div class="card-image">
+              <img src="img/sample-1.jpg">
+              <span class="card-title">Card Title</span>
+            </div>
+            <div class="card-content">
+              <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+            </div>
+            
+            <div class="card-action">
+              <a href="javascript:void(0)">Read More</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col s12 m4">
+          <div class="card large z-depth-3">
+            <div class="card-image">
+              <img src="img/sample-1.jpg">
+              <span class="card-title">Card Title</span>
+            </div>
+            <div class="card-content">
+              <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+            </div>
+            
+            <div class="card-action">
+              <a href="javascript:void(0)">Read More</a>
+            </div>
+          </div>
+        </div>
 
-  <div class="row contents">
-    <div class="col s0 m0 l1">&nbsp</div>
-    <div class="col s12 m0">
-      <h4 class="news-announcement"><u>News and Announcements</u></h4>
-      <div class="col s12 m4">
-        <div class="card large z-depth-3">
-          <div class="card-image">
-            <img src="img/sample-1.jpg">
+        <div class="col s12 m4">
+          <div class="card large z-depth-3">
+            <div class="card-image">
+            <img src="img/sample-2.jpg">
             <span class="card-title">Card Title</span>
-          </div>
-          <div class="card-content">
-            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-          </div>
-          
-          <div class="card-action">
-            <a href="javascript:void(0)">Read More</a>
+            
+            </div>
+            <div class="card-content">
+              <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+            </div>
+            <div class="card-action">
+                  <a href="javascript:void(0)">Read More</a>
+            </div>
           </div>
         </div>
-      </div>
-      
-      <div class="col s12 m4">
-        <div class="card large z-depth-3">
-          <div class="card-image">
-            <img src="img/sample-1.jpg">
+
+        <div class="col s12 m4">
+          <div class="card large z-depth-3">
+            <div class="card-image">
+            <img src="img/sample-4.jpg">
             <span class="card-title">Card Title</span>
-          </div>
-          <div class="card-content">
-            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-          </div>
-          
-          <div class="card-action">
-            <a href="javascript:void(0)">Read More</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col s12 m4">
-        <div class="card large z-depth-3">
-          <div class="card-image">
-          <img src="img/sample-2.jpg">
-          <span class="card-title">Card Title</span>
-          
-          </div>
-          <div class="card-content">
-            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-          </div>
-          <div class="card-action">
-                <a href="javascript:void(0)">Read More</a>
+            </div>
+            <div class="card-content">
+              <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+            </div>
+            <div class="card-action">
+                  <a href="javascript:void(0)">Read More</a>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="col s12 m4">
-        <div class="card large z-depth-3">
-          <div class="card-image">
-          <img src="img/sample-4.jpg">
-          <span class="card-title">Card Title</span>
-          </div>
-          <div class="card-content">
-            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-          </div>
-          <div class="card-action">
-                <a href="javascript:void(0)">Read More</a>
+        <div class="col s12 m4">
+          <div class="card large z-depth-3">
+            <div class="card-image">
+            <img src="img/sample-4.jpg">
+            <span class="card-title">Card Title</span>
+            </div>
+            <div class="card-content">
+              <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+            </div>
+            <div class="card-action">
+                  <a href="javascript:void(0)">Read More</a>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="col s12 m4">
-        <div class="card large z-depth-3">
-          <div class="card-image">
-          <img src="img/sample-4.jpg">
-          <span class="card-title">Card Title</span>
-          </div>
-          <div class="card-content">
-            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-          </div>
-          <div class="card-action">
-                <a href="javascript:void(0)">Read More</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col s12 m4">
-        <div class="card large z-depth-3">
-          <div class="card-image">
-          <img src="img/sample-4.jpg">
-          <span class="card-title">Card Title</span>
-          </div>
-          <div class="card-content">
-            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-          </div>
-          <div class="card-action">
-                <a href="javascript:void(0)">Read More</a>
+        <div class="col s12 m4">
+          <div class="card large z-depth-3">
+            <div class="card-image">
+            <img src="img/sample-4.jpg">
+            <span class="card-title">Card Title</span>
+            </div>
+            <div class="card-content">
+              <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+            </div>
+            <div class="card-action">
+                  <a href="javascript:void(0)">Read More</a>
+            </div>
           </div>
         </div>
       </div>
@@ -155,23 +157,10 @@
   </div>
 
   <footer class="page-footer teal">
-    <div class="container">
-      <div class="row">
-        <div class="col 16 s12">
-
-          <p class="grey-text text-lighten-4">
-            MalICSihan is a sports management application catered for UPLB individuals which aims to showcase reliable person-game information and interaction. MalICSihan is developed by 21 undergraduate students from the Institue of Computer Science to achieve an academic requirement in their CMSC 128: An Introduction to Software Engineering class.
-          </p>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="footer-copyright">
-      <div class="container center">
-        Copyright 2017 CMSC 128 | A-5L
-      </div>
-    </div>
+    <p class="footer-content grey-text text-lighten-4">
+      MalICSi is a sports management application catered for UPLB individuals which aims to showcase reliable person-game information and interaction. MalICSihan is developed by 21 undergraduate students from the Institue of Computer Science to achieve an academic requirement in their CMSC 128: An Introduction to Software Engineering class.
+    </p>
+    <div class="copyright">Copyright 2017 CMSC 128 | A-5L</div>
   </footer>
 
   <div id="modal1" class="modal modal-fixed-footer">

@@ -1,107 +1,98 @@
 
-<div ng-controller="participant-controller">
-  <div class="navbar-fixed">
-    <nav>
-      <div class="nav-wrapper">
-        <a href="javascript:void(0)" class="grey-text text-darken-4 center" id="logo" ng-click="back_to_home()">MalICSi</a>
-        <ul id="nav-mobile" class="right">
-          <li><div class="grey-text text-darken-4" id="hello">Welcome, Juan Dela Cruz</div></li>
-          <li><a href="javascript:void(0)" data-activates="dropdown1" class="teal dropdown-button" id="dr" dropdown><i class="material-icons center-align">perm_identity</i></a></li>
-        </ul>
+<div ng-controller="participant-controller" class="main-container">
+    <div class="content">
+      <div class="navbar-fixed">
+        <nav>
+          <div class="nav-wrapper">
+            <a href="javascript:void(0)" class="grey-text text-darken-4 center" id="logo" ng-click="back_to_home()">MalICSi</a>
+            <ul id="nav-mobile" class="right">
+              <li><div class="grey-text text-darken-4" id="hello">Welcome, Juan Dela Cruz</div></li>
+              <li><a href="javascript:void(0)" data-activates="dropdown1" class="teal dropdown-button" id="dr" dropdown><i class="material-icons center-align">perm_identity</i></a></li>
+            </ul>
+          </div>
+        </nav>
       </div>
-    </nav>
-  </div>
 
-  <ul id='dropdown1' class='dropdown-content'>
-    <li><div class="container teal center-align" id="upper">
-        <img class="circle profpic" src="img/placeholder.png">
-    </li>
-    <li><div class="container" id="lower">
-      <h5 class="center-align valign">Juan Dela Cruz</h5>
-      <p class="center-align valign">2014-01234</p>
-      <a href="javascript:void(0)"><p class="center-align valign black-text" ng-click="view_profile()">VIEW PROFILE</h6></p>
-    </div></li>
-    <li><a href="javascript:void(0)"><p class="right-align valign red-text" ng-click="logout()">X logout</p></a></li>
-  </ul>
+      <ul id='dropdown1' class='dropdown-content'>
+        <li><div class="container teal center-align" id="upper">
+            <img class="circle profpic" src="img/placeholder.png">
+        </li>
+        <li><div class="container" id="lower">
+          <h5 class="center-align valign">Juan Dela Cruz</h5>
+          <p class="center-align valign">2014-01234</p>
+          <a href="javascript:void(0)" ng-click="view_profile()"><p class="center-align valign black-text"><h5>VIEW PROFILE</h5></p>
+        </div></li>
+        <li><a href="javascript:void(0)" ng-click="logout()"><p class="right-align valign red-text">X logout</p></a></li>
+      </ul>
 
-  <br></br>
-  <form>
-  <div class= "container">
-  <select class="browser-default">
-  <option value="javascript:void(0)" disabled selected>SELECT SPORT</option>
-  <option value="1">Option 1</option>
-  <option value="2">Option 2</option>
-  <option value="3">Option 3</option>
-  </select>
-  </div>
- 
+      <br></br>
 
-      <div class="input-field container">
-        <input id="search" type="search" required>
-        <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-        <i class="material-icons">close</i>
-      </div>
-    </form>
-
-  <div class = "table container">
- <ul class="collection">
-  <li class="collection-item avatar">
-    <i class="material-icons circle red">play_arrow</i>
-    <span class="title">Paulo Quilos</span>
-    <p>Batch 2012 <br>
-       Blue Team
-    </p>
-    <a href="javascript:void(0)" class="secondary-content"><i class="material-icons">grade</i></a>
-  </li>
-  <li class="collection-item avatar">
-    <i class="material-icons circle red">play_arrow</i>
-    <span class="title">Lily Puth</span>
-    <p>Batch 2015 <br>
-       Green Team
-    </p>
-    <a href="javascript:void(0)" class="secondary-content"><i class="material-icons">grade</i></a>
-  </li>
-  <li class="collection-item avatar">
-    <i class="material-icons circle red">play_arrow</i>
-    <span class="title">Ash Ketchup</span>
-    <p>Batch 2013 <br>
-       Red Team
-    </p>
-    <a href="javascript:void(0)" class="secondary-content"><i class="material-icons">grade</i></a>
-  </li>
-  <li class="collection-item avatar">
-    <i class="material-icons circle red">play_arrow</i>
-    <span class="title">Paul Guiao</span>
-    <p>Bacth 2012 <br>
-       Blue Team
-    </p>
-    <a href="javascript:void(0)" class="secondary-content"><i class="material-icons">grade</i></a>
-  </li>
-</ul>
-</div>
-  
- 
-
- 
-
-  <footer class="page-footer teal">
-    <div class="container">
-      <div class="row">
-        <div class="col 16 s12">
-          <p class="grey-text text-lighten-4">
-            MalICSihan is a sports management application catered for UPLB individuals which aims to showcase reliable person-game information and interaction. MalICSihan is developed by 21 undergraduate students from the Institue of Computer Science to achieve an academic requirement in their CMSC 128: An Introduction to Software Engineering class.
-          </p>
+      <h3 class="header"> List of User Registered in &lt;Sport&gt;</h3>
+      <form>
+        <div class= "container">
+          <select class="browser-default">
+            <option value="javascript:void(0)" disabled selected>SELECT SPORT</option>
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
+          </select>
         </div>
-        
-      </div>
-    </div>
+     
 
-    <div class="footer-copyright">
-      <div class="container center">
-        Copyright 2017 CMSC 128 | A-5L
+        <div class="input-field container">
+          <input id="search" type="search" required>
+          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+          <i class="material-icons">close</i>
+        </div>
+      </form>
+
+      <div class="participant-list">
+        <div class="collection">
+          <a href="javascript:void(0)" class="collection-item avatar" ng-click="view_profile()">
+            <i class="material-icons circle">folder</i>
+            <span class="title">Title</span>
+            <p>First Line <br>
+               Second Line
+            </p>
+          </a>
+          <a href="javascript:void(0)" class="collection-item avatar" ng-click="view_profile()">
+            <i class="material-icons circle">folder</i>
+            <span class="title">Title</span>
+            <p>First Line <br>
+               Second Line
+            </p>
+          </a>
+          <a href="javascript:void(0)" class="collection-item avatar" ng-click="view_profile()">
+            <i class="material-icons circle green">insert_chart</i>
+            <span class="title">Title</span>
+            <p>First Line <br>
+               Second Line
+            </p>
+          </a>
+          <a href="javascript:void(0)" class="collection-item avatar" ng-click="view_profile()">
+            <i class="material-icons circle red">play_arrow</i>
+            <span class="title">Title</span>
+            <p>First Line <br>
+               Second Line
+            </p>
+          </a>
+
+          <a href="javascript:void(0)" class="collection-item avatar" ng-click="view_profile()">
+            <i class="material-icons circle red">play_arrow</i>
+            <span class="title">Title</span>
+            <p>First Line <br>
+               Second Line
+            </p>
+          </a>
+        </div>
       </div>
     </div>
-  </footer>
+    <footer class="page-footer teal">
+      <p class="footer-content grey-text text-lighten-4">
+        MalICSi is a sports management application catered for UPLB individuals which aims to showcase reliable person-game information and interaction. MalICSihan is developed by 21 undergraduate students from the Institue of Computer Science to achieve an academic requirement in their CMSC 128: An Introduction to Software Engineering class.
+      </p>
+      <div class="copyright">Copyright 2017 CMSC 128 | A-5L</div>
+    </footer>
 </div>
 
 <script type="text/javascript">
@@ -113,7 +104,7 @@
         hover: false, // Activate on hover
         gutter: 0, // Spacing from edge
         belowOrigin: true, // Displays dropdown below the button
-        alignment: 'left', // Displays dropdown with edge aligned to the left of button
+        alignment: 'right', // Displays dropdown with edge aligned to the left of button
         stopPropagation: false // Stops event propagation
       }
     );
@@ -125,5 +116,6 @@
       starting_top: '4%',
       ending_top: '10%',
     });
+
   });
 </script>

@@ -1,111 +1,100 @@
 
-<div ng-controller="match-controller">
-  <div class="navbar-fixed">
+<div ng-controller="match-controller" class="main-container">
+  <div class="content">
     <div class="navbar-fixed">
-    <nav>
-      <div class="nav-wrapper">
-        <a href="javascript:void(0)" class="grey-text text-darken-4 center" id="logo" ng-click="back_to_home()">MalICSi</a>
-        <ul id="nav-mobile" class="right">
-          <li><div class="grey-text text-darken-4" id="hello">Welcome, Juan Dela Cruz</div></li>
-          <li><a href="javascript:void(0)" data-activates="dropdown1" class="teal dropdown-button" id="dr" dropdown><i class="material-icons center-align">perm_identity</i></a></li>
-        </ul>
-      </div>
-    </nav>
-  </div>
-
-  <ul id='dropdown1' class='dropdown-content'>
-    <li><div class="container teal center-align" id="upper">
-        <img class="circle profpic" src="img/placeholder.png">
-    </li>
-    <li><div class="container" id="lower">
-      <h5 class="center-align valign">Juan Dela Cruz</h5>
-      <p class="center-align valign">2014-01234</p>
-      <a href="javascript:void(0)"><p class="center-align valign black-text" ng-click="view_profile()">VIEW PROFILE</h6></p>
-    </div></li>
-    <li><a href="javascript:void(0)"><p class="right-align valign red-text" ng-click="logout()">X logout</p></a></li>
-  </ul>
-
-  <!-- Contents -->
-  <div class="row contents" id="match-content">
-    <div class="col s0 m0 l1">&nbsp</div>
-    <!-- Score Table -->
-    <div class="col s12 m0">
-      <div class="col s6 m6">
-        <div class="card-panel">
-          <table class="highlight">
-            <thead>
-              <tr>
-                <th><h5>TEAM</h5></th>
-                <th><h5>SCORE</h5></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Team A</td>
-                <td>Score A</td>
-              </tr>
-              <tr>
-                <td>Team B</td>
-                <td>Score B</td>
-              </tr>
-              <tr>
-                <td>Team C</td>
-                <td>Score C</td>
-              </tr>
-              <tr>
-                <td>Team D</td>
-                <td>Score D</td>
-              </tr>
-            </tbody>
-          </table>
+      <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper">
+          <a href="javascript:void(0)" class="grey-text text-darken-4 center" id="logo" ng-click="back_to_home()">MalICSi</a>
+          <ul id="nav-mobile" class="right">
+            <li><div class="grey-text text-darken-4" id="hello">Welcome, Juan Dela Cruz</div></li>
+            <li><a href="javascript:void(0)" data-activates="dropdown1" class="teal dropdown-button" id="dr" dropdown><i class="material-icons center-align">perm_identity</i></a></li>
+          </ul>
         </div>
-      </div>
+      </nav>
+    </div>
 
-      <div class="col s6 m6">
-        <!-- Winner -->
-        <div class="card-panel">
-          <div>
-            <h4 class="card-title center">WINNER</h4>
-          </div>
-          <div class="card-content">
-            <h5 id="match-winner">Winning Team</h5>
+    <ul id='dropdown1' class='dropdown-content'>
+      <li><div class="container teal center-align" id="upper">
+          <img class="circle profpic" src="img/placeholder.png">
+      </li>
+      <li><div class="container" id="lower">
+        <h5 class="center-align valign">Juan Dela Cruz</h5>
+        <p class="center-align valign">2014-01234</p>
+        <a href="javascript:void(0)"><p class="center-align valign black-text" ng-click="view_profile()">VIEW PROFILE</h6></p>
+      </div></li>
+      <li><a href="javascript:void(0)"><p class="right-align valign red-text" ng-click="logout()">X logout</p></a></li>
+    </ul>
+
+    <!-- Contents -->
+    <div class="row contents" id="match-content">
+      <div class="col s0 m0 l1">&nbsp</div>
+      <!-- Score Table -->
+      <div class="col s12 m0">
+        <div class="col s6 m6">
+          <div class="card-panel">
+            <table class="highlight">
+              <thead>
+                <tr>
+                  <th><h5>TEAM</h5></th>
+                  <th><h5>SCORE</h5></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Team A</td>
+                  <td>Score A</td>
+                </tr>
+                <tr>
+                  <td>Team B</td>
+                  <td>Score B</td>
+                </tr>
+                <tr>
+                  <td>Team C</td>
+                  <td>Score C</td>
+                </tr>
+                <tr>
+                  <td>Team D</td>
+                  <td>Score D</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
 
-        <!-- Court -->
-        <div class="card-panel">
-          <div>
-            <h4 class="card-title center">COURT</h4>
+        <div class="col s6 m6">
+          <!-- Winner -->
+          <div class="card-panel">
+            <div>
+              <h4 class="card-title center">WINNER</h4>
+            </div>
+            <div class="card-content">
+              <h5 id="match-winner">Winning Team</h5>
+            </div>
           </div>
-          <div class="card-content">
-            <h5 id="match-winner">Court in Match</h5>
+
+          <!-- Court -->
+          <div class="card-panel">
+            <div>
+              <h4 class="card-title center">COURT</h4>
+            </div>
+            <div class="card-content">
+              <h5 id="match-winner">Court in Match</h5>
+            </div>
           </div>
         </div>
-      </div>
 
-      
+        
+      </div>
     </div>
   </div>
 
   <!-- Footer -->
-  <footer class="page-footer teal lighten-1">
-    <div class="container">
-      <div class="row">
-        <div class="col 16 s12">
-
-          <p class="grey-text text-lighten-4">
-            MalICSihan is a sports management application catered for UPLB individuals which aims to showcase reliable person-game information and interaction. MalICSihan is developed by 21 undergraduate students from the Institue of Computer Science to achieve an academic requirement in their CMSC 128: An Introduction to Software Engineering class.
-          </p>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="footer-copyright">
-      <div class="container center">
-        Copyright 2017 CMSC 128 | A-5L
-      </div>
-    </div>
+  <footer class="page-footer teal">
+    <p class="footer-content grey-text text-lighten-4">
+      MalICSi is a sports management application catered for UPLB individuals which aims to showcase reliable person-game information and interaction. MalICSihan is developed by 21 undergraduate students from the Institue of Computer Science to achieve an academic requirement in their CMSC 128: An Introduction to Software Engineering class.
+    </p>
+    <div class="copyright">Copyright 2017 CMSC 128 | A-5L</div>
   </footer>
 </div>
 
