@@ -15,10 +15,10 @@ drop procedure if exists login_account;
 /* RETRIEVING AN ACCOUNT */
 drop procedure if exists get_account;
 \d //
-  CREATE PROCEDURE get_account(IN acctid int)
+  CREATE PROCEDURE get_account(IN usrnme varchar(100))
   BEGIN
     SELECT account_id, firstname, middlename, lastname, email, username, course,
-    birthday, college FROM account where account_id = acctid;
+    birthday, college FROM account where username = usrnme;
   END;
 //
 \d ;
