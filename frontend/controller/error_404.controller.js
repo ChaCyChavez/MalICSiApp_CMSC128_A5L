@@ -7,7 +7,7 @@
     function error_404_controller($scope, $location) {
 
         $scope.back_to_home = () => {
-            $location.path("/game-event").replace();
+            $location.path("/").replace();
         }
     }
 })();
