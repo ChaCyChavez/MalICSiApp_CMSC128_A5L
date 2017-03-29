@@ -60,8 +60,12 @@ CREATE TABLE sponsor (
     sponsor_id          int(11) NOT NULL AUTO_INCREMENT,
     sponsor_name        varchar(256) NOT NULL,
     sponsor_logo        varchar(256) DEFAULT NULL,
-    sponsor_affiliation varchar(256) DEFAULT NULL,
-    PRIMARY KEY         (sponsor_id)
+    sponsor_type        enum('minor','major','official partner') NOT NULL,
+    game_id             int(11) NOT NULL,
+    PRIMARY KEY         (sponsor_id),
+    CONSTRAINT          `fk_sponsor_game` 
+        FOREIGN KEY (game_id) REFERENCES game_event (game_id)
+        ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE sport (
@@ -91,21 +95,7 @@ CREATE TABLE match_event (
         ON UPDATE CASCADE ON DELETE CASCADE
 );
 
-
--- TABLE FOR N-M RELATIONSHIPS
-CREATE TABLE game_event_sponsor (
-    sponsor_id          int(11) NOT NULL,
-    game_id             int(11) NOT NULL,
-    sponsor_type        enum('minor','major','official partner') NOT NULL,
-    PRIMARY KEY         (sponsor_id, game_id, sponsor_type),
-    CONSTRAINT          `fk_game_sponsor_game` 
-        FOREIGN KEY (game_id) REFERENCES game_event (game_id)
-        ON UPDATE CASCADE ON DELETE CASCADE,
-    CONSTRAINT          `fk_game_sponsor_sponsor`
-        FOREIGN KEY (sponsor_id) REFERENCES sponsor (sponsor_id)
-        ON UPDATE CASCADE ON DELETE CASCADE
-);
-
+-- N-M relationship tables
 CREATE TABLE game_event_team (
     team_id             int(11) NOT NULL,
     game_id             int(11) NOT NULL,
