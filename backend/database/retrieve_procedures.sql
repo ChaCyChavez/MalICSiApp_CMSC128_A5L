@@ -13,22 +13,42 @@ drop procedure if exists login_account;
 \d ;
 
 /* RETRIEVING AN ACCOUNT */
-drop procedure if exists get_account;
+drop procedure if exists get_game_head_account;
 \d //
-  CREATE PROCEDURE get_account(IN acctid int)
+  CREATE PROCEDURE get_game_head_account(IN acctid int)
   BEGIN
     SELECT account_id, firstname, middlename, lastname, email, username, course,
-    birthday, college FROM account where account_id = acctid;
+    birthday, college FROM account where account_id = acctid and is_game_head = true;
   END;
 //
 \d ;
 
-drop procedure if exists get_all_account;
+drop procedure if exists get_all_game_head_account;
 \d //
-  CREATE PROCEDURE get_all_account()
+  CREATE PROCEDURE get_all_game_head_account()
   BEGIN
     SELECT account_id, firstname, middlename, lastname, email, username, course,
-    birthday, college FROM account;
+    birthday, college FROM account where is_game_head = true;
+  END;
+//
+\d ;
+
+drop procedure if exists get_player_account;
+\d //
+  CREATE PROCEDURE get_player_account(IN acctid int)
+  BEGIN
+    SELECT account_id, firstname, middlename, lastname, email, username, course,
+    birthday, college FROM account where account_id = acctid and is_player = true;
+  END;
+//
+\d ;
+
+drop procedure if exists get_all_player_account;
+\d //
+  CREATE PROCEDURE get_all_player_account()
+  BEGIN
+    SELECT account_id, firstname, middlename, lastname, email, username, course,
+    birthday, college FROM account where is_player = true;
   END;
 //
 \d ;
@@ -118,7 +138,7 @@ drop procedure if exists get_sponsor;
 
 \d ;
 
-drop procedure if exists get_all_sport;
+drop procedure if exists get_all_sponsor;
 \d //
   CREATE PROCEDURE get_all_sponsor()
   BEGIN
