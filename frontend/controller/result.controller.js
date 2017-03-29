@@ -10,6 +10,10 @@
             $location.path("/profile").replace();
         }
 
+        $scope.view_user = () => {
+            $location.path("/user").replace();
+        }
+
         $scope.logout = () => {
             $location.path("/").replace();
         }

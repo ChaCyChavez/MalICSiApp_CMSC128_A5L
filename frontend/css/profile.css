@@ -8,42 +8,12 @@
     src: url("../fonts/blogger-sans/Blogger_Sans-Bold.otf");
 }
 
-body {
-    color: #212121;
-}
-
-#slide-out {
-    font-family: "Panton";
-}
-
-#slide-out li a{
-    padding-bottom: 0;
-}
-
-#deets {
-    width: 35%;
-}
-
-.brand-logo {
-    margin-left: 2%;
-    line-height: 75px;
-    font-size: 350% !important;
-}
 
 
-.nam {
-    font-size: 75%;
-    text-align: center;
-}
 
 #dr {
     padding-top: 5px;
     height: 75px;
-}
-
-.reg {
-    font-size: 120%;
-    border-bottom: 1px solid red;
 }
 
 .box {
@@ -53,46 +23,18 @@ body {
     padding-bottom: 20%;
 }
 
-#logo {
-    margin: 65px;
-    font-size: 50px;
-    line-height: 75px;
-}
-
-@media only screen and (min-width: 1px) {
-  nav .brand-logo {
-    margin-left: 15px !important;
-    position: absolute;
-  }
-}
-
-#slide-out {
-    font-family: "Panton";
-}
-
-#slide-out li a{
-    padding-bottom: 0;
-}
-
-
-#deets {
-    width: 35%;
-}
-
-.si {
-    font-size: 150%;
-}
-
 .side-logo {
     font-size: 60px;
     text-align: center;
     width: 100%;
 }
+
 a.tab {
     height: 60px;
     font-size: 26px;
     line-height: 60px;
 }
+
 a#spon {
     height: 100px;
     font-size: 26px;
@@ -105,22 +47,13 @@ a#spon:hover, a.tab:hover {
     color: #0097a7 !important;
 }
 
-#dropdown1 div {
-    width: 300px;
-    padding: 3%;
-}
 
-#upper {
-    height: 80px;
-}
-
-#lower {
-    height: 200px;
-}
 
 #pic {
     font-size: 60px;
 }
+
+
 
 img {
     max-width: 100%;
