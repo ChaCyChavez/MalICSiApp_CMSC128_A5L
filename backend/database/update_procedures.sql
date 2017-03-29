@@ -124,13 +124,13 @@ delimiter //
         IN _sponsor_id          int(11),
         IN _sponsor_name        varchar(256),
         IN _sponsor_logo        varchar(256),
-        IN _sponsor_affiliation varchar(256)
+        IN _sponsor_type        enum('minor','major','official partner')
     )
     BEGIN
         UPDATE sponsor SET
             sponsor_name = _sponsor_name,
             sponsor_logo = _sponsor_logo,
-            sponsor_affiliation = _sponsor_affiliation
+            sponsor_type = _sponsor_type
         WHERE sponsor_id = _sponsor_id;
     END;
 //

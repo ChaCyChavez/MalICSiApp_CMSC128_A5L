@@ -169,15 +169,15 @@ drop procedure if exists get_all_match_event;
 \d ;
 
 /*GETS THE SPONSORS FOR A GAME EVENT*/
-drop procedure if exists get_game_event_sponsor;
-\d //
-  CREATE PROCEDURE get_game_event_sponsor(IN gameid int)
-  BEGIN
-    SELECT * from sponsor natural join game_event_sponsor where game_event_sponsor.game_id = gameid;
-  END;
-//
+-- drop procedure if exists get_game_event_sponsor;
+-- \d //
+--   CREATE PROCEDURE get_game_event_sponsor(IN gameid int)
+--   BEGIN
+--     SELECT * from sponsor natural join game_event_sponsor where game_event_sponsor.game_id = gameid;
+--   END;
+-- //
 
-\d ;
+-- \d ;
 
 /*PROCEDURE TO GET THE TEAMS FOR A GAME EVENT*/
 drop procedure if exists get_game_event_team;

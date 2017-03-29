@@ -129,18 +129,19 @@ delimiter //
     create procedure add_sponsor (
         IN _sponsor_name        varchar(256),
         IN _sponsor_logo        varchar(256),
-        IN _sponsor_affiliation varchar(256)
+        IN _sponsor_type        enum('minor','major','official partner'),
+        IN _game_id             int
     )
     BEGIN
         INSERT into sponsor(
             sponsor_name,
             sponsor_logo,
-            sponsor_affiliation
+            game_id
             )
         values(
             _sponsor_name,
             _sponsor_logo,
-            _sponsor_affiliation
+            _game_id
             );
     END;
 //
@@ -250,24 +251,24 @@ delimiter //
 //
 delimiter ;
 
-drop procedure if exists add_game_sponsor;
-delimiter //
-    create procedure add_game_sponsor (
-        IN _game_id         int,
-        IN _sponsor_id      int
-    )
-    BEGIN
-        INSERT into game_sponsor(
-            game_id,
-            sponsor_id
-            )
-        values(
-            _game_id,
-            _sponsor_id
-            );
-    END;
-//
-delimiter ;
+-- drop procedure if exists add_game_sponsor;
+-- delimiter //
+--     create procedure add_game_sponsor (
+--         IN _game_id         int,
+--         IN _sponsor_id      int
+--     )
+--     BEGIN
+--         INSERT into game_sponsor(
+--             game_id,
+--             sponsor_id
+--             )
+--         values(
+--             _game_id,
+--             _sponsor_id
+--             );
+--     END;
+-- //
+-- delimiter ;
 
 
 drop procedure if exists add_score;
