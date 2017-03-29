@@ -61,7 +61,11 @@ CREATE TABLE sponsor (
     sponsor_name        varchar(256) NOT NULL,
     sponsor_logo        varchar(256) DEFAULT NULL,
     sponsor_affiliation varchar(256) DEFAULT NULL,
-    PRIMARY KEY         (sponsor_id)
+    game_id             int(11),
+    PRIMARY KEY         (sponsor_id),
+    CONSTRAINT          `fk_sport_game`
+        FOREIGN KEY (game_id) REFERENCES game_event (game_id)
+        ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE sport (
@@ -133,7 +137,7 @@ CREATE TABLE team_account (
 CREATE TABLE match_event_team(
     team_id             int(11) NOT NULL,
     match_id            int(11) NOT NULL,
-    score               int(11) NOT NULL,
+    score               int(11) DEFAULT NULL,
     PRIMARY KEY         (team_id, match_id, score),
     CONSTRAINT          `fk_team_match_team`
         FOREIGN KEY (team_id) REFERENCES team (team_id)
