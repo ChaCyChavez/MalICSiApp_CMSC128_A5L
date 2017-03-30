@@ -237,32 +237,50 @@
             <form id="register-form" class="col s12">
               <div id="register-name" class="row">
                 <div class="input-field col s10">
-                  <input class="field-inputs" type="text" class="validate">
-                  <label class="labels cyan-text text-darken-4" for="name">Name:</label>
+                  <input class="field-inputs" type="text" class="validate" ng-model="data.fname">
+                  <label class="labels cyan-text text-darken-4" for="name">First Name:</label>
+                </div>
+              </div>
+              <div id="register-name" class="row">
+                <div class="input-field col s10">
+                  <input class="field-inputs" type="text" class="validate" ng-model="data.mname">
+                  <label class="labels cyan-text text-darken-4" for="name">Middle Name:</label>
+                </div>
+              </div>
+              <div id="register-name" class="row">
+                <div class="input-field col s10">
+                  <input class="field-inputs" type="text" class="validate" ng-model="data.lname">
+                  <label class="labels cyan-text text-darken-4" for="name">Last Name:</label>
                 </div>
               </div>
               <div id="register-users" class="row">
                 <div class="input-field col s10">
-                  <input class="field-inputs" type="text" class="validate">
+                  <input class="field-inputs" type="text" class="validate" ng-model="data.college">
                   <label class="labels cyan-text text-darken-4" for="college">College:</label>
                 </div>
               </div>
               <div id="register-users" class="row">
                 <div class="input-field col s10">
-                  <input class="field-inputs" type="text" class="validate">
+                  <input class="field-inputs" type="text" class="validate" ng-model="data.course">
                   <label class="labels cyan-text text-darken-4" for="course">Course:</label>
                 </div>
               </div>
               <div id="register-users" class="row">
                 <div class="input-field col s10">
-                  <input class="field-inputs" type="text" class="validate">
+                  <input class="field-inputs" type="text" class="validate" ng-model="data.studno">
                   <label class="labels cyan-text text-darken-4" for="stud_no">Student Number:</label>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field col s10">
-                  <input class="field-inputs" type="text" class="validate">
+                  <input class="field-inputs" type="text" class="validate" ng-model="data.emailadd">
                   <label class="labels cyan-text text-darken-4" for="email">Email Address:</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s10">
+                  <input name="someDate" type="date" class="datepicker" ng-model="data.date">
+                  <label class="labels cyan-text text-darken-4" for="someDate">Birthdate</label>
                 </div>
               </div>
             </form>
@@ -289,6 +307,12 @@ $(document).ready(function(){
     out_duration: 200,
     starting_top: '4%',
     ending_top: '10%',
+  });
+
+  $('.datepicker').pickadate({
+    selectMonths: true,
+    selectYears: 20,
+    format: 'yyyy-mm-dd'
   });
   
   $("#modal-login").width($(".modal").width());

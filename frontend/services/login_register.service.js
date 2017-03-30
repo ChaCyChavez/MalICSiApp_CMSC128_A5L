@@ -33,9 +33,29 @@
 				return deferred.promise;
 			}
 
+			const register_account = function (data) {
+				let deferred = $q.defer();
+
+				$http({
+					method: 'POST',
+					params: data,
+					xhrFields: {withCredentials: false},
+					url: '/api/add-account/',
+					headers: headers
+				})
+				.then(function(res) {
+					deferred.resolve(res.data);
+				}, function(err) {
+					deferred.reject(err.data);
+				})
+
+				return deferred.promise;
+			}
+
 
 			let service = {};
 			service.retrieve_account 				= retrieve_account;
+			service.register_account 				= register_account;
 			return service;
 		}
 })();

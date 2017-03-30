@@ -23,7 +23,7 @@ module.exports = (router) => {
     //login_account
     router.post('/api/login-account/', account.login_account);
     //create account
-    router.post('/api/add-account', account.add_account);
+    router.post('/api/add-account/', account.add_account);
     //retrieve account
     router.get('/api/get-account/:account_id', account.get_account);
     //update account

@@ -8,7 +8,7 @@
 		GameEventService.$inject = ['$window', '$http', '$q'];
 
 		const headers = {
-			'content-type': 'application/json'
+			'content-type': 'application/x-www-form-urlencoded'
 		};
 
 		function GameEventService($window, $http, $q) {

@@ -13,14 +13,46 @@
             password : undefined
         }
 
+        $sscope.data = {
+            
+        }
+
         $scope.login = () => {
-    		LoginRegisterService
-                .retrieve_account($scope.info)
-                .then(function(res) {
-                    $("#modal-login").modal('close');	
-                }, function(err) {
-                    Materialize.toast(err.message, 4000, 'black');
-                })
+            if ($scope.info.username === undefined ||
+                $scope.info.username === '' ||
+                $scope.info.password === undefined ||
+                $scope.info.password === '') {
+                Materialize.toast("Please fill-out all the fields", 4000, 'teal');
+                $scope.info.username = '';
+                $scope.info.password = '';
+            } else {
+        		LoginRegisterService
+                    .retrieve_account($scope.info)
+                    .then(function(res) {
+                        $("#modal-login").modal('close');	
+                    }, function(err) {
+                        Materialize.toast(err.message, 4000, 'teal');
+                    })
+            }
+        }
+
+        $scope.register = () => {
+            if ($scope.info.username === undefined ||
+                $scope.info.username === '' ||
+                $scope.info.password === undefined ||
+                $scope.info.password === '') {
+                Materialize.toast("Please fill-out all the fields", 4000, 'teal');
+                $scope.info.username = '';
+                $scope.info.password = '';
+            } else {
+                LoginRegisterService
+                    .retrieve_account($scope.info)
+                    .then(function(res) {
+                        $("#modal-login").modal('close');   
+                    }, function(err) {
+                        Materialize.toast(err.message, 4000, 'teal');
+                    })
+            }
         }
     }
 
