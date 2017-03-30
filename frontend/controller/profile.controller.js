@@ -13,7 +13,21 @@
             console.log(data);
             $scope.profile = data[0][0];
         });
-        
+
+		ProfileService
+            .get_user_upcoming_events($routeParams.account_id)
+            .then((data) => {
+            console.log(data[0]);
+            $scope.user_upcoming_events = data[0];
+        });
+
+		ProfileService
+            .get_user_past_events($routeParams.account_id)
+            .then((data) => {
+            console.log(data[0]);
+            $scope.user_past_events = data[0];
+        });
+
         $scope.view_profile = () => {
             $location.path("/profile").replace();
         }
