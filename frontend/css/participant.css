@@ -17,6 +17,14 @@ nav {
     font-family: "Panton";
 }
 
+#slide-out {
+    font-family: "Panton";
+}
+
+#slide-out li a{
+    padding-bottom: 0;
+}
+
 #deets {
     width: 35%;
 }
@@ -39,6 +47,11 @@ nav {
     text-align: center;
 }
 
+#dr {
+    padding-top: 5px;
+    height: 75px;
+}
+
 .reg {
     font-size: 120%;
     border-bottom: 1px solid red;
@@ -52,10 +65,9 @@ nav {
 }
 
 #logo {
+    margin: 65px;
     font-size: 50px;
     line-height: 75px;
-    margin-left: 2% !important;
-    margin-right: 0 !important;
 }
 
 @media only screen and (min-width: 1px) {
@@ -65,18 +77,12 @@ nav {
   }
 }
 
-#hello {
-    font-size: 20px !important;
-    margin-right: 10px;
-    line-height: 75px;
-    font-family: "Blogger";
-    float: left; 
+#slide-out {
+    font-family: "Panton";
 }
 
-@media only screen and (max-width: 700px) {
-  #hello {
-    display: none;
-  }
+#slide-out li a{
+    padding-bottom: 0;
 }
 
 #deets {
@@ -92,6 +98,15 @@ nav {
     line-height: 100%;
     padding-top: 15%;
     padding-bottom: 20%;
+}
+
+
+.si {
+    font-size: 150%;
+}
+
+.carousel {
+   box-shadow: 1px 2px 3px 1px rgba(0, 0, 0, 0.5);
 }
 
 .contents {
@@ -112,18 +127,6 @@ nav {
 }
 
 
-
-.footer-content {
-    padding: 5px 10px 0 10px;
-}
-
-.copyright {
-    width: 100%;
-    background-color: rgba(51, 51, 51, 0.08);
-    height: 40px;
-    color: #ffffff;
-    line-height: 45px;
-}
 
 .side-logo {
     font-size: 60px;
@@ -147,19 +150,7 @@ a#spon:hover, a.tab:hover {
     color: #0097a7 !important;
 }
 
-.page-footer {
-    box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.5);
-    text-align: center;
-    padding-top: 1px !important;
-    padding-bottom: 1px !important;
+.participant-list {
+    margin: auto;
+    width: 90% !important;
 }
-
-  .content {
-    flex: 1 0 auto !important;
-  }
-
-  .main-container {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }

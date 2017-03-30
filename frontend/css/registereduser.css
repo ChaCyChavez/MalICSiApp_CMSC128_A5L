@@ -1,3 +1,51 @@
+.playertable{
+	width: 1050px;
+	margin:auto;
+}
+
+.sb{
+	width: 800px;
+	margin: auto;
+}
+
+.circle{
+	width:20%;
+	height:20%;
+
+}
+
+tbody {
+   overflow-y: auto;
+   display: block;
+   max-height: 268px;   
+}
+
+thead {         
+   display: table;  
+   width: 100%;    
+}
+
+tbody tr {
+   display: table;
+   width: 100%;  
+}
+
+.searchbar{
+	align:center;
+	width: 100%;
+	
+}
+
+thead {
+   table-layout: fixed;  
+}
+tbody tr {
+   table-layout: fixed;   
+}
+th, td {
+   width: auto;   
+}    
+
 @font-face {
     font-family: "Panton";
     src: url("../fonts/panton/Panton-BlackCaps.otf");
@@ -12,9 +60,13 @@ body {
     color: #212121;
 }
 
-nav {
-    background-color: white;
+
+#slide-out {
     font-family: "Panton";
+}
+
+#slide-out li a{
+    padding-bottom: 0;
 }
 
 #deets {
@@ -27,16 +79,15 @@ nav {
     font-size: 350% !important;
 }
 
-.nav-wrapper {
-    position: fixed;
-    height: 75px !important;
-    background-color: #fff;
-    box-shadow: 0px 2px 3px 2px rgba(0, 0, 0, 0.3);
-}
 
 .nam {
     font-size: 75%;
     text-align: center;
+}
+
+#dr {
+    padding-top: 5px;
+    height: 75px;
 }
 
 .reg {
@@ -52,32 +103,11 @@ nav {
 }
 
 #logo {
+    margin: 65px;
     font-size: 50px;
     line-height: 75px;
-    margin-left: 2% !important;
-    margin-right: 0 !important;
 }
 
-@media only screen and (min-width: 1px) {
-  nav .brand-logo {
-    margin-left: 15px !important;
-    position: absolute;
-  }
-}
-
-#hello {
-    font-size: 20px !important;
-    margin-right: 10px;
-    line-height: 75px;
-    font-family: "Blogger";
-    float: left; 
-}
-
-@media only screen and (max-width: 700px) {
-  #hello {
-    display: none;
-  }
-}
 
 #deets {
     width: 35%;
@@ -92,6 +122,15 @@ nav {
     line-height: 100%;
     padding-top: 15%;
     padding-bottom: 20%;
+}
+
+
+.si {
+    font-size: 150%;
+}
+
+.carousel {
+   box-shadow: 1px 2px 3px 1px rgba(0, 0, 0, 0.5);
 }
 
 .contents {
@@ -111,25 +150,12 @@ nav {
     text-align: center;
 }
 
-
-
-.footer-content {
-    padding: 5px 10px 0 10px;
-}
-
-.copyright {
-    width: 100%;
-    background-color: rgba(51, 51, 51, 0.08);
-    height: 40px;
-    color: #ffffff;
-    line-height: 45px;
-}
-
 .side-logo {
     font-size: 60px;
     text-align: center;
     width: 100%;
 }
+
 a.tab {
     height: 60px;
     font-size: 26px;
@@ -146,20 +172,3 @@ a#spon:hover, a.tab:hover {
     background: #fafaff;
     color: #0097a7 !important;
 }
-
-.page-footer {
-    box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.5);
-    text-align: center;
-    padding-top: 1px !important;
-    padding-bottom: 1px !important;
-}
-
-  .content {
-    flex: 1 0 auto !important;
-  }
-
-  .main-container {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }

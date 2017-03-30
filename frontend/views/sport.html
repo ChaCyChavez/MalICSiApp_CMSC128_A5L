@@ -1,0 +1,162 @@
+
+<div ng-controller="sport-controller" class="main-container">
+  <div class="content">
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper">
+          <a href="javascript:void(0)" class="grey-text text-darken-4 center" id="logo" ng-click="back_to_home()">MalICSi</a>
+          <ul id="nav-mobile" class="right">
+            <li><div class="grey-text text-darken-4" id="hello">Welcome, Juan Dela Cruz</div></li>
+            <li><a href="javascript:void(0)" data-activates="dropdown1" class="teal dropdown-button" id="dr" dropdown><i class="material-icons center-align">perm_identity</i></a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <ul id='dropdown1' class='dropdown-content'>
+      <li><div class="container teal center-align" id="upper">
+          <img class="circle profpic" src="img/placeholder.png">
+      </li>
+      <li><div class="container" id="lower">
+        <h5 class="center-align valign">Juan Dela Cruz</h5>
+        <p class="center-align valign">2014-01234</p>
+        <a href="javascript:void(0)"><p class="center-align valign black-text" ng-click="view_profile()">VIEW PROFILE</h6></p>
+      </div></li>
+      <li><a href="javascript:void(0)"><p class="right-align valign red-text" ng-click="logout()">X logout</p></a></li>
+    </ul>
+    
+    <div class="row contents" id="sport-content">
+      <div class="col s0 m0 l1">&nbsp</div>
+      <div class="col s12 m0">
+        <!-- List of Participants -->
+        <div class="col s5 m4">
+          <div class="card-panel">
+            <ul class="collapsible" data-collapsible="accordion">
+              <li>
+                <div class="collapsible-header">Team A</div>
+                <ul class="collection collapsible-body">
+                  <li class="collection-item">Participant 1</li>
+                  <li class="collection-item">Participant 2</li>
+                  <li class="collection-item">Participant 3</li>
+                  <li class="collection-item">Participant 4</li>
+                  <li class="collection-item">Participant 5</li>
+                  <li class="collection-item">Participant 6</li>
+                </ul>
+              </li>
+              <li>
+                <div class="collapsible-header">Team B</div>
+                <ul class="collection collapsible-body">
+                  <li class="collection-item">Participant 1</li>
+                  <li class="collection-item">Participant 2</li>
+                  <li class="collection-item">Participant 3</li>
+                  <li class="collection-item">Participant 4</li>
+                  <li class="collection-item">Participant 5</li>
+                  <li class="collection-item">Participant 6</li>
+                  <li class="collection-item">Participant 7</li>
+                </ul>
+              </li>
+              <li>
+                <div class="collapsible-header">Team C</div>
+                <ul class="collection collapsible-body">
+                  <li class="collection-item">Participant 1</li>
+                  <li class="collection-item">Participant 2</li>
+                  <li class="collection-item">Participant 3</li>
+                </ul>
+              </li>
+            </ul>
+            <a href="javascript:void(0)" class="btn-medium right" ng-click="view_participant()">view full list</a>
+          </div>
+        </div>
+        <!-- Schedule of Matches -->
+        <div class="col s7 m8">
+          <div >
+            <div >
+              <h4 class="card-title">SCHEDULE</h4>
+              <div class="center collection">
+                <div class="collection-item">
+                  <div class="match-competing-teams">
+                    <span>TEAM 1</span>
+                    vs
+                    <span>TEAM 2</span>
+                  </div>
+                  <div class="match-date-time">
+                    <h6>DATE | TIME</h6>
+                  </div>
+                  <div class="match-court">
+                    COURT : Court 1
+                  </div>
+                  <a href="javascript:void(0)" class="btn blue" ng-click="view_match()">View Match</a>
+                </div>
+                <div class="collection-item">
+                  <div class="match-competing-teams">
+                    <span>TEAM 1</span>
+                    vs
+                    <span>TEAM 2</span>
+                  </div>
+                  <div class="match-date-time">
+                    <h6>DATE | TIME</h6>
+                  </div>
+                  <div class="match-court">
+                    COURT : Court 1
+                  </div>
+                  <a href="javascript:void(0)" class="btn blue" ng-click="view_match()">View Match</a>
+                </div>
+                <div class="collection-item">
+                  <div class="match-competing-teams">
+                    <span>TEAM 1</span>
+                    vs
+                    <span>TEAM 2</span>
+                  </div>
+                  <div class="match-date-time">
+                    <h6>DATE | TIME</h6>
+                  </div>
+                  <div class="match-court">
+                    COURT : Court 1
+                  </div>
+                  <a href="javascript:void(0)" class="btn blue" ng-click="view_match()">View Match</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="center">
+            <a href="javascript:void(0)" ng-click="view_tournament_bracketing()" class="btn-large">tournament bracketing</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="page-footer teal">
+    <p class="footer-content grey-text text-lighten-4">
+      MalICSi is a sports management application catered for UPLB individuals which aims to showcase reliable person-game information and interaction. MalICSihan is developed by 21 undergraduate students from the Institue of Computer Science to achieve an academic requirement in their CMSC 128: An Introduction to Software Engineering class.
+    </p>
+    <div class="copyright">Copyright 2017 CMSC 128 | A-5L</div>
+  </footer>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+     $('.dropdown-button').dropdown({
+        inDuration: 300,
+        outDuration: 225,
+        constrainWidth: false, // Does not change width of dropdown to that of the activator
+        hover: false, // Activate on hover
+        gutter: 0, // Spacing from edge
+        belowOrigin: true, // Displays dropdown below the button
+        alignment: 'left', // Displays dropdown with edge aligned to the left of button
+        stopPropagation: false // Stops event propagation
+      }
+    );
+    $('.modal').modal({
+      dismissible: true,
+      opacity: 0.5,
+      in_duration: 300,
+      out_duration: 200,
+      starting_top: '4%',
+      ending_top: '10%',
+    });
+    $('.collapsible').collapsible();
+
+  });
+</script>

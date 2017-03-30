@@ -9,7 +9,4 @@ $(document).ready(function(){
     starting_top: '4%',
     ending_top: '10%',
   });
-
-  // $(".modal").width($(".modal").width());
-  // $(".modal").height($(".modal").height());
 });

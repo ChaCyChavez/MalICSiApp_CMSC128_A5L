@@ -1,0 +1,227 @@
+@font-face {
+    font-family: "Panton";
+    src: url("../fonts/panton/Panton-BlackCaps.otf");
+}
+
+@font-face {
+    font-family: "Blogger";
+    src: url("../fonts/blogger-sans/Blogger_Sans-Bold.otf");
+}
+
+body {
+    color: #212121;
+}
+
+
+#deets {
+    width: 35%;
+}
+
+.brand-logo {
+    margin-left: 2%;
+    line-height: 75px;
+    font-size: 350% !important;
+}
+
+
+.nam {
+    font-size: 75%;
+    text-align: center;
+}
+
+#dr {
+    padding-top: 5px;
+    height: 75px;
+}
+
+.reg {
+    font-size: 120%;
+    border-bottom: 1px solid red;
+}
+
+.box {
+    min-height: 20px;
+    line-height: 100%;
+    padding-top: 15%;
+    padding-bottom: 20%;
+}
+
+#logo {
+    margin: 65px;
+    font-size: 50px;
+    line-height: 75px;
+}
+
+@media only screen and (min-width: 1px) {
+  nav .brand-logo {
+    margin-left: 15px !important;
+    position: absolute;
+  }
+}
+
+#deets {
+    width: 35%;
+}
+
+.reg {
+    font-size: 150%;
+}
+
+.box {
+    min-height: 20px;
+    line-height: 100%;
+    padding-top: 15%;
+    padding-bottom: 20%;
+}
+
+
+.si {
+    font-size: 150%;
+}
+
+.contents {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.card large .card-content{
+    line-height: 34px;
+}
+
+.tournament-bracket {
+    font-family: "Blogger";
+    width: 100%;
+    padding: auto;
+    margin: auto;
+    text-align: center;
+}
+
+.side-logo {
+    font-size: 60px;
+    text-align: center;
+    width: 100%;
+}
+a.tab {
+    height: 60px;
+    font-size: 26px;
+    line-height: 60px;
+}
+a#spon {
+    height: 100px;
+    font-size: 26px;
+    line-height: 35px;
+    padding-top: 12px;
+}
+
+a#spon:hover, a.tab:hover {
+    background: #fafaff;
+    color: #0097a7 !important;
+}
+
+.bracket {
+  font-family: "Blogger";
+  font-size: 120%;
+}
+/*
+$border-width: 1px;
+$reverse: true;
+
+.bracket-table {
+  @if $reverse {
+    transform: rotate(180deg);
+    transform-origin: 50%;
+  }
+}
+
+*/
+.bracket-table ul {
+	padding: 2% 0;
+  white-space: nowrap;
+  margin: 0 auto;
+  text-align: center;
+  /*&::after {
+    content: '';
+    display: table;
+    clear: both;
+  }*/
+}
+
+.bracket-table li {
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+	list-style-type: none;
+	position: relative;
+	padding: 3% 1% 0 1%;
+  /*&::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 50%;
+    border-width: thick;
+    width: 50%;
+    height: 1em;
+  &::after {
+    right: auto;
+    left: 50%;
+	  border-left: $border-width solid #ccc;
+  }
+  }*/
+  &:only-child::after,
+  &:only-child::before {
+    display: none;
+  }
+  &:only-child {
+    padding-top: 0;
+  }
+  &:first-child::before,
+  &:last-child::after {
+    border: 0 none;
+  }
+  &:last-child::before{
+    border-right: $border-width solid #ccc;
+    border-radius: 0 50% 0 0;
+  }
+  &:first-child::after{
+    border-radius: 50% 0 0 0;
+  }
+}
+
+.bracket-table ul ul::before{
+	content: '';
+	position: absolute;
+  top: 0;
+  left: 50%;
+	border-left: $border-width solid #ccc;
+	width: 0;
+  height: 1em;
+}
+
+.bracket-table li a {
+	border: $border-width solid #ccc;
+	padding: 3% 3%;
+	text-decoration: none;
+	display: inline-block;
+	border-radius: 10%;
+  color: #333;
+  position: relative;
+  top: $border-width;
+  @if $reverse {
+    transform: rotate(180deg);
+  }
+}
+
+.bracket-table li a:hover,
+.bracket-table li a:hover+ul li a {
+	background: #00bfa5;
+  color: #fff;
+  border: $border-width solid #00bfa5;
+}
+
+.bracket-table li a:hover + ul li::after,
+.bracket-table li a:hover + ul li::before,
+.bracket-table li a:hover + ul::before,
+.bracket-table li a:hover + ul ul::before{
+	border-color: #00bfa5;
+}

@@ -1,0 +1,121 @@
+
+<div ng-controller="profile-controller" class="main-container">
+  <div class="content">
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper">
+          <a href="javascript:void(0)" class="grey-text text-darken-4 center" id="logo" ng-click="back_to_home()">MalICSi</a>
+          <ul id="nav-mobile" class="right">
+            <li><div class="grey-text text-darken-4" id="hello">Welcome, Juan Dela Cruz</div></li>
+            <li><a href="javascript:void(0)" data-activates="dropdown1" class="teal dropdown-button" id="dr" dropdown><i class="material-icons center-align">perm_identity</i></a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <ul id='dropdown1' class='dropdown-content'>
+      <li><div class="container teal center-align" id="upper">
+          <img class="circle profpic" src="img/placeholder.png">
+      </li>
+      <li><div class="container" id="lower">
+        <h5 class="center-align valign">Juan Dela Cruz</h5>
+        <p class="center-align valign">2014-01234</p>
+        <a href="javascript:void(0)"><p class="center-align valign black-text" ng-click="view_profile()">VIEW PROFILE</h6></p>
+      </div></li>
+      <li><a href="javascript:void(0)"><p class="right-align valign red-text" ng-click="logout()">X logout</p></a></li>
+    </ul>
+
+    <div id="all" class="row font2">
+        <div class="col s12 m12 l6 xl6">
+          <div class="card">
+            <div class="card-content"> 
+              <!-- <div class="row"> -->
+                <div class="container">
+                  <img class="circle" src="img/placeholder.png">
+                </div>
+              </div>
+            <!-- </div> -->
+            <div class="card-content teal lighten-1">
+              <!-- <div class="row"> -->
+                <div class="card-content center-align white-text">
+                  <h1>JUAN DELA CRUZ</h1>
+                  <h3>2014-12345</h3>
+                  <h3>CAS</h3>
+                  <h3>BSCS</h3>
+                </div>
+              <!-- </div> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="col s12 m12 l6 xl6">
+          <div class="card">
+            <div class="card-content">
+              <h3 class="teal-text text-lighten-1">UPCOMING EVENTS</h3>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-content">
+              <h3 class="teal-text text-lighten-1">EVENTS PLAYED</h3>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <footer class="page-footer teal">
+    <p class="footer-content grey-text text-lighten-4">
+      MalICSi is a sports management application catered for UPLB individuals which aims to showcase reliable person-game information and interaction. MalICSihan is developed by 21 undergraduate students from the Institue of Computer Science to achieve an academic requirement in their CMSC 128: An Introduction to Software Engineering class.
+    </p>
+    <div class="copyright">Copyright 2017 CMSC 128 | A-5L</div>
+  </footer>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+     $('.dropdown-button').dropdown({
+        inDuration: 300,
+        outDuration: 225,
+        constrainWidth: false, // Does not change width of dropdown to that of the activator
+        hover: false, // Activate on hover
+        gutter: 0, // Spacing from edge
+        belowOrigin: true, // Displays dropdown below the button
+        alignment: 'left', // Displays dropdown with edge aligned to the left of button
+        stopPropagation: false // Stops event propagation
+      }
+    );
+    $('.modal').modal({
+      dismissible: true,
+      opacity: 0.5,
+      in_duration: 300,
+      out_duration: 200,
+      starting_top: '4%',
+      ending_top: '10%',
+    });
+  });
+</script>
