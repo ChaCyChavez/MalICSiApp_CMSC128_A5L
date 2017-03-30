@@ -4,6 +4,8 @@
     angular
         .module('app')
         .controller('game-event-controller', game_event_controller);
+        
+    game_event_controller.$inject = ['$scope', '$location', 'GameEventService'];
     
     function game_event_controller($scope, $location, GameEventService) {
 
@@ -34,5 +36,4 @@
             $location.path("/game-event").replace();
         }
     }
-    game_event_controller.$inject = ['$scope', '$location', 'GameEventService'];
 })();

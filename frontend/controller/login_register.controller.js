@@ -20,7 +20,6 @@
                     $("#modal-login").modal('close');	
                 }, function(err) {
                     Materialize.toast(err.message, 4000, 'black');
-                    console.log(err);
                 })
         }
     }

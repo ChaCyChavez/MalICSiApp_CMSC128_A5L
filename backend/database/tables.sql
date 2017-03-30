@@ -17,12 +17,13 @@ CREATE TABLE account (
     course              varchar(256) NOT NULL,
     birthday            date NOT NULL,
     college             enum('CA','CAS','CDC','CEAT','CEM','CFNR','CHE','CPAf','CVM','SESAM','GS') NOT NULL,
-    is_approved         boolean DEFAULT false,
+    is_approved         boolean DEFAULT false, 
     is_game_head        boolean DEFAULT false,
     position            varchar(256) DEFAULT NULL,
     is_player           boolean DEFAULT false,
     player_jersey_num   int(11) DEFAULT NULL,
     player_role         varchar(256) DEFAULT NULL,
+
     UNIQUE              (username),
     PRIMARY KEY         (account_id)
 );
@@ -38,6 +39,7 @@ CREATE TABLE game_event (
         FOREIGN KEY (account_id) REFERENCES account (account_id)
         ON UPDATE CASCADE ON DELETE CASCADE
 );
+
 
 CREATE TABLE team (
     team_id             int(11) NOT NULL AUTO_INCREMENT,
@@ -58,10 +60,10 @@ CREATE TABLE sponsor (
     sponsor_id          int(11) NOT NULL AUTO_INCREMENT,
     sponsor_name        varchar(256) NOT NULL,
     sponsor_logo        varchar(256) DEFAULT NULL,
-    sponsor_affiliation varchar(256) DEFAULT NULL,
-    game_id             int(11),
+    sponsor_type        enum('minor','major','official partner') NOT NULL,
+    game_id             int(11) NOT NULL,
     PRIMARY KEY         (sponsor_id),
-    CONSTRAINT          `fk_sponsor_game`
+    CONSTRAINT          `fk_sponsor_game` 
         FOREIGN KEY (game_id) REFERENCES game_event (game_id)
         ON UPDATE CASCADE ON DELETE CASCADE
 );
@@ -77,7 +79,6 @@ CREATE TABLE sport (
         ON UPDATE CASCADE ON DELETE CASCADE
 );
 
-
 CREATE TABLE match_event (
     match_id            int(11) NOT NULL AUTO_INCREMENT,
     status              boolean NOT NULL,
@@ -89,19 +90,20 @@ CREATE TABLE match_event (
     CONSTRAINT          `fk_match_event_sport`
         FOREIGN KEY (sport_id) REFERENCES sport (sport_id)
         ON UPDATE CASCADE ON DELETE CASCADE,
-    CONSTRAINT          `fk_match_event_court`
+    CONSTRAINT          `fk_match_event_court` 
         FOREIGN KEY (court_id) REFERENCES court (court_id)
         ON UPDATE CASCADE ON DELETE CASCADE
 );
 
+-- N-M relationship tables
 CREATE TABLE game_event_team (
     team_id             int(11) NOT NULL,
     game_id             int(11) NOT NULL,
     PRIMARY KEY         (team_id, game_id),
-    CONSTRAINT          `fk_game_team_game`
+    CONSTRAINT          `fk_game_team_game` 
         FOREIGN KEY (game_id) REFERENCES game_event (game_id)
         ON UPDATE CASCADE ON DELETE CASCADE,
-    CONSTRAINT          `fk_game_team_team`
+    CONSTRAINT          `fk_game_team_team` 
         FOREIGN KEY (team_id) REFERENCES team (team_id)
         ON UPDATE CASCADE ON DELETE CASCADE
 );
@@ -121,7 +123,7 @@ CREATE TABLE team_account (
 CREATE TABLE match_event_team(
     team_id             int(11) NOT NULL,
     match_id            int(11) NOT NULL,
-    score               int(11) DEFAULT NULL,
+    score               int(11) NOT NULL,
     PRIMARY KEY         (team_id, match_id, score),
     CONSTRAINT          `fk_team_match_team`
         FOREIGN KEY (team_id) REFERENCES team (team_id)

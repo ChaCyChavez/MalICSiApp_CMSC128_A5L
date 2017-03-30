@@ -25,14 +25,15 @@ exports.login_account = (req, res, next) => {
     createHash('sha256').update(req.query.password).
     digest('base64')];
   const callback = (err, data) => {
+    console.log(data[0]);
     if (err) {
       winston.level = 'debug';
       winston.log('debug', 'err:', err);
-    } else if (data.length == 0) {
+    } else if (data[0].length == 0) {
       winston.level = 'info';
       winston.log('info', 'Login failed.');
-      return res.status(404).send();
-    } else {
+      return res.status(404).send({message: 'Wrong username or password.'});
+    } else if (data[0].length){
       winston.level = 'info';
       winston.log('info', 'Login Successful!');
       return res.status(200).send();
