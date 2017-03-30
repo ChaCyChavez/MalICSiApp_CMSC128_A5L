@@ -1,7 +1,12 @@
 'use strict';
 
 (() => {
+<<<<<<< HEAD
     angular.module('app')
+=======
+    angular
+        .module('app')
+>>>>>>> pseudo-main-back-end
         .controller('sports-controller', sports_controller);
 
     function sports_controller($scope, $location) {

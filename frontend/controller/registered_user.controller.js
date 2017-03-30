@@ -1,7 +1,12 @@
 'use strict';
 
 (() => {
+<<<<<<< HEAD
     angular.module('app')
+=======
+    angular
+        .module('app')
+>>>>>>> pseudo-main-back-end
         .controller('registered-user-controller', registered_user_controller);
 
     function registered_user_controller($scope, $location) {

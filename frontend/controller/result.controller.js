@@ -1,7 +1,12 @@
 'use strict';
 
 (() => {
+<<<<<<< HEAD
     angular.module('app')
+=======
+    angular
+        .module('app')
+>>>>>>> pseudo-main-back-end
         .controller('result-controller', result_controller);
 
     function result_controller($scope, $location) {

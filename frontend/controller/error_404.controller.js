@@ -1,7 +1,12 @@
 'use strict';
 
 (() => {
+<<<<<<< HEAD
     angular.module('app')
+=======
+    angular
+    	.module('app')
+>>>>>>> pseudo-main-back-end
         .controller('error-404-controller', error_404_controller);
 
     function error_404_controller($scope, $location) {

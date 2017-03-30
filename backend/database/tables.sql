@@ -1,6 +1,6 @@
 
-DROP USER 'CMSC128'@'localhost';
-CREATE USER 'CMSC128'@'localhost' IDENTIFIED BY 'project128';
+-- DROP USER 'CMSC128'@'localhost';
+-- CREATE USER 'CMSC128'@'localhost' IDENTIFIED BY 'project128';
 DROP DATABASE IF EXISTS malicsi;
 CREATE DATABASE malicsi;
 GRANT ALL PRIVILEGES ON malicsi.* TO 'CMSC128'@'localhost' WITH GRANT OPTION;
