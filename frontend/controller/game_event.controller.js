@@ -1,9 +1,12 @@
 'use strict';
 
 (() => {
-    angular.module('app')
+    angular
+        .module('app')
         .controller('game-event-controller', game_event_controller);
 
+    game_event_controller.$inject['$scope', '$window', 'game_event_controller'];
+    
     function game_event_controller($scope, $location) {
 
         $scope.view_sports = () => {
