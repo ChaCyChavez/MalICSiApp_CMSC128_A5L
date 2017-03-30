@@ -77,7 +77,7 @@
       </div>
     </div>
 
-    <h3 id = "label">INCOMING GAMES</h3>
+    <h3 id = "label">UPCOMING GAMES</h3>
 
     <!-- Contents -->
     <div class="row">
@@ -137,37 +137,37 @@
 
     <!-- Dropdown Structure -->
     <ul id='dropdownOptions1' class='dropdown-content'>
-      <li><a href="javascript:void(0)">edit</a></li>
+      <li><a href="javascript:void(0)" data-target="modal4" modal>edit</a></li>
       <li class="divider"></li>
       <li><a href="javascript:void(0)">remove</a></li>
     </ul>
 
     <ul id='dropdownOptions2' class='dropdown-content'>
-      <li><a href="javascript:void(0)">edit</a></li>
+      <li><a href="javascript:void(0)" data-target="modal5" modal>edit</a></li>
       <li class="divider"></li>
       <li><a href="javascript:void(0)">remove</a></li>
     </ul>
 
     <ul id='dropdownOptions3' class='dropdown-content'>
-      <li><a href="javascript:void(0)">edit</a></li>
+      <li><a href="javascript:void(0)" data-target="modal6" modal>edit</a></li>
       <li class="divider"></li>
       <li><a href="javascript:void(0)">remove</a></li>
     </ul>
 
     <ul id='dropdownOptions4' class='dropdown-content'>
-      <li><a href="javascript:void(0)">edit</a></li>
+      <li><a href="javascript:void(0)" data-target="modal7" modal>edit</a></li>
       <li class="divider"></li>
       <li><a href="javascript:void(0)">remove</a></li>
     </ul>
 
     <ul id='dropdownOptions5' class='dropdown-content'>
-      <li><a href="javascript:void(0)">edit</a></li>
+      <li><a href="javascript:void(0)" data-target="modal8" modal>edit</a></li>
       <li class="divider"></li>
       <li><a href="javascript:void(0)">remove</a></li>
     </ul>
 
     <ul id='dropdownOptions6' class='dropdown-content'>
-      <li><a href="javascript:void(0)">edit</a></li>
+      <li><a href="javascript:void(0)" data-target="modal9" modal>edit</a></li>
       <li class="divider"></li>
       <li><a href="javascript:void(0)">remove</a></li>
     </ul>
@@ -206,6 +206,234 @@
       <div class="modal-footer">
         <div id="modal-button">
           <a href="javascript:void(0)" id="label-enter" class="teal modal-action modal-close waves-effect waves-green btn-flat white-text" ng-click="">Add Game</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="modal4" class="modal modal-fixed-footer">
+      <div class="modal-content" class="modal_edit">
+        <div class="teal content-title">
+          <h4 class="add white-text center-align">EDIT GAME</h4>
+        </div>
+        <div class="form-content" style="height: 287px;">
+          <div class="row">
+            <form id="add_game_form" class="col s12">
+              <div class="row">
+                <div class="inputfield col s10">
+                  <label class="labels cyan-text text-darken-4" for="name">Name:</label>
+                  <input class="field-inputs" type="text">
+                </div>
+                 <div class="inputfield col s10">
+                  <label class="labels cyan-text text-darken-4" for="name">Type:</label>
+                  <input class="field-inputs" type="text">
+                </div>
+                <div class="inputfield col s10">
+                  <label class="labels cyan-text text-darken-4" for="name">Start date:</label>
+                  <input class="datepicker" type="date">
+                </div>
+                <div class="inputfield col s10">
+                  <label class="labels cyan-text text-darken-4" for="name">End date:</label>
+                  <input class="datepicker" type="date">
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div id="modal-button">
+          <a href="javascript:void(0)" id="label-enter" class="teal modal-action modal-close waves-effect waves-green btn-flat white-text" ng-click="">Submit</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="modal5" class="modal modal-fixed-footer">
+      <div class="modal-content" class="modal_edit">
+        <div class="teal content-title">
+          <h4 class="add white-text center-align">EDIT GAME</h4>
+        </div>
+        <div class="form-content" style="height: 287px;">
+          <div class="row">
+            <form id="add_game_form" class="col s12">
+              <div class="row">
+                <div class="inputfield col s10">
+                  <label class="labels cyan-text text-darken-4" for="name">Name:</label>
+                  <input class="field-inputs" type="text">
+                </div>
+                 <div class="inputfield col s10">
+                  <label class="labels cyan-text text-darken-4" for="name">Type:</label>
+                  <input class="field-inputs" type="text">
+                </div>
+                <div class="inputfield col s10">
+                  <label class="labels cyan-text text-darken-4" for="name">Start date:</label>
+                  <input class="datepicker" type="date">
+                </div>
+                <div class="inputfield col s10">
+                  <label class="labels cyan-text text-darken-4" for="name">End date:</label>
+                  <input class="datepicker" type="date">
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div id="modal-button">
+          <a href="javascript:void(0)" id="label-enter" class="teal modal-action modal-close waves-effect waves-green btn-flat white-text" ng-click="">Submit</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="modal6" class="modal modal-fixed-footer">
+      <div class="modal-content" class="modal_edit">
+        <div class="teal content-title">
+          <h4 class="add white-text center-align">EDIT GAME</h4>
+        </div>
+        <div class="form-content" style="height: 287px;">
+          <div class="row">
+            <form id="add_game_form" class="col s12">
+              <div class="row">
+                <div class="inputfield col s10">
+                  <label class="labels cyan-text text-darken-4" for="name">Name:</label>
+                  <input class="field-inputs" type="text">
+                </div>
+                 <div class="inputfield col s10">
+                  <label class="labels cyan-text text-darken-4" for="name">Type:</label>
+                  <input class="field-inputs" type="text">
+                </div>
+                <div class="inputfield col s10">
+                  <label class="labels cyan-text text-darken-4" for="name">Start date:</label>
+                  <input class="datepicker" type="date">
+                </div>
+                <div class="inputfield col s10">
+                  <label class="labels cyan-text text-darken-4" for="name">End date:</label>
+                  <input class="datepicker" type="date">
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div id="modal-button">
+          <a href="javascript:void(0)" id="label-enter" class="teal modal-action modal-close waves-effect waves-green btn-flat white-text" ng-click="">Submit</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="modal7" class="modal modal-fixed-footer">
+      <div class="modal-content" class="modal_edit">
+        <div class="teal content-title">
+          <h4 class="add white-text center-align">EDIT GAME</h4>
+        </div>
+        <div class="form-content" style="height: 287px;">
+          <div class="row">
+            <form id="add_game_form" class="col s12">
+              <div class="row">
+                <div class="inputfield col s10">
+                  <label class="labels cyan-text text-darken-4" for="name">Name:</label>
+                  <input class="field-inputs" type="text">
+                </div>
+                 <div class="inputfield col s10">
+                  <label class="labels cyan-text text-darken-4" for="name">Type:</label>
+                  <input class="field-inputs" type="text">
+                </div>
+                <div class="inputfield col s10">
+                  <label class="labels cyan-text text-darken-4" for="name">Start date:</label>
+                  <input class="datepicker" type="date">
+                </div>
+                <div class="inputfield col s10">
+                  <label class="labels cyan-text text-darken-4" for="name">End date:</label>
+                  <input class="datepicker" type="date">
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div id="modal-button">
+          <a href="javascript:void(0)" id="label-enter" class="teal modal-action modal-close waves-effect waves-green btn-flat white-text" ng-click="">Submit</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="modal8" class="modal modal-fixed-footer">
+      <div class="modal-content" class="modal_edit">
+        <div class="teal content-title">
+          <h4 class="add white-text center-align">EDIT GAME</h4>
+        </div>
+        <div class="form-content" style="height: 287px;">
+          <div class="row">
+            <form id="add_game_form" class="col s12">
+              <div class="row">
+                <div class="inputfield col s10">
+                  <label class="labels cyan-text text-darken-4" for="name">Name:</label>
+                  <input class="field-inputs" type="text">
+                </div>
+                 <div class="inputfield col s10">
+                  <label class="labels cyan-text text-darken-4" for="name">Type:</label>
+                  <input class="field-inputs" type="text">
+                </div>
+                <div class="inputfield col s10">
+                  <label class="labels cyan-text text-darken-4" for="name">Start date:</label>
+                  <input class="datepicker" type="date">
+                </div>
+                <div class="inputfield col s10">
+                  <label class="labels cyan-text text-darken-4" for="name">End date:</label>
+                  <input class="datepicker" type="date">
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div id="modal-button">
+          <a href="javascript:void(0)" id="label-enter" class="teal modal-action modal-close waves-effect waves-green btn-flat white-text" ng-click="">Submit</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="modal9" class="modal modal-fixed-footer">
+      <div class="modal-content" class="modal_edit">
+        <div class="teal content-title">
+          <h4 class="add white-text center-align">EDIT GAME</h4>
+        </div>
+        <div class="form-content" style="height: 287px;">
+          <div class="row">
+            <form id="add_game_form" class="col s12">
+              <div class="row">
+                <div class="inputfield col s10">
+                  <label class="labels cyan-text text-darken-4" for="name">Name:</label>
+                  <input class="field-inputs" type="text">
+                </div>
+                 <div class="inputfield col s10">
+                  <label class="labels cyan-text text-darken-4" for="name">Type:</label>
+                  <input class="field-inputs" type="text">
+                </div>
+                <div class="inputfield col s10">
+                  <label class="labels cyan-text text-darken-4" for="name">Start date:</label>
+                  <input class="datepicker" type="date">
+                </div>
+                <div class="inputfield col s10">
+                  <label class="labels cyan-text text-darken-4" for="name">End date:</label>
+                  <input class="datepicker" type="date">
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div id="modal-button">
+          <a href="javascript:void(0)" id="label-enter" class="teal modal-action modal-close waves-effect waves-green btn-flat white-text" ng-click="">Submit</a>
         </div>
       </div>
     </div>

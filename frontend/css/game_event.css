@@ -26,14 +26,6 @@ nav {
   }
 }
 
-#slide-out {
-  font-family: "Panton";
-}
-
-#slide-out li a{
-  padding-bottom: 0;
-}
-
 .add-button {
   position: fixed;
   display: inline-block;
@@ -133,7 +125,7 @@ nav {
     /*padding: 0 !important;*/
 }
 
-#modal_add {
+#modal_add, .modal_edit {
   padding: 0 !important;
 }
 
