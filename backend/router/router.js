@@ -50,6 +50,9 @@ module.exports = (router) => {
     router.post('/api/update-account', game_event.update_game_event);
     //delete game_event
     router.post('/api/delete-game-event', game_event.delete_game_event);
+	router.get('/api/get-user-upcoming-events/:account_id', game_event.get_user_upcoming_events);
+	router.get('/api/get-user-past-events/:account_id', game_event.get_user_past_events);
+
 
 //game_event_sponsor routers
     //create game_event_sponsor
@@ -60,6 +63,7 @@ module.exports = (router) => {
     router.post('/api/update-game-event-sponsor', game_event_sponsor.update_game_event_sponsor);
     //delete game_event_sponsor
     router.post('/api/delete-game-event-sponsor', game_event_sponsor.delete_game_event_sponsor);
+
 
 //log routers
     //create log
@@ -163,7 +167,7 @@ module.exports = (router) => {
     router.post('/api/delete-registers/:player_id/:game_id', del.delete_registers);
     router.post('/api/delete-game-game-type/:game_id/:game_type_id', del.delete_game_game_type);
     router.post('/api/delete-game-sponsor/:game_id/:sponsor_id', del.delete_game_sponsor);
-*/    
+*/
 
     router.all('*', (req, res, next) => {
         res.status(404).send({
