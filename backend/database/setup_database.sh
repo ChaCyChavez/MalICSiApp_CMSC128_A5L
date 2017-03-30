@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "----------------------------------------------------Enter mysql ROOT password"
+echo "---------------Enter mysql ROOT password"
 mysql -uroot -p < tables.sql     							&& echo "Created Tables"				&& 
 mysql -uCMSC128 -pproject128 < create_procedures.sql		&& echo "Inserted Create Procedures"	&&	
 mysql -uCMSC128 -pproject128 < retrieve_procedures.sql		&& echo "Inserted Retrieve Procedures"	&&	
