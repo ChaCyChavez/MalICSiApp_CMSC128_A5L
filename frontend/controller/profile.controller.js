@@ -13,6 +13,7 @@
             console.log(data);
             $scope.profile = data[0][0];
         });
+        
         $scope.view_profile = () => {
             $location.path("/profile").replace();
         }

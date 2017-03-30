@@ -12,5 +12,8 @@
 		};
 
 		function GameEventService($window, $http, $q) {
+		
+			let service = {};
+			return service;
 		}
 })();
