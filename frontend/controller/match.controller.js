@@ -1,7 +1,8 @@
 'use strict';
 
 (() => {
-    angular.module('app')
+    angular
+        .module('app')
         .controller('match-controller', match_controller);
 
     function match_controller($scope, $location) {

@@ -1,7 +1,8 @@
 'use strict';
 
 (() => {
-    angular.module('app')
+    angular
+        .module('app')
         .controller('user-controller', user_controller);
 
     function user_controller($scope, $location) {

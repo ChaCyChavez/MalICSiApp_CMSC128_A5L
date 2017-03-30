@@ -1,7 +1,8 @@
 'use strict';
 
 (() => {
-    angular.module('app')
+    angular
+        .module('app')
         .controller('profile-controller', profile_controller);
 
     function profile_controller($scope, $location, $routeParams, MalicsiService) {

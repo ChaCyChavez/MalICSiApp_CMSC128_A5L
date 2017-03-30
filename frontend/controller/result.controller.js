@@ -1,7 +1,8 @@
 'use strict';
 
 (() => {
-    angular.module('app')
+    angular
+        .module('app')
         .controller('result-controller', result_controller);
 
     function result_controller($scope, $location) {

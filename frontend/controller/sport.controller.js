@@ -1,7 +1,8 @@
 'use strict';
 
 (() => {
-    angular.module('app')
+    angular
+        .module('app')
         .controller('sport-controller', sport_controller);
 
     function sport_controller($scope, $location) {
