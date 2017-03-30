@@ -5,7 +5,6 @@
         .module('app')
         .controller('profile-controller', profile_controller);
 
-
     function profile_controller($scope, $location, $routeParams, ProfileService) {
         ProfileService
             .get_profile($routeParams.account_id)

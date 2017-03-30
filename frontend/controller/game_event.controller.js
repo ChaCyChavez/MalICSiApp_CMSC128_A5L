@@ -4,7 +4,6 @@
     angular
         .module('app')
         .controller('game-event-controller', game_event_controller);
-
     
     function game_event_controller($scope, $location, GameEventService) {
 

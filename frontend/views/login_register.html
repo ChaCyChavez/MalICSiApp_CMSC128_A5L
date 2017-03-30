@@ -205,13 +205,13 @@
             <form id="login-form">
               <div id="login-users" class="row">
                 <div class="input-field col s10">
-                  <input class="field-inputs" type="text" class="validate">
+                  <input class="field-inputs" type="text" class="validate" ng-model="info.username">
                   <label class="labels cyan-text text-darken-4" for="user_name">Username:</label>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field col s10">
-                  <input class="field-inputs" type="password" class="validate">
+                  <input class="field-inputs" type="password" class="validate" ng-model="info.password">
                   <label class="labels cyan-text text-darken-4" for="password">Password:</label>
                 </div>
               </div>
@@ -299,3 +299,5 @@ $(document).ready(function(){
 });
 </script>
 
+<script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="bower_components/materialize/dist/js/materialize.js"></script>

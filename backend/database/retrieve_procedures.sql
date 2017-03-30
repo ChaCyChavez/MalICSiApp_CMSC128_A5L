@@ -2,12 +2,12 @@ use malicsi;
 
 
 /* LOGGING IN AN ACCOUNT */
-\d //
+//
 drop procedure if exists login_account//
   CREATE PROCEDURE login_account(IN acctid int, IN pw varchar(256))
   BEGIN
     SELECT account_id, firstname, middlename, lastname, email, username, course,
-    birthday, college FROM account where account_id = acctid and password = pw;
+    birthday, college FROM account where username = acctid and password = pw;
   END;
 //
 
