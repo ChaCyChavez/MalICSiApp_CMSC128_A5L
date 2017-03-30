@@ -117,20 +117,24 @@ delimiter //
     END;
 // 
 delimiter ;
-
+ 
 drop procedure if exists update_sponsor;
 delimiter //
     create procedure update_sponsor (
         IN _sponsor_id          int(11),
         IN _sponsor_name        varchar(256),
         IN _sponsor_logo        varchar(256),
-        IN _sponsor_affiliation varchar(256)
+        IN _sponsor_type        enum('minor','major','official partner'),
+        IN _sponsor_desc        varchar(256),
+        IN _web_address         varchar(256)
     )
     BEGIN
         UPDATE sponsor SET
             sponsor_name = _sponsor_name,
             sponsor_logo = _sponsor_logo,
-            sponsor_affiliation = _sponsor_affiliation
+            sponsor_type = _sponsor_type,
+            sponsor_desc = _sponsor_desc,
+            web_address  = _web_address
         WHERE sponsor_id = _sponsor_id;
     END;
 //
