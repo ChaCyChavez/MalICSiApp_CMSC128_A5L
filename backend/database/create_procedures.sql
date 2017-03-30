@@ -18,15 +18,15 @@ delimiter //
     BEGIN
         INSERT into account(
             firstname,
-            middlename, 
-            lastname, 
-            email, 
-            username, 
-            password, 
-            course, 
-            birthday, 
+            middlename,
+            lastname,
+            email,
+            username,
+            password,
+            course,
+            birthday,
             college
-        ) 
+        )
         values(
             _firstname,
             _middlename,
@@ -39,7 +39,7 @@ delimiter //
             _college
         );
     END;
-// 
+//
 delimiter ;
 
 drop procedure if exists add_game_event;
@@ -64,7 +64,7 @@ delimiter //
             _account_id
             );
     END;
-// 
+//
 delimiter ;
 
 drop procedure if exists add_team;
@@ -98,14 +98,14 @@ delimiter //
             court_name,
             court_location,
             court_type
-            ) 
+            )
         values(
             _court_name,
             _court_location,
             _court_type
         );
     END;
-// 
+//
 delimiter ;
 
 drop procedure if exists add_sponsor;
@@ -137,7 +137,7 @@ drop procedure if exists add_sport;
 delimiter //
     create procedure add_sport (
         IN _sport_type          varchar(256),
-        IN _division            enum('men','women','mixed'), 
+        IN _division            enum('men','women','mixed'),
         IN _game_id             int(11)
     )
     BEGIN
@@ -180,7 +180,7 @@ delimiter //
             _court_id
             );
     END;
-// 
+//
 delimiter ;
 
 /* Adding into "multivalued attribute" tables */
@@ -229,8 +229,8 @@ delimiter ;
 drop procedure if exists add_team_account;
 delimiter //
     create procedure add_team_account (
-        IN _account_id        int(,
-        IN _team_id           int
+        IN _account_id        int(11),
+        IN _team_id           int(11)
     )
     BEGIN
         INSERT into sport_player(

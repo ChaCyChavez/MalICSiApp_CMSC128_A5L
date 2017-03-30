@@ -5,7 +5,7 @@ const winston = require('winston');
 const crypto        = require('crypto');
 const nodemailer    = require('nodemailer');
 const fs            = require('fs');
-const file = "../mailbody/body.txt";  //path to file of body message here    
+const file = "../mailbody/body.txt";  //path to file of body message here
 const transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
@@ -41,12 +41,12 @@ exports.login_account = (req, res, next) => {
 
 //Controller to be used for adding an account
 exports.add_account = (req,res,next) => {
-  	const query_string = 'CALL add_account(  ?,?,?,?,?,?,?,?,?,?,?,?,?)'; 
-  	const payload = [req.body.firstname, req.body.middlename, 
+  	const query_string = 'CALL add_account(  ?,?,?,?,?,?,?,?,?,?,?,?,?)';
+  	const payload = [req.body.firstname, req.body.middlename,
       	req.body.lastname, req.body.email, req.body.username,
       	crypto.createHash('sha256').update(req.body.password)
-      	.digest('base64'),req.body.course, req.body.birthday, req.body.college, 
-      	req.body.position, req.body.is_player,req.body.player_jersey_num, 
+      	.digest('base64'),req.body.course, req.body.birthday, req.body.college,
+      	req.body.position, req.body.is_player,req.body.player_jersey_num,
         req.body.player_role];
   const callback = (err,data) => {
     if(err){
@@ -88,7 +88,7 @@ exports.add_account = (req,res,next) => {
 };
 
 exports.approve_account = (req,res,next) => {
-    const query_string = 'CALL approve_account(?)'; 
+    const query_string = 'CALL approve_account(?)';
     const payload = [req.body.account_id];
   const callback = (err,data) => {
     if(err){
@@ -112,11 +112,11 @@ exports.approve_account = (req,res,next) => {
 
 //Controller to be used to update an account given an account_id
 exports.update_account = (req,res,next) => {
-    const query_string = 'CALL update_account(?,?,?,?,?,?,?,?,?,?,?,?,?,?)'; 
-    const payload = [req.body.firstname, req.body.middlename, 
+    const query_string = 'CALL update_account(?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
+    const payload = [req.body.firstname, req.body.middlename,
         req.body.lastname, req.body.email, crypto.createHash('sha256')
-        .update(req.body.password).digest('base64'),req.body.course, 
-        req.body.birthday, req.body.college,req.body.position, 
+        .update(req.body.password).digest('base64'),req.body.course,
+        req.body.birthday, req.body.college,req.body.position,
         req.body.is_player, req.body.player_jersey_num, req.body.player_role,
         req.body.account_id];
   const callback = (err,data) => {
@@ -140,7 +140,7 @@ exports.update_account = (req,res,next) => {
 
 //Controller to be used to retrieve an account given an account_id
 exports.get_account = (req, res, next) => {
-  const query_string = "CALL get_account(?)";  
+  const query_string = "CALL get_account(?)";
   const payload = [req.params.account_id];
   const callback = (err, data) => {
     if(err){
@@ -163,7 +163,7 @@ exports.get_account = (req, res, next) => {
 
 //Controller to be used to retrieve all account
 exports.get_all_account = (req, res, next) => {
-  const query_string = "CALL get_all_account()";  
+  const query_string = "CALL get_all_account()";
   const payload = [];
   const callback = (err, data) => {
     if(err){
@@ -171,6 +171,7 @@ exports.get_all_account = (req, res, next) => {
       winston.log('debug', 'err: ', err);
       return res.status(500).send({ error_code:err.code});
     } else if (data[0].length == 0) {
+	  console.log(data);
       winston.level = 'info';
       winston.log('info', 'Empty');
       return res.status(404).send({ message: 'Empty! Retrieve failed'});
@@ -185,7 +186,7 @@ exports.get_all_account = (req, res, next) => {
 };
 //Controller to be used to delete an account given an account_id
 exports.delete_account = (req, res, next) => {
-  const query_string ='CALL delete_account(?)'; 
+  const query_string ='CALL delete_account(?)';
   const payload = [req.params.account_id];
   const callback = (err, data) => {
     if(err){
