@@ -187,4 +187,17 @@ drop procedure if exists get_match_event_team//
   END;
 //
 
+drop procedure if exists get_user_upcoming_events//
+	CREATE PROCEDURE get_user_upcoming_events(IN _account_id int)
+	BEGIN
+		SELECT * from game_event where account_id = _account_id and game_starting_time_date > NOW();
+	END;
+//
+
+drop procedure if exists get_user_past_events//
+	CREATE PROCEDURE get_user_past_events(IN _account_id int)
+	BEGIN
+		SELECT * from game_event where account_id = _account_id and game_ending_time_date <= NOW();
+	END;
+//
 \d ;
