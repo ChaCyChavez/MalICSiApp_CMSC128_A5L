@@ -14,7 +14,11 @@ body {
 
 nav {
     background-color: white;
-    font-family: "Lato" !important;
+    font-family: "Panton";
+}
+
+#deets {
+    width: 35%;
 }
 
 .brand-logo {
@@ -31,20 +35,13 @@ nav {
 }
 
 .nam {
-    font-family: 'Panton';
-    font-size: 92%;
+    font-size: 75%;
     text-align: center;
 }
 
 .reg {
-    font-family: 'Panton';
-    font-size: 150%;
-}
-
-.si {
-    font-family: 'Panton';
-    height: 75px;
-    line-height: 75px;
+    font-size: 120%;
+    border-bottom: 1px solid red;
 }
 
 .box {
@@ -55,7 +52,6 @@ nav {
 }
 
 #logo {
-    font-family: 'Panton';
     font-size: 50px;
     line-height: 75px;
     margin-left: 2% !important;
@@ -70,11 +66,10 @@ nav {
 }
 
 #hello {
-    font-size: 22px !important;
+    font-size: 20px !important;
     margin-right: 10px;
     line-height: 75px;
-    font-family: 'Lato', sans-serif;
-    font-weight: 600;
+    font-family: "Blogger";
     float: left; 
 }
 
@@ -84,55 +79,12 @@ nav {
   }
 }
 
-#dropdown1 div {
-    width: 300px;
-    padding: 3%;
+#deets {
+    width: 35%;
 }
 
-#upper {
-    font-family: 'Panton', sans-serif;
-    height: 80px;
-}
-
-#lower {
-    font-family: 'Panton', sans-serif;
-    height: 100px;
-}
-
-#lower h5 {
-    font-size: 30px;
-}
-
-#dropdown1 li {
-    font-family: 'Panton', sans-serif;
-    background-color: rgba(0, 0, 0, 0) !important;
-}
-
-#dropdown1 li:hover {
-    background-color: rgba(0, 0, 0, 0) !important;
-}
-
-.view-dd {
-    color: #101010 !important;
-    font-size: 18px !important;
-    padding: 1px 16px !important;
-}
-
-.view-dd:hover {
-    color: teal !important;
-    background-color: rgba(0, 0, 0, 0) !important;
-    transition: color .3s ease-in-out;
-}
-
-.header {
-  width: 100%;
-  padding-left: 5%;
-}
-
-h3.header {
-  margin-top: 40px;
-  text-align: center;
-  font-weight: 600;
+.reg {
+    font-size: 150%;
 }
 
 .box {
@@ -147,10 +99,19 @@ h3.header {
     margin-right: 50px;
 }
 
-.card .large .card-content{
+.card large .card-content{
     line-height: 34px; 
-
 }
+
+.news-announcement {
+    font-family: "Blogger";
+    width: 100%;
+    padding: auto;
+    margin: auto;
+    text-align: center;
+}
+
+
 
 .footer-content {
     padding: 5px 10px 0 10px;
@@ -187,9 +148,6 @@ a#spon:hover, a.tab:hover {
 }
 
 .page-footer {
-    font-family: 'Lato', sans-serif;
-    font-weight: lighter;
-    font-size: 16px;
     box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.5);
     text-align: center;
     padding-top: 1px !important;

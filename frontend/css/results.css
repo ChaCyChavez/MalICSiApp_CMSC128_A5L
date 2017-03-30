@@ -24,10 +24,19 @@ body {
 }
 
 
+.nam {
+    font-size: 75%;
+    text-align: center;
+}
 
 #dr {
     padding-top: 5px;
     height: 75px;
+}
+
+.reg {
+    font-size: 120%;
+    border-bottom: 1px solid red;
 }
 
 .box {
@@ -52,6 +61,10 @@ body {
 
 #deets {
     width: 35%;
+}
+
+.reg {
+    font-size: 150%;
 }
 
 .box {
