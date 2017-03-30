@@ -25,21 +25,20 @@ insert into court values (NULL, 'Copeland', 'UPLB', 'Gym');
 insert into court values (NULL, 'Physci', 'UPLB', 'Building');
 insert into court values (NULL, 'Freedom Park', 'UPLB', 'Park');
 
-CALL add_sponsor ('Ian', 'http://logos.com/logo2.png', 'Intel');
-CALL add_sponsor ('Miles', 'http://logos.com/logo3.png', 'ACSS');
-CALL add_sponsor ('Emy', 'http://logos.com/logo4.png', 'YSES');
-CALL add_sponsor ('Maria', 'http://logos.com/logo2.png', 'COSS');
+CALL add_sponsor ('Ian', 'http://logos.com/logo2.png', 'Intel', 1);
+CALL add_sponsor ('Miles', 'http://logos.com/logo3.png', 'ACSS', 1);
+CALL add_sponsor ('Emy', 'http://logos.com/logo4.png', 'YSES', 2);
+CALL add_sponsor ('Maria', 'http://logos.com/logo2.png', 'COSS', 2);
 
-insert into sport values (1, 'Volleyball', 'men', 1, 1);
-insert into sport values (2, 'Volleyball', 'men', 2, 1);
-insert into sport values (3, 'Volleyball', 'men', 3, 2);
-insert into sport values (4, 'Volleyball', 'men', 4, 2);
+insert into sport values (1, 'Volleyball', 'men', 1);
+insert into sport values (2, 'Volleyball', 'men', 2 );
+insert into sport values (3, 'Volleyball', 'men', 3);
+insert into sport values (4, 'Volleyball', 'men', 4);
 
 insert into match_event values (1,true, CURDATE(), 'elimination', 1, 2);
 insert into match_event values (2,true, CURDATE(), 'semi-finals', 1, 2);
 insert into match_event values (3,true, CURDATE(), 'finals', 2, 1);
 insert into match_event values (4,true, CURDATE(), 'finals', 2, 1);
-
 
 insert into game_event_team values (1, 3);
 insert into game_event_team values (2, 3);

@@ -6,7 +6,7 @@
         <div class="nav-wrapper">
           <a href="javascript:void(0)" class="grey-text text-darken-4 center" id="logo" ng-click="back_to_home()">MalICSi</a>
           <ul id="nav-mobile" class="right">
-            <li><div class="grey-text text-darken-4" id="hello">Welcome, Juan Dela Cruz</div></li>
+            <li><div class="grey-text text-darken-4" id="hello">Welcome, {{ current_user }}</div></li>
             <li><a href="javascript:void(0)" data-activates="dropdown1" class="teal dropdown-button" id="dr" dropdown><i class="material-icons center-align">perm_identity</i></a></li>
           </ul>
         </div>
@@ -28,7 +28,7 @@
     <div id="all" class="row font2">
         <div class="col s12 m12 l6 xl6">
           <div class="card">
-            <div class="card-content"> 
+            <div class="card-content">
               <!-- <div class="row"> -->
                 <div class="container">
                   <img class="circle" src="img/placeholder.png">
@@ -38,10 +38,10 @@
             <div class="card-content teal lighten-1">
               <!-- <div class="row"> -->
                 <div class="card-content center-align white-text">
-                  <h1>JUAN DELA CRUZ</h1>
-                  <h3>2014-12345</h3>
-                  <h3>CAS</h3>
-                  <h3>BSCS</h3>
+                  <h3>{{ profile.name }}</h3>
+                  <h5>{{ profile.student_number }}</h5>
+                  <h5>{{ profile.college }}</h5>
+                  <h5>{{ profile.course }}</h5>
                 </div>
               <!-- </div> -->
             </div>

@@ -23,6 +23,16 @@ drop procedure if exists get_game_head_account;
 //
 \d ;
 
+drop procedure if exists get_account;
+\d //
+  CREATE PROCEDURE get_account(IN acctid int)
+  BEGIN
+    SELECT account_id, firstname, middlename, lastname, email, username, course,
+    birthday, college, is_approved, is_game_head, position, is_player, player_jersey_num, player_role FROM account where account_id = acctid;
+  END;
+//
+\d ;
+
 drop procedure if exists get_all_game_head_account;
 \d //
   CREATE PROCEDURE get_all_game_head_account()
@@ -204,7 +214,7 @@ drop procedure if exists get_game_event_team;
 \d //
   CREATE PROCEDURE get_game_event_team(IN gameid int)
   BEGIN
-    select * from team, game_event_team where game_event_team.game_id = gameid 
+    select * from team, game_event_team where game_event_team.game_id = gameid
     and game_event_team.team_id = team.team_id;
   END;
 //
@@ -217,7 +227,7 @@ drop procedure if exists get_team_account;
   CREATE PROCEDURE get_team_account(IN teamid int)
   BEGIN
     SELECT account.account_id, firstname, middlename, lastname, email, username, course,
-    birthday, college from account, team_account where team_account.team_id = 
+    birthday, college from account, team_account where team_account.team_id =
     teamid and account.account_id = team_account.account_id;
   END;
 //
