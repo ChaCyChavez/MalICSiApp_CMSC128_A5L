@@ -51,9 +51,50 @@
 
 				return deferred.promise;
 			}
+
+			const get_sport = function (data) {
+				let deferred = $q.defer();
+
+				$http({
+					method: 'GET',
+					params: data,
+					xhrFields: {withCredentials: true},
+					url: '/api/get-sport/' + req.data.id,
+					headers: headers
+				})
+				.then(function(res) {
+					deferred.resolve(res.data);
+				}, function(err) {
+					deferred.reject(err.data);
+				})
+
+				return deferred.promise;
+			}
+
+			const delete_sport = function (data) {
+				let deferred = $q.defer();
+
+				$http({
+					method: 'POST',
+					params: data,
+					xhrFields: {withCredentials: true},
+					url: '/api/delete-sport/' + req.data.id,
+					headers: headers
+				})
+				.then(function(res) {
+					deferred.resolve(res.data);
+				}, function(err) {
+					deferred.reject(err.data);
+				})
+
+				return deferred.promise;
+			}
+
 			let service = {};
 			service.add_sport 				= add_sport;
 			service.update_sport 			= update_sport;
+			service.get_sport 				= get_sport;
+			service.delete_sport			= delete_sport;
 			return service;
 
 		}
