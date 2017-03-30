@@ -45,7 +45,7 @@ exports.login_account = (req, res, next) => {
 
 //Controller to be used for adding an account
 exports.add_account = (req,res,next) => {
-  	const query_string = 'CALL add_account(  ?,?,?,?,?,?,?,?,?,?,?,?,?)';
+  	const query_string = 'CALL add_account(?,?,?,?,?,?,?,?,?,?,?,?,?)';
   	const payload = [req.body.firstname, req.body.middlename,
       	req.body.lastname, req.body.email, req.body.username,
       	crypto.createHash('sha256').update(req.body.password)
