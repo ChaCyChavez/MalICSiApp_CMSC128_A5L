@@ -61,6 +61,8 @@ CREATE TABLE sponsor (
     sponsor_name        varchar(256) NOT NULL,
     sponsor_logo        varchar(256) DEFAULT NULL,
     sponsor_type        enum('minor','major','official partner') NOT NULL,
+    sponsor_desc        varchar(256) NOT NULL,
+    web_address         varchar(256) NOT NULL,
     game_id             int(11) NOT NULL,
     PRIMARY KEY         (sponsor_id),
     CONSTRAINT          `fk_sponsor_game` 
