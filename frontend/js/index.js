@@ -9,10 +9,4 @@ $(document).ready(function(){
     starting_top: '4%',
     ending_top: '10%',
   });
-
-  $("#modal-login").width($(".modal").width());
-  $("#modal-login").height($(".modal").height());
-
-  $("#modal-register").width($(".modal").width());
-  $("#modal-register").height($(".modal").height());
 });
