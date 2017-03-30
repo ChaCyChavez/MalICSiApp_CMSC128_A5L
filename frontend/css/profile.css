@@ -48,6 +48,28 @@ a#spon:hover, a.tab:hover {
 }
 
 
+#dropdown1 li:hover {
+    background-color: rgba(0, 0, 0, 0) !important;
+}
+
+#view-profile {
+    padding: 10px !important;
+    font-size: 20px !important;
+    color: #101010 !important;
+}
+
+#view-profile:hover {
+    background-color: rgba(0, 0, 0, 0) !important;
+    color: teal !important;
+}
+
+#upper {
+    height: 80px;
+}
+
+#lower {
+    height: 200px;
+}
 
 #pic {
     font-size: 60px;
