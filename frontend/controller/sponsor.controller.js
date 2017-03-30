@@ -1,12 +1,8 @@
 'use strict';
 
 (() => {
-<<<<<<< HEAD
-    angular.module('app')
-=======
     angular
         .module('app')
->>>>>>> pseudo-main-back-end
         .controller('sponsor-controller', sponsor_controller);
 
     function sponsor_controller($scope, $location) {

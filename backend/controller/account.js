@@ -17,15 +17,11 @@ const transporter = nodemailer.createTransport({
 
 //Login
 exports.login_account = (req, res, next) => {
-
-  console.log(req.query);
-
   const query_string = "CALL login_account(?,?)";
   const payload = [req.query.username, crypto.
     createHash('sha256').update(req.query.password).
     digest('base64')];
   const callback = (err, data) => {
-    console.log(data[0]);
     if (err) {
       winston.level = 'debug';
       winston.log('debug', 'err:', err);
@@ -142,15 +138,10 @@ exports.update_account = (req,res,next) => {
   db.query(query_string, payload, callback);
 };
 
-//Controller to be used to retrieve an account given a username
+//Controller to be used to retrieve an account given an account_id
 exports.get_account = (req, res, next) => {
-<<<<<<< HEAD
-  const query_string = "CALL get_account(?)";  
-  const payload = [req.params.username];
-=======
   const query_string = "CALL get_account(?)";
   const payload = [req.params.account_id];
->>>>>>> pseudo-main-back-end
   const callback = (err, data) => {
     if(err){
       winston.level = 'debug';

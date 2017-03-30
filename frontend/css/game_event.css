@@ -26,8 +26,6 @@ nav {
   }
 }
 
-<<<<<<< HEAD
-=======
 #slide-out {
   font-family: "Panton";
 }
@@ -36,7 +34,6 @@ nav {
   padding-bottom: 0;
 }
 
->>>>>>> pseudo-main-back-end
 .add-button {
   position: fixed;
   display: inline-block;
@@ -136,11 +133,7 @@ nav {
     /*padding: 0 !important;*/
 }
 
-<<<<<<< HEAD
-#modal_add, .modal_edit {
-=======
 #modal_add {
->>>>>>> pseudo-main-back-end
   padding: 0 !important;
 }
 

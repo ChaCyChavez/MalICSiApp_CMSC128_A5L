@@ -1,12 +1,8 @@
 'use strict';
 
 (() => {
-<<<<<<< HEAD
-    angular.module('app')
-=======
     angular
         .module('app')
->>>>>>> pseudo-main-back-end
         .controller('match-controller', match_controller);
 
     function match_controller($scope, $location) {

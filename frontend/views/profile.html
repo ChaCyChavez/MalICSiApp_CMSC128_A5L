@@ -6,11 +6,7 @@
         <div class="nav-wrapper">
           <a href="javascript:void(0)" class="grey-text text-darken-4 center" id="logo" ng-click="back_to_home()">MalICSi</a>
           <ul id="nav-mobile" class="right">
-<<<<<<< HEAD
-            <li><div class="grey-text text-darken-4" id="hello">Welcome, Juan Dela Cruz</div></li>
-=======
             <li><div class="grey-text text-darken-4" id="hello">Welcome, {{ profile.firstname }}</div></li>
->>>>>>> pseudo-main-back-end
             <li><a href="javascript:void(0)" data-activates="dropdown1" class="teal dropdown-button" id="dr" dropdown><i class="material-icons center-align">perm_identity</i></a></li>
           </ul>
         </div>
@@ -32,11 +28,7 @@
     <div id="all" class="row font2">
         <div class="col s12 m12 l6 xl6">
           <div class="card">
-<<<<<<< HEAD
-            <div class="card-content"> 
-=======
             <div class="card-content">
->>>>>>> pseudo-main-back-end
               <!-- <div class="row"> -->
                 <div class="container">
                   <img class="circle" src="img/placeholder.png">
@@ -46,12 +38,6 @@
             <div class="card-content teal lighten-1">
               <!-- <div class="row"> -->
                 <div class="card-content center-align white-text">
-<<<<<<< HEAD
-                  <h1>JUAN DELA CRUZ</h1>
-                  <h3>2014-12345</h3>
-                  <h3>CAS</h3>
-                  <h3>BSCS</h3>
-=======
                   <h3>{{ profile.firstname + " " + profile.middlename + " " + profile.lastname}}</h3>
                   <h5>{{ profile.college }}</h5>
                   <h5>{{ profile.course }}</h5>
@@ -60,7 +46,6 @@
                   <h5>{{ profile.player_jersey_num }}</h5>
                   <h5>{{ profile.player_role }}</h5>
                   <h5>{{ profile.position }}</h5>
->>>>>>> pseudo-main-back-end
                 </div>
               <!-- </div> -->
             </div>
@@ -137,8 +122,4 @@
       ending_top: '10%',
     });
   });
-<<<<<<< HEAD
 </script>
-=======
-</script>
->>>>>>> pseudo-main-back-end
