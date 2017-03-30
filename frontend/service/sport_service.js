@@ -3,16 +3,15 @@
 (() => {
 	angular
 		.module('app')
-		.factory('MatchService', MatchService);
+		.factory('SportService', SportService);
 
-		MatchService.$inject = ['$window', '$http', '$q'];
+		SportService.$inject = ['$window', '$http', '$q'];
 
 		const headers = {
 			'content-type': 'application/x-www-form-urlencoded'
 		};
 
-		function MatchService($window, $http, $q) {
-
+		function SportService($window, $http, $q) {
 			let service = {};
 			return service;
 
