@@ -9,7 +9,15 @@
 
 		function LogCtrl($scope, $window, $filter, LogService) {
 
-
+			$scope.get_log = function(){
+				LogService
+				.get_log()
+				.then(function(res){
+					$scope.allLogs =res;
+				},function(err){
+					console.log(err);
+				})
+			}
 		}
 
 })();
