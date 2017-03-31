@@ -63,7 +63,7 @@
                 SponsorService
                     .update_sponsors($scope.sponsor)
                     .then(function(res) {
-                        Materialize.toast(res.message, 4000, 'teal');
+                        swal(res.message);
                         $scope.sponsor = {
                             sponsor_name: "",
                             sponsor_logo: "",
@@ -73,7 +73,7 @@
                             game_id: 0
                         }
                     }, function(err) {
-                        Materialize.toast(err.message, 4000, 'teal');
+                       swal(err.message)
                         $scope.sponsor = {
                             sponsor_name: "",
                             sponsor_logo: "",
@@ -89,14 +89,14 @@
                 SponsorService
                     .delete_sponsors({sponsor_id: sponsorid})
                     .then(function(res) {
-                        Materialize.toast(res.message, 4000, 'teal');
+                        swal(res.message)
                         for(var i = 0; i < $scope.sponsors.length; i++) {
                             if($scope.sponsors[i].sponsor_id == sponsorid) {
                                 $scope.sponsors.splice(i, 1);
                             }
                         }
                     }, function(err) {
-                        Materialize.toast(err.message, 4000, 'teal');
+                        swal(err.message)
                         
                     });
         }
@@ -106,7 +106,7 @@
                 $scope.sponsor.sponsor_logo == "" ||
                 $scope.sponsor.sponsor_type == "" ||
                 $scope.sponsor.sponsor_desc == "") {
-                Materialize.toast("Please fill up all fields", 4000, 'teal');
+                swal("Please fill up all fields");
                 $scope.sponsor = {
                     sponsor_name: "",
                     sponsor_logo: "",
@@ -121,7 +121,7 @@
                 SponsorService
                     .add_sponsors($scope.sponsor)
                     .then(function(res) {
-                        Materialize.toast(res.message, 4000, 'teal');
+                        swal(res.message);
                         $scope.sponsors.push($scope.sponsor);
                         $scope.sponsor = {
                             sponsor_name: "",
@@ -132,7 +132,7 @@
                             game_id: 0
                         }
                     }, function(err) {
-                        Materialize.toast(err.message, 4000, 'teal');
+                        swal(err.message);
                         $scope.sponsor = {
                             sponsor_name: "",
                             sponsor_logo: "",
