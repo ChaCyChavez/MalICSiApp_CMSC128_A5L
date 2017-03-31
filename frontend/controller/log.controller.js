@@ -5,7 +5,7 @@
 		.module('app')
 		.controller('LogController',LogCtrl);
 
-		LogCtrl.$inject['$scope', '$window', '$filter', 'LogService'];
+		LogCtrl.$inject['$scope', '$location', 'LogService'];
 
 		function LogCtrl($scope, $window, $filter, LogService) {
 
