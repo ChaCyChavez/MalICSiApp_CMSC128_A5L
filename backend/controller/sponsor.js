@@ -46,6 +46,28 @@ exports.get_sponsor = (req, res, next) => {
   db.query(query_string, payload, callback);
 };
 
+//Controller to be used for retrieving a sponsor given a sponsor_id
+exports.get_all_sponsor = (req, res, next) => {
+  const query_string = 'CALL get_all_sponsor()';  
+  const callback = (err, data) => {
+    if(err){
+      winston.level = 'debug';
+      winston.log('debug', 'err: ', err);
+      return res.status(500).send({ error_code:err.code});
+    } else if (data.length == 0) {
+      winston.level = 'info';
+      winston.log('info', 'Not found!');
+      return res.status(404).send(data);
+    } else {
+      winston.level = 'info';
+      winston.log('info', 'Successfully retrieved sponsor!');
+      return res.status(200).send(data);
+    }
+  };
+
+  db.query(query_string, callback);
+};
+
 //Controller to be used for updating a sponsor given a sponsor_id
 exports.update_sponsor = (req, res, next) => {
   const query_string = 'CALL update_sponsor(?,?,?,?,?,?)';

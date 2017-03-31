@@ -12,13 +12,13 @@
 		};
 
 		function SponsorService($window, $http, $q) {
-			const get_sponsor = function (data) {
+			const get_all_sponsor = function (data) {
 				let deferred = $q.defer();
 				$http({
 					method: 'GET',
 					params: data,
 					xhrFields: {withCredentials: true},
-					url: '/api/get-sponsor/:sponsor_id',
+					url: '/api/get-all-sponsor/',
 					headers: headers
 				})
 				.then(function(res) {
@@ -30,8 +30,8 @@
 				return deferred.promise;
 			}
 
-			let service 		= 				{};
-			service.get_sponsor	= 				get_sponsor;
+			let service 		= 					{};
+			service.get_all_sponsor	= 				get_all_sponsor;
 			return service;
 
 		}

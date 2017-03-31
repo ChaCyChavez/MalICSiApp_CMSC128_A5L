@@ -34,53 +34,17 @@
       <hr class="style18">
       <br>
     </div>
-
-
-    <!-- UNCOMMENT THIS FOR CAROUSEL VERSION -->
-    <!-- <div class="container">
-  	
-  		<div class="carousel">
-  		
-      		<a href="#modal1" class="carousel-item">
-      			<img src="images/Spon/san-miguel-logo.png">
-      		</a>
-
-      		<a href="#modal2" class="carousel-item">
-      			<img src="images/Spon/nasa.png">
-      		</a>
-
-      		<a href="#modal3" class="carousel-item">
-      			<img src="images/Spon/adidas.png">
-      		</a>
-
-      		<a href="#modal4" class="carousel-item"javascript:void(0)">
-      			<img src="images/Spon/underarmour.png">
-      		</a>
-
-      		<a href="#modal5" class="carousel-item"javascript:void(0)">
-      			<img src="images/Spon/codeninjas.png">
-      		</a>
-
-      		<a href="#modal6" class="carousel-item"javascript:void(0)">
-      			<img src="images/Spon/mozilla.png">
-      		</a>
-
-
-      </div>
-    </div> -->
-
-
     
 
   <!-- Modal Structure -->
 
-  <div class="container">
+  <div class="container" ng-init = "get_all_sponsor()">
     <div class="row">
 
     <div class="col s12 m4" ng-repeat="data in allSponsors">
       <div class="card">
         <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="img/adidas.png' />
+          <img class="activator" src="{{data.sponsor_logo}}" />
         </div>
 
         <div class="card-content">
