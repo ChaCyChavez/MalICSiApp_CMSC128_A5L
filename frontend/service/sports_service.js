@@ -93,18 +93,16 @@
 
 			const get_teams = function (data) {
 				let deferred = $q.defer();
-				console.log(data);
 
 				$http({
-					method: 'POST',
-					params: data,
+					method: 'GET',
 					xhrFields: {withCredentials: true},
-					url: '/api/get-sport-team-match/' + data,
+					url: '/api/get-sport-team-match/' + data.game_id,
 					headers: headers
 					
 				})
 				.then(function(res) {
-					deferred.resolve(res.data);
+					deferred.resolve(res);
 				}, function(err) {
 					deferred.reject(err.data);
 				})
@@ -117,6 +115,7 @@
 			service.update_sport 			= update_sport;
 			service.get_sports 				= get_sports;
 			service.delete_sport			= delete_sport;
+			service.get_teams				= get_teams;
 			return service;
 
 		}

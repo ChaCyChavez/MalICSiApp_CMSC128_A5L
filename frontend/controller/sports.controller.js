@@ -7,10 +7,14 @@
 
     sports_controller.$inject = ['$scope', '$location', 'SportsService'];
     
-    function sports_controller($scope, $location, $SportsService) {
+    function sports_controller($scope, $location, SportsService) {
 
         $scope.sports = [];
         $scope.teams = [];
+        var temp = [];
+        temp = $location.path().toString().split("/");
+        var gameid = temp[temp.length-1];
+        // console.log(gameid);
 
         $scope.view_sport = () => {
             $location.path("/sport").replace();
@@ -42,6 +46,8 @@
                     console.log(err);
                 });
         }
+
+
         $scope.delete_sport = () => {
             SportsService
                 .delete_sport().
@@ -53,10 +59,38 @@
         }
 
         $scope.get_teams = () => {
+            var data = {
+                game_id: gameid
+            }  
             SportsService
-                .get_teams().
+                .get_teams(data).
                 then(function(res) {
-                    $scope.teams = res[0];
+                    var resData = res.data[0], obj = {};
+                    var matches = [];
+                    for (var i = 0; i < resData.length; i++) {
+                        if (!obj[resData[i].match_id]) {
+                            obj[resData[i].match_id] = 1;
+                        } else if (obj[resData[i].match_id]) {
+                            obj[resData[i].match_id] += 1;
+                        }
+                    }
+                    for (var property in obj) {
+                        var obj2 = {
+                            ["sport_type"]: null,
+                            ["match_id"]: property,
+                            ["teams"]: []
+                        };
+                        if (obj.hasOwnProperty(property)) {
+                            resData.forEach(function(element){
+                                if(obj2["match_id"] == element.match_id){
+                                    obj2["teams"].push(element.team_name);
+                                    obj2["sport_type"] = element.sport_type;
+                                }
+                            });
+                        }
+                        matches.push(obj2);
+                    }
+                    $scope.matches = matches;
                 }, function(err) {
                     console.log(err);
                 });
@@ -78,6 +112,8 @@
                     console.log(err);
                 })
         }
+
+        
 
     }
 })();

@@ -1,14 +1,17 @@
 'use strict';
 
 (() => {
-    angular.module('app')
+    angular
+        .module('app')
         .controller('game-event-controller', game_event_controller);
+
+    game_event_controller.$inject = ['$scope', '$location', 'GameEventService'];
 
     function game_event_controller($scope, $location) {
 
-        $scope.view_sports = () => {
+        $scope.view_sports = (game_id) => {
             $("#modal1").modal('close');
-            $location.path("/sports").replace();
+            $location.path("/sports/"+ game_id).replace();
         }
 
         $scope.view_profile = () => {

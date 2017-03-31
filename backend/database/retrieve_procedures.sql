@@ -157,7 +157,7 @@ drop procedure if exists get_sport_team_match;
     join match_event m on mt.match_id = m.match_id 
     join sport s on m.sport_id = s.sport_id 
     join game_event g on s.game_id = g.game_id
-    where game_id = gameid;
+    where g.game_id = gameid;
   END;
 //
 
