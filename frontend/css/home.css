@@ -115,8 +115,6 @@ nav {
     text-align: center;
 }
 
-
-
 .footer-content {
     padding: 5px 10px 0 10px;
 }
@@ -158,12 +156,12 @@ a#spon:hover, a.tab:hover {
     padding-bottom: 1px !important;
 }
 
-  .content {
+.content {
     flex: 1 0 auto !important;
-  }
+}
 
-  .main-container {
+.main-container {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-  }
+}
