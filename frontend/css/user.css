@@ -1,9 +1,5 @@
-body {
-  font-family: "Blogger";
-}
 
 .user-header {
-  font-family: "Blogger";
   margin-top: 40px;
   text-align: center;
 }
@@ -13,7 +9,7 @@ body {
 }
 
 .c-contents {
-  text-align: center;
+  text-align: center;`
 }
 
 .card-action {
@@ -26,7 +22,6 @@ body {
 
 .stud-num {
   font-size: 20px;
-  font-family: "Blogger";
 }
 
 .option {
@@ -37,14 +32,15 @@ body {
   max-width: 100%;
   padding: 5px;
 }
-.header {
-  width: 100%;
-  padding-left: 5%;
+
+
+
+.search {
+  margin:  0 9% 0 9%  !important;
 }
 
-h3.header {
-  margin-left: 0;
-  text-align: center;
+.search input {
+  font-size: 20px;
 }
 
 .carousel {
@@ -77,4 +73,5 @@ h3.header {
   .carousel-item {
     width: 100% !important;
   }
+
 }
