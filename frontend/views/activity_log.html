@@ -1,4 +1,4 @@
-<div class="main-container">
+<div class="main-container" ng-controller="LogCtrl">
   <div class="content">
     <div class="navbar-fixed">
       <nav>
@@ -48,21 +48,9 @@
         </thead>
 
         <tbody>
-          <tr>
-            <td>9999-12-31 23:59:59</td>
-            <td>Mauris ac dignissim nisi. Ut ultrices dignissim suscipit. Aenean blandit tempor mauris, in ultricies massa. Duis sed dapibus purus. Pellentesque sagittis tortor scelerisque dui vehicula, non pretium sapien sollicitudin.</td>
-          </tr>
-          <tr>
-            <td>9999-12-31 23:59:59</td>
-            <td>Mauris ac dignissim nisi. Ut ultrices dignissim suscipit. Aenean blandit tempor mauris, in ultricies massa. Duis sed dapibus purus. Pellentesque sagittis tortor scelerisque dui vehicula, non pretium sapien sollicitudin.</td>
-          </tr>
-          <tr>
-            <td>9999-12-31 23:59:59</td>
-            <td>Mauris ac dignissim nisi. Ut ultrices dignissim suscipit. Aenean blandit tempor mauris, in ultricies massa. Duis sed dapibus purus. Pellentesque sagittis tortor scelerisque dui vehicula, non pretium sapien sollicitudin.</td>
-          </tr>
-          <tr>
-            <td>9999-12-31 23:59:59</td>
-            <td>Mauris ac dignissim nisi. Ut ultrices dignissim suscipit. Aenean blandit tempor mauris, in ultricies massa. Duis sed dapibus purus. Pellentesque sagittis tortor scelerisque dui vehicula, non pretium sapien sollicitudin.</td>
+          <tr ng-repeat = "data in allLogs">
+            <td >{{data.log_date}}</td>
+            <td>{{data.log_description}}</td>
           </tr>
         </tbody>
       </table>

@@ -90,9 +90,9 @@ drop procedure if exists get_all_game_event;
 
 drop procedure if exists get_activity_log;
 \d //
-  CREATE PROCEDURE get_activity_log(IN logid int)
+  CREATE PROCEDURE get_activity_log(IN _account_id int)
   BEGIN
-    SELECT * from activity_log where log_id = logid;
+    SELECT * from activity_log where account_id = _account_id;
   END;
 //
 
