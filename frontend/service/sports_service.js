@@ -73,6 +73,7 @@
 
 			const delete_sport = function (data) {
 				let deferred = $q.defer();
+				console.log(data.sport_id);
 
 				$http({
 					method: 'POST',

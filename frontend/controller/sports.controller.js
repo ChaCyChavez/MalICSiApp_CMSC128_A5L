@@ -48,14 +48,31 @@
         }
 
 
-        $scope.delete_sport = () => {
-            SportsService
-                .delete_sport().
-                then(function(res) {
-                    
-                }, function(err) {
-                    console.log(err);
+        $scope.delete_sport = (sportid, index) => {
+            console.log(sportid);
+                var data = {
+                    sport_id: sportid
+                }  
+                swal({
+                  title: "Are you sure?",
+                  text: "You will not be able to recover this imaginary file!",
+                  type: "warning",
+                  showCancelButton: true,
+                  confirmButtonColor: "#DD6B55",
+                  confirmButtonText: "Yes, delete it!",
+                  closeOnConfirm: false
+                },
+                function(){
+                    SportsService
+                        .delete_sport(data).
+                        then(function(res) {
+                            $scope.matches.splice(index, 1);
+                        }, function(err) {  
+                            console.log(err);
+                        });
+                        swal("Deleted!", "Your imaginary file has been deleted.", "success");
                 });
+                
         }
 
         $scope.get_teams = () => {
