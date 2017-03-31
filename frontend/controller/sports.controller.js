@@ -1,9 +1,12 @@
 'use strict';
 
 (() => {
-    angular.module('app')
+    angular
+        .module('app')
         .controller('sports-controller', sports_controller);
 
+    sports_controller.$inject = ['$scope', '$location', 'SportsService'];
+    
     function sports_controller($scope, $location, $SportsService) {
 
         $scope.sports = [];
@@ -38,5 +41,23 @@
                     console.log(err);
                 })
         }
+
+        $scope.add_sport = function() {
+            
+            var to_add = {
+                sport_type: $scope.sport_type,
+                division: $scope.division
+            }  
+            
+            SportsService
+                .add_sport(to_add)
+                .then(function(res) {
+                    console.log(res);   
+                    //$scope.sports = res;
+                }, function(err) {
+                    console.log(err);
+                })
+        }
+
     }
 })();

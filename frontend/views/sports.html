@@ -22,7 +22,7 @@
         <p class="center-align valign">2014-01234</p>
       </div></li>
       <li><a href="javascript:void(0)" class="view-dd"><p class="center-align valign" ng-click="view_profile()">VIEW PROFILE</p></a></li>
-      <li><a href="javascript:void(0)" class="view-dd"><p class="center-align valign" ng-click="view_profile()">VIEW USER</p></a></li>
+      <li><a href="javascript:void(0)" class="view-dd"><p class="center-align valign" ng-click="view_user()">VIEW USER</p></a></li>
       <li><a href="javascript:void(0)"><p class="right-align valign red-text" ng-click="logout()">X logout</p></a></li>
     </ul>
 
@@ -182,48 +182,52 @@
 
     <div id="AddSport" class="modal modal-fixed-footer">
       <div class="modal-content">
-        <h4>Add Sport</h4>
-        <p>A bunch of text and input fields</p>
-        <p>A bunch of text and input fields</p>
+        <div class="row center">
+          <h4>Add Sport</h4>
+          <p>A bunch of text and input fields</p>
+          <p>A bunch of text and input fields</p>
+        </div>
         <div class="row">
-        <form class="col s12">
-          <div class="row">
-            <div class="input-field col s12">
-              <input id="sports_name" type="text" class="validate">
-              <label for="sports_name">Sport Name</label>
+          <form class="col s12" id="sports-form">
+            <div class="row">
+              <div class="input-field col s11">
+                <input id="sports_name" type="text" class="validate">
+                <label for="sports_name">Sport Name</label>
+              </div>
+              <br>
             </div>
-            <br>
-          </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <input id="type" type="password" class="validate">
-              <label for="type">Sport Type</label>
+            <div class="row">
+              <div class="input-field col s11">
+                <input id="type" type="password" class="validate">
+                <label for="type">Sport Type</label>
+              </div>
             </div>
-          </div>
-          <div class="input-field col s12">
-  	    <select>
-  	      <option value="" disabled selected>Choose your option</option>
-  	      <option value="1">Men</option>
-  	      <option value="2">Women</option>
-  	      <option value="3">Mixed</option>
-  	    </select>
-  	    <label>Division</label>
-  	  </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <input id="time" type="password" class="validate">
-              <label for="time">Schedule (e.g., 8am-10am)</label>
+            <div class="row">
+              <div class="input-field col s11">
+                <select>
+                  <option value="" disabled selected>Choose your option</option>
+                  <option value="1">Men</option>
+                  <option value="2">Women</option>
+                  <option value="3">Mixed</option>
+                </select>
+                <label class="label-college cyan-text text-darken-4" >Division</label>
+              </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <input id="venue" type="email" class="validate">
-              <label for="venue">Venue</label>
+            <div class="row">
+              <div class="input-field col s11">
+                <input id="time" type="password" class="validate">
+                <label for="time">Schedule (e.g., 8am-10am)</label>
+              </div>
             </div>
-          </div>
-          
-        </form>
-      </div>
+            <div class="row">
+              <div class="input-field col s11">
+                <input id="venue" type="email" class="validate">
+                <label for="venue">Venue</label>
+              </div>
+            </div>
+            
+          </form>
+        </div>
 
       </div>
       <div class="modal-footer">
@@ -241,25 +245,28 @@
 </div>
 
 <script type="text/javascript">
-  $(document).ready(function(){
-     $('.dropdown-button').dropdown({
-        inDuration: 300,
-        outDuration: 225,
-        constrainWidth: false, // Does not change width of dropdown to that of the activator
-        hover: false, // Activate on hover
-        gutter: 0, // Spacing from edge
-        belowOrigin: true, // Displays dropdown below the button
-        alignment: 'left', // Displays dropdown with edge aligned to the left of button
-        stopPropagation: false // Stops event propagation
-      }
-    );
-    $('.modal').modal({
-      dismissible: true,
-      opacity: 0.5,
-      in_duration: 300,
-      out_duration: 200,
-      starting_top: '4%',
-      ending_top: '10%',
-    });
+$(document).ready(function(){
+   $('.dropdown-button').dropdown({
+      inDuration: 300,
+      outDuration: 225,
+      constrain_width: false, // Does not change width of dropdown to that of the activator
+      hover: false, // Activate on hover
+      gutter: 0, // Spacing from edge
+      belowOrigin: true, // Displays dropdown below the button
+      alignment: 'left', // Displays dropdown with edge aligned to the left of button
+      stopPropagation: false // Stops event propagation
+    }
+  );
+
+  $('select').material_select();
+
+  $('.modal').modal({
+    dismissible: true,
+    opacity: 0.5,
+    in_duration: 300,
+    out_duration: 200,
+    starting_top: '4%',
+    ending_top: '10%',
   });
+});
 </script>

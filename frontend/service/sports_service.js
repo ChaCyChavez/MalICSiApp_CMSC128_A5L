@@ -93,7 +93,7 @@
 			let service = {};
 			service.add_sport 				= add_sport;
 			service.update_sport 			= update_sport;
-			service.get_sport 				= get_sport;
+			service.get_sports 				= get_sports;
 			service.delete_sport			= delete_sport;
 			return service;
 
