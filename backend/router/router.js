@@ -96,14 +96,16 @@ module.exports = (router) => {
 //sport routers
     //create sport
     router.post('/api/add-sport', sport.add_sport);
-    // retrive all sports
-    router.get('/api/get-all-sports', sport.get_all_sport);
+    // retrieve all sports
+    router.get('/api/get-all-sport', sport.get_all_sport);
     //retrieve sport
     router.get('/api/get-sport/:sport_id', sport.get_sport);
     //update sport
     router.post('/api/update-sport', sport.update_sport);
     //delete sport
-    router.post('/api/delete-sport/:sport_id', sport.delete_sport);
+    router.post('/api/delete-sport', sport.delete_sport);
+
+    router.get('/api/get-sport-team-match/:game_id', sport.get_sport_team_match);
 
 //team routers
     //create team
