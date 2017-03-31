@@ -5,8 +5,8 @@ const winston = require('winston');
 
 //Controller to be used for adding a sport
 exports.add_sport = (req,res,next) => {
-  const query_string = 'CALL add_sport(?,?)'; 
-  const payload = [req.body.sport_type, req.body.division];
+  const query_string = 'CALL add_sport(?,?,?)'; 
+  const payload = [req.body.sport_type, req.body.division, req.body.game_id];
   const callback = (err,data) => {
     if(err){
       winston.level = 'debug';

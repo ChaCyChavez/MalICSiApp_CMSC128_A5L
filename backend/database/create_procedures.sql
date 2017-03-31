@@ -159,16 +159,19 @@ drop procedure if exists add_sport;
 delimiter //
     create procedure add_sport (
         IN _sport_type          varchar(256),
-        IN _division            enum('men','women','mixed')
+        IN _division            enum('men','women','mixed'),
+        IN _game_id             int(11)
     )
     BEGIN
         INSERT into sport(
             sport_type,
-            division
+            division,
+            game_id
             )
         values(
             _sport_type,
-            _division
+            _division,
+            _game_id
             );
     END;
 //
