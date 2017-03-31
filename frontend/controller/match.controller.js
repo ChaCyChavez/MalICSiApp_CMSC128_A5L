@@ -1,16 +1,14 @@
 'use strict';
 
 (() => {
-    angular.module('app')
+    angular
+        .module('app')
         .controller('match-controller', match_controller);
 
     function match_controller($scope, $location) {
 
         $scope.view_profile = () => {
             $location.path("/profile").replace();
-        }
-        $scope.view_user = () => {
-            $location.path("/user").replace();
         }
 
         $scope.logout = () => {

@@ -1,7 +1,8 @@
 'use strict';
 
 (() => {
-    angular.module('app')
+    angular
+        .module('app')
         .controller('result-controller', result_controller);
 
     function result_controller($scope, $location) {
@@ -9,7 +10,7 @@
     	$scope.view_profile = () => {
             $location.path("/profile").replace();
         }
-
+        
         $scope.view_user = () => {
             $location.path("/user").replace();
         }

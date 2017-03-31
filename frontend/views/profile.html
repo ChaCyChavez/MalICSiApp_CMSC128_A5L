@@ -30,7 +30,7 @@
     <div id="all" class="row font2">
         <div class="col s12 m12 l6 xl6">
           <div class="card">
-            <div class="card-content"> 
+            <div class="card-content">
               <!-- <div class="row"> -->
                 <div class="container">
                   <img class="circle" src="img/placeholder.png">
@@ -40,10 +40,14 @@
             <div class="card-content teal lighten-1">
               <!-- <div class="row"> -->
                 <div class="card-content center-align white-text">
-                  <h1>JUAN DELA CRUZ</h1>
-                  <h3>2014-12345</h3>
-                  <h3>CAS</h3>
-                  <h3>BSCS</h3>
+                  <h3>{{ profile.firstname + " " + profile.middlename + " " + profile.lastname}}</h3>
+                  <h5>{{ profile.college }}</h5>
+                  <h5>{{ profile.course }}</h5>
+                  <h5>{{ profile.birthday }}</h5>
+                  <h5>{{ profile.email }}</h5>
+                  <h5>{{ profile.player_jersey_num }}</h5>
+                  <h5>{{ profile.player_role }}</h5>
+                  <h5>{{ profile.position }}</h5>
                 </div>
               <!-- </div> -->
             </div>
@@ -103,7 +107,7 @@
      $('.dropdown-button').dropdown({
         inDuration: 300,
         outDuration: 225,
-        constrainWidth: false, // Does not change width of dropdown to that of the activator
+        constrain_width: false, // Does not change width of dropdown to that of the activator
         hover: false, // Activate on hover
         gutter: 0, // Spacing from edge
         belowOrigin: true, // Displays dropdown below the button

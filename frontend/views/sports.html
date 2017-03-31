@@ -22,7 +22,7 @@
         <p class="center-align valign">2014-01234</p>
       </div></li>
       <li><a href="javascript:void(0)" class="view-dd"><p class="center-align valign" ng-click="view_profile()">VIEW PROFILE</p></a></li>
-      <li><a href="javascript:void(0)" class="view-dd"><p class="center-align valign" ng-click="view_profile()">VIEW USER</p></a></li>
+      <li><a href="javascript:void(0)" class="view-dd"><p class="center-align valign" ng-click="view_user()">VIEW USER</p></a></li>
       <li><a href="javascript:void(0)"><p class="right-align valign red-text" ng-click="logout()">X logout</p></a></li>
     </ul>
 
@@ -201,14 +201,14 @@
             </div>
           </div>
           <div class="input-field col s12">
-  	    <select>
-  	      <option value="" disabled selected>Choose your option</option>
-  	      <option value="1">Men</option>
-  	      <option value="2">Women</option>
-  	      <option value="3">Mixed</option>
-  	    </select>
-  	    <label>Division</label>
-  	  </div>
+        <select>
+          <option value="" disabled selected>Choose your option</option>
+          <option value="1">Men</option>
+          <option value="2">Women</option>
+          <option value="3">Mixed</option>
+        </select>
+        <label>Division</label>
+      </div>
           <div class="row">
             <div class="input-field col s12">
               <input id="time" type="password" class="validate">
@@ -245,7 +245,7 @@
      $('.dropdown-button').dropdown({
         inDuration: 300,
         outDuration: 225,
-        constrainWidth: false, // Does not change width of dropdown to that of the activator
+        constrain_width: false, // Does not change width of dropdown to that of the activator
         hover: false, // Activate on hover
         gutter: 0, // Spacing from edge
         belowOrigin: true, // Displays dropdown below the button

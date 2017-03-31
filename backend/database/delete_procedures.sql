@@ -148,14 +148,14 @@ DELIMITER //
 DELIMITER ;
 
 
-drop procedure if exists delete_game_event_sponsor;
-DELIMITER //
-  CREATE PROCEDURE delete_game_event_sponsor(IN del_id int)
-  BEGIN
-    DELETE FROM sponsor WHERE sponsor_id IN (SELECT sponsor_id FROM game_event_sponsor WHERE game_event_sponsor.game_id = del_id);
-  END;
-//
-DELIMITER ;
+-- drop procedure if exists delete_game_event_sponsor;
+-- DELIMITER //
+--   CREATE PROCEDURE delete_game_event_sponsor(IN del_id int)
+--   BEGIN
+--     DELETE FROM sponsor WHERE sponsor_id IN (SELECT sponsor_id FROM game_event_sponsor WHERE game_event_sponsor.game_id = del_id);
+--   END;
+-- //
+-- DELIMITER ;
 
 
 /* delete sport */

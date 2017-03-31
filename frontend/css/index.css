@@ -151,7 +151,9 @@ body {
 }
 
 .modal-content {
+    font-family: "Raleway", sans-serif;
     padding: 0 !important;
+    font-size: 16px;
 }
 
 .modal-footer .btn-flat {
@@ -160,6 +162,13 @@ body {
 
 #login-btns {
     height: 80px !important;
+}
+
+dropdown-button #fck{
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
 }
 
 body {

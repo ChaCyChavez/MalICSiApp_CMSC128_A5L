@@ -1,7 +1,8 @@
 'use strict';
 
 (() => {
-    angular.module('app')
+    angular
+        .module('app')
         .controller('sport-controller', sport_controller);
 
     function sport_controller($scope, $location) {
@@ -13,6 +14,9 @@
         $scope.view_match = () => {
             $location.path("/match").replace();
         }
+        $scope.view_user = () => {
+            $location.path("/user").replace();
+        }
 
         $scope.view_participant = () => {
             $location.path("/participant").replace();
@@ -20,10 +24,6 @@
 
         $scope.view_profile = () => {
             $location.path("/profile").replace();
-        }
-
-        $scope.view_user = () => {
-            $location.path("/user").replace();
         }
 
         $scope.logout = () => {

@@ -1,7 +1,8 @@
 'use strict';
 
 (() => {
-    angular.module('app')
+    angular
+        .module('app')
         .controller('sponsor-controller', sponsor_controller);
 
     function sponsor_controller($scope, $location) {

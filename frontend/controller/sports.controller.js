@@ -1,7 +1,8 @@
 'use strict';
 
 (() => {
-    angular.module('app')
+    angular
+        .module('app')
         .controller('sports-controller', sports_controller);
 
     function sports_controller($scope, $location) {
@@ -17,7 +18,7 @@
         $scope.view_user = () => {
             $location.path("/user").replace();
         }
-
+        
         $scope.logout = () => {
             $location.path("/").replace();
         }

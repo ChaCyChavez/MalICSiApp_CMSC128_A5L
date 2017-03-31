@@ -18,5 +18,11 @@ $(document).ready(function(){
       alignment: 'left', // Displays dropdown with edge aligned to the left of button
       stopPropagation: false // Stops event propagation
     });
+
+    $('.datepicker').pickadate({
+      selectMonths: true,
+      selectYears: 20,
+      format: 'yyyy-mm-dd'
+    });
     
 });

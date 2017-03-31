@@ -10,7 +10,7 @@ mainApp.config(function($routeProvider) {
 			templateUrl: 'views/game_event.html',
 			controller: "game-event-controller"
 		})
-		.when('/profile', {
+		.when('/profile/:account_id?', {
 			templateUrl: 'views/profile.html',
 			controller: 'profile-controller'
 		})

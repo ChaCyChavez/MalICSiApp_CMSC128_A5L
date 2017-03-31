@@ -89,6 +89,10 @@ nav {
     padding: 3%;
 }
 
+#dropdown1 {
+    width: 300px;
+
+}
 #upper {
     font-family: 'Panton', sans-serif;
     height: 80px;
