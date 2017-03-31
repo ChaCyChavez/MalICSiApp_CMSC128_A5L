@@ -1,13 +1,13 @@
 use malicsi;
 
-
+ 
 /* LOGGING IN AN ACCOUNT */
 drop procedure if exists login_account;
 \d //
-  CREATE PROCEDURE login_account(IN acctid int, IN pw varchar(256))
+  CREATE PROCEDURE login_account(IN acctid varchar(100), IN pw varchar(256))
   BEGIN
     SELECT account_id, firstname, middlename, lastname, email, username, course,
-    birthday, college FROM account where account_id = acctid and password = pw;
+    birthday, college FROM account where username = acctid and password = pw and is_approved = true;
   END;
 //
 \d ;
@@ -169,15 +169,15 @@ drop procedure if exists get_all_match_event;
 \d ;
 
 /*GETS THE SPONSORS FOR A GAME EVENT*/
-drop procedure if exists get_game_event_sponsor;
-\d //
-  CREATE PROCEDURE get_game_event_sponsor(IN gameid int)
-  BEGIN
-    SELECT * from sponsor natural join game_event_sponsor where game_event_sponsor.game_id = gameid;
-  END;
-//
+-- drop procedure if exists get_game_event_sponsor;
+-- \d //
+--   CREATE PROCEDURE get_game_event_sponsor(IN gameid int)
+--   BEGIN
+--     SELECT * from sponsor natural join game_event_sponsor where game_event_sponsor.game_id = gameid;
+--   END;
+-- //
 
-\d ;
+-- \d ;
 
 /*PROCEDURE TO GET THE TEAMS FOR A GAME EVENT*/
 drop procedure if exists get_game_event_team;
