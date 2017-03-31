@@ -34,7 +34,7 @@
 
 			const register_account = function (data) {
 				let deferred = $q.defer();
-
+				console.log(data);
 				$http({
 					method: 'POST',
 					params: data,
