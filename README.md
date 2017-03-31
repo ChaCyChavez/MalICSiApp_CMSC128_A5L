@@ -34,6 +34,9 @@ To add npm packages to package.json..
 
 To add npm packages to bower.json..
 * `bower install <package> --save`
+
+If session does not work with the app..
+* `sudo apt install redis-server`
 ```
 
 ## To start the web server
