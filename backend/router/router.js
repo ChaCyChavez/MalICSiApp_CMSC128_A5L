@@ -21,11 +21,13 @@ module.exports = (router) => {
 
 //account routers
     //login_account
-    router.post('/api/login-account/:account_id', account.login_account);
+    router.post('/api/login-account/', account.login_account);
     //create account
-    router.post('/api/add-account', account.add_account);
+    router.post('/api/add-account/', account.add_account);
     //retrieve account
     router.get('/api/get-account/:account_id', account.get_account);
+    //retrieve all accounts
+    router.get('/api/get-all-account/', account.get_all_account);
     //update account
     router.post('/api/update-account', account.update_account);
     //delete account
@@ -85,7 +87,7 @@ module.exports = (router) => {
     //create sponsor
     router.post('/api/add-sponsor', sponsor.add_sponsor);
     //retrieve sponsor
-    router.get('/api/get-sponsor/:sponsor_id', sponsor.get_sponsor);
+    router.get('/api/get-sponsor/:game_id', sponsor.get_sponsor);
     //update sponsor
     router.post('/api/update-sponsor', sponsor.update_sponsor);
     //delete sponsor

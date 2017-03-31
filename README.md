@@ -14,7 +14,7 @@ A repository of CMSC 128 A-5L students for their "MalICSi App" ( a web-based app
 * `sudo npm install -g bower`
 * `sudo npm install -g n`
 * `sudo n stable` This part makes sure that our NodeJS version is the stable one.
-* The command "sudo n latest" will download the latest version of Node.js and if the version is not the latest after running the command, run `sudo ln -sf /usr/local/n/versions/node/<VERSION OF THE NODE>/bin/node /usr/bin/node` 
+* The command "sudo n latest" will download the latest version of Node.js and if the version is not the latest after running the command, run `sudo ln -sf /usr/local/n/versions/node/7.7.2/bin/node /usr/bin/node` 
 ```
 ## Command(s)
 ------------
@@ -77,6 +77,5 @@ then check http://localhost:8000
 ``` For the front-end part ```
 ```
 * TLs of front-end will be the one who will decide for their conventions.
-
 ```
 

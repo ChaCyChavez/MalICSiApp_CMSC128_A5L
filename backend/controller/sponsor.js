@@ -5,10 +5,13 @@ const winston = require('winston');
 
 //Controller to be used for adding a sponsor given a court_id
 exports.add_sponsor = (req, res, next) => {
-  const query_string = 'INSERT into sponsor(sponsor_name,sponsor_logo' +
-          ',sponsor_affiliation) VALUES (?,?,?)'; 
-  const payload = [req.body.sponsor_name,req.body.sponsor_logo,
-          req.body.sponsor_affiliation];
+  const query_string = 'CALL add_sponsor(?,?,?,?,?,?)';
+  const payload = [req.query.sponsor_name,
+                    req.query.sponsor_logo,
+                    req.query.sponsor_type,
+                    req.query.sponsor_desc,
+                    req.query.web_address,
+                    req.query.game_id];
   const callback = (err,data) => {
     if(err){
       winston.level = 'debug';
@@ -26,8 +29,9 @@ exports.add_sponsor = (req, res, next) => {
 
 //Controller to be used for retrieving a sponsor given a sponsor_id
 exports.get_sponsor = (req, res, next) => {
-  const query_string = 'SELECT * from sponsor where sponsor_id = ?';  
-  const payload = [req.params.sponsor_id];
+  console.log(req.params);
+  const query_string = 'CALL get_sponsor(?)';  
+  const payload = [req.params.game_id];
   const callback = (err, data) => {
     if(err){
       winston.level = 'debug';
@@ -47,12 +51,13 @@ exports.get_sponsor = (req, res, next) => {
   db.query(query_string, payload, callback);
 };
 
+
+
 //Controller to be used for updating a sponsor given a sponsor_id
 exports.update_sponsor = (req, res, next) => {
-  const query_string = 'UPDATE sponsor SET sponsor_name = ?, ' + 
-      'sponsor_logo = ?, sponsor_affiliation = ? WHERE sponsor_id = ?;';
-  const payload = [req.body.sponsor_name, req.body.sponsor_logo, 
-      req.body.sponsor_affiliation, req.body.sponsor_id];
+  const query_string = 'CALL update_sponsor(?,?,?,?,?,?,?)';
+  const payload = [req.body.sponsor_id, req.body.sponsor_name, req.body.sponsor_logo, 
+      req.body.sponsor_affiliation, req.body.sponsor_type,req.body.sponsor_desc, req.body.web_address];
   const callback = (err, data) => {
     if(err){
       winston.level = 'debug';
@@ -74,7 +79,7 @@ exports.update_sponsor = (req, res, next) => {
 
 //Controller to be used for deleting a sponsor given a sponsor_id
 exports.delete_sponsor = (req, res, next) => {
-  const query_string ='DELETE FROM sponsor WHERE sponsor_id = ?'; 
+  const query_string ='CALL delete_sponsor(?)'; 
   const payload = [req.body.sponsor_id];
   const callback = (err, data) => {
     if(err){

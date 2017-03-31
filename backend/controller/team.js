@@ -4,9 +4,9 @@ const db = require(__dirname + '/../lib/mysql');
 const winston = require('winston');
 //Controller to be used to add a team
 exports.add_team = (req,res,next) => {
-  const query_string = 'INSERT into team VALUES (?,?,?,?)'; 
+  const query_string = 'CALL add_team(?, ?, ?)'; 
   const payload = [req.body.team_name, req.body.team_color, 
-  		req.body.team_coach, req.body.game_id];
+  		 req.body.game_id];
   const callback = (err,data) => {
     if(err){
       winston.level = 'debug';
@@ -23,7 +23,7 @@ exports.add_team = (req,res,next) => {
 
 //Controller to be used to get a team given a team_id
 exports.get_team = (req, res, next) => {
-  const query_string = "SELECT * from team where team_id = ?";  
+  const query_string = "CALL get_team(?)";  
   const payload = [req.params.team_id];
   const callback = (err, data) => {
     if(err){
@@ -45,10 +45,9 @@ exports.get_team = (req, res, next) => {
 
 //Controller to be used to update a team given a team_id
 exports.update_team = (req, res, next) => {
-  const query_string = 'UPDATE team set team_name = ?, team_color = ?, ' + 
-		'team_coach = ?, game_id = ? WHERE team_id = ?;';
-  const payload = [req.body.team_name, req.body.team_color, req.body.team_coach, 
-        req.body.game_id, req.body.team_id];
+  const query_string = 'CALL update_team(?, ?, ?)';
+  const payload = [req.body.team_name, req.body.team_color, 
+                  req.body.team_id];
   const callback = (err, data) => {
     if(err){
       winston.level = 'debug';
@@ -69,7 +68,7 @@ exports.update_team = (req, res, next) => {
 
 //Controller to be used to delete a team given a team_id
 exports.delete_team = (req, res, next) => {
-  const query_string ='DELETE FROM team WHERE team_id = ?'; 
+  const query_string ='CALL delete_team(?)'; 
   const payload = [req.body.team_id];
   const callback = (err, data) => {
    if(err){

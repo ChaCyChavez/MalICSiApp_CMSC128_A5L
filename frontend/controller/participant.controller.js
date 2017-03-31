@@ -1,13 +1,17 @@
 'use strict';
 
 (() => {
-    angular.module('app')
+    angular
+        .module('app')
         .controller('participant-controller', participant_controller);
 
     function participant_controller($scope, $location) {
 
     	$scope.view_profile = () => {
             $location.path("/profile").replace();
+        }
+        $scope.view_user = () => {
+            $location.path("/user").replace();
         }
 
         $scope.logout = () => {

@@ -5,8 +5,7 @@ const winston = require('winston');
 
 //Controller to be used for adding a court
 exports.add_court = (req, res, next) => {
-  const query_string = 'INSERT into court(court_name,court_location,court_type)'+
-      ' VALUES (?,?,?)'; 
+  const query_string = 'CALL add_court(?,?,?)'; 
   const payload = [req.body.court_name,
     req.body.court_location, req.body.court_type];
   const callback = (err, data) => {
@@ -25,7 +24,7 @@ exports.add_court = (req, res, next) => {
 
 //Controller to be used for retrieving a court given a court_id
 exports.get_court = (req, res, next) => {
-  const query_string = 'SELECT * from court WHERE court_id = ?';  
+  const query_string = 'CALL get_court(?)';  
   const payload = [req.params.court_id];
   const callback = (err, data) => {
     if(err){
@@ -48,8 +47,7 @@ exports.get_court = (req, res, next) => {
 
 //Controller to be used for updating a court given a court_id
 exports.update_court = (req, res, next) => {
-  const query_string = 'UPDATE court SET court_name = ?, ' + 
-      'court_location = ?, court_type = ? WHERE court_id = ?';
+  const query_string = 'CALL update_court(?,?,?,?)';
   const payload = [req.body.court_name, req.body.court_location, 
       req.body.court_type, req.body.court_id];
   const callback = (err, data) => {
@@ -73,7 +71,7 @@ exports.update_court = (req, res, next) => {
 
 //Controller to be used for deleting a court given a court_id
 exports.delete_court = (req, res, next) => {
-  const query_string ='DELETE FROM court WHERE court_id = ?'; 
+  const query_string ='CALL delete_court(?)'; 
   const payload = [req.body.court_id];
   const callback = (err, data) => {
     if(err){

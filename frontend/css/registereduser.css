@@ -1,3 +1,4 @@
+
 .playertable{
 	width: 1050px;
 	margin:auto;
@@ -80,19 +81,9 @@ body {
 }
 
 
-.nam {
-    font-size: 75%;
-    text-align: center;
-}
-
 #dr {
     padding-top: 5px;
     height: 75px;
-}
-
-.reg {
-    font-size: 120%;
-    border-bottom: 1px solid red;
 }
 
 .box {
@@ -102,19 +93,9 @@ body {
     padding-bottom: 20%;
 }
 
-#logo {
-    margin: 65px;
-    font-size: 50px;
-    line-height: 75px;
-}
-
 
 #deets {
     width: 35%;
-}
-
-.reg {
-    font-size: 150%;
 }
 
 .box {
@@ -140,14 +121,6 @@ body {
 
 .card large .card-content{
     line-height: 34px; 
-}
-
-.news-announcement {
-    font-family: "Blogger";
-    width: 100%;
-    padding: auto;
-    margin: auto;
-    text-align: center;
 }
 
 .side-logo {

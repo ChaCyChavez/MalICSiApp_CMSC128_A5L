@@ -15,12 +15,14 @@
     <ul id='dropdown1' class='dropdown-content'>
       <li><div class="container teal center-align" id="upper">
           <img class="circle profpic" src="img/placeholder.png">
+          </div>
       </li>
       <li><div class="container" id="lower">
         <h5 class="center-align valign">Juan Dela Cruz</h5>
         <p class="center-align valign">2014-01234</p>
-        <a href="javascript:void(0)"><p class="center-align valign black-text" ng-click="view_profile()">VIEW PROFILE</h6></p>
       </div></li>
+      <li><a href="javascript:void(0)" class="view-dd"><p class="center-align valign" ng-click="view_profile()">VIEW PROFILE</p></a></li>
+      <li><a href="javascript:void(0)" class="view-dd"><p class="center-align valign" ng-click="view_user()">VIEW USER</p></a></li>
       <li><a href="javascript:void(0)"><p class="right-align valign red-text" ng-click="logout()">X logout</p></a></li>
     </ul>
 
@@ -226,33 +228,12 @@
         </div>
       </form>
     </div>
-    <div class="carousel">
-      <div class="col s12 m3 carousel-item">
+    <div class="carousel" ng-init="get_accounts()">
+      <div class="col s12 m3 carousel-item" ng-repeat="account in accounts">
         <div class="card small z-depth-3">
           <div class="card-image">
             <img src="img/sample-1.jpg">
-            <span class="card-title">Juan Dela Cruz</span>
-            <a href="javascript:void(0)" class="dropdown-button option" data-activates="user-menu9"><i class="material-icons">menu</i></a>
-            <ul id="user-menu9" class='dropdown-content'>
-              <li><a href="javascript:void(0)">edit</a></li>
-              <li class="divider"></li>
-              <li><a href="javascript:void(0)">remove</a></li>
-           </ul>
-          </div>
-          <div class="card-content c-contents">
-            <p class="stud-num">2014-12345</p>
-          </div>
-          <div class="card-action">
-            <a class="btn waves-light blue " href="javascript:void(0)">View</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col s12 m3 carousel-item">
-        <div class="card small z-depth-3">
-          <div class="card-image">
-            <img src="img/sample-1.jpg">
-            <span class="card-title">Juan Dela Cruz</span>
+            <span class="card-title">{{account.firstname}}</span>
             <a href="javascript:void(0)" class="dropdown-button option" data-activates="user-menu10"><i class="material-icons">menu</i></a>
             <ul id="user-menu10" class='dropdown-content'>
               <li><a href="javascript:void(0)">edit</a></li>
@@ -268,48 +249,6 @@
           </div>
         </div>
       </div>
-      <div class="col s12 m3 carousel-item">
-        <div class="card small z-depth-3">
-          <div class="card-image">
-            <img src="img/sample-1.jpg">
-            <span class="card-title">Juan Dela Cruz</span>
-            <a href="javascript:void(0)" class="dropdown-button option" data-activates="user-menu11"><i class="material-icons">menu</i></a>
-            <ul id="user-menu11" class='dropdown-content'>
-              <li><a href="javascript:void(0)">edit</a></li>
-              <li class="divider"></li>
-              <li><a href="javascript:void(0)">remove</a></li>
-           </ul>
-          </div>
-          <div class="card-content c-contents">
-            <p class="stud-num">2014-12345</p>
-          </div>
-          <div class="card-action">
-            <a class="btn waves-light blue " href="javascript:void(0)">View</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col s10 m3 carousel-item">
-        <div class="card small z-depth-3">
-          <div class="card-image">
-            <img src="img/sample-1.jpg">
-            <span class="card-title">Juan Dela Cruz</span>
-            <a href="javascript:void(0)" class="dropdown-button option" data-activates="user-menu12"><i class="material-icons">menu</i></a>
-            <ul id="user-menu12" class='dropdown-content'>
-              <li><a href="javascript:void(0)">edit</a></li>
-              <li class="divider"></li>
-              <li><a href="javascript:void(0)">remove</a></li>
-           </ul>
-          </div>
-          <div class="card-content c-contents">
-            <p class="stud-num">2014-12345</p>
-          </div>
-          <div class="card-action">
-            <a class="btn waves-light blue " href="javascript:void(0)">View</a>
-          </div>
-        </div>
-      </div>
-
       <div class="col s10 m3 carousel-item">
         <div class="card small z-depth-3">
           <div class="card-image">
@@ -429,7 +368,7 @@
      $('.dropdown-button').dropdown({
         inDuration: 300,
         outDuration: 225,
-        constrainWidth: false, // Does not change width of dropdown to that of the activator
+        constrain_width: false, // Does not change width of dropdown to that of the activator
         hover: false, // Activate on hover
         gutter: 0, // Spacing from edge
         belowOrigin: true, // Displays dropdown below the button

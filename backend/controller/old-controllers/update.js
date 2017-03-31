@@ -1,6 +1,6 @@
 'use strict';
 
-const db = require(__dirname + '/../../lib/mysql');
+const db = require(__dirname + '/../../lib/mariasql');
 
 
 //UPDATE ACCOUNT

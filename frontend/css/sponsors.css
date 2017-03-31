@@ -15,3 +15,11 @@ hr.style18:before {
   border-width: 0 0 1px 0; 
   border-radius: 20px; 
 }
+
+.add-sponsor {
+  padding: 30px;
+  margin-top: 100px;
+  height: 310px;
+  width: 100%;
+  overflow-y: scroll;
+}
