@@ -7,7 +7,7 @@
 
 		LogCtrl.$inject['$scope', '$location', 'LogService'];
 
-		function LogCtrl($scope, $window, $filter, LogService) {
+		function LogCtrl($scope, $location, LogService) {
 
 			$scope.get_log = function(){
 				LogService
