@@ -91,7 +91,7 @@ module.exports = (router) => {
     //update sponsor
     router.post('/api/update-sponsor', sponsor.update_sponsor);
     //delete sponsor
-    router.post('/api/delete-sponsor/:sponsor_id', sponsor.delete_sponsor);
+    router.post('/api/delete-sponsor', sponsor.delete_sponsor);
 
 //sport routers
     //create sport

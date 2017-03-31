@@ -23,3 +23,8 @@ hr.style18:before {
   width: 100%;
   overflow-y: scroll;
 }
+
+.spon-icon {
+  padding: 25px 0;
+  text-align: center;
+}

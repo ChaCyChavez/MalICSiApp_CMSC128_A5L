@@ -33,7 +33,7 @@
                 .init_sponsors($scope.game_id)
                 .then(function(res) {
                     console.log(res[0]);
-                    $scope.sponsors = res;
+                    $scope.sponsors = res[0];
                 }, function(err) {
                     console.log(err.data);
                 })
@@ -48,8 +48,60 @@
             game_id: 0
         }
 
-        $scope.add_sponsor = () => {
+        $scope.init_edit_modal = (sponsor_id) => {
+            for(var i = 0; i < $scope.sponsors.length; i++) {
+                if($scope.sponsors[i].sponsor_id === sponsor_id) {
+                    console.log($scope.sponsors[i].sponsor_id);
+                    $scope.sponsor = $scope.sponsors[i];
+                    console.log($scope.sponsor);
+                }
+            }
+        }
 
+        $scope.update_sponsor = () => {
+            $scope.sponsor.game_id = parseInt(x[x.length-1]);
+                SponsorService
+                    .update_sponsors($scope.sponsor)
+                    .then(function(res) {
+                        Materialize.toast(res.message, 4000, 'teal');
+                        $scope.sponsor = {
+                            sponsor_name: "",
+                            sponsor_logo: "",
+                            sponsor_type: "",
+                            sponsor_desc: "",
+                            web_address: "",
+                            game_id: 0
+                        }
+                    }, function(err) {
+                        Materialize.toast(err.message, 4000, 'teal');
+                        $scope.sponsor = {
+                            sponsor_name: "",
+                            sponsor_logo: "",
+                            sponsor_type: "",
+                            sponsor_desc: "",
+                            web_address: "",
+                            game_id: 0
+                        }
+                    })
+        }
+
+        $scope.delete_sponsor = (sponsorid) => {
+                SponsorService
+                    .delete_sponsors({sponsor_id: sponsorid})
+                    .then(function(res) {
+                        Materialize.toast(res.message, 4000, 'teal');
+                        for(var i = 0; i < $scope.sponsors.length; i++) {
+                            if($scope.sponsors[i].sponsor_id == sponsorid) {
+                                $scope.sponsors.splice(i, 1);
+                            }
+                        }
+                    }, function(err) {
+                        Materialize.toast(err.message, 4000, 'teal');
+                        
+                    });
+        }
+
+        $scope.add_sponsor = () => {
             if ($scope.sponsor.sponsor_name == "" ||
                 $scope.sponsor.sponsor_logo == "" ||
                 $scope.sponsor.sponsor_type == "" ||
@@ -70,12 +122,25 @@
                     .add_sponsors($scope.sponsor)
                     .then(function(res) {
                         Materialize.toast(res.message, 4000, 'teal');
+                        $scope.sponsors.push($scope.sponsor);
+                        $scope.sponsor = {
+                            sponsor_name: "",
+                            sponsor_logo: "",
+                            sponsor_type: "",
+                            sponsor_desc: "",
+                            web_address: "",
+                            game_id: 0
+                        }
                     }, function(err) {
                         Materialize.toast(err.message, 4000, 'teal');
-                        $scope.info.username = '';
-                        $scope.info.password = '';
-                        $scope.info.username = undefined;
-                        $scope.info.password = undefined;
+                        $scope.sponsor = {
+                            sponsor_name: "",
+                            sponsor_logo: "",
+                            sponsor_type: "",
+                            sponsor_desc: "",
+                            web_address: "",
+                            game_id: 0
+                        }
                     })
             }
         }
