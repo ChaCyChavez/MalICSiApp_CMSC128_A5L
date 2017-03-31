@@ -59,7 +59,7 @@
 					method: 'GET',
 					params: data,
 					xhrFields: {withCredentials: true},
-					url: '/api/get-all-sports',
+					url: '/api/get-all-sport',
 					headers: headers
 				})
 				.then(function(res) {
@@ -78,8 +78,30 @@
 					method: 'POST',
 					params: data,
 					xhrFields: {withCredentials: true},
-					url: '/api/delete-sport/' + req.data.id,
+					url: '/api/delete-sport',
 					headers: headers
+					
+				})
+				.then(function(res) {
+					deferred.resolve(res.data);
+				}, function(err) {
+					deferred.reject(err.data);
+				})
+
+				return deferred.promise;
+			}
+
+			const get_teams = function (data) {
+				let deferred = $q.defer();
+				console.log(data);
+
+				$http({
+					method: 'POST',
+					params: data,
+					xhrFields: {withCredentials: true},
+					url: '/api/get-sport-team-match/' + data,
+					headers: headers
+					
 				})
 				.then(function(res) {
 					deferred.resolve(res.data);

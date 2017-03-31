@@ -90,9 +90,9 @@ drop procedure if exists get_all_game_event;
 
 drop procedure if exists get_activity_log;
 \d //
-  CREATE PROCEDURE get_activity_log(IN logid int)
+  CREATE PROCEDURE get_activity_log(IN _account_id int)
   BEGIN
-    SELECT * from activity_log where log_id = logid;
+    SELECT * from activity_log where account_id = _account_id;
   END;
 //
 
@@ -143,6 +143,21 @@ drop procedure if exists get_all_sport;
   CREATE PROCEDURE get_all_sport()
   BEGIN
     SELECT * from sport;
+  END;
+//
+
+\d ;
+
+drop procedure if exists get_sport_team_match;
+\d //
+  CREATE PROCEDURE get_sport_team_match(IN gameid int)
+  BEGIN
+    select t.team_name, m.match_id, s.sport_type, g.game_name 
+    from team t join match_event_team mt on t.team_id = mt.team_id 
+    join match_event m on mt.match_id = m.match_id 
+    join sport s on m.sport_id = s.sport_id 
+    join game_event g on s.game_id = g.game_id
+    where game_id = gameid;
   END;
 //
 
