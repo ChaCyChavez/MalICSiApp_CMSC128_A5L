@@ -297,15 +297,21 @@
               </div>
               <div class="row">
                 <div class="input-field col s10">
-                  <input name="someDate" type="date" class="datepicker" ng-model="data.date">
-                  <label class="labels cyan-text text-darken-4" for="someDate">Birthdate:</label>
+                  <input class="field-inputs" type="text" class="validate" ng-model="data.position">
+                  <label class="labels cyan-text text-darken-4" for="email">Position:</label>
                 </div>
               </div>
               <div class="row">
-                <p>&nbsp&nbsp
-                  <input type="checkbox" id="is_player" />
-                  <label for="is_player">Is player?</label>
-                </p>
+                <div class="input-field col s10">
+                  <input class="field-inputs" type="text" class="validate" ng-model="data.player_role">
+                  <label class="labels cyan-text text-darken-4" for="email">Player Role:</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s10">
+                  <input name="someDate" type="date" class="datepicker" ng-model="data.date">
+                  <label class="labels cyan-text text-darken-4" for="someDate">Birthdate:</label>
+                </div>
               </div>
             </form>
           </div>

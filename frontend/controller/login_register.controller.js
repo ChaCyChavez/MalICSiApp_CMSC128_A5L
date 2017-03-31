@@ -13,8 +13,6 @@
             password : undefined
         }
 
-        $scope.print = {}
-
         $scope.data = {
             username: undefined,
             password: undefined,
@@ -24,8 +22,11 @@
             college: undefined,
             course: undefined,
             emailadd: undefined,
-            is_player: undefined,
-            date: undefined
+            position: undefined,
+            date: undefined,
+            is_player: 1,
+            player_jersey_num: 0,
+            player_role: undefined
         }
 
         $scope.login = () => {
@@ -38,6 +39,7 @@
                 $scope.info.password = '';
                 $scope.info.username = undefined;
                 $scope.info.password = undefined;
+                $("#modal-login").modal('close');
             } else {
         		LoginRegisterService
                     .retrieve_account($scope.info)
@@ -58,8 +60,6 @@
             let strUser = e.options[e.selectedIndex].value;
             $scope.data.date = $('.datepicker').val();
             $scope.data.college = strUser;
-            $scope.data.is_player = $('#is_player').val();
-            console.log($scope.data.is_player);
             if ($scope.data.username === undefined ||
                 $scope.data.username === '' ||
                 $scope.data.password === undefined ||
@@ -78,8 +78,10 @@
                 $scope.data.emailadd === '' ||
                 $scope.data.date === undefined ||
                 $scope.data.date === '' ||
-                $scope.data.is_player === undefined ||
-                $scope.data.is_player === '') {
+                $scope.data.position === undefined ||
+                $scope.data.position === '' ||
+                $scope.data.player_role === undefined ||
+                $scope.data.player_role === '') {
                 Materialize.toast("Please fill-out all the fields", 4000, 'teal');
                 $scope.data.username = '';
                 $scope.data.password = '';
@@ -90,11 +92,14 @@
                 $scope.data.course = '';
                 $scope.data.emailadd = '';
                 $scope.data.date = '';
+                $scope.data.position = '';
+                $scope.data.player_role = '';
+                $("#modal-register").modal('close');           
             } else {
                 LoginRegisterService
                     .register_account($scope.data)
                     .then(function(res) {
-                        $("#modal-login").modal('close');   
+                        $("#modal-register").modal('close');   
                     }, function(err) {
                         Materialize.toast(err.message, 4000, 'teal');
                     })

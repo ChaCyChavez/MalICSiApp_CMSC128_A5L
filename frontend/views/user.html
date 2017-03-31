@@ -228,6 +228,7 @@
         </div>
       </form>
     </div>
+
     <div class="carousel" ng-init="get_accounts()">
       <div class="col s12 m3 carousel-item" ng-repeat="account in accounts">
         <div class="card small z-depth-3">
@@ -249,7 +250,7 @@
           </div>
         </div>
       </div>
-      <div class="col s10 m3 carousel-item">
+      <!-- <div class="col s10 m3 carousel-item">
         <div class="card small z-depth-3">
           <div class="card-image">
             <img src="img/sample-1.jpg">
@@ -351,7 +352,7 @@
             <a class="btn waves-light blue " href="javascript:void(0)">View</a>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 
@@ -386,7 +387,7 @@
     });
 
     $('.carousel').carousel({
-        fullWidth: true
+        full_width: true
       });
   });
 </script>

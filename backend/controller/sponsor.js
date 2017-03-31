@@ -20,7 +20,7 @@ exports.add_sponsor = (req, res, next) => {
     } else {
       winston.level = 'info';
       winston.log('info', 'Successfully added sponsor!');
-      return res.status(200).send(data);
+      return res.status(200).send({message: 'Successfully added sponsor!'});
     }
   };
 
@@ -62,7 +62,7 @@ exports.update_sponsor = (req, res, next) => {
     if(err){
       winston.level = 'debug';
       winston.log('debug', 'err: ', err);
-      return res.status(500).send({ error_code:err.code});
+      return res.status(500).send({ error_code: err.code});
     } /*else if (data.info.affectedRows == 0) {
       winston.level = 'info';
       winston.log('info', 'Not found! Update failed');
@@ -70,7 +70,7 @@ exports.update_sponsor = (req, res, next) => {
     }*/ else {
       winston.level = 'info';
       winston.log('info', 'Successfully updated sponsor!');
-      return res.status(200).send(data);
+      return res.status(200).send({message: 'Successfully updated sponsor!'});
     }
   };
 
@@ -94,7 +94,7 @@ exports.delete_sponsor = (req, res, next) => {
     }*/ else {
       winston.level = 'info';
       winston.log('info', 'Successfully deleted sponsor!');
-      return res.status(200).send(data);
+      return res.status(200).send({message: 'Successfully deleted sponsor!'});
     }
   };
 

@@ -41,7 +41,7 @@
 
         $scope.sponsor = {
             sponsor_name: "",
-            sponsor_logo: "",
+            sponsor_logo: "/",
             sponsor_type: "",
             sponsor_desc: "",
             web_address: "",
@@ -66,7 +66,7 @@
                         swal(res.message);
                         $scope.sponsor = {
                             sponsor_name: "",
-                            sponsor_logo: "",
+                            sponsor_logo: "/",
                             sponsor_type: "",
                             sponsor_desc: "",
                             web_address: "",
@@ -76,7 +76,7 @@
                        swal(err.message)
                         $scope.sponsor = {
                             sponsor_name: "",
-                            sponsor_logo: "",
+                            sponsor_logo: "/",
                             sponsor_type: "",
                             sponsor_desc: "",
                             web_address: "",
@@ -109,7 +109,7 @@
                 swal("Please fill up all fields");
                 $scope.sponsor = {
                     sponsor_name: "",
-                    sponsor_logo: "",
+                    sponsor_logo: "/",
                     sponsor_type: "",
                     sponsor_desc: "",
                     web_address: "",
@@ -125,7 +125,7 @@
                         $scope.sponsors.push($scope.sponsor);
                         $scope.sponsor = {
                             sponsor_name: "",
-                            sponsor_logo: "",
+                            sponsor_logo: "/",
                             sponsor_type: "",
                             sponsor_desc: "",
                             web_address: "",
@@ -135,7 +135,7 @@
                         swal(err.message);
                         $scope.sponsor = {
                             sponsor_name: "",
-                            sponsor_logo: "",
+                            sponsor_logo: "/",
                             sponsor_type: "",
                             sponsor_desc: "",
                             web_address: "",

@@ -16,13 +16,12 @@ const transporter = nodemailer.createTransport({
 
 
 //Login
-exports.login_account = (req, res, next) => {  
+exports.login_account = (req, res, next) => {
   const query_string = "CALL login_account(?,?)";
   const payload = [req.query.username, crypto.
     createHash('sha256').update(req.query.password).
     digest('base64')];
   const callback = (err, data) => {
-    console.log(data);
     if (err) {
       winston.level = 'debug';
       winston.log('debug', 'err:', err);
@@ -54,12 +53,12 @@ exports.login_account = (req, res, next) => {
 //Controller to be used for adding an account
 exports.add_account = (req,res,next) => {
   	const query_string = 'CALL add_account(?,?,?,?,?,?,?,?,?,?,?,?,?)';
-  	const payload = [req.body.firstname, req.body.middlename,
-      	req.body.lastname, req.body.email, req.body.username,
-      	crypto.createHash('sha256').update(req.body.password)
-      	.digest('base64'),req.body.course, req.body.birthday, req.body.college,
-      	req.body.position, req.body.is_player,req.body.player_jersey_num,
-        req.body.player_role];
+  	const payload = [req.query.fname, req.query.mname,
+      	req.query.lname, req.query.emailadd, req.query.username,
+      	crypto.createHash('sha256').update(req.query.password)
+      	.digest('base64'),req.query.course, req.query.date, req.query.college,
+      	req.query.position, req.query.is_player,req.query.player_jersey_num,
+        req.query.player_role];
   const callback = (err,data) => {
     if(err){
       winston.level = 'debug';
@@ -76,27 +75,28 @@ exports.add_account = (req,res,next) => {
 
 
 
-  fs.readFile(file, 'utf8', function (err,data) {
-    if (err) {
-        return console.log(err);
-    } else{
-        var body = data;
-        var mailOptions = {
-            from: 'johndoecmsc128@gmail.com',
-            to: req.body.email,
-            subject: 'MaliCSI App Registration',
-            text: body,
-        };
-    }
-  });
+  // fs.readFile(file, 'utf8', function (err,data) {
+  //   if (err) {
+  //       return console.log(err);
+  //   } else{
+  //       var body = data;
+  //       var mailOptions = {
+  //           from: 'johndoecmsc128@gmail.com',
+  //           to: req.body.email,
+  //           subject: 'MaliCSI App Registration',
+  //           text: body,
+  //       };
+  //   }
+  // });
 
-  transporter.sendMail(mailOptions, (err, info) =>{
-    if (err) {
-        return console.log(err);
-    } else{
-        console.log('Message %s send: %s', info.messageId, info.response);
-    }
-  });
+  // transporter.sendMail(mailOptions, (err, info) =>{
+  //   if (err) {
+  //       return console.log(err);
+  //   } else{
+  //       console.log('Message %s send: %s', info.messageId, info.response);
+  //   }
+  // });
+
 };
 
 exports.approve_account = (req,res,next) => {
