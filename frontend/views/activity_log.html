@@ -47,7 +47,7 @@
           </tr>
         </thead>
 
-        <tbody>
+        <tbody ng-init = "get_log()">
           <tr ng-repeat = "data in allLogs">
             <td >{{data.log_date}}</td>
             <td>{{data.log_description}}</td>

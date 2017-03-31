@@ -15,7 +15,7 @@
 
 			const add_sport = function (data) {
 				let deferred = $q.defer();
-
+				console.log(data);
 				$http({
 					method: 'POST',
 					params: data,
@@ -24,6 +24,7 @@
 					headers: headers
 				})
 				.then(function(res) {
+					console.log("service" + res);
 					deferred.resolve(res.data);
 				}, function(err) {
 					deferred.reject(err.data);

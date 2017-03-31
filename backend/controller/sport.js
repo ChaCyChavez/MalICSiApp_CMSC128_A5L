@@ -5,8 +5,8 @@ const winston = require('winston');
 
 //Controller to be used for adding a sport
 exports.add_sport = (req,res,next) => {
-  const query_string = 'CALL add_sport(?,?)'; 
-  const payload = [req.body.sport_type, req.body.division];
+  const query_string = 'CALL add_sport(?,?,?)'; 
+  const payload = [req.body.sport_type, req.body.division, req.body.game_id];
   const callback = (err,data) => {
     if(err){
       winston.level = 'debug';
@@ -93,8 +93,8 @@ exports.update_sport = (req, res, next) => {
 //Controller to be used for deleting a sport given a sport_id
 exports.delete_sport = (req, res, next) => {
   const query_string ='CALL delete_sport(?)'; 
-  console.log(req.body.sport_id);
-  const payload = [req.body.sport_id];
+  console.log(req.query.sport_id);
+  const payload = [req.query.sport_id];
   const callback = (err, data) => {
     if(err){
       winston.level = 'debug';
