@@ -51,7 +51,7 @@
 
 				return deferred.promise;
 			}
-
+ 
 			const get_log = function (data) {
 				let deferred = $q.defer();
 
@@ -59,7 +59,7 @@
 					method: 'GET',
 					params: data,
 					xhrFields: {withCredentials: true},
-					url: '/api/get-log/' + req.data.log_id,
+					url: '/api/get-log/' + data.session.user.account_id,
 					headers: headers
 				})
 				.then(function(res) {
