@@ -115,20 +115,20 @@ exports.delete_sport = (req, res, next) => {
 
 exports.get_sport_team_match = (req, res, next) => {
   const query_string ='CALL get_sport_team_match(?)'; 
-  const payload = [req.body.game_id];
+  const payload = [req.params.game_id];
 
   const callback = (err, data) => {
     if(err){
       winston.level = 'debug';
       winston.log('debug', 'err: ', err);
       return res.status(500).send({ error_code:err.code});
-    } else if (data.info.affectedRows == 0) {
+    } else if (data.length == 0) {
       winston.level = 'info';
-      winston.log('info', 'Not found! Delete failed');
-      return res.status(404).send();
+      winston.log('info', 'Not found!');
+      return res.status(404).send(data);
     } else {
       winston.level = 'info';
-      winston.log('info', 'Successfully deleted sport!');
+      winston.log('info', 'Successfully retrieved sport details!');
       return res.status(200).send(data);
     }
   };

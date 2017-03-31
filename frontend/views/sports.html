@@ -29,23 +29,23 @@
     <br>  
     &nbsp;<a class="modal-trigger btn-floating btn-large waves-effect waves-light teal accent-4 add-button" data-target="AddSport"><i class="material-icons">add</i></a>
 
-    <div class="row contents" ng-init="get_sports()">
+    <div class="row contents" ng-init="get_teams()">
 
       <div class="col s12 m0">
 
-        <div class="col s12 m4" ng-repeat="sport in sports">
-        <blockquote> {{sport.sport_type}}</blockquote>
+        <div class="col s12 m4" ng-repeat="match in matches">
+        <blockquote> {{match.sport_type}}</blockquote>
           <div class="card z-depth-3">
             <div class="card-content">
-              <a class='dropdown-button' href="javascript:void(0)" data-activates='dropdown2'><i class="material-icons left">details</i></a>
+              <!-- <a class='dropdown-button' href="javascript:void(0)" data-activates='dropdown2'><i class="material-icons left">details</i></a> -->
               <span class="card-title center">Competing Teams</span>
               <div class="divider"></div>
               <div>&nbsp;</div>
-              <p>Sports Info</p>
-              <p>Sports Info</p>
-              <p>Sports Info</p>  
+              <p ng-repeat="team in match.teams track by $index">{{team}}</p>
             </div>
             <div class="card-action">
+              <a href="javascript:void(0)">Edit</a>
+              <a href="javascript:void(0)">Remove</a>
               <a href="javascript:void(0)" ng-click="view_sport()">View Sport</a>
             </div>
           </div>
@@ -53,11 +53,11 @@
 
     </div>
 
-    <ul id='dropdown2' class='dropdown-content'>
+    <!-- <ul id='dropdown2' class='dropdown-content'>
       <li><a href="javascript:void(0)">Edit</a></li>
       <li class="divider"></li>
       <li><a href="javascript:void(0)">Remove</a></li>
-    </ul>
+    </ul> -->
 
     <div id="AddSport" class="modal modal-fixed-footer">
       <div class="modal-content">
