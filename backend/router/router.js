@@ -57,7 +57,8 @@ module.exports = (router) => {
     router.post('/api/add-game-event-sponsor', game_event_sponsor.add_game_event_sponsor);
     //retrieve game_event_sponsor
     router.get('/api/get-game-event-sponsor/:game_id/:sponsor_id', game_event_sponsor.get_game_event_sponsor);
-    //update game_event_sponsor
+
+      //update game_event_sponsor
     router.post('/api/update-game-event-sponsor', game_event_sponsor.update_game_event_sponsor);
     //delete game_event_sponsor
     router.post('/api/delete-game-event-sponsor', game_event_sponsor.delete_game_event_sponsor);
