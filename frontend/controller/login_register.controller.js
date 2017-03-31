@@ -13,7 +13,7 @@
             password : undefined
         }
 
-        $sscope.data = {
+        $scope.data = {
             
         }
 

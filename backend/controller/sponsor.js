@@ -48,13 +48,9 @@ exports.get_sponsor = (req, res, next) => {
 
 //Controller to be used for updating a sponsor given a sponsor_id
 exports.update_sponsor = (req, res, next) => {
-  const query_string = 'CALL update_sponsor(?,?,?,?,?,?)';
+  const query_string = 'CALL update_sponsor(?,?,?,?,?,?,?)';
   const payload = [req.body.sponsor_id, req.body.sponsor_name, req.body.sponsor_logo, 
-<<<<<<< HEAD
-      req.body.sponsor_affiliation];
-=======
-      req.body.sponsor_type,req.body.sponsor_desc, req.body.web_address];
->>>>>>> c446fc20c2dc964ba9489104010cb5b3805ef91c
+      req.body.sponsor_affiliation, req.body.sponsor_type,req.body.sponsor_desc, req.body.web_address];
   const callback = (err, data) => {
     if(err){
       winston.level = 'debug';
