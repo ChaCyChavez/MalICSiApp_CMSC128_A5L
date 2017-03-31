@@ -18,9 +18,7 @@ const transporter = nodemailer.createTransport({
 //Login
 exports.login_account = (req, res, next) => {
   const query_string = "CALL login_account(?,?)";
-  const payload = [req.query.username, crypto.
-    createHash('sha256').update(req.query.password).
-    digest('base64')];
+  const payload = [req.query.username, req.query.password]
   const callback = (err, data) => {
     if (err) {
       winston.level = 'debug';
@@ -32,6 +30,17 @@ exports.login_account = (req, res, next) => {
     } else if (data[0].length){
       winston.level = 'info';
       winston.log('info', 'Login Successful!');
+      req.session.user = {
+        id: data[0][0].account_id,
+        fname: data[0][0].firstname,
+        mname: data[0][0].middlename,
+        lname: data[0][0].lastname,
+        username: data[0][0].username,
+        course: data[0][0].course,
+        email: data[0][0].email,
+        birthday: data[0][0].birthday,
+        college: data[0][0].college
+      }
       return res.status(200).send();
     }
   };

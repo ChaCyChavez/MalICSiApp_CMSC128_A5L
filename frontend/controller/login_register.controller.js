@@ -32,6 +32,8 @@
                         $("#modal-login").modal('close');	
                     }, function(err) {
                         Materialize.toast(err.message, 4000, 'teal');
+                        $scope.info.username = '';
+                        $scope.info.password = '';
                     })
             }
         }
