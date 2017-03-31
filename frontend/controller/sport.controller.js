@@ -14,6 +14,9 @@
         $scope.view_match = () => {
             $location.path("/match").replace();
         }
+        $scope.view_user = () => {
+            $location.path("/user").replace();
+        }
 
         $scope.view_participant = () => {
             $location.path("/participant").replace();
