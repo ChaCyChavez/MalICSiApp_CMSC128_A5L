@@ -17,10 +17,6 @@ nav {
     font-family: "Panton";
 }
 
-.modalReg {
-    position: fixed;
-}
-
 #deets {
     width: 35%;
 }
@@ -40,6 +36,7 @@ nav {
 
 .nam {
     font-size: 75%;
+    width: 100%;
     text-align: center;
 }
 
