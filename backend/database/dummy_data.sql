@@ -25,10 +25,10 @@ insert into court values (NULL, 'Copeland', 'UPLB', 'Gym');
 insert into court values (NULL, 'Physci', 'UPLB', 'Building');
 insert into court values (NULL, 'Freedom Park', 'UPLB', 'Park');
 
-CALL add_sponsor ('Intel', 'http://logos.com/logo2.png', 'minor',1);
-CALL add_sponsor ('ACSS', 'http://logos.com/logo3.png', 'major',2);
-CALL add_sponsor ('YSES', 'http://logos.com/logo4.png', 'official partner',3);
-CALL add_sponsor ('COSS', 'http://logos.com/logo2.png', 'major',4);
+CALL add_sponsor ('Intel', 'http://logos.com/logo2.png', 'minor', 'desc1', 'web_add1',1);
+CALL add_sponsor ('ACSS', 'http://logos.com/logo3.png',  'major', 'desc2', 'web_add2',2);
+CALL add_sponsor ('YSES', 'http://logos.com/logo4.png', 'official partner', 'desc1', 'web_add1', 3);
+CALL add_sponsor ('COSS', 'http://logos.com/logo2.png', 'major', 'desc1', 'web_add1',4);
 
 insert into sport values (1, 'Volleyball', 'men', 1);
 insert into sport values (2, 'Volleyball', 'men', 2);

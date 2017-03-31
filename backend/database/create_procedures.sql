@@ -130,17 +130,25 @@ delimiter //
         IN _sponsor_name        varchar(256),
         IN _sponsor_logo        varchar(256),
         IN _sponsor_type        enum('minor','major','official partner'),
+        IN _sponsor_desc        varchar(256),
+        IN _web_address         varchar(256),
         IN _game_id             int
     )
     BEGIN
         INSERT into sponsor(
             sponsor_name,
             sponsor_logo,
+            sponsor_type,
+            sponsor_desc,
+            web_address,
             game_id
             )
         values(
             _sponsor_name,
             _sponsor_logo,
+            _sponsor_type,
+            _sponsor_desc,
+            _web_address,
             _game_id
             );
     END;
