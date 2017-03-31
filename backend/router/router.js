@@ -95,6 +95,8 @@ module.exports = (router) => {
 //sport routers
     //create sport
     router.post('/api/add-sport', sport.add_sport);
+    // retrive all sports
+    router.get('/api/get-all-sports', sport.get_all_sport);
     //retrieve sport
     router.get('/api/get-sport/:sport_id', sport.get_sport);
     //update sport

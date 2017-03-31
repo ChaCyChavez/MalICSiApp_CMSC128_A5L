@@ -118,7 +118,7 @@ drop procedure if exists get_sponsor;
 
 \d ;
 
-drop procedure if exists get_all_sport;
+drop procedure if exists get_all_sponsor;
 \d //
   CREATE PROCEDURE get_all_sponsor()
   BEGIN

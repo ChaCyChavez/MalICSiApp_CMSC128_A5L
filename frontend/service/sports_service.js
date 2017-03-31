@@ -52,14 +52,14 @@
 				return deferred.promise;
 			}
 
-			const get_sport = function (data) {
+			const get_sports = function (data) {
 				let deferred = $q.defer();
 
 				$http({
 					method: 'GET',
 					params: data,
 					xhrFields: {withCredentials: true},
-					url: '/api/get-sport/' + req.data.id,
+					url: '/api/get-all-sports',
 					headers: headers
 				})
 				.then(function(res) {
