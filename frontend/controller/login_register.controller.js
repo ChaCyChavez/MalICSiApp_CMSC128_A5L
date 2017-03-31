@@ -25,6 +25,8 @@
                 Materialize.toast("Please fill-out all the fields", 4000, 'teal');
                 $scope.info.username = '';
                 $scope.info.password = '';
+                $scope.info.username = undefined;
+                $scope.info.password = undefined;
             } else {
         		LoginRegisterService
                     .retrieve_account($scope.info)
@@ -34,6 +36,8 @@
                         Materialize.toast(err.message, 4000, 'teal');
                         $scope.info.username = '';
                         $scope.info.password = '';
+                        $scope.info.username = undefined;
+                        $scope.info.password = undefined;
                     })
             }
         }

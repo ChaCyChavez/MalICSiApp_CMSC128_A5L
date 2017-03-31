@@ -16,9 +16,11 @@ const transporter = nodemailer.createTransport({
 
 
 //Login
-exports.login_account = (req, res, next) => {
+exports.login_account = (req, res, next) => {  
   const query_string = "CALL login_account(?,?)";
-  const payload = [req.query.username, req.query.password]
+  const payload = [req.query.username, crypto.
+    createHash('sha256').update(req.query.password).
+    digest('base64')];
   const callback = (err, data) => {
     if (err) {
       winston.level = 'debug';
