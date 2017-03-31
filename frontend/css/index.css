@@ -162,6 +162,13 @@ body {
     height: 80px !important;
 }
 
+dropdown-button #fck{
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
 body {
     display: flex;
     min-height: 100vh;
