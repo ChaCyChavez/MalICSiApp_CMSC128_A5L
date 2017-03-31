@@ -110,9 +110,9 @@ drop procedure if exists get_all_activity_log;
 
 drop procedure if exists get_sponsor;
 \d //
-  CREATE PROCEDURE get_sponsor(IN sponsorid int)
+  CREATE PROCEDURE get_sponsor(IN gameid int)
   BEGIN
-    SELECT * from sponsor where sponsor_id = sponsorid;
+    SELECT * from sponsor where game_id = gameid;
   END;
 //
 

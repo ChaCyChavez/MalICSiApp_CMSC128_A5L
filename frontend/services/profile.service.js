@@ -12,7 +12,6 @@
 		};
 
 		function ProfileService($window, $http, $q) {
-			
 			const get_profile = (user_id) => {
 				let deferred = $q.defer();
 				

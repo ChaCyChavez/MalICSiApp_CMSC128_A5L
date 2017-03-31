@@ -23,6 +23,22 @@
             $location.path("/game-event").replace();
         }
 
+        var x = $location.path().toString().split("/");
+        $scope.sponsors = [];
+        $scope.game_id = parseInt(x[x.length-1]);
+
+
+        $scope.init_sponsor = () => {
+            SponsorService
+                .init_sponsors($scope.game_id)
+                .then(function(res) {
+                    console.log(res[0]);
+                    $scope.sponsors = res;
+                }, function(err) {
+                    console.log(err.data);
+                })
+        }
+
         $scope.sponsor = {
             sponsor_name: "",
             sponsor_logo: "",
@@ -33,7 +49,6 @@
         }
 
         $scope.add_sponsor = () => {
-            var x = $location.path().toString().split("/");
 
             if ($scope.sponsor.sponsor_name == "" ||
                 $scope.sponsor.sponsor_logo == "" ||

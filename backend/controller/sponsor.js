@@ -6,7 +6,6 @@ const winston = require('winston');
 //Controller to be used for adding a sponsor given a court_id
 exports.add_sponsor = (req, res, next) => {
   const query_string = 'CALL add_sponsor(?,?,?,?,?,?)';
-  console.log(req.query);
   const payload = [req.query.sponsor_name,
                     req.query.sponsor_logo,
                     req.query.sponsor_type,
@@ -30,8 +29,9 @@ exports.add_sponsor = (req, res, next) => {
 
 //Controller to be used for retrieving a sponsor given a sponsor_id
 exports.get_sponsor = (req, res, next) => {
+  console.log(req.params);
   const query_string = 'CALL get_sponsor(?)';  
-  const payload = [req.params.sponsor_id];
+  const payload = [req.params.game_id];
   const callback = (err, data) => {
     if(err){
       winston.level = 'debug';
@@ -50,6 +50,8 @@ exports.get_sponsor = (req, res, next) => {
 
   db.query(query_string, payload, callback);
 };
+
+
 
 //Controller to be used for updating a sponsor given a sponsor_id
 exports.update_sponsor = (req, res, next) => {
