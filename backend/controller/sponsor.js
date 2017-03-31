@@ -5,9 +5,14 @@ const winston = require('winston');
 
 //Controller to be used for adding a sponsor given a court_id
 exports.add_sponsor = (req, res, next) => {
-  const query_string = 'CALL add_sponsor(?,?,?,?,?,?)'; 
-  const payload = [req.body.sponsor_name,req.body.sponsor_logo,
-          req.body.sponsor_type,req.body.sponsor_desc,req.body.web_address,req.body.game_id];
+  const query_string = 'CALL add_sponsor(?,?,?,?,?,?)';
+  console.log(req.query);
+  const payload = [req.query.sponsor_name,
+                    req.query.sponsor_logo,
+                    req.query.sponsor_type,
+                    req.query.sponsor_desc,
+                    req.query.web_address,
+                    req.query.game_id];
   const callback = (err,data) => {
     if(err){
       winston.level = 'debug';

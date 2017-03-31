@@ -15,7 +15,6 @@
 
 			const retrieve_account = function (data) {
 				let deferred = $q.defer();
-
 				$http({
 					method: 'POST',
 					params: data,
