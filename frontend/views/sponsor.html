@@ -77,20 +77,20 @@
   <div class="container">
     <div class="row">
 
-    <div class="col s12 m4">
+    <div class="col s12 m4" ng-repeat="data in allSponsors">
       <div class="card">
         <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="img/san-miguel-logo.png" />
+          <img class="activator" src="img/adidas.png' />
         </div>
 
         <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4"><h6>San Miguel Corporation</h6></span>
+          <span class="card-title activator grey-text text-darken-4"><h6>{{data.sponsor_name}}</h6></span>
           <p><a href="http://www.sanmiguel.com.ph">Visit Website</a></p>
         </div>
 
         <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">San Miguel Corporation<i class="material-icons right">close</i></span>
-          <p>San Miguel Corporation is one of the Philippines’ largest and most diversified conglomerates, generating about 5.1% (as of 2015) of the country’s gross domestic product through its highly integrated operations in beverages, food, packaging, fuel and oil, power and infrastructure.</p>
+          <span class="card-title grey-text text-darken-4">{{data.sponsor_name}}<i class="material-icons right">close</i></span>
+          <p>{{data.sponsor_desc}}</p>
 
           <div class="right">
             <a href="javascript:void(0)" class="teal lighten-2 modal-action modal-close waves-effect waves-green btn-flat">Edit</a>
@@ -104,134 +104,6 @@
       </div>
 
     </div>
-
-    <div class="col s12 m4">
-      <div class="card">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="img/nasa.png" />
-        </div>
-
-        <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4"><h6>NASA</h6></span>
-          <p><a href="http://www.nasa.gov">Visit Website</a></p>
-        </div>
-
-        <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">NASA<i class="material-icons right">close</i></span>
-          <p>Led by acting administrator, Robert Lightfoot, NASA reaches new heights and unveils the unknown for the benefit of humankind. To achieve such feat, thousands of people toil around and outside the world to answer a very simple yet significant question- <i>What is out there in space?</i></p>
-          <div class="right">
-            <a href="javascript:void(0)" class="teal lighten-2 modal-action modal-close waves-effect waves-green btn-flat">Edit</a>
-            <a href="javascript:void(0)" class="teal lighten-2 modal-action modal-close waves-effect waves-green btn-flat">Delete</a>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-
-    <div class="col s12 m4">
-      <div class="card">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="img/adidas2.png" />
-        </div>
-
-        <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4"><h6>Adidas</h6></span>
-          <p><a href="javascript:void(0)">Visit Website</a></p>
-        </div>
-
-        <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">Adidas<i class="material-icons right">close</i></span>
-          <p>The brands of the adidas Group complement each other in a unique way to help athletes perform better, play better, feel better. Our products break records, set trends, make history. Every day. Here, our love for sport drives who we are and what we do. Every day.</p>
-          <div class="right">
-            <a href="javascript:void(0)" class="teal lighten-2 modal-action modal-close waves-effect waves-green btn-flat">Edit</a>
-            <a href="javascript:void(0)" class="teal lighten-2 modal-action modal-close waves-effect waves-green btn-flat">Delete</a>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-    <div class="col s12 m4">
-      <div class="card">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="img/Underarmour.png" />
-        </div>
-
-        <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4"><h6>Under Armour</h6></span>
-          <p><a href="http://www.underarmour.com.ph">Visit Website</a></p>
-        </div>
-
-        <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-          <p>Founded in 1996 by former University of Maryland football player Kevin Plank, Under Armour is the originator of performance apparel - gear engineered to keep athletes cool, dry and light throughout the course of a game, practice or workout</p>
-
-          <div class="right">
-            <a href="javascript:void(0)" class="teal lighten-2 modal-action modal-close waves-effect waves-green btn-flat">Edit</a>
-            <a href="javascript:void(0)" class="teal lighten-2 modal-action modal-close waves-effect waves-green btn-flat">Delete</a>
-          </div>
-
-        </div>
-
-
-      </div>
-
-    </div>
-
-    <div class="col s12 m4">
-      <div class="card">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="img/codeninjas.png" />
-        </div>
-
-        <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4"><h6>Code Ninjas</h6></span>
-          <p><a href="http://www.code-ninja.co">Visit Website</a></p>
-        </div>
-
-        <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-          <p>Code Ninja provides accelerated learning programs, which help inspired coders become awesome! Code Ninjas offers a variety of programs to help individuals at every skill level excel in a career of software development.</p>
-
-          <div class="right">
-            <a href="javascript:void(0)" class="teal lighten-2 modal-action modal-close waves-effect waves-green btn-flat">Edit</a>
-            <a href="javascript:void(0)" class="teal lighten-2 modal-action modal-close waves-effect waves-green btn-flat">Delete</a>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-
-    <div class="col s12 m4">
-      <div class="card">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="img/mozilla.png" />
-        </div>
-
-        <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4"><h6>Mozilla</h6></span>
-          <p><a href="http://www.mozilla.org">Visit Website</a></p>
-        </div>
-
-        <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-          <p>The Mozilla Corporation was established in August 2005 as a wholly owned taxable subsidiary that serves the non-profit, public benefit goals of its parent, the Mozilla Foundation, and the vast Mozilla community.</p>
-
-          <div class="right">
-            <a href="javascript:void(0)" class="teal lighten-2 modal-action modal-close waves-effect waves-green btn-flat">Edit</a>
-            <a href="javascript:void(0)" class="teal lighten-2 modal-action modal-close waves-effect waves-green btn-flat">Delete</a>
-          </div>
-
-
-        </div>
-      </div>
-
-    </div>
-     
-
-
     </div>
   </div>
 
