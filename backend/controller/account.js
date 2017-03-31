@@ -22,6 +22,7 @@ exports.login_account = (req, res, next) => {
     createHash('sha256').update(req.query.password).
     digest('base64')];
   const callback = (err, data) => {
+    console.log(data);
     if (err) {
       winston.level = 'debug';
       winston.log('debug', 'err:', err);
