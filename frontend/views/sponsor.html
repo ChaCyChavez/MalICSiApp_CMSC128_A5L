@@ -1,5 +1,4 @@
-<div ng-controller="sponsor-controller" class="main-container" ng-init="init_sponsor()">
-  <div class="content">
+<div ng-controller="sponsor-controller" ng-init="init_sponsor()">
    <div class="navbar-fixed">
       <nav>
         <div class="nav-wrapper">
@@ -197,30 +196,34 @@
               <div class="row">
                 <div class="input-field col s12 m12">
                   <input id="sponsor_name" type="text" class="validate" ng-model="sponsor.sponsor_name"/>
-                  <label for="sponsor_name">Sponsor Name</label>
+                  <label class="labels cyan-text text-darken-4" for="sponsor_name">Sponsor Name</label>
                 </div>
               </div>
               <div class="row">
-                <!-- <div class="input-field col s12 m6">
-                  <input id="sponsor_address" type="text" class="validate" ng-model="sponsor.sponsor_logo"/>
-                  <label for="sponsor_address">Sponsor Logo</label>
-                </div> -->
-
-                 <div class="input-field col s12 m6">
+                 <!-- <div class="input-field col s12 m12">
                   <input id="sponsor_website" type="text" class="validate" ng-model="sponsor.sponsor_type"/>
                   <label for="sponsor_website">Sponsor Type</label>
+                </div> -->
+                <div class="input-field col s12">
+                  <select id="sponsor_type">
+                    <option value="" disabled selected>Choose your option</option>
+                    <option value="minor">minor</option>
+                    <option value="major">major</option>
+                    <option value="major">official partner</option>
+                  </select>
+                  <label class="labels cyan-text text-darken-4">Sponsor</label>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field col s12 m12">
                   <textarea id="sponsor_description" class="materialize-textarea" ng-model="sponsor.sponsor_desc"></textarea>
-                  <label for="sponsor_description">Sponsor Description</label>
+                  <label class="labels cyan-text text-darken-4" for="sponsor_description">Sponsor Description</label>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field col s12 m12">
                   <input id="sponsor_description" type="text" class="validate" ng-model="sponsor.web_address"></input>
-                  <label for="sponsor_description">Sponsor Website</label>
+                  <label class="labels cyan-text text-darken-4" for="sponsor_description">Sponsor Website</label>
                 </div>
               </div>
            </div>
@@ -239,7 +242,7 @@
               <div class="row">
                 <div class="input-field col s12 m12">
                   <input id="sponsor_name" type="text" class="validate" ng-model="sponsor.sponsor_name"/>
-                  <label for="sponsor_name">Sponsor Name</label>
+                  <label class="labels cyan-text text-darken-4" for="sponsor_name">Sponsor Name</label>
                 </div>
               </div>
               <div class="row">
@@ -248,21 +251,26 @@
                   <label for="sponsor_address">Sponsor Logo</label>
                 </div> -->
 
-                 <div class="input-field col s12 m6">
-                  <input id="sponsor_website" type="text" class="validate" ng-model="sponsor.sponsor_type"/>
-                  <label for="sponsor_website">Sponsor Type</label>
+                 <div class="input-field col s12">
+                  <select id="sponsor_type">
+                    <option value="" disabled selected>Choose your option</option>
+                    <option value="minor">minor</option>
+                    <option value="major">major</option>
+                    <option value="major">official partner</option>
+                  </select>
+                  <label class="labels cyan-text text-darken-4">Sponsor</label>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field col s12 m12">
                   <textarea id="sponsor_description" class="materialize-textarea" ng-model="sponsor.sponsor_desc"></textarea>
-                  <label for="sponsor_description">Sponsor Description</label>
+                  <label class="labels cyan-text text-darken-4" for="sponsor_description">Sponsor Description</label>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field col s12 m12">
                   <input id="sponsor_description" type="text" class="validate" ng-model="sponsor.web_address"></input>
-                  <label for="sponsor_description">Sponsor Website</label>
+                  <label class="labels cyan-text text-darken-4" for="sponsor_description">Sponsor Website</label>
                 </div>
               </div>
            </div>
@@ -271,17 +279,10 @@
             <a href="javascript:void(0)" class="center modal-close waves-effect waves-green btn" ng-click="update_sponsor()">Submit</a>
           </div>
         </div>
-  
-
-  <footer class="page-footer teal">
-    <p class="footer-content grey-text text-lighten-4">
-      MalICSi is a sports management application catered for UPLB individuals which aims to showcase reliable person-game information and interaction. MalICSihan is developed by 21 undergraduate students from the Institue of Computer Science to achieve an academic requirement in their CMSC 128: An Introduction to Software Engineering class.
-    </p>
-    <div class="copyright">Copyright 2017 CMSC 128 | A-5L</div>
-  </footer>
-  
+      </div>  
  <script type="text/javascript">
   $(document).ready(function(){
+    $('select').material_select();
      $('.dropdown-button').dropdown({
         inDuration: 300,
         outDuration: 225,

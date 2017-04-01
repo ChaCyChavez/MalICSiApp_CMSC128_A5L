@@ -1,274 +1,265 @@
 
-<div ng-controller="game-event-controller" class="main-container">
-  <div class="content">
-    <div class="navbar-fixed">
-      <nav>
-        <div class="nav-wrapper">
-          <a href="javascript:void(0)" class="grey-text text-darken-4 center" id="logo" ng-click="back_to_home()">MalICSi</a>
-          <ul id="nav-mobile" class="right">
-            <li><div class="grey-text text-darken-4" id="hello">Welcome, Juan Dela Cruz</div></li>
-            <li><a href="javascript:void(0)" data-activates="dropdown1" class="teal dropdown-button" id="dr" dropdown><i class="material-icons center-align">perm_identity</i></a></li>
-          </ul>
-        </div>
-      </nav>
-    </div>
+<div ng-controller="game-event-controller">
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper">
+        <a href="javascript:void(0)" class="grey-text text-darken-4 center" id="logo" ng-click="back_to_home()">MalICSi</a>
+        <ul id="nav-mobile" class="right">
+          <li><div class="grey-text text-darken-4" id="hello">Welcome, Juan Dela Cruz</div></li>
+          <li><a href="javascript:void(0)" data-activates="dropdown1" class="teal dropdown-button" id="dr" dropdown><i class="material-icons center-align">perm_identity</i></a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
 
-    <ul id='demoDropdown' class='dropdown-content'>
-    <li><a href="javascript:void(0);">Link 1</a></li>
-    <li><a href="javascript:void(0);">Link 2</a></li>
-    <li><a href="javascript:void(0);">Link 3</a></li>
-    <li><a href="javascript:void(0);">Link 4</a></li>
-    <li><a href="javascript:void(0);">Link 5</a></li>
+  <ul id='demoDropdown' class='dropdown-content'>
+  <li><a href="javascript:void(0);">Link 1</a></li>
+  <li><a href="javascript:void(0);">Link 2</a></li>
+  <li><a href="javascript:void(0);">Link 3</a></li>
+  <li><a href="javascript:void(0);">Link 4</a></li>
+  <li><a href="javascript:void(0);">Link 5</a></li>
 </ul>
 
-    <ul id='dropdown1' class='dropdown-content'>
-      <li><div class="container teal center-align" id="upper">
-          <img class="circle profpic" src="img/placeholder.png">
+  <ul id='dropdown1' class='dropdown-content'>
+    <li><div class="container teal center-align" id="upper">
+        <img class="circle profpic" src="img/placeholder.png">
+        </div>
+    </li>
+    <li><div class="container" id="lower">
+      <h5 class="center-align valign">Juan Dela Cruz</h5>
+      <p class="center-align valign">2014-01234</p>
+    </div></li>
+    <li><a href="javascript:void(0)" class="view-dd"><p class="center-align valign" ng-click="view_profile()">VIEW PROFILE</p></a></li>
+    <li><a href="javascript:void(0)" class="view-dd"><p class="center-align valign" ng-click="view_user()">VIEW USER</p></a></li>
+    <li><a href="javascript:void(0)"><p class="right-align valign red-text" ng-click="logout()">X logout</p></a></li>
+  </ul>
+
+
+
+  <!-- button for adding new game-->
+  <a class="btn-floating btn-large waves-effect waves-light teal accent-4 add-button" href="javascript:void(0)" data-target="modal2" modal><i class="material-icons">add</i></a>
+
+  <!-- Search -->
+  <div class="row">
+    <form class="col s6 right">
+      <div class="row">
+        <div class="input-field col s6 right" id = "search">
+          <i class="material-icons prefix">search</i>
+          <input id="icon_prefix" type="text" class="validate">
+          <label for="icon_prefix">Search games</label>
+        </div>
+      </div>
+    </form>
+  </div>
+  <h4 class="header">CURRENT GAMES</h4>
+  <!-- Contents -->
+  <div class="row">
+    <div class="card-panel col offset-l1 s12 m11 l10 z-depth-5">
+          <div class="col s12 m6">
+            <div class="card">
+              <div class="card-image">
+                <a class="edit_btn dropdown-button btn-flat right" data-activates="dropdownOptions1"><i class="material-icons">mode_edit</i></a>
+                <img src="img/sample-1.jpg">
+              </div>
+              <div class="card-action center-align">
+                <a class="btn white-text" data-target="modal1" href="javascript:void(0)" modal>
+                   view more ...
+                </a>
+              </div>
+            </div>
           </div>
-      </li>
-      <li><div class="container" id="lower">
-        <h5 class="center-align valign">Juan Dela Cruz</h5>
-        <p class="center-align valign">2014-01234</p>
-      </div></li>
-      <li><a href="javascript:void(0)" class="view-dd"><p class="center-align valign" ng-click="view_profile()">VIEW PROFILE</p></a></li>
-      <li><a href="javascript:void(0)" class="view-dd"><p class="center-align valign" ng-click="view_user()">VIEW USER</p></a></li>
-      <li><a href="javascript:void(0)"><p class="right-align valign red-text" ng-click="logout()">X logout</p></a></li>
-    </ul>
 
+          <div class="col s12 m6">
+            <div class="card">
+              <div class="card-image">
+                <a class="edit_btn dropdown-button btn-flat right" data-activates="dropdownOptions2"><i class="material-icons">mode_edit</i></a>
+                <img src="img/sample-1.jpg">
+              </div>
+              <div class="card-action center-align">
+                <a class="btn white-text" href="javascript:void(0)" data-target="modal1" modal>
+                   view more ...
+                </a>
+              </div>
+            </div>
+          </div>
+    </div>
+  </div>
 
+  <h4 class="header">INCOMING GAMES</h4>
 
-    <!-- button for adding new game-->
-    <a class="btn-floating btn-large waves-effect waves-light teal accent-4 add-button" href="javascript:void(0)" data-target="modal2" modal><i class="material-icons">add</i></a>
+  <!-- Contents -->
+  <div class="row">
+    <div class="card-panel col offset-l1 s12 m11 l10 z-depth-5">
+          <div class="col s12 m3">
+            <div class="card">
+              <div class="card-image">
+                <a class="edit_btn dropdown-button btn-flat right" data-activates="dropdownOptions3"><i class="material-icons">mode_edit</i></a>
+                <img src="img/sample-1.jpg">
+              </div>
+            </div>
+          </div>
 
-    <!-- Search -->
-    <div class="row">
-      <form class="col s6 right">
+          <div class="col s12 m3">
+            <div class="card">
+              <div class="card-image">
+                <a class="edit_btn dropdown-button btn-flat right" data-activates="dropdownOptions4"><i class="material-icons">mode_edit</i></a>
+                <img src="img/sample-1.jpg">
+              </div>
+              <!-- <div class="card-action center-align">
+                <a class="btn white-text" href="#modal1">
+                   view more ...
+                </a>
+              </div> -->
+            </div>
+          </div>
+
+          <div class="col s12 m3">
+            <div class="card">
+              <div class="card-image">
+                <a class="edit_btn dropdown-button btn-flat right" data-activates="dropdownOptions5"><i class="material-icons">mode_edit</i></a>
+                <img src="img/sample-1.jpg">
+              </div>
+              <!-- <div class="card-action center-align">
+                <a class="btn white-text" href="#modal1">
+                   view more ...
+                </a>
+              </div> -->
+            </div>
+          </div>
+
+          <div class="col s12 m3">
+            <div class="card">
+              <div class="card-image">
+                <a class="edit_btn dropdown-button btn-flat right" data-activates="dropdownOptions6"><i class="material-icons">mode_edit</i></a>
+                <img src="img/sample-1.jpg">
+              </div>
+             <!--  <div class="card-action center-align">
+                <a class="btn white-text" href="#modal1">
+                   view more ...
+                </a>
+              </div> -->
+            </div>
+          </div>
+    </div>
+  </div>
+
+  <!-- Dropdown Structure -->
+  <ul id='dropdownOptions1' class='dropdown-content'>
+    <li><a href="javascript:void(0)">edit</a></li>
+    <li class="divider"></li>
+    <li><a href="javascript:void(0)">remove</a></li>
+  </ul>
+
+  <ul id='dropdownOptions2' class='dropdown-content'>
+    <li><a href="javascript:void(0)">edit</a></li>
+    <li class="divider"></li>
+    <li><a href="javascript:void(0)">remove</a></li>
+  </ul>
+
+  <ul id='dropdownOptions3' class='dropdown-content'>
+    <li><a href="javascript:void(0)">edit</a></li>
+    <li class="divider"></li>
+    <li><a href="javascript:void(0)">remove</a></li>
+  </ul>
+
+  <ul id='dropdownOptions4' class='dropdown-content'>
+    <li><a href="javascript:void(0)">edit</a></li>
+    <li class="divider"></li>
+    <li><a href="javascript:void(0)">remove</a></li>
+  </ul>
+
+  <ul id='dropdownOptions5' class='dropdown-content'>
+    <li><a href="javascript:void(0)">edit</a></li>
+    <li class="divider"></li>
+    <li><a href="javascript:void(0)">remove</a></li>
+  </ul>
+
+  <ul id='dropdownOptions6' class='dropdown-content'>
+    <li><a href="javascript:void(0)">edit</a></li>
+    <li class="divider"></li>
+    <li><a href="javascript:void(0)">remove</a></li>
+  </ul>
+
+  <!-- Modal Structure -->
+  <div id="modal2" class="modal modal-fixed-footer">
+    <div class="modal-content" id="modal_add">
+      <div class="teal content-title">
+        <h4 class="add white-text center-align">ADD GAME</h4>
+      </div>
+      <div class="form-content" style="height: 287px;">
         <div class="row">
-          <div class="input-field col s6 right" id = "search">
-            <i class="material-icons prefix">search</i>
-            <input id="icon_prefix" type="text" class="validate">
-            <label for="icon_prefix">Search games</label>
-          </div>
-        </div>
-      </form>
-    </div>
-    <h4 class="header">CURRENT GAMES</h4>
-    <!-- Contents -->
-    <div class="row">
-      <div class="card-panel col offset-l1 s12 m11 l10 z-depth-5">
-            <div class="col s12 m6">
-              <div class="card">
-                <div class="card-image">
-                  <a class="edit_btn dropdown-button btn-flat right" data-activates="dropdownOptions1"><i class="material-icons">mode_edit</i></a>
-                  <img src="img/sample-1.jpg">
-                </div>
-                <div class="card-action center-align">
-                  <a class="btn white-text" data-target="modal1" href="javascript:void(0)" modal>
-                     view more ...
-                  </a>
-                </div>
+          <form id="add_game_form" class="col s12">
+            <div class="row">
+              <div class="inputfield col s10">
+                <label class="labels cyan-text text-darken-4" for="name">Name:</label>
+                <input class="field-inputs" type="text">
+              </div>
+               <div class="inputfield col s10">
+                <label class="labels cyan-text text-darken-4" for="name">Type:</label>
+                <input class="field-inputs" type="text">
+              </div>
+              <div class="inputfield col s10">
+                <label class="labels cyan-text text-darken-4" for="name">Start date:</label>
+                <input class="datepicker" type="date">
+              </div>
+              <div class="inputfield col s10">
+                <label class="labels cyan-text text-darken-4" for="name">End date:</label>
+                <input class="datepicker" type="date">
               </div>
             </div>
-
-            <div class="col s12 m6">
-              <div class="card">
-                <div class="card-image">
-                  <a class="edit_btn dropdown-button btn-flat right" data-activates="dropdownOptions2"><i class="material-icons">mode_edit</i></a>
-                  <img src="img/sample-1.jpg">
-                </div>
-                <div class="card-action center-align">
-                  <a class="btn white-text" href="javascript:void(0)" data-target="modal1" modal>
-                     view more ...
-                  </a>
-                </div>
-              </div>
-            </div>
-      </div>
-    </div>
-
-    <h4 class="header">INCOMING GAMES</h4>
-
-    <!-- Contents -->
-    <div class="row">
-      <div class="card-panel col offset-l1 s12 m11 l10 z-depth-5">
-            <div class="col s12 m3">
-              <div class="card">
-                <div class="card-image">
-                  <a class="edit_btn dropdown-button btn-flat right" data-activates="dropdownOptions3"><i class="material-icons">mode_edit</i></a>
-                  <img src="img/sample-1.jpg">
-                </div>
-              </div>
-            </div>
-
-            <div class="col s12 m3">
-              <div class="card">
-                <div class="card-image">
-                  <a class="edit_btn dropdown-button btn-flat right" data-activates="dropdownOptions4"><i class="material-icons">mode_edit</i></a>
-                  <img src="img/sample-1.jpg">
-                </div>
-                <!-- <div class="card-action center-align">
-                  <a class="btn white-text" href="#modal1">
-                     view more ...
-                  </a>
-                </div> -->
-              </div>
-            </div>
-
-            <div class="col s12 m3">
-              <div class="card">
-                <div class="card-image">
-                  <a class="edit_btn dropdown-button btn-flat right" data-activates="dropdownOptions5"><i class="material-icons">mode_edit</i></a>
-                  <img src="img/sample-1.jpg">
-                </div>
-                <!-- <div class="card-action center-align">
-                  <a class="btn white-text" href="#modal1">
-                     view more ...
-                  </a>
-                </div> -->
-              </div>
-            </div>
-
-            <div class="col s12 m3">
-              <div class="card">
-                <div class="card-image">
-                  <a class="edit_btn dropdown-button btn-flat right" data-activates="dropdownOptions6"><i class="material-icons">mode_edit</i></a>
-                  <img src="img/sample-1.jpg">
-                </div>
-               <!--  <div class="card-action center-align">
-                  <a class="btn white-text" href="#modal1">
-                     view more ...
-                  </a>
-                </div> -->
-              </div>
-            </div>
-      </div>
-    </div>
-
-    <!-- Dropdown Structure -->
-    <ul id='dropdownOptions1' class='dropdown-content'>
-      <li><a href="javascript:void(0)">edit</a></li>
-      <li class="divider"></li>
-      <li><a href="javascript:void(0)">remove</a></li>
-    </ul>
-
-    <ul id='dropdownOptions2' class='dropdown-content'>
-      <li><a href="javascript:void(0)">edit</a></li>
-      <li class="divider"></li>
-      <li><a href="javascript:void(0)">remove</a></li>
-    </ul>
-
-    <ul id='dropdownOptions3' class='dropdown-content'>
-      <li><a href="javascript:void(0)">edit</a></li>
-      <li class="divider"></li>
-      <li><a href="javascript:void(0)">remove</a></li>
-    </ul>
-
-    <ul id='dropdownOptions4' class='dropdown-content'>
-      <li><a href="javascript:void(0)">edit</a></li>
-      <li class="divider"></li>
-      <li><a href="javascript:void(0)">remove</a></li>
-    </ul>
-
-    <ul id='dropdownOptions5' class='dropdown-content'>
-      <li><a href="javascript:void(0)">edit</a></li>
-      <li class="divider"></li>
-      <li><a href="javascript:void(0)">remove</a></li>
-    </ul>
-
-    <ul id='dropdownOptions6' class='dropdown-content'>
-      <li><a href="javascript:void(0)">edit</a></li>
-      <li class="divider"></li>
-      <li><a href="javascript:void(0)">remove</a></li>
-    </ul>
-
-    <!-- Modal Structure -->
-    <div id="modal2" class="modal modal-fixed-footer">
-      <div class="modal-content" id="modal_add">
-        <div class="teal content-title">
-          <h4 class="add white-text center-align">ADD GAME</h4>
-        </div>
-        <div class="form-content" style="height: 287px;">
-          <div class="row">
-            <form id="add_game_form" class="col s12">
-              <div class="row">
-                <div class="inputfield col s10">
-                  <label class="labels cyan-text text-darken-4" for="name">Name:</label>
-                  <input class="field-inputs" type="text">
-                </div>
-                 <div class="inputfield col s10">
-                  <label class="labels cyan-text text-darken-4" for="name">Type:</label>
-                  <input class="field-inputs" type="text">
-                </div>
-                <div class="inputfield col s10">
-                  <label class="labels cyan-text text-darken-4" for="name">Start date:</label>
-                  <input class="datepicker" type="date">
-                </div>
-                <div class="inputfield col s10">
-                  <label class="labels cyan-text text-darken-4" for="name">End date:</label>
-                  <input class="datepicker" type="date">
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <div id="modal-button">
-          <a href="javascript:void(0)" id="label-enter" class="teal modal-action modal-close waves-effect waves-green btn-flat white-text" ng-click="">Add Game</a>
+          </form>
         </div>
       </div>
     </div>
-
-    <!-- Modal Structure -->
-    <div id="modal1" class="modal modal-fixed-footer">
-      <div class="modal-content">
-          <img class="image" src="img/sample-1.jpg">
-          <span>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-            scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
-            into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the
-            release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing
-            software like Aldus PageMaker including versions of Lorem Ipsum.
-          </span>
-      </div>
-      <div class="modal-footer">
-        <div id="modal-button">
-          <a href="javascript:void(0)" id="label-enter" class="teal accent-3 modal-action modal-close waves-effect waves-green btn-flat white-text" ng-click="view_sponsor()">view sponsors</a>
-          <a href="javascript:void(0)" id="label-enter" class="teal accent-3 modal-action modal-close waves-effect waves-green btn-flat white-text" ng-click="view_sports()">view sports</a>
-
-          <a href="javascript:void(0)" id="label-enter" class="teal accent-3 modal-action modal-close waves-effect waves-green btn-flat white-text" ng-click="view_registered_user()">view participants</a>
-          <a href="javascript:void(0)" id="label-enter" class="teal accent-3 modal-action modal-close waves-effect waves-green btn-flat white-text" data-target="modal3" modal>register to this game</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Modal Structure -->
-    <div id="modal3" class="modal modal-fixed-footer">
-      <div class="modal-content">
-        <h1 class="teams black-text">Choose a team</h1>
-        <span>
-          <a href="javascript:void(0)"><h6 class="team black-text">Team A</h6></a>
-          <a href="javascript:void(0)"><h6 class="team black-text">Team B</h6></a>
-          <a href="javascript:void(0)"><h6 class="team black-text">Team C</h6></a>
-          <a href="javascript:void(0)"><h6 class="team black-text">Team D</h6></a>
-        </span>
-      </div>
-      <div id="hey" class="modal-footer">
-        <div id="modal-button">
-          <a data-target="modal1" href="javascript:void(0)" id="label-enter" class="teal accent-3 modal-action modal-close waves-effect waves-green btn-flat white-text" modal>Cancel</a>
-          <a href="javascript:void(0)" id="label-enter" class="teal accent-3 modal-action modal-close waves-effect waves-green btn-flat white-text">Join</a>
-        </div>
+    <div class="modal-footer">
+      <div id="modal-button">
+        <a href="javascript:void(0)" id="label-enter" class="teal modal-action modal-close waves-effect waves-green btn-flat white-text" ng-click="">Add Game</a>
       </div>
     </div>
   </div>
 
-   <footer class="page-footer teal">
-    <p class="footer-content grey-text text-lighten-4">
-      MalICSi is a sports management application catered for UPLB individuals which aims to showcase reliable person-game information and interaction. MalICSihan is developed by 21 undergraduate students from the Institue of Computer Science to achieve an academic requirement in their CMSC 128: An Introduction to Software Engineering class.
-    </p>
-    <div class="copyright">Copyright 2017 CMSC 128 | A-5L</div>
-  </footer>
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal modal-fixed-footer">
+    <div class="modal-content">
+        <img class="image" src="img/sample-1.jpg">
+        <span>
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+          industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+          scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
+          into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the
+          release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing
+          software like Aldus PageMaker including versions of Lorem Ipsum.
+        </span>
+    </div>
+    <div class="modal-footer">
+      <div id="modal-button">
+        <a href="javascript:void(0)" id="label-enter" class="teal accent-3 modal-action modal-close waves-effect waves-green btn-flat white-text" ng-click="view_sponsor()">view sponsors</a>
+        <a href="javascript:void(0)" id="label-enter" class="teal accent-3 modal-action modal-close waves-effect waves-green btn-flat white-text" ng-click="view_sports()">view sports</a>
+
+        <a href="javascript:void(0)" id="label-enter" class="teal accent-3 modal-action modal-close waves-effect waves-green btn-flat white-text" ng-click="view_registered_user()">view participants</a>
+        <a href="javascript:void(0)" id="label-enter" class="teal accent-3 modal-action modal-close waves-effect waves-green btn-flat white-text" data-target="modal3" modal>register to this game</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Structure -->
+  <div id="modal3" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h1 class="teams black-text">Choose a team</h1>
+      <span>
+        <a href="javascript:void(0)"><h6 class="team black-text">Team A</h6></a>
+        <a href="javascript:void(0)"><h6 class="team black-text">Team B</h6></a>
+        <a href="javascript:void(0)"><h6 class="team black-text">Team C</h6></a>
+        <a href="javascript:void(0)"><h6 class="team black-text">Team D</h6></a>
+      </span>
+    </div>
+    <div id="hey" class="modal-footer">
+      <div id="modal-button">
+        <a data-target="modal1" href="javascript:void(0)" id="label-enter" class="teal accent-3 modal-action modal-close waves-effect waves-green btn-flat white-text" modal>Cancel</a>
+        <a href="javascript:void(0)" id="label-enter" class="teal accent-3 modal-action modal-close waves-effect waves-green btn-flat white-text">Join</a>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script type="text/javascript">

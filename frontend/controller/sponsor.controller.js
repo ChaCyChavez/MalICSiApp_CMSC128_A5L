@@ -59,6 +59,9 @@
         }
 
         $scope.update_sponsor = () => {
+            let e = document.getElementById("sponsor_type");
+            let strUser = e.options[e.selectedIndex].value;
+            $scope.sponsor.sponsor_type = strUser;
             $scope.sponsor.game_id = parseInt(x[x.length-1]);
                 SponsorService
                     .update_sponsors($scope.sponsor)
@@ -102,6 +105,9 @@
         }
 
         $scope.add_sponsor = () => {
+            let e = document.getElementById("sponsor_type");
+            let strUser = e.options[e.selectedIndex].value;
+            $scope.sponsor.sponsor_type = strUser;
             if ($scope.sponsor.sponsor_name == "" ||
                 $scope.sponsor.sponsor_logo == "" ||
                 $scope.sponsor.sponsor_type == "" ||

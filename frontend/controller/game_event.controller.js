@@ -33,7 +33,7 @@
 
         $scope.view_sponsor = () => {
             $("#modal1").modal('close');
-            $location.path("/sponsor").replace();
+            $location.path("/sponsor/" + game_id).replace();
         }
 
         $scope.back_to_home = () => {
