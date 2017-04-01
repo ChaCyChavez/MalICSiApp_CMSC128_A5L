@@ -32,8 +32,7 @@
     <div class="row contents" ng-init="get_sports()">
 
       <div class="col s12 m0">
-
-        <div class="col s12 m4" ng-repeat="sport in sports">
+        <div class="col s12 m4" ng-repeat="sport in sports track by $index">
         <blockquote> {{sport.sport_type}} - {{sport.division}}</blockquote>
           <div class="card z-depth-3">
             <div class="card-content">
@@ -41,11 +40,11 @@
               <span class="card-title center">Competing Teams</span>
               <div class="divider"></div>
               <div>&nbsp;</div>
-              <p ng-repeat="team in sport.teams track by $index">{{team}}</p>
+              <p ng-repeat="team in sport.teams">{{team}}</p>
             </div>
             <div class="card-action">
               <a href="javascript:void(0)">Edit</a>
-              <a href="javascript:void(0)">Remove</a>
+              <a href="javascript:void(0)" ng-click="delete_sport(sport.sport_id, $index)">Remove</a>
               <a href="javascript:void(0)" ng-click="view_sport()">View Sport</a>
             </div>
           </div>

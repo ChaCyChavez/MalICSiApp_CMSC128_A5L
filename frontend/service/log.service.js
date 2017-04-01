@@ -71,6 +71,25 @@
 				return deferred.promise;
 			}
 
+			const get_all_logs = function (data) {
+				let deferred = $q.defer();
+
+				$http({
+					method: 'GET',
+					params: data,
+					xhrFields: {withCredentials: true},
+					url: '/api/get-all-logs/',
+					headers: headers
+				})
+				.then(function(res) {
+					deferred.resolve(res.data);
+				}, function(err) {
+					deferred.reject(err.data);
+				})
+
+				return deferred.promise;
+			}
+
 			const delete_log = function (data) {
 				let deferred = $q.defer();
 
@@ -95,6 +114,7 @@
 			service.update_log 				= update_log;
 			service.get_log 				= get_log;
 			service.delete_log				= delete_log;
+			service.get_all_logs			= get_all_logs;
 			return service;
 
 		}

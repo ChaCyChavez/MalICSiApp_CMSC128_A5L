@@ -10,10 +10,10 @@ CALL add_game_event ('Game 2', CURDATE(), CURDATE(), 2);
 CALL add_game_event ('Game 3', CURDATE(), CURDATE(), 1);
 CALL add_game_event ('Game 4', CURDATE(), CURDATE(), 3);
 
-insert into team values (NULL, 'Blue Job', 'Blue');
-insert into team values (NULL, 'Red Job', 'Red');
-insert into team values (NULL, 'Green Job', 'Green');
-insert into team values (NULL, 'White Job', 'White');
+insert into team values (1, 'Blue Job', 'Blue');
+insert into team values (2, 'Red Job', 'Red');
+insert into team values (3, 'Green Job', 'Green');
+insert into team values (4, 'White Job', 'White');
 
 insert into activity_log values (NULL, 'Sample Log 1', CURDATE(), NULL);
 insert into activity_log values (NULL, 'Sample Log 2', CURDATE(), NULL);
@@ -31,22 +31,14 @@ CALL add_sponsor ('YSES', 'http://logos.com/logo4.png', 'official partner', 'des
 CALL add_sponsor ('COSS', 'http://logos.com/logo2.png', 'major', 'desc1', 'web_add1',4);
 
 insert into sport values (1, 'Volleyball', 'men', 1);
-insert into sport values (2, 'Volleyball', 'men', 2);
-insert into sport values (3, 'Volleyball', 'men', 3);
-insert into sport values (4, 'Volleyball', 'men', 4);
+insert into sport values (2, 'Basketball', 'men', 2);
+insert into sport values (3, 'TableTennis', 'men', 3);
+insert into sport values (4, 'Soccer', 'men', 4);
 
 insert into match_event values (1,true, CURDATE(), 'elimination', 1, 2);
 insert into match_event values (2,true, CURDATE(), 'semi-finals', 1, 2);
 insert into match_event values (3,true, CURDATE(), 'finals', 2, 1);
 insert into match_event values (4,true, CURDATE(), 'finals', 2, 1);
-
--- insert into game_event_sponsor values (1, 1, "Type 1");
--- insert into game_event_sponsor values (1, 2, "Type 2");
--- insert into game_event_sponsor values (3, 2, "Type 3");
--- insert into game_event_sponsor values (4, 2, "Type 2");
--- insert into game_event_sponsor values (2, 4, "Type 3");
--- insert into game_event_sponsor values (3, 3, "Type 2");
--- insert into game_event_sponsor values (2, 3, "Type 1");
 
 insert into game_event_team values (1, 3);
 insert into game_event_team values (2, 3);
