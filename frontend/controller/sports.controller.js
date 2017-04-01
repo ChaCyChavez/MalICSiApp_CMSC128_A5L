@@ -14,7 +14,6 @@
         var temp = [];
         temp = $location.path().toString().split("/");
         var gameid = temp[temp.length-1];
-        // console.log(gameid);
 
         $scope.view_sport = () => {
             $location.path("/sport").replace();
@@ -58,38 +57,47 @@
                 });
         }
 
-        $scope.get_teams = () => {
+        var get_teams_of_sport = (data, func) =>  {
+            SportsService
+                .get_teams_sport(data).
+                then(function(res) {
+                    var arr = res.data[0];
+                    func(arr);
+                }, function(err) {
+                    console.log(err);
+                });
+        }
+
+        $scope.get_sports = () => {
             var data = {
                 game_id: gameid
-            }  
+            } 
+            var ret_sport = [];
             SportsService
-                .get_teams(data).
+                .get_sports_game(data).
                 then(function(res) {
-                    var resData = res.data[0], obj = {};
-                    var sports = [];
-                    for (var i = 0; i < resData.length; i++) {
-                        if (!obj[resData[i].sport_type]) {
-                            obj[resData[i].sport_type] = 1;
-                        } else if (obj[resData[i].sport_type]) {
-                            obj[resData[i].sport_type] += 1;
-                        }
-                    }
-                    for (var property in obj) {
+                    var sports = res.data[0];
+                    sports.forEach(function(element){
+                        console.log(element);
                         var obj2 = {
-                            ["sport_type"]: property,
+                            ["sport_type"]: element.sport_type,
+                            ["division"]: element.division,
                             ["teams"]: []
                         };
-                        if (obj.hasOwnProperty(property)) {
-                            resData.forEach(function(element){
-                                if(obj2["sport_type"] == element.sport_type && 
-                                    !obj2["teams"].includes(element.team_name)){
-                                    obj2["teams"].push(element.team_name);
-                                }
+                        get_teams_of_sport(element, function(arr){
+                            arr.forEach(function(ob){
+                                if(!obj2["teams"].includes(ob.team_name)){
+                                    obj2["teams"].push(ob.team_name);
+                                }                               
                             });
-                        }
-                        sports.push(obj2);
-                    }
-                    $scope.sports = sports;
+                            console.log(obj2["teams"].length);
+                            if(obj2["teams"].length <= 0){
+                                obj2["teams"].push("No participating teams.");;
+                            }                            
+                            ret_sport.push(obj2);
+                        });                        
+                    });
+                    $scope.sports = ret_sport;
                 }, function(err) {
                     console.log(err);
                 });
@@ -106,9 +114,14 @@
             SportsService
                 .add_sport(data)
                 .then(function(res) {
-                    console.log(res);   
-                    //$scope.sports = res;
+                    console.log(res);  
+                    swal("Success!", "You added a sport!", "success");
+                    $('#AddSport').modal('close');
+                    $scope.sport_type = "";
+                    $scope.division = "";
+                    document.getElementById("sports-form").reset(); 
                 }, function(err) {
+                    swal("Error!", "Please check the fields.", "error");
                     console.log(err);
                 })
         }

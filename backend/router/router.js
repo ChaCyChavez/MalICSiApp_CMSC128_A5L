@@ -106,8 +106,10 @@ module.exports = (router) => {
     router.post('/api/update-sport', sport.update_sport);
     //delete sport
     router.post('/api/delete-sport', sport.delete_sport);
-
-    router.get('/api/get-sport-team-match/:game_id', sport.get_sport_team_match);
+    //get sports in a game
+    router.get('/api/get-sport-game/:game_id', sport.get_sport_game);
+    //get teams in a sport
+    router.get('/api/get-sport-team/:sport_id', sport.get_sport_team);
 
 //team routers
     //create team

@@ -29,12 +29,12 @@
     <br>  
     &nbsp;<a class="modal-trigger btn-floating btn-large waves-effect waves-light teal accent-4 add-button" data-target="AddSport"><i class="material-icons">add</i></a>
 
-    <div class="row contents" ng-init="get_teams()">
+    <div class="row contents" ng-init="get_sports()">
 
       <div class="col s12 m0">
 
         <div class="col s12 m4" ng-repeat="sport in sports">
-        <blockquote> {{sport.sport_type}}</blockquote>
+        <blockquote> {{sport.sport_type}} - {{sport.division}}</blockquote>
           <div class="card z-depth-3">
             <div class="card-content">
               <!-- <a class='dropdown-button' href="javascript:void(0)" data-activates='dropdown2'><i class="material-icons left">details</i></a> -->
@@ -68,13 +68,13 @@
         </div>
         <div class="row">
           <form class="col s12" id="sports-form">
-            <div class="row">
+            <!-- <div class="row">
               <div class="input-field col s11">
                 <input id="sports_name" type="text" class="validate">
                 <label for="sports_name">Sport Name</label>
               </div>
               <br>
-            </div>
+            </div> -->
             <div class="row">
               <div class="input-field col s11">
                 <input id="type" type="text" ng-model = "sport_type">
@@ -92,25 +92,25 @@
                 <label class="label-college cyan-text text-darken-4" >Division</label>
               </div>
             </div>
-            <div class="row">
+            <!-- <div class="row">
               <div class="input-field col s11">
                 <input id="time" type="password" class="validate">
                 <label for="time">Schedule (e.g., 8am-10am)</label>
               </div>
-            </div>
-            <div class="row">
+            </div> -->
+            <!-- <div class="row">
               <div class="input-field col s11">
                 <input id="venue" type="email" class="validate">
                 <label for="venue">Venue</label>
               </div>
-            </div>
+            </div> -->
             
           </form>
         </div>
 
       </div>
       <div class="modal-footer">
-        <a class="modal-action modal-close waves-effect waves-green btn-flat"><a href="sports.html" class="waves-effect waves-light btn" ng-click = "add_sport()">ADD</a></a>
+        <a id="add_sport" class="modal-action modal-close waves-effect waves-green btn-flat"><a href="javascript:void(0)" class="waves-effect waves-light btn" ng-click = "add_sport()">ADD</a></a>
       </div>
     </div>
   </div>
