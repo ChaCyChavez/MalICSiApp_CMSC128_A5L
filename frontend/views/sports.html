@@ -26,19 +26,17 @@
       <li><a href="javascript:void(0)"><p class="right-align valign red-text" ng-click="logout()">X logout</p></a></li>
     </ul>
 
-    <br>  
-    &nbsp;<a class="modal-trigger btn-floating btn-large waves-effect waves-light teal accent-4 add-button" data-target="AddSport"><i class="material-icons">add</i></a>
+    <a class="modal-trigger btn-floating btn-large waves-effect waves-light teal accent-4 add-button" data-target="AddSport"><i class="material-icons">add</i></a>
 
     <div class="row contents">
 
       <div class="col s12 m0">
 
         <div class="col s12 m4">
-        <blockquote> Sport Name </blockquote>
           <div class="card z-depth-3">
             <div class="card-content">
               <a class='dropdown-button' href="javascript:void(0)" data-activates='dropdown2'><i class="material-icons left">details</i></a>
-              <span class="card-title center">Competing Teams</span>
+              <span class="card-title center">Sport Name</span>
               <div class="divider"></div>
               <div>&nbsp;</div>
               <p>Sports Info</p>
@@ -52,11 +50,10 @@
         </div>
         
         <div class="col s12 m4">
-        <blockquote> Sport Name </blockquote>
           <div class="card z-depth-3">
             <div class="card-content">
               <a class='dropdown-button' href="javascript:void(0)" data-activates='dropdown3' ><i class="material-icons left">details</i></a>
-              <span class="card-title center">Competing Teams</span>
+              <span class="card-title center">Sport Name</span>
               <div class="divider"></div>
               <div>&nbsp</div>
               <p>Sports Info</p>
@@ -70,11 +67,10 @@
         </div>
 
        <div class="col s12 m4">
-       <blockquote> Sport Name </blockquote>
           <div class="card z-depth-3">
             <div class="card-content">
               <a class='dropdown-button' href="javascript:void(0)" data-activates='dropdown4' ><i class="material-icons left">details</i></a>
-              <span class="card-title center">Competing Teams</span>
+              <span class="card-title center">Sport Name</span>
               <div class="divider"></div>
               <div>&nbsp</div>
               <p>Sports Info</p>
@@ -88,11 +84,10 @@
         </div>
 
         <div class="col s12 m4">
-        <blockquote> Sport Name </blockquote>
           <div class="card z-depth-3">
             <div class="card-content">
               <a class='dropdown-button' href="javascript:void(0)" data-activates='dropdown5' ><i class="material-icons left">details</i></a>
-              <span class="card-title center">Competing Teams</span>
+              <span class="card-title center">Sport Name</span>
               <div class="divider"></div>
               <div>&nbsp</div>
               <p>Sports Info</p>
@@ -106,11 +101,10 @@
         </div>
 
         <div class="col s12 m4">
-        <blockquote> Sport Name </blockquote>
           <div class="card z-depth-3">
             <div class="card-content">
               <a class='dropdown-button' href="javascript:void(0)" data-activates='dropdown6' ><i class="material-icons left">details</i></a>
-              <span class="card-title center">Competing Teams</span>
+              <span class="card-title center">Sport Name</span>
               <div class="divider"></div>
               <div>&nbsp</div>
               <p>Sports Info</p>
@@ -124,11 +118,10 @@
         </div>
 
         <div class="col s12 m4">
-        <blockquote> Sport Name </blockquote>
           <div class="card z-depth-3">
             <div class="card-content">
               <a class='dropdown-button' href="javascript:void(0)" data-activates='dropdown7' ><i class="material-icons left">details</i></a>
-              <span class="card-title center">Competing Teams</span>
+              <span class="card-title center">Sport Name</span>
               <div class="divider"></div>
               <div>&nbsp</div>
               <p>Sports Info</p>
@@ -182,9 +175,9 @@
 
     <div id="AddSport" class="modal modal-fixed-footer">
       <div class="modal-content">
-        <h4>Add Sport</h4>
-        <p>A bunch of text and input fields</p>
-        <p>A bunch of text and input fields</p>
+        <div class="teal content-title">
+          <h4 class="add white-text center-align">ADD SPORT</h4>
+        </div>
         <div class="row">
         <form class="col s12">
           <div class="row">
@@ -261,5 +254,6 @@
       starting_top: '4%',
       ending_top: '10%',
     });
+    $('select').material_select();
   });
 </script>
