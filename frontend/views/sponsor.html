@@ -26,6 +26,8 @@
       <li><a href="javascript:void(0)"><p class="right-align valign red-text" ng-click="logout()">X logout</p></a></li>
     </ul>
 
+    <a class="btn-floating btn-large waves-effect waves-light teal accent-4 add-button" href="javascript:void(0)" data-target="modal7" modal><i class="material-icons">add</i></a>
+
     <br>
 
     <div class="container">
@@ -396,54 +398,53 @@
       <br>
 
       <div class="center-align">
-      	<a href="javascript:void(0)" data-target="modal7" class="btn" modal> Add Sponsor </a>
       	<br>
       	<br>
 
 
 
       	<div id="modal7" class="modal modal-fixed-footer">
-      		
+      
           <div class="modal-content">
-      			<div class="container">
-
-
-  				    <form class="">
-                <div class="row">
-                  <div class="input-field col s12 m12">
-                    <input id="company_name" type="text" class="validate" />
-                    <label for="company_name">Company Name</label>
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div class="input-field col s12 m6">
-                    <input id="company_address" type="text" class="validate" />
-                    <label for="company_address">Company Address</label>
+            <div class="teal content-title">
+              <h4 class="add white-text center-align">ADD SPONSOR</h4>
+              <div class="container">
+                <form class="">
+                  <div class="row">
+                    <div class="input-field col s12 m12">
+                      <input id="company_name" type="text" class="validate" />
+                      <label for="company_name">Company Name</label>
+                    </div>
                   </div>
 
-                   <div class="input-field col s12 m6">
-                    <input id="company_website" type="text" class="validate" />
-                    <label for="company_website">Company Website</label>
+                  <div class="row">
+                    <div class="input-field col s12 m6">
+                      <input id="company_address" type="text" class="validate" />
+                      <label for="company_address">Company Address</label>
+                    </div>
+
+                     <div class="input-field col s12 m6">
+                      <input id="company_website" type="text" class="validate" />
+                      <label for="company_website">Company Website</label>
+                    </div>
                   </div>
-                </div>
 
-                <div class="row">
-                  <div class="input-field col s12 m12">
-                    <textarea id="company_description" class="materialize-textarea" /></textarea>
-                    <label for="company_description">Company Description</label>
+                  <div class="row">
+                    <div class="input-field col s12 m12">
+                      <textarea id="company_description" class="materialize-textarea" /></textarea>
+                      <label for="company_description">Company Description</label>
+                    </div>
                   </div>
-                </div>
-
-
-
-  				      <a href="javascript:void(0)" class="center waves-effect waves-green btn">Submit</a>
-
-
-              </form>
-  					</div> 
+                </form>
+             </div> 
+            </div>
       		</div>
 
+          <div class="modal-footer">
+            <div id="modal-button">
+              <a href="javascript:void(0)" id="label-enter" class="teal modal-action modal-close waves-effect waves-green btn-flat white-text" ng-click="">Add sponsor</a>
+            </div>
+           </div>
     		</div> 
 
 
