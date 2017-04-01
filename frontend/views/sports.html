@@ -32,20 +32,19 @@
     <div class="row contents" ng-init="get_teams()">
 
       <div class="col s12 m0">
-
-        <div class="col s12 m4" ng-repeat="match in matches">
-        <blockquote> {{match.sport_type}}</blockquote>
+        <div class="col s12 m4" ng-repeat="sport in sports track by $index">
+        <blockquote> {{sport.sport_type}}</blockquote>
           <div class="card z-depth-3">
             <div class="card-content">
               <!-- <a class='dropdown-button' href="javascript:void(0)" data-activates='dropdown2'><i class="material-icons left">details</i></a> -->
               <span class="card-title center">Competing Teams</span>
               <div class="divider"></div>
               <div>&nbsp;</div>
-              <p ng-repeat="team in match.teams track by $index">{{team}}</p>
+              <p ng-repeat="team in sport.teams">{{team}}</p>
             </div>
             <div class="card-action">
               <a href="javascript:void(0)">Edit</a>
-              <a href="javascript:void(0)">Remove</a>
+              <a href="javascript:void(0)" ng-click="delete_sport(sport.sport_id, $index)">Remove</a>
               <a href="javascript:void(0)" ng-click="view_sport()">View Sport</a>
             </div>
           </div>
@@ -77,17 +76,17 @@
             </div>
             <div class="row">
               <div class="input-field col s11">
-                <input id="type" type="password" class="validate">
+                <input id="type" type="text" ng-model = "sport_type">
                 <label for="type">Sport Type</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s11">
-                <select>
+                <select ng-model = "division">
                   <option value="" disabled selected>Choose your option</option>
-                  <option value="1">Men</option>
-                  <option value="2">Women</option>
-                  <option value="3">Mixed</option>
+                  <option value="Men">Men</option>
+                  <option value="Women">Women</option>
+                  <option value="Mixed">Mixed</option>
                 </select>
                 <label class="label-college cyan-text text-darken-4" >Division</label>
               </div>
@@ -110,7 +109,7 @@
 
       </div>
       <div class="modal-footer">
-        <a class="modal-action modal-close waves-effect waves-green btn-flat"><a href="sports.html" class="waves-effect waves-light btn">ADD</a></a>
+        <a class="modal-action modal-close waves-effect waves-green btn-flat"><a href="sports.html" class="waves-effect waves-light btn" ng-click = "add_sport()">ADD</a></a>
       </div>
     </div>
   </div>

@@ -22,5 +22,8 @@
     "angular-route": "^1.6.3",
     "moment": "^2.18.1",
     "angular-materialize": "^0.2.2"
+  },
+  "resolutions": {
+    "materialize": "~0.97.8"
   }
 }
