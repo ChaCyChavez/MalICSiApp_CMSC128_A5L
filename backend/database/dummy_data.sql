@@ -20,10 +20,10 @@ insert into activity_log values (NULL, 'Sample Log 2', CURDATE(), NULL);
 insert into activity_log values (NULL, 'Sample Log 3', CURDATE(), NULL);
 insert into activity_log values (NULL, 'Sample Log 4', CURDATE(), NULL);
 
-insert into court values (NULL, 'Baker Hall', 'UPLB', 'Gym');
-insert into court values (NULL, 'Copeland', 'UPLB', 'Gym');
-insert into court values (NULL, 'Physci', 'UPLB', 'Building');
-insert into court values (NULL, 'Freedom Park', 'UPLB', 'Park');
+CALL add_court ('Baker Hall', 'UPLB', 'Gym');
+CALL add_court ('Copeland', 'UPLB', 'Gym');
+CALL add_court ('Physci', 'UPLB', 'Building');
+CALL add_court ('Freedom Park', 'UPLB', 'Park');
 
 CALL add_sponsor ('Intel', 'http://logos.com/logo2.png', 'minor', 'desc1', 'web_add1',1);
 CALL add_sponsor ('ACSS', 'http://logos.com/logo3.png',  'major', 'desc2', 'web_add2',2);
