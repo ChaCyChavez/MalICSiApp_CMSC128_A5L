@@ -68,6 +68,8 @@ module.exports = (router) => {
     router.post('/api/add-log', log.add_log);
     //retrieve log
     router.get('/api/get-log/:account_id', log.get_log);
+    //retrieve all logs
+    router.get('/api/get-all-logs/', log.get_all_logs);
     //update log
     router.post('/api/update-log', log.update_log);
     //delete log
