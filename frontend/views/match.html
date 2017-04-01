@@ -1,4 +1,3 @@
-
 <div ng-controller="match-controller">
   <div class="navbar-fixed">
     <nav>
@@ -11,6 +10,8 @@
       </div>
     </nav>
   </div>
+
+  <a class="modal-trigger btn-floating btn-large waves-effect waves-light teal accent-4 add-button" data-target="add-match-modal"><i class="material-icons">add</i></a>
 
   <ul id='dropdown1' class='dropdown-content'>
     <li><div class="container teal center-align" id="upper">
@@ -83,14 +84,52 @@
           </div>
         </div>
       </div>
-
-      
     </div>
   </div>
 </div>
 
+<!-- Modal -->
+<div id="add-match-modal" class="modal modal-fixed-footer">
+  <div class="modal-content" id="modal_add">
+    <div class="teal content-title">
+      <h4 class="add white-text center-align">ADD MATCH</h4>
+    </div>
+    <div class="form-content" style="height: 287px;">
+      <div class="row">
+        <form class="col s12" id="add_match_form">
+          <div class="row">
+            <div class="input-field col s6">
+              <input id="match_date" type="date" class="datepicker">
+              <label class="labels cyan-text text-darken-4" for="matchdate">Date</label>
+            </div>
+            <div class="input-field col s6">
+              <input id="match_time" type="time" class="validate">
+              <label for="time"></label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="match_court" type="text" class="validate">
+              <label for="match_court">Court</label>
+            </div>
+          </div>
+          
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <div id="modal-button">
+      <a href="javascript:void(0)" id="label-enter" class="teal modal-action modal-close waves-effect waves-green btn-flat white-text" ng-click="add_match()">Add Match</a>
+    </div>
+  </div>
+
 <script type="text/javascript">
   $(document).ready(function(){
+    $('.datepicker').pickadate({
+      selectMonths: true, // Creates a dropdown to control month
+      selectYears: 15 // Creates a dropdown of 15 years to control year
+    });
      $('.dropdown-button').dropdown({
         inDuration: 300,
         outDuration: 225,

@@ -15,7 +15,7 @@
               <span class="reg">register</span>
             </div>
           </a></li>
-          <li><a class="teal si" data-target='modal-login' modal><span class="white-text">sign in</span></a></li>
+          <li><a class="teal si" data-target='modal-login' modal><span class="white-text">Login</span></a></li>
         </ul>
       </div>
     </nav>
@@ -319,9 +319,7 @@
 <script>
 $(document).ready(function(){
   $('.slider').slider();
-
   $('select').material_select();
-
   $('.modal').modal({
     size: 'small',
     dismissible: true,
@@ -331,17 +329,14 @@ $(document).ready(function(){
     starting_top: '4%',
     ending_top: '10%',
   });
-
   $('.datepicker').pickadate({
     selectMonths: true,
     selectYears: 100,
     format: 'yyyy-mm-dd'
   });
   
-
   $("#modal-login").width($(".modal").width());
   $("#modal-login").height($(".modal").height());
-
   $("#modal-register").width($(".modal").width());
   $("#modal-register").height($(".modal").height());
 });
