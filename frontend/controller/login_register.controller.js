@@ -110,8 +110,7 @@
                     .register_account($scope.data)
                     .then(function(res) {
                         $("#modal-register").modal('close');
-                        Materialize.toast("Register successful!", 4000, 'teal');
-                        Materialize.toast("Your registration is now on process", 4000, 'teal');
+                        Materialize.toast("Your registration is now on process!", 4000, 'teal');
                     }, function(err) {
                         Materialize.toast(err.message, 4000, 'teal');
                     })

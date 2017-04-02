@@ -17,8 +17,8 @@ const transporter = nodemailer.createTransport({
 //Login
 exports.login_account = (req, res, next) => {
   const query_string = "CALL login_account(?,?)";
-  const payload = [req.query.username, crypto.
-    createHash('sha256').update(req.query.password).
+  const payload = [req.body.username, crypto.
+    createHash('sha256').update(req.body.password).
     digest('base64')];
   const callback = (err, data) => {
     if (err) {
@@ -52,12 +52,12 @@ exports.login_account = (req, res, next) => {
 //Controller to be used for adding an account
 exports.add_account = (req,res,next) => {
   	const query_string = 'CALL add_account(?,?,?,?,?,?,?,?,?,?,?,?,?)';
-  	const payload = [req.query.fname, req.query.mname,
-      	req.query.lname, req.query.emailadd, req.query.username,
-      	crypto.createHash('sha256').update(req.query.password)
-      	.digest('base64'),req.query.course, req.query.date, req.query.college,
-      	req.query.position, req.query.is_player,req.query.player_jersey_num,
-        req.query.player_role];
+  	const payload = [req.body.fname, req.body.mname,
+      	req.body.lname, req.body.emailadd, req.body.username,
+      	crypto.createHash('sha256').update(req.body.password)
+      	.digest('base64'),req.body.course, req.body.date, req.body.college,
+      	req.body.position, req.body.is_player,req.body.player_jersey_num,
+        req.body.player_role];
   const callback = (err,data) => {
     if(err){
       winston.level = 'debug';

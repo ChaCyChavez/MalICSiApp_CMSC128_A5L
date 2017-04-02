@@ -55,7 +55,7 @@
                 <h3>{{ profile.firstname + " " + profile.middlename + " " + profile.lastname}}</h3>
                 <h5>{{ profile.college }}</h5>
                 <h5>{{ profile.course }}</h5>
-                <h5>{{ profile.birthday }}</h5>
+                <h5>{{ profile.birthday | date: 'fullDate'}}</h5>
                 <h5>{{ profile.email }}</h5>
                 <h5>{{ profile.player_jersey_num }}</h5>
                 <h5>{{ profile.player_role }}</h5>
@@ -70,7 +70,7 @@
             <div class="card-content">
               <h3 class="teal-text text-lighten-1">UPCOMING EVENTS</h3>
               <h5 ng-repeat="user_upcoming_event in user_upcoming_events">{{ "Game name: "+ user_upcoming_event.game_name +" Game Staring date and time"+ user_upcoming_event.game_starting_time_date +" Game Ending date and time"+ user_upcoming_event.game_ending_time_date }}</h5>
-              <br>
+              <br> 
             </div>
           </div>
           <div class="card">

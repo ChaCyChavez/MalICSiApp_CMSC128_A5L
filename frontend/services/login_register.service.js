@@ -17,7 +17,7 @@
 				let deferred = $q.defer();
 				$http({
 					method: 'POST',
-					params: data,
+					data: $.param(data),
 					xhrFields: {withCredentials: false},
 					url: '/api/login-account/',
 					headers: headers
@@ -37,7 +37,7 @@
 				console.log(data);
 				$http({
 					method: 'POST',
-					params: data,
+					data: $.param(data),
 					xhrFields: {withCredentials: false},
 					url: '/api/add-account/',
 					headers: headers
