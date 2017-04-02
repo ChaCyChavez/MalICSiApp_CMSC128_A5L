@@ -48,7 +48,7 @@
 
 
         $scope.delete_sport = (sportid, index) => {
-                console.log(index);
+                console.log(sportid);
                 var data = {
                     sport_id: sportid
                 }  
@@ -97,6 +97,7 @@
                     sports.forEach(function(element){
                         console.log(element);
                         var obj2 = {
+                            ["sport_id"]: element.sport_id,
                             ["sport_type"]: element.sport_type,
                             ["division"]: element.division,
                             ["teams"]: []
