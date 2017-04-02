@@ -60,7 +60,6 @@
             let e = document.getElementById("sponsor_type");
             let strUser = e.options[e.selectedIndex].value;
             $scope.sponsor.sponsor_type = strUser;
-            $scope.sponsor.game_id = parseInt(x[x.length-1]);
                 SponsorService
                     .update_sponsors($scope.sponsor)
                     .then(function(res) {
@@ -87,6 +86,7 @@
         }
 
         $scope.delete_sponsor = (sponsorid) => {
+                console.log(sponsorid);
                 SponsorService
                     .delete_sponsors({sponsor_id: sponsorid})
                     .then(function(res) {
@@ -98,7 +98,6 @@
                         }
                     }, function(err) {
                         swal(err.message)
-                        
                     });
         }
 
