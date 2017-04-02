@@ -8,30 +8,30 @@
     function sport_controller($scope, $location) {
 
         $scope.view_tournament_bracketing = () => {
-            $location.path("/result").replace();
+            window.location.href="#!/result";
         }
 
         $scope.view_match = () => {
-            $location.path("/match").replace();
+            window.location.href="#!/match";
         }
         $scope.view_user = () => {
-            $location.path("/user").replace();
+            window.location.href="#!/user";
         }
 
         $scope.view_participant = () => {
-            $location.path("/participant").replace();
+            window.location.href="#!/participant";
         }
 
         $scope.view_profile = () => {
-            $location.path("/profile").replace();
+            window.location.href="#!/profile";
         }
 
         $scope.logout = () => {
-            $location.path("/").replace();
+            window.location.href="#!/";
         }
 
         $scope.back_to_home = () => {
-            $location.path("/game-event").replace();
+            window.location.href="#!/game-event";
         }
     }
 })();

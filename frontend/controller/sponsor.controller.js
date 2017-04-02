@@ -5,27 +5,26 @@
         .module('app')
         .controller('sponsor-controller', sponsor_controller);
 
-    function sponsor_controller($scope, $location, SponsorService) {
+    function sponsor_controller($scope, $location, $routeParams, SponsorService) {
 
         $scope.view_profile = () => {
-            $location.path("/profile").replace();
+            window.location.href="#!/profile";
         }
 
         $scope.view_user = () => {
-            $location.path("/user").replace();
+            window.location.href="#!/user";
         }
 
         $scope.logout = () => {
-            $location.path("/").replace();
+            window.location.href="#!/";
         }
 
         $scope.back_to_home = () => {
-            $location.path("/game-event").replace();
+            window.location.href="#!/game-event";
         }
 
-        var x = $location.path().toString().split("/");
         $scope.sponsors = [];
-        $scope.game_id = parseInt(x[x.length-1]);
+        $scope.game_id = $routeParams.game_id;
 
 
         $scope.init_sponsor = () => {
@@ -123,7 +122,7 @@
                 }
             }
             else {
-                $scope.sponsor.game_id = parseInt(x[x.length-1]);
+                $scope.sponsor.game_id = $routeParams.game_id;
                 SponsorService
                     .add_sponsors($scope.sponsor)
                     .then(function(res) {

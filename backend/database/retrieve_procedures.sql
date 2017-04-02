@@ -18,7 +18,7 @@ drop procedure if exists get_account;
   CREATE PROCEDURE get_account(IN usrnme varchar(100))
   BEGIN
     SELECT account_id, firstname, middlename, lastname, email, username, course,
-    birthday, college FROM account where username = usrnme;
+    birthday, college FROM account where account = usrnme;
   END;
 //
 \d ;

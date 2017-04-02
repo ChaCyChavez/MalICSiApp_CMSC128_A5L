@@ -7,27 +7,26 @@
 
     function profile_controller($scope, $location, $routeParams, ProfileService) {
         ProfileService
-            .get_profile($routeParams.account_id)
+            .get_profile($routeParams.username)
             .then((data) => {
-            console.log(data);
-            $scope.profile = data[0][0];
-        });
+                console.log(data);
+                $scope.profile = data[0][0];
+            });
         
         $scope.view_profile = () => {
-            $location.path("/profile").replace();
+            window.location.href="#!/profile";
         }
 
         $scope.view_user = () => {
-            $location.path("/user").replace();
+            window.location.href="#!/user";
         }
 
         $scope.logout = () => {
-            $location.path("/").replace();
+            window.location.href="#!/";
         }
 
         $scope.back_to_home = () => {
-            $location.path("/game-event").replace();
+            window.location.href="#!/game-event";
         }
     }
-    profile_controller.$inject = ['$scope', '$location', '$routeParams', 'ProfileService'];
 })();

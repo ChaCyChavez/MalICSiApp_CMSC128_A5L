@@ -8,19 +8,19 @@
     function registered_user_controller($scope, $location) {
 
     	$scope.view_profile = () => {
-            $location.path("/profile").replace();
+            window.location.href="#!/profile";
         }
         
         $scope.view_user = () => {
-            $location.path("/user").replace();
+            window.location.href="#!/user";
         }
 
         $scope.logout = () => {
-            $location.path("/").replace();
+            window.location.href="#!/";
         }
         
         $scope.back_to_home = () => {
-            $location.path("/game-event").replace();
+            window.location.href="#!/game-event";
         }
     }
 })();

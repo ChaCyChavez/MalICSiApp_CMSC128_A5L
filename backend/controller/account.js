@@ -153,7 +153,7 @@ exports.update_account = (req,res,next) => {
 //Controller to be used to retrieve an account given an account_id
 exports.get_account = (req, res, next) => {
   const query_string = "CALL get_account(?)";
-  const payload = [req.params.account_id];
+  const payload = [req.params.username];
   const callback = (err, data) => {
     if(err){
       winston.level = 'debug';
