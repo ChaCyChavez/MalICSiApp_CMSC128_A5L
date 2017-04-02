@@ -8,7 +8,7 @@
     function error_404_controller($scope, $location) {
 
         $scope.back_to_home = () => {
-            $location.path("/").replace();
+            window.location.href="#!/game-event";
         }
     }
 })();

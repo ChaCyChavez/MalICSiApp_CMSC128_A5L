@@ -8,12 +8,18 @@
     src: url("../fonts/blogger-sans/Blogger_Sans-Bold.otf");
 }
 
-
-
-
 #dr {
     padding-top: 5px;
     height: 75px;
+}
+
+#profile-pic {
+    height: 170px;
+    text-align: center;
+}
+
+#profile-pic i {
+    font-size: 150px;
 }
 
 .box {

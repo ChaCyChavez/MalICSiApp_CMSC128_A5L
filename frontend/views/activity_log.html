@@ -1,80 +1,83 @@
-<div class="main-container">
-  <div class="content">
-    <div class="navbar-fixed">
-      <nav>
-        <div class="nav-wrapper">
-          <a href="javascript:void(0)" class="grey-text text-darken-4 center" id="logo" ng-click="back_to_home()">MalICSi</a>
-          <ul id="nav-mobile" class="right">
-            <li><div class="grey-text text-darken-4" id="hello">Welcome, Juan Dela Cruz</div></li>
-            <li><a href="javascript:void(0)" data-activates="dropdown1" class="teal dropdown-button" id="dr" dropdown><i class="material-icons center-align">perm_identity</i></a></li>
-          </ul>
-        </div>
-      </nav>
-    </div>
-
-    <ul id='dropdown1' class='dropdown-content'>
-      <li><div class="container teal center-align" id="upper">
-          <img class="circle profpic" src="img/placeholder.png">
-          </div>
-      </li>
-      <li><div class="container" id="lower">
-        <h5 class="center-align valign">Juan Dela Cruz</h5>
-        <p class="center-align valign">2014-01234</p>
-      </div></li>
-      <li><a href="javascript:void(0)" class="view-dd"><p class="center-align valign" ng-click="view_profile()">VIEW PROFILE</p></a></li>
-      <li><a href="javascript:void(0)" class="view-dd"><p class="center-align valign" ng-click="view_user()">VIEW USER</p></a></li>
-      <li><a href="javascript:void(0)"><p class="right-align valign red-text" ng-click="logout()">X logout</p></a></li>
-    </ul>
-
-    <div class="row">
-      <form class="col s10 right">
-        <div class="row">
-          <div class="input-field col s6 right" id = "search">
-            <i class="material-icons prefix">search</i>
-            <input id="icon_prefix" type="text" class="validate">
-            <label for="icon_prefix">Search User</label>
-          </div>
-        </div>
-      </form>
-    </div>
-    <h4 class="header">John Doe</h4>
-    <div class="row contents table">
-      <table class="striped">
-        <thead>
-          <tr>
-              <th>Time</th>
-              <th>Activity</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr>
-            <td>9999-12-31 23:59:59</td>
-            <td>Mauris ac dignissim nisi. Ut ultrices dignissim suscipit. Aenean blandit tempor mauris, in ultricies massa. Duis sed dapibus purus. Pellentesque sagittis tortor scelerisque dui vehicula, non pretium sapien sollicitudin.</td>
-          </tr>
-          <tr>
-            <td>9999-12-31 23:59:59</td>
-            <td>Mauris ac dignissim nisi. Ut ultrices dignissim suscipit. Aenean blandit tempor mauris, in ultricies massa. Duis sed dapibus purus. Pellentesque sagittis tortor scelerisque dui vehicula, non pretium sapien sollicitudin.</td>
-          </tr>
-          <tr>
-            <td>9999-12-31 23:59:59</td>
-            <td>Mauris ac dignissim nisi. Ut ultrices dignissim suscipit. Aenean blandit tempor mauris, in ultricies massa. Duis sed dapibus purus. Pellentesque sagittis tortor scelerisque dui vehicula, non pretium sapien sollicitudin.</td>
-          </tr>
-          <tr>
-            <td>9999-12-31 23:59:59</td>
-            <td>Mauris ac dignissim nisi. Ut ultrices dignissim suscipit. Aenean blandit tempor mauris, in ultricies massa. Duis sed dapibus purus. Pellentesque sagittis tortor scelerisque dui vehicula, non pretium sapien sollicitudin.</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+<div>
+  </ul>
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper">
+        <a href="javascript:void(0)" class="grey-text text-darken-4 center" id="logo" ng-click="back_to_home()">MalICSi</a>
+        <ul id="nav-mobile" class="right">
+          <li><div class="grey-text text-darken-4" id="hello">Juan Dela Cruz</div></li>
+          <li><a href="javascript:void(0)" data-activates="dropdown1" class="teal dropdown-button" id="dr" dropdown><i class="fa fa-reorder fa-2x" aria-hidden="true"></i></a></li>
+        </ul>
+      </div>
+    </nav>
   </div>
 
-  <footer class="page-footer teal">
-    <p class="footer-content grey-text text-lighten-4">
-      MalICSi is a sports management application catered for UPLB individuals which aims to showcase reliable person-game information and interaction. MalICSihan is developed by 21 undergraduate students from the Institue of Computer Science to achieve an academic requirement in their CMSC 128: An Introduction to Software Engineering class.
-    </p>
-    <div class="copyright">Copyright 2017 CMSC 128 | A-5L</div>
-  </footer>
+  <ul id='dropdown1' class='dropdown-content'>
+    <li>
+      <div class="container blue center-align" id="upper">
+        <i class="fa fa-user-circle fa-5x white-text"></i>
+      </div>
+    </li>
+    <li>
+      <a href="javascript:void(0)" class="view-dd" ng-click="view_profile()">
+        <p class="center-align valign">VIEW PROFILE</p>
+      </a>
+    </li>
+    <li>
+      <a href="javascript:void(0)" class="view-dd" ng-click="view_user()">
+        <p class="center-align valign">VIEW USER</p>
+      </a>
+    </li>
+    <li class="divider">
+    </li>
+    <li>
+      <a href="javascript:void(0)" class="logout-btn" ng-click="logout()">
+        <p class="center-align valign">x logout</p>
+      </a>
+    </li>
+  </ul>
+
+  <div class="row">
+    <form class="col s10 right">
+      <div class="row">
+        <div class="input-field col s6 right" id = "search">
+          <i class="fa fa-search prefix"></i>
+          <input id="icon_prefix" type="text" class="validate">
+          <label for="icon_prefix">Search User</label>
+        </div>
+      </div>
+    </form>
+  </div>
+  <h4 class="header">John Doe</h4>
+  <div class="row contents table">
+    <table class="striped">
+      <thead>
+        <tr>
+            <th>Time</th>
+            <th>Activity</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>9999-12-31 23:59:59</td>
+          <td>Mauris ac dignissim nisi. Ut ultrices dignissim suscipit. Aenean blandit tempor mauris, in ultricies massa. Duis sed dapibus purus. Pellentesque sagittis tortor scelerisque dui vehicula, non pretium sapien sollicitudin.</td>
+        </tr>
+        <tr>
+          <td>9999-12-31 23:59:59</td>
+          <td>Mauris ac dignissim nisi. Ut ultrices dignissim suscipit. Aenean blandit tempor mauris, in ultricies massa. Duis sed dapibus purus. Pellentesque sagittis tortor scelerisque dui vehicula, non pretium sapien sollicitudin.</td>
+        </tr>
+        <tr>
+          <td>9999-12-31 23:59:59</td>
+          <td>Mauris ac dignissim nisi. Ut ultrices dignissim suscipit. Aenean blandit tempor mauris, in ultricies massa. Duis sed dapibus purus. Pellentesque sagittis tortor scelerisque dui vehicula, non pretium sapien sollicitudin.</td>
+        </tr>
+        <tr>
+          <td>9999-12-31 23:59:59</td>
+          <td>Mauris ac dignissim nisi. Ut ultrices dignissim suscipit. Aenean blandit tempor mauris, in ultricies massa. Duis sed dapibus purus. Pellentesque sagittis tortor scelerisque dui vehicula, non pretium sapien sollicitudin.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 
 <script type="text/javascript">
@@ -90,4 +93,6 @@
         stopPropagation: false // Stops event propagation
       }
     );
+  });
+
 </script>

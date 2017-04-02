@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
     <script src="https://use.fontawesome.com/f937d2b907.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Lato|Raleway" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Lato|Raleway" rel="stylesheet"> -->
+    <!-- <link type="text/css" rel="stylesheet" href='https://fonts.googleapis.com/css?family=Roboto' > -->
+
+    <link type="text/css" rel="stylesheet" href="bower_components/sweetalert/dist/sweetalert.css"  media="screen,projection"/>
     <link type="text/css" rel="stylesheet" href="bower_components/materialize/dist/css/materialize.css"  media="screen,projection"/>
     <link type="text/css" rel="stylesheet" href="css/home.css"  media="screen,projection"/>
     <link type="text/css" rel="stylesheet" href="css/index.css"  media="screen,projection"/>
@@ -18,29 +21,35 @@
     <link type="text/css" rel="stylesheet" href="css/match.css"  media="screen,projection"/>
     <link type="text/css" rel="stylesheet" href="css/activity_log.css"  media="screen,projection"/>
     <link type="text/css" rel="stylesheet" href="css/team.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="css/sport.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="css/sports.css"  media="screen,projection"/>
     <link type="text/css" rel="stylesheet" href="css/error_404.css"  media="screen,projection"/>
 
+    <link rel="icon" href="images/sample.png">
+    
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>MalICSi</title>
   </head>
 
   <body>
-    <div ng-app="app">
-      <div ng-view></div>
+    <div ng-app="app" class="main-container">
+      <div ng-view class="content"></div>
+      <div ng-include="'views/footer.html'"></div>
     </div>
 
     <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
     <script type="text/javascript" src="bower_components/angular/angular.js"></script>
     <script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script> -->
     <script type="text/javascript" src="bower_components/materialize/dist/js/materialize.js"></script>
     <script type="text/javascript" src="bower_components/angular-materialize/src/angular-materialize.js"></script>
+    <script type="text/javascript" src="bower_components/sweetalert/dist/sweetalert.min.js"></script>
     <script type="text/javascript" src="app.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/home.js"></script>
     <script type="text/javascript" src="js/user.js"></script>
     <script type="text/javascript" src="js/game_event.js"></script>
+    <script type="text/javascript" src="js/match.js"></script>
     <script type="text/javascript" src="js/sport.js"></script>
     <script type="text/javascript" src="js/sports.js"></script>
     <script type="text/javascript" src="js/modernizr-2.6.2.min.js"></script>

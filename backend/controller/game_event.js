@@ -5,7 +5,7 @@ const winston = require('winston');
 
 //Controller to be used for adding a game event
 exports.add_game_event = (req, res, next) => {
-  const query_string = 'CALL add_game_event(?,?,?)'; 
+  const query_string = 'CALL add_game_event(?,?,?)';
   const payload = [req.body.game_name,
     req.body.game_starting_time_date, req.body.game_ending_time_date];
   const callback = (err,data) => {
@@ -25,7 +25,7 @@ exports.add_game_event = (req, res, next) => {
 
 //Controller to be used for retrieving a game_event given a game_id
 exports.get_game_event = (req, res, next) => {
-  const query_string = 'CALL get_game_event(?)';  
+  const query_string = 'CALL get_game_event(?)';
   const payload = [req.params.game_id];
   const callback = (err, data) => {
     if(err){
@@ -46,10 +46,54 @@ exports.get_game_event = (req, res, next) => {
   db.query(query_string, payload, callback);
 };
 
+exports.get_user_upcoming_events = (req, res, next) => {
+  const query_string = 'CALL get_user_upcoming_events(?)';
+  const payload = [req.params.account_id];
+  const callback = (err, data) => {
+    if(err){
+      winston.level = 'debug';
+      winston.log('debug', 'err: ', err);
+      return res.status(500).send({ error_code:err.code});
+    } else if (data[0].length == 0) {
+      winston.level = 'info';
+      winston.log('info', 'Empty response! Upcoming events of user: ', data[0].length);
+      return res.status(200).send(data);
+    } else {
+      winston.level = 'info';
+      winston.log('info', 'Successfully retrieved event(s)! No. of event(s): ', data[0].length);
+      return res.status(200).send(data);
+    }
+  };
+
+  db.query(query_string, payload, callback);
+};
+
+exports.get_user_past_events = (req, res, next) => {
+  const query_string = 'CALL get_user_past_events(?)';
+  const payload = [req.params.account_id];
+  const callback = (err, data) => {
+    if(err){
+      winston.level = 'debug';
+      winston.log('debug', 'err: ', err);
+      return res.status(500).send({ error_code:err.code});
+    } else if (data[0].length == 0) {
+      winston.level = 'info';
+      winston.log('info', 'Empty response! Past events of user: ', data[0].length);
+      return res.status(200).send(data);
+    } else {
+      winston.level = 'info';
+      winston.log('info', 'Successfully retrieved event(s)! No. of event(s): ', data[0].length);
+      return res.status(200).send(data);
+    }
+  };
+
+  db.query(query_string, payload, callback);
+};
+
 //Controller to be used for updating a game_event given a game_id
 exports.update_game_event = (req, res, next) => {
   const query_string = 'CALL update_game_event(?,?,?,?)';
-  const payload = [req.body.game_id, req.body.game_name, req.body.game_starting_time_date, 
+  const payload = [req.body.game_id, req.body.game_name, req.body.game_starting_time_date,
       req.body.game_ending_time_date];
   const callback = (err, data) => {
     if(err){
@@ -72,7 +116,7 @@ exports.update_game_event = (req, res, next) => {
 
 //Controller to be used for deleting a game_event given a game_id
 exports.delete_game_event = (req, res, next) => {
-  const query_string ='CALL delete_game_event(?)'; 
+  const query_string ='CALL delete_game_event(?)';
   const payload = [req.body.game_id];
   const callback = (err, data) => {
     if(err){

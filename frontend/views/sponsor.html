@@ -1,185 +1,72 @@
-<div ng-controller="sponsor-controller" class="main-container" ng-init="init_sponsor()">
-  <div class="content">
+<div ng-controller="sponsor-controller" ng-init="init_sponsor()">
    <div class="navbar-fixed">
-      <nav>
-        <div class="nav-wrapper">
-          <a href="javascript:void(0)" class="grey-text text-darken-4 center" id="logo" ng-click="back_to_home()">MalICSi</a>
-          <ul id="nav-mobile" class="right">
-            <li><div class="grey-text text-darken-4" id="hello">Welcome, Juan Dela Cruz</div></li>
-            <li><a href="javascript:void(0)" data-activates="dropdown1" class="teal dropdown-button" id="dr" dropdown><i class="material-icons center-align">perm_identity</i></a></li>
-          </ul>
-        </div>
-      </nav>
-    </div>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="javascript:void(0)" class="grey-text text-darken-4 center" id="logo" ng-click="back_to_home()">MalICSi</a>
+        <ul id="nav-mobile" class="right">
+          <li><div class="grey-text text-darken-4" id="hello">Juan Dela Cruz</div></li>
+          <li><a href="javascript:void(0)" data-activates="dropdown1" class="teal dropdown-button" id="dr" dropdown><i class="fa fa-reorder fa-2x" aria-hidden="true"></i></a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
 
-    <ul id='dropdown1' class='dropdown-content'>
-      <li><div class="container teal center-align" id="upper">
-          <img class="circle profpic" src="img/placeholder.png">
-          </div>
-      </li>
-      <li><div class="container" id="lower">
-        <h5 class="center-align valign">Juan Dela Cruz</h5>
-        <p class="center-align valign">2014-01234</p>
-      </div></li>
-      <li><a href="javascript:void(0)" class="view-dd"><p class="center-align valign" ng-click="view_profile()">VIEW PROFILE</p></a></li>
-      <li><a href="javascript:void(0)" class="view-dd"><p class="center-align valign" ng-click="view_user()">VIEW USER</p></a></li>
-      <li><a href="javascript:void(0)"><p class="right-align valign red-text" ng-click="logout()">X logout</p></a></li>
-    </ul>
-
-    <a class="btn-floating btn-large waves-effect waves-light teal accent-4 add-button" href="javascript:void(0)" data-target="modal7" modal><i class="material-icons">add</i></a>
-
+  <ul id='dropdown1' class='dropdown-content'>
+    <li>
+      <div class="container blue center-align" id="upper">
+        <i class="fa fa-user-circle fa-5x white-text"></i>
+      </div>
+    </li>
+    <li>
+      <a href="javascript:void(0)" class="view-dd" ng-click="view_profile()">
+        <p class="center-align valign">VIEW PROFILE</p>
+      </a>
+    </li>
+    <li>
+      <a href="javascript:void(0)" class="view-dd" ng-click="view_user()">
+        <p class="center-align valign">VIEW USER</p>
+      </a>
+    </li>
+    <li class="divider">
+    </li>
+    <li>
+      <a href="javascript:void(0)" class="logout-btn" ng-click="logout()">
+        <p class="center-align valign">x logout</p>
+      </a>
+    </li>
+  </ul>
+    <a class="btn-floating btn-large waves-effect waves-light blue accent-4 add-button" href="javascript:void(0)" data-target="modal7" modal><i class="fa fa-plus"></i></a>
     <br>
 
     <div class="container">
-      <h5 class="center-align" id="spon">SPONSORING INSTITUTES</h5>
+      <h3 class="header">SPONSORING INSTITUTES</h3>
       <br>
       <hr class="style18">
       <br>
     </div>
 
-
   <div class="container">
     <div class="row">
-      <div class="col s12 m6">
+      <div class="col s12 m6" ng-repeat="spon in sponsors">
         <div class="card">
-          <div class="card-image waves-effect waves-block waves-light">
-            <img class="activator" src="img/san-miguel-logo.png" />
+          <div class="card-image waves-effect waves-block waves-light spon-icon activator teal">
+            <i class="fa fa-users fa-5x white-text" aria-hidden="true"></i>
           </div>
           <div class="card-content">
-            <span class="card-title activator grey-text text-darken-4"><h6>San Miguel Corporation</h6></span>
-            <p><a href="http://www.sanmiguel.com.ph">Visit Website</a></p>
+            <span class="card-title activator grey-text text-darken-4"><h5>{{spon.sponsor_name}}</h5></span>
+            <p><a href="{{spon.web_address}}">Visit Website</a></p>
           </div>
           
           <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4">San Miguel Corporation<i class="material-icons right">close</i></span>
-            <p>San Miguel Corporation is one of the Philippines’ largest and most diversified conglomerates, generating about 5.1% (as of 2015) of the country’s gross domestic product through its highly integrated operations in beverages, food, packaging, fuel and oil, power and infrastructure.</p>
+            <span class="card-title grey-text text-darken-4">{{spon.sponsor_name}}<i class="right fa fa-remove" aria-hidden="true"></i></span>
+            <p>{{spon.sponsor_desc}}</p>
             <div class="right">
-              <a href="javascript:void(0)" class="teal lighten-2 modal-action modal-close waves-effect waves-green btn-flat">Edit</a>
-              <a href="javascript:void(0)" class="teal lighten-2 modal-action modal-close waves-effect waves-green btn-flat">Delete</a>
+              <a href="javascript:void(0)" class="teal lighten-2 modal-action modal-close waves-effect waves-green btn-flat" data-target="modal8" modal ng-click="init_edit_modal(spon.sponsor_id)">Edit</a>
+              <a href="javascript:void(0)" class="teal lighten-2 modal-action modal-close waves-effect waves-green btn-flat" ng-click="delete_sponsor(spon.sponsor_id)">Delete</a>
             </div>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="col s12 m6">
-      <div class="card">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="img/nasa.png" />
-        </div>
-
-        <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4"><h6>NASA</h6></span>
-          <p><a href="http://www.nasa.gov">Visit Website</a></p>
-        </div>
-
-        <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">NASA<i class="material-icons right">close</i></span>
-          <p>Led by acting administrator, Robert Lightfoot, NASA reaches new heights and unveils the unknown for the benefit of humankind. To achieve such feat, thousands of people toil around and outside the world to answer a very simple yet significant question- <i>What is out there in space?</i></p>
-          <div class="right">
-            <a href="javascript:void(0)" class="teal lighten-2 modal-action modal-close waves-effect waves-green btn-flat">Edit</a>
-            <a href="javascript:void(0)" class="teal lighten-2 modal-action modal-close waves-effect waves-green btn-flat">Delete</a>
           </div>
-
-        </div>
+       </div>
       </div>
-
-    </div>
-
-    <div class="col s12 m6">
-      <div class="card">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="img/adidas2.png" />
-        </div>
-
-        <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4"><h6>Adidas</h6></span>
-          <p><a href="javascript:void(0)">Visit Website</a></p>
-        </div>
-
-        <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">Adidas<i class="material-icons right">close</i></span>
-          <p>The brands of the adidas Group complement each other in a unique way to help athletes perform better, play better, feel better. Our products break records, set trends, make history. Every day. Here, our love for sport drives who we are and what we do. Every day.</p>
-          <div class="right">
-            <a href="javascript:void(0)" class="teal lighten-2 modal-action modal-close waves-effect waves-green btn-flat">Edit</a>
-            <a href="javascript:void(0)" class="teal lighten-2 modal-action modal-close waves-effect waves-green btn-flat">Delete</a>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-    <div class="col s12 m6">
-      <div class="card">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="img/Underarmour.png" />
-        </div>
-
-        <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4"><h6>Under Armour</h6></span>
-          <p><a href="http://www.underarmour.com.ph">Visit Website</a></p>
-        </div>
-
-        <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">Under Armour<i class="material-icons right">close</i></span>
-          <p>Founded in 1996 by former University of Maryland football player Kevin Plank, Under Armour is the originator of performance apparel - gear engineered to keep athletes cool, dry and light throughout the course of a game, practice or workout</p>
-
-          <div class="right">
-            <a href="javascript:void(0)" class="teal lighten-2 modal-action modal-close waves-effect waves-green btn-flat">Edit</a>
-            <a href="javascript:void(0)" class="teal lighten-2 modal-action modal-close waves-effect waves-green btn-flat">Delete</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col s12 m6">
-      <div class="card">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="img/codeninjas.png" />
-        </div>
-
-        <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4"><h6>Code Ninjas</h6></span>
-          <p><a href="http://www.code-ninja.co">Visit Website</a></p>
-        </div>
-
-        <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">Code Ninjas<i class="material-icons right">close</i></span>
-          <p>Code Ninja provides accelerated learning programs, which help inspired coders become awesome! Code Ninjas offers a variety of programs to help individuals at every skill level excel in a career of software development.</p>
-
-          <div class="right">
-            <a href="javascript:void(0)" class="teal lighten-2 modal-action modal-close waves-effect waves-green btn-flat">Edit</a>
-            <a href="javascript:void(0)" class="teal lighten-2 modal-action modal-close waves-effect waves-green btn-flat">Delete</a>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-
-    <div class="col s12 m6">
-      <div class="card">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="img/mozilla.png" />
-        </div>
-
-        <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4"><h6>Mozilla</h6></span>
-          <p><a href="http://www.mozilla.org">Visit Website</a></p>
-        </div>
-
-        <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">Mozilla<i class="material-icons right">close</i></span>
-          <p>The Mozilla Corporation was established in August 2005 as a wholly owned taxable subsidiary that serves the non-profit, public benefit goals of its parent, the Mozilla Foundation, and the vast Mozilla community.</p>
-
-          <div class="right">
-            <a href="javascript:void(0)" class="teal lighten-2 modal-action modal-close waves-effect waves-green btn-flat">Edit</a>
-            <a href="javascript:void(0)" class="teal lighten-2 modal-action modal-close waves-effect waves-green btn-flat">Delete</a>
-          </div>
-
-
-        </div>
-      </div>
-    </div>
     </div>
   </div>
 
@@ -198,30 +85,34 @@
               <div class="row">
                 <div class="input-field col s12 m12">
                   <input id="sponsor_name" type="text" class="validate" ng-model="sponsor.sponsor_name"/>
-                  <label for="sponsor_name">Sponsor Name</label>
+                  <label class="labels cyan-text text-darken-4" for="sponsor_name">Sponsor Name</label>
                 </div>
               </div>
               <div class="row">
-                <div class="input-field col s12 m6">
-                  <input id="sponsor_address" type="text" class="validate" ng-model="sponsor.sponsor_logo"/>
-                  <label for="sponsor_address">Sponsor Logo</label>
-                </div>
-
-                 <div class="input-field col s12 m6">
+                 <!-- <div class="input-field col s12 m12">
                   <input id="sponsor_website" type="text" class="validate" ng-model="sponsor.sponsor_type"/>
                   <label for="sponsor_website">Sponsor Type</label>
+                </div> -->
+                <div class="input-field col s12">
+                  <select id="sponsor_type">
+                    <option value="" disabled selected>Choose your option</option>
+                    <option value="minor">minor</option>
+                    <option value="major">major</option>
+                    <option value="major">official partner</option>
+                  </select>
+                  <label class="labels cyan-text text-darken-4">Sponsor</label>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field col s12 m12">
                   <textarea id="sponsor_description" class="materialize-textarea" ng-model="sponsor.sponsor_desc"></textarea>
-                  <label for="sponsor_description">Sponsor Description</label>
+                  <label class="labels cyan-text text-darken-4" for="sponsor_description">Sponsor Description</label>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field col s12 m12">
                   <input id="sponsor_description" type="text" class="validate" ng-model="sponsor.web_address"></input>
-                  <label for="sponsor_description">Sponsor Website</label>
+                  <label class="labels cyan-text text-darken-4" for="sponsor_description">Sponsor Website</label>
                 </div>
               </div>
            </div>
@@ -231,26 +122,56 @@
           </div>
     		</div>
 
-      <div id="modal1" class="modal modal-fixed-footer">
+      <div id="modal8" class="modal modal-fixed-footer">
         <div class="modal-content">
-          <h4>Modal Header</h4>
-          <p>A bunch of text</p>
+        <div class="teal content-title">
+          <h1 class="add white-text center-align">EDIT SPONSOR</h1>
         </div>
-        <div class="modal-footer">
-          <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
-        </div>
-      </div>
-  
+          <div class="container add-sponsor">
+              <div class="row">
+                <div class="input-field col s12 m12">
+                  <input id="sponsor_name" type="text" class="validate" ng-model="sponsor.sponsor_name"/>
+                  <label class="labels cyan-text text-darken-4" for="sponsor_name">Sponsor Name</label>
+                </div>
+              </div>
+              <div class="row">
+                <!-- <div class="input-field col s12 m6">
+                  <input id="sponsor_address" type="text" class="validate" ng-model="sponsor.sponsor_logo"/>
+                  <label for="sponsor_address">Sponsor Logo</label>
+                </div> -->
 
-  <footer class="page-footer teal">
-    <p class="footer-content grey-text text-lighten-4">
-      MalICSi is a sports management application catered for UPLB individuals which aims to showcase reliable person-game information and interaction. MalICSihan is developed by 21 undergraduate students from the Institue of Computer Science to achieve an academic requirement in their CMSC 128: An Introduction to Software Engineering class.
-    </p>
-    <div class="copyright">Copyright 2017 CMSC 128 | A-5L</div>
-  </footer>
-  
+                 <div class="input-field col s12">
+                  <select id="sponsor_type">
+                    <option value="" disabled selected>Choose your option</option>
+                    <option value="minor">minor</option>
+                    <option value="major">major</option>
+                    <option value="major">official partner</option>
+                  </select>
+                  <label class="labels cyan-text text-darken-4">Sponsor</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12 m12">
+                  <textarea id="sponsor_description" class="materialize-textarea" ng-model="sponsor.sponsor_desc"></textarea>
+                  <label class="labels cyan-text text-darken-4" for="sponsor_description">Sponsor Description</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12 m12">
+                  <input id="sponsor_description" type="text" class="validate" ng-model="sponsor.web_address"></input>
+                  <label class="labels cyan-text text-darken-4" for="sponsor_description">Sponsor Website</label>
+                </div>
+              </div>
+           </div>
+          </div> 
+          <div class="modal-footer">
+            <a href="javascript:void(0)" class="center modal-close waves-effect waves-green btn" ng-click="update_sponsor()">Submit</a>
+          </div>
+        </div>
+      </div>  
  <script type="text/javascript">
   $(document).ready(function(){
+    $('select').material_select();
      $('.dropdown-button').dropdown({
         inDuration: 300,
         outDuration: 225,

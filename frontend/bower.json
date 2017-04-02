@@ -21,6 +21,7 @@
     "moment": "^2.18.1",
     "angular-materialize": "^0.2.2",
     "materialize": "^0.97.8",
-    "angular": "^1.6.4"
+    "angular": "^1.6.4",
+    "sweetalert": "^1.1.3"
   }
 }

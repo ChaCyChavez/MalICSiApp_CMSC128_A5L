@@ -20,7 +20,7 @@ exports.add_sponsor = (req, res, next) => {
     } else {
       winston.level = 'info';
       winston.log('info', 'Successfully added sponsor!');
-      return res.status(200).send(data);
+      return res.status(200).send({message: 'Successfully added sponsor!'});
     }
   };
 
@@ -51,26 +51,26 @@ exports.get_sponsor = (req, res, next) => {
   db.query(query_string, payload, callback);
 };
 
-
-
 //Controller to be used for updating a sponsor given a sponsor_id
 exports.update_sponsor = (req, res, next) => {
-  const query_string = 'CALL update_sponsor(?,?,?,?,?,?,?)';
-  const payload = [req.body.sponsor_id, req.body.sponsor_name, req.body.sponsor_logo, 
-      req.body.sponsor_affiliation, req.body.sponsor_type,req.body.sponsor_desc, req.body.web_address];
+
+  const query_string = 'CALL update_sponsor(?,?,?,?,?,?)';
+  const payload = [req.query.sponsor_id, req.query.sponsor_name, req.query.sponsor_logo,
+         req.query.sponsor_type,req.query.sponsor_desc, req.query.web_address];
   const callback = (err, data) => {
+    console.log(data.info);
     if(err){
       winston.level = 'debug';
       winston.log('debug', 'err: ', err);
-      return res.status(500).send({ error_code:err.code});
-    } else if (data.info.affectedRows == 0) {
+      return res.status(500).send({ error_code: err.code});
+    } /*else if (data.info.affectedRows == 0) {
       winston.level = 'info';
       winston.log('info', 'Not found! Update failed');
       return res.status(404).send();
-    } else {
+    }*/ else {
       winston.level = 'info';
       winston.log('info', 'Successfully updated sponsor!');
-      return res.status(200).send(data);
+      return res.status(200).send({message: 'Successfully updated sponsor!'});
     }
   };
 
@@ -79,21 +79,22 @@ exports.update_sponsor = (req, res, next) => {
 
 //Controller to be used for deleting a sponsor given a sponsor_id
 exports.delete_sponsor = (req, res, next) => {
+  console.log(req.query.sponsor_id);
   const query_string ='CALL delete_sponsor(?)'; 
-  const payload = [req.body.sponsor_id];
+  const payload = [req.query.sponsor_id];
   const callback = (err, data) => {
     if(err){
       winston.level = 'debug';
       winston.log('debug', 'err: ', err);
       return res.status(500).send({ error_code:err.code});
-    } else if (data.info.affectedRows == 0) {
+    } /*else if (data.info.affectedRows == 0) {
       winston.level = 'info';
       winston.log('info', 'Not found! Delete failed');
       return res.status(404).send();
-    } else {
+    }*/ else {
       winston.level = 'info';
       winston.log('info', 'Successfully deleted sponsor!');
-      return res.status(200).send(data);
+      return res.status(200).send({message: 'Successfully deleted sponsor!'});
     }
   };
 

@@ -5,35 +5,33 @@
         .module('app')
         .controller('sponsor-controller', sponsor_controller);
 
-    function sponsor_controller($scope, $location, SponsorService) {
+    function sponsor_controller($scope, $location, $routeParams, SponsorService) {
 
         $scope.view_profile = () => {
-            $location.path("/profile").replace();
+            window.location.href="#!/profile";
         }
 
         $scope.view_user = () => {
-            $location.path("/user").replace();
+            window.location.href="#!/user";
         }
 
         $scope.logout = () => {
-            $location.path("/").replace();
+            window.location.href="#!/";
         }
 
         $scope.back_to_home = () => {
-            $location.path("/game-event").replace();
+            window.location.href="#!/game-event";
         }
 
-        var x = $location.path().toString().split("/");
         $scope.sponsors = [];
-        $scope.game_id = parseInt(x[x.length-1]);
+        $scope.game_id = $routeParams.game_id;
 
 
         $scope.init_sponsor = () => {
             SponsorService
                 .init_sponsors($scope.game_id)
                 .then(function(res) {
-                    console.log(res[0]);
-                    $scope.sponsors = res;
+                    $scope.sponsors = res[0];
                 }, function(err) {
                     console.log(err.data);
                 })
@@ -41,23 +39,81 @@
 
         $scope.sponsor = {
             sponsor_name: "",
-            sponsor_logo: "",
+            sponsor_logo: "/",
             sponsor_type: "",
             sponsor_desc: "",
             web_address: "",
             game_id: 0
         }
 
-        $scope.add_sponsor = () => {
+        $scope.init_edit_modal = (sponsor_id) => {
+            for(var i = 0; i < $scope.sponsors.length; i++) {
+                if($scope.sponsors[i].sponsor_id === sponsor_id) {
+                    console.log($scope.sponsors[i].sponsor_id);
+                    $scope.sponsor = $scope.sponsors[i];
+                    console.log($scope.sponsor);
+                }
+            }
+        }
 
+        $scope.update_sponsor = () => {
+            let e = document.getElementById("sponsor_type");
+            let strUser = e.options[e.selectedIndex].value;
+            $scope.sponsor.sponsor_type = strUser;
+            $scope.sponsor.game_id = parseInt(x[x.length-1]);
+                SponsorService
+                    .update_sponsors($scope.sponsor)
+                    .then(function(res) {
+                        swal(res.message);
+                        $scope.sponsor = {
+                            sponsor_name: "",
+                            sponsor_logo: "/",
+                            sponsor_type: "",
+                            sponsor_desc: "",
+                            web_address: "",
+                            game_id: 0
+                        }
+                    }, function(err) {
+                       swal(err.message)
+                        $scope.sponsor = {
+                            sponsor_name: "",
+                            sponsor_logo: "/",
+                            sponsor_type: "",
+                            sponsor_desc: "",
+                            web_address: "",
+                            game_id: 0
+                        }
+                    })
+        }
+
+        $scope.delete_sponsor = (sponsorid) => {
+                SponsorService
+                    .delete_sponsors({sponsor_id: sponsorid})
+                    .then(function(res) {
+                        swal(res.message)
+                        for(var i = 0; i < $scope.sponsors.length; i++) {
+                            if($scope.sponsors[i].sponsor_id == sponsorid) {
+                                $scope.sponsors.splice(i, 1);
+                            }
+                        }
+                    }, function(err) {
+                        swal(err.message)
+                        
+                    });
+        }
+
+        $scope.add_sponsor = () => {
+            let e = document.getElementById("sponsor_type");
+            let strUser = e.options[e.selectedIndex].value;
+            $scope.sponsor.sponsor_type = strUser;
             if ($scope.sponsor.sponsor_name == "" ||
                 $scope.sponsor.sponsor_logo == "" ||
                 $scope.sponsor.sponsor_type == "" ||
                 $scope.sponsor.sponsor_desc == "") {
-                Materialize.toast("Please fill up all fields", 4000, 'teal');
+                swal("Please fill up all fields");
                 $scope.sponsor = {
                     sponsor_name: "",
-                    sponsor_logo: "",
+                    sponsor_logo: "/",
                     sponsor_type: "",
                     sponsor_desc: "",
                     web_address: "",
@@ -65,17 +121,30 @@
                 }
             }
             else {
-                $scope.sponsor.game_id = parseInt(x[x.length-1]);
+                $scope.sponsor.game_id = $routeParams.game_id;
                 SponsorService
                     .add_sponsors($scope.sponsor)
                     .then(function(res) {
-                        Materialize.toast(res.message, 4000, 'teal');
+                        swal(res.message);
+                        $scope.sponsors.push($scope.sponsor);
+                        $scope.sponsor = {
+                            sponsor_name: "",
+                            sponsor_logo: "/",
+                            sponsor_type: "",
+                            sponsor_desc: "",
+                            web_address: "",
+                            game_id: 0
+                        }
                     }, function(err) {
-                        Materialize.toast(err.message, 4000, 'teal');
-                        $scope.info.username = '';
-                        $scope.info.password = '';
-                        $scope.info.username = undefined;
-                        $scope.info.password = undefined;
+                        swal(err.message);
+                        $scope.sponsor = {
+                            sponsor_name: "",
+                            sponsor_logo: "/",
+                            sponsor_type: "",
+                            sponsor_desc: "",
+                            web_address: "",
+                            game_id: 0
+                        }
                     })
             }
         }

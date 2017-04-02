@@ -1,55 +1,66 @@
 
-<div ng-controller="profile-controller" class="main-container">
-  <div class="content">
-    <div class="navbar-fixed">
-      <nav>
-        <div class="nav-wrapper">
-          <a href="javascript:void(0)" class="grey-text text-darken-4 center" id="logo" ng-click="back_to_home()">MalICSi</a>
-          <ul id="nav-mobile" class="right">
-            <li><div class="grey-text text-darken-4" id="hello">Welcome, Juan Dela Cruz</div></li>
-            <li><a href="javascript:void(0)" data-activates="dropdown1" class="teal dropdown-button" id="dr" dropdown><i class="material-icons center-align">perm_identity</i></a></li>
-          </ul>
-        </div>
-      </nav>
-    </div>
+<div ng-controller="profile-controller">
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper">
+        <a href="javascript:void(0)" class="grey-text text-darken-4 center" id="logo" ng-click="back_to_home()">MalICSi</a>
+        <ul id="nav-mobile" class="right">
+          <li><div class="grey-text text-darken-4" id="hello">Welcome, {{ profile.firstname}}</div></li>
+          <li><a href="javascript:void(0)" data-activates="dropdown1" class="teal dropdown-button" id="dr" dropdown><i class="fa fa-reorder fa-2x" aria-hidden="true"></i></a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
 
-    <ul id='dropdown1' class='dropdown-content'>
-      <li><div class="container teal center-align" id="upper">
-          <img class="circle profpic" src="img/placeholder.png">
-          </div>
-      </li>
-      <li><div class="container" id="lower">
-        <h5 class="center-align valign">Juan Dela Cruz</h5>
-        <p class="center-align valign">2014-01234</p>
-      </div></li>
-      <li><a href="javascript:void(0)" class="view-dd"><p class="center-align valign" ng-click="view_profile()">VIEW PROFILE</p></a></li>
-      <li><a href="javascript:void(0)" class="view-dd"><p class="center-align valign" ng-click="view_user()">VIEW USER</p></a></li>
-      <li><a href="javascript:void(0)"><p class="right-align valign red-text" ng-click="logout()">X logout</p></a></li>
-    </ul>
+  <ul id='dropdown1' class='dropdown-content'>
+    <li>
+      <div class="container blue center-align" id="upper">
+        <i class="fa fa-user-circle fa-5x white-text"></i>
+      </div>
+    </li>
+    <li>
+      <a href="javascript:void(0)" class="view-dd" ng-click="view_profile()">
+        <p class="center-align valign">VIEW PROFILE</p>
+      </a>
+    </li>
+    <li>
+      <a href="javascript:void(0)" class="view-dd" ng-click="view_user()">
+        <p class="center-align valign">VIEW USER</p>
+      </a>
+    </li>
+    <li class="divider">
+    </li>
+    <li>
+      <a href="javascript:void(0)" class="logout-btn" ng-click="logout()">
+        <p class="center-align valign">x logout</p>
+      </a>
+    </li>
+  </ul>
 
-    <div id="all" class="row font2">
-        <div class="col s12 m12 l6 xl6">
-          <div class="card">
-            <div class="card-content">
-              <!-- <div class="row"> -->
-                <div class="container">
-                  <img class="circle" src="img/placeholder.png">
+  <div id="all" class="row font2">
+      <div class="col s12 m12 l6 xl6">
+        <div class="card">
+          <div class="card-content">
+            <!-- <div class="row"> -->
+              <div class="container" id="profile-pic">
+                <div>
+                  <i class="fa fa-user-circle fa-5x blue-text"></i>
                 </div>
               </div>
-            <!-- </div> -->
-            <div class="card-content teal lighten-1">
-              <!-- <div class="row"> -->
-                <div class="card-content center-align white-text">
-                  <h3>{{ profile.firstname + " " + profile.middlename + " " + profile.lastname}}</h3>
-                  <h5>{{ profile.college }}</h5>
-                  <h5>{{ profile.course }}</h5>
-                  <h5>{{ profile.birthday }}</h5>
-                  <h5>{{ profile.email }}</h5>
-                  <h5>{{ profile.player_jersey_num }}</h5>
-                  <h5>{{ profile.player_role }}</h5>
-                  <h5>{{ profile.position }}</h5>
-                </div>
-              <!-- </div> -->
+          </div>
+          <!-- </div> -->
+          <div class="card-content teal lighten-1">
+            <!-- <div class="row"> -->
+              <div class="card-content center-align white-text">
+                <h3>{{ profile.firstname + " " + profile.middlename + " " + profile.lastname}}</h3>
+                <h5>{{ profile.college }}</h5>
+                <h5>{{ profile.course }}</h5>
+                <h5>{{ profile.birthday }}</h5>
+                <h5>{{ profile.email }}</h5>
+                <h5>{{ profile.player_jersey_num }}</h5>
+                <h5>{{ profile.player_role }}</h5>
+                <h5>{{ profile.position }}</h5>
+              </div>
             </div>
           </div>
         </div>
@@ -58,48 +69,24 @@
           <div class="card">
             <div class="card-content">
               <h3 class="teal-text text-lighten-1">UPCOMING EVENTS</h3>
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
+              <h5 ng-repeat="user_upcoming_event in user_upcoming_events">{{ "Game name: "+ user_upcoming_event.game_name +" Game Staring date and time"+ user_upcoming_event.game_starting_time_date +" Game Ending date and time"+ user_upcoming_event.game_ending_time_date }}</h5>
               <br>
             </div>
           </div>
           <div class="card">
             <div class="card-content">
               <h3 class="teal-text text-lighten-1">EVENTS PLAYED</h3>
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
+              <div ng-repeat="user_past_event in user_past_events">
+                <h5>{{ "Game name: "+ user_past_event.game_name }}</h5>
+                <h5>{{ " Game Staring date and time: "+ user_past_event.game_starting_time_date }}</h5>
+                <h5>{{ " Game Ending date and time: "+ user_past_event.game_ending_time_date }}</h5>
+                <br>
+              </div>
             </div>
           </div>
         </div>
     </div>
   </div>
-
-  <footer class="page-footer teal">
-    <p class="footer-content grey-text text-lighten-4">
-      MalICSi is a sports management application catered for UPLB individuals which aims to showcase reliable person-game information and interaction. MalICSihan is developed by 21 undergraduate students from the Institue of Computer Science to achieve an academic requirement in their CMSC 128: An Introduction to Software Engineering class.
-    </p>
-    <div class="copyright">Copyright 2017 CMSC 128 | A-5L</div>
-  </footer>
 </div>
 
 <script type="text/javascript">

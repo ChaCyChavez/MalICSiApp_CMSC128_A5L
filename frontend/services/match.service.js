@@ -3,67 +3,71 @@
 (() => {
 	angular
 		.module('app')
-		.factory('ProfileService', ProfileService);
+		.factory('MatchService', MatchService);
 
-		ProfileService.$inject = ['$window', '$http', '$q'];
+		MatchService.$inject = ['$window', '$http', '$q'];
 
 		const headers = {
 			'content-type': 'application/x-www-form-urlencoded'
 		};
 
-		function ProfileService($window, $http, $q) {
-			const get_profile = (username) => {
+		function MatchService($window, $http, $q) {
+			const add_match = function(data) {
 				let deferred = $q.defer();
-
 				$http({
-					method: 'GET',
-					url: '/api/get-account/' + username,
+					method: 'POST',
+					params: data,
+					xhrFields: {withCredentials: false},
+					url: '/api/add-match-event/',
 					headers: headers
 				})
 				.then(function(res) {
 					deferred.resolve(res.data);
-				}, function(res) {
+				}, function(err) {
 					deferred.reject(err.data);
 				})
+
 				return deferred.promise;
 			}
 
-			const get_user_upcoming_events = (user_id) => {
+			const delete_match = function(data) {
 				let deferred = $q.defer();
-
 				$http({
-					method: 'GET',
-					url: '/api/get-user-upcoming-events/' + user_id,
+					method: 'POST',
+					params: data,
+					xhrFields: {withCredentials: false},
+					url: '/api/delete-match-event/',
 					headers: headers
 				})
 				.then(function(res) {
 					deferred.resolve(res.data);
-				}, function(res) {
+				}, function(err) {
 					deferred.reject(err.data);
 				})
+
 				return deferred.promise;
 			}
 
-			const get_user_past_events = (user_id) => {
+			const init_match = (data) => {
 				let deferred = $q.defer();
-
 				$http({
 					method: 'GET',
-					url: '/api/get-user-past-events/' + user_id,
+					url: '/api/get-match-event/' + data,
 					headers: headers
 				})
 				.then(function(res) {
 					deferred.resolve(res.data);
-				}, function(res) {
+				}, function(err) {
 					deferred.reject(err.data);
 				})
+
 				return deferred.promise;
 			}
 
 			let service = {};
-			service.get_profile = get_profile;
-			service.get_user_past_events = get_user_past_events;
-			service.get_user_upcoming_events = get_user_upcoming_events;
+			service.add_match = add_match;
+			service.delete_match = delete_match;
+			service.init_matches = init_matches;
 			return service;
 		}
 })();
