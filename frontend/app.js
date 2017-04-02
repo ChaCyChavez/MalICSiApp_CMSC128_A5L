@@ -22,7 +22,7 @@ mainApp.config(function($routeProvider) {
 			templateUrl: 'views/registered_user.html',
 			controller: 'registered-user-controller'
 		})
-		.when('/sponsor/:game_id', {
+		.when('/sponsor/:game_id?', {
 			templateUrl: 'views/sponsor.html',
 			controller: 'sponsor-controller'
 		})

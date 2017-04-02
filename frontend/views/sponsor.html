@@ -4,7 +4,7 @@
       <div class="nav-wrapper">
         <a href="javascript:void(0)" class="grey-text text-darken-4 center" id="logo" ng-click="back_to_home()">MalICSi</a>
         <ul id="nav-mobile" class="right">
-          <li><div class="grey-text text-darken-4" id="hello">Welcome, Juan Dela Cruz</div></li>
+          <li><div class="grey-text text-darken-4" id="hello">Juan Dela Cruz</div></li>
           <li><a href="javascript:void(0)" data-activates="dropdown1" class="teal dropdown-button" id="dr" dropdown><i class="fa fa-reorder fa-2x" aria-hidden="true"></i></a></li>
         </ul>
       </div>
@@ -12,25 +12,34 @@
   </div>
 
   <ul id='dropdown1' class='dropdown-content'>
-    <li><div class="container teal center-align" id="upper">
+    <li>
+      <div class="container blue center-align" id="upper">
         <i class="fa fa-user-circle fa-5x white-text"></i>
-        </div>
+      </div>
     </li>
-    <li><div class="container" id="lower">
-      <h5 class="center-align valign">Juan Dela Cruz</h5>
-      <p class="center-align valign">2014-01234</p>
-    </div></li>
-    <li><a href="javascript:void(0)" class="view-dd" ng-click="view_profile()"><p class="center-align valign">VIEW PROFILE</p></a></li>
-    <li><a href="javascript:void(0)" class="view-dd" ng-click="view_user()"><p class="center-align valign">VIEW USER</p></a></li>
-    <li><a href="javascript:void(0)" ng-click="logout()"><p class="right-align valign red-text">X logout</p></a></li>
+    <li>
+      <a href="javascript:void(0)" class="view-dd" ng-click="view_profile()">
+        <p class="center-align valign">VIEW PROFILE</p>
+      </a>
+    </li>
+    <li>
+      <a href="javascript:void(0)" class="view-dd" ng-click="view_user()">
+        <p class="center-align valign">VIEW USER</p>
+      </a>
+    </li>
+    <li class="divider">
+    </li>
+    <li>
+      <a href="javascript:void(0)" class="logout-btn" ng-click="logout()">
+        <p class="center-align valign">x logout</p>
+      </a>
+    </li>
   </ul>
-
-    <a class="btn-floating btn-large waves-effect waves-light teal accent-4 add-button" href="javascript:void(0)" data-target="modal7" modal><i class="fa fa-plus"></i></a>
-
+    <a class="btn-floating btn-large waves-effect waves-light blue accent-4 add-button" href="javascript:void(0)" data-target="modal7" modal><i class="fa fa-plus"></i></a>
     <br>
 
     <div class="container">
-      <h5 class="center-align" id="spon">SPONSORING INSTITUTES</h5>
+      <h3 class="header">SPONSORING INSTITUTES</h3>
       <br>
       <hr class="style18">
       <br>
@@ -38,15 +47,13 @@
 
   <div class="container">
     <div class="row">
-
       <div class="col s12 m6" ng-repeat="spon in sponsors">
         <div class="card">
-          <div class="card-image waves-effect waves-block waves-light spon-icon activator">
-            <!-- <img class="activator" src="img/san-miguel-logo.png" /> -->
-            <i class="fa fa-users fa-5x " aria-hidden="true"></i>
+          <div class="card-image waves-effect waves-block waves-light spon-icon activator teal">
+            <i class="fa fa-users fa-5x white-text" aria-hidden="true"></i>
           </div>
           <div class="card-content">
-            <span class="card-title activator grey-text text-darken-4"><h6>{{spon.sponsor_name}}</h6></span>
+            <span class="card-title activator grey-text text-darken-4"><h5>{{spon.sponsor_name}}</h5></span>
             <p><a href="{{spon.web_address}}">Visit Website</a></p>
           </div>
           
@@ -57,127 +64,9 @@
               <a href="javascript:void(0)" class="teal lighten-2 modal-action modal-close waves-effect waves-green btn-flat" data-target="modal8" modal ng-click="init_edit_modal(spon.sponsor_id)">Edit</a>
               <a href="javascript:void(0)" class="teal lighten-2 modal-action modal-close waves-effect waves-green btn-flat" ng-click="delete_sponsor(spon.sponsor_id)">Delete</a>
             </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- <div class="col s12 m6">
-      <div class="card">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="img/nasa.png" />
-        </div>
-
-        <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4"><h6>NASA</h6></span>
-          <p><a href="http://www.nasa.gov">Visit Website</a></p>
-        </div>
-
-        <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">NASA<i class="material-icons right">close</i></span>
-          <p>Led by acting administrator, Robert Lightfoot, NASA reaches new heights and unveils the unknown for the benefit of humankind. To achieve such feat, thousands of people toil around and outside the world to answer a very simple yet significant question- <i>What is out there in space?</i></p>
-          <div class="right">
-            <a href="javascript:void(0)" class="teal lighten-2 modal-action modal-close waves-effect waves-green btn-flat">Edit</a>
-            <a href="javascript:void(0)" class="teal lighten-2 modal-action modal-close waves-effect waves-green btn-flat">Delete</a>
           </div>
-
-        </div>
+       </div>
       </div>
-
-    </div>
-
-    <div class="col s12 m6">
-      <div class="card">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="img/adidas2.png" />
-        </div>
-
-        <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4"><h6>Adidas</h6></span>
-          <p><a href="javascript:void(0)">Visit Website</a></p>
-        </div>
-
-        <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">Adidas<i class="material-icons right">close</i></span>
-          <p>The brands of the adidas Group complement each other in a unique way to help athletes perform better, play better, feel better. Our products break records, set trends, make history. Every day. Here, our love for sport drives who we are and what we do. Every day.</p>
-          <div class="right">
-            <a href="javascript:void(0)" class="teal lighten-2 modal-action modal-close waves-effect waves-green btn-flat">Edit</a>
-            <a href="javascript:void(0)" class="teal lighten-2 modal-action modal-close waves-effect waves-green btn-flat">Delete</a>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-    <div class="col s12 m6">
-      <div class="card">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="img/Underarmour.png" />
-        </div>
-
-        <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4"><h6>Under Armour</h6></span>
-          <p><a href="http://www.underarmour.com.ph">Visit Website</a></p>
-        </div>
-
-        <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">Under Armour<i class="material-icons right">close</i></span>
-          <p>Founded in 1996 by former University of Maryland football player Kevin Plank, Under Armour is the originator of performance apparel - gear engineered to keep athletes cool, dry and light throughout the course of a game, practice or workout</p>
-
-          <div class="right">
-            <a href="javascript:void(0)" class="teal lighten-2 modal-action modal-close waves-effect waves-green btn-flat">Edit</a>
-            <a href="javascript:void(0)" class="teal lighten-2 modal-action modal-close waves-effect waves-green btn-flat">Delete</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col s12 m6">
-      <div class="card">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="img/codeninjas.png" />
-        </div>
-
-        <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4"><h6>Code Ninjas</h6></span>
-          <p><a href="http://www.code-ninja.co">Visit Website</a></p>
-        </div>
-
-        <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">Code Ninjas<i class="material-icons right">close</i></span>
-          <p>Code Ninja provides accelerated learning programs, which help inspired coders become awesome! Code Ninjas offers a variety of programs to help individuals at every skill level excel in a career of software development.</p>
-
-          <div class="right">
-            <a href="javascript:void(0)" class="teal lighten-2 modal-action modal-close waves-effect waves-green btn-flat">Edit</a>
-            <a href="javascript:void(0)" class="teal lighten-2 modal-action modal-close waves-effect waves-green btn-flat">Delete</a>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-
-    <div class="col s12 m6">
-      <div class="card">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="img/mozilla.png" />
-        </div>
-
-        <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4"><h6>Mozilla</h6></span>
-          <p><a href="http://www.mozilla.org">Visit Website</a></p>
-        </div>
-
-        <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">Mozilla<i class="material-icons right">close</i></span>
-          <p>The Mozilla Corporation was established in August 2005 as a wholly owned taxable subsidiary that serves the non-profit, public benefit goals of its parent, the Mozilla Foundation, and the vast Mozilla community.</p>
-
-          <div class="right">
-            <a href="javascript:void(0)" class="teal lighten-2 modal-action modal-close waves-effect waves-green btn-flat">Edit</a>
-            <a href="javascript:void(0)" class="teal lighten-2 modal-action modal-close waves-effect waves-green btn-flat">Delete</a>
-          </div>
-        </div>
-      </div>
-    </div> -->
     </div>
   </div>
 

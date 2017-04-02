@@ -4,7 +4,7 @@
       <div class="nav-wrapper">
         <a href="javascript:void(0)" class="grey-text text-darken-4 center" id="logo" ng-click="back_to_home()">MalICSi</a>
         <ul id="nav-mobile" class="right">
-          <li><div class="grey-text text-darken-4" id="hello">Welcome, Juan Dela Cruz</div></li>
+          <li><div class="grey-text text-darken-4" id="hello">Juan Dela Cruz</div></li>
           <li><a href="javascript:void(0)" data-activates="dropdown1" class="teal dropdown-button" id="dr" dropdown><i class="fa fa-reorder fa-2x" aria-hidden="true"></i></a></li>
         </ul>
       </div>
@@ -12,17 +12,28 @@
   </div>
 
   <ul id='dropdown1' class='dropdown-content'>
-    <li><div class="container teal center-align" id="upper">
+    <li>
+      <div class="container blue center-align" id="upper">
         <i class="fa fa-user-circle fa-5x white-text"></i>
-        </div>
+      </div>
     </li>
-    <li><div class="container" id="lower">
-      <h5 class="center-align valign">Juan Dela Cruz</h5>
-      <p class="center-align valign">2014-01234</p>
-    </div></li>
-    <li><a href="javascript:void(0)" class="view-dd" ng-click="view_profile()"><p class="center-align valign">VIEW PROFILE</p></a></li>
-    <li><a href="javascript:void(0)" class="view-dd" ng-click="view_user()"><p class="center-align valign">VIEW USER</p></a></li>
-    <li><a href="javascript:void(0)" ng-click="logout()"><p class="right-align valign red-text">X logout</p></a></li>
+    <li>
+      <a href="javascript:void(0)" class="view-dd" ng-click="view_profile()">
+        <p class="center-align valign">VIEW PROFILE</p>
+      </a>
+    </li>
+    <li>
+      <a href="javascript:void(0)" class="view-dd" ng-click="view_user()">
+        <p class="center-align valign">VIEW USER</p>
+      </a>
+    </li>
+    <li class="divider">
+    </li>
+    <li>
+      <a href="javascript:void(0)" class="logout-btn" ng-click="logout()">
+        <p class="center-align valign">x logout</p>
+      </a>
+    </li>
   </ul>
 
   <!-- Contents -->

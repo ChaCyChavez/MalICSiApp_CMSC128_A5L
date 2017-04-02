@@ -6,12 +6,11 @@
 #page {
   font-size: 200% !important;
 }
-#logo {
-  margin-left: 5% !important;
-}
+
 #modal_add {
   padding: 0 !important;
 }
+
 .modal {
     max-width: 70%;
     max-height: 100%;
@@ -21,6 +20,7 @@
     bottom: 0;
     margin: 0 auto;
 }
+
 .add {
     height: 100px;
     text-align: center;
