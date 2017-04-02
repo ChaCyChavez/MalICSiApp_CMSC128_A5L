@@ -28,7 +28,7 @@ exports.login_account = (req, res, next) => {
     } else if (data[0].length == 0) {
       winston.level = 'info';
       winston.log('info', 'Login failed.');
-      return res.status(404).send({message: 'Wrong username or password or account not yet approved!'});
+      return res.status(404).send({message: 'Wrong username or password!'});
     } else if (data[0].length){
       winston.level = 'info';
       winston.log('info', 'Login Successful!');
@@ -153,7 +153,7 @@ exports.update_account = (req,res,next) => {
 //Controller to be used to retrieve an account given an account_id
 exports.get_account = (req, res, next) => {
   const query_string = "CALL get_account(?)";
-  const payload = [req.params.username];
+  const payload = [req.params.account_id];
   const callback = (err, data) => {
     if(err){
       winston.level = 'debug';
@@ -161,11 +161,11 @@ exports.get_account = (req, res, next) => {
       return res.status(500).send({ error_code:err.code});
     } else if (data[0].length == 0) {
       winston.level = 'info';
-      winston.log('info', 'No account retrieved with username ', req.params.username);
+      winston.log('info', 'No account retrieved with account_id:', req.params.account_id);
       return res.status(200).send(data);
     } else {
       winston.level = 'info';
-      winston.log('info', 'Successfully retrieved account!');
+      winston.log('info', 'Successfully retrieved with account_id:', req.params.account_id);
       return res.status(200).send(data);
     }
  };

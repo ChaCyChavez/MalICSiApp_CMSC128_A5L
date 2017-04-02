@@ -1,6 +1,6 @@
 
 <div ng-controller="game-event-controller">
-  <div class="navbar-fixed">
+  <div class="navbar-fixed" ng-controller="profile-controller">
     <nav>
       <div class="nav-wrapper">
         <a href="javascript:void(0)" class="grey-text text-darken-4 center" id="logo" ng-click="back_to_home()">MalICSi</a>
@@ -10,33 +10,32 @@
         </ul>
       </div>
     </nav>
+
+    <ul id='dropdown1' class='dropdown-content'>
+      <li>
+        <div class="container blue center-align" id="upper">
+          <i class="fa fa-user-circle fa-5x white-text"></i>
+        </div>
+      </li>
+      <li>
+        <a href="javascript:void(0)" class="view-dd" ng-click="view_profile()">
+          <p class="center-align valign">VIEW PROFILE</p>
+        </a>
+      </li>
+      <li>
+        <a href="javascript:void(0)" class="view-dd" ng-click="view_user()">
+          <p class="center-align valign">VIEW USER</p>
+        </a>
+      </li>
+      <li class="divider">
+      </li>
+      <li>
+        <a href="javascript:void(0)" class="logout-btn" ng-click="logout()">
+          <p class="center-align valign">x logout</p>
+        </a>
+      </li>
+    </ul>
   </div>
-
-  <ul id='dropdown1' class='dropdown-content'>
-    <li>
-      <div class="container blue center-align" id="upper">
-        <i class="fa fa-user-circle fa-5x white-text"></i>
-      </div>
-    </li>
-    <li>
-      <a href="javascript:void(0)" class="view-dd" ng-click="view_profile()">
-        <p class="center-align valign">VIEW PROFILE</p>
-      </a>
-    </li>
-    <li>
-      <a href="javascript:void(0)" class="view-dd" ng-click="view_user()">
-        <p class="center-align valign">VIEW USER</p>
-      </a>
-    </li>
-    <li class="divider">
-    </li>
-    <li>
-      <a href="javascript:void(0)" class="logout-btn" ng-click="logout()">
-        <p class="center-align valign">x logout</p>
-      </a>
-    </li>
-  </ul>
-
 
 
   <!-- button for adding new game-->

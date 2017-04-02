@@ -17,6 +17,7 @@
 
 				$http({
 					method: 'GET',
+					xhrFields: {withCredentials: false},
 					url: '/api/get-account/' + account_id,
 					headers: headers
 				})
@@ -28,12 +29,13 @@
 				return deferred.promise;
 			}
 
-			const get_user_upcoming_events = (user_id) => {
+			const get_user_upcoming_events = (account_id) => {
 				let deferred = $q.defer();
 
 				$http({
 					method: 'GET',
-					url: '/api/get-user-upcoming-events/' + user_id,
+					xhrFields: {withCredentials: false},
+					url: '/api/get-user-upcoming-events/' + account_id,
 					headers: headers
 				})
 				.then(function(res) {
@@ -44,12 +46,13 @@
 				return deferred.promise;
 			}
 
-			const get_user_past_events = (user_id) => {
+			const get_user_past_events = (account_id) => {
 				let deferred = $q.defer();
 
 				$http({
 					method: 'GET',
-					url: '/api/get-user-past-events/' + user_id,
+					xhrFields: {withCredentials: false},
+					url: '/api/get-user-past-events/' + account_id,
 					headers: headers
 				})
 				.then(function(res) {
@@ -61,9 +64,9 @@
 			}
 
 			let service = {};
-			service.get_profile = get_profile;
-			service.get_user_past_events = get_user_past_events;
-			service.get_user_upcoming_events = get_user_upcoming_events;
+			service.get_profile 				= get_profile;
+			service.get_user_past_events 		= get_user_past_events;
+			service.get_user_upcoming_events 	= get_user_upcoming_events;
 			return service;
 		}
 })();
