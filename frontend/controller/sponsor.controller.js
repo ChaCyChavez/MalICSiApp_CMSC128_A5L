@@ -31,7 +31,6 @@
             SponsorService
                 .init_sponsors($scope.game_id)
                 .then(function(res) {
-                    console.log(res[0]);
                     $scope.sponsors = res[0];
                 }, function(err) {
                     console.log(err.data);
