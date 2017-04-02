@@ -9,11 +9,11 @@
 
     function profile_controller($scope, $location, $routeParams, ProfileService) {
         
-        $scope.info = 1;
-
-        $scope.profile = {};        
-        $scope.user_upcoming_events = {};        
-        $scope.user_past_events = {};        
+        $scope.info = 1
+/*
+        $scope.profile = {}
+        $scope.user_upcoming_events = {}
+        $scope.user_past_events = {}*/
 
         $scope.view_profile = () => {
             window.location.href="#!/profile/"+ $scope.info;

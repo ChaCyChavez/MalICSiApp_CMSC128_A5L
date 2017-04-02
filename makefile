@@ -1,4 +1,5 @@
 build:
+	reset
 	sudo npm install
 	sudo npm install -g nodemon
 	sudo npm install -g gulp
@@ -7,4 +8,5 @@ build:
 	sudo n stable
 
 run:
+	reset
 	sudo npm start
