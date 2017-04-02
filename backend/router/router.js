@@ -49,7 +49,7 @@ module.exports = (router) => {
     //retrieve game_event
     router.get('/api/get-game-event/:game_id', game_event.get_game_event);
     //update game_event
-    router.post('/api/update-account', game_event.update_game_event);
+    router.post('/api/update-game-event', game_event.update_game_event);
     //delete game_event
     router.post('/api/delete-game-event', game_event.delete_game_event);
     router.get('/api/get-user-upcoming-events/:account_id', game_event.get_user_upcoming_events);
