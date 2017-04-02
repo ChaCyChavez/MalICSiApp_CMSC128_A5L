@@ -95,7 +95,11 @@ nav {
 }
 #upper {
     font-family: 'Panton', sans-serif;
-    height: 80px;
+    height: 100px;
+}
+
+#upper i {
+    line-height: 80px;
 }
 
 #lower {
