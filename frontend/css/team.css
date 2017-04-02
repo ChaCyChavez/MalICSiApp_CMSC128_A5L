@@ -1,18 +1,22 @@
 
-
 .team-member {
-	float: left;
-	margin-top: 50px;
+	/*float: left;*/
+	margin-top: 20px;
 	margin-right: 2%;
-	width: 39%;
+	width: 100%;
 	padding: 10px;
 	box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.125);
 }
 
+th, td {
+	text-indent: 0% !important;
+	text-align: center !important;
+}
+
 .team-matches {
 	float: left;
-	margin-top: 50px;
-	width: 59%;
+	margin-top: 20px;
+	width: 100%;
 	padding: 10px;
 	box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.125);
 }

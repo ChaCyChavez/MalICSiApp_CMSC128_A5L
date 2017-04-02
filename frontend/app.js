@@ -47,7 +47,8 @@ mainApp.config(function($routeProvider) {
 			controller: 'match-controller'
 		})
 		.when('/team', {
-			templateUrl: 'views/team.html'
+			templateUrl: 'views/team.html',
+			controller: 'team-controller'
 		})
 		.when('/activity-log', {
 			templateUrl: 'views/activity_log.html'
