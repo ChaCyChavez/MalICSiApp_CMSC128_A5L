@@ -7,7 +7,7 @@ drop procedure if exists login_account//
   CREATE PROCEDURE login_account(IN acctid int, IN pw varchar(256))
   BEGIN
     SELECT account_id, firstname, middlename, lastname, email, username, course,
-    birthday, college FROM account where account_id = acctid and password = pw;
+    birthday, college FROM account where account_id = acctid and password = pw and is_approved = true;
   END;
 //
 
@@ -25,6 +25,15 @@ drop procedure if exists get_account//
   BEGIN
     SELECT account_id, firstname, middlename, lastname, email, username, course,
     birthday, college, is_approved, is_game_head, position, is_player, player_jersey_num, player_role FROM account where account_id = acctid;
+  END;
+//
+
+drop procedure if exists get_all_account//
+  CREATE PROCEDURE get_all_account()
+  BEGIN
+      SELECT account_id, firstname, middlename, lastname, email, username, course,
+      birthday, college, is_approved, is_game_head, position, is_player, 
+      player_jersey_num, player_role FROM account;
   END;
 //
 
