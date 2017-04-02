@@ -153,16 +153,16 @@ exports.update_account = (req,res,next) => {
 //Controller to be used to retrieve an account given an account_id
 exports.get_account = (req, res, next) => {
   const query_string = "CALL get_account(?)";
-  const payload = [req.params.account_id];
+  const payload = [req.params.username];
   const callback = (err, data) => {
     if(err){
       winston.level = 'debug';
       winston.log('debug', 'err: ', err);
       return res.status(500).send({ error_code:err.code});
-    } else if (data.length == 0) {
+    } else if (data[0].length == 0) {
       winston.level = 'info';
-      winston.log('info', 'Not found!');
-      return res.status(404).send(data);
+      winston.log('info', 'No account retrieved with username ', req.params.username);
+      return res.status(200).send(data);
     } else {
       winston.level = 'info';
       winston.log('info', 'Successfully retrieved account!');
@@ -183,7 +183,6 @@ exports.get_all_account = (req, res, next) => {
       winston.log('debug', 'err: ', err);
       return res.status(500).send({ error_code:err.code});
     } else if (data[0].length == 0) {
-	  console.log(data);
       winston.level = 'info';
       winston.log('info', 'Empty');
       return res.status(404).send({ message: 'Empty! Retrieve failed'});
