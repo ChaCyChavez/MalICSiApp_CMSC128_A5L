@@ -66,6 +66,14 @@
 			});
 		}
 
+        ProfileService
+        .get_profile()
+            .then((data) => {
+            if (data[0].length != 0) {
+                $scope.profile = data[0][0];
+            }
+        });
+
         $scope.view_sports = () => {
             $("#modal1").modal('close');
             window.location.href = "#!/sports";

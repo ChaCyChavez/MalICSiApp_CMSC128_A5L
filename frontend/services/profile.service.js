@@ -12,13 +12,13 @@
 		};
 
 		function ProfileService($window, $http, $q) {
-			const get_profile = (account_id) => {
+			const get_profile = () => {
 				let deferred = $q.defer();
 
 				$http({
 					method: 'GET',
 					xhrFields: {withCredentials: false},
-					url: '/api/get-account/' + account_id,
+					url: '/api/get-account/',
 					headers: headers
 				})
 				.then(function(res) {
@@ -29,13 +29,13 @@
 				return deferred.promise;
 			}
 
-			const get_user_upcoming_events = (account_id) => {
+			const get_user_upcoming_events = () => {
 				let deferred = $q.defer();
 
 				$http({
 					method: 'GET',
 					xhrFields: {withCredentials: false},
-					url: '/api/get-user-upcoming-events/' + account_id,
+					url: '/api/get-user-upcoming-events/',
 					headers: headers
 				})
 				.then(function(res) {
@@ -46,13 +46,13 @@
 				return deferred.promise;
 			}
 
-			const get_user_past_events = (account_id) => {
+			const get_user_past_events = () => {
 				let deferred = $q.defer();
 
 				$http({
 					method: 'GET',
 					xhrFields: {withCredentials: false},
-					url: '/api/get-user-past-events/' + account_id,
+					url: '/api/get-user-past-events/',
 					headers: headers
 				})
 				.then(function(res) {

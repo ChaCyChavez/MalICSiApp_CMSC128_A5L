@@ -48,7 +48,7 @@ exports.get_game_event = (req, res, next) => {
 
 exports.get_user_upcoming_events = (req, res, next) => {
   const query_string = 'CALL get_user_upcoming_events(?)';
-  const payload = [req.params.account_id];
+  const payload = [req.session.user.id];
   const callback = (err, data) => {
     if(err){
       winston.level = 'debug';
@@ -70,7 +70,7 @@ exports.get_user_upcoming_events = (req, res, next) => {
 
 exports.get_user_past_events = (req, res, next) => {
   const query_string = 'CALL get_user_past_events(?)';
-  const payload = [req.params.account_id];
+  const payload = [req.session.user.id];
   const callback = (err, data) => {
     if(err){
       winston.level = 'debug';
