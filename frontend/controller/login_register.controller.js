@@ -61,10 +61,15 @@
             let strUser = e.options[e.selectedIndex].value;
             $scope.data.date = $('.datepicker').val();
             $scope.data.college = strUser;
-            if (isplayer)
+            if (isplayer) 
+            {
                 $scope.data.is_player = 1;
-            else
+            }
+            else 
+            {
                 $scope.data.is_player = 0;
+            }
+
             if ($scope.data.username === undefined ||
                 $scope.data.username === '' ||
                 $scope.data.password === undefined ||
@@ -104,7 +109,9 @@
                 LoginRegisterService
                     .register_account($scope.data)
                     .then(function(res) {
-                        $("#modal-register").modal('close');   
+                        $("#modal-register").modal('close');
+                        Materialize.toast("Register successful!", 4000, 'teal');
+                        Materialize.toast("Your registration is now on process", 4000, 'teal');
                     }, function(err) {
                         Materialize.toast(err.message, 4000, 'teal');
                     })

@@ -241,7 +241,7 @@
     </div>
 
     <div class="carousel" ng-init="get_accounts()">
-      <div class="col s12 m3 carousel-item" ng-repeat="account in accounts">
+      <div class="col s12 m3 carousel-item" ng-class="{active:!$index}" ng-repeat="account in accounts">
         <div class="card small z-depth-3">
           <div class="card-image">
             <img src="img/sample-1.jpg">
@@ -389,9 +389,11 @@
       starting_top: '4%',
       ending_top: '10%',
     });
-
     $('.carousel').carousel({
         full_width: true
-      });
+    });
   });
 </script>
+
+<script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="bower_components/materialize/dist/js/materialize.js"></script>
