@@ -1,4 +1,4 @@
-<div>
+<div ng-controller="team-controller">
   <div class="navbar-fixed">
     <nav>
       <div class="nav-wrapper">
@@ -37,8 +37,8 @@
   </ul>
 
   <h4 class="header">Team 1</h4>
-  <div class="row contents">
-    <div class="team-member">
+  <div class="row contents" ng-init="get_team_profile()">
+    <div class="row contents">
       <table>
         <thead>
           <tr>
@@ -48,40 +48,10 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Pedro Santos</td>
-            <td>BSCS</td>
-            <td>CAS</td>
-          </tr>
-          <tr>
-            <td>Pedro Santos</td>
-            <td>BSCS</td>
-            <td>CAS</td>
-          </tr>
-          <tr>
-            <td>Pedro Santos</td>
-            <td>BSCS</td>
-            <td>CAS</td>
-          </tr>
-          <tr>
-            <td>Pedro Santos</td>
-            <td>BSCS</td>
-            <td>CAS</td>
-          </tr>
-          <tr>
-            <td>Pedro Santos</td>
-            <td>BSCS</td>
-            <td>CAS</td>
-          </tr>
-          <tr>
-            <td>Pedro Santos</td>
-            <td>BSCS</td>
-            <td>CAS</td>
-          </tr>
-          <tr>
-            <td>Pedro Santos</td>
-            <td>BSCS</td>
-            <td>CAS</td>
+          <tr ng-repeat="users in user">
+            <td>{{users.firstname + " " + users.middlename + " " + users.lastname}}</td>
+            <td>{{users.course}}</td>
+            <td>{{users.college}}</td>
           </tr>
         </tbody>
       </table>
