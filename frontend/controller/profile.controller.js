@@ -8,17 +8,12 @@
     profile_controller.$inject = ['$scope', '$location', '$routeParams', 'ProfileService'];
 
     function profile_controller($scope, $location, $routeParams, ProfileService) {
-        $scope.test ='ass2a';
-/*
+    /*
         $scope.info = 1
         $scope.profile = {}
         $scope.user_upcoming_events = {}
-        $scope.user_past_events = {}*/
-
-        $scope.view_profile = () => {
-            window.location.href="#!/profile/"+ $scope.info;
-        }
-
+        $scope.user_past_events = {}
+    */
         ProfileService
         .get_profile()
             .then((data) => {
@@ -42,6 +37,11 @@
                 $scope.user_past_events = data[0];
             }
         });
+
+        $scope.view_profile = () => {
+            window.location.href="#!/profile/";
+        }
+
 
         $scope.view_user = () => {
             window.location.href="#!/user";
