@@ -5,21 +5,22 @@
 		.module('app')
 		.factory('GameEventService', GameEventService);
 
-		GameEventService.$inject = ['$window', '$http', '$q'];
+		GameEventService.$inject = ['$window', '$http', '$q', '$httpParamSerializer'];
 
 		const headers = {
 			'content-type': 'application/x-www-form-urlencoded'
 		};
 
-		function GameEventService($window, $http, $q) {
+		function GameEventService($window, $http, $q, $httpParamSerializer) {
 			const edit_game = function(data) {
 				let deferred = $q.defer();
-				console.log(data);
+
 				$http({
 					method: 'POST',
-					data: data,
+					data: $httpParamSerializer(data),
 					xhrFields: {withCredentials: false},
 					url: '/api/update-game-event/',
+					headers: headers
 				})
 				.then(function(res) {
 					// $window.location.href = '/#!/game-event';

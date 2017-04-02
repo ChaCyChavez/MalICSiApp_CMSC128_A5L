@@ -20,19 +20,19 @@ delimiter //
     BEGIN
         INSERT into account(
             firstname,
-            middlename, 
-            lastname, 
-            email, 
-            username, 
-            password, 
-            course, 
-            birthday, 
+            middlename,
+            lastname,
+            email,
+            username,
+            password,
+            course,
+            birthday,
             college,
-            position, 
-            is_player, 
-            player_jersey_num, 
+            position,
+            is_player,
+            player_jersey_num,
             player_role
-            ) 
+            )
         values(
             _firstname,
             _middlename,
@@ -49,7 +49,7 @@ delimiter //
             _player_role
         );
     END;
-// 
+//
 delimiter ;
 
 drop procedure if exists add_court;
@@ -64,14 +64,14 @@ delimiter //
             court_name,
             court_location,
             court_type
-            ) 
+            )
         values(
             _court_name,
             _court_location,
             _court_type
         );
     END;
-// 
+//
 delimiter ;
 
 drop procedure if exists add_game_event;
@@ -96,7 +96,7 @@ delimiter //
             _account_id
             );
     END;
-// 
+//
 delimiter ;
 
 drop procedure if exists add_match_event;
@@ -121,7 +121,7 @@ delimiter //
             _court_id
             );
     END;
-// 
+//
 delimiter ;
 
 drop procedure if exists add_sponsor;

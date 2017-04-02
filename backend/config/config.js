@@ -2,7 +2,7 @@
 
 const path  = require('path');
 
-const config = {
+module.exports = {
     APP_NAME: 'MalICSi App: A PalICSihan Sport Scheduling App',
     APP_URL: 'http://localhost:8000',
 
@@ -21,8 +21,15 @@ const config = {
 
     COOKIE_SECRET: 'm4L1cSi_a5L',
     COOKIE_NAME: '__t0p_S3cR3T',
-    COOKIE_DOMAIN: '.malICSi.io'
+    COOKIE_DOMAIN: '.malICSi.io',
 
+	TRANSPORTER: {
+	    service: 'Gmail',
+	    auth: {
+	        user: 'johndoecmsc128@gmail.com',
+	        pass: 'johndoe128'
+		}
+	},
+
+	FILE: "../mailbody/body.txt"
 };
-
-module.exports = config;

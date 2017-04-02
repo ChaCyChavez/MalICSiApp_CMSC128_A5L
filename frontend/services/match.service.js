@@ -5,18 +5,18 @@
 		.module('app')
 		.factory('MatchService', MatchService);
 
-		MatchService.$inject = ['$window', '$http', '$q'];
+		MatchService.$inject = ['$window', '$http', '$q', '$httpParamSerializer'];
 
 		const headers = {
 			'content-type': 'application/x-www-form-urlencoded'
 		};
 
-		function MatchService($window, $http, $q) {
+		function MatchService($window, $http, $q, $httpParamSerializer) {
 			const add_match = function(data) {
 				let deferred = $q.defer();
 				$http({
 					method: 'POST',
-					params: data,
+					data: $httpParamSerializer(data),
 					xhrFields: {withCredentials: false},
 					url: '/api/add-match-event/',
 					headers: headers
@@ -34,7 +34,7 @@
 				let deferred = $q.defer();
 				$http({
 					method: 'POST',
-					params: data,
+					data: $httpParamSerializer(data),
 					xhrFields: {withCredentials: false},
 					url: '/api/delete-match-event/',
 					headers: headers

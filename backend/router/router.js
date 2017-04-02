@@ -8,7 +8,6 @@ const del = require(__dirname + '/../controller/old-controller/delete');
 const account = require(__dirname + '/../controller/account');
 const court = require(__dirname + '/../controller/court');
 const game_event = require(__dirname + '/../controller/game_event');
-const game_event_sponsor = require(__dirname + '/../controller/game_event_sponsor');
 const log = require(__dirname + '/../controller/log');
 const match_event = require(__dirname + '/../controller/match_event');
 const sponsor = require(__dirname + '/../controller/sponsor');
@@ -25,7 +24,7 @@ module.exports = (router) => {
     //create account
     router.post('/api/add-account', account.add_account);
     //retrieve account
-    router.get('/api/get-account', account.get_account);
+    router.get('/api/get-account/:account_id?', account.get_account);
     //retrieve all accounts
     router.get('/api/get-all-account/', account.get_all_account);
     //update account
@@ -54,18 +53,6 @@ module.exports = (router) => {
     router.post('/api/delete-game-event', game_event.delete_game_event);
     router.get('/api/get-user-upcoming-events/', game_event.get_user_upcoming_events);
     router.get('/api/get-user-past-events/', game_event.get_user_past_events);
-
-
-//game_event_sponsor routers
-    //create game_event_sponsor
-    router.post('/api/add-game-event-sponsor', game_event_sponsor.add_game_event_sponsor);
-    //retrieve game_event_sponsor
-    router.get('/api/get-game-event-sponsor/:game_id/:sponsor_id', game_event_sponsor.get_game_event_sponsor);
-    //update game_event_sponsor
-    router.post('/api/update-game-event-sponsor', game_event_sponsor.update_game_event_sponsor);
-    //delete game_event_sponsor
-    router.post('/api/delete-game-event-sponsor', game_event_sponsor.delete_game_event_sponsor);
-
 
 //log routers
     //create log
