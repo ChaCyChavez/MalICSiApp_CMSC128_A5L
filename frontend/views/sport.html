@@ -27,42 +27,17 @@
       <li><a href="javascript:void(0)"><p class="right-align valign red-text" ng-click="logout()">X logout</p></a></li>
     </ul>
     
-    <div class="row contents" id="sport-content">
+    <div class="row contents" id="sport-content" ng-init = "get_matches()">
       <div class="col s0 m0 l1">&nbsp</div>
       <div class="col s12 m0">
         <!-- List of Participants -->
         <div class="col s5 m4">
           <div class="card-panel">
             <ul class="collapsible" data-collapsible="accordion">
-              <li>
-                <div class="collapsible-header">Team A</div>
+              <li ng-repeat = "team in teams">
+                <div class="collapsible-header">{{team.team_name}}</div>
                 <ul class="collection collapsible-body">
-                  <li class="collection-item">Participant 1</li>
-                  <li class="collection-item">Participant 2</li>
-                  <li class="collection-item">Participant 3</li>
-                  <li class="collection-item">Participant 4</li>
-                  <li class="collection-item">Participant 5</li>
-                  <li class="collection-item">Participant 6</li>
-                </ul>
-              </li>
-              <li>
-                <div class="collapsible-header">Team B</div>
-                <ul class="collection collapsible-body">
-                  <li class="collection-item">Participant 1</li>
-                  <li class="collection-item">Participant 2</li>
-                  <li class="collection-item">Participant 3</li>
-                  <li class="collection-item">Participant 4</li>
-                  <li class="collection-item">Participant 5</li>
-                  <li class="collection-item">Participant 6</li>
-                  <li class="collection-item">Participant 7</li>
-                </ul>
-              </li>
-              <li>
-                <div class="collapsible-header">Team C</div>
-                <ul class="collection collapsible-body">
-                  <li class="collection-item">Participant 1</li>
-                  <li class="collection-item">Participant 2</li>
-                  <li class="collection-item">Participant 3</li>
+                  <li ng-repeat = "participant in team.participants" class="collection-item">{{participant.firstname participant.lastname}}</li>
                 </ul>
               </li>
             </ul>
@@ -75,47 +50,18 @@
             <div >
               <h4 class="card-title">SCHEDULE</h4>
               <div class="center collection">
-                <div class="collection-item">
+                <div class="collection-item" ng-repeat = "match in matches track by $index">
                   <div class="match-competing-teams">
-                    <span>TEAM 1</span>
-                    vs
-                    <span>TEAM 2</span>
+                    <span>Teams:&nbsp;</span>
+                    <span ng-repeat = "team in match.teams">{{team}} &nbsp;&nbsp;</span>
                   </div>
                   <div class="match-date-time">
-                    <h6>DATE | TIME</h6>
+                    <h6>Date &amp; Time:&nbsp;{{match.date_time | date: "medium"}}</h6>
                   </div>
                   <div class="match-court">
-                    COURT : Court 1
+                    <span>Court:&nbsp;{{match.court_name}}</span>
                   </div>
-                  <a href="javascript:void(0)" class="btn blue" ng-click="view_match()">View Match</a>
-                </div>
-                <div class="collection-item">
-                  <div class="match-competing-teams">
-                    <span>TEAM 1</span>
-                    vs
-                    <span>TEAM 2</span>
-                  </div>
-                  <div class="match-date-time">
-                    <h6>DATE | TIME</h6>
-                  </div>
-                  <div class="match-court">
-                    COURT : Court 1
-                  </div>
-                  <a href="javascript:void(0)" class="btn blue" ng-click="view_match()">View Match</a>
-                </div>
-                <div class="collection-item">
-                  <div class="match-competing-teams">
-                    <span>TEAM 1</span>
-                    vs
-                    <span>TEAM 2</span>
-                  </div>
-                  <div class="match-date-time">
-                    <h6>DATE | TIME</h6>
-                  </div>
-                  <div class="match-court">
-                    COURT : Court 1
-                  </div>
-                  <a href="javascript:void(0)" class="btn blue" ng-click="view_match()">View Match</a>
+                  <a href="javascript:void(0)" class="btn blue" ng-click="view_match(match.match_id)">View Match</a>
                 </div>
               </div>
             </div>

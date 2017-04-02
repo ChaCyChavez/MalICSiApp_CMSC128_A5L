@@ -15,8 +15,8 @@
         temp = $location.path().toString().split("/");
         var gameid = temp[temp.length-1];
 
-        $scope.view_sport = () => {
-            $location.path("/sport").replace();
+        $scope.view_sport = (sport_id) => {
+            $location.path("/sport/" + sport_id).replace();
         }
 
         $scope.view_profile = () => {
@@ -108,7 +108,7 @@
                                     obj2["teams"].push(ob.team_name);
                                 }                               
                             });
-                            console.log(obj2["teams"].length);
+                            //console.log(obj2["teams"].length);
                             if(obj2["teams"].length <= 0){
                                 obj2["teams"].push("No participating teams.");;
                             }                            

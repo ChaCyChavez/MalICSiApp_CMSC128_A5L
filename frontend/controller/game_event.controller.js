@@ -11,7 +11,7 @@
 
         $scope.view_sports = (game_id) => {
             $("#modal1").modal('close');
-            $location.path("/sports/"+ game_id).replace();
+            $location.path("/sports/" + game_id).replace();
         }
 
         $scope.view_profile = () => {
