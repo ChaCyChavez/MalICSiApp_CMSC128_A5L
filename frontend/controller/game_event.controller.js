@@ -4,10 +4,67 @@
     angular
         .module('app')
         .controller('game-event-controller', game_event_controller);
-        
+
     game_event_controller.$inject = ['$scope', '$location', 'GameEventService'];
-    
+
     function game_event_controller($scope, $location, GameEventService) {
+		// fetching is being implemented by other group member
+		$scope.current_games = [
+		{
+			game_id: 1,
+			name: "Game 1",
+			game_starting_time_date: '2017-05-12',
+			game_ending_time_date: '2017-03-13'
+		},
+		{
+			game_id: 2,
+			name: "Game 2",
+			game_starting_time_date: '2017-05-12',
+			game_ending_time_date: '2017-03-13'
+		}
+		];
+
+		$scope.upcoming_games = [
+		{
+			game_id: 3,
+			name: "Game 3",
+			game_starting_time_date: '2017-05-12',
+			game_ending_time_date: '2017-03-13'
+		},
+		{
+			game_id: 4,
+			name: "Game 4",
+			game_starting_time_date: '2017-05-12',
+			game_ending_time_date: '2017-03-13'
+		},
+		{
+			game_id: 3,
+			name: "Game 5",
+			game_starting_time_date: '2017-05-12',
+			game_ending_time_date: '2017-03-13'
+		},
+		{
+			game_id: 4,
+			name: "Game 6",
+			game_starting_time_date: '2017-05-12',
+			game_ending_time_date: '2017-03-13'
+		},
+		];
+
+		$scope.edit_game_info = {};
+		$scope.setup_edit_modal = (type, id) => {
+			if (type === 'upcoming') {
+				$scope.edit_game_info = $scope.upcoming_games[id];
+			} else if (type === 'current') {
+				$scope.edit_game_info = $scope.current_games[id];
+			}
+		}
+
+		$scope.edit_game = () => {
+			GameEventService.edit_game($scope.edit_game_info).then((err, data) => {
+				console.log(err, data);
+			});
+		}
 
         $scope.view_sports = () => {
             $("#modal1").modal('close');

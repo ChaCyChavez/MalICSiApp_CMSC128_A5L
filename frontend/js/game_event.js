@@ -17,6 +17,7 @@ $(document).ready(function(){
   $("#modal2").height($(".modal").height());
 
   $('.datepicker').pickadate({
+	format: 'yyyy-MM-dd', // javascript default format
     selectMonths: true, // Creates a dropdown to control month
     selectYears: 15 // Creates a dropdown of 15 years to control year
   });
