@@ -24,7 +24,6 @@
             .then((data) => {
             if (data[0].length != 0) {
                 $scope.profile = data[0][0];
-                console.log("ss", $scope.profile);
             }
         });
 
