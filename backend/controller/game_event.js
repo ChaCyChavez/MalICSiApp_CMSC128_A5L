@@ -93,14 +93,15 @@ exports.get_user_past_events = (req, res, next) => {
 //Controller to be used for updating a game_event given a game_id
 exports.update_game_event = (req, res, next) => {
   const query_string = 'CALL update_game_event(?,?,?,?)';
-  const payload = [req.body.game_id, req.body.game_name, req.body.game_starting_time_date,
+  const payload = [req.body.game_id, req.body.name, req.body.game_starting_time_date,
       req.body.game_ending_time_date];
+	  console.log(payload);
   const callback = (err, data) => {
     if(err){
       winston.level = 'debug';
       winston.log('debug', 'err: ', err);
       return res.status(500).send({ error_code:err.code});
-    } else if (data.info.affectedRows == 0) {
+  } else if (data.affectedRows == 0) {
       winston.level = 'info';
       winston.log('info', 'Not found! Update failed');
       return res.status(404).send(data);
@@ -123,7 +124,7 @@ exports.delete_game_event = (req, res, next) => {
       winston.level = 'debug';
       winston.log('debug', 'err: ', err);
       return res.status(500).send({ error_code:err.code});
-    } else if (data.info.affectedRows == 0) {
+    } else if (data.affectedRows == 0) {
       winston.level = 'info';
       winston.log('info', 'Not found! Delete failed');
       return res.status(404).send(data);
