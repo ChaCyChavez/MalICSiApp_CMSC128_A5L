@@ -24,7 +24,7 @@
             emailadd: undefined,
             position: undefined,
             date: undefined,
-            is_player: 1,
+            is_player: undefined,
             player_jersey_num: 0,
             player_role: undefined
         }
@@ -56,10 +56,15 @@
         }
 
         $scope.register = () => {
+            let isplayer = $("#is_player").is(":checked");
             let e = document.getElementById("opt");
             let strUser = e.options[e.selectedIndex].value;
             $scope.data.date = $('.datepicker').val();
             $scope.data.college = strUser;
+            if (isplayer)
+                $scope.data.is_player = 1;
+            else
+                $scope.data.is_player = 0;
             if ($scope.data.username === undefined ||
                 $scope.data.username === '' ||
                 $scope.data.password === undefined ||

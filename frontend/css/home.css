@@ -200,6 +200,12 @@ a#spon {
     padding-top: 12px;
 }
 
+#isp {
+    margin: auto;
+    width: 40%;
+    padding: 10px;
+}
+
 a#spon:hover, a.tab:hover {
     background: #fafaff;
     color: #0097a7 !important;
