@@ -12,20 +12,20 @@
     </div>
 
     <ul id='dropdown1' class='dropdown-content'>
-      <li><div class="container teal center-align" id="upper">
-          <img class="circle profpic" src="img/placeholder.png">
-          </div>
-      </li>
-      <li><div class="container" id="lower">
-        <h5 class="center-align valign">Juan Dela Cruz</h5>
-        <p class="center-align valign">2014-01234</p>
-      </div></li>
-      <li><a href="javascript:void(0)" class="view-dd"><p class="center-align valign" ng-click="view_profile()">VIEW PROFILE</p></a></li>
-      <li><a href="javascript:void(0)" class="view-dd"><p class="center-align valign" ng-click="view_user()">VIEW USER</p></a></li>
-      <li><a href="javascript:void(0)"><p class="right-align valign red-text" ng-click="logout()">X logout</p></a></li>
-    </ul>
+    <li><div class="container teal center-align" id="upper">
+        <img class="circle profpic" src="img/placeholder.png">
+        </div>
+    </li>
+    <li><div class="container" id="lower">
+      <h5 class="center-align valign">Juan Dela Cruz</h5>
+      <p class="center-align valign">2014-01234</p>
+    </div></li>
+    <li><a href="javascript:void(0)" class="view-dd" ng-click="view_profile()"><p class="center-align valign">VIEW PROFILE</p></a></li>
+    <li><a href="javascript:void(0)" class="view-dd" ng-click="view_user()"><p class="center-align valign">VIEW USER</p></a></li>
+    <li><a href="javascript:void(0)" ng-click="logout()"><p class="right-align valign red-text">X logout</p></a></li>
+  </ul>
 
-    <a class="btn-floating btn-large waves-effect waves-light teal accent-4 add-button" href="javascript:void(0)" data-target="modal7" modal><i class="material-icons">add</i></a>
+    <a class="btn-floating btn-large waves-effect waves-light teal accent-4 add-button" href="javascript:void(0)" data-target="modal7" modal><i class="fa fa-plus"></i></a>
 
     <br>
 
@@ -51,7 +51,7 @@
           </div>
           
           <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4">{{spon.sponsor_name}}<i class="material-icons right">close</i></span>
+            <span class="card-title grey-text text-darken-4">{{spon.sponsor_name}}<i class="right fa fa-remove" aria-hidden="true"></i></span>
             <p>{{spon.sponsor_desc}}</p>
             <div class="right">
               <a href="javascript:void(0)" class="teal lighten-2 modal-action modal-close waves-effect waves-green btn-flat" data-target="modal8" modal ng-click="init_edit_modal(spon.sponsor_id)">Edit</a>

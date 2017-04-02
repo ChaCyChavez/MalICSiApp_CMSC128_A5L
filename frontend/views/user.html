@@ -5,7 +5,7 @@
         <a href="javascript:void(0)" class="grey-text text-darken-4 center" id="logo" ng-click="back_to_home()">MalICSi</a>
         <ul id="nav-mobile" class="right">
           <li><div class="grey-text text-darken-4" id="hello">Welcome, Juan Dela Cruz</div></li>
-          <li><a href="javascript:void(0)" data-activates="dropdown1" class="teal dropdown-button" id="dr" dropdown><i class="material-icons center-align">perm_identity</i></a></li>
+          <li><a href="javascript:void(0)" data-activates="dropdown1" class="teal dropdown-button" id="dr" dropdown><i class="fa fa-user-circle fa-2x" aria-hidden="true"></i></a></li>
         </ul>
       </div>
     </nav>
@@ -20,338 +20,340 @@
       <h5 class="center-align valign">Juan Dela Cruz</h5>
       <p class="center-align valign">2014-01234</p>
     </div></li>
-    <li><a href="javascript:void(0)" class="view-dd"><p class="center-align valign" ng-click="view_profile()">VIEW PROFILE</p></a></li>
-    <li><a href="javascript:void(0)" class="view-dd"><p class="center-align valign" ng-click="view_user()">VIEW USER</p></a></li>
-    <li><a href="javascript:void(0)"><p class="right-align valign red-text" ng-click="logout()">X logout</p></a></li>
+    <li><a href="javascript:void(0)" class="view-dd" ng-click="view_profile()"><p class="center-align valign">VIEW PROFILE</p></a></li>
+    <li><a href="javascript:void(0)" class="view-dd" ng-click="view_user()"><p class="center-align valign">VIEW USER</p></a></li>
+    <li><a href="javascript:void(0)" ng-click="logout()"><p class="right-align valign red-text">X logout</p></a></li>
   </ul>
 
-  <h3 class="header">User</h3>
-  <h4 class="header">Pending User</h4>
-  <div class="carousel">
-    <div class="col s12 m3 carousel-item">
-      <div class="card small z-depth-3">
-        <div class="card-image">
-          <img src="img/sample-1.jpg">
-          <span class="card-title">Juan Dela Cruz</span>
-          <a href="javascript:void(0)" class="dropdown-button option" data-activates="user-menu"><i class="material-icons">menu</i></a>
-          <ul id="user-menu" class='dropdown-content'>
-            <li><a href="javascript:void(0)">edit</a></li>
-            <li class="divider"></li>
-            <li><a href="javascript:void(0)">remove</a></li>
-         </ul>
+  <div class="row contents">
+    <h3 class="header">User</h3>
+    <h4 class="header">Pending User</h4>
+    <div class="carousel">
+      <div class="col s12 m3 carousel-item">
+        <div class="card small z-depth-3">
+          <div class="card-image">
+            <img src="img/sample-1.jpg">
+            <span class="card-title">Juan Dela Cruz</span>
+            <a href="javascript:void(0)" class="dropdown-button option" data-activates="user-menu"><i class="fa fa-sort-down right fa-2x"></i></a>
+            <ul id="user-menu" class='dropdown-content'>
+              <li><a href="javascript:void(0)">edit</a></li>
+              <li class="divider"></li>
+              <li><a href="javascript:void(0)">remove</a></li>
+           </ul>
+          </div>
+          <div class="card-content c-contents">
+            <p class="stud-num">2014-12345</p>
+          </div>
+          <div class="card-action">
+            <a class="btn waves-light green " href="javascript:void(0)">Approve</a>
+          </div>
         </div>
-        <div class="card-content c-contents">
-          <p class="stud-num">2014-12345</p>
+      </div>
+      <div class="col s12 m3 carousel-item">
+        <div class="card small z-depth-3">
+          <div class="card-image">
+            <img src="img/sample-1.jpg">
+            <span class="card-title">Juan Dela Cruz</span>
+            <a href="javascript:void(0)" class="dropdown-button option" data-activates="user-menu1"><i class="fa fa-sort-down right fa-2x"></i></a>
+            <ul id="user-menu1" class='dropdown-content'>
+              <li><a href="javascript:void(0)">edit</a></li>
+              <li class="divider"></li>
+              <li><a href="javascript:void(0)">remove</a></li>
+           </ul>
+          </div>
+          <div class="card-content c-contents">
+            <p class="stud-num">2014-12345</p>
+          </div>
+          <div class="card-action">
+            <a class="btn waves-light green " href="javascript:void(0)">Approve</a>
+          </div>
         </div>
-        <div class="card-action">
-          <a class="btn waves-light green " href="javascript:void(0)">Approve</a>
+      </div>
+      <div class="col s12 m3 carousel-item">
+        <div class="card small z-depth-3">
+          <div class="card-image">
+            <img src="img/sample-1.jpg">
+            <span class="card-title">Juan Dela Cruz</span>
+            <a href="javascript:void(0)" class="dropdown-button option" data-activates="user-menu2"><i class="fa fa-sort-down right fa-2x"></i></a>
+            <ul id="user-menu2" class='dropdown-content'>
+              <li><a href="javascript:void(0)">edit</a></li>
+              <li class="divider"></li>
+              <li><a href="javascript:void(0)">remove</a></li>
+           </ul>
+          </div>
+          <div class="card-content c-contents">
+            <p class="stud-num">2014-12345</p>
+          </div>
+          <div class="card-action">
+            <a class="btn waves-light green " href="javascript:void(0)">Approve</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col s10 m3 carousel-item">
+        <div class="card small z-depth-3">
+          <div class="card-image">
+            <img src="img/sample-1.jpg">
+            <span class="card-title">Juan Dela Cruz</span>
+            <a href="javascript:void(0)" class="dropdown-button option" data-activates="user-menu3"><i class="fa fa-sort-down right fa-2x"></i></a>
+            <ul id="user-menu3" class='dropdown-content'>
+              <li><a href="javascript:void(0)">edit</a></li>
+              <li class="divider"></li>
+              <li><a href="javascript:void(0)">remove</a></li>
+           </ul>
+          </div>
+          <div class="card-content c-contents">
+            <p class="stud-num">2014-12345</p>
+          </div>
+          <div class="card-action">
+            <a class="btn waves-light green " href="javascript:void(0)">Approve</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col s10 m3 carousel-item">
+        <div class="card small z-depth-3">
+          <div class="card-image">
+            <img src="img/sample-1.jpg">
+            <span class="card-title">Juan Dela Cruz</span>
+            <a href="javascript:void(0)" class="dropdown-button option" data-activates="user-menu4"><i class="fa fa-sort-down right fa-2x"></i></a>
+            <ul id="user-menu4" class='dropdown-content'>
+              <li><a href="javascript:void(0)">edit</a></li>
+              <li class="divider"></li>
+              <li><a href="javascript:void(0)">remove</a></li>
+           </ul>
+          </div>
+          <div class="card-content c-contents">
+            <p class="stud-num">2014-12345</p>
+          </div>
+          <div class="card-action">
+            <a class="btn waves-light green " href="javascript:void(0)">Approve</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col s10 m3 carousel-item">
+        <div class="card small z-depth-3">
+          <div class="card-image">
+            <img src="img/sample-1.jpg">
+            <span class="card-title">Juan Dela Cruz</span>
+            <a href="javascript:void(0)" class="dropdown-button option" data-activates="user-menu5"><i class="fa fa-sort-down right fa-2x"></i></a>
+            <ul id="user-menu5" class='dropdown-content'>
+              <li><a href="javascript:void(0)">edit</a></li>
+              <li class="divider"></li>
+              <li><a href="javascript:void(0)">remove</a></li>
+           </ul>
+          </div>
+          <div class="card-content c-contents">
+            <p class="stud-num">2014-12345</p>
+          </div>
+          <div class="card-action">
+            <a class="btn waves-light green " href="javascript:void(0)">Approve</a>
+          </div>
+        </div>
+      </div>
+      <div class="col s10 m3 carousel-item">
+        <div class="card small z-depth-3">
+          <div class="card-image">
+            <img src="img/sample-1.jpg">
+            <span class="card-title">Juan Dela Cruz</span>
+            <a href="javascript:void(0)" class="dropdown-button option" data-activates="user-menu6"><i class="fa fa-sort-down right fa-2x"></i></a>
+            <ul id="user-menu6" class='dropdown-content'>
+              <li><a href="javascript:void(0)">edit</a></li>
+              <li class="divider"></li>
+              <li><a href="javascript:void(0)">remove</a></li>
+           </ul>
+          </div>
+          <div class="card-content c-contents">
+            <p class="stud-num">2014-12345</p>
+          </div>
+          <div class="card-action">
+            <a class="btn waves-light green " href="javascript:void(0)">Approve</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col s10 m3 carousel-item">
+        <div class="card small z-depth-3">
+          <div class="card-image">
+            <img src="img/sample-1.jpg">
+            <span class="card-title">Juan Dela Cruz</span>
+            <a href="javascript:void(0)" class="dropdown-button option" data-activates="user-menu7"><i class="fa fa-sort-down right fa-2x"></i></a>
+            <ul id="user-menu7" class='dropdown-content'>
+              <li><a href="javascript:void(0)">edit</a></li>
+              <li class="divider"></li>
+              <li><a href="javascript:void(0)">remove</a></li>
+           </ul>
+          </div>
+          <div class="card-content c-contents">
+            <p class="stud-num">2014-12345</p>
+          </div>
+          <div class="card-action">
+            <a class="btn waves-light green " href="javascript:void(0)">Approve</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col s10 m3 carousel-item">
+        <div class="card small z-depth-3">
+          <div class="card-image">
+            <img src="img/sample-1.jpg">
+            <span class="card-title">Juan Dela Cruz</span>
+            <a href="javascript:void(0)" class="dropdown-button option" data-activates="user-menu8"><i class="fa fa-sort-down right fa-2x"></i></a>
+            <ul id="user-menu8" class='dropdown-content'>
+              <li><a href="javascript:void(0)">edit</a></li>
+              <li class="divider"></li>
+              <li><a href="javascript:void(0)">remove</a></li>
+           </ul>
+          </div>
+          <div class="card-content c-contents">
+            <p class="stud-num">2014-12345</p>
+          </div>
+          <div class="card-action">
+            <a class="btn waves-light green " href="javascript:void(0)">Approve</a>
+          </div>
         </div>
       </div>
     </div>
-    <div class="col s12 m3 carousel-item">
-      <div class="card small z-depth-3">
-        <div class="card-image">
-          <img src="img/sample-1.jpg">
-          <span class="card-title">Juan Dela Cruz</span>
-          <a href="javascript:void(0)" class="dropdown-button option" data-activates="user-menu1"><i class="material-icons">menu</i></a>
-          <ul id="user-menu1" class='dropdown-content'>
-            <li><a href="javascript:void(0)">edit</a></li>
-            <li class="divider"></li>
-            <li><a href="javascript:void(0)">remove</a></li>
-         </ul>
+        
+    <h4 class="header">Regular Users</h4>
+    <div class="row">
+      <form class="col s7 right">
+        <div class="row">
+          <div class="input-field col s7 right" id = "search">
+            <i class="fa fa-search prefix"></i>
+            <input id="icon_prefix" type="text" class="validate">
+            <label for="icon_prefix">Search games</label>
+          </div>
         </div>
-        <div class="card-content c-contents">
-          <p class="stud-num">2014-12345</p>
-        </div>
-        <div class="card-action">
-          <a class="btn waves-light green " href="javascript:void(0)">Approve</a>
-        </div>
-      </div>
-    </div>
-    <div class="col s12 m3 carousel-item">
-      <div class="card small z-depth-3">
-        <div class="card-image">
-          <img src="img/sample-1.jpg">
-          <span class="card-title">Juan Dela Cruz</span>
-          <a href="javascript:void(0)" class="dropdown-button option" data-activates="user-menu2"><i class="material-icons">menu</i></a>
-          <ul id="user-menu2" class='dropdown-content'>
-            <li><a href="javascript:void(0)">edit</a></li>
-            <li class="divider"></li>
-            <li><a href="javascript:void(0)">remove</a></li>
-         </ul>
-        </div>
-        <div class="card-content c-contents">
-          <p class="stud-num">2014-12345</p>
-        </div>
-        <div class="card-action">
-          <a class="btn waves-light green " href="javascript:void(0)">Approve</a>
-        </div>
-      </div>
+      </form>
     </div>
 
-    <div class="col s10 m3 carousel-item">
-      <div class="card small z-depth-3">
-        <div class="card-image">
-          <img src="img/sample-1.jpg">
-          <span class="card-title">Juan Dela Cruz</span>
-          <a href="javascript:void(0)" class="dropdown-button option" data-activates="user-menu3"><i class="material-icons">menu</i></a>
-          <ul id="user-menu3" class='dropdown-content'>
-            <li><a href="javascript:void(0)">edit</a></li>
-            <li class="divider"></li>
-            <li><a href="javascript:void(0)">remove</a></li>
-         </ul>
-        </div>
-        <div class="card-content c-contents">
-          <p class="stud-num">2014-12345</p>
-        </div>
-        <div class="card-action">
-          <a class="btn waves-light green " href="javascript:void(0)">Approve</a>
+    <div class="carousel" ng-init="get_accounts()">
+      <div class="col s12 m3 carousel-item" ng-repeat="account in accounts">
+        <div class="card small z-depth-3">
+          <div class="card-image">
+            <img src="img/sample-1.jpg">
+            <span class="card-title">{{account.firstname}} {{account.middlename}} {{account.lastname}}</span>
+            <a href="javascript:void(0)" class="dropdown-button option" data-activates="user-menu10"><i class="fa fa-sort-down right fa-2x"></i></a>
+            <ul id="user-menu10" class='dropdown-content'>
+              <li><a href="javascript:void(0)">edit</a></li>
+              <li class="divider"></li>
+              <li><a href="javascript:void(0)">remove</a></li>
+           </ul>
+          </div>
+          <div class="card-content c-contents">
+            <p class="stud-num">2014-12345</p>
+          </div>
+          <div class="card-action">
+            <a class="btn waves-light blue " href="javascript:void(0)">View</a>
+          </div>
         </div>
       </div>
-    </div>
+      <!-- <div class="col s10 m3 carousel-item">
+        <div class="card small z-depth-3">
+          <div class="card-image">
+            <img src="img/sample-1.jpg">
+            <span class="card-title">Juan Dela Cruz</span>
+            <a href="javascript:void(0)" class="dropdown-button option" data-activates="user-menu13"><i class="fa fa-sort-down right fa-2x"></i></a>
+            <ul id="user-menu13" class='dropdown-content'>
+              <li><a href="javascript:void(0)">edit</a></li>
+              <li class="divider"></li>
+              <li><a href="javascript:void(0)">remove</a></li>
+           </ul>
+          </div>
+          <div class="card-content c-contents">
+            <p class="stud-num">2014-12345</p>
+          </div>
+          <div class="card-action">
+            <a class="btn waves-light blue " href="javascript:void(0)">View</a>
+          </div>
+        </div>
+      </div>
 
-    <div class="col s10 m3 carousel-item">
-      <div class="card small z-depth-3">
-        <div class="card-image">
-          <img src="img/sample-1.jpg">
-          <span class="card-title">Juan Dela Cruz</span>
-          <a href="javascript:void(0)" class="dropdown-button option" data-activates="user-menu4"><i class="material-icons">menu</i></a>
-          <ul id="user-menu4" class='dropdown-content'>
-            <li><a href="javascript:void(0)">edit</a></li>
-            <li class="divider"></li>
-            <li><a href="javascript:void(0)">remove</a></li>
-         </ul>
-        </div>
-        <div class="card-content c-contents">
-          <p class="stud-num">2014-12345</p>
-        </div>
-        <div class="card-action">
-          <a class="btn waves-light green " href="javascript:void(0)">Approve</a>
+      <div class="col s10 m3 carousel-item">
+        <div class="card small z-depth-3">
+          <div class="card-image">
+            <img src="img/sample-1.jpg">
+            <span class="card-title">Juan Dela Cruz</span>
+            <a href="javascript:void(0)" class="dropdown-button option" data-activates="user-menu15"><i class="fa fa-sort-down right fa-2x"></i></a>
+            <ul id="user-menu15" class='dropdown-content'>
+              <li><a href="javascript:void(0)">edit</a></li>
+              <li class="divider"></li>
+              <li><a href="javascript:void(0)">remove</a></li>
+           </ul>
+          </div>
+          <div class="card-content c-contents">
+            <p class="stud-num">2014-12345</p>
+          </div>
+          <div class="card-action">
+            <a class="btn waves-light blue " href="javascript:void(0)">View</a>
+          </div>
         </div>
       </div>
-    </div>
+      <div class="col s10 m3 carousel-item">
+        <div class="card small z-depth-3">
+          <div class="card-image">
+            <img src="img/sample-1.jpg">
+            <span class="card-title">Juan Dela Cruz</span>
+            <a href="javascript:void(0)" class="dropdown-button option" data-activates="user-menu16"><i class="fa fa-sort-down right fa-2x"></i></a>
+            <ul id="user-menu16" class='dropdown-content'>
+              <li><a href="javascript:void(0)">edit</a></li>
+              <li class="divider"></li>
+              <li><a href="javascript:void(0)">remove</a></li>
+           </ul>
+          </div>
+          <div class="card-content c-contents">
+            <p class="stud-num">2014-12345</p>
+          </div>
+          <div class="card-action">
+            <a class="btn waves-light blue " href="javascript:void(0)">View</a>
+          </div>
+        </div>
+      </div>
 
-    <div class="col s10 m3 carousel-item">
-      <div class="card small z-depth-3">
-        <div class="card-image">
-          <img src="img/sample-1.jpg">
-          <span class="card-title">Juan Dela Cruz</span>
-          <a href="javascript:void(0)" class="dropdown-button option" data-activates="user-menu5"><i class="material-icons">menu</i></a>
-          <ul id="user-menu5" class='dropdown-content'>
-            <li><a href="javascript:void(0)">edit</a></li>
-            <li class="divider"></li>
-            <li><a href="javascript:void(0)">remove</a></li>
-         </ul>
-        </div>
-        <div class="card-content c-contents">
-          <p class="stud-num">2014-12345</p>
-        </div>
-        <div class="card-action">
-          <a class="btn waves-light green " href="javascript:void(0)">Approve</a>
-        </div>
-      </div>
-    </div>
-    <div class="col s10 m3 carousel-item">
-      <div class="card small z-depth-3">
-        <div class="card-image">
-          <img src="img/sample-1.jpg">
-          <span class="card-title">Juan Dela Cruz</span>
-          <a href="javascript:void(0)" class="dropdown-button option" data-activates="user-menu6"><i class="material-icons">menu</i></a>
-          <ul id="user-menu6" class='dropdown-content'>
-            <li><a href="javascript:void(0)">edit</a></li>
-            <li class="divider"></li>
-            <li><a href="javascript:void(0)">remove</a></li>
-         </ul>
-        </div>
-        <div class="card-content c-contents">
-          <p class="stud-num">2014-12345</p>
-        </div>
-        <div class="card-action">
-          <a class="btn waves-light green " href="javascript:void(0)">Approve</a>
+      <div class="col s10 m3 carousel-item">
+        <div class="card small z-depth-3">
+          <div class="card-image">
+            <img src="img/sample-1.jpg">
+            <span class="card-title">Juan Dela Cruz</span>
+            <a href="javascript:void(0)" class="dropdown-button option" data-activates="user-menu17"><i class="fa fa-sort-down right fa-2x"></i></a>
+            <ul id="user-menu17" class='dropdown-content'>
+              <li><a href="javascript:void(0)">edit</a></li>
+              <li class="divider"></li>
+              <li><a href="javascript:void(0)">remove</a></li>
+           </ul>
+          </div>
+          <div class="card-content c-contents">
+            <p class="stud-num">2014-12345</p>
+          </div>
+          <div class="card-action">
+            <a class="btn waves-light blue " href="javascript:void(0)">View</a>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="col s10 m3 carousel-item">
-      <div class="card small z-depth-3">
-        <div class="card-image">
-          <img src="img/sample-1.jpg">
-          <span class="card-title">Juan Dela Cruz</span>
-          <a href="javascript:void(0)" class="dropdown-button option" data-activates="user-menu7"><i class="material-icons">menu</i></a>
-          <ul id="user-menu7" class='dropdown-content'>
-            <li><a href="javascript:void(0)">edit</a></li>
-            <li class="divider"></li>
-            <li><a href="javascript:void(0)">remove</a></li>
-         </ul>
+      <div class="col s10 m3 carousel-item">
+        <div class="card small z-depth-3">
+          <div class="card-image">
+            <img src="img/sample-1.jpg">
+            <span class="card-title">Juan Dela Cruz</span>
+            <a href="javascript:void(0)" class="dropdown-button option" data-activates="user-menu18"><i class="fa fa-sort-down right fa-2x"></i></a>
+            <ul id="user-menu18" class='dropdown-content'>
+              <li><a href="javascript:void(0)">edit</a></li>
+              <li class="divider"></li>
+              <li><a href="javascript:void(0)">remove</a></li>
+           </ul>
+          </div>
+          <div class="card-content c-contents">
+            <p class="stud-num">2014-12345</p>
+          </div>
+          <div class="card-action">
+            <a class="btn waves-light blue " href="javascript:void(0)">View</a>
+          </div>
         </div>
-        <div class="card-content c-contents">
-          <p class="stud-num">2014-12345</p>
-        </div>
-        <div class="card-action">
-          <a class="btn waves-light green " href="javascript:void(0)">Approve</a>
-        </div>
-      </div>
+      </div> -->
     </div>
-
-    <div class="col s10 m3 carousel-item">
-      <div class="card small z-depth-3">
-        <div class="card-image">
-          <img src="img/sample-1.jpg">
-          <span class="card-title">Juan Dela Cruz</span>
-          <a href="javascript:void(0)" class="dropdown-button option" data-activates="user-menu8"><i class="material-icons">menu</i></a>
-          <ul id="user-menu8" class='dropdown-content'>
-            <li><a href="javascript:void(0)">edit</a></li>
-            <li class="divider"></li>
-            <li><a href="javascript:void(0)">remove</a></li>
-         </ul>
-        </div>
-        <div class="card-content c-contents">
-          <p class="stud-num">2014-12345</p>
-        </div>
-        <div class="card-action">
-          <a class="btn waves-light green " href="javascript:void(0)">Approve</a>
-        </div>
-      </div>
-    </div>
-  </div>
-      
-  <h4 class="header">Regular Users</h4>
-  <div class="row">
-    <form class="col s6 right">
-      <div class="row">
-        <div class="input-field col s6 right" id = "search">
-          <i class="material-icons prefix">search</i>
-          <input id="icon_prefix" type="text" class="validate">
-          <label for="icon_prefix">Search games</label>
-        </div>
-      </div>
-    </form>
-  </div>
-
-  <div class="carousel" ng-init="get_accounts()">
-    <div class="col s12 m3 carousel-item" ng-repeat="account in accounts">
-      <div class="card small z-depth-3">
-        <div class="card-image">
-          <img src="img/sample-1.jpg">
-          <span class="card-title">{{account.firstname}} {{account.middlename}} {{account.lastname}}</span>
-          <a href="javascript:void(0)" class="dropdown-button option" data-activates="user-menu10"><i class="material-icons">menu</i></a>
-          <ul id="user-menu10" class='dropdown-content'>
-            <li><a href="javascript:void(0)">edit</a></li>
-            <li class="divider"></li>
-            <li><a href="javascript:void(0)">remove</a></li>
-         </ul>
-        </div>
-        <div class="card-content c-contents">
-          <p class="stud-num">2014-12345</p>
-        </div>
-        <div class="card-action">
-          <a class="btn waves-light blue " href="javascript:void(0)">View</a>
-        </div>
-      </div>
-    </div>
-    <!-- <div class="col s10 m3 carousel-item">
-      <div class="card small z-depth-3">
-        <div class="card-image">
-          <img src="img/sample-1.jpg">
-          <span class="card-title">Juan Dela Cruz</span>
-          <a href="javascript:void(0)" class="dropdown-button option" data-activates="user-menu13"><i class="material-icons">menu</i></a>
-          <ul id="user-menu13" class='dropdown-content'>
-            <li><a href="javascript:void(0)">edit</a></li>
-            <li class="divider"></li>
-            <li><a href="javascript:void(0)">remove</a></li>
-         </ul>
-        </div>
-        <div class="card-content c-contents">
-          <p class="stud-num">2014-12345</p>
-        </div>
-        <div class="card-action">
-          <a class="btn waves-light blue " href="javascript:void(0)">View</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col s10 m3 carousel-item">
-      <div class="card small z-depth-3">
-        <div class="card-image">
-          <img src="img/sample-1.jpg">
-          <span class="card-title">Juan Dela Cruz</span>
-          <a href="javascript:void(0)" class="dropdown-button option" data-activates="user-menu15"><i class="material-icons">menu</i></a>
-          <ul id="user-menu15" class='dropdown-content'>
-            <li><a href="javascript:void(0)">edit</a></li>
-            <li class="divider"></li>
-            <li><a href="javascript:void(0)">remove</a></li>
-         </ul>
-        </div>
-        <div class="card-content c-contents">
-          <p class="stud-num">2014-12345</p>
-        </div>
-        <div class="card-action">
-          <a class="btn waves-light blue " href="javascript:void(0)">View</a>
-        </div>
-      </div>
-    </div>
-    <div class="col s10 m3 carousel-item">
-      <div class="card small z-depth-3">
-        <div class="card-image">
-          <img src="img/sample-1.jpg">
-          <span class="card-title">Juan Dela Cruz</span>
-          <a href="javascript:void(0)" class="dropdown-button option" data-activates="user-menu16"><i class="material-icons">menu</i></a>
-          <ul id="user-menu16" class='dropdown-content'>
-            <li><a href="javascript:void(0)">edit</a></li>
-            <li class="divider"></li>
-            <li><a href="javascript:void(0)">remove</a></li>
-         </ul>
-        </div>
-        <div class="card-content c-contents">
-          <p class="stud-num">2014-12345</p>
-        </div>
-        <div class="card-action">
-          <a class="btn waves-light blue " href="javascript:void(0)">View</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col s10 m3 carousel-item">
-      <div class="card small z-depth-3">
-        <div class="card-image">
-          <img src="img/sample-1.jpg">
-          <span class="card-title">Juan Dela Cruz</span>
-          <a href="javascript:void(0)" class="dropdown-button option" data-activates="user-menu17"><i class="material-icons">menu</i></a>
-          <ul id="user-menu17" class='dropdown-content'>
-            <li><a href="javascript:void(0)">edit</a></li>
-            <li class="divider"></li>
-            <li><a href="javascript:void(0)">remove</a></li>
-         </ul>
-        </div>
-        <div class="card-content c-contents">
-          <p class="stud-num">2014-12345</p>
-        </div>
-        <div class="card-action">
-          <a class="btn waves-light blue " href="javascript:void(0)">View</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col s10 m3 carousel-item">
-      <div class="card small z-depth-3">
-        <div class="card-image">
-          <img src="img/sample-1.jpg">
-          <span class="card-title">Juan Dela Cruz</span>
-          <a href="javascript:void(0)" class="dropdown-button option" data-activates="user-menu18"><i class="material-icons">menu</i></a>
-          <ul id="user-menu18" class='dropdown-content'>
-            <li><a href="javascript:void(0)">edit</a></li>
-            <li class="divider"></li>
-            <li><a href="javascript:void(0)">remove</a></li>
-         </ul>
-        </div>
-        <div class="card-content c-contents">
-          <p class="stud-num">2014-12345</p>
-        </div>
-        <div class="card-action">
-          <a class="btn waves-light blue " href="javascript:void(0)">View</a>
-        </div>
-      </div>
-    </div> -->
   </div>
 </div>
 
@@ -364,7 +366,7 @@
         hover: false, // Activate on hover
         gutter: 0, // Spacing from edge
         belowOrigin: true, // Displays dropdown below the button
-        alignment: 'right', // Displays dropdown with edge aligned to the left of button
+        alignment: 'left', // Displays dropdown with edge aligned to the left of button
         stopPropagation: false // Stops event propagation
       }
     );

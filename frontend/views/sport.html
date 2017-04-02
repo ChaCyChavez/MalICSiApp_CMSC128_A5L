@@ -6,7 +6,7 @@
         <a href="javascript:void(0)" class="grey-text text-darken-4 center" id="logo" ng-click="back_to_home()">MalICSi</a>
         <ul id="nav-mobile" class="right">
           <li><div class="grey-text text-darken-4" id="hello">Welcome, Juan Dela Cruz</div></li>
-          <li><a href="javascript:void(0)" data-activates="dropdown1" class="teal dropdown-button" id="dr" dropdown><i class="material-icons center-align">perm_identity</i></a></li>
+          <li><a href="javascript:void(0)" data-activates="dropdown1" class="teal dropdown-button" id="dr" dropdown><i class="fa fa-user-circle fa-2x" aria-hidden="true"></i></a></li>
         </ul>
       </div>
     </nav>
@@ -21,12 +21,13 @@
       <h5 class="center-align valign">Juan Dela Cruz</h5>
       <p class="center-align valign">2014-01234</p>
     </div></li>
-    <li><a href="javascript:void(0)" class="view-dd"><p class="center-align valign" ng-click="view_profile()">VIEW PROFILE</p></a></li>
-    <li><a href="javascript:void(0)" class="view-dd"><p class="center-align valign" ng-click="view_user()">VIEW USER</p></a></li>
-    <li><a href="javascript:void(0)"><p class="right-align valign red-text" ng-click="logout()">X logout</p></a></li>
+    <li><a href="javascript:void(0)" class="view-dd" ng-click="view_profile()"><p class="center-align valign">VIEW PROFILE</p></a></li>
+    <li><a href="javascript:void(0)" class="view-dd" ng-click="view_user()"><p class="center-align valign">VIEW USER</p></a></li>
+    <li><a href="javascript:void(0)" ng-click="logout()"><p class="right-align valign red-text">X logout</p></a></li>
   </ul>
   
   <div class="row contents" id="sport-content">
+    <h3 class="header">Sport</h3>
     <div class="col s0 m0 l1">&nbsp</div>
     <div class="col s12 m0">
       <!-- List of Participants -->
@@ -65,7 +66,7 @@
               </ul>
             </li>
           </ul>
-          <a href="javascript:void(0)" class="btn-medium right" ng-click="view_participant()">view full list</a>
+          <a href="javascript:void(0)" class="right" id="vfl" ng-click="view_participant()">view full list</a>
         </div>
       </div>
       <!-- Schedule of Matches -->
@@ -86,7 +87,7 @@
                 <div class="match-court">
                   COURT : Court 1
                 </div>
-                <a href="javascript:void(0)" class="btn blue" ng-click="view_match()">View Match</a>
+                <a href="javascript:void(0)" class="blue-text view-match" ng-click="view_match()">View Match</a>
               </div>
               <div class="collection-item">
                 <div class="match-competing-teams">
@@ -100,7 +101,7 @@
                 <div class="match-court">
                   COURT : Court 1
                 </div>
-                <a href="javascript:void(0)" class="btn blue" ng-click="view_match()">View Match</a>
+                <a href="javascript:void(0)" class="blue-text view-match" ng-click="view_match()">View Match</a>
               </div>
               <div class="collection-item">
                 <div class="match-competing-teams">
@@ -114,7 +115,7 @@
                 <div class="match-court">
                   COURT : Court 1
                 </div>
-                <a href="javascript:void(0)" class="btn blue" ng-click="view_match()">View Match</a>
+                <a href="javascript:void(0)" class="blue-text view-match" ng-click="view_match()">View Match</a>
               </div>
             </div>
           </div>
