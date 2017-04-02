@@ -161,11 +161,11 @@ exports.get_account = (req, res, next) => {
       return res.status(500).send({ error_code:err.code});
     } else if (data[0].length == 0) {
       winston.level = 'info';
-      winston.log('info', 'No account retrieved with account_id ', req.params.account_id);
+      winston.log('info', 'No account retrieved with account_id:', req.params.account_id);
       return res.status(200).send(data);
     } else {
       winston.level = 'info';
-      winston.log('info', 'Successfully retrieved account!');
+      winston.log('info', 'Successfully retrieved with account_id:', req.params.account_id);
       return res.status(200).send(data);
     }
  };
