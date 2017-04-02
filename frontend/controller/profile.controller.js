@@ -11,8 +11,9 @@
         ProfileService
             .get_profile($routeParams.account_id)
                 .then((data) => {
-                console.log(data);
-                $scope.profile = data[0][0];
+                if (data[0].length != 0) {
+                    $scope.profile = data[0][0];
+                }
             });
 
         ProfileService

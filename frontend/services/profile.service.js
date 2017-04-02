@@ -12,12 +12,12 @@
 		};
 
 		function ProfileService($window, $http, $q) {
-			const get_profile = (username) => {
+			const get_profile = (account_id) => {
 				let deferred = $q.defer();
 
 				$http({
 					method: 'GET',
-					url: '/api/get-account/' + username,
+					url: '/api/get-account/' + account_id,
 					headers: headers
 				})
 				.then(function(res) {
