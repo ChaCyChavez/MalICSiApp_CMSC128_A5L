@@ -1,41 +1,4 @@
-
 <div ng-controller="game-event-controller">
-  <div class="navbar-fixed">
-    <nav>
-      <div class="nav-wrapper">
-        <a href="javascript:void(0)" class="grey-text text-darken-4 center" id="logo" ng-click="back_to_home()">MalICSi</a>
-        <ul id="nav-mobile" class="right">
-          <li><div class="grey-text text-darken-4" id="hello">Welcome, {{profile.username}}</div></li>
-          <li><a href="javascript:void(0)" data-activates="dropdown1" class="teal dropdown-button" id="dr" dropdown><i class="fa fa-reorder fa-2x" aria-hidden="true"></i></a></li>
-        </ul>
-      </div>
-    </nav>
-    <ul id='dropdown1' class='dropdown-content'>
-      <li>
-        <div class="container blue center-align" id="upper">
-          <i class="fa fa-user-circle fa-5x white-text"></i>
-        </div>
-      </li>
-      <li>
-        <a href="javascript:void(0)" class="view-dd" ng-click="view_profile()">
-          <p class="center-align valign">VIEW PROFILE</p>
-        </a>
-      </li>
-      <li>
-        <a href="javascript:void(0)" class="view-dd" ng-click="view_user()">
-          <p class="center-align valign">VIEW USER</p>
-        </a>
-      </li>
-      <li class="divider">
-      </li>
-      <li>
-        <a href="javascript:void(0)" class="logout-btn" ng-click="logout()">
-          <p class="center-align valign">x logout</p>
-        </a>
-      </li>
-    </ul>
-  </div>
-
   <!-- button for adding new game-->
   <a class="btn-floating btn-large waves-effect waves-light blue accent-4 add-button" href="javascript:void(0)" data-target="modal2" modal><i class="fa fa-plus"></i></a>
 
