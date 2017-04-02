@@ -5,7 +5,7 @@
       <div class="nav-wrapper">
         <a href="javascript:void(0)" class="grey-text text-darken-4 center" id="logo" ng-click="back_to_home()">MalICSi</a>
         <ul id="nav-mobile" class="right">
-          <li><div class="grey-text text-darken-4" id="hello">{{ profile.firstname + " " + profile.middlename + " " + profile.lastname}}</div></li>
+          <li><div class="grey-text text-darken-4" id="hello">Welcome, {{ profile.firstname}}</div></li>
           <li><a href="javascript:void(0)" data-activates="dropdown1" class="teal dropdown-button" id="dr" dropdown><i class="fa fa-reorder fa-2x" aria-hidden="true"></i></a></li>
         </ul>
       </div>
@@ -61,48 +61,31 @@
                 <h5>{{ profile.player_role }}</h5>
                 <h5>{{ profile.position }}</h5>
               </div>
-            <!-- </div> -->
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="col s12 m12 l6 xl6">
-        <div class="card">
-          <div class="card-content">
-            <h3 class="teal-text text-lighten-1">UPCOMING EVENTS</h3>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
+        <div class="col s12 m12 l6 xl6">
+          <div class="card">
+            <div class="card-content">
+              <h3 class="teal-text text-lighten-1">UPCOMING EVENTS</h3>
+              <h5 ng-repeat="user_upcoming_event in user_upcoming_events">{{ "Game name: "+ user_upcoming_event.game_name +" Game Staring date and time"+ user_upcoming_event.game_starting_time_date +" Game Ending date and time"+ user_upcoming_event.game_ending_time_date }}</h5>
+              <br>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-content">
+              <h3 class="teal-text text-lighten-1">EVENTS PLAYED</h3>
+              <div ng-repeat="user_past_event in user_past_events">
+                <h5>{{ "Game name: "+ user_past_event.game_name }}</h5>
+                <h5>{{ " Game Staring date and time: "+ user_past_event.game_starting_time_date }}</h5>
+                <h5>{{ " Game Ending date and time: "+ user_past_event.game_ending_time_date }}</h5>
+                <br>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="card">
-          <div class="card-content">
-            <h3 class="teal-text text-lighten-1">EVENTS PLAYED</h3>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-          </div>
-        </div>
-      </div>
+    </div>
   </div>
 </div>
 

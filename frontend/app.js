@@ -10,7 +10,7 @@ mainApp.config(function($routeProvider) {
 			templateUrl: 'views/game_event.html',
 			controller: "game-event-controller"
 		})
-		.when('/profile/:username?', {
+		.when('/profile/:account_id', {
 			templateUrl: 'views/profile.html',
 			controller: 'profile-controller'
 		})
@@ -22,7 +22,7 @@ mainApp.config(function($routeProvider) {
 			templateUrl: 'views/registered_user.html',
 			controller: 'registered-user-controller'
 		})
-		.when('/sponsor/:game_id?', {
+		.when('/sponsor/:game_id', {
 			templateUrl: 'views/sponsor.html',
 			controller: 'sponsor-controller'
 		})

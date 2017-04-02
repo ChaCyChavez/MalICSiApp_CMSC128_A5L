@@ -159,10 +159,10 @@ exports.get_account = (req, res, next) => {
       winston.level = 'debug';
       winston.log('debug', 'err: ', err);
       return res.status(500).send({ error_code:err.code});
-    } else if (data.length == 0) {
+    } else if (data[0].length == 0) {
       winston.level = 'info';
-      winston.log('info', 'Not found!');
-      return res.status(404).send(data);
+      winston.log('info', 'No account retrieved with username ', req.params.username);
+      return res.status(200).send(data);
     } else {
       winston.level = 'info';
       winston.log('info', 'Successfully retrieved account!');
@@ -183,7 +183,6 @@ exports.get_all_account = (req, res, next) => {
       winston.log('debug', 'err: ', err);
       return res.status(500).send({ error_code:err.code});
     } else if (data[0].length == 0) {
-	  console.log(data);
       winston.level = 'info';
       winston.log('info', 'Empty');
       return res.status(404).send({ message: 'Empty! Retrieve failed'});
