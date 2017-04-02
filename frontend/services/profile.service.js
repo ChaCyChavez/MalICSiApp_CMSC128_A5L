@@ -5,13 +5,13 @@
 		.module('app')
 		.factory('ProfileService', ProfileService);
 
-		ProfileService.$inject = ['$window', '$http', '$q'];
+		ProfileService.$inject = ['$window', '$http', '$q', '$httpParamSerializer'];
 
 		const headers = {
 			'content-type': 'application/x-www-form-urlencoded'
 		};
 
-		function ProfileService($window, $http, $q) {
+		function ProfileService($window, $http, $q, $httpParamSerializer) {
 			const get_profile = () => {
 				let deferred = $q.defer();
 
@@ -19,7 +19,6 @@
 					method: 'GET',
 					xhrFields: {withCredentials: false},
 					url: '/api/get-account/',
-					headers: headers
 				})
 				.then(function(res) {
 					deferred.resolve(res.data);
@@ -53,7 +52,6 @@
 					method: 'GET',
 					xhrFields: {withCredentials: false},
 					url: '/api/get-user-past-events/',
-					headers: headers
 				})
 				.then(function(res) {
 					deferred.resolve(res.data);

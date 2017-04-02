@@ -5,9 +5,9 @@
         .module('app')
         .controller('game-event-controller', game_event_controller);
 
-    game_event_controller.$inject = ['$scope', '$location', 'GameEventService'];
+    game_event_controller.$inject = ['$scope', '$location', 'GameEventService', 'ProfileService'];
 
-    function game_event_controller($scope, $location, GameEventService) {
+    function game_event_controller($scope, $location, GameEventService, ProfileService) {
 		// fetching is being implemented by other group member
 		$scope.current_games = [
 		{

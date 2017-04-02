@@ -5,13 +5,13 @@
 		.module('app')
 		.factory('TeamService', TeamService);
 
-		// TeamService.$inject = ['$window', '$http', '$q'];
+		TeamService.$inject = ['$window', '$http', '$q', '$httpParamSerializer'];
 
 		const headers = {
 		    'content-type': 'application/x-www-form-urlencoded'
 		};
 
-		function TeamService($http, $q, $window) {
+		function TeamService($http, $q, $window, $httpParamSerializer) {
 
 			const get_all_account = (data) => {
 				let deferred = $q.defer();

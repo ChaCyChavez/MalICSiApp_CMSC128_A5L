@@ -5,17 +5,17 @@
 		.module('app')
 		.factory('UserService', UserService);
 
-		UserService.$inject = ['$window', '$http', '$q'];
+		UserService.$inject = ['$window', '$http', '$q', '$httpParamSerializer'];
 
 		const headers = {
 			'content-type': 'application/x-www-form-urlencoded'
 		};
 
-		function UserService($window, $http, $q) {
+		function UserService($window, $http, $q, $httpParamSerializer) {
 
 			const get_all_account = () => {
 				let deferred = $q.defer();
-				
+
 				$http({
 					method: 'GET',
 					url: '/api/get-all-account/',

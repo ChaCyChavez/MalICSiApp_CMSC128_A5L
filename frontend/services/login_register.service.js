@@ -5,19 +5,20 @@
 		.module('app')
 		.factory('LoginRegisterService', LoginRegisterService);
 
-		LoginRegisterService.$inject = ['$window', '$http', '$q'];
+		LoginRegisterService.$inject = ['$window', '$http', '$q', '$httpParamSerializer'];
 
 		const headers = {
 			'content-type': 'application/x-www-form-urlencoded'
 		};
 
-		function LoginRegisterService($window, $http, $q) {
+		function LoginRegisterService($window, $http, $q, $httpParamSerializer) {
 
 			const retrieve_account = function (data) {
 				let deferred = $q.defer();
+
 				$http({
 					method: 'POST',
-					params: data,
+					data: $httpParamSerializer(data),
 					xhrFields: {withCredentials: false},
 					url: '/api/login-account/',
 					headers: headers
@@ -34,10 +35,10 @@
 
 			const register_account = function (data) {
 				let deferred = $q.defer();
-				console.log(data);
+
 				$http({
 					method: 'POST',
-					params: data,
+					data: $httpParamSerializer(data),
 					xhrFields: {withCredentials: false},
 					url: '/api/add-account/',
 					headers: headers
@@ -51,10 +52,9 @@
 				return deferred.promise;
 			}
 
-
 			let service = {};
-			service.retrieve_account 				= retrieve_account;
-			service.register_account 				= register_account;
+			service.retrieve_account = retrieve_account;
+			service.register_account = register_account;
 			return service;
 		}
 })();

@@ -17,7 +17,7 @@ CREATE TABLE account (
     course              varchar(256) NOT NULL,
     birthday            date NOT NULL,
     college             enum('CA','CAS','CDC','CEAT','CEM','CFNR','CHE','CPAf','CVM','SESAM','GS') NOT NULL,
-    is_approved         boolean DEFAULT false, 
+    is_approved         boolean DEFAULT false,
     is_game_head        boolean DEFAULT false,
     position            varchar(256) DEFAULT NULL,
     is_player           boolean DEFAULT false,
@@ -65,7 +65,7 @@ CREATE TABLE sponsor (
     web_address         varchar(256) NOT NULL,
     game_id             int(11) NOT NULL,
     PRIMARY KEY         (sponsor_id),
-    CONSTRAINT          `fk_sponsor_game` 
+    CONSTRAINT          `fk_sponsor_game`
         FOREIGN KEY (game_id) REFERENCES game_event (game_id)
         ON UPDATE CASCADE ON DELETE CASCADE
 );
@@ -92,7 +92,7 @@ CREATE TABLE match_event (
     CONSTRAINT          `fk_match_event_sport`
         FOREIGN KEY (sport_id) REFERENCES sport (sport_id)
         ON UPDATE CASCADE ON DELETE CASCADE,
-    CONSTRAINT          `fk_match_event_court` 
+    CONSTRAINT          `fk_match_event_court`
         FOREIGN KEY (court_id) REFERENCES court (court_id)
         ON UPDATE CASCADE ON DELETE CASCADE
 );
@@ -102,10 +102,10 @@ CREATE TABLE game_event_team (
     team_id             int(11) NOT NULL,
     game_id             int(11) NOT NULL,
     PRIMARY KEY         (team_id, game_id),
-    CONSTRAINT          `fk_game_team_game` 
+    CONSTRAINT          `fk_game_team_game`
         FOREIGN KEY (game_id) REFERENCES game_event (game_id)
         ON UPDATE CASCADE ON DELETE CASCADE,
-    CONSTRAINT          `fk_game_team_team` 
+    CONSTRAINT          `fk_game_team_team`
         FOREIGN KEY (team_id) REFERENCES team (team_id)
         ON UPDATE CASCADE ON DELETE CASCADE
 );

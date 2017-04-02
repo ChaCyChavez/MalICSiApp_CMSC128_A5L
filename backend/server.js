@@ -15,7 +15,7 @@ let handler;
 let app;
 
 start = () => {
-    
+
     if (handler) {
         handler.close();
     }
@@ -25,7 +25,7 @@ start = () => {
 
     winston.cli();
     winston.level = config.LOG_LEVEL || 'silly';
-    
+
     winston.log('info', 'Starting', config.APP_NAME);
     // setting the environment for express
     app.set('case sensitive routing', true);
@@ -34,8 +34,8 @@ start = () => {
     app.use(session({
         secret: config.COOKIE_SECRET,
         resave: false,
-        saveUninitialized: true, 
-        cookie: {maxAge: 60 * 1000 * 60 * 2 }, 
+        saveUninitialized: true,
+        cookie: {maxAge: 60 * 1000 * 60 * 2 },
         store: new redis_store({
             host: 'localhost',
             port: config.PORT,
