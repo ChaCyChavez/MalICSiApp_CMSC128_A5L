@@ -240,7 +240,7 @@
       </form>
     </div>
 
-    <div class="carousel" ng-init="get_accounts()">
+    <div carousel ng-init="get_accounts()">
       <div class="col s12 m3 carousel-item" ng-class="{active:!$index}" ng-repeat="account in accounts">
         <div class="card small z-depth-3">
           <div class="card-image">
@@ -261,109 +261,6 @@
           </div>
         </div>
       </div>
-      <!-- <div class="col s10 m3 carousel-item">
-        <div class="card small z-depth-3">
-          <div class="card-image">
-            <img src="img/sample-1.jpg">
-            <span class="card-title">Juan Dela Cruz</span>
-            <a href="javascript:void(0)" class="dropdown-button option" data-activates="user-menu13"><i class="fa fa-sort-down right fa-2x"></i></a>
-            <ul id="user-menu13" class='dropdown-content'>
-              <li><a href="javascript:void(0)">edit</a></li>
-              <li class="divider"></li>
-              <li><a href="javascript:void(0)">remove</a></li>
-           </ul>
-          </div>
-          <div class="card-content c-contents">
-            <p class="stud-num">2014-12345</p>
-          </div>
-          <div class="card-action">
-            <a class="btn waves-light blue " href="javascript:void(0)">View</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col s10 m3 carousel-item">
-        <div class="card small z-depth-3">
-          <div class="card-image">
-            <img src="img/sample-1.jpg">
-            <span class="card-title">Juan Dela Cruz</span>
-            <a href="javascript:void(0)" class="dropdown-button option" data-activates="user-menu15"><i class="fa fa-sort-down right fa-2x"></i></a>
-            <ul id="user-menu15" class='dropdown-content'>
-              <li><a href="javascript:void(0)">edit</a></li>
-              <li class="divider"></li>
-              <li><a href="javascript:void(0)">remove</a></li>
-           </ul>
-          </div>
-          <div class="card-content c-contents">
-            <p class="stud-num">2014-12345</p>
-          </div>
-          <div class="card-action">
-            <a class="btn waves-light blue " href="javascript:void(0)">View</a>
-          </div>
-        </div>
-      </div>
-      <div class="col s10 m3 carousel-item">
-        <div class="card small z-depth-3">
-          <div class="card-image">
-            <img src="img/sample-1.jpg">
-            <span class="card-title">Juan Dela Cruz</span>
-            <a href="javascript:void(0)" class="dropdown-button option" data-activates="user-menu16"><i class="fa fa-sort-down right fa-2x"></i></a>
-            <ul id="user-menu16" class='dropdown-content'>
-              <li><a href="javascript:void(0)">edit</a></li>
-              <li class="divider"></li>
-              <li><a href="javascript:void(0)">remove</a></li>
-           </ul>
-          </div>
-          <div class="card-content c-contents">
-            <p class="stud-num">2014-12345</p>
-          </div>
-          <div class="card-action">
-            <a class="btn waves-light blue " href="javascript:void(0)">View</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col s10 m3 carousel-item">
-        <div class="card small z-depth-3">
-          <div class="card-image">
-            <img src="img/sample-1.jpg">
-            <span class="card-title">Juan Dela Cruz</span>
-            <a href="javascript:void(0)" class="dropdown-button option" data-activates="user-menu17"><i class="fa fa-sort-down right fa-2x"></i></a>
-            <ul id="user-menu17" class='dropdown-content'>
-              <li><a href="javascript:void(0)">edit</a></li>
-              <li class="divider"></li>
-              <li><a href="javascript:void(0)">remove</a></li>
-           </ul>
-          </div>
-          <div class="card-content c-contents">
-            <p class="stud-num">2014-12345</p>
-          </div>
-          <div class="card-action">
-            <a class="btn waves-light blue " href="javascript:void(0)">View</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col s10 m3 carousel-item">
-        <div class="card small z-depth-3">
-          <div class="card-image">
-            <img src="img/sample-1.jpg">
-            <span class="card-title">Juan Dela Cruz</span>
-            <a href="javascript:void(0)" class="dropdown-button option" data-activates="user-menu18"><i class="fa fa-sort-down right fa-2x"></i></a>
-            <ul id="user-menu18" class='dropdown-content'>
-              <li><a href="javascript:void(0)">edit</a></li>
-              <li class="divider"></li>
-              <li><a href="javascript:void(0)">remove</a></li>
-           </ul>
-          </div>
-          <div class="card-content c-contents">
-            <p class="stud-num">2014-12345</p>
-          </div>
-          <div class="card-action">
-            <a class="btn waves-light blue " href="javascript:void(0)">View</a>
-          </div>
-        </div>
-      </div> -->
     </div>
   </div>
 </div>
@@ -381,14 +278,6 @@
         stopPropagation: false // Stops event propagation
       }
     );
-    $('.modal').modal({
-      dismissible: true,
-      opacity: 0.5,
-      in_duration: 300,
-      out_duration: 200,
-      starting_top: '4%',
-      ending_top: '10%',
-    });
     $('.carousel').carousel({
         full_width: true
     });
