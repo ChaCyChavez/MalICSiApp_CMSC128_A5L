@@ -24,7 +24,7 @@ drop procedure if exists get_account//
   CREATE PROCEDURE get_account(IN acctid int)
   BEGIN
     SELECT account_id, firstname, middlename, lastname, email, username, course,
-    birthday, college, is_approved, is_game_head, position, is_player, player_jersey_num, player_role FROM account where account_id = acctid;
+    birthday, college, is_approved, is_game_head, position, is_player, player_jersey_num, player_role FROM account where account_id = acctid and is_approved = true;
   END;
 //
 
