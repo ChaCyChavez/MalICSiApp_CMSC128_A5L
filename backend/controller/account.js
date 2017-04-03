@@ -16,7 +16,6 @@ exports.login_account = (req, res, next) => {
 		req.body.username,
 		crypto.createHash('sha256').update(req.body.password).digest('base64')
 	];
-	console.log(payload);
 
 	const callback = (err, data) => {
 		if (err) {
@@ -36,6 +35,14 @@ exports.login_account = (req, res, next) => {
 
 	db.query(query_string, payload, callback);
 };
+
+exports.logout = function(req, res, next) {
+    function start() {
+        req.session.destroy();
+        return res.send({message: 'Logged out successfully!'});
+    }
+    start();
+}
 
 exports.add_account = (req,res,next) => {
 	const query_string = 'CALL add_account(?,?,?,?,?,?,?,?,?,?,?,?,?)';

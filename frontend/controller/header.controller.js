@@ -8,28 +8,6 @@
     header_controller.$inject = ['$scope', '$location', '$routeParams', '$rootScope', 'ProfileService', 'LoginRegisterService'];
 
     function header_controller($scope, $location, $routeParams, $rootScope, ProfileService, LoginRegisterService) {
-		$rootScope.changeView = (view) => {
-			$location.url(view);
-			location.reload();
-		}
-
-		$rootScope.logout = () => {
-			alert("TO DO: please implement logout in backend and replace this alert with a call to the API");
-		}
-    /*
-        $scope.info = 1
-        $scope.profile = {}
-        $scope.user_upcoming_events = {}
-        $scope.user_past_events = {}
-    */
-        ProfileService
-        .get_profile()
-            .then((data) => {
-            if (data[0].length != 0) {
-                $scope.profile = data[0][0];
-            }
-        });
-
 		$scope.info = {
 			username : undefined,
 			password : undefined
@@ -51,6 +29,32 @@
 			player_role: undefined
 		}
 
+		$rootScope.changeView = (view) => {
+			$location.url(view);
+			location.reload();
+		}
+
+		$rootScope.logout = () => {
+			LoginRegisterService
+		        .logout()
+		        .then(function(res) {
+					Materialize.toast(res.message, 4000, 'teal');
+					$location.url('/');
+					location.reload();
+		        }, function(err) {
+					Materialize.toast('Logout unsuccessful!', 4000, 'teal');
+		        })
+
+		}
+
+        ProfileService
+        .get_profile()
+            .then((data) => {
+            if (data[0].length != 0) {
+                $scope.profile = data[0][0];
+            }
+        });
+
 		$scope.login = () => {
 			if ($scope.info.username === undefined ||
 				$scope.info.username === '' ||
@@ -67,7 +71,8 @@
 					.retrieve_account($scope.info)
 					.then(function(res) {
 						$("#modal-login").modal('close');
-						window.location = '/';
+						window.location = '#!/game-event';
+						location.reload();
 					}, function(err) {
 						Materialize.toast(err.message, 4000, 'teal');
 						$scope.info.username = '';

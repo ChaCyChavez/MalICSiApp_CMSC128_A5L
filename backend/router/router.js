@@ -21,6 +21,8 @@ module.exports = (router) => {
 //account routers
     //login_account
     router.post('/api/login-account/', account.login_account);
+    //logou_account
+    router.post('/api/logout-account/', account.logout);
     //create account
     router.post('/api/add-account', account.add_account);
     //retrieve account

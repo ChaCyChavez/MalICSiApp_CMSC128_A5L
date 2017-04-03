@@ -1,5 +1,6 @@
 build:
 	reset
+	sudo apt-get install redis-server
 	sudo npm install
 	sudo npm install -g nodemon
 	sudo npm install -g gulp
@@ -7,6 +8,10 @@ build:
 	sudo npm install -g n
 	sudo n stable
 
-run:
+run_server:
 	reset
 	sudo npm start
+
+run_redis:
+	reset
+	redis-server
