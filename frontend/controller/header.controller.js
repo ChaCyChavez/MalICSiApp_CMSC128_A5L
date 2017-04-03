@@ -5,25 +5,13 @@
         .module('app')
         .controller('header-controller', header_controller);
 
-    header_controller.$inject = ['$scope', '$location', '$routeParams', '$rootScope', 'ProfileService', 'LoginRegisterService'];
+    header_controller.$inject = ['$scope', '$location', '$window', '$routeParams', '$rootScope', 'ProfileService', 'LoginRegisterService'];
 
-    function header_controller($scope, $location, $routeParams, $rootScope, ProfileService, LoginRegisterService) {
+    function header_controller($scope, $location, $window, $routeParams, $rootScope, ProfileService, LoginRegisterService) {
 		$rootScope.changeView = (view) => {
 			$location.url(view);
 			location.reload();
 		}
-
-		$rootScope.logout = () => {
-			alert("TO DO: please implement logout in backend and replace this alert with a call to the API");
-		}
-
-        ProfileService
-        .get_profile()
-            .then((data) => {
-            if (data[0].length != 0) {
-                $rootScope.profile = data[0][0];
-            }
-        });
 
 		$scope.info = {
 			username : undefined,
@@ -47,8 +35,7 @@
 		}
 
 		$rootScope.changeView = (view) => {
-			$location.url(view);
-			location.reload();
+			$window.location.href = view;
 		}
 
 		$rootScope.logout = () => {
@@ -56,13 +43,25 @@
 		        .logout()
 		        .then(function(res) {
 					Materialize.toast(res.message, 4000, 'teal');
-					$location.url('/');
+					$window.location.href = "#!/"
 					location.reload();
 		        }, function(err) {
 					Materialize.toast('Logout unsuccessful!', 4000, 'teal');
 		        })
 
 		}
+
+		$scope.get_loggedIn = () => {
+	        ProfileService
+	        .get_profile()
+	            .then((data) => {
+	            if (data[0].length != 0) {
+	                $scope.profile = data[0][0];
+	            } else {
+	            	$window.location.href = "#!/";
+	            }
+	        });
+	    }
 
 		$scope.login = () => {
 			if ($scope.info.username === undefined ||
@@ -80,7 +79,7 @@
 					.retrieve_account($scope.info)
 					.then(function(res) {
 						$("#modal-login").modal('close');
-						window.location = '#!/game-event';
+						$window.location.href = '#!/game-event';
 						location.reload();
 					}, function(err) {
 						Materialize.toast(err.message, 4000, 'teal');
@@ -93,11 +92,10 @@
 		}
 
 		$scope.register = () => {
-
 			let isplayer = $("#is_player").is(":checked");
 			let e = document.getElementById("opt");
 			let strUser = e.options[e.selectedIndex].value;
-			$scope.data.birthday = new Date($('.datepicker').val());
+			$scope.data.birthday = $('.datepicker').val();
 			$scope.data.college = strUser;
 
 			if (isplayer)
@@ -108,7 +106,6 @@
 			{
 				$scope.data.is_player = 0;
 			}
-			console.log(JSON.stringify($scope.data));
 
 			if ($scope.data.username === undefined ||
 				$scope.data.username === '' ||
