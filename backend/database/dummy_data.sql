@@ -11,11 +11,7 @@ CALL add_game_event ('Game 3', CURDATE(), '2020-09-09', 1);
 CALL add_game_event ('Game 4', CURDATE(), '2020-09-09', 3);
 
 insert into team values (NULL, 'Blue Job', 'Blue');
-<<<<<<< Updated upstream
-insert into team values (NULL, 'Red Job',   'Red'); 
-=======
 insert into team values (NULL, 'Red Job',   'Red');
->>>>>>> Stashed changes
 insert into team values (NULL, 'Green Job', 'Green');
 insert into team values (NULL, 'White Job', 'White');
 insert into team values (NULL, 'Purple Job', 'Purple');
