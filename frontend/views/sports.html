@@ -1,281 +1,150 @@
-<div ng-controller="sports-controller">
-  <a class="modal-trigger btn-floating btn-large waves-effect waves-light blue accent-4 add-button" data-target="AddSport"><i class="fa fa-plus"></i></a>
+<div ng-controller="sports-controller" class="main-container">
+  <div class="content">
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper">
+          <a href="javascript:void(0)" class="grey-text text-darken-4 center" id="logo" ng-click="back_to_home()">MalICSi</a>
+          <ul id="nav-mobile" class="right">
+            <li><div class="grey-text text-darken-4" id="hello">Welcome, Juan Dela Cruz</div></li>
+            <li><a href="javascript:void(0)" data-activates="dropdown1" class="teal dropdown-button" id="dr" dropdown><i class="material-icons center-align">perm_identity</i></a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
 
-  <div class="row contents">
-    <h3 class="header">Sports</h3>
-    <div class="col s12 m0">
-      <div class="col s12 m4">
-        <div class="card z-depth-3">
-          <div class="card-content">
-            <a class='dropdown-button' href="javascript:void(0)" data-activates='dropdown2'><i class="fa fa-sort-down fa-2x left"></i></a>
-            <span class="card-title center">Sport Name</span>
-            <div class="divider"></div>
-            <div>&nbsp;</div>
-            <p>Sports Info</p>
-            <p>Sports Info</p>
-            <p>Sports Info</p>
+    <ul id='dropdown1' class='dropdown-content'>
+      <li><div class="container teal center-align" id="upper">
+          <img class="circle profpic" src="img/placeholder.png">
           </div>
-          <div class="card-action">
-            <a href="javascript:void(0)" ng-click="view_sport()">View Sport</a>
+      </li>
+      <li><div class="container" id="lower">
+        <h5 class="center-align valign">Juan Dela Cruz</h5>
+        <p class="center-align valign">2014-01234</p>
+      </div></li>
+      <li><a href="javascript:void(0)" class="view-dd"><p class="center-align valign" ng-click="view_profile()">VIEW PROFILE</p></a></li>
+      <li><a href="javascript:void(0)" class="view-dd"><p class="center-align valign" ng-click="view_user()">VIEW USER</p></a></li>
+      <li><a href="javascript:void(0)"><p class="right-align valign red-text" ng-click="logout()">X logout</p></a></li>
+    </ul>
+
+    <br>  
+    &nbsp;<a class="modal-trigger btn-floating btn-large waves-effect waves-light teal accent-4 add-button" data-target="AddSport"><i class="material-icons">add</i></a>
+
+    <div class="row contents" ng-init="get_sports()">
+
+      <div class="col s12 m0">
+        <div class="col s12 m4" ng-repeat="sport in sports track by $index">
+        <blockquote> {{sport.sport_type}} - {{sport.division}}</blockquote>
+          <div class="card z-depth-3">
+            <div class="card-content">
+              <!-- <a class='dropdown-button' href="javascript:void(0)" data-activates='dropdown2'><i class="material-icons left">details</i></a> -->
+              <span class="card-title center">Competing Teams</span>
+              <div class="divider"></div>
+              <div>&nbsp;</div>
+              <p ng-repeat="team in sport.teams">{{team}}</p>
+            </div>
+            <div class="card-action">
+              <a href="javascript:void(0)">Edit</a>
+              <a href="javascript:void(0)" ng-click="delete_sport(sport.sport_id, $index)">Remove</a>
+              <a href="javascript:void(0)" ng-click="view_sport(sport.sport_id)">View Sport</a>
+            </div>
           </div>
         </div>
-      </div>
-
-
-      <div class="col s12 m4">
-        <div class="card z-depth-3">
-          <div class="card-content">
-            <a class='dropdown-button' href="javascript:void(0)" data-activates='dropdown3' ><i class="fa fa-sort-down fa-2x left"></i></a>
-            <span class="card-title center">Sport Name</span>
-            <div class="divider"></div>
-            <div>&nbsp</div>
-            <p>Sports Info</p>
-            <p>Sports Info</p>
-            <p>Sports Info</p>
-          </div>
-          <div class="card-action">
-            <a href="javascript:void(0)" ng-click="view_sport()">View Sport</a>
-          </div>
-        </div>
-      </div>
-     <div class="col s12 m4">
-        <div class="card z-depth-3">
-          <div class="card-content">
-            <a class='dropdown-button' href="javascript:void(0)" data-activates='dropdown4' ><i class="fa fa-sort-down fa-2x left"></i></a>
-            <span class="card-title center">Sport Name</span>
-            <div class="divider"></div>
-            <div>&nbsp</div>
-            <p>Sports Info</p>
-            <p>Sports Info</p>
-            <p>Sports Info</p>
-          </div>
-          <div class="card-action">
-            <a href="javascript:void(0)" ng-click="view_sport()">View Sport</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col s12 m4">
-        <div class="card z-depth-3">
-          <div class="card-content">
-            <a class='dropdown-button' href="javascript:void(0)" data-activates='dropdown5' ><i class="fa fa-sort-down fa-2x left"></i></a>
-            <span class="card-title center">Sport Name</span>
-            <div class="divider"></div>
-            <div>&nbsp</div>
-            <p>Sports Info</p>
-            <p>Sports Info</p>
-            <p>Sports Info</p>
-          </div>
-          <div class="card-action">
-            <a href="javascript:void(0)" ng-click="view_sport()">View Sport</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col s12 m4">
-        <div class="card z-depth-3">
-          <div class="card-content">
-            <a class='dropdown-button' href="javascript:void(0)" data-activates='dropdown6' ><i class="fa fa-sort-down fa-2x left"></i></a>
-            <span class="card-title center">Sport Name</span>
-            <div class="divider"></div>
-            <div>&nbsp</div>
-            <p>Sports Info</p>
-            <p>Sports Info</p>
-            <p>Sports Info</p>
-          </div>
-          <div class="card-action">
-            <a href="javascript:void(0)" ng-click="view_sport()">View Sport</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col s12 m4">
-        <div class="card z-depth-3">
-          <div class="card-content">
-            <a class='dropdown-button' href="javascript:void(0)" data-activates='dropdown7' ><i class="fa fa-sort-down fa-2x left"></i></a>
-            <span class="card-title center">Sport Name</span>
-            <div class="divider"></div>
-            <div>&nbsp</div>
-            <p>Sports Info</p>
-            <p>Sports Info</p>
-            <p>Sports Info</p>
-          </div>
-          <div class="card-action">
-            <a href="javascript:void(0)" ng-click="view_sport()">View Sport</a>
-          </div>
-        </div>
-      </div>
 
     </div>
-  </div>
 
-  <ul id='dropdown2' class='dropdown-content'>
-    <li><a href="javascript:void(0)" data-target="EditSport">Edit</a></li>
-    <li class="divider"></li>
-    <li><a href="javascript:void(0)">Remove</a></li>
-  </ul>
+    <!-- <ul id='dropdown2' class='dropdown-content'>
+      <li><a href="javascript:void(0)">Edit</a></li>
+      <li class="divider"></li>
+      <li><a href="javascript:void(0)">Remove</a></li>
+    </ul> -->
 
-  <ul id='dropdown3' class='dropdown-content'>
-    <li><a href="javascript:void(0)" data-target="EditSport">Edit</a></li>
-    <li class="divider"></li>
-    <li><a href="javascript:void(0)">Remove</a></li>
-  </ul>
-
-  <ul id='dropdown4' class='dropdown-content'>
-    <li><a href="javascript:void(0)" data-target="EditSport">Edit</a></li>
-    <li class="divider"></li>
-    <li><a href="javascript:void(0)">Remove</a></li>
-  </ul>
-
-  <ul id='dropdown5' class='dropdown-content'>
-    <li><a href="javascript:void(0)" data-target="EditSport">Edit</a></li>
-    <li class="divider"></li>
-    <li><a href="javascript:void(0)">Remove</a></li>
-  </ul>
-
-  <ul id='dropdown6' class='dropdown-content'>
-    <li><a href="javascript:void(0)" data-target="EditSport">Edit</a></li>
-    <li class="divider"></li>
-    <li><a href="javascript:void(0)">Remove</a></li>
-  </ul>
-
-  <ul id='dropdown7' class='dropdown-content'>
-    <li><a href="javascript:void(0)" data-target="EditSport">Edit</a></li>
-    <li class="divider"></li>
-    <li><a href="javascript:void(0)">Remove</a></li>
-  </ul>
-
-  <!-- Edit Sport Modal -->
-  <div id="EditSport" class="modal modal-fixed-footer">
-    <div class="modal-content">
-      <div class="teal content-title">
-        <h4 class="add white-text center-align">EDIT SPORT</h4>
-      </div>
-      <div class="form-content" style="height: 287px;">
+    <div id="AddSport" class="modal modal-fixed-footer">
+      <div class="modal-content">
+        <div class="row center">
+          <h4>Add Sport</h4>
+          <p>A bunch of text and input fields</p>
+          <p>A bunch of text and input fields</p>
+        </div>
         <div class="row">
-          <form id="add_match_form" class="col s12">
-            <div class="row">
-              <div class="input-field col s12">
+          <form class="col s12" id="sports-form">
+            <!-- <div class="row">
+              <div class="input-field col s11">
                 <input id="sports_name" type="text" class="validate">
                 <label for="sports_name">Sport Name</label>
               </div>
               <br>
-            </div>
+            </div> -->
             <div class="row">
-              <div class="input-field col s12">
-                <input id="type" type="password" class="validate">
+              <div class="input-field col s11">
+                <input id="type" type="text" ng-model = "sport_type">
                 <label for="type">Sport Type</label>
               </div>
             </div>
-            <div class="input-field col s12">
-              <select>
-                <option value="" disabled selected>Choose your option</option>
-                <option value="1">Men</option>
-                <option value="2">Women</option>
-                <option value="3">Mixed</option>
-              </select>
-              <label>Division</label>
-            </div>
             <div class="row">
-              <div class="input-field col s12">
-                <input id="time" type="time" class="validate">
+              <div class="input-field col s11">
+                <select ng-model = "division">
+                  <option value="" disabled selected>Choose your option</option>
+                  <option value="Men">Men</option>
+                  <option value="Women">Women</option>
+                  <option value="Mixed">Mixed</option>
+                </select>
+                <label class="label-college cyan-text text-darken-4" >Division</label>
               </div>
             </div>
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="venue" type="text" class="validate">
+            <!-- <div class="row">
+              <div class="input-field col s11">
+                <input id="time" type="password" class="validate">
+                <label for="time">Schedule (e.g., 8am-10am)</label>
+              </div>
+            </div> -->
+            <!-- <div class="row">
+              <div class="input-field col s11">
+                <input id="venue" type="email" class="validate">
                 <label for="venue">Venue</label>
               </div>
-            </div>
+            </div> -->
+            
           </form>
         </div>
-      </div>
-    </div>
 
-    <div class="modal-footer">
-      <div id="modal-button">
-        <a href="javascript:void(0)" id="label-enter" class="teal modal-action modal-close waves-effect waves-green btn-flat white-text" ng-click="">Okay</a>
-        <a href="javascript:void(0)" id="label-enter" class="teal modal-action modal-close waves-effect waves-green btn-flat white-text" ng-click="">Cancel</a>
+      </div>
+      <div class="modal-footer">
+        <a id="add_sport" class="modal-action modal-close waves-effect waves-green btn-flat"><a href="javascript:void(0)" class="waves-effect waves-light btn" ng-click = "add_sport()">ADD</a></a>
       </div>
     </div>
   </div>
 
-  <div id="AddSport" class="modal modal-fixed-footer">
-    <div class="modal-content">
-      <div class="teal content-title">
-        <h4 class="add white-text center-align">ADD SPORT</h4>
-      </div>
-      <div class="form-content" style="height: 287px;">
-        <div class="row">
-          <form id="add_match_form" class="col s12">
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="sports_name" type="text" class="validate">
-                <label for="sports_name">Sport Name</label>
-              </div>
-              <br>
-            </div>
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="type" type="password" class="validate">
-                <label for="type">Sport Type</label>
-              </div>
-            </div>
-            <div class="input-field col s12">
-              <select>
-                <option value="" disabled selected>Choose your option</option>
-                <option value="1">Men</option>
-                <option value="2">Women</option>
-                <option value="3">Mixed</option>
-              </select>
-              <label>Division</label>
-            </div>
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="time" type="time" class="validate">
-              </div>
-            </div>
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="venue" type="text" class="validate">
-                <label for="venue">Venue</label>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-
-    <div class="modal-footer">
-      <div id="modal-button">
-        <a href="javascript:void(0)" id="label-enter" class="teal modal-action modal-close waves-effect waves-green btn-flat white-text" ng-click="">Add Sport</a>
-      </div>
-    </div>
-  </div>
-
+  <footer class="page-footer teal">
+    <p class="footer-content grey-text text-lighten-4">
+      MalICSi is a sports management application catered for UPLB individuals which aims to showcase reliable person-game information and interaction. MalICSihan is developed by 21 undergraduate students from the Institue of Computer Science to achieve an academic requirement in their CMSC 128: An Introduction to Software Engineering class.
+    </p>
+    <div class="copyright">Copyright 2017 CMSC 128 | A-5L</div>
+  </footer>
 </div>
 
 <script type="text/javascript">
-  $(document).ready(function(){
-     $('.dropdown-button').dropdown({
-        inDuration: 300,
-        outDuration: 225,
-        constrain_width: false, // Does not change width of dropdown to that of the activator
-        hover: false, // Activate on hover
-        gutter: 0, // Spacing from edge
-        belowOrigin: true, // Displays dropdown below the button
-        alignment: 'left', // Displays dropdown with edge aligned to the left of button
-        stopPropagation: false // Stops event propagation
-      }
-    );
-    $('.modal').modal({
-      dismissible: true,
-      opacity: 0.5,
-      in_duration: 300,
-      out_duration: 200,
-      starting_top: '4%',
-      ending_top: '10%',
-    });
-    $('select').material_select();
+$(document).ready(function(){
+   $('.dropdown-button').dropdown({
+      inDuration: 300,
+      outDuration: 225,
+      constrain_width: false, // Does not change width of dropdown to that of the activator
+      hover: false, // Activate on hover
+      gutter: 0, // Spacing from edge
+      belowOrigin: true, // Displays dropdown below the button
+      alignment: 'left', // Displays dropdown with edge aligned to the left of button
+      stopPropagation: false // Stops event propagation
+    }
+  );
+
+  $('select').material_select();
+
+  $('.modal').modal({
+    dismissible: true,
+    opacity: 0.5,
+    in_duration: 300,
+    out_duration: 200,
+    starting_top: '4%',
+    ending_top: '10%',
   });
+});
 </script>
