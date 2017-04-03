@@ -1,98 +1,50 @@
-<div ng-controller="match-controller" ng-init="init_match()">
-  <div class="navbar-fixed">
-    <nav>
-      <div class="nav-wrapper">
-        <a href="javascript:void(0)" class="grey-text text-darken-4 center" id="logo" ng-click="back_to_home()">MalICSi</a>
-        <ul id="nav-mobile" class="right">
-          <li><div class="grey-text text-darken-4" id="hello">Juan Dela Cruz</div></li>
-          <li><a href="javascript:void(0)" data-activates="dropdown1" class="teal dropdown-button" id="dr" dropdown><i class="fa fa-reorder fa-2x" aria-hidden="true"></i></a></li>
-        </ul>
-      </div>
-    </nav>
-  </div>
-
-  <ul id='dropdown1' class='dropdown-content'>
-    <li>
-      <div class="container blue center-align" id="upper">
-        <i class="fa fa-user-circle fa-5x white-text"></i>
-      </div>
-    </li>
-    <li>
-      <a href="javascript:void(0)" class="view-dd" ng-click="view_profile()">
-        <p class="center-align valign">VIEW PROFILE</p>
-      </a>
-    </li>
-    <li>
-      <a href="javascript:void(0)" class="view-dd" ng-click="view_user()">
-        <p class="center-align valign">VIEW USER</p>
-      </a>
-    </li>
-    <li class="divider">
-    </li>
-    <li>
-      <a href="javascript:void(0)" class="logout-btn" ng-click="logout()">
-        <p class="center-align valign">x logout</p>
-      </a>
-    </li>
-  </ul>
-
+<div ng-controller="match-controller" ng-init="init_match(); init_match_court(); init_match_teams()">
   <!-- Contents -->
   <div class="row contents" id="match-content">
     <div class="col s0 m0 l1">&nbsp;</div>
     <!-- Score Table -->
     <div class="col s12 m0">
-      <div class="col s6 m6">
+
+      <div class="col s12 m8">
         <div class="card-panel">
-          <table class="highlight">
-            <thead>
-              <tr>
-                <th><h5>TEAM</h5></th>
-                <th><h5>SCORE</h5></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Team A</td>
-                <td>Score A</td>
-              </tr>
-              <tr>
-                <td>Team B</td>
-                <td>Score B</td>
-              </tr>
-              <tr>
-                <td>Team C</td>
-                <td>Score C</td>
-              </tr>
-              <tr>
-                <td>Team D</td>
-                <td>Score D</td>
-              </tr>
-            </tbody>
-          </table>
+          <div>
+            <h4 class="card-title center">MATCH RESULTS</h4>
+          </div>
+          <div class="card-content">
+            <table class="highlight bordered center-align">
+              <thead>
+                <tr>
+                  <th><h5>TEAM</h5></th>
+                  <th><h5>SCORE</h5></th>
+                </tr>
+              </thead>
+              <tbody ng-repeat="team_score in match_teams_scores">
+                <tr ng-class="{gold: team_score.is_winner}">
+                  <td>{{team_score.team_name}}
+                      <i ng-if="team_score.is_winner" class="fa fa-trophy">
+                  </td>
+                  <td>{{team_score.score}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
 
-      <div class="col s6 m6">
-        <!-- Winner -->
-        <div class="card-panel">
-          <div>
-            <h4 class="card-title center">WINNER</h4>
-          </div>
-          <div class="card-content">
-            <h5 class="match-winner">Winning Team</h5>
-          </div>
-        </div>
-
+      <div class="col s12 m4">
         <!-- Court -->
         <div class="card-panel">
           <div>
-            <h4 class="card-title center">COURT</h4>
+            <h4 class="card-title center">MATCH DETAILS</h4>
           </div>
           <div class="card-content">
-            <h5 class="match-winner">Court in Match</h5>
+            <h5>Time : {{match.match_date_time | date : 'MMMM d, yyyy'}}
+            <h5>Court Name : {{court.court_name}}</h5>
+            <h5>Court Location : {{court.court_location}}</h6>
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </div>
