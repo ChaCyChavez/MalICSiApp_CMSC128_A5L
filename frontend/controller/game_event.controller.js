@@ -33,9 +33,59 @@
 			});
 		}
 
-		$scope.current_games = [];
+		$scope.current_games = [
+			{
+				game_id: undefined,
+				game_starting_time_date: undefined,
+				game_ending_time_date: undefined,
+				game_name: undefined
+			},
+			{
+				game_id: undefined,
+				game_starting_time_date: undefined,
+				game_ending_time_date: undefined,
+				game_name: undefined
+			},
+			{
+				game_id: undefined,
+				game_starting_time_date: undefined,
+				game_ending_time_date: undefined,
+				game_name: undefined
+			},
+			{
+				game_id: undefined,
+				game_starting_time_date: undefined,
+				game_ending_time_date: undefined,
+				game_name: undefined
+			}
+		];
 
-		$scope.upcoming_games = [];
+		$scope.upcoming_games = [
+			{
+				game_id: undefined,
+				game_starting_time_date: undefined,
+				game_ending_time_date: undefined,
+				game_name: undefined
+			},
+			{
+				game_id: undefined,
+				game_starting_time_date: undefined,
+				game_ending_time_date: undefined,
+				game_name: undefined
+			},
+			{
+				game_id: undefined,
+				game_starting_time_date: undefined,
+				game_ending_time_date: undefined,
+				game_name: undefined
+			},
+			{
+				game_id: undefined,
+				game_starting_time_date: undefined,
+				game_ending_time_date: undefined,
+				game_name: undefined
+			}
+		];
 
 		$scope.edit_game_info = {};
 		$scope.setup_edit_modal = (type, id) => {
