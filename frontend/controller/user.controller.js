@@ -35,5 +35,9 @@
                     console.log(err);
                 });
         }
+
+        $scope.approve_user = (data) => {
+            
+        }
     }
 })();
