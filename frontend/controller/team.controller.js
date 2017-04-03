@@ -24,11 +24,12 @@
         }
 		
 		$scope.user = [];
+		// $scope.team = [];
 		$scope.team_id = $routeParams.team_id;
 
 		$scope.get_team_profile = () => {
 			TeamService
-				.get_all_account($scope.team_id)
+				.get_team_profile($scope.team_id)
 				.then(function(res) {
 					$scope.user = res[0];
 					console.log($scope.user);
@@ -36,5 +37,16 @@
 					console.log(err);
 				});
 		}
+
+		// $scope.get_team_match = () => {
+		// 	TeamService
+		// 		.get_team_match($scope.team_id)
+		// 		.then(function(res) {
+		// 			$scope.user = res[0];
+		// 			console.log($scope.user);
+		// 		}, function(err) {
+		// 			console.log(err);
+		// 		});
+		// }
     }
 })();

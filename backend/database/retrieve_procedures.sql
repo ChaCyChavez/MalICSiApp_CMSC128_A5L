@@ -54,6 +54,26 @@ DROP PROCEDURE IF EXISTS get_team//
   END;
 //
 
+DROP PROCEDURE IF EXISTS get_team_profile//
+  CREATE PROCEDURE get_team_profile(IN teamid int)
+  BEGIN
+    SELECT * from account natural join team_account where team_id = teamid;
+  END;
+//
+
+-- DROP PROCEDURE IF EXISTS get_team_match;
+-- \d //
+--   CREATE PROCEDURE get_team_profile(IN teamid int)
+--   BEGIN
+--     select t.team_name, m.match_date_time, m.series, m.match_id
+--     from team t natural join match_event_team me natural join match_event m
+--     where match_id in (select m.match_id
+--       from team t natural join match_event_team me natural join match_event m
+--       where m.match_id = me.match_id and t.team_id = teamid) and t.team_id != teamid;
+--   END;
+-- //
+-- \d ;
+
 DROP PROCEDURE IF EXISTS get_all_team//
   CREATE PROCEDURE get_all_team()
   BEGIN
