@@ -48,13 +48,14 @@ module.exports = (router) => {
     //create game_event
     router.post('/api/add-game-event', game_event.add_game_event);
     //retrieve game_event
-    router.get('/api/get-game-event/:game_id', game_event.get_game_event);
+    router.get('/api/get-game-event/:game_name', game_event.get_game_event);
     //update game_event
     router.post('/api/update-game-event', game_event.update_game_event);
     //delete game_event
     router.post('/api/delete-game-event', game_event.delete_game_event);
     router.get('/api/get-user-upcoming-events/', game_event.get_user_upcoming_events);
     router.get('/api/get-user-past-events/', game_event.get_user_past_events);
+    router.get('/api/get-all-user-events/', game_event.get_all_user_events);
 
 //log routers
     //create log

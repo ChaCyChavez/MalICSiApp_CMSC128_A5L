@@ -189,4 +189,17 @@ DROP PROCEDURE IF EXISTS get_user_past_events//
         game_ending_time_date <= NOW();
   END;
 //
+
+DROP PROCEDURE IF EXISTS get_all_user_events//
+  CREATE PROCEDURE get_all_user_events(IN _account_id int)
+  BEGIN
+    SELECT * FROM game_event NATURAL JOIN team_account NATURAL JOIN 
+        game_event_team WHERE team_account.account_id=_account_id 
+        AND team_account.team_id=game_event_team.team_id AND 
+        game_event_team.game_id=game_event.game_id;
+  END;
+//
+
+
 \d ;
+

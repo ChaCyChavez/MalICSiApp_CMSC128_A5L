@@ -51,6 +51,22 @@
 		},
 		];
 
+
+		$scope.search_game = () =>{
+			var data = {
+				game_name = $scope.gameSearched
+			}
+            GameEventService
+
+            .search_game(data)
+            .then(function(res){
+                $scope.allGames = res[0];
+                console.log($scope.allGames);
+            },function(err){
+                console.log(err);
+            })
+        }
+
 		$scope.edit_game_info = {};
 		$scope.setup_edit_modal = (type, id) => {
 			if (type === 'upcoming') {
