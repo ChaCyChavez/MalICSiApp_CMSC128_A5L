@@ -13,10 +13,8 @@
         $scope.teams = [];
         var gameid = $routeParams.game_id;
 
-        console.log($routeParams.game_id);
-
-        $scope.view_sport = () => {
-            window.location.href="#!/sport";
+        $scope.view_sport = (sport_id) => {
+            window.location.href="#!/sport/" + sport_id;
         }
 
         $scope.view_profile = () => {
@@ -70,8 +68,7 @@
                             console.log(err);
                         });
                         swal("Deleted!", "Your imaginary file has been deleted.", "success");
-                });
-                
+                });      
         }
 
         var get_teams_of_sport = (data, func) =>  {
@@ -84,6 +81,15 @@
                     console.log(err);
                 });
         }
+
+        $scope.sports = [
+            {
+                sport_id: undefined,
+                sport_type: undefined,
+                division: undefined 
+            }
+
+        ];
 
         $scope.get_sports = () => {
             var data = {
