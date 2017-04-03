@@ -14,6 +14,7 @@
         $scope.user_upcoming_events = {}
         $scope.user_past_events = {}
     */
+        
         ProfileService
         .get_profile()
             .then((data) => {

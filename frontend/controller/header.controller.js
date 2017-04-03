@@ -5,9 +5,9 @@
         .module('app')
         .controller('header-controller', header_controller);
 
-    header_controller.$inject = ['$scope', '$location', '$routeParams', '$rootScope', 'ProfileService', 'LoginRegisterService'];
+    header_controller.$inject = ['$scope', '$location', '$window', '$routeParams', '$rootScope', 'ProfileService', 'LoginRegisterService'];
 
-    function header_controller($scope, $location, $routeParams, $rootScope, ProfileService, LoginRegisterService) {
+    function header_controller($scope, $location, $window, $routeParams, $rootScope, ProfileService, LoginRegisterService) {
 		$rootScope.changeView = (view) => {
 			$location.url(view);
 			location.reload();
@@ -18,13 +18,15 @@
         $scope.user_upcoming_events = {}
         $scope.user_past_events = {}
     */
-        ProfileService
-        .get_profile()
-            .then((data) => {
-            if (data[0].length != 0) {
-                $scope.profile = data[0][0];
-            }
-        });
+    	$scope.get_loggedIn = () => {
+	        ProfileService
+	        .get_profile()
+	            .then((data) => {
+	            if (data[0].length != 0) {
+	                $scope.profile = data[0][0];
+	            }
+	        });
+	    }
 
 		$scope.info = {
 			username : undefined,
@@ -57,21 +59,12 @@
 		        .logout()
 		        .then(function(res) {
 					Materialize.toast(res.message, 4000, 'teal');
-					$location.url('/');
-					location.reload();
+					$window.location.href = "#!/"
 		        }, function(err) {
 					Materialize.toast('Logout unsuccessful!', 4000, 'teal');
 		        })
 
 		}
-
-        ProfileService
-        .get_profile()
-            .then((data) => {
-            if (data[0].length != 0) {
-                $scope.profile = data[0][0];
-            }
-        });
 
 		$scope.login = () => {
 			if ($scope.info.username === undefined ||
@@ -89,7 +82,7 @@
 					.retrieve_account($scope.info)
 					.then(function(res) {
 						$("#modal-login").modal('close');
-						window.location = '#!/game-event';
+						$window.location.href = '#!/game-event';
 					}, function(err) {
 						Materialize.toast(err.message, 4000, 'teal');
 						$scope.info.username = '';
@@ -105,7 +98,7 @@
 			let isplayer = $("#is_player").is(":checked");
 			let e = document.getElementById("opt");
 			let strUser = e.options[e.selectedIndex].value;
-			$scope.data.birthday = new Date($('.datepicker').val());
+			$scope.data.birthday = $('.datepicker').val();
 			$scope.data.college = strUser;
 
 			if (isplayer)
@@ -153,6 +146,7 @@
 				$scope.data.player_role = '';
 				$("#modal-register").modal('close');
 			} else {
+				console.log($scope.data);
 				LoginRegisterService
 					.register_account($scope.data)
 					.then(function(res) {
