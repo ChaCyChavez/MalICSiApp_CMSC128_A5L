@@ -7,7 +7,6 @@
 
     header_controller.$inject = ['$scope', '$location', '$routeParams', '$rootScope', 'ProfileService', 'LoginRegisterService'];
 
-<<<<<<< HEAD
     function header_controller($scope, $location, $routeParams, $rootScope, ProfileService, LoginRegisterService) {
 		$rootScope.changeView = (view) => {
 			$location.url(view);
@@ -67,7 +66,7 @@
 					.retrieve_account($scope.info)
 					.then(function(res) {
 						$("#modal-login").modal('close');
-						window.location.href = '/';
+						window.location = '/';
 					}, function(err) {
 						Materialize.toast(err.message, 4000, 'teal');
 						$scope.info.username = '';
