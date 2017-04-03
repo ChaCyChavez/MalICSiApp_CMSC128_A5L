@@ -27,7 +27,7 @@ DROP PROCEDURE IF EXISTS get_all_account//
   BEGIN
     SELECT account_id, firstname, middlename, lastname, email, username, course,
         birthday, college, is_game_head, position, is_player, player_jersey_num,
-        player_role FROM account ;
+        player_role, is_approved FROM account ;
   END;
 //
 

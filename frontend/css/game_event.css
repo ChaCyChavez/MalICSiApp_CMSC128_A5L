@@ -77,55 +77,54 @@
 
 /*modals*/
 .team {
-    text-align: left;
-    padding-top: 2%;
-    padding-left: 10%;
-    font-size: 40px;
-
+  text-align: left;
+  padding-top: 2%;
+  padding-left: 10%;
+  font-size: 40px;
 }
 
 .image {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .modal {
-    max-width: 70%;
-    max-height: 100%;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    margin: 0 auto;
+  max-width: 70%;
+  max-height: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: 0 auto;
 }
 
 
 .teams {
-    text-align: center;
-    padding-top: 2%;
-    font-size: 50px;
-    font-family: "Panton";
+  text-align: center;
+  padding-top: 2%;
+  font-size: 50px;
+  font-family: "Panton";
 }
 
 #label-enter {
-    font-size: 12px;
-    font-family: "Panton";
-    margin-left: 1%;
+  font-size: 12px;
+  font-family: "Panton";
+  margin-left: 1%;
 }
 
 #modal-button {
-    text-align: center;
-    padding-bottom: 2%;
-    background-color: white;
+  text-align: center;
+  padding-bottom: 2%;
+  background-color: white;
 }
 
 .add {
-    height: 100px;
-    text-align: center;
-    padding-top: 2%;
-    font-size: 65px;
-    font-family: "Panton";
-    /*padding: 0 !important;*/
+  height: 100px;
+  text-align: center;
+  padding-top: 2%;
+  font-size: 65px;
+  font-family: "Panton";
+  /*padding: 0 !important;*/
 }
 
 #modal_add {
@@ -133,13 +132,13 @@
 }
 
 #add_game_form {
-    padding-left: 15%;
+  padding-left: 15%;
 }
 
 .edit_btn {
-    position:absolute;
-    z-index: 100;
-    font-color: white;
+  position:absolute;
+  z-index: 100;
+  font-color: white;
 }
 
 .cd-top.cd-is-visible {
@@ -149,4 +148,23 @@
 
 .cd-top.cd-fade-in {
   opacity: 5;
+}
+
+th {
+  padding-right: 10%;
+  font-size: 30px;
+  padding-bottom: 0px;
+}
+
+td {
+  padding-top: 0px;
+}
+
+.input-field {
+  text-indent: 0px !important;
+  text-align: center;
+}
+
+#tbl {
+  width: 83%;
 }

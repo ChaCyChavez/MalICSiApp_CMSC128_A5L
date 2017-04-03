@@ -95,7 +95,7 @@
 			  </div>
 			  <div id="register-users" class="row">
 				<div class="input-field col s10">
-				  <select id="opt" ng-model='data.college'>
+				  <select id="opt" ng-model='data.college' material-select watch>
 					<option value="" disabled selected>Choose your option</option>
 					<option value="CA">CA</option>
 					<option value="CAS">CAS</option>
@@ -192,3 +192,11 @@
 		 </div>
 	  </div>
 </div>
+
+<script type="text/javascript">
+	$(function () {
+		$('select').material_select();
+		$('.dropdown-button').dropdown('open');
+		$('.dropdown-button').dropdown('close');
+	});
+</script>

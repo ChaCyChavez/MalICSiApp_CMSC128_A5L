@@ -73,18 +73,60 @@
         <div class="row">
           <form id="add_game_form" class="col s12">
             <div class="row">
-              <div class="inputfield col s10">
-                <label class="labels cyan-text text-darken-4" for="name">Name:</label>
-                <input class="field-inputs" type="text">
+              <div class="input-field col s10">
+                <input class="field-inputs" type="text" class="validate">
+                <label class="labels cyan-text text-darken-4" for="user_name">Name:</label>
               </div>
-              <div class="inputfield col s10">
-                <label class="labels cyan-text text-darken-4" for="name">Start date:</label>
-                <input class="datepicker" type="date">
+
+              <div class="input-field col s10">
+                <input name="someDate" type="date" class="datepicker">
+                <label class="labels cyan-text text-darken-4" for="someDate">Start date:</label>
               </div>
-              <div class="inputfield col s10">
-                <label class="labels cyan-text text-darken-4" for="name">End date:</label>
-                <input class="datepicker" type="date">
+
+              <div class="input-field col s10">
+                <input name="someDate" type="date" class="datepicker">
+                <label class="labels cyan-text text-darken-4" for="someDate">End date:</label>
               </div>
+
+              <div class="input-field col s10">
+                <input class="field-inputs" type="text" class="validate">
+                <label class="labels cyan-text text-darken-4" for="user_name">Court Name:</label>
+              </div>
+
+              <div class="input-field col s10">
+                <input class="field-inputs" type="text" class="validate">
+                <label class="labels cyan-text text-darken-4" for="user_name">Court Location:</label>
+              </div>
+
+              <div class="input-field col s10">
+                <input class="field-inputs" type="text" class="validate">
+                <label class="labels cyan-text text-darken-4" for="user_name">Court Type:</label>
+              </div>
+
+              <div class="input-field col s10">
+                <input class="field-inputs" type="text" class="validate">
+                <label class="labels cyan-text text-darken-4" for="user_name">Status:</label>
+              </div>
+
+              <div class="input-field col s10">
+                <input name="someDate" type="date" class="datepicker">
+                <label class="labels cyan-text text-darken-4" for="someDate">Match date time:</label>
+              </div>
+              
+              <table id="tbl">
+                <tr>
+                  <th><label class="labels cyan-text text-darken-4" for="someDate">Team Name</label></th>
+                  <th><label class="labels cyan-text text-darken-4" for="someDate">Team Color</label></th>
+                </tr>
+                <tr>
+                  <td><input class="input-field col s12" type="text" name="links" /></td>
+                  <td><input class="input-field col s12" type="text" name="keywords" /></td> 
+                </tr>
+              </table>
+              <div class="team-button">
+                <a href="javascript:void(0)" id="label-enter" class="teal modal-action modal-close waves-effect waves-green btn-flat white-text center" ng-click="">Add Another Team</a>
+              </div>
+
             </div>
           </form>
         </div>
@@ -204,4 +246,8 @@
 	selectYears: 100,
 	format: 'yyyy-mm-dd'
   });
+
+  $('.add_another').click(function() {
+      $("#tbl").append('<tr><td><input type="text" class="txtbox" value="" />  </td><td><input type="text" class="txtbox" value="" /></td></tr>');
+   });
 </script>
