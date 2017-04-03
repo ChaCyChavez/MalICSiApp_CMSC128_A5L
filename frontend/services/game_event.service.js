@@ -108,6 +108,27 @@
 				return deferred.promise;
 			}
 
+			const add_game = function(data) {
+				let deferred = $q.defer();
+				console.log(data);
+				$http({
+					
+					method: 'POST',
+					data: $httpParamSerializer(data),
+					xhrFields: {withCredentials: false},
+					url: '/api/add-game-event/',
+					headers: headers
+				})
+				.then(function(res) {
+					// $window.location.href = '/#!/game-event';
+					deferred.resolve(res.data);
+				}, function(err) {
+					deferred.reject(err.data);
+				})
+
+				return deferred.promise;
+			}
+
 
 			let service = {};
 			service.edit_game = edit_game;
@@ -115,6 +136,7 @@
 			service.get_current_games = get_current_games;
 			service.get_upcoming_games = get_upcoming_games;
 			service.search_game = search_game;
+			service.add_game = add_game;
 			return service;
 		}
 })();

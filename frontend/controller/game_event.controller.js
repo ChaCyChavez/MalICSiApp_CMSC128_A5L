@@ -13,9 +13,9 @@
 	    }
 	});
 
-    game_event_controller.$inject = ['$scope', '$location', 'GameEventService', 'ProfileService'];
+    game_event_controller.$inject = ['$scope', '$rootScope','$location', 'GameEventService', 'ProfileService'];
 
-    function game_event_controller($scope, $location, GameEventService, ProfileService) {
+    function game_event_controller($scope, $rootScope, $location, GameEventService, ProfileService) {
 		// fetching is being implemented by other group member
 		
 		$scope.view_sponsor = (game_id) => {
@@ -76,6 +76,24 @@
 
 		$scope.edit_game = () => {
 			GameEventService.edit_game($scope.edit_game_info).then((err, data) => {
+				console.log(err, data);
+			});
+		}
+
+		$scope.add_game = () => {
+			var data = {
+				game_name: $scope.game_name,
+				// game_start: $scope.game_start,
+				// game_end: $scope.game_end,
+				account_id: $rootScope.profile.account_id,
+				game_starting_time_date: $('#datepicker1').val(),
+				game_ending_time_date: $('#datepicker2').val()
+				// account_id: 1
+			};
+
+			console.log($scope.game_starting_time_date);
+			console.log(data);
+			GameEventService.add_game(data).then((err, data) => {
 				console.log(err, data);
 			});
 		}
