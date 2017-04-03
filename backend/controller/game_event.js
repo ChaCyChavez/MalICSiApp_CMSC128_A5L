@@ -154,7 +154,7 @@ exports.get_user_past_events = (req, res, next) => {
 };
 
 exports.get_current_events = (req, res, next) => {
-	const query_string = 'CALL get_current_events(?)';
+	const query_string = 'CALL get_current_events()';
 
 	const payload = [];
 
@@ -193,7 +193,7 @@ exports.get_current_events = (req, res, next) => {
 };
 
 exports.get_upcoming_events = (req, res, next) => {
-	const query_string = 'CALL get_upcoming_events(?)';
+	const query_string = 'CALL get_upcoming_events()';
 
 	const payload = [];
 

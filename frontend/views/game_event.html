@@ -1,4 +1,4 @@
-<div ng-controller="game-event-controller">
+<div ng-controller="game-event-controller" ng-init="get_upcoming_games(); get_current_games()">
   <!-- button for adding new game-->
   <a class="btn-floating btn-large waves-effect waves-light blue accent-4 add-button" href="javascript:void(0)" data-target="modal2" modal><i class="fa fa-plus"></i></a>
 
@@ -15,6 +15,7 @@
       </div>
     </form> -->
   </div>
+
   <h4 class="header">Current Games</h4>
   <!-- Contents -->
   <div class="row">
@@ -22,7 +23,7 @@
           <div class="col s12 m6" ng-repeat="(index, game) in current_games">
             <div class="card">
               <div class="card-image">
-                <a ng-if="profile.is_game_head" class="edit_btn dropdown-button btn-flat right" data-activates="dropdownCurrent{{index}}"><i class="fa fa-sort-down white-text fa-2x"></i></a>
+                <a class="edit_btn dropdown-button btn-flat right" data-beloworigin="true" data-activates="dropdownCurrent{{index}}" ><i class="fa fa-sort-down white-text fa-2x"></i></a>
                 <img src="img/sample-1.jpg">
               </div>
               <div class="card-action center-align">
@@ -48,7 +49,7 @@
 		<div class="col s12 m3" ng-repeat="(index, game) in upcoming_games">
 			<div class="card">
 			  <div class="card-image">
-			    <a ng-if="profile.is_game_head" class="edit_btn dropdown-button btn-flat right" data-activates="dropdownUpcoming{{index}}"><i class="fa fa-sort-down white-text"></i></a>
+			    <a class="edit_btn dropdown-button btn-flat right" data-activates="dropdownUpcoming{{index}}"><i class="fa fa-sort-down white-text"></i></a>
 			    <img src="img/sample-1.jpg">
 			  </div>
 			</div>
@@ -175,19 +176,19 @@
 
 <script type="text/javascript">
   $(document).ready(function(){
-     $('.dropdown-button').dropdown({
-        inDuration: 300,
-        outDuration: 225,
-        constrain_width: false, // Does not change width of dropdown to that of the activator
-        hover: false, // Activate on hover
-        gutter: 0, // Spacing from edge
-        belowOrigin: true, // Displays dropdown below the button
-        alignment: 'left', // Displays dropdown with edge aligned to the left of button
-        stopPropagation: false // Stops event propagation
-      }
-    );
+	  $('.dropdown-button').dropdown({
+	      inDuration: 300,
+	      outDuration: 225,
+	      constrainWidth: false, // Does not change width of dropdown to that of the activator
+	      hover: true, // Activate on hover
+	      gutter: 0, // Spacing from edge
+	      belowOrigin: false, // Displays dropdown below the button
+	      alignment: 'left', // Displays dropdown with edge aligned to the left of button
+	      stopPropagation: false // Stops event propagation
+	    }
+	  );
 
-     $("#vp-dropdown"),
+    $("#vp-dropdown"),
     $('.modal').modal({
       dismissible: true,
       opacity: 0.5,

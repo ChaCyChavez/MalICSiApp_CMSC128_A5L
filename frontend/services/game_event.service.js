@@ -12,7 +12,7 @@
 		};
 
 		function GameEventService($window, $http, $q, $httpParamSerializer) {
-			const edit_game = function(data) {
+			const edit_game = (data) => {
 				let deferred = $q.defer();
 
 				$http({
@@ -23,7 +23,6 @@
 					headers: headers
 				})
 				.then(function(res) {
-					// $window.location.href = '/#!/game-event';
 					deferred.resolve(res.data);
 				}, function(err) {
 					deferred.reject(err.data);
@@ -32,7 +31,7 @@
 				return deferred.promise;
 			}
 
-			const delete_game = function(data) {
+			const delete_game = (data) => {
 				let deferred = $q.defer();
 
 				$http({
@@ -50,9 +49,47 @@
 
 				return deferred.promise;
 			}
+
+			const get_upcoming_games = (data) => {
+				let deferred = $q.defer();
+
+				$http({
+					method: 'GET',
+					xhrFields: {withCredentials: false},
+					url: '/api/get-upcoming-events/',
+					headers: headers
+				})
+				.then(function(res) {
+					deferred.resolve(res.data);
+				}, function(err) {
+					deferred.reject(err.data);
+				})
+
+				return deferred.promise;
+			}
+			const get_current_games = (data) => {
+				let deferred = $q.defer();
+
+				$http({
+					method: 'GET',
+					xhrFields: {withCredentials: false},
+					url: '/api/get-current-events/',
+					headers: headers
+				})
+				.then(function(res) {
+					deferred.resolve(res.data);
+				}, function(err) {
+					deferred.reject(err.data);
+				})
+
+				return deferred.promise;
+			}
+
 			let service = {};
 			service.edit_game = edit_game;
 			service.delete_game = delete_game;
+			service.get_current_games = get_current_games;
+			service.get_upcoming_games = get_upcoming_games;
 			return service;
 		}
 })();

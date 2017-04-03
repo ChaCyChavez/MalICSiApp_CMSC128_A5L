@@ -5,51 +5,37 @@
         .module('app')
         .controller('game-event-controller', game_event_controller);
 
+	angular.module('app').directive('repeatDone', function() {
+	    return function(scope, element, attrs) {
+	        if (scope.$last) { // all are rendered
+	            scope.$eval(attrs.repeatDone);
+	        }
+	    }
+	});
+
     game_event_controller.$inject = ['$scope', '$location', 'GameEventService', 'ProfileService'];
 
     function game_event_controller($scope, $location, GameEventService, ProfileService) {
 		// fetching is being implemented by other group member
-		$scope.current_games = [
-		{
-			game_id: 1,
-			name: "Game 1",
-			game_starting_time_date: '2017-05-12',
-			game_ending_time_date: '2017-03-13'
-		},
-		{
-			game_id: 2,
-			name: "Game 2",
-			game_starting_time_date: '2017-05-12',
-			game_ending_time_date: '2017-03-13'
-		}
-		];
 
-		$scope.upcoming_games = [
-		{
-			game_id: 3,
-			name: "Game 3",
-			game_starting_time_date: '2017-05-12',
-			game_ending_time_date: '2017-03-13'
-		},
-		{
-			game_id: 4,
-			name: "Game 4",
-			game_starting_time_date: '2017-05-12',
-			game_ending_time_date: '2017-03-13'
-		},
-		{
-			game_id: 3,
-			name: "Game 5",
-			game_starting_time_date: '2017-05-12',
-			game_ending_time_date: '2017-03-13'
-		},
-		{
-			game_id: 4,
-			name: "Game 6",
-			game_starting_time_date: '2017-05-12',
-			game_ending_time_date: '2017-03-13'
-		},
-		];
+		$scope.get_current_games = () => {
+			GameEventService.get_current_games().then((data) => {
+				$scope.upcoming_games = data[0];
+				console.log(data[0]);
+
+			});
+		};
+
+		$scope.get_upcoming_games = () => {
+			GameEventService.get_upcoming_games().then((data) => {
+				$scope.current_games = data[0];
+				console.log(data[0])
+			});
+		}
+
+		$scope.current_games = [];
+
+		$scope.upcoming_games = [];
 
 		$scope.edit_game_info = {};
 		$scope.setup_edit_modal = (type, id) => {
