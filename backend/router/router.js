@@ -29,10 +29,14 @@ module.exports = (router) => {
     router.get('/api/get-account/:account_id?', account.get_account);
     //retrieve all accounts
     router.get('/api/get-all-account/', account.get_all_account);
+    //retrieve pending accounts
+    router.get('/api/get-pending-account/', account.get_pending_account);
     //update account
     router.post('/api/update-account', account.update_account);
     //delete account
     router.post('/api/delete-account/:account_id', account.delete_account);
+    //approve 
+    router.post('/api/approve-account', account.approve_account);
 
 //court routers
     //create court

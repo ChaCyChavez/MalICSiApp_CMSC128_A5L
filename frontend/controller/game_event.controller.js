@@ -38,12 +38,10 @@
 		};
 
 		$scope.get_upcoming_games = () => {
-
 			GameEventService
 			.get_upcoming_games()
 			.then((data) => {
 				$scope.upcoming_games = data[0];
-				console.log($scope.current_games);
 			});
 		}
 
@@ -91,9 +89,6 @@
 				game_ending_time_date: $('#datepicker2').val()
 				// account_id: 1
 			};
-
-			console.log($scope.game_starting_time_date);
-			console.log(data);
 			GameEventService.add_game(data).then((err, data) => {
 				console.log(err, data);
 			});
