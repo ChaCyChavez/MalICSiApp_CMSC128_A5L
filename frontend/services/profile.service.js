@@ -23,7 +23,7 @@
 				})
 				.then(function(res) {
 					deferred.resolve(res.data);
-				}, function(res) {
+				}, function(err) {
 					deferred.reject(err.data);
 				})
 				return deferred.promise;
@@ -40,7 +40,7 @@
 				})
 				.then(function(res) {
 					deferred.resolve(res.data);
-				}, function(res) {
+				}, function(err) {
 					deferred.reject(err.data);
 				})
 				return deferred.promise;
@@ -56,7 +56,7 @@
 				})
 				.then(function(res) {
 					deferred.resolve(res.data);
-				}, function(res) {
+				}, function(err) {
 					deferred.reject(err.data);
 				})
 				return deferred.promise;
