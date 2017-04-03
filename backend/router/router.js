@@ -77,6 +77,10 @@ module.exports = (router) => {
     router.post('/api/update-match-event', match_event.update_match_event);
     //delete match_event
     router.post('/api/delete-match-event', match_event.delete_match_event);
+    // retrieve teams in match event
+    router.get('/api/get-teams-N-scores-of-match/:match_id', match_event.get_teams_N_scores_of_match);
+    // retrieve court of match
+    router.get('/api/get-court-of-match/:match_id', match_event.get_court_of_match);
 
 //sponsor routers
     //create sponsor

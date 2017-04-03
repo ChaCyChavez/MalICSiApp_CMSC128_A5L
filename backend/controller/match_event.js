@@ -105,6 +105,30 @@ exports.delete_match_event = (req, res, next) => {
 	db.query(query_string, payload, callback);
 };
 
+exports.get_all_match_event = (req, res, next) => {
+	const query_string ='CALL get_all_match_event(?)';
+
+	const payload = [req.body.match_id];
+
+	const callback = (err, data) => {
+		if (err) {
+			winston.level = 'debug';
+			winston.log('debug', 'err: ', err);
+			res.status(500).send({ error_code:err.code });
+		} else if (data.affectedRows == 0) {
+			winston.level = 'info';
+			winston.log('info', 'Not found! Delete failed');
+			res.status(200).send();
+		} else {
+			winston.level = 'info';
+			winston.log('info', 'Successfully deleted match!');
+			res.status(200).send(data);
+		}
+	};
+
+	db.query(query_string, payload, callback);
+};
+
 
 exports.get_court_of_match = (req, res, next) => {
 	const query_string ='CALL get_court_of_match(?)';
@@ -122,7 +146,7 @@ exports.get_court_of_match = (req, res, next) => {
 			res.status(200).send(data);
 		} else {
 			winston.level = 'info';
-			winston.log('info', 'Successfully deleted match!');
+			winston.log('info', 'Successfully retrieved court of match!');
 			res.status(200).send(data);
 		}
 	};
@@ -146,7 +170,7 @@ exports.get_teams_N_scores_of_match = (req, res, next) => {
 			res.status(200).send(data);
 		} else {
 			winston.level = 'info';
-			winston.log('info', 'Successfully deleted match!');
+			winston.log('info', 'Successfully retrieved teams and scores in a match!');
 			res.status(200).send(data);
 		}
 	};
