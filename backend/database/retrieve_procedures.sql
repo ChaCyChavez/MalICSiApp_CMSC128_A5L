@@ -1,212 +1,192 @@
 use malicsi;
 
 
-/* LOGGING IN AN ACCOUNT */
+/* ACCOUNT PROCEDURES */
 \d //
-drop procedure if exists login_account//
-  CREATE PROCEDURE login_account(IN username varchar(256), IN pw varchar(256))
+DROP PROCEDURE IF EXISTS login_account//
+  CREATE PROCEDURE login_account(IN _username varchar(256), IN _password varchar(256))
   BEGIN
-    SELECT account_id, firstname, middlename, lastname, email, username, course,
-    birthday, college FROM account where username = username and password = pw and is_approved = true;
+    SELECT account_id, firstname, middlename, lastname, email, username, course, 
+        birthday, college, is_game_head, position, is_player, player_jersey_num, 
+        player_role FROM account WHERE username = _username AND password = _password 
+        AND is_approved = true;
   END;
 //
 
-/* RETRIEVING AN ACCOUNT */
-drop procedure if exists get_game_head_account//
-  CREATE PROCEDURE get_game_head_account(IN acctid int)
+DROP PROCEDURE IF EXISTS get_account//
+  CREATE PROCEDURE get_account(IN _account_id int)
   BEGIN
-    SELECT account_id, firstname, middlename, lastname, email, username, course,
-    birthday, college FROM account where account_id = acctid and is_game_head = true;
+    SELECT account_id, firstname, middlename, lastname, email, username, course, 
+        birthday, college, is_game_head, position, is_player, player_jersey_num, 
+        player_role FROM account WHERE account_id = _account_id AND is_approved = true;
   END;
 //
 
-drop procedure if exists get_account//
-  CREATE PROCEDURE get_account(IN acctid int)
-  BEGIN
-    SELECT account_id, firstname, middlename, lastname, email, username, course,
-    birthday, college, is_approved, is_game_head, position, is_player, player_jersey_num, player_role FROM account where account_id = acctid and is_approved = true;
-  END;
-//
-
-drop procedure if exists get_all_account//
+DROP PROCEDURE IF EXISTS get_all_account//
   CREATE PROCEDURE get_all_account()
   BEGIN
-      SELECT account_id, firstname, middlename, lastname, email, username, course,
-      birthday, college, is_approved, is_game_head, position, is_player, 
-      player_jersey_num, player_role, is_approved FROM account;
+    SELECT account_id, firstname, middlename, lastname, email, username, course, 
+        birthday, college, is_game_head, position, is_player, player_jersey_num, 
+        player_role FROM account ;
   END;
 //
 
-drop procedure if exists get_all_game_head_account//
-  CREATE PROCEDURE get_all_game_head_account()
+/* ACTIVITY LOG PROCEDURES */
+DROP PROCEDURE IF EXISTS get_activity_log//
+  CREATE PROCEDURE get_activity_log(IN _account_id int)
   BEGIN
-    SELECT account_id, firstname, middlename, lastname, email, username, course,
-    birthday, college FROM account where is_game_head = true;
+    SELECT * FROM activity_log WHERE account_id = _account_id;
   END;
 //
 
-drop procedure if exists get_player_account//
-  CREATE PROCEDURE get_player_account(IN acctid int)
-  BEGIN
-    SELECT account_id, firstname, middlename, lastname, email, username, course,
-    birthday, college FROM account where account_id = acctid and is_player = true;
-  END;
-//
-
-drop procedure if exists get_all_player_account//
-  CREATE PROCEDURE get_all_player_account()
-  BEGIN
-    SELECT account_id, firstname, middlename, lastname, email, username, course,
-    birthday, college FROM account where is_player = true;
-  END;
-//
-
-drop procedure if exists get_court//
-  CREATE PROCEDURE get_court(IN courtid int)
-  BEGIN
-    SELECT * from court where court_id = courtid;
-  END;
-//
-
-drop procedure if exists get_all_court//
-  CREATE PROCEDURE get_all_court()
-  BEGIN
-    SELECT * from court;
-  END;
-//
-
-drop procedure if exists get_team//
-  CREATE PROCEDURE get_team(IN teamid int)
-  BEGIN
-    SELECT * from team where team_id = teamid;
-  END;
-//
-
-drop procedure if exists get_all_team//
-  CREATE PROCEDURE get_all_team()
-  BEGIN
-    SELECT * from team;
-  END;
-//
-
-
-drop procedure if exists get_game_event//
-  CREATE PROCEDURE get_game_event(IN gameid int)
-  BEGIN
-    SELECT * from game_event where game_id = gameid;
-  END;
-//
-
-drop procedure if exists get_all_game_event//
-  CREATE PROCEDURE get_all_game_event()
-  BEGIN
-    SELECT * from game_event;
-  END;
-//
-
-drop procedure if exists get_activity_log//
-  CREATE PROCEDURE get_activity_log(IN logid int)
-  BEGIN
-    SELECT * from activity_log where log_id = logid;
-  END;
-//
-
-drop procedure if exists get_all_activity_log//
+DROP PROCEDURE IF EXISTS get_all_activity_log//
   CREATE PROCEDURE get_all_activity_log()
   BEGIN
-    SELECT * from activity_log;
+    SELECT * FROM activity_log;
   END;
 //
 
-drop procedure if exists get_sponsor//
-  CREATE PROCEDURE get_sponsor(IN sponsorid int)
+/* TEAM PROCEDURES */
+DROP PROCEDURE IF EXISTS get_team//
+  CREATE PROCEDURE get_team(IN _team_id int)
   BEGIN
-    SELECT * from sponsor where sponsor_id = sponsorid;
+    SELECT * FROM team WHERE team_id = _team_id;
   END;
 //
 
-drop procedure if exists get_all_sponsor//
+DROP PROCEDURE IF EXISTS get_all_team//
+  CREATE PROCEDURE get_all_team()
+  BEGIN
+    SELECT * FROM team;
+  END;
+//
+
+/* SPONSOR PROCEDURES */
+DROP PROCEDURE IF EXISTS get_sponsor_of_game//
+  CREATE PROCEDURE get_sponsor_of_game(IN _game_id int)
+  BEGIN
+    SELECT * FROM sponsor WHERE game_id = _game_id;
+  END;
+//
+
+DROP PROCEDURE IF EXISTS get_all_sponsor//
   CREATE PROCEDURE get_all_sponsor()
   BEGIN
-    SELECT * from sponsor;
+    SELECT * FROM sponsor;
   END;
 //
 
-drop procedure if exists get_sport//
-  CREATE PROCEDURE get_sport(IN sportid int)
+/* GAME_EVENT PROCEDURES */
+DROP PROCEDURE IF EXISTS get_game_event//
+  CREATE PROCEDURE get_game_event(IN _game_name varchar(256))
   BEGIN
-    SELECT * from sport where sport_id = sportid;
+    SELECT * FROM game_event WHERE game_name = _game_name;
   END;
 //
 
-drop procedure if exists get_all_sport//
+DROP PROCEDURE IF EXISTS get_all_game_event//
+  CREATE PROCEDURE get_all_game_event()
+  BEGIN
+    SELECT * FROM game_event;
+  END;
+//
+
+/* SPORT PROCEDURES */
+DROP PROCEDURE IF EXISTS get_sport//
+  CREATE PROCEDURE get_sport(IN _game_id int)
+  BEGIN
+    SELECT * FROM sport WHERE game_id = _game_id;
+  END;
+//
+
+DROP PROCEDURE IF EXISTS get_all_sport//
   CREATE PROCEDURE get_all_sport()
   BEGIN
-    SELECT * from sport;
+    SELECT * FROM sport;
   END;
 //
 
-drop procedure if exists get_match_event//
+/* MATCH_EVENT PROCEDURES */
+DROP PROCEDURE IF EXISTS get_match_event//
   CREATE PROCEDURE get_match_event(IN matchid int)
   BEGIN
-    SELECT * from match_event where match_id = matchid;
+    SELECT * FROM match_event WHERE match_id = matchid;
   END;
 //
 
-drop procedure if exists get_all_match_event//
+DROP PROCEDURE IF EXISTS get_all_match_event//
   CREATE PROCEDURE get_all_match_event()
   BEGIN
-    SELECT * from match_event;
+    SELECT * FROM match_event;
   END;
 //
 
-/*GETS THE SPONSORS FOR A GAME EVENT*/
-drop procedure if exists get_game_event_sponsor//
-  CREATE PROCEDURE get_game_event_sponsor(IN gameid int)
+/* COURT PROCEDURES */
+DROP PROCEDURE IF EXISTS get_court//
+  CREATE PROCEDURE get_court(IN _court_id int)
   BEGIN
-    SELECT * from sponsor natural join game_event_sponsor where game_event_sponsor.game_id = gameid;
+    SELECT * FROM court WHERE court_id = _court_id;
   END;
 //
 
-/*PROCEDURE TO GET THE TEAMS FOR A GAME EVENT*/
-drop procedure if exists get_game_event_team//
-  CREATE PROCEDURE get_game_event_team(IN gameid int)
+DROP PROCEDURE IF EXISTS get_all_court//
+  CREATE PROCEDURE get_all_court()
   BEGIN
-    select * from team, game_event_team where game_event_team.game_id = gameid
-    and game_event_team.team_id = team.team_id;
+    SELECT * FROM court;
   END;
 //
 
-/*PROCEDURE TO GET ACCOUNTS OF A TEAM*/
-drop procedure if exists get_team_account//
-  CREATE PROCEDURE get_team_account(IN teamid int)
+/* PROCEDURE TO GET TEAMS THAT REGISTERED IN A GAME */
+DROP PROCEDURE IF EXISTS get_teams_of_game//
+  CREATE PROCEDURE get_teams_of_game(IN _game_id int)
   BEGIN
-    SELECT account.account_id, firstname, middlename, lastname, email, username, course,
-    birthday, college from account, team_account where team_account.team_id =
-    teamid and account.account_id = team_account.account_id;
+    SELECT * FROM team NATURAL JOIN game_event_team 
+        WHERE game_event_team.game_id = _game_id
+        AND game_event_team.team_id = team.team_id;
   END;
 //
 
-/*PROCEDURE TO GET TEAMS OF A MATCH EVENT*/
-drop procedure if exists get_match_event_team//
-  CREATE PROCEDURE get_match_event_team(IN matchid int)
+/*PROCEDURE TO GET PLAYERS THAT JOINED A TEAM*/
+DROP PROCEDURE IF EXISTS get_players_of_team//
+  CREATE PROCEDURE get_players_of_team(IN _team_id int)
   BEGIN
-    SELECT * from team, match_event_team where match_event_team.match_id
-    = matchid and team.team_id = match_event_team.team_id;
+    SELECT account.account_id, firstname, middlename, lastname, email, username, course, 
+        birthday, college, is_game_head, position, is_player, player_jersey_num, 
+        player_role, team_id FROM account NATURAL JOIN team_account WHERE team_id =
+        _team_id AND account.account_id = team_account.account_id;
   END;
 //
 
-drop procedure if exists get_user_upcoming_events//
+/*PROCEDURE TO GET TEAMS THAT PARTICIPATED IN A MATCH EVENT*/
+DROP PROCEDURE IF EXISTS get_teams_of_match//
+  CREATE PROCEDURE get_teams_of_match(IN _match_id int)
+  BEGIN
+    SELECT * FROM team NATURAL JOIN match_event_team 
+        WHERE match_event_team.match_id = _match_id 
+        AND team.team_id = match_event_team.team_id;
+  END;
+//
+
+
+DROP PROCEDURE IF EXISTS get_user_upcoming_events//
   CREATE PROCEDURE get_user_upcoming_events(IN _account_id int)
   BEGIN
-    SELECT * from game_event where account_id = _account_id and game_starting_time_date > NOW();
+    SELECT * FROM game_event NATURAL JOIN team_account NATURAL JOIN 
+        game_event_team WHERE team_account.account_id=_account_id 
+        AND team_account.team_id=game_event_team.team_id AND 
+        game_event_team.game_id=game_event.game_id AND 
+        game_starting_time_date > NOW();
   END;
 //
 
-drop procedure if exists get_user_past_events//
+DROP PROCEDURE IF EXISTS get_user_past_events//
   CREATE PROCEDURE get_user_past_events(IN _account_id int)
   BEGIN
-    SELECT * from game_event where account_id = _account_id and game_ending_time_date <= NOW();
+    SELECT * FROM game_event NATURAL JOIN team_account NATURAL JOIN 
+        game_event_team WHERE team_account.account_id=_account_id 
+        AND team_account.team_id=game_event_team.team_id AND 
+        game_event_team.game_id=game_event.game_id AND 
+        game_ending_time_date <= NOW();
   END;
 //
 \d ;
