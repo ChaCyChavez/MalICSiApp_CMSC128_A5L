@@ -4,7 +4,7 @@ mainApp.config(function($routeProvider) {
 	$routeProvider
 		.when('/', {
 			templateUrl: 'views/login_register.html',
-			controller: "login-register-controller"
+			controller: "header-controller"
 		})
 		.when('/game-event', {
 			templateUrl: 'views/game_event.html',

@@ -5,9 +5,9 @@
         .module('app')
         .controller('profile-controller', profile_controller);
 
-    profile_controller.$inject = ['$scope', '$location', '$routeParams', 'ProfileService'];
+    profile_controller.$inject = ['$scope', '$location', '$routeParams', 'ProfileService', 'LoginRegisterService'];
 
-    function profile_controller($scope, $location, $routeParams, ProfileService) {
+    function profile_controller($scope, $location, $routeParams, ProfileService, LoginRegisterService) {
     /*
         $scope.info = 1
         $scope.profile = {}
@@ -37,22 +37,5 @@
                 $scope.user_past_events = data[0];
             }
         });
-
-        $scope.view_profile = () => {
-            window.location.href="#!/profile/";
-        }
-
-
-        $scope.view_user = () => {
-            window.location.href="#!/user";
-        }
-
-        $scope.logout = () => {
-            window.location.href="#!/";
-        }
-
-        $scope.back_to_home = () => {
-            window.location.href="#!/game-event";
-        }
     }
 })();

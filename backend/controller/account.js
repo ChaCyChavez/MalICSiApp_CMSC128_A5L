@@ -16,6 +16,7 @@ exports.login_account = (req, res, next) => {
 		req.body.username,
 		crypto.createHash('sha256').update(req.body.password).digest('base64')
 	];
+	console.log(payload);
 
 	const callback = (err, data) => {
 		if (err) {
@@ -54,6 +55,8 @@ exports.add_account = (req,res,next) => {
 		req.body.player_jersey_num,
 		req.body.player_role
 	];
+
+	console.log(payload);
 
 	const callback = (err,data) => {
 		if (err) {
@@ -158,20 +161,20 @@ exports.update_account = (req,res,next) => {
 exports.get_account = (req, res, next) => {
 	const query_string = "CALL get_account(?)";
 
-	const payload = [req.params.account_id ? req.params.account_id : req.session.user.account_id];
+	const payload = [req.params.account_id != undefined ? req.params.account_id : (req.session.user != undefined ? req.session.user.account_id : undefined)];
 
 	const callback = (err, data) => {
 		if (err) {
 			winston.level = 'debug';
 			winston.log('debug', 'err: ', err);
 			res.status(500).send({ error_code:err.code });
-		} else if (data[0].length == 0) {
+		} else if (data[0].length == 0 || payload[0] == undefined) {
 			winston.level = 'info';
-			winston.log('info', 'No account retrieved with account_id:', req.session.user.account_id);
+			winston.log('info', 'No account retrieved with account_id:', payload[0]);
 			res.status(200).send(data);
 		} else {
 			winston.level = 'info';
-			winston.log('info', 'Successfully retrieved with account_id:', req.session.user.account_id);
+			winston.log('info', 'Successfully retrieved with account_id:', payload[0]);
 			res.status(200).send(data);
 		}
 	};
