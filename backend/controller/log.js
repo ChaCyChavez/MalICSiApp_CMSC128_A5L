@@ -31,7 +31,7 @@ exports.add_log = (req,res,next) => {
 exports.get_log = (req, res, next) => {
   const query_string = "CALL get_activity_log(?)";
 
-  const payload = [req.params.log_id];
+  const payload = [req.session.user.account_id];
 
 	const callback = (err, data) => {
 		if (err) {
