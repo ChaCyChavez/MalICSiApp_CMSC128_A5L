@@ -139,7 +139,7 @@ body {
     padding-left: 15%;
 }
 
-#modal-button {
+.modal-button {
     text-align: center;
     padding-bottom: 2%;
     background-color: white;
