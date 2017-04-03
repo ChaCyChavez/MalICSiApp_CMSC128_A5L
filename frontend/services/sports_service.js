@@ -3,102 +3,66 @@
 (() => {
 	angular
 		.module('app')
-		.factory('GameEventService', GameEventService);
+		.factory('SportsService', SportsService);
 
-		GameEventService.$inject = ['$window', '$http', '$q', '$httpParamSerializer'];
+		SportsService.$inject = ['$window', '$http', '$q'];
 
 		const headers = {
 			'content-type': 'application/x-www-form-urlencoded'
 		};
 
-		function GameEventService($window, $http, $q, $httpParamSerializer) {
-			const edit_game = (data) => {
+		function SportsService($window, $http, $q) {
+
+			const add_sport = function (data) {
 				let deferred = $q.defer();
-
-				$http({
-					method: 'POST',
-					data: $httpParamSerializer(data),
-					xhrFields: {withCredentials: false},
-					url: '/api/update-game-event/',
-					headers: headers
-				})
-				.then(function(res) {
-					deferred.resolve(res.data);
-				}, function(err) {
-					deferred.reject(err.data);
-				})
-
-				return deferred.promise;
-			}
-
-			const delete_game = (data) => {
-				let deferred = $q.defer();
-				$http({
-					method: 'POST',
-					data: $httpParamSerializer(data),
-					xhrFields: {withCredentials: false},
-					url: '/api/delete-game-event/',
-					headers: headers
-				})
-				.then(function(res) {
-					deferred.resolve(res.data);
-				}, function(err) {
-					deferred.reject(err.data);
-				})
-
-				return deferred.promise;
-			}
-
-			const get_upcoming_games = (data) => {
-				let deferred = $q.defer();
-
-				$http({
-					method: 'GET',
-					xhrFields: {withCredentials: false},
-					url: '/api/get-upcoming-events/',
-					headers: headers
-				})
-				.then(function(res) {
-					deferred.resolve(res.data);
-				}, function(err) {
-					deferred.reject(err.data);
-				})
-
-				return deferred.promise;
-			}
-			const get_current_games = (data) => {
-				let deferred = $q.defer();
-
-				$http({
-					method: 'GET',
-					xhrFields: {withCredentials: false},
-					url: '/api/get-current-events/',
-					headers: headers
-				})
-				.then(function(res) {
-					deferred.resolve(res.data);
-				}, function(err) {
-					deferred.reject(err.data);
-				})
-
-				return deferred.promise;
-			}
-
-			
-
-	        const search_game = function(data) {
-				let deferred = $q.defer();
-
 				console.log(data);
+				$http({
+					method: 'POST',
+					params: data,
+					xhrFields: {withCredentials: true},
+					url: '/api/add-sport',
+					headers: headers
+				})
+				.then(function(res) {
+					deferred.resolve(res.data);
+				}, function(err) {
+					deferred.reject(err.data);
+				})
+
+				return deferred.promise;
+			}
+
+
+			const update_sport = function (data) {
+				let deferred = $q.defer();
+
+				$http({
+					method: 'POST',
+					params: data,
+					xhrFields: {withCredentials: true},
+					url: '/api/update-sport',
+					headers: headers
+				})
+				.then(function(res) {
+					deferred.resolve(res.data);
+				}, function(err) {
+					deferred.reject(err.data);
+				})
+
+				return deferred.promise;
+			}
+
+			const get_sports = function (data) {
+				let deferred = $q.defer();
+
 				$http({
 					method: 'GET',
 					params: data,
 					xhrFields: {withCredentials: true},
-					url: '/api/get-game-event/'+data.game_name,
+					url: '/api/get-all-sport',
 					headers: headers
 				})
 				.then(function(res) {
-					// $window.location.href = '/#!/game-event';
 					deferred.resolve(res.data);
 				}, function(err) {
 					deferred.reject(err.data);
@@ -107,19 +71,19 @@
 				return deferred.promise;
 			}
 
-			const add_game = function(data) {
+			const delete_sport = function (data) {
 				let deferred = $q.defer();
-				console.log(data);
+				console.log(data.sport_id);
+
 				$http({
-					
 					method: 'POST',
-					data: $httpParamSerializer(data),
-					xhrFields: {withCredentials: false},
-					url: '/api/add-game-event/',
+					params: data,
+					xhrFields: {withCredentials: true},
+					url: '/api/delete-sport',
 					headers: headers
+					
 				})
 				.then(function(res) {
-					// $window.location.href = '/#!/game-event';
 					deferred.resolve(res.data);
 				}, function(err) {
 					deferred.reject(err.data);
@@ -128,14 +92,52 @@
 				return deferred.promise;
 			}
 
+			const get_sports_game = function (data) {
+				let deferred = $q.defer();
+
+				$http({
+					method: 'GET',
+					xhrFields: {withCredentials: true},
+					url: '/api/get-sport-game/' + data.game_id,
+					headers: headers
+					
+				})
+				.then(function(res) {
+					deferred.resolve(res);
+				}, function(err) {
+					deferred.reject(err.data);
+				})
+
+				return deferred.promise;
+			}
+
+			const get_teams_sport = function (data) {
+				let deferred = $q.defer();
+
+				$http({
+					method: 'GET',
+					xhrFields: {withCredentials: true},
+					url: '/api/get-sport-team/' + data.sport_id,
+					headers: headers
+					
+				})
+				.then(function(res) {
+					deferred.resolve(res);
+				}, function(err) {
+					deferred.reject(err.data);
+				})
+
+				return deferred.promise;
+			}
 
 			let service = {};
-			service.edit_game = edit_game;
-			service.delete_game = delete_game;
-			service.get_current_games = get_current_games;
-			service.get_upcoming_games = get_upcoming_games;
-			service.search_game = search_game;
-			service.add_game = add_game;
+			service.add_sport 				= add_sport;
+			service.update_sport 			= update_sport;
+			service.get_sports 				= get_sports;
+			service.delete_sport			= delete_sport;
+			service.get_sports_game			= get_sports_game;
+			service.get_teams_sport			= get_teams_sport;			
 			return service;
+
 		}
 })();

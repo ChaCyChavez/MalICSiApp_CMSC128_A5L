@@ -11,7 +11,26 @@
 			'content-type': 'application/x-www-form-urlencoded'
 		};
 
+
 		function LoginRegisterService($window, $http, $q, $httpParamSerializer) {
+
+			const get_currGames = function (data){
+				let deferred = $q.defer();
+
+				$http({
+					method: 'GET',
+					xhrFields: {withCredentials: false},
+					url: '/api/get-current-events/',
+					headers: headers
+				})
+				.then(function(res) {
+					deferred.resolve(res.data);
+				}, function(err) {
+					deferred.reject(err.data);
+				})
+
+				return deferred.promise;
+			}
 
 			const retrieve_account = function (data) {
 				let deferred = $q.defer();
@@ -72,6 +91,7 @@
 			let service = {};
 			service.retrieve_account = retrieve_account;
 			service.register_account = register_account;
+			service.get_currGames = get_currGames;
 			service.logout = logout;
 			return service;
 		}

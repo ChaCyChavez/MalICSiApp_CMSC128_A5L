@@ -54,6 +54,26 @@ DROP PROCEDURE IF EXISTS get_team//
   END;
 //
 
+DROP PROCEDURE IF EXISTS get_team_profile//
+  CREATE PROCEDURE get_team_profile(IN teamid int)
+  BEGIN
+    SELECT * from account natural join team_account where team_id = teamid;
+  END;
+//
+
+-- DROP PROCEDURE IF EXISTS get_team_match;
+-- \d //
+--   CREATE PROCEDURE get_team_profile(IN teamid int)
+--   BEGIN
+--     select t.team_name, m.match_date_time, m.series, m.match_id
+--     from team t natural join match_event_team me natural join match_event m
+--     where match_id in (select m.match_id
+--       from team t natural join match_event_team me natural join match_event m
+--       where m.match_id = me.match_id and t.team_id = teamid) and t.team_id != teamid;
+--   END;
+-- //
+-- \d ;
+
 DROP PROCEDURE IF EXISTS get_all_team//
   CREATE PROCEDURE get_all_team()
   BEGIN
@@ -103,6 +123,31 @@ DROP PROCEDURE IF EXISTS get_all_sport//
   CREATE PROCEDURE get_all_sport()
   BEGIN
     SELECT * FROM sport;
+  END;
+//
+
+
+drop procedure if exists get_sport_game;
+\d //
+  CREATE PROCEDURE get_sport_game(IN gameid int)
+  BEGIN
+    select sport_id, sport_type, division
+    from sport s where game_id = gameid;
+  END;
+//
+
+drop procedure if exists get_sport_team;
+//
+  CREATE PROCEDURE get_sport_team(IN sportid int)
+  BEGIN
+    select a.account_id, a.firstname, a.lastname, t.team_name, mt.match_id, m.match_date_time, c.court_name
+    from account a natural join team_account ta
+    natural join team t 
+    natural join match_event_team mt
+    natural join match_event m
+    natural join court c
+    natural join sport s
+    where s.sport_id = sportid;
   END;
 //
 
@@ -203,4 +248,20 @@ DROP PROCEDURE IF EXISTS get_upcoming_events//
     SELECT * FROM game_event where game_starting_time_date > NOW();
   END;
 //
+
+DROP PROCEDURE IF EXISTS get_court_of_match//
+  CREATE PROCEDURE get_court_of_match(IN _match_id int)
+  BEGIN
+    SELECT court_location, court_name FROM match_event NATURAL JOIN court WHERE match_id = _match_id;
+  END;
+//
+
+DROP PROCEDURE IF EXISTS get_teams_N_scores_of_match//
+  CREATE PROCEDURE get_teams_N_scores_of_match(IN _match_id int)
+  BEGIN
+    SELECT team_name, score FROM team NATURAL JOIN match_event_team WHERE match_id = _match_id;
+  END;
+//
+
+
 \d ;
