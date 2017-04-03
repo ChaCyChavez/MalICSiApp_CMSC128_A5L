@@ -103,6 +103,8 @@ module.exports = (router) => {
     router.post('/api/add-team', team.add_team);
     //retrieve team
     router.get('/api/get-team/:team_id', team.get_team);
+    //retrieve team_profile
+    router.get('/api/get-team-profile/:team_id', team.get_team_profile);
     //update team
     router.post('/api/update-team', team.update_team);
     //delete team
