@@ -5,13 +5,13 @@ insert into account values (NULL, 'Juan', 'Dela', 'Cruz', 'gamehead@gmail.com', 
 insert into account values (NULL, 'Christian', 'Timothy', 'Grey', 'player@gmail.com', 'christian', '10/w7o2juYBrGMh32/KbveULW9jk2tejpyUAD+uC6PE=', 'BSCS', CURDATE(), 'CAS', true, false, NULL, true, 2, NULL);
 insert into account values (NULL, 'David', 'Nix', 'Main', 'regular@gmail.com', 'david', '10/w7o2juYBrGMh32/KbveULW9jk2tejpyUAD+uC6PE=', 'BSCS', CURDATE(), 'CAS', true, false, NULL, false, NULL, NULL);
 
-CALL add_game_event ('Game 1', CURDATE(), CURDATE(), 1);
-CALL add_game_event ('Game 2', CURDATE(), CURDATE(), 2);
-CALL add_game_event ('Game 3', CURDATE(), CURDATE(), 1);
-CALL add_game_event ('Game 4', CURDATE(), CURDATE(), 3);
+CALL add_game_event ('Game 1', CURDATE(), '2020-09-09', 1);
+CALL add_game_event ('Game 2', CURDATE(), '2020-09-09', 2);
+CALL add_game_event ('Game 3', CURDATE(), '2020-09-09', 1);
+CALL add_game_event ('Game 4', CURDATE(), '2020-09-09', 3);
 
 insert into team values (NULL, 'Blue Job', 'Blue');
-insert into team values (NULL, 'Red Job', 'Red');
+insert into team values (NULL, 'Red Job',   'Red');
 insert into team values (NULL, 'Green Job', 'Green');
 insert into team values (NULL, 'White Job', 'White');
 
@@ -34,14 +34,6 @@ insert into match_event values (1,true, CURDATE(), 'elimination', 1, 2);
 insert into match_event values (2,true, CURDATE(), 'semi-finals', 1, 2);
 insert into match_event values (3,true, CURDATE(), 'finals', 2, 1);
 insert into match_event values (4,true, CURDATE(), 'finals', 2, 1);
-
--- insert into game_event_sponsor values (1, 1, "Type 1");
--- insert into game_event_sponsor values (1, 2, "Type 2");
--- insert into game_event_sponsor values (3, 2, "Type 3");
--- insert into game_event_sponsor values (4, 2, "Type 2");
--- insert into game_event_sponsor values (2, 4, "Type 3");
--- insert into game_event_sponsor values (3, 3, "Type 2");
--- insert into game_event_sponsor values (2, 3, "Type 1");
 
 insert into game_event_team values (1, 3);
 insert into game_event_team values (2, 3);
