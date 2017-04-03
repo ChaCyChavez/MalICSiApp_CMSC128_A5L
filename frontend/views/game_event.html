@@ -155,20 +155,16 @@
           <form id="add_game_form" class="col s12">
             <div class="row">
               <div class="inputfield col s10">
-                <label class="labels cyan-text text-darken-4" for="name">Name:</label>
-                <input class="field-inputs" type="text">
-              </div>
-               <div class="inputfield col s10">
-                <label class="labels cyan-text text-darken-4" for="name">Type:</label>
-                <input class="field-inputs" type="text">
+                <label class="labels cyan-text text-darken-4" for="name" >Name:</label>
+                <input ng-model="game_name" class="field-inputs" type="text">
               </div>
               <div class="inputfield col s10">
-                <label class="labels cyan-text text-darken-4" for="name">Start date:</label>
-                <input class="datepicker" type="date">
+                <label class="labels cyan-text text-darken-4" for="name" >Start date:</label>
+                <input ng-model="game_starting_time_date" class="datepicker" id="datepicker1" type="date">
               </div>
               <div class="inputfield col s10">
-                <label class="labels cyan-text text-darken-4" for="name">End date:</label>
-                <input class="datepicker" type="date">
+                <label class="labels cyan-text text-darken-4" for="name" >End date:</label>
+                <input ng-model="game_ending_time_date" class="datepicker" id="datepicker2" type="date">
               </div>
             </div>
           </form>
@@ -177,7 +173,7 @@
     </div>
     <div class="modal-footer">
       <div class="modal-button">
-        <a href="javascript:void(0)" id="label-enter" class="teal modal-action modal-close waves-effect waves-green btn-flat white-text" ng-click="">Add Game</a>
+        <a href="javascript:void(0)" id="label-enter" class="teal modal-action modal-close waves-effect waves-green btn-flat white-text" ng-click="add_game()">Add Game</a>
       </div>
     </div>
   </div>

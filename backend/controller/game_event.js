@@ -4,12 +4,13 @@ const db = require(__dirname + '/../lib/mysql');
 const winston = require('winston');
 
 exports.add_game_event = (req, res, next) => {
-	const query_string = 'CALL add_game_event(?,?,?)';
+	const query_string = 'CALL add_game_event(?,?,?,?)';
 
 	const payload = [
 		req.body.game_name,
 		req.body.game_starting_time_date,
-		req.body.game_ending_time_date
+		req.body.game_ending_time_date,
+		req.body.account_id
 	];
 
 	const callback = (err,data) => {
