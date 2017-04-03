@@ -8,6 +8,28 @@
     header_controller.$inject = ['$scope', '$location', '$routeParams', '$rootScope', 'ProfileService', 'LoginRegisterService'];
 
     function header_controller($scope, $location, $routeParams, $rootScope, ProfileService, LoginRegisterService) {
+		$rootScope.changeView = (view) => {
+			$location.url(view);
+			location.reload();
+		}
+
+		$rootScope.logout = () => {
+			alert("TO DO: please implement logout in backend and replace this alert with a call to the API");
+		}
+    /*
+        $scope.info = 1
+        $scope.profile = {}
+        $scope.user_upcoming_events = {}
+        $scope.user_past_events = {}
+    */
+        ProfileService
+        .get_profile()
+            .then((data) => {
+            if (data[0].length != 0) {
+                $scope.profile = data[0][0];
+            }
+        });
+
 		$scope.info = {
 			username : undefined,
 			password : undefined
