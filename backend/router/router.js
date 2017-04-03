@@ -13,7 +13,7 @@ const match_event = require(__dirname + '/../controller/match_event');
 const sponsor = require(__dirname + '/../controller/sponsor');
 const sport = require(__dirname + '/../controller/sport');
 const team = require(__dirname + '/../controller/team');
-
+const result = require(__dirname +'/../controller/result');
 let path = require('path');
 
 module.exports = (router) => {
@@ -35,7 +35,7 @@ module.exports = (router) => {
     router.post('/api/update-account', account.update_account);
     //delete account
     router.post('/api/delete-account/:account_id', account.delete_account);
-    //approve 
+    //approve
     router.post('/api/approve-account', account.approve_account);
 
 //court routers
@@ -124,9 +124,13 @@ module.exports = (router) => {
     //delete team
     router.post('/api/delete-team/:team_id', team.delete_team);
 
+// result router
+    // get all elimination matches
+    router.get('/api/get-elimination-matches/', result.get_elimination_matches);
+    router.get('/api/get-semis-matches/', result.get_semis_matches);
+    router.get('/api/get-finals-matches/', result.get_finals_matches);
 
-
-    router.all('*', (req, res, next) => {
+    router.all('*', (req, res, next) => { 
         res.status(404).send({
             'message': 'Not Found!'
         });
