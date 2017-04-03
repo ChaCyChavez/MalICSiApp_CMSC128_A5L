@@ -1,9 +1,9 @@
 use malicsi;
 
-insert into account values (NULL, 'Ken', 'Timothy', 'Mercado', 'admin@gmail.com', 'ken2', 'pass', 'bscs', CURDATE(), 'CAS', true, true, NULL, true, 1, NULL);
-insert into account values (NULL, 'Juan', 'Dela', 'Cruz', 'gamehead@gmail.com', 'juan', 'pass', 'bscs', CURDATE(), 'CEAT', true, true, NULL, false, NULL, NULL);
-insert into account values (NULL, 'Christian', 'Timothy', 'Grey', 'player@gmail.com', 'christian', 'pass', 'bscs', CURDATE(), 'CAS', true, false, NULL, true, 2, NULL);
-insert into account values (NULL, 'David', 'Nix', 'Main', 'regular@gmail.com', 'david', 'pass', 'bscs', CURDATE(), 'CAS', true, false, NULL, false, NULL, NULL);
+insert into account values (NULL, 'Ken', 'Timothy', 'Mercado', 'admin@gmail.com', 'ken', '10/w7o2juYBrGMh32/KbveULW9jk2tejpyUAD+uC6PE=', 'bscs', CURDATE(), 'CAS', true, true, NULL, true, 1, NULL);
+insert into account values (NULL, 'Juan', 'Dela', 'Cruz', 'gamehead@gmail.com', 'juan', '10/w7o2juYBrGMh32/KbveULW9jk2tejpyUAD+uC6PE=', 'bscs', CURDATE(), 'CEAT', true, true, NULL, false, NULL, NULL);
+insert into account values (NULL, 'Christian', 'Timothy', 'Grey', 'player@gmail.com', 'christian', '10/w7o2juYBrGMh32/KbveULW9jk2tejpyUAD+uC6PE=', 'bscs', CURDATE(), 'CAS', true, false, NULL, true, 2, NULL);
+insert into account values (NULL, 'David', 'Nix', 'Main', 'regular@gmail.com', 'david', '10/w7o2juYBrGMh32/KbveULW9jk2tejpyUAD+uC6PE=', 'bscs', CURDATE(), 'CAS', true, false, NULL, false, NULL, NULL);
 
 CALL add_game_event ('Game 1', CURDATE(), CURDATE(), 1);
 CALL add_game_event ('Game 2', CURDATE(), CURDATE(), 2);
@@ -14,11 +14,6 @@ insert into team values (NULL, 'Blue Job', 'Blue');
 insert into team values (NULL, 'Red Job', 'Red');
 insert into team values (NULL, 'Green Job', 'Green');
 insert into team values (NULL, 'White Job', 'White');
-
-insert into activity_log values (NULL, 'Sample Log 1', CURDATE(), NULL);
-insert into activity_log values (NULL, 'Sample Log 2', CURDATE(), NULL);
-insert into activity_log values (NULL, 'Sample Log 3', CURDATE(), NULL);
-insert into activity_log values (NULL, 'Sample Log 4', CURDATE(), NULL);
 
 CALL add_court ('Baker Hall', 'UPLB', 'Gym');
 CALL add_court ('Copeland', 'UPLB', 'Gym');
