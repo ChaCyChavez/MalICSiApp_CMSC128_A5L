@@ -282,6 +282,7 @@ exports.delete_game_event = (req, res, next) => {
 	const payload = [req.body.game_id];
 
 	const callback = (err, data) => {
+		console.log("x",err,data,payload,"x");
 		if (err) {
 			winston.level = 'debug';
 			winston.log('debug', 'Error', prettyjson.render({
@@ -294,7 +295,7 @@ exports.delete_game_event = (req, res, next) => {
 		} else if (data.affectedRows == 0) {
 			winston.level = 'debug';
 			winston.log('debug', 'Not found', prettyjson.render({
-				details: err,
+				details: data,
 				origin: "delete_game_event in game_event.js",
 				payload: payload,
 				query_string: query_string
