@@ -26,7 +26,7 @@
       <li><a href="javascript:void(0)"><p class="right-align valign red-text" ng-click="logout()">X logout</p></a></li>
     </ul>
 
-    <br>  
+    <br>
     &nbsp;<a class="modal-trigger btn-floating btn-large waves-effect waves-light teal accent-4 add-button" data-target="AddSport"><i class="material-icons">add</i></a>
 
     <div class="row contents" ng-init="get_sports()">
@@ -52,11 +52,67 @@
 
     </div>
 
-    <!-- <ul id='dropdown2' class='dropdown-content'>
-      <li><a href="javascript:void(0)">Edit</a></li>
+    <ul id='dropdown2' class='dropdown-content'>
+      <li><a href="javascript:void(0)" data-target="EditSport">Edit</a></li>
       <li class="divider"></li>
       <li><a href="javascript:void(0)">Remove</a></li>
-    </ul> -->
+    </ul>
+
+
+      <!-- Edit Sport Modal -->
+      <div id="EditSport" class="modal modal-fixed-footer">
+        <div class="modal-content">
+          <div class="teal content-title">
+            <h4 class="add white-text center-align">EDIT SPORT</h4>
+          </div>
+          <div class="form-content" style="height: 287px;">
+            <div class="row">
+              <form id="add_match_form" class="col s12">
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input id="sports_name" type="text" class="validate">
+                    <label for="sports_name">Sport Name</label>
+                  </div>
+                  <br>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input id="type" type="password" class="validate">
+                    <label for="type">Sport Type</label>
+                  </div>
+                </div>
+                <div class="input-field col s12">
+                  <select>
+                    <option value="" disabled selected>Choose your option</option>
+                    <option value="1">Men</option>
+                    <option value="2">Women</option>
+                    <option value="3">Mixed</option>
+                  </select>
+                  <label>Division</label>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input id="time" type="time" class="validate">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input id="venue" type="text" class="validate">
+                    <label for="venue">Venue</label>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <div id="modal-button">
+            <a href="javascript:void(0)" id="label-enter" class="teal modal-action modal-close waves-effect waves-green btn-flat white-text" ng-click="">Okay</a>
+            <a href="javascript:void(0)" id="label-enter" class="teal modal-action modal-close waves-effect waves-green btn-flat white-text" ng-click="">Cancel</a>
+          </div>
+        </div>
+      </div>
 
     <div id="AddSport" class="modal modal-fixed-footer">
       <div class="modal-content">
@@ -103,7 +159,7 @@
                 <label for="venue">Venue</label>
               </div>
             </div> -->
-            
+
           </form>
         </div>
 
