@@ -29,10 +29,14 @@ module.exports = (router) => {
     router.get('/api/get-account/:account_id?', account.get_account);
     //retrieve all accounts
     router.get('/api/get-all-account/', account.get_all_account);
+    //retrieve pending accounts
+    router.get('/api/get-pending-account/', account.get_pending_account);
     //update account
     router.post('/api/update-account', account.update_account);
     //delete account
     router.post('/api/delete-account/:account_id', account.delete_account);
+    //approve 
+    router.post('/api/approve-account', account.approve_account);
 
 //court routers
     //create court
@@ -96,17 +100,24 @@ module.exports = (router) => {
     //update sport
     router.post('/api/update-sport', sport.update_sport);
     //delete sport
-    router.post('/api/delete-sport/:sport_id', sport.delete_sport);
+    router.post('/api/delete-sport/', sport.delete_sport);
+    //get sports in a game
+    router.get('/api/get-sport-game/:game_id', sport.get_sport_game);
+    //get teams in a sport
+    router.get('/api/get-sport-team/:sport_id', sport.get_sport_team);
 
 //team routers
     //create team
     router.post('/api/add-team', team.add_team);
     //retrieve team
     router.get('/api/get-team/:team_id', team.get_team);
+    //retrieve team_profile
+    router.get('/api/get-team-profile/:team_id', team.get_team_profile);
     //update team
     router.post('/api/update-team', team.update_team);
     //delete team
     router.post('/api/delete-team/:team_id', team.delete_team);
+
 
 
     router.all('*', (req, res, next) => {
