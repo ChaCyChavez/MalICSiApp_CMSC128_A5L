@@ -203,4 +203,20 @@ DROP PROCEDURE IF EXISTS get_upcoming_events//
     SELECT * FROM game_event where game_starting_time_date > NOW();
   END;
 //
+
+DROP PROCEDURE IF EXISTS get_court_of_match//
+  CREATE PROCEDURE get_court_of_match(IN _match_id int)
+  BEGIN
+    SELECT court_location, court_name FROM match_event NATURAL JOIN court WHERE match_id = _match_id;
+  END;
+//
+
+DROP PROCEDURE IF EXISTS get_teams_N_scores_of_match//
+  CREATE PROCEDURE get_teams_N_scores_of_match(IN _match_id int)
+  BEGIN
+    SELECT team_name, score FROM team NATURAL JOIN match_event_team WHERE match_id = _match_id;
+  END;
+//
+
+
 \d ;
