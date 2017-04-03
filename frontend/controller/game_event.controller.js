@@ -20,7 +20,7 @@
 
 		$scope.get_current_games = () => {
 			GameEventService.get_current_games().then((data) => {
-				$scope.upcoming_games = data[0];
+				$scope.current_games = data[0];
 				console.log(data[0]);
 
 			});
@@ -28,7 +28,7 @@
 
 		$scope.get_upcoming_games = () => {
 			GameEventService.get_upcoming_games().then((data) => {
-				$scope.current_games = data[0];
+				$scope.upcoming_games = data[0];
 				console.log(data[0])
 			});
 		}
