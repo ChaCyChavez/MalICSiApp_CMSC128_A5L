@@ -22,6 +22,10 @@
             window.location.href="#!/game-event";
         }
 
+        $scope.view_team = (team_id) => {
+            window.location.href="#!/team/" + team_id;
+        }
+        
         let x = $location.path().toString().split("/");
         $scope.match_id = parseInt(x[x.length-1]);
         $scope.court = undefined;

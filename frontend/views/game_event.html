@@ -5,15 +5,15 @@
   <!-- Search -->
   <div class="row contents">
     <h3 class="header">GAMES</h3>
-    <!-- <form class="col s7 right">
+    <form class="col s7 right" ng-submit="search_game()">
       <div class="row">
         <div class="input-field col s7 right" class="search">
           <i class="fa fa-search prefix"></i>
-          <input id="icon_prefix" type="text" class="validate">
+          <input ng-model="gameSearched" id="icon_prefix" type="text" class="validate">
           <label for="icon_prefix">Search games:</label>
         </div>
       </div>
-    </form> -->
+    </form>
   </div>
 
   <h4 class="header">Current Games</h4>
@@ -74,57 +74,18 @@
           <form id="add_game_form" class="col s12">
             <div class="row">
               <div class="input-field col s10">
-                <input class="field-inputs" type="text" class="validate">
+                <input class="field-inputs" type="text" class="validate" ng-model="game_name">
                 <label class="labels cyan-text text-darken-4" for="user_name">Name:</label>
               </div>
 
               <div class="input-field col s10">
-                <input name="someDate" type="date" class="datepicker">
+                <input name="someDate" type="date" class="datepicker" id="datepicker1" ng-model="game_starting_time_date">
                 <label class="labels cyan-text text-darken-4" for="someDate">Start date:</label>
               </div>
 
               <div class="input-field col s10">
-                <input name="someDate" type="date" class="datepicker">
+                <input name="someDate" type="date" class="datepicker" id="datepicker2" ng-model="game_ending_time_date">
                 <label class="labels cyan-text text-darken-4" for="someDate">End date:</label>
-              </div>
-
-              <div class="input-field col s10">
-                <input class="field-inputs" type="text" class="validate">
-                <label class="labels cyan-text text-darken-4" for="user_name">Court Name:</label>
-              </div>
-
-              <div class="input-field col s10">
-                <input class="field-inputs" type="text" class="validate">
-                <label class="labels cyan-text text-darken-4" for="user_name">Court Location:</label>
-              </div>
-
-              <div class="input-field col s10">
-                <input class="field-inputs" type="text" class="validate">
-                <label class="labels cyan-text text-darken-4" for="user_name">Court Type:</label>
-              </div>
-
-              <div class="input-field col s10">
-                <input class="field-inputs" type="text" class="validate">
-                <label class="labels cyan-text text-darken-4" for="user_name">Status:</label>
-              </div>
-
-              <div class="input-field col s10">
-                <input name="someDate" type="date" class="datepicker">
-                <label class="labels cyan-text text-darken-4" for="someDate">Match date time:</label>
-              </div>
-
-              <table id="tbl">
-                <tr>
-                  <th><label class="labels cyan-text text-darken-4" for="someDate">Team Name</label></th>
-                  <th><label class="labels cyan-text text-darken-4" for="someDate">Team Color</label></th>
-                </tr>
-                <tr>
-                  <td><input class="input-field col s12" type="text" name="links" /></td>
-                  <td><input class="input-field col s12" type="text" name="keywords" /></td>
-                </tr>
-              </table>
-              <div class="team-button">
-                <a href="javascript:void(0)" id="label-enter" class="teal modal-action modal-close waves-effect waves-green btn-flat white-text center" ng-click="">Add Another Team</a>
               </div>
 
             </div>
@@ -134,7 +95,7 @@
     </div>
     <div class="modal-footer">
       <div class="modal-button">
-        <a href="javascript:void(0)" id="label-enter" class="teal modal-action modal-close waves-effect waves-green btn-flat white-text" ng-click="">Add Game</a>
+        <a href="javascript:void(0)" id="label-enter" class="teal modal-action modal-close waves-effect waves-green btn-flat white-text" ng-click="add_game()">Add Game</a>
       </div>
     </div>
   </div>
@@ -221,12 +182,6 @@
 	  $('.dropdown-button').dropdown({
 	      inDuration: 300,
 	      outDuration: 225,
-	      constrainWidth: false, // Does not change width of dropdown to that of the activator
-	      hover: true, // Activate on hover
-	      gutter: 0, // Spacing from edge
-	      belowOrigin: false, // Displays dropdown below the button
-	      alignment: 'left', // Displays dropdown with edge aligned to the left of button
-	      stopPropagation: false // Stops event propagation
 	    }
 	  );
 
@@ -251,3 +206,5 @@
       $("#tbl").append('<tr><td><input type="text" class="txtbox" value="" />  </td><td><input type="text" class="txtbox" value="" /></td></tr>');
    });
 </script>
+
+

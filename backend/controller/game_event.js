@@ -5,12 +5,13 @@ const winston = require('winston');
 const prettyjson = require('prettyjson');
 
 exports.add_game_event = (req, res, next) => {
-	const query_string = 'CALL add_game_event(?,?,?)';
+	const query_string = 'CALL add_game_event(?,?,?,?)';
 
 	const payload = [
 		req.body.game_name,
 		req.body.game_starting_time_date,
-		req.body.game_ending_time_date
+		req.body.game_ending_time_date,
+		req.body.account_id
 	];
 
 	const callback = (err,data) => {
@@ -41,7 +42,7 @@ exports.add_game_event = (req, res, next) => {
 exports.get_game_event = (req, res, next) => {
 	const query_string = 'CALL get_game_event(?)';
 
-	const payload = [req.params.game_id];
+	const payload = [req.params.game_name];
 
 	const callback = (err, data) => {
 		if (err) {
@@ -282,6 +283,7 @@ exports.delete_game_event = (req, res, next) => {
 	const payload = [req.body.game_id];
 
 	const callback = (err, data) => {
+		console.log("x",err,data,payload,"x");
 		if (err) {
 			winston.level = 'debug';
 			winston.log('debug', 'Error', prettyjson.render({
@@ -294,7 +296,7 @@ exports.delete_game_event = (req, res, next) => {
 		} else if (data.affectedRows == 0) {
 			winston.level = 'debug';
 			winston.log('debug', 'Not found', prettyjson.render({
-				details: err,
+				details: data,
 				origin: "delete_game_event in game_event.js",
 				payload: payload,
 				query_string: query_string

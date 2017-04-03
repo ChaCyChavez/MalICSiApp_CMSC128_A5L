@@ -5,19 +5,32 @@
 		.module('app')
 		.factory('TeamService', TeamService);
 
-		TeamService.$inject = ['$window', '$http', '$q', '$httpParamSerializer'];
-
 		const headers = {
 		    'content-type': 'application/x-www-form-urlencoded'
 		};
 
-		function TeamService($http, $q, $window, $httpParamSerializer) {
+		function TeamService($http, $q, $window) {
 
-			const get_all_account = (data) => {
+			const get_team_profile = (data) => {
 				let deferred = $q.defer();
 				$http({
 					method: 'GET',
-					url: '/api/get-all-account/',
+					url: '/api/get-team-profile/' + data,
+					headers: headers
+				})
+				.then(function(res) {
+					deferred.resolve(res.data);
+				}, function(err) {
+					deferred.reject(err.data);
+				});
+				return deferred.promise;
+			}
+
+			const get_team_match = (data) => {
+				let deferred = $q.defer();
+				$http({
+					method: 'GET',
+					url: '/api/get-team-match/' + data,
 					headers: headers
 				})
 				.then(function(res) {
@@ -29,7 +42,8 @@
 			}
 
 			let service = {};
-			service.get_all_account = get_all_account;
+			service.get_team_match = get_team_match;
+			service.get_team_profile = get_team_profile;
 			return service;
 		}
 })();
