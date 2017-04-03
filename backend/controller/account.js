@@ -101,7 +101,7 @@ exports.approve_account = (req,res,next) => {
 	const payload = [req.body.account_id];
 
 	const callback = (err,data) => {
-		if (err) {
+			if (err) {
 			winston.level = 'debug';
 			winston.log('debug', 'err: ', err);
 			res.status(500).send({ error_code:err.code });

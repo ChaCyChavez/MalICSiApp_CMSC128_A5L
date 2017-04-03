@@ -7,6 +7,7 @@
 
     header_controller.$inject = ['$scope', '$location', '$routeParams', '$rootScope', 'ProfileService', 'LoginRegisterService'];
 
+<<<<<<< HEAD
     function header_controller($scope, $location, $routeParams, $rootScope, ProfileService, LoginRegisterService) {
 		$rootScope.changeView = (view) => {
 			$location.url(view);
@@ -28,6 +29,7 @@
                 $scope.profile = data[0][0];
             }
         });
+
 		$scope.info = {
 			username : undefined,
 			password : undefined

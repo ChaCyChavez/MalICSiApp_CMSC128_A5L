@@ -204,7 +204,7 @@
     </div>
 
     <div carousel ng-init="get_accounts()">
-      <div class="col s12 m3 carousel-item" ng-class="{active:!$index}" ng-repeat="account in accounts">
+      <div class="col s12 m3 carousel-item" ng-class="{active:!$index}" ng-repeat="account in accounts | filter: {is_approved : 1}">
         <div class="card small z-depth-3">
           <div class="card-image">
             <img src="img/sample-1.jpg">

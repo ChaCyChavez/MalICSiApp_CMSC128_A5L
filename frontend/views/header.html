@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div ng-controller="header-controller">
 	<div class="navbar-fixed" ng-if="profile != undefined">
 	  <nav>
@@ -33,6 +34,15 @@
 			<p class="center-align valign">x logout</p>
 		  </a>
 		</li>
+=======
+<div ng-controller="header-controller" class="navbar-fixed">
+  <nav>
+	<div class="nav-wrapper">
+	  <a href="javascript:void(0)" class="grey-text text-darken-4 center" id="logo" ng-click="back_to_home()">MalICSi</a>
+	  <ul id="nav-mobile" class="right">
+		<li><div class="grey-text text-darken-4" id="hello" ng-init="">{{ profile.username }}</div></li>
+		<li><a href="javascript:void(0)" data-activates="dropdown1" class="teal dropdown-button" id="dr" dropdown><i class="fa fa-reorder fa-2x" aria-hidden="true"></i></a></li>
+>>>>>>> 8875f75cd1851d859c60f708e44610598b672525
 	  </ul>
 	</div>
 
