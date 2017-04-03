@@ -38,6 +38,7 @@
 		};
 
 		$scope.get_upcoming_games = () => {
+
 			GameEventService
 			.get_upcoming_games()
 			.then((data) => {
