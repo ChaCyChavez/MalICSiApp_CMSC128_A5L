@@ -1,5 +1,5 @@
 
-DROP USER IF EXISTS 'CMSC128'@'localhost';
+DROP USER 'CMSC128'@'localhost';
 CREATE USER 'CMSC128'@'localhost' IDENTIFIED BY 'project128';
 DROP DATABASE IF EXISTS malicsi;
 CREATE DATABASE malicsi;
@@ -18,12 +18,12 @@ CREATE TABLE account (
     course              varchar(256) NOT NULL,
     birthday            date NOT NULL,
     college             enum('CA','CAS','CDC','CEAT','CEM','CFNR','CHE','CPAf','CVM','SESAM','GS') NOT NULL,
-    is_approved         boolean DEFAULT false,              --for membership registration of account
-    is_game_head        boolean DEFAULT false,              --game_head flag
-    position            varchar(256) DEFAULT NULL,          --game_head attribute
-    is_player           boolean DEFAULT false,              --player flag 
-    player_jersey_num   int DEFAULT NULL,                   --player attribute
-    player_role         varchar(256) DEFAULT NULL,          --player attribute
+    is_approved         boolean DEFAULT false,              /*for membership registration of account*/
+    is_game_head        boolean DEFAULT false,              /*game_head flag*/
+    position            varchar(256) DEFAULT NULL,          /*game_head attribute*/
+    is_player           boolean DEFAULT false,              /*player flag*/
+    player_jersey_num   int DEFAULT NULL,                   /*player attribute*/
+    player_role         varchar(256) DEFAULT NULL,          /*player attribute*/
 
     UNIQUE              (username),
     PRIMARY KEY         (account_id)
@@ -46,6 +46,19 @@ CREATE TABLE team (
     PRIMARY KEY         (team_id)
 );
 
+DROP TABLE IF EXISTS game_event;
+CREATE TABLE game_event (
+    game_id                     int NOT NULL AUTO_INCREMENT,
+    game_name                   varchar(256) NOT NULL,
+    game_starting_time_date     datetime NOT NULL,
+    game_ending_time_date       datetime NOT NULL,
+    account_id                  int NOT NULL,
+    PRIMARY KEY                 (game_id),
+    CONSTRAINT                  `fk_game_account`
+        FOREIGN KEY (account_id) REFERENCES account (account_id)
+        ON UPDATE CASCADE ON DELETE CASCADE
+);
+
 DROP TABLE IF EXISTS sponsor;
 CREATE TABLE sponsor (
     sponsor_id          int NOT NULL AUTO_INCREMENT,
@@ -61,19 +74,6 @@ CREATE TABLE sponsor (
         ON UPDATE CASCADE ON DELETE CASCADE
 );
 
-DROP TABLE IF EXISTS game_event;
-CREATE TABLE game_event (
-    game_id                     int NOT NULL AUTO_INCREMENT,
-    game_name                   varchar(256) NOT NULL,
-    game_starting_time_date     datetime NOT NULL,
-    game_ending_time_date       datetime NOT NULL,
-    account_id                  int NOT NULL,
-    PRIMARY KEY                 (game_id),
-    CONSTRAINT                  `fk_game_account`
-        FOREIGN KEY (account_id) REFERENCES account (account_id)
-        ON UPDATE CASCADE ON DELETE CASCADE
-);
-
 DROP TABLE IF EXISTS sport;
 CREATE TABLE sport (
     sport_id            int NOT NULL AUTO_INCREMENT,
@@ -84,6 +84,15 @@ CREATE TABLE sport (
     CONSTRAINT          `fk_game_sport`
         FOREIGN KEY (game_id) REFERENCES game_event (game_id)
         ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+DROP TABLE IF EXISTS court;
+CREATE TABLE court (
+    court_id            int NOT NULL AUTO_INCREMENT,
+    court_name          varchar(256) NOT NULL,
+    court_location      varchar(256) NOT NULL,
+    court_type          varchar(256) NOT NULL,
+    PRIMARY KEY         (court_id)
 );
 
 DROP TABLE IF EXISTS match_event;
@@ -103,18 +112,9 @@ CREATE TABLE match_event (
         ON UPDATE CASCADE ON DELETE CASCADE
 );
 
-DROP TABLE IF EXISTS court;
-CREATE TABLE court (
-    court_id            int NOT NULL AUTO_INCREMENT,
-    court_name          varchar(256) NOT NULL,
-    court_location      varchar(256) NOT NULL,
-    court_type          varchar(256) NOT NULL,
-    PRIMARY KEY         (court_id)
-);
-
--- N-M relationship tables
+/*N-M relationship tables*/
 DROP TABLE IF EXISTS game_event_team;
-CREATE TABLE game_event_team (          --table for teams that registered in a game_event
+CREATE TABLE game_event_team (          /*table for teams that registered in a game_event*/
     team_id             int NOT NULL,
     game_id             int NOT NULL,
     PRIMARY KEY         (team_id, game_id),
@@ -127,7 +127,7 @@ CREATE TABLE game_event_team (          --table for teams that registered in a g
 );
 
 DROP TABLE IF EXISTS team_account;
-CREATE TABLE team_account (             --table for players that joined in a team
+CREATE TABLE team_account (             /*table for players that joined in a team*/
     account_id          int NOT NULL,
     team_id             int NOT NULL,
     PRIMARY KEY         (account_id, team_id),
@@ -140,7 +140,7 @@ CREATE TABLE team_account (             --table for players that joined in a tea
 );
 
 DROP TABLE IF EXISTS match_event_team;
-CREATE TABLE match_event_team(          --table for scores of team that participated in a match_event
+CREATE TABLE match_event_team(          /*table for scores of team that participated in a match_event*/
     team_id             int NOT NULL,
     match_id            int NOT NULL,
     score               int NOT NULL,

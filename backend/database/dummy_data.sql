@@ -15,11 +15,6 @@ insert into team values (NULL, 'Red Job', 'Red');
 insert into team values (NULL, 'Green Job', 'Green');
 insert into team values (NULL, 'White Job', 'White');
 
-insert into activity_log values (NULL, 'Sample Log 1', CURDATE(), NULL);
-insert into activity_log values (NULL, 'Sample Log 2', CURDATE(), NULL);
-insert into activity_log values (NULL, 'Sample Log 3', CURDATE(), NULL);
-insert into activity_log values (NULL, 'Sample Log 4', CURDATE(), NULL);
-
 CALL add_court ('Baker Hall', 'UPLB', 'Gym');
 CALL add_court ('Copeland', 'UPLB', 'Gym');
 CALL add_court ('Physci', 'UPLB', 'Building');

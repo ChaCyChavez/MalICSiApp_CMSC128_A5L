@@ -73,7 +73,7 @@ DROP PROCEDURE IF EXISTS add_activity_log//
 DROP PROCEDURE IF EXISTS add_team//
     CREATE PROCEDURE add_team (
         IN _team_name           varchar(256),
-        IN _team_color          varchar(256),
+        IN _team_color          varchar(256)
     )
     BEGIN
         INSERT INTO team(
@@ -175,7 +175,7 @@ DROP PROCEDURE IF EXISTS add_match_event//
         )VALUES(
             _status,
             _match_date_time,
-            _series
+            _series,
             _sport_id,
             _court_id
         );
@@ -234,7 +234,7 @@ DROP PROCEDURE IF EXISTS join_account_to_team//
 //
 
 DROP PROCEDURE IF EXISTS add_score//
-    CREATE PROCEDURE join_account_to_team(
+    CREATE PROCEDURE add_score(
         IN _team_id             int,
         IN _match_id            int,
         IN _score               int
