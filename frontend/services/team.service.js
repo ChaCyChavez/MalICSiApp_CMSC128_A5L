@@ -26,23 +26,23 @@
 				return deferred.promise;
 			}
 
-			// const get_team_match = (data) => {
-			// 	let deferred = $q.defer();
-			// 	$http({
-			// 		method: 'GET',
-			// 		url: '/api/get-team-match/' + data,
-			// 		headers: headers
-			// 	})
-			// 	.then(function(res) {
-			// 		deferred.resolve(res.data);
-			// 	}, function(err) {
-			// 		deferred.reject(err.data);
-			// 	});
-			// 	return deferred.promise;
-			// }
+			const get_team_match = (data) => {
+				let deferred = $q.defer();
+				$http({
+					method: 'GET',
+					url: '/api/get-team-match/' + data,
+					headers: headers
+				})
+				.then(function(res) {
+					deferred.resolve(res.data);
+				}, function(err) {
+					deferred.reject(err.data);
+				});
+				return deferred.promise;
+			}
 
 			let service = {};
-			// service.get_team_match = get_team_match;
+			service.get_team_match = get_team_match;
 			service.get_team_profile = get_team_profile;
 			return service;
 		}

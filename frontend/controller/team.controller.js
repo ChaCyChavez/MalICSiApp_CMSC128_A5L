@@ -24,7 +24,6 @@
         }
 		
 		$scope.user = [];
-		// $scope.team = [];
 		$scope.team_id = $routeParams.team_id;
 
 		$scope.get_team_profile = () => {
@@ -38,15 +37,18 @@
 				});
 		}
 
-		// $scope.get_team_match = () => {
-		// 	TeamService
-		// 		.get_team_match($scope.team_id)
-		// 		.then(function(res) {
-		// 			$scope.user = res[0];
-		// 			console.log($scope.user);
-		// 		}, function(err) {
-		// 			console.log(err);
-		// 		});
-		// }
+		$scope.team = [];
+		$scope.team_id = $routeParams.team_id;
+
+		$scope.get_team_match = () => {
+			TeamService
+				.get_team_match($scope.team_id)
+				.then(function(res) {
+					$scope.team = res[0];
+					console.log($scope.team);
+				}, function(err) {
+					console.log(err);
+				});
+		}
     }
 })();
