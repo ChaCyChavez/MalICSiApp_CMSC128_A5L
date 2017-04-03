@@ -12,12 +12,7 @@
 			$location.url(view);
 			location.reload();
 		}
-    /*
-        $scope.info = 1
-        $scope.profile = {}
-        $scope.user_upcoming_events = {}
-        $scope.user_past_events = {}
-    */
+    
     	$scope.get_loggedIn = () => {
 	        ProfileService
 	        .get_profile()
@@ -50,8 +45,7 @@
 		}
 
 		$rootScope.changeView = (view) => {
-			$location.url(view);
-			location.reload();
+			$window.location.href = view;
 		}
 
 		$rootScope.logout = () => {
