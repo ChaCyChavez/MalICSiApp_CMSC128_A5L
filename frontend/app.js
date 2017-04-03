@@ -32,11 +32,11 @@ mainApp.config(function($routeProvider) {
 			templateUrl: 'views/user.html',
 			controller: 'user-controller'
 		})
-		.when('/sport', {
+		.when('/sport/:sport_id', {
 			templateUrl: 'views/sport.html',
 			controller: 'sport-controller'
 		})
-		.when('/sports', {
+		.when('/sports/:game_id', {
 			templateUrl: 'views/sports.html',
 			controller: 'sports-controller'
 		})

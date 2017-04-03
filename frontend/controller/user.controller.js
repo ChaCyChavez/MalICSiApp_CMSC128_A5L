@@ -8,6 +8,7 @@
     function user_controller($scope, $location, UserService) {
 
         $scope.accounts = [];
+        $scope.pending_accounts = [];
 
     	$scope.view_profile = () => {
             window.location.href="#!/profile";
@@ -30,14 +31,46 @@
                 .get_all_account()
                 .then(function(res) {
                     $scope.accounts = res[0];
-                    console.log($scope.accounts);
+                }, function(err) {
+                    console.log(err);
+                });
+        }
+
+        $scope.get_pending_accounts = () => {
+            UserService
+                .get_pending_account()
+                .then(function(res) {
+                    $scope.pending_accounts = res;
                 }, function(err) {
                     console.log(err);
                 });
         }
 
         $scope.approve_user = (data) => {
-
+            swal({
+              title: "Are you sure?",
+              text: "You will not be able to revert back the account!",
+              type: "warning",
+              showCancelButton: true,
+              confirmButtonColor: "#DD6B55",
+              confirmButtonText: "Approve",
+              cancelButtonText: "Disapprove",
+              closeOnConfirm: false,
+              closeOnCancel: false
+            },
+            function(isConfirm){
+              if (isConfirm) {
+                UserService
+                .approve_account({account_id:$scope.pending_accounts[data].account_id})
+                .then((err, data) => {
+                    Materialize.toast("Successfully approved!.", 4000, 'teal');
+                    $scope.pending_accounts.splice(data, 1);
+                });
+                swal("Approved!", "Account has been approved!", "success");
+              } else {
+                swal("Disapproved!", "Account has been disapproved!", "error");
+              }
+            });
         }
     }
 })();
