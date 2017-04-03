@@ -54,10 +54,11 @@
 
 		$scope.search_game = () =>{
 			var data = {
-				game_name = $scope.gameSearched
+				game_name: $scope.gameSearched
 			}
-            GameEventService
 
+			console.log(data);
+            GameEventService
             .search_game(data)
             .then(function(res){
                 $scope.allGames = res[0];

@@ -35,10 +35,11 @@
 			const search_game = function(data) {
 				let deferred = $q.defer();
 
+				console.log(data);
 				$http({
 					method: 'GET',
 					params: data,
-					xhrFields: {withCredentials: false},
+					xhrFields: {withCredentials: true},
 					url: '/api/get-game-event/'+data.game_name,
 					headers: headers
 				})

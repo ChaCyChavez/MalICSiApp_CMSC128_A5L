@@ -55,7 +55,6 @@ module.exports = (router) => {
     router.post('/api/delete-game-event', game_event.delete_game_event);
     router.get('/api/get-user-upcoming-events/', game_event.get_user_upcoming_events);
     router.get('/api/get-user-past-events/', game_event.get_user_past_events);
-    router.get('/api/get-all-user-events/', game_event.get_all_user_events);
 
 //log routers
     //create log
