@@ -117,6 +117,22 @@
 			});
 		}
 
+		$scope.search_game = () =>{
+			var data = {
+				game_name: $scope.gameSearched
+			}
+
+			console.log(data);
+            GameEventService
+            .search_game(data)
+            .then(function(res){
+                $scope.allGames = res[0];
+                console.log($scope.allGames);
+            },function(err){
+                console.log(err);
+            })
+        }
+
 		$scope.delete_game = (type, id) => {
 			swal({
 			  title: "Are you sure?",

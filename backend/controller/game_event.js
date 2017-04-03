@@ -41,7 +41,7 @@ exports.add_game_event = (req, res, next) => {
 exports.get_game_event = (req, res, next) => {
 	const query_string = 'CALL get_game_event(?)';
 
-	const payload = [req.params.game_id];
+	const payload = [req.params.game_name];
 
 	const callback = (err, data) => {
 		if (err) {

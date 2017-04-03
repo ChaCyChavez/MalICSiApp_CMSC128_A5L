@@ -85,11 +85,36 @@
 				return deferred.promise;
 			}
 
+			
+
+	        const search_game = function(data) {
+				let deferred = $q.defer();
+
+				console.log(data);
+				$http({
+					method: 'GET',
+					params: data,
+					xhrFields: {withCredentials: true},
+					url: '/api/get-game-event/'+data.game_name,
+					headers: headers
+				})
+				.then(function(res) {
+					// $window.location.href = '/#!/game-event';
+					deferred.resolve(res.data);
+				}, function(err) {
+					deferred.reject(err.data);
+				})
+
+				return deferred.promise;
+			}
+
+
 			let service = {};
 			service.edit_game = edit_game;
 			service.delete_game = delete_game;
 			service.get_current_games = get_current_games;
 			service.get_upcoming_games = get_upcoming_games;
+			service.search_game = search_game;
 			return service;
 		}
 })();
