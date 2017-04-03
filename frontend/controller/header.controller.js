@@ -16,17 +16,12 @@
 		$rootScope.logout = () => {
 			alert("TO DO: please implement logout in backend and replace this alert with a call to the API");
 		}
-    /*
-        $scope.info = 1
-        $scope.profile = {}
-        $scope.user_upcoming_events = {}
-        $scope.user_past_events = {}
-    */
+
         ProfileService
         .get_profile()
             .then((data) => {
             if (data[0].length != 0) {
-                $scope.profile = data[0][0];
+                $rootScope.profile = data[0][0];
             }
         });
 
@@ -68,14 +63,6 @@
 		        })
 
 		}
-
-        ProfileService
-        .get_profile()
-            .then((data) => {
-            if (data[0].length != 0) {
-                $scope.profile = data[0][0];
-            }
-        });
 
 		$scope.login = () => {
 			if ($scope.info.username === undefined ||

@@ -6,9 +6,9 @@ use malicsi;
 DROP PROCEDURE IF EXISTS login_account//
   CREATE PROCEDURE login_account(IN _username varchar(256), IN _password varchar(256))
   BEGIN
-    SELECT account_id, firstname, middlename, lastname, email, username, course, 
-        birthday, college, is_game_head, position, is_player, player_jersey_num, 
-        player_role FROM account WHERE username = _username AND password = _password 
+    SELECT account_id, firstname, middlename, lastname, email, username, course,
+        birthday, college, is_game_head, position, is_player, player_jersey_num,
+        player_role FROM account WHERE username = _username AND password = _password
         AND is_approved = true;
   END;
 //
@@ -16,8 +16,8 @@ DROP PROCEDURE IF EXISTS login_account//
 DROP PROCEDURE IF EXISTS get_account//
   CREATE PROCEDURE get_account(IN _account_id int)
   BEGIN
-    SELECT account_id, firstname, middlename, lastname, email, username, course, 
-        birthday, college, is_game_head, position, is_player, player_jersey_num, 
+    SELECT account_id, firstname, middlename, lastname, email, username, course,
+        birthday, college, is_game_head, position, is_player, player_jersey_num,
         player_role FROM account WHERE account_id = _account_id AND is_approved = true;
   END;
 //
@@ -25,8 +25,8 @@ DROP PROCEDURE IF EXISTS get_account//
 DROP PROCEDURE IF EXISTS get_all_account//
   CREATE PROCEDURE get_all_account()
   BEGIN
-    SELECT account_id, firstname, middlename, lastname, email, username, course, 
-        birthday, college, is_game_head, position, is_player, player_jersey_num, 
+    SELECT account_id, firstname, middlename, lastname, email, username, course,
+        birthday, college, is_game_head, position, is_player, player_jersey_num,
         player_role FROM account ;
   END;
 //
@@ -140,7 +140,7 @@ DROP PROCEDURE IF EXISTS get_all_court//
 DROP PROCEDURE IF EXISTS get_teams_of_game//
   CREATE PROCEDURE get_teams_of_game(IN _game_id int)
   BEGIN
-    SELECT * FROM team NATURAL JOIN game_event_team 
+    SELECT * FROM team NATURAL JOIN game_event_team
         WHERE game_event_team.game_id = _game_id
         AND game_event_team.team_id = team.team_id;
   END;
@@ -150,8 +150,8 @@ DROP PROCEDURE IF EXISTS get_teams_of_game//
 DROP PROCEDURE IF EXISTS get_players_of_team//
   CREATE PROCEDURE get_players_of_team(IN _team_id int)
   BEGIN
-    SELECT account.account_id, firstname, middlename, lastname, email, username, course, 
-        birthday, college, is_game_head, position, is_player, player_jersey_num, 
+    SELECT account.account_id, firstname, middlename, lastname, email, username, course,
+        birthday, college, is_game_head, position, is_player, player_jersey_num,
         player_role, team_id FROM account NATURAL JOIN team_account WHERE team_id =
         _team_id AND account.account_id = team_account.account_id;
   END;
@@ -161,8 +161,8 @@ DROP PROCEDURE IF EXISTS get_players_of_team//
 DROP PROCEDURE IF EXISTS get_teams_of_match//
   CREATE PROCEDURE get_teams_of_match(IN _match_id int)
   BEGIN
-    SELECT * FROM team NATURAL JOIN match_event_team 
-        WHERE match_event_team.match_id = _match_id 
+    SELECT * FROM team NATURAL JOIN match_event_team
+        WHERE match_event_team.match_id = _match_id
         AND team.team_id = match_event_team.team_id;
   END;
 //
@@ -171,10 +171,10 @@ DROP PROCEDURE IF EXISTS get_teams_of_match//
 DROP PROCEDURE IF EXISTS get_user_upcoming_events//
   CREATE PROCEDURE get_user_upcoming_events(IN _account_id int)
   BEGIN
-    SELECT * FROM game_event NATURAL JOIN team_account NATURAL JOIN 
-        game_event_team WHERE team_account.account_id=_account_id 
-        AND team_account.team_id=game_event_team.team_id AND 
-        game_event_team.game_id=game_event.game_id AND 
+    SELECT * FROM game_event NATURAL JOIN team_account NATURAL JOIN
+        game_event_team WHERE team_account.account_id = _account_id
+        AND team_account.team_id=game_event_team.team_id AND
+        game_event_team.game_id=game_event.game_id AND
         game_starting_time_date > NOW();
   END;
 //
@@ -182,11 +182,25 @@ DROP PROCEDURE IF EXISTS get_user_upcoming_events//
 DROP PROCEDURE IF EXISTS get_user_past_events//
   CREATE PROCEDURE get_user_past_events(IN _account_id int)
   BEGIN
-    SELECT * FROM game_event NATURAL JOIN team_account NATURAL JOIN 
-        game_event_team WHERE team_account.account_id=_account_id 
-        AND team_account.team_id=game_event_team.team_id AND 
-        game_event_team.game_id=game_event.game_id AND 
+    SELECT * FROM game_event NATURAL JOIN team_account NATURAL JOIN
+        game_event_team WHERE team_account.account_id = _account_id
+        AND team_account.team_id=game_event_team.team_id AND
+        game_event_team.game_id=game_event.game_id AND
         game_ending_time_date <= NOW();
+  END;
+//
+
+DROP PROCEDURE IF EXISTS get_current_events//
+  CREATE PROCEDURE get_current_events()
+  BEGIN
+    SELECT * FROM game_event where game_ending_time_date >= NOW() and game_starting_time_date <= NOW();
+  END;
+//
+
+DROP PROCEDURE IF EXISTS get_upcoming_events//
+  CREATE PROCEDURE get_upcoming_events()
+  BEGIN
+    SELECT * FROM game_event where game_starting_time_date > NOW();
   END;
 //
 \d ;
