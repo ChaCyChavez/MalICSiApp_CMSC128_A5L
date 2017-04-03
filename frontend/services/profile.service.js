@@ -12,6 +12,7 @@
 		};
 
 		function ProfileService($window, $http, $q, $httpParamSerializer) {
+			
 			const get_profile = () => {
 				let deferred = $q.defer();
 
