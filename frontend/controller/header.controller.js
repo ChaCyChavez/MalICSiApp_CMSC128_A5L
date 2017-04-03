@@ -30,6 +30,7 @@
 			position: undefined,
 			birthday: undefined,
 			is_player: undefined,
+			is_game_head: 0,
 			player_jersey_num: 0,
 			player_role: undefined
 		}

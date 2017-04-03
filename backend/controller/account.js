@@ -45,7 +45,7 @@ exports.logout = function(req, res, next) {
 }
 
 exports.add_account = (req,res,next) => {
-	const query_string = 'CALL add_account(?,?,?,?,?,?,?,?,?,?,?,?,?)';
+	const query_string = 'CALL add_account(?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
 
 	const payload = [
 		req.body.first_name,
@@ -57,6 +57,7 @@ exports.add_account = (req,res,next) => {
 		req.body.course,
 		req.body.birthday,
 		req.body.college,
+		req.body.is_game_head,
 		req.body.position,
 		req.body.is_player,
 		req.body.player_jersey_num,
