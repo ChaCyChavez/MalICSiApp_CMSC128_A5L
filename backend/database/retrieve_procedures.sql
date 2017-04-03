@@ -18,7 +18,7 @@ DROP PROCEDURE IF EXISTS get_account//
   BEGIN
     SELECT account_id, firstname, middlename, lastname, email, username, course,
         birthday, college, is_game_head, position, is_player, player_jersey_num,
-        player_role FROM account WHERE account_id = _account_id AND is_approved = true;
+        player_role, is_approved FROM account WHERE account_id = _account_id AND is_approved = true;
   END;
 //
 
@@ -203,4 +203,20 @@ DROP PROCEDURE IF EXISTS get_upcoming_events//
     SELECT * FROM game_event where game_starting_time_date > NOW();
   END;
 //
+
+DROP PROCEDURE IF EXISTS get_court_of_match//
+  CREATE PROCEDURE get_court_of_match(IN _match_id int)
+  BEGIN
+    SELECT court_location, court_name FROM match_event NATURAL JOIN court WHERE match_id = _match_id;
+  END;
+//
+
+DROP PROCEDURE IF EXISTS get_teams_N_scores_of_match//
+  CREATE PROCEDURE get_teams_N_scores_of_match(IN _match_id int)
+  BEGIN
+    SELECT team_name, score FROM team NATURAL JOIN match_event_team WHERE match_id = _match_id;
+  END;
+//
+
+
 \d ;

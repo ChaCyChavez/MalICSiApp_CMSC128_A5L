@@ -20,7 +20,7 @@
         $scope.logout = () => {
             window.location.href="#!/";
         }
-        
+
         $scope.back_to_home = () => {
             window.location.href="#!/game-event";
         }
@@ -37,7 +37,7 @@
         }
 
         $scope.approve_user = (data) => {
-            
+
         }
     }
 })();
