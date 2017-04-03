@@ -33,7 +33,7 @@
 
 			const delete_game = (data) => {
 				let deferred = $q.defer();
-
+				console.log(data);
 				$http({
 					method: 'POST',
 					data: $httpParamSerializer(data),

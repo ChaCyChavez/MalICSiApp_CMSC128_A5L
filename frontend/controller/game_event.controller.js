@@ -41,8 +41,7 @@
 			GameEventService
 			.get_upcoming_games()
 			.then((data) => {
-				$scope.current_games = data[0];
-				console.log("hello");
+				$scope.upcoming_games = data[0];
 				console.log($scope.current_games);
 			});
 		}
@@ -53,46 +52,10 @@
 				game_starting_time_date: undefined,
 				game_ending_time_date: undefined,
 				game_name: undefined
-			},
-			{
-				game_id: undefined,
-				game_starting_time_date: undefined,
-				game_ending_time_date: undefined,
-				game_name: undefined
-			},
-			{
-				game_id: undefined,
-				game_starting_time_date: undefined,
-				game_ending_time_date: undefined,
-				game_name: undefined
-			},
-			{
-				game_id: undefined,
-				game_starting_time_date: undefined,
-				game_ending_time_date: undefined,
-				game_name: undefined
 			}
 		];
 
 		$scope.upcoming_games = [
-			{
-				game_id: undefined,
-				game_starting_time_date: undefined,
-				game_ending_time_date: undefined,
-				game_name: undefined
-			},
-			{
-				game_id: undefined,
-				game_starting_time_date: undefined,
-				game_ending_time_date: undefined,
-				game_name: undefined
-			},
-			{
-				game_id: undefined,
-				game_starting_time_date: undefined,
-				game_ending_time_date: undefined,
-				game_name: undefined
-			},
 			{
 				game_id: undefined,
 				game_starting_time_date: undefined,
