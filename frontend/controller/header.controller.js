@@ -143,7 +143,6 @@
 				$scope.data.player_role = '';
 				$("#modal-register").modal('close');
 			} else {
-				console.log($scope.data);
 				LoginRegisterService
 					.register_account($scope.data)
 					.then(function(res) {
