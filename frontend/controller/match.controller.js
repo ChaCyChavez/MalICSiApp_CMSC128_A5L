@@ -22,7 +22,7 @@
             window.location.href="#!/game-event";
         }
 
-        var x = $location.path().toString().split("/");
+        let x = $location.path().toString().split("/");
         $scope.match_id = parseInt(x[x.length-1]);
         $scope.match = {
             match_id: 0,

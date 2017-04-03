@@ -8,6 +8,10 @@
     login_register_controller.$inject = ['$scope', '$location', '$routeParams', '$rootScope', 'ProfileService', 'LoginRegisterService'];
 
     function login_register_controller($scope, $location, $routeParams, $rootScope, ProfileService, LoginRegisterService) {
-
+    	
+    	$scope.checkLoggedIn = () => {
+    		
+    	}
+    	
 	}
 })();

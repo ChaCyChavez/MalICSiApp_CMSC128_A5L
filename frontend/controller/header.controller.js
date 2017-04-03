@@ -12,10 +12,6 @@
 			$location.url(view);
 			location.reload();
 		}
-
-		$rootScope.logout = () => {
-			alert("TO DO: please implement logout in backend and replace this alert with a call to the API");
-		}
     /*
         $scope.info = 1
         $scope.profile = {}
@@ -94,7 +90,6 @@
 					.then(function(res) {
 						$("#modal-login").modal('close');
 						window.location = '#!/game-event';
-						location.reload();
 					}, function(err) {
 						Materialize.toast(err.message, 4000, 'teal');
 						$scope.info.username = '';
@@ -121,7 +116,6 @@
 			{
 				$scope.data.is_player = 0;
 			}
-			console.log(JSON.stringify($scope.data));
 
 			if ($scope.data.username === undefined ||
 				$scope.data.username === '' ||
