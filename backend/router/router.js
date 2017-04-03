@@ -96,7 +96,11 @@ module.exports = (router) => {
     //update sport
     router.post('/api/update-sport', sport.update_sport);
     //delete sport
-    router.post('/api/delete-sport/:sport_id', sport.delete_sport);
+    router.post('/api/delete-sport/', sport.delete_sport);
+    //get sports in a game
+    router.get('/api/get-sport-game/:game_id', sport.get_sport_game);
+    //get teams in a sport
+    router.get('/api/get-sport-team/:sport_id', sport.get_sport_team);
 
 //team routers
     //create team
@@ -107,6 +111,7 @@ module.exports = (router) => {
     router.post('/api/update-team', team.update_team);
     //delete team
     router.post('/api/delete-team/:team_id', team.delete_team);
+
 
 
     router.all('*', (req, res, next) => {
