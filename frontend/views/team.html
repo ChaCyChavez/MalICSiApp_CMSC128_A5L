@@ -1,7 +1,7 @@
 <div ng-controller="team-controller">
-  <h4 class="header">Team 1</h4>
-  <div class="row contents" ng-init="get_team_profile()">
-    <div class="row contents">
+  <h4 class="header">Team {{team_id}}</h4>
+  <div class="row contents">
+    <div class="team-matches" ng-init="get_team_profile()">
       <table>
         <thead>
           <tr>
@@ -29,40 +29,10 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>9999-12-31 23:59:59</td>
-            <td>Team 2</td>
-            <td>Win</td>
-          </tr>
-          <tr>
-            <td>9999-12-31 23:59:59</td>
-            <td>Team 2</td>
-            <td>Win</td>
-          </tr>
-          <tr>
-            <td>9999-12-31 23:59:59</td>
-            <td>Team 5</td>
-            <td>Win</td>
-          </tr>
-          <tr>
-            <td>9999-12-31 23:59:59</td>
-            <td>Team 3</td>
-            <td>Win</td>
-          </tr>
-          <tr>
-            <td>9999-12-31 23:59:59</td>
-            <td>Team 4</td>
-            <td>Win</td>
-          </tr>
-          <tr>
-            <td>9999-12-31 23:59:59</td>
-            <td>Team 3</td>
-            <td>Win</td>
-          </tr>
-          <tr>
-            <td>9999-12-31 23:59:59</td>
-            <td>Team 3</td>
-            <td>Win</td>
+          <tr ng-repeat="teams in team">
+            <td>{{teams.match_date_time}}</td>
+            <td>{{teams.team_name}}</td>
+            <td>{{teams.score}}</td>
           </tr>
         </tbody>
       </table>
