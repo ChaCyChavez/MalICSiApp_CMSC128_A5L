@@ -10,6 +10,7 @@
     function header_controller($scope, $location, $routeParams, $rootScope, ProfileService, LoginRegisterService) {
 		$rootScope.changeView = (view) => {
 			$location.url(view);
+			location.reload();
 		}
 
 		$rootScope.logout = () => {
