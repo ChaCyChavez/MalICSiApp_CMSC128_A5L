@@ -12,16 +12,6 @@
 			$location.url(view);
 			location.reload();
 		}
-    
-    	$scope.get_loggedIn = () => {
-	        ProfileService
-	        .get_profile()
-	            .then((data) => {
-	            if (data[0].length != 0) {
-	                $scope.profile = data[0][0];
-	            }
-	        });
-	    }
 
 		$scope.info = {
 			username : undefined,
@@ -54,11 +44,24 @@
 		        .then(function(res) {
 					Materialize.toast(res.message, 4000, 'teal');
 					$window.location.href = "#!/"
+					location.reload();
 		        }, function(err) {
 					Materialize.toast('Logout unsuccessful!', 4000, 'teal');
 		        })
 
 		}
+
+		$scope.get_loggedIn = () => {
+	        ProfileService
+	        .get_profile()
+	            .then((data) => {
+	            if (data[0].length != 0) {
+	                $scope.profile = data[0][0];
+	            } else {
+	            	$window.location.href = "#!/";
+	            }
+	        });
+	    }
 
 		$scope.login = () => {
 			if ($scope.info.username === undefined ||
@@ -77,6 +80,7 @@
 					.then(function(res) {
 						$("#modal-login").modal('close');
 						$window.location.href = '#!/game-event';
+						location.reload();
 					}, function(err) {
 						Materialize.toast(err.message, 4000, 'teal');
 						$scope.info.username = '';
@@ -88,7 +92,6 @@
 		}
 
 		$scope.register = () => {
-
 			let isplayer = $("#is_player").is(":checked");
 			let e = document.getElementById("opt");
 			let strUser = e.options[e.selectedIndex].value;
