@@ -5,15 +5,15 @@
   <!-- Search -->
   <div class="row contents">
     <h3 class="header">GAMES</h3>
-    <!-- <form class="col s7 right">
+    <form class="col s7 right" ng-submit="search_game()">
       <div class="row">
         <div class="input-field col s7 right" class="search">
           <i class="fa fa-search prefix"></i>
-          <input id="icon_prefix" type="text" class="validate">
+          <input ng-model="gameSearched" id="icon_prefix" type="text" class="validate">
           <label for="icon_prefix">Search games:</label>
         </div>
       </div>
-    </form> -->
+    </form>
   </div>
 
   <h4 class="header">Current Games</h4>
@@ -112,7 +112,7 @@
                 <input name="someDate" type="date" class="datepicker">
                 <label class="labels cyan-text text-darken-4" for="someDate">Match date time:</label>
               </div>
-              
+
               <table id="tbl">
                 <tr>
                   <th><label class="labels cyan-text text-darken-4" for="someDate">Team Name</label></th>
@@ -120,7 +120,7 @@
                 </tr>
                 <tr>
                   <td><input class="input-field col s12" type="text" name="links" /></td>
-                  <td><input class="input-field col s12" type="text" name="keywords" /></td> 
+                  <td><input class="input-field col s12" type="text" name="keywords" /></td>
                 </tr>
               </table>
               <div class="team-button">
@@ -150,7 +150,7 @@
 			<div class="row">
 			  <div class="inputfield col s10">
 				<label class="labels cyan-text text-darken-4" for="name">Name:</label>
-				<input class="field-inputs" type="text" ng-model="edit_game_info.name">
+				<input class="field-inputs" type="text" ng-model="edit_game_info.game_name">
 			  </div>
 			  <div class="inputfield col s10">
 				<label class="labels cyan-text text-darken-4" for="name">Start date:</label>
@@ -251,3 +251,5 @@
       $("#tbl").append('<tr><td><input type="text" class="txtbox" value="" />  </td><td><input type="text" class="txtbox" value="" /></td></tr>');
    });
 </script>
+
+
