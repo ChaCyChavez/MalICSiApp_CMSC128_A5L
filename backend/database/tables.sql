@@ -69,7 +69,7 @@ CREATE TABLE sponsor (
     web_address         varchar(256) NOT NULL,
     game_id             int NOT NULL,
     PRIMARY KEY         (sponsor_id),
-    CONSTRAINT          `fk_game_sponsored` 
+    CONSTRAINT          `fk_game_sponsored`
         FOREIGN KEY (game_id) REFERENCES game_event (game_id)
         ON UPDATE CASCADE ON DELETE CASCADE
 );
@@ -107,7 +107,7 @@ CREATE TABLE match_event (
     CONSTRAINT          `fk_sport_match`
         FOREIGN KEY (sport_id) REFERENCES sport (sport_id)
         ON UPDATE CASCADE ON DELETE CASCADE,
-    CONSTRAINT          `fk_court_of_match` 
+    CONSTRAINT          `fk_court_of_match`
         FOREIGN KEY (court_id) REFERENCES court (court_id)
         ON UPDATE CASCADE ON DELETE CASCADE
 );
@@ -118,10 +118,10 @@ CREATE TABLE game_event_team (          /*table for teams that registered in a g
     team_id             int NOT NULL,
     game_id             int NOT NULL,
     PRIMARY KEY         (team_id, game_id),
-    CONSTRAINT          `fk_game_of_team` 
+    CONSTRAINT          `fk_game_of_team`
         FOREIGN KEY (game_id) REFERENCES game_event (game_id)
         ON UPDATE CASCADE ON DELETE CASCADE,
-    CONSTRAINT          `fk_team_in_game` 
+    CONSTRAINT          `fk_team_in_game`
         FOREIGN KEY (team_id) REFERENCES team (team_id)
         ON UPDATE CASCADE ON DELETE CASCADE
 );
@@ -152,4 +152,3 @@ CREATE TABLE match_event_team(          /*table for scores of team that particip
         FOREIGN KEY (match_id) REFERENCES match_event (match_id)
         ON UPDATE CASCADE ON DELETE CASCADE
 );
-

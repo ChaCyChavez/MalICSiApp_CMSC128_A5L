@@ -30,7 +30,7 @@
 			position: undefined,
 			birthday: undefined,
 			is_player: undefined,
-			is_game_head: 0,
+			is_game_head: undefined,
 			player_jersey_num: 0,
 			player_role: undefined
 		}
@@ -94,6 +94,7 @@
 
 		$scope.register = () => {
 			let isplayer = $("#is_player").is(":checked");
+			let isgamehead = $("#is_game_head").is(":checked");
 			let e = document.getElementById("opt");
 			let strUser = e.options[e.selectedIndex].value;
 			$scope.data.birthday = $('.datepicker').val();
@@ -106,6 +107,15 @@
 			else
 			{
 				$scope.data.is_player = 0;
+			}
+
+			if (isgamehead)
+			{
+				$scope.data.is_game_head = 1;
+			}
+			else
+			{
+				$scope.data.is_game_head = 0;
 			}
 
 			if ($scope.data.username === undefined ||
@@ -150,6 +160,34 @@
 						$("#modal-register").modal('close');
 						Materialize.toast("Register successful!", 4000, 'teal');
 						Materialize.toast("Your registration is now on process", 4000, 'teal');
+						$scope.data.username = '';
+						$scope.data.password = '';
+						$scope.data.first_name = '';
+						$scope.data.middle_name = '';
+						$scope.data.last_name = '';
+						$scope.data.college = '';
+						$scope.data.course = '';
+						$scope.data.email = '';
+						$scope.data.position = '';
+						$scope.data.birthday = '';
+						$scope.data.is_player = '';
+						$scope.data.is_game_head = '';
+						$scope.data.player_jersey_num = 0;
+						$scope.data.player_role = '';
+						$scope.data.username = undefined;
+						$scope.data.password = undefined;
+						$scope.data.first_name = undefined;
+						$scope.data.middle_name = undefined;
+						$scope.data.last_name = undefined;
+						$scope.data.college = undefined;
+						$scope.data.course = undefined;
+						$scope.data.email = undefined;
+						$scope.data.position = undefined;
+						$scope.data.birthday = undefined;
+						$scope.data.is_player = undefined;
+						$scope.data.is_game_head = undefined;
+						$scope.data.player_jersey_num = 0;
+						$scope.data.player_role = undefined;
 					}, function(err) {
 						Materialize.toast(err.message, 4000, 'teal');
 					})

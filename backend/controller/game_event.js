@@ -2,6 +2,7 @@
 
 const db = require(__dirname + '/../lib/mysql');
 const winston = require('winston');
+const prettyjson = require('prettyjson');
 
 exports.add_game_event = (req, res, next) => {
 	const query_string = 'CALL add_game_event(?,?,?)';
@@ -15,11 +16,21 @@ exports.add_game_event = (req, res, next) => {
 	const callback = (err,data) => {
 		if (err) {
 			winston.level = 'debug';
-			winston.log('debug', 'err: ', err);
+			winston.log('debug', 'Error', prettyjson.render({
+				details: err,
+				origin: "add_game_event controller in game_event.js",
+				payload: payload,
+				query_string: query_string
+			}));
 			res.status(500).send({ error_code:err.code });
 		} else {
 			winston.level = 'info';
-			winston.log('info', 'Successfully added event!');
+			winston.log('info', 'Success', prettyjson.render({
+				details: data,
+				origin: "add_game_event controller in game_event.js",
+				payload: payload,
+				query_string: query_string
+			}));
 			res.status(200).send(data);
 		}
 	};
@@ -35,15 +46,28 @@ exports.get_game_event = (req, res, next) => {
 	const callback = (err, data) => {
 		if (err) {
 			winston.level = 'debug';
-			winston.log('debug', 'err: ', err);
+			winston.log('debug', 'Error', prettyjson.render({
+				details: err,
+				origin: "get_game_event controller in game_event.js",
+				payload: payload,
+				query_string: query_string
+			}));
 			res.status(500).send({ error_code:err.code });
 		} else if (data[0].length == 0) {
-			winston.level = 'info';
-			winston.log('info', 'Not found!');
-			res.status(404).send();
+			winston.log('info', 'Not found.', prettyjson.render({
+				origin: "get_game_event controller in game_event.js",
+				payload: payload,
+				query_string: query_string
+			}));
+			res.status(500).send();
 		} else {
 			winston.level = 'info';
-			winston.log('info', 'Successfully retrieved event!');
+			winston.log('info', 'Success', prettyjson.render({
+				details: data,
+				origin: "get_game_event controller in game_event.js",
+				payload: payload,
+				query_string: query_string
+			}));
 			res.status(200).send(data);
 		}
 	};
@@ -59,15 +83,30 @@ exports.get_user_upcoming_events = (req, res, next) => {
 	const callback = (err, data) => {
 		if (err) {
 			winston.level = 'debug';
-			winston.log('debug', 'err: ', err);
+			winston.log('debug', 'Error', prettyjson.render({
+				details: err,
+				origin: "get_user_upcoming_events in game_event.js",
+				payload: payload,
+				query_string: query_string
+			}));
 			res.status(500).send({ error_code:err.code });
 		} else if (data[0].length == 0) {
 			winston.level = 'info';
-			winston.log('info', 'Empty response! Upcoming events of user: ', data[0].length);
+			winston.log('info', '0 rows returned', prettyjson.render({
+				details: data,
+				origin: "get_user_upcoming_events controller in game_event.js",
+				payload: payload,
+				query_string: query_string
+			}));
 			res.status(200).send(data);
 		} else {
 			winston.level = 'info';
-			winston.log('info', 'Successfully retrieved event(s)! No. of event(s): ', data[0].length);
+			winston.log('info', 'Success', prettyjson.render({
+				details: data,
+				origin: "get_user_upcoming_events controller in game_event.js",
+				payload: payload,
+				query_string: query_string
+			}));
 			res.status(200).send(data);
 		}
 	};
@@ -83,15 +122,108 @@ exports.get_user_past_events = (req, res, next) => {
 	const callback = (err, data) => {
 		if (err) {
 			winston.level = 'debug';
-			winston.log('debug', 'err: ', err);
+			winston.log('debug', 'Error', prettyjson.render({
+				details: err,
+				origin: "get_user_past_events in game_event.js",
+				payload: payload,
+				query_string: query_string
+			}));
 			res.status(500).send({ error_code:err.code });
 		} else if (data[0].length == 0) {
 			winston.level = 'info';
-			winston.log('info', 'Empty response! Past events of user: ', data[0].length);
+			winston.log('info', '0 rows returned', prettyjson.render({
+				details: data,
+				origin: "get_user_past_events controller in game_event.js",
+				payload: payload,
+				query_string: query_string
+			}));
 			res.status(200).send(data);
 		} else {
 			winston.level = 'info';
-			winston.log('info', 'Successfully retrieved event(s)! No. of event(s): ', data[0].length);
+			winston.log('info', 'Success', prettyjson.render({
+				details: data,
+				origin: "get_user_past_events controller in game_event.js",
+				payload: payload,
+				query_string: query_string
+			}));
+			res.status(200).send(data);
+		}
+	};
+
+	db.query(query_string, payload, callback);
+};
+
+exports.get_current_events = (req, res, next) => {
+	const query_string = 'CALL get_current_events(?)';
+
+	const payload = [];
+
+	const callback = (err, data) => {
+		if (err) {
+			winston.level = 'debug';
+			winston.log('debug', 'Error', prettyjson.render({
+				details: err,
+				origin: "get_current_events in game_event.js",
+				payload: payload,
+				query_string: query_string
+			}));
+			res.status(500).send({ error_code:err.code });
+		} else if (data[0].length == 0) {
+			winston.level = 'info';
+			winston.log('info', '0 rows returned', prettyjson.render({
+				details: data,
+				origin: "get_current_events controller in game_event.js",
+				payload: payload,
+				query_string: query_string
+			}));
+			res.status(200).send(data);
+		} else {
+			winston.level = 'info';
+			winston.log('info', 'Success', prettyjson.render({
+				details: data,
+				origin: "get_current_events controller in game_event.js",
+				payload: payload,
+				query_string: query_string
+			}));
+			res.status(200).send(data);
+		}
+	};
+
+	db.query(query_string, payload, callback);
+};
+
+exports.get_upcoming_events = (req, res, next) => {
+	const query_string = 'CALL get_upcoming_events(?)';
+
+	const payload = [];
+
+	const callback = (err, data) => {
+		if (err) {
+			winston.level = 'debug';
+			winston.log('debug', 'Error', prettyjson.render({
+				details: err,
+				origin: "get_upcoming_events in game_event.js",
+				payload: payload,
+				query_string: query_string
+			}));
+			res.status(500).send({ error_code:err.code });
+		} else if (data[0].length == 0) {
+			winston.level = 'info';
+			winston.log('info', '0 rows returned', prettyjson.render({
+				details: data,
+				origin: "get_upcoming_events controller in game_event.js",
+				payload: payload,
+				query_string: query_string
+			}));
+			res.status(200).send(data);
+		} else {
+			winston.level = 'info';
+			winston.log('info', 'Success', prettyjson.render({
+				details: data,
+				origin: "get_upcoming_events controller in game_event.js",
+				payload: payload,
+				query_string: query_string
+			}));
 			res.status(200).send(data);
 		}
 	};
@@ -113,15 +245,30 @@ exports.update_game_event = (req, res, next) => {
 		console.log(data);
 		if (err) {
 			winston.level = 'debug';
-			winston.log('debug', 'err: ', err);
+			winston.log('debug', 'Error', prettyjson.render({
+				details: err,
+				origin: "update_game_event in game_event.js",
+				payload: payload,
+				query_string: query_string
+			}));
 			res.status(500).send({ error_code:err.code });
 		} else if (data.affectedRows == 0) {
-			winston.level = 'info';
-			winston.log('info', 'Not found! Update failed');
-			res.status(404).send(data);
+			winston.level = 'debug';
+			winston.log('debug', 'Not found', prettyjson.render({
+				details: err,
+				origin: "update_game_event in game_event.js",
+				payload: payload,
+				query_string: query_string
+			}));
+			res.status(404).send();
 		} else {
 			winston.level = 'info';
-			winston.log('info', 'Successfully updated event!');
+			winston.log('info', 'Success', prettyjson.render({
+				details: data,
+				origin: "update_game_event controller in game_event.js",
+				payload: payload,
+				query_string: query_string
+			}));
 			res.status(200).send(data);
 		}
 	};
@@ -137,15 +284,30 @@ exports.delete_game_event = (req, res, next) => {
 	const callback = (err, data) => {
 		if (err) {
 			winston.level = 'debug';
-			winston.log('debug', 'err: ', err);
+			winston.log('debug', 'Error', prettyjson.render({
+				details: err,
+				origin: "delete_game_event in game_event.js",
+				payload: payload,
+				query_string: query_string
+			}));
 			res.status(500).send({ error_code:err.code });
 		} else if (data.affectedRows == 0) {
-			winston.level = 'info';
-			winston.log('info', 'Not found! Delete failed');
-			res.status(404).send(data);
+			winston.level = 'debug';
+			winston.log('debug', 'Not found', prettyjson.render({
+				details: err,
+				origin: "delete_game_event in game_event.js",
+				payload: payload,
+				query_string: query_string
+			}));
+			res.status(404).send();
 		} else {
 			winston.level = 'info';
-			winston.log('info', 'Successfully deleted event!');
+			winston.log('info', 'Success', prettyjson.render({
+				details: data,
+				origin: "delete_game_event controller in game_event.js",
+				payload: payload,
+				query_string: query_string
+			}));
 			res.status(200).send(data);
 		}
 	};

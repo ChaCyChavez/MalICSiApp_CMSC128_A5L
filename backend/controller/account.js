@@ -64,8 +64,6 @@ exports.add_account = (req,res,next) => {
 		req.body.player_role
 	];
 
-	console.log(payload);
-
 	const callback = (err,data) => {
 		if (err) {
 			winston.level = 'debug';
