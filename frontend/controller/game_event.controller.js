@@ -104,22 +104,29 @@
 		}
 
 		$scope.delete_game = (type, id) => {
-			if (type === 'upcoming') {
-				if (confirm('Are you sure you want to delete game?')) {
+			swal({
+			  title: "Are you sure?",
+			  text: "You will not be able to recover the event!",
+			  type: "warning",
+			  showCancelButton: true,
+			  confirmButtonColor: "#DD6B55",
+			  confirmButtonText: "Yes, delete it!",
+			  closeOnConfirm: false
+			},
+			function(){
+				if (type === 'upcoming') {
 					GameEventService.delete_game({game_id:$scope.upcoming_games[id].game_id}).then((err, data) => {
-						Materialize.toast("Successfully deleted.");
+						Materialize.toast("Successfully deleted.", 4000, 'teal');
 						$scope.upcoming_games.splice(id, 1);
 					});
-
-				}
-			} else {
-				if (confirm('Are you sure you want to delete game')) {
+				} else {
 					GameEventService.delete_game({game_id:$scope.current_games[id].game_id}).then((err, data) => {
-							Materialize.toast("Successfully deleted.");
+							Materialize.toast("Successfully deleted.", 4000, 'teal');
 							$scope.current_games.splice(id, 1);
 					});
 				}
-			}
+				swal("Deleted!", "Event has been deleted.", "success");
+			});
 		}
     }
 })();
