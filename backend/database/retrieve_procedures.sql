@@ -18,7 +18,7 @@ DROP PROCEDURE IF EXISTS get_account//
   BEGIN
     SELECT account_id, firstname, middlename, lastname, email, username, course,
         birthday, college, is_game_head, position, is_player, player_jersey_num,
-        player_role FROM account WHERE account_id = _account_id AND is_approved = true;
+        player_role, is_approved FROM account WHERE account_id = _account_id AND is_approved = true;
   END;
 //
 
