@@ -5,7 +5,7 @@
   <!-- Search -->
   <div class="row contents">
     <h3 class="header">GAMES</h3>
-    <form class="col s7 right">
+    <!-- <form class="col s7 right">
       <div class="row">
         <div class="input-field col s7 right" class="search">
           <i class="fa fa-search prefix"></i>
@@ -13,16 +13,16 @@
           <label for="icon_prefix">Search games:</label>
         </div>
       </div>
-    </form>
+    </form> -->
   </div>
   <h4 class="header">Current Games</h4>
   <!-- Contents -->
   <div class="row">
     <div class="card-panel col offset-l1 s12 m11 l10 z-depth-3">
-          <div class="col s12 m6">
+          <div class="col s12 m6" ng-repeat="(index, game) in current_games">
             <div class="card">
               <div class="card-image">
-                <a class="edit_btn dropdown-button btn-flat right" data-activates="dropdownOptions1"><i class="fa fa-sort-down white-text fa-2x"></i></a>
+                <a ng-if="profile.is_game_head" class="edit_btn dropdown-button btn-flat right" data-activates="dropdownCurrent{{index}}"><i class="fa fa-sort-down white-text fa-2x"></i></a>
                 <img src="img/sample-1.jpg">
               </div>
               <div class="card-action center-align">
@@ -31,118 +31,36 @@
                 </a>
               </div>
             </div>
-          </div>
-
-          <div class="col s12 m6">
-            <div class="card">
-              <div class="card-image">
-                <a class="edit_btn dropdown-button btn-flat right" data-activates="dropdownOptions2"><i class="fa fa-sort-down white-text fa-2x"></i></a>
-                <img src="img/sample-1.jpg">
-              </div>
-              <div class="card-action center-align">
-                <a class="btn white-text" href="javascript:void(0)" data-target="modal1" modal>
-                   view more ...
-                </a>
-              </div>
-            </div>
+			<ul id='dropdownCurrent{{index}}' class='dropdown-content'>
+			  <li><a href="javascript:void(0)" data-target="modal4" ng-click="setup_edit_modal('current', index)">edit</a></li>
+			  <li class="divider"></li>
+			  <li><a href="javascript:void(0)" ng-click="delete_game('current',index)">remove</a></li>
+			</ul>
           </div>
     </div>
   </div>
 
-  <h4 class="header">Incoming Games</h4>
+  <h4 class="header">Upcoming Games</h4>
 
   <!-- Contents -->
   <div class="row">
     <div class="card-panel col offset-l1 s12 m11 l10 z-depth-3">
-          <div class="col s12 m3">
-            <div class="card">
-              <div class="card-image">
-                <a class="edit_btn dropdown-button btn-flat right" data-activates="dropdownOptions3"><i class="fa fa-sort-down white-text"></i></a>
-                <img src="img/sample-1.jpg">
-              </div>
-            </div>
-          </div>
+		<div class="col s12 m3" ng-repeat="(index, game) in upcoming_games">
+			<div class="card">
+			  <div class="card-image">
+			    <a ng-if="profile.is_game_head" class="edit_btn dropdown-button btn-flat right" data-activates="dropdownUpcoming{{index}}"><i class="fa fa-sort-down white-text"></i></a>
+			    <img src="img/sample-1.jpg">
+			  </div>
+			</div>
 
-          <div class="col s12 m3">
-            <div class="card">
-              <div class="card-image">
-                <a class="edit_btn dropdown-button btn-flat right" data-activates="dropdownOptions4"><i class="fa fa-sort-down white-text"></i></a>
-                <img src="img/sample-1.jpg">
-              </div>
-              <!-- <div class="card-action center-align">
-                <a class="btn white-text" href="#modal1">
-                   view more ...
-                </a>
-              </div> -->
-            </div>
-          </div>
-
-          <div class="col s12 m3">
-            <div class="card">
-              <div class="card-image">
-                <a class="edit_btn dropdown-button btn-flat right" data-activates="dropdownOptions5"><i class="fa fa-sort-down white-text"></i></a>
-                <img src="img/sample-1.jpg">
-              </div>
-              <!-- <div class="card-action center-align">
-                <a class="btn white-text" href="#modal1">
-                   view more ...
-                </a>
-              </div> -->
-            </div>
-          </div>
-
-          <div class="col s12 m3">
-            <div class="card">
-              <div class="card-image">
-                <a class="edit_btn dropdown-button btn-flat right" data-activates="dropdownOptions6"><i class="fa fa-sort-down white-text"></i></a>
-                <img src="img/sample-1.jpg">
-              </div>
-             <!--  <div class="card-action center-align">
-                <a class="btn white-text" href="#modal1">
-                   view more ...
-                </a>
-              </div> -->
-            </div>
-          </div>
+			<ul id='dropdownUpcoming{{index}}' class='dropdown-content'>
+				<li><a href="javascript:void(0)" data-target="modal4" ng-click="setup_edit_modal('upcoming', index)">edit</a></li>
+				<li class="divider"></li>
+				<li><a href="javascript:void(0)" ng-click="delete_game('upcoming',index)">remove</a></li>
+			</ul>
+		</div>
     </div>
   </div>
-
-  <!-- Dropdown Structure -->
-  <ul id='dropdownOptions1' class='dropdown-content'>
-    <li><a href="javascript:void(0)" data-target="modal4" ng-click="setup_edit_modal('current', 0)">edit</a></li>
-    <li class="divider"></li>
-    <li><a href="javascript:void(0)">remove</a></li>
-  </ul>
-
-  <ul id='dropdownOptions2' class='dropdown-content'>
-    <li><a href="javascript:void(0)" data-target="modal4" ng-click="setup_edit_modal('current', 1)">edit</a></li>
-    <li class="divider"></li>
-    <li><a href="javascript:void(0)">remove</a></li>
-  </ul>
-
-  <ul id='dropdownOptions3' class='dropdown-content'>
-    <li><a href="javascript:void(0)" data-target="modal4" ng-click="setup_edit_modal('upcoming', 0)">edit</a></li>
-    <li class="divider"></li>
-    <li><a href="javascript:void(0)">remove</a></li>
-  </ul>
-
-  <ul id='dropdownOptions4' class='dropdown-content'>
-    <li><a href="javascript:void(0)" data-target="modal4" ng-click="setup_edit_modal('upcoming', 1)">edit</a></li>
-    <li class="divider"></li>
-    <li><a href="javascript:void(0)">remove</a></li>
-  </ul>
-
-  <ul id='dropdownOptions5' class='dropdown-content'>
-    <li><a href="javascript:void(0)" data-target="modal4" ng-click="setup_edit_modal('upcoming', 2)">edit</a></li>
-    <li class="divider"></li>
-    <li><a href="javascript:void(0)">remove</a></li>
-  </ul>
-
-  <ul id='dropdownOptions6' class='dropdown-content'>
-    <li><a href="javascript:void(0)" data-target="modal4" ng-click="setup_edit_modal('upcoming', 3)">edit</a></li>
-    <li class="divider"></li>
-    <li><a href="javascript:void(0)">remove</a></li>
-  </ul>
 
   <!-- Modal Structure -->
   <div id="modal2" class="modal modal-fixed-footer">
@@ -156,10 +74,6 @@
             <div class="row">
               <div class="inputfield col s10">
                 <label class="labels cyan-text text-darken-4" for="name">Name:</label>
-                <input class="field-inputs" type="text">
-              </div>
-               <div class="inputfield col s10">
-                <label class="labels cyan-text text-darken-4" for="name">Type:</label>
                 <input class="field-inputs" type="text">
               </div>
               <div class="inputfield col s10">

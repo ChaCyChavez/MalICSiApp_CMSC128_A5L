@@ -32,6 +32,7 @@
     "nodemailer": "^3.1.7",
     "nodemon": "^1.11.0",
     "path": "^0.12.7",
+    "prettyjson": "^1.2.1",
     "redis": "^2.6.5",
     "winston": "^2.3.1"
   }

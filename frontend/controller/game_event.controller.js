@@ -53,6 +53,7 @@
 
 		$scope.edit_game_info = {};
 		$scope.setup_edit_modal = (type, id) => {
+			console.log(type, id);
 			if (type === 'upcoming') {
 				$scope.edit_game_info = $scope.upcoming_games[id];
 			} else if (type === 'current') {
@@ -66,43 +67,23 @@
 			});
 		}
 
-        ProfileService
-        .get_profile()
-            .then((data) => {
-            if (data[0].length != 0) {
-                $scope.profile = data[0][0];
-            }
-        });
+		$scope.delete_game = (type, id) => {
+			if (type === 'upcoming') {
+				if (confirm('Are you sure you want to delete game?')) {
+					GameEventService.delete_game({game_id:$scope.upcoming_games[id].game_id}).then((err, data) => {
+						Materialize.toast("Successfully deleted.");
+						$scope.upcoming_games.splice(id, 1);
+					});
 
-        $scope.view_sports = () => {
-            $("#modal1").modal('close');
-            window.location.href = "#!/sports";
-        }
-
-        $scope.view_profile = () => {
-            window.location.href = "#!/profile";
-        }
-
-        $scope.view_user = () => {
-            window.location.href = "#!/user";
-        }
-
-        $scope.logout = () => {
-            window.location.href = "#!/";
-        }
-
-        $scope.view_registered_user = () => {
-            $("#modal1").modal('close');
-            window.location.href = "#!/registered-user";
-        }
-
-        $scope.view_sponsor = (game_id) => {
-            $("#modal1").modal('close');
-            window.location.href = "#!/sponsor/" + game_id;
-        }
-
-        $scope.back_to_home = () => {
-            window.location.href = "#!/game-event";
-        }
+				}
+			} else {
+				if (confirm('Are you sure you want to delete game')) {
+					GameEventService.delete_game({game_id:$scope.current_games[id].game_id}).then((err, data) => {
+							Materialize.toast("Successfully deleted.");
+							$scope.current_games.splice(id, 1);
+					});
+				}
+			}
+		}
     }
 })();
