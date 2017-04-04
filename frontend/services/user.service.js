@@ -29,23 +29,6 @@
 				return deferred.promise;
 			}
 
-			const get_pending_account = () => {
-				let deferred = $q.defer();
-
-				$http({
-					method: 'GET',
-					url: '/api/get-all-account/',
-					headers: headers
-				})
-				.then(function(res) {
-					console.log(res);
-					deferred.resolve(res.data);
-				}, function(err) {
-					deferred.reject(err.data);
-				})
-				return deferred.promise;
-			}
-
 			const approve_account = function(data) {
 				let deferred = $q.defer();
 				console.log(data);

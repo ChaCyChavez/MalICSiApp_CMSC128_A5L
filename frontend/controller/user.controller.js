@@ -15,17 +15,7 @@
                 .get_all_account()
                 .then(function(res) {
                     $scope.accounts = res[0];
-					console.log($scope.accounts);
-                }, function(err) {
-                    console.log(err);
-                });
-        }
-
-        $scope.get_pending_accounts = () => {
-            UserService
-                .get_pending_account()
-                .then(function(res) {
-                    $scope.pending_accounts = res;
+                    $scope.pending_accounts = res[0];
                 }, function(err) {
                     console.log(err);
                 });
@@ -45,7 +35,6 @@
             },
             function(isConfirm){
               if (isConfirm) {
-
                 UserService
                 .approve_account({account_id:$scope.pending_accounts[data].account_id})
                 .then((err, data) => {
