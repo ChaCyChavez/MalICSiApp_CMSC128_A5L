@@ -58,7 +58,7 @@
                   <label for="sponsor_website">Sponsor Type</label>
                 </div> -->
                 <div class="input-field col s12">
-                  <select id="sponsor_type">
+                  <select id="sponsor_type" ng-model = "sponsor.sponsor_type">
                     <option value="" disabled selected>Choose your option</option>
                     <option value="minor">minor</option>
                     <option value="major">major</option>
@@ -100,11 +100,11 @@
               </div>
               <div class="row">
                  <div class="input-field col s12">
-                  <select id="sponsor_type">
+                  <select id="sponsor_type"  ng-model = "sponsor.sponsor_type"x>
                     <option value="" disabled selected>Choose your option</option>
                     <option value="minor">minor</option>
                     <option value="major">major</option>
-                    <option value="major">official partner</option>
+                    <option value="official partner">official partner</option>
                   </select>
                   <label class="labels cyan-text text-darken-4">Sponsor</label>
                 </div>

@@ -51,16 +51,21 @@
             for(var i = 0; i < $scope.sponsors.length; i++) {
                 if($scope.sponsors[i].sponsor_id === sponsor_id) {
                     console.log($scope.sponsors[i].sponsor_id);
-                    $scope.sponsor = $scope.sponsors[i];
+                    // $scope.sponsor = $scope.sponsors[i]; changed because this is referencing, not copying
+                    $scope.sponsor.sponsor_name = $scope.sponsors[i].sponsor_name;
+                    $scope.sponsor.sponsor_type = $scope.sponsors[i].sponsor_type;
+                    $scope.sponsor.sponsor_desc = $scope.sponsors[i].sponsor_desc;
+                    $scope.sponsor.web_address = $scope.sponsors[i].web_address;
+                    $scope.sponsor.game_id = $scope.sponsors[i].game_id;
+                    $scope.sponsor.sponsor_logo = $scope.sponsors[i].sponsor_logo;
+
                     console.log($scope.sponsor);
                 }
             }
         }
 
         $scope.update_sponsor = () => {
-            let e = document.getElementById("sponsor_type");
-            let strUser = e.options[e.selectedIndex].value;
-            $scope.sponsor.sponsor_type = strUser;
+            console.log($scope.sponsor.sponsor_type);
                 SponsorService
                     .update_sponsors($scope.sponsor)
                     .then(function(res) {
