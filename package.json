@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "nodemon backend/server.js"
+
   },
   "repository": {
     "type": "git",
