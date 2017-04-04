@@ -216,10 +216,7 @@ exports.delete_account = (req, res, next) => {
 	const query_string ='CALL delete_account(?)';
 
 	const payload = [req.params.account_id];
-<<<<<<< HEAD
-
-=======
->>>>>>> 808e2649d24aa1c07ba69d3d561d7b0f17b80bf4
+	
 	const callback = (err, data) => {
 		if (err) {
 			winston.level = 'debug';
