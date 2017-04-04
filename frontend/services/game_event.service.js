@@ -66,6 +66,7 @@
 
 				return deferred.promise;
 			}
+			
 			const get_current_games = (data) => {
 				let deferred = $q.defer();
 

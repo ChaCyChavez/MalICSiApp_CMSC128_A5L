@@ -5,7 +5,7 @@
         .module('app')
         .controller('sponsor-controller', sponsor_controller);
 
-    function sponsor_controller($scope, $location, $routeParams, SponsorService) {
+    function sponsor_controller($scope, $location, $routeParams, SponsorService, GameEventService) {
 
     	$scope.sponsors = [];
         $scope.game_id = $routeParams.game_id;
@@ -35,12 +35,46 @@
             window.location.href="#!/game-event";
         }
 
+        $scope.games = [];
+
+        $scope.is_exists = () => {
+            for(var i = 0; i < $scope.games.length; i++) {
+                console.log($scope.games.length);
+                if($scope.game_id == $scope.games[i].game_id) {
+                    console.log($scope.games.length);
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         $scope.init_sponsor = () => {
+
+            GameEventService
+                .get_current_games()
+                .then(function(res) {
+                    $scope.games = res[0];
+                    console.log(res[0]);
+                    if(!($scope.is_exists())) {
+                       swal({
+                          title: "Game Event does not exists!",
+                          showCancelButton: false,
+                          confirmButtonColor: "#DD6B55",
+                          confirmButtonText: "Return to Home",
+                          closeOnConfirm: true
+                        },
+                        function(){
+                            window.location.href="#!/game-event";
+                        });
+                    }
+                }, function(err) {
+                    console.log(err.data)
+                })
             SponsorService
                 .init_sponsors($scope.game_id)
                 .then(function(res) {
                     $scope.sponsors = res[0];
-                    console.log("output: "  + res[0]);
                 }, function(err) {
                     console.log(err.data);
                 })
