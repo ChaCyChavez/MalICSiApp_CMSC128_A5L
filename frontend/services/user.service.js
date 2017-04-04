@@ -34,7 +34,7 @@
 
 				$http({
 					method: 'GET',
-					url: '/api/get-pending-account/',
+					url: '/api/get-all-account/',
 					headers: headers
 				})
 				.then(function(res) {
