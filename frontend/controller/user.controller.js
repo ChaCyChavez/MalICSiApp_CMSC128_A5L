@@ -63,11 +63,17 @@
                 UserService
                 .approve_account({account_id:$scope.pending_accounts[data].account_id})
                 .then((err, data) => {
-                    Materialize.toast("Successfully approved!.", 4000, 'teal');
+                    Materialize.toast("Successfully approved!", 4000, 'teal');
                     $scope.pending_accounts.splice(data, 1);
                 });
                 swal("Approved!", "Account has been approved!", "success");
               } else {
+                UserService
+                .disapprove_account({account_id:$scope.pending_accounts[data].account_id})
+                .then((err, data) => {
+                    Materialize.toast("Successfully disapproved!", 4000, 'teal');
+                    $scope.pending_accounts.splice(data, 1);
+                });
                 swal("Disapproved!", "Account has been disapproved!", "error");
               }
             });
