@@ -5,19 +5,11 @@
         .module('app')
         .controller('game-event-controller', game_event_controller);
 
-	angular.module('app').directive('repeatDone', function() {
-	    return function(scope, element, attrs) {
-	        if (scope.$last) { // all are rendered
-	            scope.$eval(attrs.repeatDone);
-	        }
-	    }
-	});
-
     game_event_controller.$inject = ['$scope', '$rootScope','$location', 'GameEventService', 'ProfileService'];
 
     function game_event_controller($scope, $rootScope, $location, GameEventService, ProfileService) {
 		// fetching is being implemented by other group member
-		
+
 		$scope.view_sponsor = () => {
             window.location.href="#!/sponsor/" + $scope.current_games[$scope.id].game_id;
         	// window.location.reload();

@@ -45,7 +45,6 @@
             },
             function(isConfirm){
               if (isConfirm) {
-
                 UserService
                 .approve_account({account_id:$scope.pending_accounts[data].account_id})
                 .then((err, data) => {
