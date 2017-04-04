@@ -24,7 +24,7 @@
             UserService
                 .get_pending_account()
                 .then(function(res) {
-                    $scope.pending_accounts = res;
+                    $scope.pending_accounts = res[0];
                 }, function(err) {
                     console.log(err);
                 });

@@ -4,7 +4,7 @@
   "description": "PalICSihan Sports Scheduling and Event App",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon backend/server.js"
+    "start": "redis-server; nodemon backend/server.js"
   },
   "repository": {
     "type": "git",
