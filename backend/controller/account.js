@@ -170,7 +170,6 @@ exports.get_account = (req, res, next) => {
 	const payload = [req.params.account_id != undefined ? req.params.account_id : (req.session.user != undefined ? req.session.user.account_id : undefined)];
 
 	const callback = (err, data) => {
-		console.log(data[0]);
 		if (err) {
 			winston.level = 'debug';
 			winston.log('debug', 'err: ', err);
@@ -217,7 +216,6 @@ exports.delete_account = (req, res, next) => {
 	const query_string ='CALL delete_account(?)';
 
 	const payload = [req.params.account_id];
-	console.log(payload);
 	const callback = (err, data) => {
 		if (err) {
 			winston.level = 'debug';
