@@ -101,16 +101,16 @@
               
               <table id="tbl">
                  <tr>
-                  <th><label class="labels cyan-text text-darken-4" for="someDate">Team Name</label></th>
-                  <th><label class="labels cyan-text text-darken-4" for="someDate">Team Color</label></th>
+                  <th><label class="labels cyan-text text-darken-4" for="someDate" >Team Name</label></th>
+                  <th><label class="labels cyan-text text-darken-4" for="someDate" >Team Color</label></th>
                  </tr>
-                 <tr>
-                  <td><input class="input-field col s12" type="text" name="links" /></td>
-                  <td><input class="input-field col s12" type="text" name="keywords" /></td> 
+                 <tr ng-repeat = "team in teams track by $index">
+                  <td><input class="input-field col s12" type="text" name="links" ng-model = "team.team_name"/></td>
+                  <td><input class="input-field col s12" type="text" name="keywords" ng-model = "team.team_color"/></td> 
                 </tr>
               </table>
               <div class="team-button">
-                <input type="submit" class="teal modal-action waves-effect waves-green btn-flat white-text center button add_another" id="another" value="Add another line"/>
+                <input type="submit" class="teal modal-action waves-effect waves-green btn-flat white-text center button add_another" id="another" value="Add another line" ng-click = "append_fills()"/>
               </div>
 
             </div>
@@ -206,8 +206,6 @@
     	format: 'yyyy-mm-dd'
     });
 
-    $('.add_another').click(function() {
-        $("#tbl").append('<tr><td><input type="text" class="txtbox" value="" />  </td><td><input type="text" class="txtbox" value="" /></td></tr>');
-     });
+  
   });
 </script>
