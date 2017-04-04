@@ -92,6 +92,20 @@
                 <input name="someDate" type="date" class="datepicker" id="datepicker2" ng-model="game_ending_time_date">
                 <label class="labels cyan-text text-darken-4" for="someDate">End date:</label>
               </div>
+              
+              <table id="tbl">
+                 <tr>
+                  <th><label class="labels cyan-text text-darken-4" for="someDate">Team Name</label></th>
+                  <th><label class="labels cyan-text text-darken-4" for="someDate">Team Color</label></th>
+                 </tr>
+                 <tr>
+                  <td><input class="input-field col s12" type="text" name="links" /></td>
+                  <td><input class="input-field col s12" type="text" name="keywords" /></td> 
+                </tr>
+              </table>
+              <div class="team-button">
+                <input type="submit" class="teal modal-action waves-effect waves-green btn-flat white-text center button add_another" id="another" value="Add another line"/>
+              </div>
 
             </div>
           </form>
