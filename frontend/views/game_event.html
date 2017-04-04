@@ -27,16 +27,16 @@
                 <img src="img/sample-1.jpg">
               </div>
               <div class="card-action center-align">
-                <a class="btn white-text" data-target="modal1" href="javascript:void(0)" modal>
+                <a class="btn white-text" data-target="modal1" ng-click = "view_setup(index)" href="javascript:void(0)">
                    view more ...
                 </a>
               </div>
             </div>
-			<ul id='dropdownCurrent{{index}}' class='dropdown-content'>
-			  <li><a href="javascript:void(0)" data-target="modal4" ng-click="setup_edit_modal('current', index)">edit</a></li>
-			  <li class="divider"></li>
-			  <li><a href="javascript:void(0)" ng-click="delete_game('current',index)">remove</a></li>
-			</ul>
+      			<ul id='dropdownCurrent{{index}}' class='dropdown-content'>
+      			  <li><a href="javascript:void(0)" data-target="modal4" ng-click="setup_edit_modal('current', index)">edit</a></li>
+      			  <li class="divider"></li>
+      			  <li><a href="javascript:void(0)" ng-click="delete_game('current',index)">remove</a></li>
+      			</ul>
           </div>
     </div>
   </div>

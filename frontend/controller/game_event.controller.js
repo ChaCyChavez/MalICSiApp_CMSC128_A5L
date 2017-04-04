@@ -18,15 +18,26 @@
     function game_event_controller($scope, $rootScope, $location, GameEventService, ProfileService) {
 		// fetching is being implemented by other group member
 		
-		$scope.view_sponsor = (game_id) => {
-            window.location.href="#!/sponsor/" + game_id;
+		$scope.view_sponsor = () => {
+            window.location.href="#!/sponsor/" + $scope.current_games[$scope.id].game_id;
+        	// window.location.reload();
+        	//^temporary
         }
-        $scope.view_sports = (game_id) => {
-            window.location.href="#!/sports/" + game_id;
+        $scope.view_sports = () => {
+			console.log($scope.id);
+            window.location.href="#!/sports/" + $scope.current_games[$scope.id].game_id;
+            // window.location.reload();
+            // ^temporary
+        }
+
+        $scope.view_setup = (id) =>{
+        	$scope.id = id;
         }
 
         $scope.view_registered_user = () => {
-            window.location.href="#!/registered-user";
+            window.location.href="#!/registered-user/" + $scope.current_games[$scope.id].game_id;
+            window.location.reload();
+            //^temporary
         }
 
 		$scope.get_current_games = () => {
