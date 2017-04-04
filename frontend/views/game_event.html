@@ -15,7 +15,7 @@
       </div>
     </form>
   </div>
-
+ 
   <h4 class="header">Current Games</h4>
   <!-- Contents -->
   <div class="row">
@@ -27,7 +27,7 @@
                 <img src="img/sample-1.jpg">
               </div>
               <div class="card-action center-align">
-                <a class="btn white-text" data-target="modal1" ng-click = "view_setup(index)" href="javascript:void(0)">
+                <a class="btn white-text" data-target="modal1" ng-click = "view_setup(index, 'current')" href="javascript:void(0)">
                    view more ...
                 </a>
               </div>
@@ -52,6 +52,11 @@
 			    <a class="edit_btn dropdown-button btn-flat right" data-activates="dropdownUpcoming{{index}}"><i class="fa fa-sort-down white-text"></i></a>
 			    <img src="img/sample-1.jpg">
 			  </div>
+        <div class="card-action center-align">
+                <a class="btn white-text" data-target="modal1" ng-click = "view_setup(index, 'upcoming')" href="javascript:void(0)">
+                   view more ...
+                </a>
+        </div>
 			</div>
 
 			<ul id='dropdownUpcoming{{index}}' class='dropdown-content'>
@@ -86,6 +91,20 @@
               <div class="input-field col s10">
                 <input name="someDate" type="date" class="datepicker" id="datepicker2" ng-model="game_ending_time_date">
                 <label class="labels cyan-text text-darken-4" for="someDate">End date:</label>
+              </div>
+              
+              <table id="tbl">
+                 <tr>
+                  <th><label class="labels cyan-text text-darken-4" for="someDate">Team Name</label></th>
+                  <th><label class="labels cyan-text text-darken-4" for="someDate">Team Color</label></th>
+                 </tr>
+                 <tr>
+                  <td><input class="input-field col s12" type="text" name="links" /></td>
+                  <td><input class="input-field col s12" type="text" name="keywords" /></td> 
+                </tr>
+              </table>
+              <div class="team-button">
+                <input type="submit" class="teal modal-action waves-effect waves-green btn-flat white-text center button add_another" id="another" value="Add another line"/>
               </div>
 
             </div>

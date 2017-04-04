@@ -168,3 +168,8 @@ td {
 #tbl {
   width: 83%;
 }
+
+#another {
+  font-size: 12px;
+  font-weight: bold;
+}
