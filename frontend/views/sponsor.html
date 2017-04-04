@@ -9,8 +9,10 @@
       <br>
     </div>
 
+
   <div class="container">
     <div class="row">
+      <h2 class="center-align" ng-if="sponsors.length == 0">No Sponsor Available</h2>
       <div class="col s12 m6" ng-repeat="spon in sponsors">
         <div class="card">
           <div class="card-image waves-effect waves-block waves-light spon-icon activator teal">
@@ -53,10 +55,6 @@
                 </div>
               </div>
               <div class="row">
-                 <!-- <div class="input-field col s12 m12">
-                  <input class="sponsor_website" type="text" class="validate" ng-model="sponsor.sponsor_type"/>
-                  <label for="sponsor_website">Sponsor Type</label>
-                </div> -->
                 <div class="input-field col s12">
                   <select id="sponsor_type" ng-model = "sponsor.sponsor_type">
                     <option value="" disabled selected>Choose your option</option>
