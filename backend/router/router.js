@@ -1,4 +1,4 @@
-'use strict';
+ 'use strict';
 /* old controllers
 const update = require(__dirname + '/../controller/old-controllers/update');
 const create = require(__dirname + '/../controller/old-controller/create');
@@ -130,7 +130,7 @@ module.exports = (router) => {
     router.get('/api/get-semis-matches/', result.get_semis_matches);
     router.get('/api/get-finals-matches/', result.get_finals_matches);
 
-    router.all('*', (req, res, next) => { 
+    router.all('*', (req, res, next) => {
         res.status(404).send({
             'message': 'Not Found!'
         });
