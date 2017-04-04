@@ -31,7 +31,7 @@ exports.add_sponsor = (req, res, next) => {
 };
 
 exports.get_sponsor = (req, res, next) => {
-	const query_string = 'CALL get_sponsor(?)';
+	const query_string = 'CALL get_sponsor_of_game(?)';
 
 	const payload = [req.params.game_id];
 

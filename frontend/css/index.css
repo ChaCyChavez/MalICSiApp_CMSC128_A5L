@@ -180,3 +180,21 @@ body {
 main {
     flex: 1 0 auto;
 }
+
+.sb {
+    position: absolute;
+    float: right;
+    width: 30%;
+    background-color: white;
+}
+
+.floating-sb {
+    padding-left: 65%;
+    z-index: 10;
+    position: fixed;
+    width: 100%;
+}
+
+#icon-prefix {
+    margin-bottom: 0;
+}
