@@ -1,4 +1,4 @@
-'use strict';
+ 'use strict';
 /* old controllers
 const update = require(__dirname + '/../controller/old-controllers/update');
 const create = require(__dirname + '/../controller/old-controller/create');

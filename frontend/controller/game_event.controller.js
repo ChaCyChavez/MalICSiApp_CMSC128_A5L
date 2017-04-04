@@ -1,5 +1,5 @@
 'use strict';
-
+ 
 (() => {
     angular
         .module('app')
@@ -72,18 +72,27 @@
 				$scope.upcoming_games = data[0];
 			});
 		}
-
-		$scope.edit_game_info = {};
+		$scope.edit_game_info = {
+				game_id: undefined,
+				game_starting_time_date: undefined,
+				game_ending_time_date: undefined,
+				game_name: undefined
+			};
 		$scope.setup_edit_modal = (type, id) => {
 			console.log(type, id);
 			if (type === 'upcoming') {
-				$scope.edit_game_info = $scope.upcoming_games[id];
+				$scope.edit_game_info =JSON.parse(JSON.stringify($scope.upcoming_games[id]));
+				console.log( $scope.edit_game_info);
 			} else if (type === 'current') {
-				$scope.edit_game_info = $scope.current_games[id];
+				$scope.edit_game_info =JSON.parse(JSON.stringify($scope.current_games[id]));
+				console.log( $scope.edit_game_info);
+
 			}
 		}
 
 		$scope.edit_game = () => {
+			$scope.edit_game_info.game_starting_time_date = $scope.edit_game_info.game_starting_time_date.replace("Z", "");
+			$scope.edit_game_info.game_ending_time_date = $scope.edit_game_info.game_ending_time_date.replace("Z", "");
 			GameEventService.edit_game($scope.edit_game_info).then((err, data) => {
 				console.log(err, data);
 			});
