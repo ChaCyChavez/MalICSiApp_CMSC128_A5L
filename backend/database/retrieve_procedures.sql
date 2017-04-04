@@ -142,7 +142,7 @@ drop procedure if exists get_sport_team;
   BEGIN
     select a.account_id, a.firstname, a.lastname, t.team_name, mt.match_id, m.match_date_time, c.court_name
     from account a natural join team_account ta
-    natural join team t 
+    natural join team t
     natural join match_event_team mt
     natural join match_event m
     natural join court c
