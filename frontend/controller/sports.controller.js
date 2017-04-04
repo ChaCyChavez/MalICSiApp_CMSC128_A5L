@@ -5,12 +5,11 @@
         .module('app')
         .controller('sports-controller', sports_controller);
 
-    sports_controller.$inject = ['$scope', '$location', '$routeParams', 'SportsService'];
+    sports_controller.$inject = ['$scope', '$location', '$routeParams','$interval', 'SportsService'];
 
-    function sports_controller($scope, $location, $routeParams, SportsService) {
+    function sports_controller($scope, $location, $routeParams, $interval, SportsService) {
 
         $scope.sports = [];
-        $scope.teams = [];
         $scope.edit_sport_info = {};
         var gameid = $routeParams.game_id;
 
@@ -42,25 +41,13 @@
             window.location.href="#!/game-event";
         }
 
-         $scope.get_sports = () => {
-            SportsService
-                .get_sports()
-                .then(function(res) {
-                    $scope.sports = res[0];
-                    console.log($scope.sports);  
-                }, function(err) {
-                    console.log(err);
-                });
-        }
-
-
         $scope.delete_sport = (sportid, index) => {
                 var data = {
                     sport_id: sportid
                 }  
+
                 swal({
                   title: "Are you sure?",
-                  text: "You will not be able to recover this imaginary file!",
                   type: "warning",
                   showCancelButton: true,
                   confirmButtonColor: "#DD6B55",
@@ -79,6 +66,9 @@
                         
                 }); 
         }
+
+        //$scope.get_sports();
+        $scope.edit_sport_info = {};
         
         $scope.setup_edit_modal = (sport) => {
             $scope.edit_sport_info.sport_type = sport.sport_type;
@@ -92,8 +82,9 @@
                 .update_sport($scope.edit_sport_info)
                 .then(function(res){
                     console.log(res);
-                    $
+                    swal("Sport has been successfully edited.");
                 } , function(err){
+                	swal("Error");
                     console.log(err);
                 });
         }
@@ -113,6 +104,7 @@
             var data = {
                 game_id: gameid
             } 
+
             var ret_sport = [];
             SportsService
                 .get_sports_game(data).
@@ -144,6 +136,7 @@
                 });
         }
 
+        $interval($scope.get_sports, 5000);
         $scope.add_sport = function() {
             var data = {
                 sport_type: $scope.sport_type,
@@ -154,22 +147,20 @@
             if ($scope.sport_type == undefined ||
                 $scope.division == null) {
                 swal("Please fill up all fields");
+	            $scope.sport_type = undefined;
+		       	$scope.division = null;
             } else {
 	            SportsService
 	                .add_sport(data)
 	                .then(function(res) {
 	                    console.log(res);  
 	                    swal(res.message);
-	                    
 	                    document.getElementById("sports-form").reset(); 
 	                }, function(err) {
 	                    swal(res.error);
 	                    console.log(err);
 	                })
-            }
-
-            $scope.sport_type = "";
-	       	$scope.division = "";
+            } 
         }
     }
 })();
