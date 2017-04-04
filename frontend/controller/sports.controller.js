@@ -11,7 +11,16 @@
 
         $scope.sports = [];
         $scope.teams = [];
+        $scope.edit_sport_info = {};
         var gameid = $routeParams.game_id;
+
+        $scope.sports = [
+            {
+                sport_id: undefined,
+                sport_type: undefined,
+                division: undefined 
+            }
+        ];
 
         $scope.view_sport = (sport_id) => {
             window.location.href="#!/sport/" + sport_id;
@@ -46,7 +55,6 @@
 
 
         $scope.delete_sport = (sportid, index) => {
-                console.log(sportid,index);
                 var data = {
                     sport_id: sportid
                 }  
@@ -64,14 +72,14 @@
                         .delete_sport(data).
                         then(function(res) {
                             $scope.sports.splice(index, 1);
+                            swal("Deleted!", "Sport has been successfully removed.", "success");
                         }, function(err) {  
                             console.log(err);
                         });
-                        swal("Deleted!", "Sport has been successfully removed.", "success");
-                });
-                
+                        
+                }); 
         }
-        $scope.edit_sport_info = {};
+        
         $scope.setup_edit_modal = (sport) => {
             $scope.edit_sport_info.sport_type = sport.sport_type;
             $scope.edit_sport_info.division = sport.division;
@@ -89,6 +97,7 @@
                     console.log(err);
                 });
         }
+
         var get_teams_of_sport = (data, func) =>  {
             SportsService
                 .get_teams_sport(data).
@@ -99,17 +108,6 @@
                     console.log(err);
                 });
         }
-
-
-
-        $scope.sports = [
-            {
-                sport_id: undefined,
-                sport_type: undefined,
-                division: undefined 
-            }
-
-        ];
 
         $scope.get_sports = () => {
             var data = {
@@ -134,7 +132,6 @@
                                     obj2["teams"].push(ob.team_name);
                                 }                               
                             });
-                            //console.log(obj2["teams"].length);
                             if(obj2["teams"].length <= 0){
                                 obj2["teams"].push("No participating teams.");;
                             }                            
@@ -154,20 +151,25 @@
                 game_id: gameid
             }  
             
-            SportsService
-                .add_sport(data)
-                .then(function(res) {
-                    console.log("add");
-                    console.log(res);  
-                    swal("Success!", "You added a sport!", "success");
-                    $('#AddSport').modal('close');
-                    $scope.sport_type = "";
-                    $scope.division = "";
-                    document.getElementById("sports-form").reset(); 
-                }, function(err) {
-                    swal("Error!", "Please check the fields.", "error");
-                    console.log(err);
-                })
+            if ($scope.sport_type == undefined ||
+                $scope.division == null) {
+                swal("Please fill up all fields");
+            } else {
+	            SportsService
+	                .add_sport(data)
+	                .then(function(res) {
+	                    console.log(res);  
+	                    swal(res.message);
+	                    
+	                    document.getElementById("sports-form").reset(); 
+	                }, function(err) {
+	                    swal(res.error);
+	                    console.log(err);
+	                })
+            }
+
+            $scope.sport_type = "";
+	       	$scope.division = "";
         }
     }
 })();
