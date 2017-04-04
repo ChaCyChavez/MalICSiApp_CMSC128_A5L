@@ -133,13 +133,11 @@ module.exports = (router) => {
     router.get('/api/get-semis-matches/', result.get_semis_matches);
     router.get('/api/get-finals-matches/', result.get_finals_matches);
 
-<<<<<<< HEAD
 // game per sport router
     // get games per sport
     router.get('/api/get-game-per-sport/:sport_id', gamepersport.get_game_per_sport);
     
     router.all('*', (req, res, next) => {
->>>>>>> e7dbe1ae980720a39b135931d905a70e09b95d94
         res.status(404).send({
             'message': 'Not Found!'
         });

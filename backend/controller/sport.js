@@ -100,7 +100,6 @@ exports.delete_sport = (req, res, next) => {
 };
 
 exports.get_sport_game = (req, res, next) => {
-<<<<<<< HEAD
   const query_string ='CALL get_sport_game(?)'; 
   const payload = [req.params.game_id];
 
@@ -144,7 +143,6 @@ exports.get_all_sport = (req, res, next) => {
   };
 
   db.query(query_string, payload, callback);
->>>>>>> e7dbe1ae980720a39b135931d905a70e09b95d94
 };
 
 exports.get_sport_team = (req, res, next) => {
