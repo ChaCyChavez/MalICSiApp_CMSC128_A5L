@@ -48,14 +48,14 @@ exports.get_sport = (req, res, next) => {
 };
 
 exports.update_sport = (req, res, next) => {
+	console.log("hellooooooo");
 	const query_string = 'CALL update_sport(?,?,?);';
 
 	const payload = [
-		req.body.sport_type,
-		req.body.division,
-		req.body.sport_id
+		req.query.sport_id,
+		req.query.sport_type,
+		req.query.division
 	];
-
 	const callback = (err, data) => {
 		if (err) {
 			winston.level = 'debug';
@@ -71,7 +71,6 @@ exports.update_sport = (req, res, next) => {
 			res.status(200).send(data);
 		}
 	};
-
 	db.query(query_string, payload, callback);
 };
 

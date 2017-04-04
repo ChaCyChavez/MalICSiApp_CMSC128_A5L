@@ -14,8 +14,17 @@
             <div>&nbsp;</div>
             <p ng-repeat="team in sport.teams">{{team}}</p>
           </div>
-          <div class="card-action">
+          <!-- dropdown for edit and remove-->
+          <ul id='dropdownCurrent1' class='dropdown-content'>
+              <li><a href="javascript:void(0)" data-target="editsport">edit</a></li>
+              <li class="divider"></li>
+              <li><a href="javascript:void(0)">remove</a></li>
+            </ul>
+          <!-- <div class="card-action">
             <a href="javascript:void(0)" ng-click="view_sport(sport.sport_id)">View Sport</a>
+          </div> -->
+          <div class="card-action">
+            <a href="javascript:void(0)" ng-click = "setup_edit_modal(sport)"  data-target = "editsport">View Sport</a>
           </div>
         </div>
       </div>
@@ -24,17 +33,12 @@
     </div>
   </div>
 
-  <!-- dropdown for edit and remove-->
-  <ul id='dropdown{{sport.sport_id}}' class='dropdown-content'>
-    <li><a href="javascript:void(0)" data-target="EditSport">Edit</a></li>
-    <li class="divider"></li>
-    <li><a href="javascript:void(0)">Remove</a></li>
-  </ul>
+  
 
  
 
   <!-- Edit Sport Modal -->
-  <div id="EditSport" class="modal modal-fixed-footer">
+  <div id="editsport" class="modal modal-fixed-footer">
     <div class="modal-content">
       <div class="teal content-title">
         <h4 class="add white-text center-align">EDIT SPORT</h4>
@@ -44,36 +48,19 @@
           <form id="add_match_form" class="col s12">
             <div class="row">
               <div class="input-field col s12">
-                <input id="sports_name" type="text" class="validate">
-                <label for="sports_name">Sport Name</label>
+                <input id="sports_name" type="text" class="validate" ng-model = "edit_sport_info.sport_type">
+                <label >Sport</label>
               </div>
               <br>
             </div>
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="type" type="password" class="validate">
-                <label for="type">Sport Type</label>
-              </div>
-            </div>
             <div class="input-field col s12">
-              <select>
+              <select ng-model = "edit_sport_info.division">
                 <option value="" disabled selected>Choose your option</option>
-                <option value="1">Men</option>
-                <option value="2">Women</option>
-                <option value="3">Mixed</option>
+                <option value="men">Men</option>
+                <option value="women">Women</option>
+                <option value="mixed">Mixed</option>
               </select>
               <label>Division</label>
-            </div>
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="time" type="time" class="validate">
-              </div>
-            </div>
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="venue" type="text" class="validate">
-                <label for="venue">Venue</label>
-              </div>
             </div>
           </form>
         </div>
@@ -82,7 +69,7 @@
 
     <div class="modal-footer">
       <div id="modal-button">
-        <a href="javascript:void(0)" id="label-enter" class="teal modal-action modal-close waves-effect waves-green btn-flat white-text" ng-click="">Okay</a>
+        <a href="javascript:void(0)" id="label-enter" class="teal modal-action modal-close waves-effect waves-green btn-flat white-text" ng-click="edit_sport()">Okay</a>
         <a href="javascript:void(0)" id="label-enter" class="teal modal-action modal-close waves-effect waves-green btn-flat white-text" ng-click="">Cancel</a>
       </div>
     </div>
@@ -147,13 +134,13 @@
   $(document).ready(function(){
      $('.dropdown-button').dropdown({
         inDuration: 300,
-        outDuration: 225,
-        constrain_width: false, // Does not change width of dropdown to that of the activator
-        hover: false, // Activate on hover
-        gutter: 0, // Spacing from edge
-        belowOrigin: true, // Displays dropdown below the button
-        alignment: 'left', // Displays dropdown with edge aligned to the left of button
-        stopPropagation: false // Stops event propagation
+        outDuration: 225
+        // constrain_width: false, // Does not change width of dropdown to that of the activator
+        // hover: false, // Activate on hover
+        // gutter: 0, // Spacing from edge
+        // belowOrigin: true, // Displays dropdown below the button
+        // alignment: 'left', // Displays dropdown with edge aligned to the left of button
+        // stopPropagation: false // Stops event propagation
       }
     );
     $('.modal').modal({

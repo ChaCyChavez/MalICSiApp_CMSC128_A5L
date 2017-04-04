@@ -44,7 +44,7 @@ module.exports = (router) => {
     //retrieve court
     router.get('/api/get-court/:court_id', court.get_court);
     //update court
-    router.post('/api/update-court', court.update_court);
+    router.post('/api/update-court/', court.update_court);
     //delete court
     router.post('/api/delete-court/:court_id', court.delete_court);
 

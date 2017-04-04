@@ -69,8 +69,25 @@
                         });
                         swal("Deleted!", "Your imaginary file has been deleted.", "success");
                 });      
+        } 
+        $scope.edit_sport_info = {};
+        $scope.setup_edit_modal = (sport) => {
+            $scope.edit_sport_info.sport_type = sport.sport_type;
+            $scope.edit_sport_info.division = sport.division;
+            $scope.edit_sport_info.sport_id= sport.sport_id;
+            console.log($scope.edit_sport_info);
         }
 
+        $scope.edit_sport = () => {
+            SportsService
+                .update_sport($scope.edit_sport_info)
+                .then(function(res){
+                    console.log(res);
+                    $
+                } , function(err){
+                    console.log(err);
+                });
+        }
         var get_teams_of_sport = (data, func) =>  {
             SportsService
                 .get_teams_sport(data).
@@ -81,6 +98,8 @@
                     console.log(err);
                 });
         }
+
+
 
         $scope.sports = [
             {

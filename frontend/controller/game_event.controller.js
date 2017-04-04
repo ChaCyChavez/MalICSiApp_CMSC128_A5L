@@ -134,15 +134,14 @@
 			function(){
 				if (type === 'upcoming') {
 					GameEventService.delete_game({game_id:$scope.upcoming_games[id].game_id}).then((err, data) => {
-						Materialize.toast("Successfully deleted.", 4000, 'teal');
 						$scope.upcoming_games.splice(id, 1);
 					});
 				} else {
 					GameEventService.delete_game({game_id:$scope.current_games[id].game_id}).then((err, data) => {
-							Materialize.toast("Successfully deleted.", 4000, 'teal');
-							$scope.current_games.splice(id, 1);
+						$scope.current_games.splice(id, 1);
 					});
 				}
+				Materialize.toast("Successfully deleted.", 4000, 'teal');
 				swal("Deleted!", "Event has been deleted.", "success");
 			});
 		}
