@@ -184,13 +184,7 @@
 
 <script type="text/javascript">
   $(document).ready(function(){
-	  $('.dropdown-button').dropdown({
-	      inDuration: 300,
-	      outDuration: 225
-	    }
-	  );
 
-    $("#vp-dropdown"),
     $('.modal').modal({
       dismissible: true,
       opacity: 0.5,
@@ -199,15 +193,15 @@
       starting_top: '4%',
       ending_top: '10%',
     });
-  });
 
-  $('.datepicker').pickadate({
-	selectMonths: true,
-	selectYears: 100,
-	format: 'yyyy-mm-dd'
-  });
+    $('.datepicker').pickadate({
+    	selectMonths: true,
+    	selectYears: 100,
+    	format: 'yyyy-mm-dd'
+    });
 
-  $('.add_another').click(function() {
-      $("#tbl").append('<tr><td><input type="text" class="txtbox" value="" />  </td><td><input type="text" class="txtbox" value="" /></td></tr>');
-   });
+    $('.add_another').click(function() {
+        $("#tbl").append('<tr><td><input type="text" class="txtbox" value="" />  </td><td><input type="text" class="txtbox" value="" /></td></tr>');
+     });
+  });
 </script>
