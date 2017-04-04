@@ -15,7 +15,16 @@
                 .get_all_account()
                 .then(function(res) {
                     $scope.accounts = res[0];
-                    $scope.pending_accounts = res[0];
+                }, function(err) {
+                    console.log(err);
+                });
+        }
+
+        $scope.get_pending_accounts = () => {
+            UserService
+                .get_pending_account()
+                .then(function(res) {
+                    $scope.pending_accounts = res;
                 }, function(err) {
                     console.log(err);
                 });
