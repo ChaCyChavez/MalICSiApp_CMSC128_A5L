@@ -1,4 +1,4 @@
-<div ng-controller='login-register-controller' ng-init="get_loggedIn(); get_currGames()">
+<div ng-controller='login-register-controller' ng-init="get_currGames()">
   <div id="loader-wrapper">
     <div id="loader"></div>
     <div class="loader-section section-left"></div>
@@ -43,7 +43,7 @@
     <div class="col s0 m0 l1">&nbsp;</div>
     <div class="col s12 m0">
       <h4 class="news-announcement"><u>News and Announcements</u></h4>
-      
+
       <div class="col s12 m4" ng-repeat="(index, game) in current_games">
         <div class="card large z-depth-3">
           <div class="card-image">
@@ -59,7 +59,7 @@
           </div>
         </div>
       </div>
-    
+
     </div>
   </div>
 
