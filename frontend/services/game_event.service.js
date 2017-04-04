@@ -30,7 +30,25 @@
 
 				return deferred.promise;
 			}
+			const add_team = (data) => {
+				let deferred = $q.defer();
+				console.log("inside service");
+				console.log(data);
+				$http({
+					method: 'POST',
+					data: $httpParamSerializer(data),
+					xhrFields: {withCredentials: false},
+					url: '/api/add-team/',
+					headers: headers
+				})
+				.then(function(res) {
+					deferred.resolve(res.data);
+				}, function(err) {
+					deferred.reject(err.data);
+				})
 
+				return deferred.promise;
+			}
 			const delete_game = (data) => {
 				let deferred = $q.defer();
 				$http({
@@ -131,12 +149,13 @@
 
 
 			let service = {};
-			service.edit_game = edit_game;
-			service.delete_game = delete_game;
-			service.get_current_games = get_current_games;
-			service.get_upcoming_games = get_upcoming_games;
-			service.search_game = search_game;
-			service.add_game = add_game;
+			service.edit_game 	= 				edit_game;
+			service.delete_game = 				delete_game;
+			service.get_current_games 	= 		get_current_games;
+			service.get_upcoming_games 	= 		get_upcoming_games;
+			service.search_game 		= 		search_game;
+			service.add_game 			= 		add_game;
+			service.add_team 			= 		add_team;
 			return service;
 		}
 })();

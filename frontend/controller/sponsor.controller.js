@@ -97,7 +97,7 @@
                     $scope.sponsorEdit.web_address = $scope.sponsors[i].web_address;
                     $scope.sponsorEdit.game_id = $scope.sponsors[i].game_id;
                     $scope.sponsorEdit.sponsor_logo = $scope.sponsors[i].sponsor_logo;
-
+                    
                     console.log($scope.sponsorEdit);
                 }
             }
