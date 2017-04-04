@@ -10,7 +10,6 @@
     function sports_controller($scope, $location, $routeParams, SportsService) {
 
         $scope.sports = [];
-        $scope.teams = [];
         $scope.edit_sport_info = {};
         var gameid = $routeParams.game_id;
 
@@ -53,14 +52,13 @@
                 });
         }
 
-
         $scope.delete_sport = (sportid, index) => {
                 var data = {
                     sport_id: sportid
                 }  
+
                 swal({
                   title: "Are you sure?",
-                  text: "You will not be able to recover this imaginary file!",
                   type: "warning",
                   showCancelButton: true,
                   confirmButtonColor: "#DD6B55",
@@ -92,8 +90,9 @@
                 .update_sport($scope.edit_sport_info)
                 .then(function(res){
                     console.log(res);
-                    $
+                    swal("Sport has been successfully edited.");
                 } , function(err){
+                	swal("Error");
                     console.log(err);
                 });
         }
@@ -113,6 +112,7 @@
             var data = {
                 game_id: gameid
             } 
+
             var ret_sport = [];
             SportsService
                 .get_sports_game(data).
@@ -154,22 +154,20 @@
             if ($scope.sport_type == undefined ||
                 $scope.division == null) {
                 swal("Please fill up all fields");
+	            $scope.sport_type = undefined;
+		       	$scope.division = null;
             } else {
 	            SportsService
 	                .add_sport(data)
 	                .then(function(res) {
 	                    console.log(res);  
 	                    swal(res.message);
-	                    
 	                    document.getElementById("sports-form").reset(); 
 	                }, function(err) {
 	                    swal(res.error);
 	                    console.log(err);
 	                })
-            }
-
-            $scope.sport_type = "";
-	       	$scope.division = "";
+            } 
         }
     }
 })();

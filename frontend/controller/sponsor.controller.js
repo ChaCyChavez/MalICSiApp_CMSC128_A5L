@@ -81,18 +81,28 @@
         }
 
         $scope.delete_sponsor = (sponsorid) => {
-            SponsorService
-                .delete_sponsors({sponsor_id: sponsorid})
-                .then(function(res) {
-                    swal(res.message)
-                    for(var i = 0; i < $scope.sponsors.length; i++) {
-                        if($scope.sponsors[i].sponsor_id == sponsorid) {
-                            $scope.sponsors.splice(i, 1);
-                        }
-                    }
-                }, function(err) {
-                    swal(err.message)
-                });
+        	swal({
+              title: "Are you sure?",
+              type: "warning",
+              showCancelButton: true,
+              confirmButtonColor: "#DD6B55",
+              confirmButtonText: "Yes, delete it!",
+              closeOnConfirm: false
+            },
+            function(){
+	            SponsorService
+	                .delete_sponsors({sponsor_id: sponsorid})
+	                .then(function(res) {
+	                    swal(res.message)
+	                    for(var i = 0; i < $scope.sponsors.length; i++) {
+	                        if($scope.sponsors[i].sponsor_id == sponsorid) {
+	                            $scope.sponsors.splice(i, 1);
+	                        }
+	                    }
+	                }, function(err) {
+	                    swal(err.message)
+	                });
+            });
         }
 
         $scope.add_sponsor = () => {
