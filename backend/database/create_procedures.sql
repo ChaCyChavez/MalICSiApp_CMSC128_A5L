@@ -31,9 +31,9 @@ DROP PROCEDURE IF EXISTS add_account//
             birthday,
             college,
             is_game_head,
-            position, 
-            is_player, 
-            player_jersey_num, 
+            position,
+            is_player,
+            player_jersey_num,
             player_role
         )VALUES(
             _firstname,
@@ -52,7 +52,7 @@ DROP PROCEDURE IF EXISTS add_account//
             _player_role
         );
     END;
-// 
+//
 
 DROP PROCEDURE IF EXISTS add_activity_log//
     CREATE PROCEDURE add_activity_log (
@@ -135,7 +135,7 @@ DROP PROCEDURE IF EXISTS add_game_event//
             _account_id
         );
     END;
-// 
+//
 
 DROP PROCEDURE IF EXISTS add_sport//
     CREATE PROCEDURE add_sport (
@@ -180,7 +180,7 @@ DROP PROCEDURE IF EXISTS add_match_event//
             _court_id
         );
     END;
-// 
+//
 
 DROP PROCEDURE IF EXISTS add_court//
     CREATE PROCEDURE add_court (
@@ -199,7 +199,7 @@ DROP PROCEDURE IF EXISTS add_court//
             _court_type
         );
     END;
-// 
+//
 
 DROP PROCEDURE IF EXISTS register_team_to_game//
     CREATE PROCEDURE register_team_to_team(

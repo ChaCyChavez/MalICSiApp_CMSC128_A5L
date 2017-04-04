@@ -259,5 +259,11 @@ DROP PROCEDURE IF EXISTS get_teams_N_scores_of_match//
   END;
 //
 
+DROP PROCEDURE IF EXISTS get_pending_account//
+  CREATE PROCEDURE get_pending_account()
+  BEGIN
+  	SELECT * from account where is_approved = 0;
+  END;
+//
 
 \d ;
