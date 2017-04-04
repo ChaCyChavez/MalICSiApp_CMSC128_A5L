@@ -9,6 +9,7 @@ const redis         = require('redis');
 const redis_store   = require('connect-redis')(session);
 const client        = redis.createClient();
 const winston       = require('winston');
+const helmet        = require('helmet');
 
 let start;
 let handler;
@@ -50,6 +51,7 @@ start = () => {
     app.use(body_parser.json());
     app.use(require('compression')());
     app.use(router(express.Router()));
+    app.use(helmet);
     // this will start app
     winston.log('info', 'Server listening on port', config.PORT);
     return app.listen(config.PORT, config.IP);
