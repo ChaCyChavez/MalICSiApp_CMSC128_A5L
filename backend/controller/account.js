@@ -246,7 +246,7 @@ exports.get_pending_account = (req, res, next) => {
 			winston.level = 'debug';
 			winston.log('debug', 'err: ', err);
 			res.status(500).send({ error_code:err.code });
-	    } else if (data.length == 0) {
+	    } else if (data[0].length == 0) {
 			winston.level = 'info';
 			winston.log('info', 'Empty');
 			res.status(404).send({ message: 'Empty! Retrieve failed'});

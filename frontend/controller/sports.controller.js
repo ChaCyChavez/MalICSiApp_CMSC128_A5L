@@ -5,9 +5,9 @@
         .module('app')
         .controller('sports-controller', sports_controller);
 
-    sports_controller.$inject = ['$scope', '$location', '$routeParams', 'SportsService'];
+    sports_controller.$inject = ['$scope', '$location', '$routeParams','$interval', 'SportsService'];
 
-    function sports_controller($scope, $location, $routeParams, SportsService) {
+    function sports_controller($scope, $location, $routeParams, $interval, SportsService) {
 
 
         $scope.sports = [
@@ -20,6 +20,14 @@
         ];
         $scope.teams = [];
         var gameid = $routeParams.game_id;
+
+        $scope.sports = [
+            {
+                sport_id: undefined,
+                sport_type: undefined,
+                division: undefined
+            }
+        ];
 
         $scope.view_sport = (sport_id) => {
             window.location.href="#!/sport/" + sport_id;
@@ -47,7 +55,6 @@
                 }
                 swal({
                   title: "Are you sure?",
-                  text: "You will not be able to recover this imaginary file!",
                   type: "warning",
                   showCancelButton: true,
                   confirmButtonColor: "#DD6B55",
@@ -59,13 +66,15 @@
                         .delete_sport(data).
                         then(function(res) {
                             $scope.sports.splice(index, 1);
+                            swal("Deleted!", "Sport has been successfully removed.", "success");
                         }, function(err) {
                             console.log(err);
                         });
-                        swal("Deleted!", "Sport has been successfully removed.", "success");
-                });
 
+                });
         }
+
+        //$scope.get_sports();
         $scope.edit_sport_info = {};
 		$scope.edit_id = -1;
         $scope.setup_edit_modal = (id) => {
@@ -78,11 +87,12 @@
                 .update_sport($scope.edit_sport_info)
                 .then(function(res){
 					$scope.sports[$scope.edit_id] = $scope.edit_sport_info;
-                    console.log(res);
+                    swal("Sport has been successfully edited.");
                 } , function(err){
-                    console.log(err);
+                	swal("Error");
                 });
         }
+
         var get_teams_of_sport = (data, func) =>  {
             SportsService
                 .get_teams_sport(data).
@@ -130,6 +140,7 @@
                 });
         }
 
+        $interval($scope.get_sports, 5000);
         $scope.add_sport = function() {
             var data = {
                 sport_type: $scope.sport_type,
@@ -137,21 +148,23 @@
                 game_id: gameid
             }
 
-            SportsService
-                .add_sport(data)
-                .then(function(res) {
-                    console.log("add");
-                    console.log(res);
-                    swal("Success!", "You added a sport!", "success");
-                    $('#AddSport').modal('close');
-                    $scope.sport_type = "";
-                    $scope.division = "";
-                    document.getElementById("sports-form").reset();
-					$scope.sports.push(data);
-                }, function(err) {
-                    swal("Error!", "Please check the fields.", "error");
-                    console.log(err);
-                })
+            if ($scope.sport_type == undefined ||
+                $scope.division == null) {
+                swal("Please fill up all fields");
+	            $scope.sport_type = undefined;
+		       	$scope.division = null;
+            } else {
+	            SportsService
+	                .add_sport(data)
+	                .then(function(res) {
+	                    console.log(res);
+	                    swal(res.message);
+	                    document.getElementById("sports-form").reset();
+	                }, function(err) {
+	                    swal(res.error);
+	                    console.log(err);
+	                })
+            }
         }
     }
 })();

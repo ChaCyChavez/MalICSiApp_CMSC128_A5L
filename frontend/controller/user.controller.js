@@ -15,7 +15,6 @@
                 .get_all_account()
                 .then(function(res) {
                     $scope.accounts = res[0];
-					console.log($scope.accounts);
                 }, function(err) {
                     console.log(err);
                 });
