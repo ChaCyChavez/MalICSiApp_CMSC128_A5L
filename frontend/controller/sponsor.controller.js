@@ -68,7 +68,6 @@
         }
 
         $scope.init_sponsor = () => {
-
             GameEventService
                 .get_current_games()
                 .then(function(res) {
