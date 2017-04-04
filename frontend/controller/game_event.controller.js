@@ -17,6 +17,24 @@
 
     function game_event_controller($scope, $rootScope, $location, GameEventService, ProfileService) {
 		// fetching is being implemented by other group member
+
+		$scope.current_games = [
+			{
+				game_id: undefined,
+				game_starting_time_date: undefined,
+				game_ending_time_date: undefined,
+				game_name: undefined
+			}
+		];
+
+		$scope.upcoming_games = [
+			{
+				game_id: undefined,
+				game_starting_time_date: undefined,
+				game_ending_time_date: undefined,
+				game_name: undefined
+			}
+		];
 		
 		$scope.view_sponsor = () => {
             window.location.href="#!/sponsor/" + $scope.current_games[$scope.id].game_id;
@@ -44,7 +62,6 @@
 			GameEventService.get_current_games().then((data) => {
 				$scope.current_games = data[0];
 				console.log(data[0]);
-
 			});
 		};
 
@@ -55,24 +72,6 @@
 				$scope.upcoming_games = data[0];
 			});
 		}
-
-		$scope.current_games = [
-			{
-				game_id: undefined,
-				game_starting_time_date: undefined,
-				game_ending_time_date: undefined,
-				game_name: undefined
-			}
-		];
-
-		$scope.upcoming_games = [
-			{
-				game_id: undefined,
-				game_starting_time_date: undefined,
-				game_ending_time_date: undefined,
-				game_name: undefined
-			}
-		];
 
 		$scope.edit_game_info = {};
 		$scope.setup_edit_modal = (type, id) => {
@@ -93,16 +92,29 @@
 		$scope.add_game = () => {
 			var data = {
 				game_name: $scope.game_name,
-				// game_start: $scope.game_start,
-				// game_end: $scope.game_end,
 				account_id: $rootScope.profile.account_id,
 				game_starting_time_date: $('#datepicker1').val(),
 				game_ending_time_date: $('#datepicker2').val()
-				// account_id: 1
 			};
-			GameEventService.add_game(data).then((err, data) => {
-				console.log(err, data);
-			});
+
+			if (data.game_name == "" ||
+                data.game_starting_time_date == "" ||
+                data.game_ending_time_date == "") {
+                swal("Please fill up all fields");
+            } else { 
+				GameEventService
+				.add_game(data)
+				.then(function(res){
+					swal(res.message);
+            	},function(err){
+            		swal(res.error);
+                	console.log(err);
+            	})
+			}
+
+			$scope.game_name = "";
+           	$('#datepicker1').val('');
+           	$('#datepicker2').val('');
 		}
 
 		$scope.search_game = () =>{
