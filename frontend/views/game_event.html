@@ -15,7 +15,7 @@
       </div>
     </form>
   </div>
-
+ 
   <h4 class="header">Current Games</h4>
   <!-- Contents -->
   <div class="row">
@@ -27,7 +27,7 @@
                 <img src="img/sample-1.jpg">
               </div>
               <div class="card-action center-align">
-                <a class="btn white-text" data-target="modal1" ng-click = "view_setup(index)" href="javascript:void(0)">
+                <a class="btn white-text" data-target="modal1" ng-click = "view_setup(index, 'current')" href="javascript:void(0)">
                    view more ...
                 </a>
               </div>
@@ -52,6 +52,11 @@
 			    <a class="edit_btn dropdown-button btn-flat right" data-activates="dropdownUpcoming{{index}}"><i class="fa fa-sort-down white-text"></i></a>
 			    <img src="img/sample-1.jpg">
 			  </div>
+        <div class="card-action center-align">
+                <a class="btn white-text" data-target="modal1" ng-click = "view_setup(index, 'upcoming')" href="javascript:void(0)">
+                   view more ...
+                </a>
+        </div>
 			</div>
 
 			<ul id='dropdownUpcoming{{index}}' class='dropdown-content'>
