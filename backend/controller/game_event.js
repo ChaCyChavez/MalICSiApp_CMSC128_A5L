@@ -234,13 +234,13 @@ exports.get_upcoming_events = (req, res, next) => {
 
 exports.update_game_event = (req, res, next) => {
 	const query_string = 'CALL update_game_event(?,?,?,?)';
-
 	const payload = [
 		req.body.game_id,
-		req.body.name,
+		req.body.game_name,
 		req.body.game_starting_time_date,
 		req.body.game_ending_time_date
 	];
+	console.log(payload);
 
 	const callback = (err, data) => {
 		console.log(data);
