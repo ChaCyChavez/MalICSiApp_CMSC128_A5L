@@ -10,27 +10,12 @@
         $scope.accounts = [];
         $scope.pending_accounts = [];
 
-    	$scope.view_profile = () => {
-            window.location.href="#!/profile";
-        }
-
-        $scope.view_user = () => {
-            window.location.href="#!/user";
-        }
-
-        $scope.logout = () => {
-            window.location.href="#!/";
-        }
-
-        $scope.back_to_home = () => {
-            window.location.href="#!/game-event";
-        }
-
         $scope.get_accounts = () => {
             UserService
                 .get_all_account()
                 .then(function(res) {
                     $scope.accounts = res[0];
+					console.log($scope.accounts);
                 }, function(err) {
                     console.log(err);
                 });
@@ -60,6 +45,7 @@
             },
             function(isConfirm){
               if (isConfirm) {
+
                 UserService
                 .approve_account({account_id:$scope.pending_accounts[data].account_id})
                 .then((err, data) => {
