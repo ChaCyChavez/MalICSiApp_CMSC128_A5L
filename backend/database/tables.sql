@@ -13,7 +13,7 @@ CREATE TABLE account (
     middlename          varchar(256) NOT NULL,
     lastname            varchar(256) NOT NULL,
     email               varchar(256) NOT NULL,
-    username            varchar(100) NOT NULL,
+    username            varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
     password            varchar(256) NOT NULL,
     course              varchar(256) NOT NULL,
     birthday            date NOT NULL,
