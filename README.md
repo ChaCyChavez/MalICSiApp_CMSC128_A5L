@@ -7,7 +7,7 @@ A repository of CMSC 128 A-5L students for their "MalICSi App" ( a web-based app
 ## Prerequisites
 ------------
 ```
-* MariaDB for Database
+* MySQL for Database
 * `sudo apt install npm`
 * `sudo npm install -g nodemon`
 * `sudo npm install -g gulp`

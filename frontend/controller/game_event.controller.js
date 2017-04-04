@@ -63,6 +63,7 @@
 				id: undefined
 		}
 		$scope.view_sponsor = () => {
+						$("#modal1").modal('close');
             window.location.href=$scope.view.type == 'upcoming'? "#!/sponsor/" + $scope.upcoming[$scope.view.id].game_id : "#!/sponsor/" + $scope.current_games[$scope.view.id].game_id;
         	// window.location.reload();
         	//^temporary
