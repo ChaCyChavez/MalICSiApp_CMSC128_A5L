@@ -25,7 +25,6 @@ exports.login_account = (req, res, next) => {
 			winston.level = 'info';
 			winston.log('info', 'Login failed.');
 			res.status(404).send({message: 'Wrong username or password!'});
-			console.log(payload);
 		} else {
 			winston.level = 'info';
 			winston.log('info', 'Login Successful!');
@@ -217,7 +216,7 @@ exports.delete_account = (req, res, next) => {
 	const query_string ='CALL delete_account(?)';
 
 	const payload = [req.params.account_id];
-
+	
 	const callback = (err, data) => {
 		if (err) {
 			winston.level = 'debug';
@@ -238,7 +237,7 @@ exports.delete_account = (req, res, next) => {
 };
 
 exports.get_pending_account = (req, res, next) => {
-	const query_string = "SELECT * from account where is_approved = 0";
+	const query_string = "CALL get_pending_account()";
 
 	const payload = [];
 
@@ -247,10 +246,6 @@ exports.get_pending_account = (req, res, next) => {
 			winston.level = 'debug';
 			winston.log('debug', 'err: ', err);
 			res.status(500).send({ error_code:err.code });
-	    } else if (data.length == 0) {
-			winston.level = 'info';
-			winston.log('info', 'Empty');
-			res.status(404).send({ message: 'Empty! Retrieve failed'});
 	    } else {
 			winston.level = 'info';
 			winston.log('info', 'Successfully retrieved accounts!');

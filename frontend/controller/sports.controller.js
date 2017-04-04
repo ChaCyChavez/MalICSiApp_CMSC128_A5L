@@ -5,13 +5,29 @@
         .module('app')
         .controller('sports-controller', sports_controller);
 
-    sports_controller.$inject = ['$scope', '$location', '$routeParams', 'SportsService'];
+    sports_controller.$inject = ['$scope', '$location', '$routeParams','$interval', 'SportsService'];
 
-    function sports_controller($scope, $location, $routeParams, SportsService) {
+    function sports_controller($scope, $location, $routeParams, $interval, SportsService) {
 
-        $scope.sports = [];
+
+        $scope.sports = [
+            {
+                sport_id: undefined,
+                sport_type: undefined,
+                division: undefined,
+				teams: [undefined]
+            }
+        ];
         $scope.teams = [];
         var gameid = $routeParams.game_id;
+
+        $scope.sports = [
+            {
+                sport_id: undefined,
+                sport_type: undefined,
+                division: undefined
+            }
+        ];
 
         $scope.view_sport = (sport_id) => {
             window.location.href="#!/sport/" + sport_id;
@@ -24,7 +40,7 @@
         $scope.view_user = () => {
             window.location.href="#!/user";
         }
-        
+
         $scope.logout = () => {
             window.location.href="#!/";
         }
@@ -33,26 +49,12 @@
             window.location.href="#!/game-event";
         }
 
-         $scope.get_sports = () => {
-            SportsService
-                .get_sports()
-                .then(function(res) {
-                    $scope.sports = res[0];
-                    console.log($scope.sports);  
-                }, function(err) {
-                    console.log(err);
-                });
-        }
-
-
-        $scope.delete_sport = (sportid, index) => {
-                console.log(sportid,index);
+        $scope.delete_sport = (index) => {
                 var data = {
-                    sport_id: sportid
-                }  
+                    sport_id: $scope.sports[index].sport_id
+                }
                 swal({
                   title: "Are you sure?",
-                  text: "You will not be able to recover this imaginary file!",
                   type: "warning",
                   showCancelButton: true,
                   confirmButtonColor: "#DD6B55",
@@ -64,31 +66,33 @@
                         .delete_sport(data).
                         then(function(res) {
                             $scope.sports.splice(index, 1);
-                        }, function(err) {  
+                            swal("Deleted!", "Sport has been successfully removed.", "success");
+                        }, function(err) {
                             console.log(err);
                         });
-                        swal("Deleted!", "Sport has been successfully removed.", "success");
+
                 });
-                
         }
+
+        //$scope.get_sports();
         $scope.edit_sport_info = {};
-        $scope.setup_edit_modal = (sport) => {
-            $scope.edit_sport_info.sport_type = sport.sport_type;
-            $scope.edit_sport_info.division = sport.division;
-            $scope.edit_sport_info.sport_id= sport.sport_id;
-            console.log($scope.edit_sport_info);
+		$scope.edit_id = -1;
+        $scope.setup_edit_modal = (id) => {
+            $scope.edit_sport_info= JSON.parse(JSON.stringify($scope.sports[id]));
+			$scope.edit_id = id;
         }
 
         $scope.edit_sport = () => {
             SportsService
                 .update_sport($scope.edit_sport_info)
                 .then(function(res){
-                    console.log(res);
-                    $
+					$scope.sports[$scope.edit_id] = $scope.edit_sport_info;
+                    swal("Sport has been successfully edited.");
                 } , function(err){
-                    console.log(err);
+                	swal("Error");
                 });
         }
+
         var get_teams_of_sport = (data, func) =>  {
             SportsService
                 .get_teams_sport(data).
@@ -100,74 +104,67 @@
                 });
         }
 
-
-
-        $scope.sports = [
-            {
-                sport_id: undefined,
-                sport_type: undefined,
-                division: undefined 
-            }
-
-        ];
-
         $scope.get_sports = () => {
-            var data = {
-                game_id: gameid
-            } 
-            var ret_sport = [];
+			let data = {
+				game_id : gameid
+			}
+			console.log("asds");
+            let ret_sport = [];
             SportsService
                 .get_sports_game(data).
                 then(function(res) {
-                    var sports = res.data[0];
-                    sports.forEach(function(element){
-                        console.log(element);
-                        var obj2 = {
-                            ["sport_id"]: element.sport_id,
-                            ["sport_type"]: element.sport_type,
-                            ["division"]: element.division,
-                            ["teams"]: []
+                	res.data[0].forEach(function(element){
+                        let obj2 = {
+                            sport_id: element.sport_id,
+                            sport_type: element.sport_type,
+                            division: element.division,
+                            teams: []
                         };
                         get_teams_of_sport(element, function(arr){
                             arr.forEach(function(ob){
-                                if(!obj2["teams"].includes(ob.team_name)){
-                                    obj2["teams"].push(ob.team_name);
-                                }                               
+                                if(!obj2.teams.includes(ob.team_name)){
+                            		obj2.teams.push(ob.team_name);
+                                }
                             });
-                            //console.log(obj2["teams"].length);
-                            if(obj2["teams"].length <= 0){
-                                obj2["teams"].push("No participating teams.");;
-                            }                            
-                            ret_sport.push(obj2);
-                        });                        
+
+                            if(obj2.teams.length <= 0){
+                                obj2.teams.push("No participating teams.");;
+                            }
+                        });
+						ret_sport.push(obj2);
                     });
-                    $scope.sports = ret_sport;
+					$scope.sports = ret_sport;
+
                 }, function(err) {
                     console.log(err);
                 });
         }
 
+        $interval($scope.get_sports, 5000);
         $scope.add_sport = function() {
             var data = {
                 sport_type: $scope.sport_type,
                 division: $scope.division,
                 game_id: gameid
-            }  
-            
-            SportsService
-                .add_sport(data)
-                .then(function(res) {
-                    console.log("add");
-                    console.log(res);  
-                    swal("Success!", "You added a sport!", "success");
-                    $('#AddSport').modal('close');
-                    $scope.sport_type = "";
-                    $scope.division = "";
-                    document.getElementById("sports-form").reset(); 
-                }, function(err) {
-                    swal("Error!", "Please check the fields.", "error");
-                    console.log(err);
-                })
+            }
+
+            if ($scope.sport_type == undefined ||
+                $scope.division == null) {
+                swal("Please fill up all fields");
+	            $scope.sport_type = undefined;
+		       	$scope.division = null;
+            } else {
+	            SportsService
+	                .add_sport(data)
+	                .then(function(res) {
+	                    console.log(res);
+	                    swal(res.message);
+	                    document.getElementById("sports-form").reset();
+	                }, function(err) {
+	                    swal(res.error);
+	                    console.log(err);
+	                })
+            }
         }
     }
 })();

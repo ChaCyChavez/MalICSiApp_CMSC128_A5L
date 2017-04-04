@@ -138,10 +138,8 @@ drop procedure if exists get_sport_team;
 //
   CREATE PROCEDURE get_sport_team(IN sportid int)
   BEGIN
-    select a.account_id, a.firstname, a.lastname, t.team_name, mt.match_id, m.match_date_time, c.court_name
-    from account a natural join team_account ta
-    natural join team t 
-    natural join match_event_team mt
+    select t.team_id, t.team_name, mt.match_id, m.match_date_time, c.court_name
+    from team t natural join match_event_team mt
     natural join match_event m
     natural join court c
     natural join sport s
@@ -261,5 +259,11 @@ DROP PROCEDURE IF EXISTS get_teams_N_scores_of_match//
   END;
 //
 
+DROP PROCEDURE IF EXISTS get_pending_account//
+  CREATE PROCEDURE get_pending_account()
+  BEGIN
+  	SELECT * from account where is_approved = 0;
+  END;
+//
 
 \d ;

@@ -1,16 +1,19 @@
 <div class="main-container" ng-controller="LogController">
-  <div class="row">
-    <form class="col s10 right">
+
+  <!-- Search -->
+  <div class="row contents">
+    <form class="col s10 right"">
       <div class="row">
-        <div class="input-field col s6 right" id = "search">
+        <div class="input-field col s6 right" class="search">
           <i class="fa fa-search prefix"></i>
           <input id="icon_prefix" type="text" class="validate">
-          <label for="icon_prefix">Search User</label>
+          <label for="icon_prefix">Search user</label>
         </div>
       </div>
     </form>
   </div>
-  <h4 class="header">John Doe</h4>
+
+  <h4 class="header">{{profile.firstname}} {{profile.middlename}} {{profile.lastname}}</h4>
   <div class="row contents table">
     <table class="striped">
       <thead>
@@ -22,27 +25,10 @@
 
       <tbody ng-init = "get_log()">
         <tr ng-repeat = "data in logs | orderBy:'-log_date'">
-          <td>{{data.log_date}}</td>
+          <td>{{data.log_date | date: 'medium'}}</td>
           <td>{{data.log_description}}</td>
         </tr>
       </tbody>
     </table>
   </div>
 </div>
-
-<script type="text/javascript">
-  $(document).ready(function(){
-     $('.dropdown-button').dropdown({
-        inDuration: 300,
-        outDuration: 225,
-        constrain_width: false, // Does not change width of dropdown to that of the activator
-        hover: false, // Activate on hover
-        gutter: 0, // Spacing from edge
-        belowOrigin: true, // Displays dropdown below the button
-        alignment: 'left', // Displays dropdown with edge aligned to the left of button
-        stopPropagation: false // Stops event propagation
-      }
-    );
-  });
-
-</script>

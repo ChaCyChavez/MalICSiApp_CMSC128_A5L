@@ -1,10 +1,10 @@
-<div ng-controller="user-controller" ng-init="get_pending_accounts()">
+<div ng-controller="user-controller" ng-init="get_pending_accounts(); get_accounts()">
   <div class="row contents">
     <h3 class="header">User</h3>
     <h4 class="header">Pending User</h4>
     <div class="row contents">
-      <div carousel ng-init="get_accounts()">
-        <div class="col s12 m3 carousel-item" ng-class="{active:!$index}" ng-repeat="(index, account) in accounts | filter:{ is_approved: 0 } ">
+      <div carousel">
+        <div class="col s12 m3 carousel-item" ng-class="{active:!$index}" ng-repeat="(index, account) in pending_accounts">
           <div class="card small z-depth-3">
             <div class="card-image">
               <img src="img/sample-1.jpg">
@@ -29,8 +29,8 @@
 
     <h4 class="header">Regular Users</h4>
     <div class="row contents">
-      <div carousel ng-init="get_accounts()">
-        <div class="col s12 m3 carousel-item" ng-class="{active:!$index}" ng-repeat="(index, account) in accounts | filter: { is_approved: 1 } ">
+      <div carousel>
+        <div class="col s12 m3 carousel-item" ng-repeat="(index, account) in accounts | filter: {is_approved: 1}">
           <div class="card small z-depth-3">
             <div class="card-image">
               <img src="img/sample-1.jpg">

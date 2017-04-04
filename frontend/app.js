@@ -2,7 +2,7 @@
 
 let mainApp = angular.module("app", ['ngRoute']);
 
-mainApp.config(function($routeProvider) {
+mainApp.config(function($routeProvider, $locationProvider) {
 	$routeProvider
 		.when('/', {
 			templateUrl: 'views/login_register.html',

@@ -14,7 +14,7 @@
 		function GameEventService($window, $http, $q, $httpParamSerializer) {
 			const edit_game = (data) => {
 				let deferred = $q.defer();
-
+				console.log(data);
 				$http({
 					method: 'POST',
 					data: $httpParamSerializer(data),
@@ -66,6 +66,7 @@
 
 				return deferred.promise;
 			}
+			
 			const get_current_games = (data) => {
 				let deferred = $q.defer();
 

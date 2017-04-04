@@ -52,6 +52,10 @@
 
 		}
 
+		$rootScope.activate = () => {
+			$("#dropdown1").dropdown('open');
+		}
+
 		$scope.get_loggedIn = () => {
 	        ProfileService
 	        .get_profile()

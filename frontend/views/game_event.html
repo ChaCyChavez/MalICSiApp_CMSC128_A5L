@@ -15,29 +15,35 @@
       </div>
     </form>
   </div>
-
+ 
   <h4 class="header">Current Games</h4>
   <!-- Contents -->
-  <div class="row">
-    <div class="card-panel col offset-l1 s12 m11 l10 z-depth-3">
-          <div class="col s12 m6" ng-repeat="(index, game) in current_games">
-            <div class="card">
-              <div class="card-image">
-                <a class="edit_btn dropdown-button btn-flat right" data-beloworigin="true" data-activates="dropdownCurrent{{index}}" ><i class="fa fa-sort-down white-text fa-2x"></i></a>
-                <img src="img/sample-1.jpg">
+  <div class="row contents">
+    <div class="col s12 m6" ng-repeat="(index, game) in current_games">
+      <div class="card">
+        <div class="card-image waves-effect waves-block waves-light spon-icon activator teal">
+          <!-- <i class="fa fa-users fa-5x white-text" aria-hidden="true"></i> -->
+          <img class="activator" style="width: 300px; margin: auto;" src="../img/run.png"/>
+        </div>
+        <div class="card-content">
+          <a class="btn white-text center-align blue" data-target="modal1" ng-click = "view_setup(index, 'current')" href="javascript:void(0)">
+             view more ...
+          </a>
+        </div>
+
+        <div class="card-reveal">
+          <div>
+            <span class="card-title grey-text text-darken-4 rev">&nbsp;<i class="right fa fa-remove" aria-hidden="true"></i>
+              <h3 class="center-align">{{game.game_name}}</h3>
+              <div class="opt-btn">
+                <a href="javascript:void(0)" class="teal lighten-2 modal-action modal-close waves-effect waves-green btn-flat" data-target="modal4" ng-click="setup_edit_modal('current', index)">edit</a>
+                <a href="javascript:void(0)" class="teal lighten-2 modal-action modal-close waves-effect waves-green btn-flat" ng-click="delete_game('current',index)">remove</a>
               </div>
-              <div class="card-action center-align">
-                <a class="btn white-text" data-target="modal1" ng-click = "view_setup(index)" href="javascript:void(0)">
-                   view more ...
-                </a>
-              </div>
-            </div>
-      			<ul id='dropdownCurrent{{index}}' class='dropdown-content'>
-      			  <li><a href="javascript:void(0)" data-target="modal4" ng-click="setup_edit_modal('current', index)">edit</a></li>
-      			  <li class="divider"></li>
-      			  <li><a href="javascript:void(0)" ng-click="delete_game('current',index)">remove</a></li>
-      			</ul>
+              
+            </span>
           </div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -52,6 +58,11 @@
 			    <a class="edit_btn dropdown-button btn-flat right" data-activates="dropdownUpcoming{{index}}"><i class="fa fa-sort-down white-text"></i></a>
 			    <img src="img/sample-1.jpg">
 			  </div>
+        <div class="card-action center-align">
+                <a class="btn white-text" data-target="modal1" ng-click = "view_setup(index, 'upcoming')" href="javascript:void(0)">
+                   view more ...
+                </a>
+        </div>
 			</div>
 
 			<ul id='dropdownUpcoming{{index}}' class='dropdown-content'>
@@ -86,6 +97,20 @@
               <div class="input-field col s10">
                 <input name="someDate" type="date" class="datepicker" id="datepicker2" ng-model="game_ending_time_date">
                 <label class="labels cyan-text text-darken-4" for="someDate">End date:</label>
+              </div>
+              
+              <table id="tbl">
+                 <tr>
+                  <th><label class="labels cyan-text text-darken-4" for="someDate">Team Name</label></th>
+                  <th><label class="labels cyan-text text-darken-4" for="someDate">Team Color</label></th>
+                 </tr>
+                 <tr>
+                  <td><input class="input-field col s12" type="text" name="links" /></td>
+                  <td><input class="input-field col s12" type="text" name="keywords" /></td> 
+                </tr>
+              </table>
+              <div class="team-button">
+                <input type="submit" class="teal modal-action waves-effect waves-green btn-flat white-text center button add_another" id="another" value="Add another line"/>
               </div>
 
             </div>
@@ -179,13 +204,6 @@
 
 <script type="text/javascript">
   $(document).ready(function(){
-	  $('.dropdown-button').dropdown({
-	      inDuration: 300,
-	      outDuration: 225
-	    }
-	  );
-
-    $("#vp-dropdown"),
     $('.modal').modal({
       dismissible: true,
       opacity: 0.5,
@@ -194,17 +212,15 @@
       starting_top: '4%',
       ending_top: '10%',
     });
-  });
 
-  $('.datepicker').pickadate({
-	selectMonths: true,
-	selectYears: 100,
-	format: 'yyyy-mm-dd'
-  });
+    $('.datepicker').pickadate({
+    	selectMonths: true,
+    	selectYears: 100,
+    	format: 'yyyy-mm-dd'
+    });
 
-  $('.add_another').click(function() {
-      $("#tbl").append('<tr><td><input type="text" class="txtbox" value="" />  </td><td><input type="text" class="txtbox" value="" /></td></tr>');
-   });
+    $('.add_another').click(function() {
+        $("#tbl").append('<tr><td><input type="text" class="txtbox" value="" />  </td><td><input type="text" class="txtbox" value="" /></td></tr>');
+     });
+  });
 </script>
-
-

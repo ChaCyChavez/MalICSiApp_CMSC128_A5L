@@ -1,4 +1,4 @@
-<div ng-init="get_sports()">
+<div ng-controller="sports-controller" ng-init="get_sports()">
   <a class="modal-trigger btn-floating btn-large waves-effect waves-light blue accent-4 add-button" data-target="AddSport"><i class="fa fa-plus"></i></a>
 
   <div class="row contents">
@@ -6,47 +6,33 @@
     <div class="col s12 m0">
 
       <div class="col s12 m4" ng-repeat="sport in sports track by $index">
+		  <ul id='dropdownSport{{$index}}' class='dropdown-content'>
+			  <li><a href="javascript:void(0)" data-target="editsport" ng-click = "setup_edit_modal($index)">edit</a></li>
+			  <li class="divider"></li>
+			  <li><a href="javascript:void(0)" ng-click = "delete_sport($index)" >remove</a></li>
+		 </ul>
+
         <div class="card z-depth-3">
           <div class="card-content">
-            <a class='dropdown-button' href="javascript:void(0)" data-beloworigin="true" data-activates='dropdown{{sport.sport_id}}'><i class="fa fa-sort-down fa-2x left"></i></a>
+            <a class='dropdown-button' href="javascript:void(0)" data-beloworigin="true" data-activates='dropdownSport{{$index}}'><i class="fa fa-sort-down fa-2x left"></i></a>
             <span class="card-title center">{{sport.sport_type}} - {{sport.division}}</span>
             <div class="divider"></div>
             <div>&nbsp;</div>
             <p ng-repeat="team in sport.teams">{{team}}</p>
           </div>
           <!-- dropdown for edit and remove-->
-          <ul id='dropdownCurrent1' class='dropdown-content'>
-              <li><a href="javascript:void(0)" data-target="editsport">edit</a></li>
-              <li class="divider"></li>
-              <li><a href="javascript:void(0)">remove</a></li>
-            </ul>
 
           <div class="card-action">
             <a href="javascript:void(0)" ng-click="view_sport(sport.sport_id)">View Sport</a>
           </div>
           <!-- ^originally view -->
 
-          <div class="card-action">
-            <a href="javascript:void(0)" ng-click = "setup_edit_modal(sport)"  data-target = "editsport">Edit Sport</a>
-          </div>
-          <!-- ^to test edit -->
-
-
-          <div class="card-action">
-            <a href="javascript:void(0)" ng-click = "delete_sport(sport.sport_id,$index)" >Remove Sport</a>
-          </div>
-          <!-- ^To test delete -->
-
         </div>
       </div>
 
-     
+
     </div>
   </div>
-
-  
-
- 
 
   <!-- Edit Sport Modal -->
   <div id="editsport" class="modal modal-fixed-footer">
@@ -110,9 +96,9 @@
             <div class="input-field col s12">
               <select ng-model="division">
                 <option value="" disabled selected>Choose your option</option>
-                <option value="1">Men</option>
-                <option value="2">Women</option>
-                <option value="3">Mixed</option>
+                <option value="men">Men</option>
+                <option value="women">Women</option>
+                <option value="mixed">Mixed</option>
               </select>
               <label>Division</label>
             </div>
@@ -145,13 +131,13 @@
   $(document).ready(function(){
      $('.dropdown-button').dropdown({
         inDuration: 300,
-        outDuration: 225
-        // constrain_width: false, // Does not change width of dropdown to that of the activator
-        // hover: false, // Activate on hover
-        // gutter: 0, // Spacing from edge
-        // belowOrigin: true, // Displays dropdown below the button
-        // alignment: 'left', // Displays dropdown with edge aligned to the left of button
-        // stopPropagation: false // Stops event propagation
+        outDuration: 225,
+        constrain_width: false, // Does not change width of dropdown to that of the activator
+        hover: false, // Activate on hover
+        gutter: 0, // Spacing from edge
+        belowOrigin: true, // Displays dropdown below the button
+        alignment: 'left', // Displays dropdown with edge aligned to the left of button
+        stopPropagation: false // Stops event propagation
       }
     );
     $('.modal').modal({

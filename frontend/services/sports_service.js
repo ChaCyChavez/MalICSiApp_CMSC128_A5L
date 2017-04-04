@@ -5,20 +5,20 @@
 		.module('app')
 		.factory('SportsService', SportsService);
 
-		SportsService.$inject = ['$window', '$http', '$q'];
+		SportsService.$inject = ['$window', '$http', '$q', '$httpParamSerializer'];
 
 		const headers = {
 			'content-type': 'application/x-www-form-urlencoded'
 		};
 
-		function SportsService($window, $http, $q) {
+		function SportsService($window, $http, $q, $httpParamSerializer) {
 
 			const add_sport = function (data) {
 				let deferred = $q.defer();
-				console.log(data);
+
 				$http({
 					method: 'POST',
-					params: data,
+					data: $httpParamSerializer(data),
 					xhrFields: {withCredentials: true},
 					url: '/api/add-sport',
 					headers: headers
@@ -37,7 +37,7 @@
 				let deferred = $q.defer();
 				$http({
 					method: 'POST',
-					params: data,
+					data: $httpParamSerializer(data),
 					xhrFields: {withCredentials: true},
 					url: '/api/update-sport',
 					headers: headers
@@ -56,9 +56,8 @@
 
 				$http({
 					method: 'GET',
-					params: data,
 					xhrFields: {withCredentials: true},
-					url: '/api/get-all-sport',
+					url: '/api/get-all-sport/' + data.game_id,
 					headers: headers
 				})
 				.then(function(res) {
@@ -72,15 +71,14 @@
 
 			const delete_sport = function (data) {
 				let deferred = $q.defer();
-				console.log(data.sport_id);
 
 				$http({
 					method: 'POST',
-					params: data,
+					data: $httpParamSerializer(data),
 					xhrFields: {withCredentials: false},
 					url: '/api/delete-sport/',
 					headers: headers
-					
+
 				})
 				.then(function(res) {
 					deferred.resolve(res.data);
@@ -99,7 +97,7 @@
 					xhrFields: {withCredentials: true},
 					url: '/api/get-sport-game/' + data.game_id,
 					headers: headers
-					
+
 				})
 				.then(function(res) {
 					deferred.resolve(res);
@@ -118,7 +116,7 @@
 					xhrFields: {withCredentials: true},
 					url: '/api/get-sport-team/' + data.sport_id,
 					headers: headers
-					
+
 				})
 				.then(function(res) {
 					deferred.resolve(res);
@@ -135,7 +133,7 @@
 			service.get_sports 				= get_sports;
 			service.delete_sport			= delete_sport;
 			service.get_sports_game			= get_sports_game;
-			service.get_teams_sport			= get_teams_sport;			
+			service.get_teams_sport			= get_teams_sport;
 			return service;
 
 		}

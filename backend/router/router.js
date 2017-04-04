@@ -1,4 +1,4 @@
-'use strict';
+ 'use strict';
 /* old controllers
 const update = require(__dirname + '/../controller/old-controllers/update');
 const create = require(__dirname + '/../controller/old-controller/create');
@@ -30,7 +30,7 @@ module.exports = (router) => {
     router.get('/api/get-account/:account_id?', account.get_account);
     //retrieve all accounts
     router.get('/api/get-all-account/', account.get_all_account);
-    //retrieve pending accounts
+    //retrieve pending
     router.get('/api/get-pending-account/', account.get_pending_account);
     //update account
     router.post('/api/update-account', account.update_account);
@@ -133,11 +133,13 @@ module.exports = (router) => {
     router.get('/api/get-semis-matches/', result.get_semis_matches);
     router.get('/api/get-finals-matches/', result.get_finals_matches);
 
+<<<<<<< HEAD
 // game per sport router
     // get games per sport
     router.get('/api/get-game-per-sport/:sport_id', gamepersport.get_game_per_sport);
-
-    router.all('*', (req, res, next) => { 
+    
+    router.all('*', (req, res, next) => {
+>>>>>>> e7dbe1ae980720a39b135931d905a70e09b95d94
         res.status(404).send({
             'message': 'Not Found!'
         });
