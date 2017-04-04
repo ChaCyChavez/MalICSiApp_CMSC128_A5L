@@ -121,11 +121,21 @@
   font-family: "Panton";
 }
 
-#label-enter {
-  font-size: 11px;
+.label-enter {
+  width: 68% !important;
+  margin-left: 15% !important;
+  font-size: 16px !important;
+  height: 50px !important; 
   font-family: "Panton";
-  margin-left: 1%;
+  margin: 1%;
 }
+
+.modal-content {
+  padding: 2% !important;
+}
+
+
+
 
 #modal-button {
   text-align: center;
