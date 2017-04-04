@@ -84,7 +84,7 @@
 					.retrieve_account($scope.info)
 					.then(function(res) {
 						$("#modal-login").modal('close');
-						$window.location.href = '#!/game-event';
+						$window.location.href = '#!/';
 						location.reload();
 					}, function(err) {
 						Materialize.toast(err.message, 4000, 'teal');
