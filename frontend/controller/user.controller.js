@@ -10,27 +10,12 @@
         $scope.accounts = [];
         $scope.pending_accounts = [];
 
-    	$scope.view_profile = () => {
-            window.location.href="#!/profile";
-        }
-
-        $scope.view_user = () => {
-            window.location.href="#!/user";
-        }
-
-        $scope.logout = () => {
-            window.location.href="#!/";
-        }
-
-        $scope.back_to_home = () => {
-            window.location.href="#!/game-event";
-        }
-
         $scope.get_accounts = () => {
             UserService
                 .get_all_account()
                 .then(function(res) {
                     $scope.accounts = res[0];
+					console.log($scope.accounts);
                 }, function(err) {
                     console.log(err);
                 });
@@ -60,14 +45,21 @@
             },
             function(isConfirm){
               if (isConfirm) {
+
                 UserService
                 .approve_account({account_id:$scope.pending_accounts[data].account_id})
                 .then((err, data) => {
-                    Materialize.toast("Successfully approved!.", 4000, 'teal');
+                    Materialize.toast("Successfully approved!", 4000, 'teal');
                     $scope.pending_accounts.splice(data, 1);
                 });
                 swal("Approved!", "Account has been approved!", "success");
               } else {
+                UserService
+                .disapprove_account({account_id:$scope.pending_accounts[data].account_id})
+                .then((err, data) => {
+                    Materialize.toast("Successfully disapproved!", 4000, 'teal');
+                    $scope.pending_accounts.splice(data, 1);
+                });
                 swal("Disapproved!", "Account has been disapproved!", "error");
               }
             });
