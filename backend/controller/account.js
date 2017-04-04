@@ -170,6 +170,7 @@ exports.get_account = (req, res, next) => {
 	const payload = [req.params.account_id != undefined ? req.params.account_id : (req.session.user != undefined ? req.session.user.account_id : undefined)];
 
 	const callback = (err, data) => {
+		console.log(data[0]);
 		if (err) {
 			winston.level = 'debug';
 			winston.log('debug', 'err: ', err);
@@ -246,7 +247,7 @@ exports.get_pending_account = (req, res, next) => {
 			winston.level = 'debug';
 			winston.log('debug', 'err: ', err);
 			res.status(500).send({ error_code:err.code });
-	    } else if (data[0].length == 0) {
+	    } else if (data.length == 0) {
 			winston.level = 'info';
 			winston.log('info', 'Empty');
 			res.status(404).send({ message: 'Empty! Retrieve failed'});
