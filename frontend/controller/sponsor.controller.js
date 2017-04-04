@@ -26,12 +26,13 @@
         $scope.sponsors = [];
         $scope.game_id = $routeParams.game_id;
 
-
+ 
         $scope.init_sponsor = () => {
             SponsorService
                 .init_sponsors($scope.game_id)
                 .then(function(res) {
                     $scope.sponsors = res[0];
+                    console.log("output: "  + res[0]);
                 }, function(err) {
                     console.log(err.data);
                 })
