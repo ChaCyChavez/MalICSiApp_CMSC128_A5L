@@ -18,6 +18,14 @@
             web_address: "",
             game_id: 0
         }
+        $scope.sponsorEdit = {
+            sponsor_name: "",
+            sponsor_logo: "/",
+            sponsor_type: "",
+            sponsor_desc: "",
+            web_address: "",
+            game_id: 0
+        }
 
         $scope.view_profile = () => {
             window.location.href="#!/profile";
@@ -83,21 +91,21 @@
         $scope.init_edit_modal = (sponsor_id) => {
             for(var i = 0; i < $scope.sponsors.length; i++) {
                 if($scope.sponsors[i].sponsor_id === sponsor_id) {
-                    $scope.sponsor.sponsor_name = $scope.sponsors[i].sponsor_name;
-                    $scope.sponsor.sponsor_type = $scope.sponsors[i].sponsor_type;
-                    $scope.sponsor.sponsor_desc = $scope.sponsors[i].sponsor_desc;
-                    $scope.sponsor.web_address = $scope.sponsors[i].web_address;
-                    $scope.sponsor.game_id = $scope.sponsors[i].game_id;
-                    $scope.sponsor.sponsor_logo = $scope.sponsors[i].sponsor_logo;
+                    $scope.sponsorEdit.sponsor_name = $scope.sponsors[i].sponsor_name;
+                    $scope.sponsorEdit.sponsor_type = $scope.sponsors[i].sponsor_type;
+                    $scope.sponsorEdit.sponsor_desc = $scope.sponsors[i].sponsor_desc;
+                    $scope.sponsorEdit.web_address = $scope.sponsors[i].web_address;
+                    $scope.sponsorEdit.game_id = $scope.sponsors[i].game_id;
+                    $scope.sponsorEdit.sponsor_logo = $scope.sponsors[i].sponsor_logo;
 
-                    console.log($scope.sponsor);
+                    console.log($scope.sponsorEdit);
                 }
             }
         }
 
         $scope.update_sponsor = () => {
             SponsorService
-                .update_sponsors($scope.sponsor)
+                .update_sponsors($scope.sponsorEdit)
                 .then(function(res) {
                     swal(res.message);
                 }, function(err) {

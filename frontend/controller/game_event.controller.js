@@ -28,24 +28,31 @@
 			}
 		];
 
+		$scope.view = {
+				type: undefined,
+				id: undefined
+		}
+
 		$scope.view_sponsor = () => {
-            window.location.href="#!/sponsor/" + $scope.current_games[$scope.id].game_id;
+            window.location.href=$scope.view.type == 'upcoming'? "#!/sponsor/" + $scope.upcoming[$scope.view.id].game_id : "#!/sponsor/" + $scope.current_games[$scope.view.id].game_id;
         	// window.location.reload();
         	//^temporary
         }
         $scope.view_sports = () => {
-			console.log($scope.id);
-            window.location.href="#!/sports/" + $scope.current_games[$scope.id].game_id;
+            window.location.href=$scope.view.type == 'upcoming'? "#!/sports/" + $scope.upcoming[$scope.view.id].game_id : "#!/sports/" + $scope.current_games[$scope.view.id].game_id;
             // window.location.reload();
             // ^temporary
         }
 
-        $scope.view_setup = (id) =>{
-        	$scope.id = id;
+        $scope.view_setup = (id,type) =>{
+        	console.log(id);
+
+        	$scope.view.id = id;
+        	$scope.view.type = type;
         }
 
         $scope.view_registered_user = () => {
-            window.location.href="#!/registered-user/" + $scope.current_games[$scope.id].game_id;
+            window.location.href=$scope.view.type == 'upcoming'? "#!/registered-user/" + $scope.upcoming[$scope.view.id].game_id : "#!/registered-user/" + $scope.current_games[$scope.view.id].game_id;
             window.location.reload();
             //^temporary
         }
