@@ -31,7 +31,7 @@
 				.get_team_profile($scope.team_id)
 				.then(function(res) {
 					$scope.user = res[0];
-					console.log($scope.user);
+					console.log(res);
 				}, function(err) {
 					console.log(err);
 				});

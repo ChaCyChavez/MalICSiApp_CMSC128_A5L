@@ -60,11 +60,13 @@ DROP PROCEDURE IF EXISTS add_activity_log//
         IN _account_id          int
     )
     BEGIN
+        SELECT firstname into @ghead from account 
+            where account_id = _account_id;
         INSERT INTO activity_log(
             log_description,
             account_id
         )VALUES(
-            _log_description,
+            CONCAT(@ghead, _log_description),
             _account_id
         );
     END;

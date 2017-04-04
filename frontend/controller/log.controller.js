@@ -24,8 +24,8 @@
 				LogService
 				.get_all_logs()
 				.then(function(res){
-					$scope.allLogs = res[0];
-					console.log($scope.allLogs);
+					$scope.logs = res[0];
+					console.log($scope.logs);
 				},function(err){
 					console.log(err);
 				})

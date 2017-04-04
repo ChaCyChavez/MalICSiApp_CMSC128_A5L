@@ -39,8 +39,8 @@ DROP PROCEDURE IF EXISTS get_activity_log//
   END;
 //
 
-DROP PROCEDURE IF EXISTS get_all_activity_log//
-  CREATE PROCEDURE get_all_activity_log()
+DROP PROCEDURE IF EXISTS get_all_activity_logs//
+  CREATE PROCEDURE get_all_activity_logs()
   BEGIN
     SELECT * FROM activity_log;
   END;
