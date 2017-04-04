@@ -5,9 +5,9 @@
         .module('app')
         .controller('sports-controller', sports_controller);
 
-    sports_controller.$inject = ['$scope', '$location', '$routeParams', 'SportsService'];
+    sports_controller.$inject = ['$scope', '$location', '$routeParams','$interval', 'SportsService'];
 
-    function sports_controller($scope, $location, $routeParams, SportsService) {
+    function sports_controller($scope, $location, $routeParams, $interval, SportsService) {
 
         $scope.sports = [];
         $scope.edit_sport_info = {};
@@ -41,17 +41,6 @@
             window.location.href="#!/game-event";
         }
 
-         $scope.get_sports = () => {
-            SportsService
-                .get_sports()
-                .then(function(res) {
-                    $scope.sports = res[0];
-                    console.log($scope.sports);  
-                }, function(err) {
-                    console.log(err);
-                });
-        }
-
         $scope.delete_sport = (sportid, index) => {
                 var data = {
                     sport_id: sportid
@@ -77,6 +66,9 @@
                         
                 }); 
         }
+
+        //$scope.get_sports();
+        $scope.edit_sport_info = {};
         
         $scope.setup_edit_modal = (sport) => {
             $scope.edit_sport_info.sport_type = sport.sport_type;
@@ -144,6 +136,7 @@
                 });
         }
 
+        $interval($scope.get_sports, 5000);
         $scope.add_sport = function() {
             var data = {
                 sport_type: $scope.sport_type,
