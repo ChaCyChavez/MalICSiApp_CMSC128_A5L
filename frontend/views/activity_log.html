@@ -10,7 +10,7 @@
       </div>
     </form>
   </div>
-  <h4 class="header">John Doe</h4>
+  <h4 class="header">{{profile.firstname}} {{profile.middlename}} {{profile.lastname}}</h4>
   <div class="row contents table">
     <table class="striped">
       <thead>
@@ -22,7 +22,7 @@
 
       <tbody ng-init = "get_log()">
         <tr ng-repeat = "data in logs | orderBy:'-log_date'">
-          <td>{{data.log_date}}</td>
+          <td>{{data.log_date | date: 'medium'}}</td>
           <td>{{data.log_description}}</td>
         </tr>
       </tbody>
