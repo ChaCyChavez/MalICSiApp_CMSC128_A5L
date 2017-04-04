@@ -35,7 +35,6 @@
 
 			const update_sport = function (data) {
 				let deferred = $q.defer();
-
 				$http({
 					method: 'POST',
 					params: data,
@@ -78,8 +77,8 @@
 				$http({
 					method: 'POST',
 					params: data,
-					xhrFields: {withCredentials: true},
-					url: '/api/delete-sport',
+					xhrFields: {withCredentials: false},
+					url: '/api/delete-sport/',
 					headers: headers
 					
 				})

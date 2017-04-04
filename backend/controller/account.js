@@ -25,7 +25,6 @@ exports.login_account = (req, res, next) => {
 			winston.level = 'info';
 			winston.log('info', 'Login failed.');
 			res.status(404).send({message: 'Wrong username or password!'});
-			console.log(payload);
 		} else {
 			winston.level = 'info';
 			winston.log('info', 'Login Successful!');
@@ -217,7 +216,7 @@ exports.delete_account = (req, res, next) => {
 	const query_string ='CALL delete_account(?)';
 
 	const payload = [req.params.account_id];
-
+	console.log(payload);
 	const callback = (err, data) => {
 		if (err) {
 			winston.level = 'debug';

@@ -1,5 +1,5 @@
-<div ng-controller="result-controller">
-  <div class="navbar-fixed">
+<div ng-controller="result-controller" ng-init = "init_matches()">
+  <!-- <div class="navbar-fixed">
     <nav>
       <div class="nav-wrapper">
         <a href="javascript:void(0)" class="grey-text text-darken-4 center" id="logo" ng-click="back_to_home()">MalICSi</a>
@@ -9,7 +9,7 @@
         </ul>
       </div>
     </nav>
-  </div>
+  </div> -->
 
   <ul id='dropdown1' class='dropdown-content'>
     <li>
@@ -43,50 +43,43 @@
       <div class="card-panel">
         <h5 class = "tournament-bracket">Tournament Bracketing</h5>
           <!-- table goes here -->
-          <div class="bracket-table">
-          	<ul>
-            <li>
-              <a href="javascript:void(0)" class = "bracket">Parent</a>
-              <ul>
-                <li>
-                  <a href="javascript:void(0)" class = "bracket">Child</a>
-                  <ul>
-                    <li>
-                      <a href="javascript:void(0)" class = "bracket">Grand Child</a>
-                    </li>
-                    <li>
-                      <a href="javascript:void(0)" class = "bracket">Grand Child</a>
-                      <ul>
-                        <li>
-                          <a href="javascript:void(0)" class = "bracket">Grand Child</a>
-                        </li>
-                        <li>
-                          <a href="javascript:void(0)" class = "bracket">Grand Child</a>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="javascript:void(0)" class = "bracket">Child</a>
-                  <ul>
-                    <li>
-                      <a href="javascript:void(0)" class = "bracket">Grand Child</a>
-                      <ul>
-                        <li>
-                          <a href="javascript:void(0)" class = "bracket">Grand Grand Child</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li>
-                      <a href="javascript:void(0)" class = "bracket">Grand Child</a>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </div>
+          <main id="tournament">
+          	<ul class="round round-1">
+              <div  ng-repeat="ematches in elimination_matches">
+                <li class="spacer">&nbsp;</li>
+            		<li class="game game-top winner">{{(ematches.player1).team_name}}<span>{{(ematches.player1).score}}</span></li>
+            		<li class="game game-spacer">&nbsp;</li>
+            		<li class="game game-bottom ">{{(ematches.player2).team_name}}<span>{{(ematches.player2).score}}</span></li>
+                <li class="spacer">&nbsp;</li>
+              </div>
+          	</ul>
+          	<ul class="round round-2">
+              <div  ng-repeat="smatches in semis_matches">
+                <li class="spacer">&nbsp;</li>
+                <li class="spacer">&nbsp;</li>
+            		<li class="game game-top winner">{{(smatches.player1).team_name}}<span>{{(smatches.player1).score}}</span></li>
+            		<li class="game game-spacer">&nbsp;</li>
+                <li class="game game-spacer">&nbsp;</li>
+                <li class="game game-spacer">&nbsp;</li>
+            		<li class="game game-bottom ">{{(smatches.player2).team_name}}<span>{{(smatches.player2).score}}</span></li>
+            		<li class="spacer">&nbsp;</li>
+                <li class="spacer">&nbsp;</li>
+              </div> 
+          	</ul>
+          	<ul class="round round-3">
+              <div ng-repeat="fmatches in finals_matches">
+            		<li class="spacer">&nbsp;</li>
+            		<li class="game game-top winner">{{(fmatches.player1).team_name}}<span>{{(fmatches.player1).score}}</span></li>
+            		<li class="game game-spacer">&nbsp;</li>
+                <li class="game game-spacer">&nbsp;</li>
+                <li class="game game-spacer">&nbsp;</li>
+                <li class="game game-spacer">&nbsp;</li>
+                <li class="game game-spacer">&nbsp;</li>
+            		<li class="game game-bottom ">{{(fmatches.player2).team_name}}<span>{{(fmatches.player2).score}}</span></li>
+            		<li class="spacer">&nbsp;</li>
+              </div>
+          	</ul>
+          </main>
       </div>
     </div>
   </div>

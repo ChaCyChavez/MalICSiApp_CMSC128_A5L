@@ -18,15 +18,26 @@
     function game_event_controller($scope, $rootScope, $location, GameEventService, ProfileService) {
 		// fetching is being implemented by other group member
 		
-		$scope.view_sponsor = (game_id) => {
-            window.location.href="#!/sponsor/" + game_id;
+		$scope.view_sponsor = () => {
+            window.location.href="#!/sponsor/" + $scope.current_games[$scope.id].game_id;
+        	// window.location.reload();
+        	//^temporary
         }
-        $scope.view_sports = (game_id) => {
-            window.location.href="#!/sports/" + game_id;
+        $scope.view_sports = () => {
+			console.log($scope.id);
+            window.location.href="#!/sports/" + $scope.current_games[$scope.id].game_id;
+            // window.location.reload();
+            // ^temporary
+        }
+
+        $scope.view_setup = (id) =>{
+        	$scope.id = id;
         }
 
         $scope.view_registered_user = () => {
-            window.location.href="#!/registered-user";
+            window.location.href="#!/registered-user/" + $scope.current_games[$scope.id].game_id;
+            window.location.reload();
+            //^temporary
         }
 
 		$scope.get_current_games = () => {
@@ -123,15 +134,14 @@
 			function(){
 				if (type === 'upcoming') {
 					GameEventService.delete_game({game_id:$scope.upcoming_games[id].game_id}).then((err, data) => {
-						Materialize.toast("Successfully deleted.", 4000, 'teal');
 						$scope.upcoming_games.splice(id, 1);
 					});
 				} else {
 					GameEventService.delete_game({game_id:$scope.current_games[id].game_id}).then((err, data) => {
-							Materialize.toast("Successfully deleted.", 4000, 'teal');
-							$scope.current_games.splice(id, 1);
+						$scope.current_games.splice(id, 1);
 					});
 				}
+				Materialize.toast("Successfully deleted.", 4000, 'teal');
 				swal("Deleted!", "Event has been deleted.", "success");
 			});
 		}

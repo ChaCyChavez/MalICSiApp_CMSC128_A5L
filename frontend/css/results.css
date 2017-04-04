@@ -105,110 +105,54 @@ a#spon:hover, a.tab:hover {
     color: #0097a7 !important;
 }
 
-.bracket {
-  font-family: "Blogger";
-  font-size: 120%;
-}
 /*
-$border-width: 1px;
-$reverse: true;
-
-.bracket-table {
-  @if $reverse {
-    transform: rotate(180deg);
-    transform-origin: 50%;
-  }
-}
-
+ *  Flex Layout Specifics
 */
-.bracket-table ul {
-	padding: 2% 0;
-  white-space: nowrap;
-  margin: 0 auto;
-  text-align: center;
-  /*&::after {
-    content: '';
-    display: table;
-    clear: both;
-  }*/
+main{
+  display:flex;
+  flex-direction:row;
+  font-size: 1.5vw;
+  font-family: 'Blogger';
+}
+.round{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  width:200px;
+  list-style:none;
+  padding:0;
+}
+  .round .spacer{ flex-grow:1; }
+  .round .spacer:first-child,
+  .round .spacer:last-child{ flex-grow:.5; }
+
+  .round .game-spacer{
+    flex-grow:1;
+  }
+
+/*
+ *  General Styles
+*/
+
+li.game{
+  padding-left:20px; 
 }
 
-.bracket-table li {
-  display: inline-block;
-  vertical-align: top;
-  text-align: center;
-	list-style-type: none;
-	position: relative;
-	padding: 3% 1% 0 1%;
-  /*&::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 50%;
-    border-width: thick;
-    width: 50%;
-    height: 1em;
-  &::after {
-    right: auto;
-    left: 50%;
-	  border-left: $border-width solid #ccc;
+  li.game.winner{
+    font-weight:bold;
   }
-  }*/
-  &:only-child::after,
-  &:only-child::before {
-    display: none;
+  li.game span{
+    float:right;
+    margin-right:5px;
   }
-  &:only-child {
-    padding-top: 0;
-  }
-  &:first-child::before,
-  &:last-child::after {
-    border: 0 none;
-  }
-  &:last-child::before{
-    border-right: $border-width solid #ccc;
-    border-radius: 0 50% 0 0;
-  }
-  &:first-child::after{
-    border-radius: 50% 0 0 0;
-  }
-}
 
-.bracket-table ul ul::before{
-	content: '';
-	position: absolute;
-  top: 0;
-  left: 50%;
-	border-left: $border-width solid #ccc;
-	width: 0;
-  height: 1em;
-}
+  li.game-top{ border-bottom:1px solid #aaa; }
 
-.bracket-table li a {
-	border: $border-width solid #ccc;
-	padding: 3% 3%;
-	text-decoration: none;
-	display: inline-block;
-	border-radius: 10%;
-  color: #333;
-  position: relative;
-  top: $border-width;
-  @if $reverse {
-    transform: rotate(180deg);
+  li.game-spacer{
+    border-right:1px solid #aaa;
+    min-height:4vw;
   }
-}
 
-.bracket-table li a:hover,
-.bracket-table li a:hover+ul li a {
-	background: #00bfa5;
-  color: #fff;
-  border: $border-width solid #00bfa5;
-}
-
-.bracket-table li a:hover + ul li::after,
-.bracket-table li a:hover + ul li::before,
-.bracket-table li a:hover + ul::before,
-.bracket-table li a:hover + ul ul::before{
-	border-color: #00bfa5;
-}
+  li.game-bottom{
+    border-top:1px solid #aaa;
+  }

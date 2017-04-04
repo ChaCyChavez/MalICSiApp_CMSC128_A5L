@@ -13,7 +13,7 @@ const match_event = require(__dirname + '/../controller/match_event');
 const sponsor = require(__dirname + '/../controller/sponsor');
 const sport = require(__dirname + '/../controller/sport');
 const team = require(__dirname + '/../controller/team');
-
+const result = require(__dirname +'/../controller/result');
 let path = require('path');
 
 module.exports = (router) => {
@@ -35,7 +35,7 @@ module.exports = (router) => {
     router.post('/api/update-account', account.update_account);
     //delete account
     router.post('/api/delete-account/:account_id', account.delete_account);
-    //approve 
+    //approve
     router.post('/api/approve-account', account.approve_account);
 
 //court routers
@@ -44,7 +44,7 @@ module.exports = (router) => {
     //retrieve court
     router.get('/api/get-court/:court_id', court.get_court);
     //update court
-    router.post('/api/update-court', court.update_court);
+    router.post('/api/update-court/', court.update_court);
     //delete court
     router.post('/api/delete-court/:court_id', court.delete_court);
 
@@ -81,6 +81,10 @@ module.exports = (router) => {
     router.post('/api/update-match-event', match_event.update_match_event);
     //delete match_event
     router.post('/api/delete-match-event', match_event.delete_match_event);
+    // retrieve teams in match event
+    router.get('/api/get-teams-N-scores-of-match/:match_id', match_event.get_teams_N_scores_of_match);
+    // retrieve court of match
+    router.get('/api/get-court-of-match/:match_id', match_event.get_court_of_match);
 
 //sponsor routers
     //create sponsor
@@ -113,14 +117,20 @@ module.exports = (router) => {
     router.get('/api/get-team/:team_id', team.get_team);
     //retrieve team_profile
     router.get('/api/get-team-profile/:team_id', team.get_team_profile);
+    //retrieve team_match
+    router.get('/api/get-team-match/:team_id', team.get_team_match);
     //update team
     router.post('/api/update-team', team.update_team);
     //delete team
     router.post('/api/delete-team/:team_id', team.delete_team);
 
+// result router
+    // get all elimination matches
+    router.get('/api/get-elimination-matches/', result.get_elimination_matches);
+    router.get('/api/get-semis-matches/', result.get_semis_matches);
+    router.get('/api/get-finals-matches/', result.get_finals_matches);
 
-
-    router.all('*', (req, res, next) => {
+    router.all('*', (req, res, next) => { 
         res.status(404).send({
             'message': 'Not Found!'
         });
