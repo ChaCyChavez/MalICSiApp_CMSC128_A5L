@@ -1,5 +1,5 @@
 <div ng-controller="sponsor-controller" ng-init="init_sponsor()">
-    <a class="btn-floating btn-large waves-effect waves-light blue accent-4 add-button" href="javascript:void(0)" data-target="modal7" modal><i class="fa fa-plus"></i></a>
+    <a class="btn-floating btn-large waves-effect waves-light blue accent-4 add-button" ng-click="reset_add_modal()" href="javascript:void(0)" data-target="modal7" modal><i class="fa fa-plus"></i></a>
     <br>
 
     <div class="container">
@@ -66,8 +66,8 @@
                 </div>
               </div>
               <div class="row">
-                <div class="input-field col s12 m12">
-                  <textarea class="sponsor_description" class="materialize-textarea" ng-model="sponsor.sponsor_desc"></textarea>
+                <div input-field class="input-field col s12 m12">
+                  <textarea class="sponsor_description materialize-textarea" ng-model="sponsor.sponsor_desc"></textarea>
                   <label class="labels cyan-text text-darken-4" for="sponsor_description">Sponsor Description</label>
                 </div>
               </div>
@@ -108,8 +108,8 @@
                 </div>
               </div>
               <div class="row">
-                <div class="input-field col s12">
-                  <textarea placeholder="Event title" class="sponsor_description" class="materialize-textarea" ng-model="sponsorEdit.sponsor_desc"></textarea>
+                <div input-field class="input-field col s12">
+                  <textarea placeholder="Event title"  class="sponsor_description materialize-textarea" ng-model="sponsorEdit.sponsor_desc"></textarea>
                   <label class="labels cyan-text text-darken-4" for="sponsor_description">Sponsor Description</label>
                 </div>
               </div>
