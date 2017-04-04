@@ -28,7 +28,6 @@
             LoginRegisterService
             .get_currGames().then((data) => {
                 $scope.current_games = data[0];
-                console.log(data[0])
             });
         }
 	}

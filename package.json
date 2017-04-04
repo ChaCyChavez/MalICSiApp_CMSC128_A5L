@@ -26,6 +26,7 @@
     "express-session": "^1.15.1",
     "fs": "0.0.1-security",
     "gulp": "^3.9.1",
+    "helmet": "^3.5.0",
     "method-override": "^2.3.7",
     "minimatch": "^3.0.3",
     "mysql": "^2.13.0",

@@ -34,11 +34,10 @@
 
 				$http({
 					method: 'GET',
-					url: '/api/get-all-account/',
+					url: '/api/get-pending-account/',
 					headers: headers
 				})
 				.then(function(res) {
-					console.log(res);
 					deferred.resolve(res.data);
 				}, function(err) {
 					deferred.reject(err.data);
