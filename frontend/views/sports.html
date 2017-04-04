@@ -20,12 +20,23 @@
               <li class="divider"></li>
               <li><a href="javascript:void(0)">remove</a></li>
             </ul>
-          <!-- <div class="card-action">
-            <a href="javascript:void(0)" ng-click="view_sport(sport.sport_id)">View Sport</a>
-          </div> -->
+
           <div class="card-action">
-            <a href="javascript:void(0)" ng-click = "setup_edit_modal(sport)"  data-target = "editsport">View Sport</a>
+            <a href="javascript:void(0)" ng-click="view_sport(sport.sport_id)">View Sport</a>
           </div>
+          <!-- ^originally view -->
+
+          <div class="card-action">
+            <a href="javascript:void(0)" ng-click = "setup_edit_modal(sport)"  data-target = "editsport">Edit Sport</a>
+          </div>
+          <!-- ^to test edit -->
+
+
+          <div class="card-action">
+            <a href="javascript:void(0)" ng-click = "delete_sport(sport.sport_id,$index)" >Remove Sport</a>
+          </div>
+          <!-- ^To test delete -->
+
         </div>
       </div>
 

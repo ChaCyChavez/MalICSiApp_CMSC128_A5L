@@ -46,7 +46,7 @@
 
 
         $scope.delete_sport = (sportid, index) => {
-                console.log(sportid);
+                console.log(sportid,index);
                 var data = {
                     sport_id: sportid
                 }  
@@ -67,9 +67,10 @@
                         }, function(err) {  
                             console.log(err);
                         });
-                        swal("Deleted!", "Your imaginary file has been deleted.", "success");
-                });      
-        } 
+                        swal("Deleted!", "Sport has been successfully removed.", "success");
+                });
+                
+        }
         $scope.edit_sport_info = {};
         $scope.setup_edit_modal = (sport) => {
             $scope.edit_sport_info.sport_type = sport.sport_type;
