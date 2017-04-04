@@ -75,6 +75,21 @@
   border-color: rgb(29, 233, 182);
 }
 
+.rev {
+  height: 280px !important;
+}
+
+.opt-btn {
+
+  text-align: center;
+  margin-top:150px;
+}
+
+.opt-btn a {
+  font-size: 12px !important;
+  color: white !important;
+}
+
 /*modals*/
 .team {
   text-align: left;
