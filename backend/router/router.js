@@ -64,6 +64,10 @@ module.exports = (router) => {
     router.get('/api/get-user-past-events/', game_event.get_user_past_events);
 	router.get('/api/get-upcoming-events/', game_event.get_upcoming_events);
     router.get('/api/get-current-events/', game_event.get_current_events);
+    router.get('/api/get-game-teams/:game_id', game_event.get_game_teams);
+
+    router.post('/api/join-account-to-team', game_event.join_account_to_team);
+    router.get('/api/get-team-of-account/:account_id', game_event.get_team_of_account);
 
 //log routers
     //create log

@@ -72,10 +72,17 @@
 
 		$scope.view = {
 				type: undefined,
-				id: undefined
+				id: undefined,
+				gameid: undefined
 		}
+
+		$scope.team = {
+				account_id: undefined,
+				team_id: undefined
+		}
+
 		$scope.view_sponsor = () => {
-						$("#modal1").modal('close');
+			$("#modal1").modal('close');
             window.location.href=$scope.view.type == 'upcoming'? "#!/sponsor/" + $scope.upcoming[$scope.view.id].game_id : "#!/sponsor/" + $scope.current_games[$scope.view.id].game_id;
         	// window.location.reload();
         	//^temporary
@@ -86,11 +93,12 @@
             // ^temporary
         }
 
-        $scope.view_setup = (id,type) =>{
-        	console.log(id);
-
+        $scope.view_setup = (gameid, id,type) =>{
         	$scope.view.id = id;
         	$scope.view.type = type;
+        	$scope.view.gameid = gameid;
+
+        	console.log(gameid);
         }
 
         $scope.view_registered_user = () => {
@@ -138,6 +146,67 @@
 			});
 		}
 
+		$scope.select_team = (teamid) => {
+			$scope.team.account_id = $rootScope.profile.account_id;
+			$scope.team.team_id = teamid;	
+		}
+
+		$scope.get_teams = () => {
+			var data = {
+				game_id: $scope.view.gameid
+			}
+
+			GameEventService
+				.get_teams(data)
+				.then(function(res){
+					$scope.teams = res[0];
+            	},function(err){
+                	console.log(err);
+            	})
+		}
+
+		$scope.check_if_registered = () => {
+			var data = {
+				account_id: $rootScope.profile.account_id,
+			}
+
+			GameEventService
+				.get_team_of_account(data)
+				.then(function(res){
+					if (res[0] == "") {
+						$scope.is_registered = true;
+					} else {
+						$scope.is_registered = false;
+					}
+					
+            	},function(err){
+                	console.log(err);
+            	})
+		}
+
+		$scope.join_account_to_team = () => {
+			var data = {
+				account_id: $scope.team.account_id,
+				team_id: $scope.team.team_id
+			}
+
+			if (data.team_id == undefined) {
+				swal("Choose a team.");
+			} else {
+			GameEventService
+				.join_account_to_team(data)
+				.then(function(res){
+					swal("Successfully joined to team.");
+					console.log(res);
+            	},function(err){
+                	console.log(err);
+            	})
+            }
+
+            $scope.team.account_id = undefined;
+			$scope.team.team_id = undefined;
+			$('#modal1').modal('close');
+		}
 
 		$scope.add_game = () => {
 			var data = {

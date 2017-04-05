@@ -308,4 +308,12 @@ DROP PROCEDURE IF EXISTS get_finals_matches//
     END;
 //
 
+DROP PROCEDURE IF EXISTS get_team_of_account//
+  CREATE PROCEDURE get_team_of_account (IN _account_id int)
+    BEGIN
+      SELECT * FROM team_account WHERE account_id = _account_id;
+    END;
+//
+
+
 \d ;
