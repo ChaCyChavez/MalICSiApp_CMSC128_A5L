@@ -108,6 +108,19 @@
                 }, function(err) {
                     console.log(err);
                 });
+        }
+
+        $scope.get_courts = () => {
+            SportService
+            .get_court()
+            .then(function(res){
+                console.log(res);
+            }, function(err){
+                console.log(err);
+            });
+
+
+
         }                                
 
     }

@@ -78,27 +78,30 @@ exports.add_account = (req,res,next) => {
 
 	  db.query(query_string, payload, callback);
 
-// fs.readFile(config.FILE, 'utf8', function (err,data) {
-//   if (err) {
-//       return console.log(err);
-//   } else{
-//       var body = data;
-//       var mailOptions = {
-//           from: 'johndoecmsc128@gmail.com',
-//           to: req.body.email,
-//           subject: 'MaliCSI App Registration',
-//           text: body,
-//       };
-//   }
-// });
-//
-// transporter.sendMail(mailOptions, (err, info) =>{
-//   if (err) {
-//       return console.log(err);
-//   } else{
-//       console.log('Message %s send: %s', info.messageId, info.response);
-//   }
-// });
+/*
+=======================>>>>>>>>>>>why is this commented out? is this still needed or not?
+fs.readFile(config.FILE, 'utf8', function (err,data) {
+  if (err) {
+      return console.log(err);
+  } else{
+      var body = data;
+      var mailOptions = {
+          from: 'johndoecmsc128@gmail.com',
+          to: req.body.email,
+          subject: 'MaliCSI App Registration',
+          text: body,
+      };
+  }
+});
+
+transporter.sendMail(mailOptions, (err, info) =>{
+  if (err) {
+      return console.log(err);
+  } else{
+      console.log('Message %s send: %s', info.messageId, info.response);
+  }
+});
+*/
 };
 
 exports.approve_account = (req,res,next) => {

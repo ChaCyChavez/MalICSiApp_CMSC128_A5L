@@ -17,9 +17,14 @@
       </div>
       <!-- Schedule of Matches -->
       <div class="col s7 m8">
-        <div >
-          <div >
-            <h4 class="card-title">SCHEDULE</h4>
+        <div>
+          <div>
+            <div class="row schedule-contents">
+              <h4 class="card-title left">SCHEDULE</h4>
+              <div class="right">
+                <a href="javascript:void(0)" data-target = "add-match-modal" class="btn-large">add match</a>
+              </div>
+            </div>
             <div class="center collection">
               <div class="collection-item" ng-repeat="match in matches">
                 <div class="match-competing-teams">
@@ -39,9 +44,6 @@
         </div>
         <div class="left">
           <a href="javascript:void(0)" ng-click="view_tournament_bracketing()" class="btn-large">tournament bracketing</a>
-        </div>
-        <div class="right">
-          <a href="javascript:void(0)" data-target = "add-match-modal" class="btn-large">add match</a>
         </div>
       </div>
     </div>
@@ -68,20 +70,25 @@
               <label for="time"></label>
             </div>
           </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <input id="match_court" type="text" class="validate">
-              <label for="match_court">Court</label>
-            </div>
-          </div>
-          <div class="row">
-            <select ng-repeat = "team in teams" ng-model = "team_id">
-                  <option value="" disabled selected>Choose your option</option>
-                  <option value="men">Men</option>
-                  <option value="women">Women</option>
-                  <option value="mixed">Mixed</option>
-                  <option value="team.team_id">{{team.team_name}}</option>
+
+          <div class="input-field col s12">
+            <select ng-model="courts">
+              <option value="" disabled selected>Choose your option</option>
+              <option value="men">Court 1</option>
+              <option value="women">Court 2</option>
+              <option value="mixed">Court 3</option>
             </select>
+            <label>Court</label>
+          </div>
+
+          <div class="input-field col s12">
+            <select multiple ng-model="selection">
+              <option value="" disabled selected>Choose your option</option>
+              <option value="men">Men</option>
+              <option value="women">Women</option>
+              <option value="mixed">Mixed</option>
+            </select>
+            <label>Teams Joining</label>
           </div>
         </form>
       </div>
@@ -119,5 +126,7 @@
       selectMonths: true, // Creates a dropdown to control month
       selectYears: 15 // Creates a dropdown of 15 years to control year
     });
+
+    $('select').material_select();
   });
 </script>
