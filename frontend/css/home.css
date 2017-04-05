@@ -171,14 +171,15 @@ nav {
 }
 
 .header {
-  width: 100%;
-  padding-left: 5%;
+    margin-top: 0 !important;
+    width: 100%;
+    padding-left: 5%;
 }
 
 h3.header {
-  margin-top: 40px;
-  text-align: center;
-  font-weight: 600;
+    margin-top: 40px;
+    text-align: center;
+    font-weight: 600;
 }
 
 .box {
@@ -189,6 +190,7 @@ h3.header {
 }
 
 .contents {
+    margin-top: 1% !important;
     margin-left: 50px;
     margin-right: 50px;
 }
