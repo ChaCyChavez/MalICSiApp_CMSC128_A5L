@@ -3,26 +3,28 @@
   <a class="btn-floating btn-large waves-effect waves-light blue accent-4 add-button" href="javascript:void(0)" data-target="modal2" modal><i class="fa fa-plus"></i></a>
 
   <!-- Search -->
+  <div class="search-container">
+    <div id="wrap">
+      <form action="" autocomplete="on">
+        <input id="search" name="search" type="text" placeholder="Search Games">
+        <input id="search_submit" type="submit" ng-click="clicks()">
+      </form>
+    </div>
+  </div>
+  <br/>
+
   <div class="row contents">
     <h3 class="header">GAMES</h3>
-    <form class="col s7 right" ng-submit="search_game()">
-      <div class="row">
-        <div class="input-field col s7 right" class="search">
-          <i class="fa fa-search prefix"></i>
-          <input ng-model="gameSearched" id="icon_prefix" type="text" class="validate">
-          <label for="icon_prefix">Search games:</label>
-        </div>
-      </div>
-    </form>
   </div>
+
+
  
   <h4 class="header">Current Games</h4>
   <!-- Contents -->
   <div class="row contents">
     <div class="col s12 m6" ng-repeat="(index, game) in current_games">
       <div class="card">
-        <div class="card-image waves-effect waves-block waves-light spon-icon activator teal">
-          <!-- <i class="fa fa-users fa-5x white-text" aria-hidden="true"></i> -->
+        <div class="card-image waves-effect waves-block waves-light spon-icon activator card-img">
           <img class="activator" style="width: 300px; margin: auto;" src="../img/run.png"/>
         </div>
         <div class="card-content">
