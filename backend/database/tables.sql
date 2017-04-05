@@ -4,6 +4,7 @@ DROP DATABASE IF EXISTS malicsi;
 CREATE DATABASE malicsi;
 GRANT ALL PRIVILEGES ON malicsi.* TO 'CMSC128'@'localhost' WITH GRANT OPTION;
 USE malicsi;
+set global innodb_large_prefix=on;
 
 DROP TABLE IF EXISTS account;
 CREATE TABLE account (
