@@ -1,5 +1,5 @@
 <div ng-controller="profile-controller">
-	<div class="row font2" id="all">
+	<div class="row font2" id="all" ng-init="get_profile_info()">
 		<div class="col s12 m12 l6 xl6">
 			<div class="card">
 				<div class="card-content">
@@ -30,10 +30,13 @@
 			<div class="card">
 				<div class="card-content">
 					<h3 class="teal-text text-lighten-1">UPCOMING EVENTS</h3>
-					<h5 ng-repeat="user_upcoming_event in user_upcoming_events">{{ "Game name:
-					"+ user_upcoming_event.game_name +" Game Staring date and time"+
-					user_upcoming_event.game_starting_time_date +" Game Ending date and time"+
-					user_upcoming_event.game_ending_time_date }}</h5><br>
+					<div ng-repeat="user_upcoming_event in user_upcoming_events">
+						<h5>{{ "Game name: "+ user_upcoming_event.game_name }}</h5>
+						<h5>{{ " Game Staring date and time: "+
+						user_upcoming_event.game_starting_time_date }}</h5>
+						<h5>{{ " Game Ending date and time: "+
+						user_upcoming_event.game_ending_time_date }}</h5><br>
+					</div>
 				</div>
 			</div>
 			<div class="card">
