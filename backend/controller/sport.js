@@ -2,11 +2,22 @@
 
 const db = require(__dirname + '/../lib/mysql');
 const winston = require('winston');
+const crypto = require('crypto');
+
 
 exports.add_sport = (req,res,next) => {
-	const query_string = 'CALL add_sport(?,?,?)';
+	const query_string = 'CALL add_sport(?,?,?,?)';
 
-	const payload = [req.body.sport_type, req.body.division, req.body.game_id];
+	const payload = [
+		req.body.sport_type, 
+		req.body.division, 
+		req.body.game_id,
+		crypto.createHash('sha256').update(
+			req.body.sport_id+
+			req.body.sport_type+
+			req.body.division
+				).digest('base64')
+		];
 
 	const callback = (err,data) => {
 		if (err) {
@@ -48,13 +59,17 @@ exports.get_sport = (req, res, next) => {
 };
 
 exports.update_sport = (req, res, next) => {
-	console.log("hellooooooo");
-	const query_string = 'CALL update_sport(?,?,?);';
+	const query_string = 'CALL update_sport(?,?,?,?);';
 
 	const payload = [
 		req.body.sport_id,
 		req.body.sport_type,
-		req.body.division
+		req.body.division,
+		crypto.createHash('sha256').update(
+			req.body.sport_id+
+			req.body.sport_type+
+			req.body.division
+				).digest('base64')
 	];
 	
 	const callback = (err, data) => {

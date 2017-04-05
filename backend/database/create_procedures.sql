@@ -163,18 +163,21 @@ DROP PROCEDURE IF EXISTS add_sport//
     CREATE PROCEDURE add_sport (
         IN _sport_type          varchar(256),
         IN _division            enum('men','women','mixed'),
-        IN _game_id             int
+        IN _game_id             int,
+        IN _unique_key          varchar(256)
     )
     BEGIN
         INSERT INTO sport(
             sport_type,
             division,
-            game_id
+            game_id,
+            unique_key
         )
         VALUES(
             _sport_type,
             _division,
-            _game_id
+            _game_id,
+            _unique_key
         );
     END;
 //
