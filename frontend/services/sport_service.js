@@ -33,6 +33,7 @@
 			}
 
 			const get_court = function(data) {
+				let deferred = $q.defer();
 				$http({
 					method: 'GET',
 					xhrFields: {withCredentials: true},
