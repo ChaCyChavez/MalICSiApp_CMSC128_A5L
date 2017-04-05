@@ -36,7 +36,7 @@ insert into sport values (2, 'Volleyball', 'women',1,'t5CwEVDwtUVt8h2oWfd1CGRAdB
 insert into sport values (3, 'Volleyball', 'mixed',1, 'YHeNIz/YO+UEK53LbE16T1MFAYHlkCwJ5KuiYdHa4rk=');
 insert into sport values (4, 'Volleyball', 'men', 4,'DcbMRhh4wpKCZBpTaIIn4g98KMvd3yTbOvrdmpthCPY=');
 
---matches for sport 1
+-- matches for sport 1
 
 insert into match_event values (1,true, CURDATE(), 'elimination', 1, 2);
 insert into match_event values (2,true, CURDATE(), 'elimination', 1, 2);
@@ -48,7 +48,7 @@ insert into match_event values (6,true, CURDATE(), 'semi-finals', 1, 2);
 
 insert into match_event values (7,true, CURDATE(), 'finals', 1, 2);
 
---matches for sport 2
+-- matches for sport 2
 
 insert into match_event values (8,true, CURDATE(), 'elimination', 2, 4);
 insert into match_event values (9,true, CURDATE(), 'elimination', 2, 4);

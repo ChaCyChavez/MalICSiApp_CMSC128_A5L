@@ -8,8 +8,7 @@ DROP PROCEDURE IF EXISTS login_account//
   BEGIN
     SELECT account_id, firstname, middlename, lastname, email, username, course,
         birthday, college, is_game_head, position, is_player, player_jersey_num,
-        player_role FROM account WHERE username = _username && password = _password
-        && is_approved = true;
+        player_role, is_approved FROM account WHERE username = _username && password = _password;
   END;
 //
 
