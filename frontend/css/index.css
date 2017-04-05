@@ -13,6 +13,10 @@ body {
     font-family: 'Lato', sans-serif;
 }
 
+.dropdown-content {
+    z-index: 9999 !important;
+}
+
 .box {
     min-height: 20px;
     line-height: 100%;
