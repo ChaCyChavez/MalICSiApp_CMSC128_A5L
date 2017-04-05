@@ -247,12 +247,27 @@ a#spon:hover, a.tab:hover {
     padding-bottom: 1px !important;
 }
 
-  .content {
-    flex: 1 0 auto !important;
-  }
+.slider {
+    margin-top: 10px;
+}
+.slides {
+    margin-top: 10px;
+    height: 400px !important;
+}
 
-  .main-container {
+.view-cg {
+    width: 100%;
+    text-align: center;
+}
+
+.content {
+    flex: 1 0 auto !important;
+}
+
+.main-container {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-  }
+}
+
+
