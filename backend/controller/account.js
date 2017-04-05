@@ -235,7 +235,7 @@ exports.delete_account = (req, res, next) => {
 			res.status(404).send({ message: 'Not found! Delete failed'});
 		} else {
 			winston.level = 'info';
-			winston.log('info', 'Successfully deleted account!');
+			winston.log('info', 'Successfully deleted account with account_id:', req.params.account_id);
 			res.status(200).send(data);
 		}
 	};
