@@ -1,4 +1,4 @@
-DROP USER 'CMSC128'@'localhost';
+DROP USER IF EXISTS 'CMSC128'@'localhost';
 CREATE USER 'CMSC128'@'localhost' IDENTIFIED BY 'project128';
 DROP DATABASE IF EXISTS malicsi;
 CREATE DATABASE malicsi;
