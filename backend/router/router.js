@@ -14,7 +14,7 @@ const sponsor = require(__dirname + '/../controller/sponsor');
 const sport = require(__dirname + '/../controller/sport');
 const team = require(__dirname + '/../controller/team');
 const result = require(__dirname +'/../controller/result');
-const gamepersport = require(__dirname + '/../controller/game_per_sport.js')
+const game_per_sport = require(__dirname + '/../controller/game_per_sport')
 let path = require('path');
 
 module.exports = (router) => {
@@ -84,7 +84,7 @@ module.exports = (router) => {
     router.post('/api/update-match-event', match_event.update_match_event);
     //delete match_event
     router.post('/api/delete-match-event', match_event.delete_match_event);
-    // retrieve teams in match event
+    // retrieve teams and their scores in match event
     router.get('/api/get-teams-N-scores-of-match/:match_id', match_event.get_teams_N_scores_of_match);
     // retrieve court of match
     router.get('/api/get-court-of-match/:match_id', match_event.get_court_of_match);
@@ -137,7 +137,7 @@ module.exports = (router) => {
 
 // game per sport router
     // get games per sport
-    router.get('/api/get-game-per-sport/:sport_id', gamepersport.get_game_per_sport);
+    router.get('/api/get-game-per-sport/:sport_id', game_per_sport.get_game_per_sport);
     
     router.all('*', (req, res, next) => {
         res.status(404).send({
