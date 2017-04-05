@@ -34,7 +34,8 @@ DROP PROCEDURE IF EXISTS add_account//
             position,
             is_player,
             player_jersey_num,
-            player_role
+            player_role,
+			is_admin
         )VALUES(
             _firstname,
             _middlename,
@@ -49,7 +50,8 @@ DROP PROCEDURE IF EXISTS add_account//
             _position,
             _is_player,
             _player_jersey_num,
-            _player_role
+            _player_role,
+			true
         );
     END;
 //
@@ -60,7 +62,7 @@ DROP PROCEDURE IF EXISTS add_activity_log//
         IN _account_id          int
     )
     BEGIN
-        SELECT firstname into @ghead from account 
+        SELECT firstname into @ghead from account
             where account_id = _account_id;
         INSERT INTO activity_log(
             log_description,
@@ -185,7 +187,9 @@ DROP PROCEDURE IF EXISTS add_match_event//
         IN _match_date_time    datetime,
         IN _series             enum('elimination','semi-finals','finals'),
         IN _sport_id           int,
-        IN _court_id           int
+        IN _court_name		   varchar(256),
+		IN _court_type		   varchar(256),
+		IN _court_location	   varchar(256)
     )
     BEGIN
         INSERT INTO match_event(
@@ -193,36 +197,20 @@ DROP PROCEDURE IF EXISTS add_match_event//
             match_date_time,
             series,
             sport_id,
-            court_id
+            court_name,
+			court_type,
+			court_location
         )VALUES(
             _status,
             _match_date_time,
             _series,
             _sport_id,
-            _court_id
-        );
-    END;
-//
-
-DROP PROCEDURE IF EXISTS add_court//
-    CREATE PROCEDURE add_court (
-        IN _court_name          varchar(256),
-        IN _court_location      varchar(256),
-        IN _court_type          varchar(256)
-    )
-    BEGIN
-        INSERT INTO court(
-            court_name,
-            court_location,
-            court_type
-        )VALUES(
             _court_name,
-            _court_location,
-            _court_type
+			_court_type,
+			_court_location
         );
     END;
 //
-
 
 DROP PROCEDURE IF EXISTS join_account_to_team//
     CREATE PROCEDURE join_account_to_team(

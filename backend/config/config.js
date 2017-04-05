@@ -12,8 +12,8 @@ module.exports = {
 
     DEVELOPMENT: {
         host: 'localhost',
-        user: 'CMSC128',
-        password: 'project128',
+        user: 'root',
+        password: 'root',
         database: 'malicsi'
     },
 

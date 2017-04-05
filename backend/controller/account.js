@@ -1,3 +1,4 @@
+
 'use strict';
 
 const db = require(__dirname + '/../lib/mysql');
@@ -18,18 +19,23 @@ exports.login_account = (req, res, next) => {
 	];
 
 	const callback = (err, data) => {
+		console.log(data);
 		if (err) {
 			winston.level = 'debug';
 			winston.log('debug', 'err:', err);
 		} else if (data[0].length == 0) {
 			winston.level = 'info';
 			winston.log('info', 'Login failed.');
-			res.status(404).send({message: 'Wrong username or password!'});
+			res.status(401).send({message: 'Wrong username or password!'});
+		} else if (data[0][0]["is_approved"] == 0) {
+			winston.level = 'info';
+			winston.log('info', 'Account not yet approved.');
+			res.status(403).send({message: 'Account is not yet approved by the admin.'});
 		} else {
 			winston.level = 'info';
 			winston.log('info', 'Login Successful!');
 			req.session.user = data[0][0];
-			res.status(200).send();
+			res.status(200).send({message: 'Successfully logged in!'});
 		}
 	};
 
@@ -37,20 +43,21 @@ exports.login_account = (req, res, next) => {
 };
 
 exports.logout = function(req, res, next) {
-    function start() {
+	if (req.session.user) {
         req.session.destroy();
-        return res.send({message: 'Logged out successfully!'});
-    }
-    start();
+        res.send({message: 'Logged out successfully!'});
+	} else {
+		res.status(401).send({message: "You must be logged in."});
+	}
 }
 
 exports.add_account = (req,res,next) => {
 	const query_string = 'CALL add_account(?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
 
 	const payload = [
-		req.body.first_name,
-		req.body.middle_name,
-		req.body.last_name,
+		req.body.firstname,
+		req.body.middlename,
+		req.body.lastname,
 		req.body.email,
 		req.body.username,
 		crypto.createHash('sha256').update(req.body.password).digest('base64'),
@@ -102,156 +109,185 @@ exports.add_account = (req,res,next) => {
 };
 
 exports.approve_account = (req,res,next) => {
-	const query_string = 'CALL approve_account(?)';
+	if (req.session.user && req.session.user.is_admin == true) {
+		const query_string = 'CALL approve_account(?)';
 
-	const payload = [req.body.account_id];
+		const payload = [req.body.account_id];
 
-	const callback = (err,data) => {
-			if (err) {
-			winston.level = 'debug';
-			winston.log('debug', 'err: ', err);
-			res.status(500).send({ error_code:err.code });
-		} else if (data.affectedRows == 0) {
-			winston.level = 'info';
-			winston.log('info', 'Not found! Approval failed');
-			res.status(404).send();
-		} else {
-			winston.level = 'info';
-			winston.log('info', 'Successfully approved account!');
-			res.status(200).send(data);
-		}
-	};
+		const callback = (err,data) => {
+				if (err) {
+				winston.level = 'debug';
+				winston.log('debug', 'err: ', err);
+				res.status(500).send({ error_code:err.code });
+			} else if (data.affectedRows == 0) {
+				winston.level = 'info';
+				winston.log('info', 'Not found! Approval failed');
+				res.status(404).send();
+			} else {
+				winston.level = 'info';
+				winston.log('info', 'Successfully approved account!');
+				res.status(200).send(data);
+			}
+		};
 
-	db.query(query_string, payload, callback);
+		db.query(query_string, payload, callback);
+	} else {
+		res.status(401).send({message: "You must be an admin."});
+	}
 };
 
 
 exports.update_account = (req,res,next) => {
-	const query_string = 'CALL update_account(?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
+	if (req.session.user && req.session.user.account_id == req.body.account_id) {
+		const query_string = 'CALL update_account(?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
 
-	const payload = [
-		req.body.firstname,
-		req.body.middlename,
-	    req.body.lastname,
-		req.body.email,
-		crypto.createHash('sha256').update(req.body.password).digest('base64'),
-		req.body.course,
-	    req.body.birthday,
-		req.body.college,
-		req.body.position,
-	    req.body.is_player,
-		req.body.player_jersey_num,
-		req.body.player_role,
-	    req.body.account_id
-	];
+		const payload = [
+			req.body.firstname,
+			req.body.middlename,
+		    req.body.lastname,
+			req.body.username,
+			req.body.email,
+			crypto.createHash('sha256').update(req.body.password).digest('base64'),
+			req.body.course,
+		    req.body.birthday,
+			req.body.college,
+			req.body.position,
+		    req.body.is_player,
+			req.body.player_jersey_num,
+			req.body.player_role,
+		    req.body.account_id
+		];
 
-	const callback = (err, data) => {
-		if (err) {
-			winston.level = 'debug';
-			winston.log('debug', 'err: ', err);
-			res.status(500).send({ error_code:err.code });
-		} else if (data.affectedRows == 0) {
-			winston.level = 'info';
-			winston.log('info', 'Not found! Update failed');
-			res.status(404).send();
-		} else {
-			winston.level = 'info';
-			winston.log('info', 'Successfully updated account!');
-			res.status(200).send(data);
-		}
-	};
+		const callback = (err, data) => {
+			if (err) {
+				winston.level = 'debug';
+				winston.log('debug', 'err: ', err);
+				res.status(500).send({ error_code:err.code });
+			} else if (data.affectedRows == 0) {
+				winston.level = 'info';
+				winston.log('info', 'Not found! Update failed');
+				res.status(404).send();
+			} else {
+				winston.level = 'info';
+				winston.log('info', 'Successfully updated account!');
+				res.status(200).send(data);
+			}
+		};
 
-	db.query(query_string, payload, callback);
+		db.query(query_string, payload, callback);
+	} else {
+		res.status(401).send({message: "You must be owner of account."});
+	}
 };
 
 exports.get_account = (req, res, next) => {
-	const query_string = "CALL get_account(?)";
+	if (req.session.user) {
+		const query_string = "CALL get_account(?)";
 
-	const payload = [req.params.account_id != undefined ? req.params.account_id : (req.session.user != undefined ? req.session.user.account_id : undefined)];
+		const payload = [req.params.account_id != undefined ? req.params.account_id : req.session.user.account_id];
 
-	const callback = (err, data) => {
-		if (err) {
-			winston.level = 'debug';
-			winston.log('debug', 'err: ', err);
-			res.status(500).send({ error_code:err.code });
-		} else if (data[0].length == 0 || payload[0] == undefined) {
-			winston.level = 'info';
-			winston.log('info', 'No account retrieved with account_id:', payload[0]);
-			res.status(200).send(data);
-		} else {
-			winston.level = 'info';
-			winston.log('info', 'Successfully retrieved with account_id:', payload[0]);
-			res.status(200).send(data);
-		}
-	};
+		const callback = (err, data) => {
+			if (err) {
+				winston.level = 'debug';
+				winston.log('debug', 'err: ', err);
+				res.status(500).send({ error_code:err.code });
+			} else if (data[0].length == 0 || payload[0] == undefined) {
+				winston.level = 'info';
+				winston.log('info', 'No account retrieved with account_id:', payload[0]);
+				res.status(200).send(data);
+			} else {
+				winston.level = 'info';
+				winston.log('info', 'Successfully retrieved with account_id:', payload[0]);
+				res.status(200).send(data);
+			}
+		};
 
-	db.query(query_string, payload, callback);
+		db.query(query_string, payload, callback);
+	} else {
+		res.status(401).send({message: "You must be logged in."});
+	}
 };
 
 exports.get_all_account = (req, res, next) => {
-	const query_string = "CALL get_all_account()";
+	if (req.session.user) {
+		const query_string = "CALL get_all_account()";
 
-	const payload = [];
+		const payload = [];
 
-	const callback = (err, data) => {
-	    if (err) {
-			winston.level = 'debug';
-			winston.log('debug', 'err: ', err);
-			res.status(500).send({ error_code:err.code });
-	    } else if (data[0].length == 0) {
-			winston.level = 'info';
-			winston.log('info', 'Empty');
-			res.status(404).send({ message: 'Empty! Retrieve failed'});
-	    } else {
-			winston.level = 'info';
-			winston.log('info', 'Successfully retrieved accounts!');
-			res.status(200).send(data);
-	    }
-	 };
+		const callback = (err, data) => {
+		    if (err) {
+				winston.level = 'debug';
+				winston.log('debug', 'err: ', err);
+				res.status(500).send({ error_code:err.code });
+		    } else if (data[0].length == 0) {
+				winston.level = 'info';
+				winston.log('info', 'Empty');
+				res.status(404).send({ message: 'Empty! Retrieve failed'});
+		    } else {
+				winston.level = 'info';
+				winston.log('info', 'Successfully retrieved accounts!');
+				res.status(200).send(data);
+		    }
+		 };
 
-  db.query(query_string, payload, callback);
+		db.query(query_string, payload, callback);
+	} else {
+		res.status(401).send({message: "You must be admin."});
+	}
 };
 
 exports.delete_account = (req, res, next) => {
-	const query_string ='CALL delete_account(?)';
+	console.log(req.session.user);
+	if (req.session.user && (req.session.user.account_id == req.body.account_id || req.session.user.is_admin)) {
+		const query_string ='CALL delete_account(?)';
 
-	const payload = [req.params.account_id];
-	
-	const callback = (err, data) => {
-		if (err) {
-			winston.level = 'debug';
-			winston.log('debug', '\n', err);
-			res.status(500).send({ error_code:err.code });
-		} else if (data.affectedRows == 0) {
-			winston.level = 'info';
-			winston.log('info', 'Not found! Delete failed');
-			res.status(404).send({ message: 'Not found! Delete failed'});
-		} else {
-			winston.level = 'info';
-			winston.log('info', 'Successfully deleted account!');
-			res.status(200).send(data);
-		}
-	};
+		const payload = [req.body.account_id];
 
-  db.query(query_string, payload, callback);
+		const callback = (err, data) => {
+			if (err) {
+				winston.level = 'debug';
+				winston.log('debug', '\n', err);
+				res.status(500).send({ error_code:err.code });
+			} else if (data.affectedRows == 0) {
+				winston.level = 'info';
+				winston.log('info', 'Not found! Delete failed');
+				res.status(404).send({ message: 'Not found! Delete failed'});
+			} else {
+				winston.level = 'info';
+				winston.log('info', 'Successfully deleted account!');
+				res.status(200).send(data);
+				if (req.session.user.account_id == req.body.account_id) {
+					req.session.destroy();
+				}
+			}
+		};
+
+		db.query(query_string, payload, callback);
+	} else {
+	 	res.status(401).send({message: "You must be an admin or the owner of the account."});
+	}
 };
 
 exports.get_pending_account = (req, res, next) => {
-	const query_string = "CALL get_pending_account()";
+	if (req.session.user && req.session.user.is_admin) {
+		const query_string = "CALL get_pending_account()";
 
-	const payload = [];
+		const payload = [];
 
-	const callback = (err, data) => {
-	    if (err) {
-			winston.level = 'debug';
-			winston.log('debug', 'err: ', err);
-			res.status(500).send({ error_code:err.code });
-	    } else {
-			winston.level = 'info';
-			winston.log('info', 'Successfully retrieved accounts!');
-			res.status(200).send(data);
-	    }
-	 };
+		const callback = (err, data) => {
+		    if (err) {
+				winston.level = 'debug';
+				winston.log('debug', 'err: ', err);
+				res.status(500).send({ error_code:err.code });
+		    } else {
+				winston.level = 'info';
+				winston.log('info', 'Successfully retrieved accounts!');
+				res.status(200).send(data);
+		    }
+		 };
 
-  db.query(query_string, payload, callback);
+		db.query(query_string, payload, callback);
+	} else {
+		res.status(401).send({message: "You must be admin."});
+	}
 };

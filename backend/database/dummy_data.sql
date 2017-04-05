@@ -1,9 +1,9 @@
 use malicsi;
 
-insert into account values (NULL, 'Ken', 'Timothy', 'Mercado', 'admin@gmail.com', 'ken', '10/w7o2juYBrGMh32/KbveULW9jk2tejpyUAD+uC6PE=', 'BSCS', CURDATE(), 'CAS', true, true, NULL, true, 1, NULL);
-insert into account values (NULL, 'Juan', 'Dela', 'Cruz', 'gamehead@gmail.com', 'juan', '10/w7o2juYBrGMh32/KbveULW9jk2tejpyUAD+uC6PE=', 'BSCS', CURDATE(), 'CEAT', true, true, NULL, false, NULL, NULL);
-insert into account values (NULL, 'Christian', 'Timothy', 'Grey', 'player@gmail.com', 'christian', '10/w7o2juYBrGMh32/KbveULW9jk2tejpyUAD+uC6PE=', 'BSCS', CURDATE(), 'CAS', true, false, NULL, true, 2, NULL);
-insert into account values (NULL, 'David', 'Nix', 'Main', 'regular@gmail.com', 'david', '10/w7o2juYBrGMh32/KbveULW9jk2tejpyUAD+uC6PE=', 'BSCS', CURDATE(), 'CAS', true, false, NULL, false, NULL, NULL);
+insert into account values (NULL, 'Ken', 'Timothy', 'Mercado', 'admin@gmail.com', 'ken', '10/w7o2juYBrGMh32/KbveULW9jk2tejpyUAD+uC6PE=', 'BSCS', CURDATE(), 'CAS', true, true, NULL, true, 1, NULL, true);
+insert into account values (NULL, 'Juan', 'Dela', 'Cruz', 'gamehead@gmail.com', 'juan', '10/w7o2juYBrGMh32/KbveULW9jk2tejpyUAD+uC6PE=', 'BSCS', CURDATE(), 'CEAT', true, true, NULL, false, NULL, NULL, false);
+insert into account values (NULL, 'Christian', 'Timothy', 'Grey', 'player@gmail.com', 'christian', '10/w7o2juYBrGMh32/KbveULW9jk2tejpyUAD+uC6PE=', 'BSCS', CURDATE(), 'CAS', true, false, NULL, true, 2, NULL, false);
+insert into account values (NULL, 'David', 'Nix', 'Main', 'regular@gmail.com', 'david', '10/w7o2juYBrGMh32/KbveULW9jk2tejpyUAD+uC6PE=', 'BSCS', CURDATE(), 'CAS', true, false, NULL, false, NULL, NULL, false);
 
 CALL add_game_event ('Game 1', CURDATE(), '2020-09-09', 1);
 CALL add_game_event ('Game 2', CURDATE(), '2020-09-09', 2);
@@ -19,13 +19,6 @@ insert into team values (NULL, 'Yellow Job', 'Yellow');
 insert into team values (NULL, 'Orange Job', 'Orange');
 insert into team values (NULL, 'Indigo Job', 'Indigo');
 
-
-
-CALL add_court ('Baker Hall', 'UPLB', 'Gym');
-CALL add_court ('Copeland', 'UPLB', 'Gym');
-CALL add_court ('Physci', 'UPLB', 'Building');
-CALL add_court ('Freedom Park', 'UPLB', 'Park');
-
 CALL add_sponsor ('Intel', 'http://logos.com/logo2.png', 'minor', 'desc1', 'web_add1',1);
 CALL add_sponsor ('ACSS', 'http://logos.com/logo3.png',  'major', 'desc2', 'web_add2',2);
 CALL add_sponsor ('YSES', 'http://logos.com/logo4.png', 'official partner', 'desc1', 'web_add1', 3);
@@ -36,15 +29,15 @@ insert into sport values (2, 'Volleyball', 'men', 2);
 insert into sport values (3, 'Volleyball', 'men', 3);
 insert into sport values (4, 'Volleyball', 'men', 4);
 
-insert into match_event values (1,true, CURDATE(), 'elimination', 1, 2);
-insert into match_event values (2,true, CURDATE(), 'elimination', 1, 2);
-insert into match_event values (3,true, CURDATE(), 'elimination', 1, 2);
-insert into match_event values (4,true, CURDATE(), 'elimination', 1, 2);
+insert into match_event values (1,true, CURDATE(), 'elimination', 1, 'Baker Hall', 'Gym', 'UPLB');
+insert into match_event values (2,true, CURDATE(), 'elimination', 1, 'Copeland Gym','GYM', 'UPLB');
+insert into match_event values (3,true, CURDATE(), 'elimination', 1, 'Physci Building', 'Building', 'UPLB');
+insert into match_event values (4,true, CURDATE(), 'elimination', 1, 'Freedom Park', 'Park', 'UPLB');
 
-insert into match_event values (5,true, CURDATE(), 'semi-finals', 1, 2);
-insert into match_event values (6,true, CURDATE(), 'semi-finals', 1, 2);
+insert into match_event values (5,true, CURDATE(), 'semi-finals', 1, 'Freedom Park', 'Park', 'UPLB');
+insert into match_event values (6,true, CURDATE(), 'semi-finals', 1, 'Freedom Park', 'Park', 'UPLB');
 
-insert into match_event values (7,true, CURDATE(), 'finals', 1, 2);
+insert into match_event values (7,true, CURDATE(), 'finals', 1,'Freedom Park', 'Park', 'UPLB');
 
 insert into game_event_team values (1, 3);
 insert into game_event_team values (2, 3);

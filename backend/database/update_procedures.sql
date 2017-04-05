@@ -6,6 +6,7 @@ delimiter //
         IN _firstname           varchar(256),
         IN _middlename          varchar(256),
         IN _lastname            varchar(256),
+		IN _username			varchar(256),
         IN _email               varchar(256),
         IN _password            varchar(256),
         IN _course              varchar(256),
@@ -18,7 +19,9 @@ delimiter //
         IN _account_id          int(11)
     )
     BEGIN
-        UPDATE account set
+        UPDATE
+			account
+		SET
             firstname = _firstname,
             middlename = _middlename,
             lastname = _lastname,
@@ -32,9 +35,10 @@ delimiter //
             is_player = _is_player,
             player_jersey_num = _player_jersey_num,
             player_role = _player_role
-        where account_id = _account_id;
+        WHERE
+			account_id = _account_id;
     END;
-// 
+//
 delimiter ;
 
 drop procedure if exists approve_account;
@@ -43,11 +47,14 @@ delimiter //
         IN _account_id            int(11)
     )
     BEGIN
-        UPDATE account SET
+        UPDATE
+			account
+		SET
             is_approved = true
-        WHERE account_id = _account_id;
+        WHERE
+			account_id = _account_id;
     END;
-// 
+//
 delimiter ;
 
 drop procedure if exists update_court;
@@ -59,13 +66,16 @@ delimiter //
         IN _court_type          varchar(256)
     )
     BEGIN
-        UPDATE court SET
+        UPDATE
+			court
+		SET
             court_name = _court_name,
             court_location = _court_location,
             court_type = _court_type
-        WHERE court_id = _court_id;
+        WHERE
+			court_id = _court_id;
     END;
-// 
+//
 delimiter ;
 
 drop procedure if exists update_game_event;
@@ -74,16 +84,22 @@ delimiter //
         IN _game_id                     int(11),
         IN _game_name                   varchar(256),
         IN _game_starting_time_date     datetime,
-        IN _game_ending_time_date       datetime
+        IN _game_ending_time_date       datetime,
+		IN _account_id					int(11)
     )
     BEGIN
-        UPDATE game_event SET
-            game_name = _game_name, 
+        UPDATE
+			game_event
+		SET
+            game_name = _game_name,
             game_starting_time_date = _game_starting_time_date,
             game_ending_time_date = _game_ending_time_date
-        WHERE game_id = _game_id;
+        WHERE
+			game_id = _game_id
+		AND
+			account_id = _account_id;
     END;
-// 
+//
 delimiter ;
 
 
@@ -93,29 +109,23 @@ delimiter //
         IN _match_id            int(11),
         IN _match_date_time     datetime,
         IN _series              enum('elimination','semi-finals','finals'),
-        IN _court_id            int(11)
+        IN _court_name 			varchar(256),
+		IN _court_location 		varchar(256),
+		IN _court_type 			varchar(256)
     )
     BEGIN
-        UPDATE match_event SET
+        UPDATE
+			match_event
+		SET
             match_date_time = _match_date_time,
             sport_id = _series,
-            court_id = _court_id
-        WHERE match_id = _match_id;
+            court_name = _court_name,
+			court_location = _court_location,
+			court_type = _court_type
+        WHERE
+			match_id = _match_id;
     END;
-// 
-delimiter ;
-
-drop procedure if exists approve_match_event;
-delimiter //
-    create procedure approve_match_event (
-        IN _match_id            int(11)
-    )
-    BEGIN
-        UPDATE match_event SET
-            status = true
-        WHERE match_id = _match_id;
-    END;
-// 
+//
 delimiter ;
 
 drop procedure if exists update_sponsor;
@@ -129,13 +139,16 @@ delimiter //
         IN _web_address         varchar(256)
     )
     BEGIN
-        UPDATE sponsor SET
+        UPDATE
+			sponsor
+		SET
             sponsor_name = _sponsor_name,
             sponsor_logo = _sponsor_logo,
             sponsor_type = _sponsor_type,
             sponsor_desc = _sponsor_desc,
             web_address  = _web_address
-        WHERE sponsor_id = _sponsor_id;
+        WHERE
+			sponsor_id = _sponsor_id;
     END;
 //
 delimiter ;
@@ -148,10 +161,13 @@ delimiter //
         IN _division            enum('men','women','mixed')
     )
     BEGIN
-        UPDATE sport SET
+        UPDATE
+			sport
+		SET
             sport_type = _sport_type,
             division = _division
-        WHERE sport_id = _sport_id;
+        WHERE
+			sport_id = _sport_id;
     END;
 //
 delimiter ;
@@ -164,10 +180,13 @@ delimiter //
         IN _team_color          varchar(256)
     )
     BEGIN
-        UPDATE team SET
+        UPDATE
+			team
+		SET
             team_name = _team_name,
             team_color = _team_color
-        WHERE team_id = _team_id;
+        WHERE
+			team_id = _team_id;
     END;
 //
 delimiter ;
@@ -180,10 +199,13 @@ delimiter //
         IN _log_date            timestamp
     )
     BEGIN
-        UPDATE activity_log SET
+        UPDATE
+			activity_log
+		SET
             log_description = _log_description,
             log_date = _log_date
-        WHERE log_id = _log_id;
+        WHERE
+			log_id = _log_id;
     END;
 //
 delimiter ;

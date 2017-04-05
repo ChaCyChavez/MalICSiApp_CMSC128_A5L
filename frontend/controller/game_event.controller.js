@@ -37,7 +37,7 @@
 				game_starting_time_date: undefined,
 				game_ending_time_date: undefined,
 				game_name: undefined
-			}	
+			}
 		];
 
 
@@ -118,8 +118,12 @@
 				game_ending_time_date: undefined,
 				game_name: undefined
 			};
+
+		$scope.edit_id = -1;
+		$scope.edit_type = "";
 		$scope.setup_edit_modal = (type, id) => {
-			console.log(type, id);
+			$scope.edit_type = type;
+			$scope.edit_id = id;
 			if (type === 'upcoming') {
 				$scope.edit_game_info =JSON.parse(JSON.stringify($scope.upcoming_games[id]));
 				console.log( $scope.edit_game_info);
@@ -131,10 +135,16 @@
 		}
 
 		$scope.edit_game = () => {
+			if ($scope.edit_type === "upcoming") {
+				$scope.upcoming_games[$scope.edit_id] = $scope.edit_game_info;
+			} else if ($scope.edit_type == "current") {
+				$scope.current_games[$scope.edit_id] = $scope.edit_game_info;
+			}
 			$scope.edit_game_info.game_starting_time_date = $scope.edit_game_info.game_starting_time_date.replace("Z", "");
 			$scope.edit_game_info.game_ending_time_date = $scope.edit_game_info.game_ending_time_date.replace("Z", "");
-			GameEventService.edit_game($scope.edit_game_info).then((err, data) => {
-				console.log(err, data);
+
+			GameEventService.edit_game($scope.edit_game_info).then((data) => {
+
 			});
 		}
 

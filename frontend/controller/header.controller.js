@@ -21,9 +21,9 @@
 		$scope.data = {
 			username: undefined,
 			password: undefined,
-			first_name: undefined,
-			middle_name: undefined,
-			last_name: undefined,
+			firstname: undefined,
+			middlename: undefined,
+			lastname: undefined,
 			college: undefined,
 			course: undefined,
 			email: undefined,
@@ -126,12 +126,12 @@
 				$scope.data.username === '' ||
 				$scope.data.password === undefined ||
 				$scope.data.password === '' ||
-				$scope.data.first_name === undefined ||
-				$scope.data.first_name === '' ||
-				$scope.data.middle_name === undefined ||
-				$scope.data.middle_name === '' ||
-				$scope.data.last_name === undefined ||
-				$scope.data.last_name === '' ||
+				$scope.data.firstname === undefined ||
+				$scope.data.firstname === '' ||
+				$scope.data.middlename === undefined ||
+				$scope.data.middlename === '' ||
+				$scope.data.lastname === undefined ||
+				$scope.data.lastname === '' ||
 				$scope.data.college === undefined ||
 				$scope.data.college === '' ||
 				$scope.data.course === undefined ||
@@ -147,9 +147,9 @@
 				Materialize.toast("Please fill-out all the fields", 4000, 'teal');
 				$scope.data.username = '';
 				$scope.data.password = '';
-				$scope.data.first_name = '';
-				$scope.data.middle_name = '';
-				$scope.data.last_name = '';
+				$scope.data.firstname = '';
+				$scope.data.middlename = '';
+				$scope.data.lastname = '';
 				$scope.data.college = '';
 				$scope.data.course = '';
 				$scope.data.email = '';
@@ -166,9 +166,9 @@
 						Materialize.toast("Your registration is now on process", 4000, 'teal');
 						$scope.data.username = '';
 						$scope.data.password = '';
-						$scope.data.first_name = '';
-						$scope.data.middle_name = '';
-						$scope.data.last_name = '';
+						$scope.data.firstname = '';
+						$scope.data.middlename = '';
+						$scope.data.lastname = '';
 						$scope.data.college = '';
 						$scope.data.course = '';
 						$scope.data.email = '';
@@ -180,9 +180,9 @@
 						$scope.data.player_role = '';
 						$scope.data.username = undefined;
 						$scope.data.password = undefined;
-						$scope.data.first_name = undefined;
-						$scope.data.middle_name = undefined;
-						$scope.data.last_name = undefined;
+						$scope.data.firstname = undefined;
+						$scope.data.middlename = undefined;
+						$scope.data.lastname = undefined;
 						$scope.data.college = undefined;
 						$scope.data.course = undefined;
 						$scope.data.email = undefined;

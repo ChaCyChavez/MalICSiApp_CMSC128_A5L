@@ -50,7 +50,7 @@ exports.get_semis_matches = (req, res, next) => {
 };
 
 
-//get all matches in finals round 
+//get all matches in finals round
 exports.get_finals_matches = (req, res, next) => {
 	const query_string = 'select * from match_event_team, match_event, team where match_event_team.match_id = match_event.match_id && match_event_team.team_id = team.team_id && series = "finals" order by match_event.match_id;';
 

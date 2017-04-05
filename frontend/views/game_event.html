@@ -15,7 +15,7 @@
       </div>
     </form>
   </div>
- 
+
   <h4 class="header">Current Games</h4>
   <!-- Contents -->
   <div class="row contents">
@@ -31,15 +31,15 @@
           </a>
         </div>
 
-        <div class="card-reveal">
+        <div class="card-reveal" ng-show="profile.is_game_head || profile.is_admin">
           <div>
             <span class="card-title grey-text text-darken-4 rev">&nbsp;<i class="right fa fa-remove" aria-hidden="true"></i>
               <h3 class="center-align">{{game.game_name}}</h3>
-              <div class="opt-btn">
+              <div class="opt-btn" >
                 <a href="javascript:void(0)" class="teal lighten-2 modal-action modal-close waves-effect waves-green btn-flat" data-target="modal4" ng-click="setup_edit_modal('current', index)">edit</a>
                 <a href="javascript:void(0)" class="teal lighten-2 modal-action modal-close waves-effect waves-green btn-flat" ng-click="delete_game('current',index)">remove</a>
               </div>
-              
+
             </span>
           </div>
         </div>
@@ -98,7 +98,7 @@
                 <input name="someDate" type="date" class="datepicker" id="datepicker2" ng-model="game_ending_time_date">
                 <label class="labels cyan-text text-darken-4" for="someDate">End date:</label>
               </div>
-              
+
               <table id="tbl">
                  <tr>
                   <th><label class="labels cyan-text text-darken-4" for="someDate" >Team Name</label></th>
@@ -106,7 +106,7 @@
                  </tr>
                  <tr ng-repeat = "team in teams track by $index">
                   <td><input class="input-field col s12" type="text" name="links" ng-model = "team.team_name"/></td>
-                  <td><input class="input-field col s12" type="text" name="keywords" ng-model = "team.team_color"/></td> 
+                  <td><input class="input-field col s12" type="text" name="keywords" ng-model = "team.team_color"/></td>
                 </tr>
               </table>
               <div class="team-button">
@@ -206,6 +206,6 @@
     	format: 'yyyy-mm-dd'
     });
 
-  
+
   });
 </script>

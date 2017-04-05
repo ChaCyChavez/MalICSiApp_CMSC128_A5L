@@ -2,7 +2,9 @@ DROP USER 'CMSC128'@'localhost';
 CREATE USER 'CMSC128'@'localhost' IDENTIFIED BY 'project128';
 DROP DATABASE IF EXISTS malicsi;
 CREATE DATABASE malicsi;
+GRANT SUPER ON *.* TO 'CMSC128'@'localhost';
 GRANT ALL PRIVILEGES ON malicsi.* TO 'CMSC128'@'localhost' WITH GRANT OPTION;
+
 USE malicsi;
 
 DROP TABLE IF EXISTS account;
@@ -23,7 +25,7 @@ CREATE TABLE account (
     is_player           boolean DEFAULT false,              /*player flag*/
     player_jersey_num   int DEFAULT NULL,                   /*player attribute*/
     player_role         varchar(256) DEFAULT NULL,          /*player attribute*/
-
+	is_admin			boolean,
     UNIQUE              (username),
     PRIMARY KEY         (account_id)
 );
@@ -31,7 +33,7 @@ CREATE TABLE account (
 DROP TABLE IF EXISTS activity_log;
 CREATE TABLE activity_log (
     log_id              int NOT NULL AUTO_INCREMENT,
-    log_description     text NOT NULL,
+    log_description     varchar(256),
     log_date            timestamp DEFAULT NOW(),
     account_id          int NOT NULL,
     PRIMARY KEY         (log_id)
@@ -85,15 +87,6 @@ CREATE TABLE sport (
         ON UPDATE CASCADE ON DELETE CASCADE
 );
 
-DROP TABLE IF EXISTS court;
-CREATE TABLE court (
-    court_id            int NOT NULL AUTO_INCREMENT,
-    court_name          varchar(256) NOT NULL,
-    court_location      varchar(256) NOT NULL,
-    court_type          varchar(256) NOT NULL,
-    PRIMARY KEY         (court_id)
-);
-
 DROP TABLE IF EXISTS match_event;
 CREATE TABLE match_event (
     match_id            int NOT NULL AUTO_INCREMENT,
@@ -101,13 +94,12 @@ CREATE TABLE match_event (
     match_date_time     datetime NOT NULL,
     series              enum('elimination','semi-finals','finals') NOT NULL,
     sport_id            int NOT NULL,
-    court_id            int NOT NULL,
+	court_name          varchar(256) NOT NULL,
+    court_location      varchar(256) NOT NULL,
+    court_type          varchar(256) NOT NULL,
     PRIMARY KEY         (match_id),
     CONSTRAINT          `fk_sport_match`
         FOREIGN KEY (sport_id) REFERENCES sport (sport_id)
-        ON UPDATE CASCADE ON DELETE CASCADE,
-    CONSTRAINT          `fk_court_of_match`
-        FOREIGN KEY (court_id) REFERENCES court (court_id)
         ON UPDATE CASCADE ON DELETE CASCADE
 );
 
