@@ -67,7 +67,7 @@ module.exports = (router) => {
     router.get('/api/get-game-teams/:game_id', game_event.get_game_teams);
 
     router.post('/api/join-account-to-team', game_event.join_account_to_team);
-    router.get('/api/get-team-of-account/:account_id', game_event.get_team_of_account);
+    router.get('/api/get-team-of-account/:account_id/:game_id', game_event.get_team_of_account);
 
 //log routers
     //create log

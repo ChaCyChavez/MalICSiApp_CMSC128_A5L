@@ -168,6 +168,7 @@
 		$scope.check_if_registered = () => {
 			var data = {
 				account_id: $rootScope.profile.account_id,
+				game_id: $scope.view.gameid
 			}
 
 			GameEventService

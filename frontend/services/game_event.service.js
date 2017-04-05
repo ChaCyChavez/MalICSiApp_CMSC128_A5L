@@ -147,7 +147,7 @@
 				$http({
 					method: 'GET',
 					xhrFields: {withCredentials: false},
-					url: '/api/get-team-of-account/' + data.account_id,
+					url: '/api/get-team-of-account/' + data.account_id + "/" + data.game_id,
 					headers: headers
 				})
 				.then(function(res) {

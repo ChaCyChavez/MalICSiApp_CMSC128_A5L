@@ -391,9 +391,9 @@ exports.join_account_to_team = (req, res, next) => {
 };
 
 exports.get_team_of_account = (req, res, next) => {
-	const query_string = 'CALL get_team_of_account(?)';
+	const query_string = 'CALL get_team_of_account(?,?)';
 
-	const payload = [req.params.account_id];
+	const payload = [req.params.account_id, req.params.game_id];
 	console.log(req.params.account_id);
 
 	const callback = (err, data) => {
