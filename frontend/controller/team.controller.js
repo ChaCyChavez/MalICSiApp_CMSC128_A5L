@@ -37,7 +37,7 @@
 				});
 		}
 
-		$scope.team = [];
+		$scope.teams = [];
 		$scope.team_id = $routeParams.team_id;
 
 		$scope.get_team_match = () => {
@@ -45,7 +45,7 @@
 				.get_team_match($scope.team_id)
 				.then(function(res) {
 					$scope.team = res[0];
-					console.log($scope.team);
+					console.log($scope.teams);
 				}, function(err) {
 					console.log(err);
 				});
