@@ -54,11 +54,11 @@ nav {
     padding-bottom: 20%;
 }
 
-#logo {
+.logo {
     font-family: 'Panton';
-    font-size: 50px;
+    font-size: 50px !important;
     line-height: 75px;
-    margin-left: 2% !important;
+    margin-left: 1% !important;
     margin-right: 0 !important;
 }
 
@@ -78,8 +78,35 @@ nav {
     float: left; 
 }
 
+#log-reg-btn {
+    display: none;
+}
+
+#log-reg li {
+    font-family: 'Panton', sans-serif;
+    color: #009688 !important;
+    font-size: 18px !important;
+}
+
+.dr {
+    padding-top: 5px;
+    height: 75px;
+}
+
 @media only screen and (max-width: 700px) {
   #hello {
+    display: none;
+  }
+
+  #logo-pic {
+    display: none;
+  }
+
+  #log-reg-btn {
+    display: inherit;
+  }
+
+  .logreg {
     display: none;
   }
 }

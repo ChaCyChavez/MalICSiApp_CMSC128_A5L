@@ -2,10 +2,11 @@
 	<div class="navbar-fixed" ng-hide="profile == undefined">
 	  <nav>
 			<div class="nav-wrapper">
-			  <a href="javascript:void(0)" class="grey-text text-darken-4 center" id="logo" ng-click="changeView('#!/game-event')">MalICSi</a>
+			  <a href="javascript:void(0)" class="grey-text text-darken-4 logo" ng-click="changeView('#!/game-event')">MalICSi</a>
+			  <img class="brand-logo center" id="logo-pic"style="width: 60px; margin: 15px 0 0 0" src="../img/logo.png"/>
 			  <ul id="nav-mobile" class="right">
 				<li><div class="grey-text text-darken-4" id="hello">{{ profile.username }}</div></li>
-				<li><a href="javascript:void(0)" data-activates="dropdown1" class="teal dropdown-button" id="dr" dropdown><i class="fa fa-reorder fa-2x" aria-hidden="true"></i></a></li>
+				<li><a href="javascript:void(0)" data-activates="dropdown1" class="teal dropdown-button dr" dropdown><i class="fa fa-reorder fa-2x" aria-hidden="true"></i></a></li>
 			  </ul>
 			</div>
 	  </nav>
@@ -14,15 +15,17 @@
 	<div class="navbar-fixed" ng-hide="profile != undefined">
 	  <nav>
 		<div class="nav-wrapper">
-		  <a href="javascript:void(0)" class="grey-text text-darken-4 si" id="logo" ng-click="changeView('#!/')">MalICSi</a>
+		  <a href="javascript:void(0)" class="grey-text text-darken-4 logo" ng-click="changeView('#!/')">MalICSi</a>
+		  <img class="brand-logo center" id="logo-pic"style="width: 60px; margin: 15px 0 0 0" src="../img/logo.png"/>
 		  <ul id="nav-mobile" class="right">
-			<li class="waves-effect waves-light"><a data-target='modal-register' modal>
+			<li class="waves-effect waves-light logreg"><a data-target='modal-register' modal>
 			  <div class="grey-text text-darken-4 box">
 				<span class="nam">not yet a member?</span><br>
 				<span class="reg">register now!</span>
 			  </div>
 			</a></li>
-			<li><a class="teal si" data-target='modal-login' modal><span class="white-text">Login</span></a></li>
+			<li><a class="teal si logreg" data-target='modal-login' modal><span class="white-text">Login</span></a></li>
+			<li><a href="javascript:void(0)" id="log-reg-btn" data-beloworigin="true" data-constrainwidth="false" data-activates="log-reg" class="teal dropdown-button dr" dropdown><i class="fa fa-reorder fa-2x" aria-hidden="true"></i></a></li>
 		  </ul>
 		</div>
 	  </nav>
@@ -168,6 +171,22 @@
 		   </div>
 		 </div>
 	  </div>
+
+	  <ul id='log-reg' class='dropdown-content'>
+			<li>
+			  <a href="javascript:void(0)" class="view-dd" data-target='modal-register' modal>
+				<p class="center-align valign">Register</p>
+			  </a>
+			</li>
+			<li class="divider">
+			</li>
+			<li>
+			  <a href="javascript:void(0)" class="view-dd" data-target='modal-login' modal>
+				<p class="center-align valign">Login</p>
+			  </a>
+			</li>
+	  </ul>
+
 	 <ul id='dropdown1' class='dropdown-content'>
 			<li>
 			  <div class="container blue center-align" id="upper">
