@@ -21,7 +21,7 @@ DROP TRIGGER IF EXISTS accountUpdate//
 -- trigger after deleting an account 
 DROP TRIGGER IF EXISTS accountDelete//
     CREATE TRIGGER accountDelete
-    AFTER DELETE ON account
+    BEFORE DELETE ON account
     FOR EACH ROW
     CALL add_activity_log(" deleted his/her account!", OLD.account_id);
 //
