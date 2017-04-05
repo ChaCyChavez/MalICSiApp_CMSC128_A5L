@@ -37,15 +37,45 @@
 				game_starting_time_date: undefined,
 				game_ending_time_date: undefined,
 				game_name: undefined
+			}	
+		];
+
+
+		$scope.teams = [
+			{
+				team_name:undefined,
+				team_color: undefined,
+				game_id:undefined
 			}
 		];
+		$scope.append_fills = () =>{
+			$scope.teams.push(
+			{
+				team_name:undefined,
+				team_color: undefined
+			});
+			console.log($scope.teams);
+		}
+
+		$scope.add_team = (id) =>{
+			for(var i = 0; i < $scope.teams.length; i++){
+				$scope.teams[i].game_id = id;
+				GameEventService
+				.add_team($scope.teams[i])
+				.then(function(res) {
+					console.log(res);
+				}, function(err) {
+					console.log(err);
+				});
+			}
+		}
 
 		$scope.view = {
 				type: undefined,
 				id: undefined
 		}
-
 		$scope.view_sponsor = () => {
+						$("#modal1").modal('close');
             window.location.href=$scope.view.type == 'upcoming'? "#!/sponsor/" + $scope.upcoming[$scope.view.id].game_id : "#!/sponsor/" + $scope.current_games[$scope.view.id].game_id;
         	// window.location.reload();
         	//^temporary
@@ -108,6 +138,7 @@
 			});
 		}
 
+
 		$scope.add_game = () => {
 			var data = {
 				game_name: $scope.game_name,
@@ -125,10 +156,13 @@
 				.add_game(data)
 				.then(function(res){
 					swal(res.message);
+					console.log("INSERT_ID: ", res[0][0]['last_insert_id()']);
+					$scope.add_team(res[0][0]['last_insert_id()']);
             	},function(err){
             		swal(res.error);
                 	console.log(err);
             	})
+
 			}
 
 			$scope.game_name = "";

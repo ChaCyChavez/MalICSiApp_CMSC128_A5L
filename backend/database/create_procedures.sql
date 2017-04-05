@@ -60,12 +60,30 @@ DROP PROCEDURE IF EXISTS add_activity_log//
         IN _account_id          int
     )
     BEGIN
+        SELECT firstname into @ghead from account 
+            where account_id = _account_id;
         INSERT INTO activity_log(
             log_description,
             account_id
         )VALUES(
-            _log_description,
+            CONCAT(@ghead, _log_description),
             _account_id
+        );
+    END;
+//
+
+DROP PROCEDURE IF EXISTS register_team_to_game//
+    CREATE PROCEDURE register_team_to_game(
+        IN _team_id             int,
+        IN _game_id             int
+    )
+    BEGIN
+        INSERT INTO game_event_team(
+            team_id,
+            game_id
+        )VALUES(
+            _team_id,
+            _game_id
         );
     END;
 //
@@ -73,7 +91,8 @@ DROP PROCEDURE IF EXISTS add_activity_log//
 DROP PROCEDURE IF EXISTS add_team//
     CREATE PROCEDURE add_team (
         IN _team_name           varchar(256),
-        IN _team_color          varchar(256)
+        IN _team_color          varchar(256),
+        IN _game_id             int(11)
     )
     BEGIN
         INSERT INTO team(
@@ -84,6 +103,8 @@ DROP PROCEDURE IF EXISTS add_team//
             _team_name,
             _team_color
         );
+        SET @last_id = LAST_INSERT_ID();
+        CALL register_team_to_game(@last_id,_game_id);
     END;
 //
 
@@ -134,6 +155,7 @@ DROP PROCEDURE IF EXISTS add_game_event//
             _game_ending_time_date,
             _account_id
         );
+        SELECT last_insert_id();
     END;
 //
 
@@ -201,21 +223,6 @@ DROP PROCEDURE IF EXISTS add_court//
     END;
 //
 
-DROP PROCEDURE IF EXISTS register_team_to_game//
-    CREATE PROCEDURE register_team_to_team(
-        IN _team_id             int,
-        IN _game_id             int
-    )
-    BEGIN
-        INSERT INTO game_event_team(
-            team_id,
-            game_id
-        )VALUES(
-            _team_id,
-            _game_id
-        );
-    END;
-//
 
 DROP PROCEDURE IF EXISTS join_account_to_team//
     CREATE PROCEDURE join_account_to_team(

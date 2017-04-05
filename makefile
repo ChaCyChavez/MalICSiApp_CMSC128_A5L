@@ -8,10 +8,6 @@ build:
 	sudo npm install -g n
 	sudo n stable
 
-run_server:
+run:
 	reset
 	sudo npm start
-
-run_redis:
-	reset
-	redis-server
