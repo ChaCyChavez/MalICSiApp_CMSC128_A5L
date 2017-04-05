@@ -13,11 +13,11 @@
 
 		function ResultService($window, $http, $q, $httpParamSerializer) {
 
-			const init_elimination = () => {
+			const init_elimination = (data) => {
 				let deferred = $q.defer();
 				$http({
 					method: 'GET',
-					url: '/api/get-elimination-matches/',
+					url: '/api/get-elimination-matches/' + data.sport_id,
 					headers: headers
 				})
 				.then(function(res) {
@@ -29,11 +29,11 @@
 				return deferred.promise;
 			}
 
-			const init_semis = () => {
+			const init_semis = (data) => {
 				let deferred = $q.defer();
 				$http({
 					method: 'GET',
-					url: '/api/get-semis-matches/',
+					url: '/api/get-semis-matches/' + data.sport_id,
 					headers: headers
 				})
 				.then(function(res) {
@@ -45,11 +45,11 @@
 				return deferred.promise;
 			}
 
-			const init_finals = () => {
+			const init_finals = (data) => {
 				let deferred = $q.defer();
 				$http({
 					method: 'GET',
-					url: '/api/get-finals-matches/',
+					url: '/api/get-finals-matches/' + data.sport_id,
 					headers: headers
 				})
 				.then(function(res) {

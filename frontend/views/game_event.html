@@ -28,7 +28,7 @@
           <img class="activator" style="width: 300px; margin: auto;" src="../img/run.png"/>
         </div>
         <div class="card-content">
-          <a class="btn white-text center-align blue" data-target="modal1" ng-click = "view_setup(index, 'current')" href="javascript:void(0)">
+          <a class="btn white-text center-align blue" data-target="modal1" ng-click = "view_setup(game.game_id, index, 'current'); check_if_registered()" href="javascript:void(0)">
              view more ...
           </a>
         </div>
@@ -61,7 +61,7 @@
 			    <img src="img/sample-1.jpg">
 			  </div>
         <div class="card-action center-align">
-                <a class="btn white-text" data-target="modal1" ng-click = "view_setup(index, 'upcoming')" href="javascript:void(0)">
+                <a class="btn white-text" data-target="modal1" ng-click = "view_setup(game.game_id, index, 'upcoming')" href="javascript:void(0)">
                    view more ...
                 </a>
         </div>
@@ -164,10 +164,10 @@
   <div id="modal1" class="modal">
     <div class="modal-content" id="select-opt">
         <h2 class="center-align">Select option</h2>
-        <br/><a href="javascript:void(0)" class="center-align label-enter teal modal-action modal-close waves-effect waves-green btn-flat white-text" ng-click="view_sponsor()">view sponsors</a>
-        <br/><a href="javascript:void(0)" class="center-align label-enter teal modal-action modal-close waves-effect waves-green btn-flat white-text" ng-click="view_sports()">view sports</a>
-        <br/><a href="javascript:void(0)" class="center-align label-enter teal modal-action modal-close waves-effect waves-green btn-flat white-text" ng-click="view_registered_user()">view participants</a>
-        <br/><a href="javascript:void(0)" class="center-align label-enter teal modal-action modal-close waves-effect waves-green btn-flat white-text" data-target="modal3" modal>register to this game</a>
+        <br/><a href="javascript:void(0)" class="center-align label-enter teal modal-action modal-close waves-effect waves-green btn-flat white-text teal" ng-click="view_sponsor()">view sponsors</a>
+        <br/><a href="javascript:void(0)" class="center-align label-enter teal modal-action modal-close waves-effect waves-green btn-flat white-text teal" ng-click="view_sports()">view sports</a>
+        <br/><a href="javascript:void(0)" class="center-align label-enter teal modal-action modal-close waves-effect waves-green btn-flat white-text teal" ng-click="view_registered_user()">view participants</a>
+        <br/><a href="javascript:void(0)" class="center-align label-enter teal modal-action modal-close waves-effect waves-green btn-flat white-text teal" data-target="modal3" ng-click="get_teams()" ng-if="is_registered">register to this game</a>
     </div>
   </div>
 
@@ -175,17 +175,14 @@
   <div id="modal3" class="modal modal-fixed-footer">
     <div class="modal-content">
       <h1 class="teams black-text">Choose a team</h1>
-      <span>
-        <a href="javascript:void(0)"><h6 class="team black-text">Team A</h6></a>
-        <a href="javascript:void(0)"><h6 class="team black-text">Team B</h6></a>
-        <a href="javascript:void(0)"><h6 class="team black-text">Team C</h6></a>
-        <a href="javascript:void(0)"><h6 class="team black-text">Team D</h6></a>
+      <span ng-repeat="team in teams">
+        <a href="javascript:void(0)" ng-click="select_team(team.team_id)"><h6 class="team black-text">{{team.team_name}}</h6></a>
       </span>
     </div>
     <div id="hey" class="modal-footer">
       <div class="modal-button">
         <a data-target="modal1" href="javascript:void(0)" id="label-enter" class="teal accent-3 modal-action modal-close waves-effect waves-green btn-flat white-text" modal>Cancel</a>
-        <a href="javascript:void(0)" id="label-enter" class="teal accent-3 modal-action modal-close waves-effect waves-green btn-flat white-text">Join</a>
+        <a href="javascript:void(0)" id="label-enter" class="teal accent-3 modal-action modal-close waves-effect waves-green btn-flat white-text" ng-click="join_account_to_team()">Join</a>
       </div>
     </div>
   </div>

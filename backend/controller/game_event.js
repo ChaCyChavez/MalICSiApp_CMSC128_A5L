@@ -316,3 +316,116 @@ exports.delete_game_event = (req, res, next) => {
 
 	db.query(query_string, payload, callback);
 };
+
+
+exports.get_game_teams = (req, res, next) => {
+	const query_string = 'CALL get_teams_of_game(?)';
+
+	const payload = [req.params.game_id];
+
+	const callback = (err, data) => {
+		if (err) {
+			winston.level = 'debug';
+			winston.log('debug', 'Error', prettyjson.render({
+				details: err,
+				origin: "get_upcoming_events in game_event.js",
+				payload: payload,
+				query_string: query_string
+			}));
+			res.status(500).send({ error_code:err.code });
+		} else if (data[0].length == 0) {
+			winston.level = 'info';
+			winston.log('info', '0 rows returned', prettyjson.render({
+				details: data,
+				origin: "get_upcoming_events controller in game_event.js",
+				payload: payload,
+				query_string: query_string
+			}));
+			res.status(200).send(data);
+		} else {
+			winston.level = 'info';
+			winston.log('info', 'Success', prettyjson.render({
+				details: data,
+				origin: "get_upcoming_events controller in game_event.js",
+				payload: payload,
+				query_string: query_string
+			}));
+			res.status(200).send(data);
+		}
+	};
+
+	db.query(query_string, payload, callback);
+};
+
+exports.join_account_to_team = (req, res, next) => {
+	const query_string = 'CALL join_account_to_team(?,?)';
+
+	const payload = [
+		req.body.account_id,
+		req.body.team_id
+	];
+
+	const callback = (err,data) => {
+		if (err) {
+			winston.level = 'debug';
+			winston.log('debug', 'Error', prettyjson.render({
+				details: err,
+				origin: "join_account_to_team in game_event.js",
+				payload: payload,
+				query_string: query_string
+			}));
+			res.status(500).send({ error_code:err.code });
+		} else {
+			winston.level = 'info';
+			winston.log('info', 'Success', prettyjson.render({
+				details: data,
+				origin: "join_account_to_team in game_event.js",
+				payload: payload,
+				query_string: query_string
+			}));
+			res.status(200).send(data);
+		}
+	};
+
+	db.query(query_string, payload, callback);
+};
+
+exports.get_team_of_account = (req, res, next) => {
+	const query_string = 'CALL get_team_of_account(?,?)';
+
+	const payload = [req.params.account_id, req.params.game_id];
+	console.log(req.params.account_id);
+
+	const callback = (err, data) => {
+		if (err) {
+			winston.level = 'debug';
+			winston.log('debug', 'Error', prettyjson.render({
+				details: err,
+				origin: "get_team_of_account in game_event.js",
+				payload: payload,
+				query_string: query_string
+			}));
+			res.status(500).send({ error_code:err.code });
+		} else if (data[0].length == 0) {
+			winston.level = 'info';
+			winston.log('info', '0 rows returned', prettyjson.render({
+				details: data,
+				origin: "get_team_of_account controller in game_event.js",
+				payload: payload,
+				query_string: query_string
+			}));
+			res.status(200).send(data);
+		} else {
+			winston.level = 'info';
+			winston.log('info', 'Success', prettyjson.render({
+				details: data,
+				origin: "get_team_of_account controller in game_event.js",
+				payload: payload,
+				query_string: query_string
+			}));
+			res.status(200).send(data);
+		}
+	};
+
+	db.query(query_string, payload, callback);
+};

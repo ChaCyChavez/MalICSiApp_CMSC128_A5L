@@ -25,6 +25,10 @@ exports.login_account = (req, res, next) => {
 			winston.level = 'info';
 			winston.log('info', 'Login failed.');
 			res.status(404).send({message: 'Wrong username or password!'});
+		} else if (data[0].length != 0 && data[0][0].is_approved == 0) {
+			winston.level = 'info';
+			winston.log('info', 'Account not yet approved.');
+			res.status(404).send({message: 'Account not yet approved!'});
 		} else {
 			winston.level = 'info';
 			winston.log('info', 'Login Successful!');
