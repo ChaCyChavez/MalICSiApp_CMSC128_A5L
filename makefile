@@ -1,5 +1,5 @@
 build:
-	reset
+	clear
 	sudo apt-get install redis-server
 	sudo npm install
 	sudo npm install -g nodemon
@@ -9,5 +9,5 @@ build:
 	sudo n stable
 
 run:
-	reset
+	clear
 	sudo npm start
