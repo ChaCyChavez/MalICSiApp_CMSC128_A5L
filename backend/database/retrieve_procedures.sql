@@ -8,8 +8,7 @@ DROP PROCEDURE IF EXISTS login_account//
   BEGIN
     SELECT account_id, firstname, middlename, lastname, email, username, course,
         birthday, college, is_game_head, position, is_player, player_jersey_num,
-        player_role FROM account WHERE username = _username && password = _password
-        && is_approved = true;
+        player_role, is_approved FROM account WHERE username = _username && password = _password;
   END;
 //
 
@@ -279,32 +278,37 @@ DROP PROCEDURE IF EXISTS get_game_per_sport//
 //
 
 DROP PROCEDURE IF EXISTS get_elimination_matches//
-  CREATE PROCEDURE get_elimination_matches()
+  CREATE PROCEDURE get_elimination_matches(IN _sport_id int)
     BEGIN
       SELECT * FROM match_event_team, match_event, team WHERE 
           match_event_team.match_id = match_event.match_id 
-          && match_event_team.team_id = team.team_id && series = "elimination" 
+          && match_event_team.team_id = team.team_id && series = "elimination"
+          && match_event.sport_id = _sport_id 
           ORDER BY match_event.match_id;
     END;
 //
 
 DROP PROCEDURE IF EXISTS get_semis_matches//
-  CREATE PROCEDURE get_semis_matches()
+  CREATE PROCEDURE get_semis_matches(IN _sport_id int)
     BEGIN
       SELECT * FROM match_event_team, match_event, team WHERE 
           match_event_team.match_id = match_event.match_id 
           && match_event_team.team_id = team.team_id 
-          && series = "semi-finals" ORDER BY match_event.match_id;
+          && series = "semi-finals" 
+          && match_event.sport_id = _sport_id 
+          ORDER BY match_event.match_id;
     END;
 //
 
 DROP PROCEDURE IF EXISTS get_finals_matches//
-  CREATE PROCEDURE get_finals_matches()
+  CREATE PROCEDURE get_finals_matches(IN _sport_id int)
     BEGIN
       SELECT * FROM match_event_team, match_event, team WHERE 
           match_event_team.match_id = match_event.match_id 
           && match_event_team.team_id = team.team_id 
-          && series = "finals" ORDER BY match_event.match_id;
+          && series = "finals" 
+          && match_event.sport_id = _sport_id 
+          ORDER BY match_event.match_id;
     END;
 //
 

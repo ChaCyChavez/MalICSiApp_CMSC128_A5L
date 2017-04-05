@@ -33,14 +33,14 @@
 
 
 	<div id="modal-register" class="modal modal-fixed-footer">
+		<form>
 	  <div class="modal-content">
 		<div class="content-title teal">
 		  <h4 class="register white-text">REGISTER</h4>
 		</div>
 		<div class="form-content">
 		  <div class="row">
-			<form id="register-form" class="col s12">
-
+			<div id="register-form" class="col s12">
 			  <div id="register-name" class="row">
 				<div class="input-field col s10">
 				  <input class="field-inputs" type="text" class="validate" ng-model="data.username">
@@ -130,47 +130,50 @@
 				  <label for="is_game_head">Planning to head a game event?</label>
 				</p>
 			  </div>
-			</form>
+			</div>
 		  </div>
 		</div>
 	  </div>
 	  <div id="modalReg" class="modal-footer">
-		<div id="modal-button">
-		  <a href="#!" id="label-enter" class="teal modal-action modal-close waves-effect waves-green btn-flat white-text" ng-click="register()">Register</a>
-		</div>
+			<div id="modal-button">
+				<input type="submit" value="Register" id="label-enter" class="teal modal-action modal-close waves-effect waves-green btn-flat white-text" ng-click="register()"/>
+			</div>
 	  </div>
+	  </form>
 	</div>
 
 	<div id="modal-login" class="modal modal-fixed-footer">
+		<form>
 	   <div class="modal-content">
-		 <div class="teal content-title row">
-		   <h4 class="login white-text">LOGIN</h4>
-		 </div>
-		 <div class="form-content">
-		   <div class="row">
-			 <form id="login-form">
-			   <div id="login-users" class="row">
-				 <div class="input-field col s10">
-				   <input class="field-inputs" type="text" class="validate" ng-model="info.username">
-				   <label class="labels cyan-text text-darken-4" for="user_name">Username:</label>
-				 </div>
-			   </div>
+			 <div class="teal content-title row">
+			   <h4 class="login white-text">LOGIN</h4>
+			 </div>
+			 <div class="form-content">
 			   <div class="row">
-				 <div class="input-field col s10">
-				   <input class="field-inputs" type="password" class="validate" ng-model="info.password">
-				   <label class="labels cyan-text text-darken-4" for="password">Password:</label>
+				 <div id="login-form">
+				   <div id="login-users" class="row">
+					 <div class="input-field col s10">
+					   <input class="field-inputs" type="text" class="validate" ng-model="info.username">
+					   <label class="labels cyan-text text-darken-4" for="user_name">Username:</label>
+					 </div>
+				   </div>
+				   <div class="row">
+					 <div class="input-field col s10">
+					   <input class="field-inputs" type="password" class="validate" ng-model="info.password">
+					   <label class="labels cyan-text text-darken-4" for="password">Password:</label>
+					 </div>
+				   </div>
 				 </div>
 			   </div>
-			 </form>
-		   </div>
-		 </div>
+			 </div>
 	   </div>
 	   <div id="login-btns" class="modal-footer">
 		   <div id="modal-button">
-			 <a href="javascript:void(0)" id="label-enter" class="teal modal-action modal-close waves-effect waves-green btn-flat white-text" ng-click="login()">Enter</a>
+			   <input type="submit" value="Enter" id="label-enter" class="teal modal-action modal-close waves-effect waves-green btn-flat white-text" ng-click="login()">
 		   </div>
 		 </div>
-	  </div>
+		</form>
+	 </div>
 
 	  <ul id='log-reg' class='dropdown-content'>
 			<li>
