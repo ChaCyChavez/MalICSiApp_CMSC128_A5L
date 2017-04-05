@@ -1,4 +1,4 @@
-DROP USER 'CMSC128'@'localhost';
+DROP USER IF EXISTS 'CMSC128'@'localhost';
 CREATE USER 'CMSC128'@'localhost' IDENTIFIED BY 'project128';
 DROP DATABASE IF EXISTS malicsi;
 CREATE DATABASE malicsi;
@@ -81,6 +81,8 @@ CREATE TABLE sport (
     sport_type          varchar(256) NOT NULL,
     division            enum('men','women','mixed') NOT NULL,
     game_id             int NOT NULL,
+    unique_key          varchar(128) NOT NULL,
+    UNIQUE KEY          (unique_key),
     PRIMARY KEY         (sport_id),
     CONSTRAINT          `fk_game_sport`
         FOREIGN KEY (game_id) REFERENCES game_event (game_id)

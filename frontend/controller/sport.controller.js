@@ -1,5 +1,5 @@
 'use strict';
-
+ 
 (() => {
     angular
         .module('app')
@@ -10,9 +10,10 @@
     function sport_controller($scope, $location, $routeParams, SportService) {
 
         var sportid = $routeParams.sport_id;
+        $scope.sportid = $routeParams.sport_id;
 
-        $scope.view_tournament_bracketing = () => {
-            window.location.href="#!/result";
+        $scope.view_tournament_bracketing = (sport_id) => {
+            window.location.href="#!/result/" + sport_id;
         }
 
         $scope.view_match = (match_id) => {
@@ -108,6 +109,19 @@
                 }, function(err) {
                     console.log(err);
                 });
+        }
+
+        $scope.get_courts = () => {
+            SportService
+            .get_court()
+            .then(function(res){
+                console.log(res);
+            }, function(err){
+                console.log(err);
+            });
+
+
+
         }                                
 
     }

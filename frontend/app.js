@@ -44,7 +44,7 @@ mainApp.config(function($routeProvider, $locationProvider) {
 			templateUrl: 'views/sports.html',
 			controller: 'sports-controller'
 		})
-		.when('/result', {
+		.when('/result/:sport_id', {
 			templateUrl: 'views/result.html',
 			controller: 'result-controller'
 		})

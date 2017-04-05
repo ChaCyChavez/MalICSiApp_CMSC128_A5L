@@ -24,10 +24,12 @@ CALL add_sponsor ('ACSS', 'http://logos.com/logo3.png',  'major', 'desc2', 'web_
 CALL add_sponsor ('YSES', 'http://logos.com/logo4.png', 'official partner', 'desc1', 'web_add1', 3);
 CALL add_sponsor ('COSS', 'http://logos.com/logo2.png', 'major', 'desc1', 'web_add1',4);
 
-insert into sport values (1, 'Volleyball', 'men', 1);
-insert into sport values (2, 'Volleyball', 'men', 2);
-insert into sport values (3, 'Volleyball', 'men', 3);
-insert into sport values (4, 'Volleyball', 'men', 4);
+insert into sport values (1, 'Volleyball', 'men',1,'osBCMnZ2XhiVU88yHrcMLn4pWIZxWob2qhuEmbuHIQQ=');
+insert into sport values (2, 'Volleyball', 'women',1,'t5CwEVDwtUVt8h2oWfd1CGRAdBQP7ZYxFwK18g5LGFc=');
+insert into sport values (3, 'Volleyball', 'mixed',1, 'YHeNIz/YO+UEK53LbE16T1MFAYHlkCwJ5KuiYdHa4rk=');
+insert into sport values (4, 'Volleyball', 'men', 4,'DcbMRhh4wpKCZBpTaIIn4g98KMvd3yTbOvrdmpthCPY=');
+
+-- matches for sport 1
 
 insert into match_event values (1,true, CURDATE(), 'elimination', 1, 'Baker Hall', 'Gym', 'UPLB');
 insert into match_event values (2,true, CURDATE(), 'elimination', 1, 'Copeland Gym','GYM', 'UPLB');
@@ -38,6 +40,19 @@ insert into match_event values (5,true, CURDATE(), 'semi-finals', 1, 'Freedom Pa
 insert into match_event values (6,true, CURDATE(), 'semi-finals', 1, 'Freedom Park', 'Park', 'UPLB');
 
 insert into match_event values (7,true, CURDATE(), 'finals', 1,'Freedom Park', 'Park', 'UPLB');
+
+-- matches for sport 2
+
+insert into match_event values (8,true, CURDATE(), 'elimination', 2, 4);
+insert into match_event values (9,true, CURDATE(), 'elimination', 2, 4);
+insert into match_event values (10,true, CURDATE(), 'elimination', 2, 4);
+insert into match_event values (11,true, CURDATE(), 'elimination', 2, 4);
+
+insert into match_event values (12,true, CURDATE(), 'semi-finals', 2, 4);
+insert into match_event values (13,true, CURDATE(), 'semi-finals', 2, 4);
+
+insert into match_event values (14,true, CURDATE(), 'finals', 2, 4);
+
 
 insert into game_event_team values (1, 3);
 insert into game_event_team values (2, 3);
@@ -55,7 +70,7 @@ insert into team_account values (4, 4);
 -- insert into match_event_team values (3, 3, 43);
 -- insert into match_event_team values (4, 3, 12);
 
---  eliminations
+--  eliminations for sport 1
 insert into match_event_team values (1, 1, 12);
 insert into match_event_team values (2, 1, 3);
 insert into match_event_team values (3, 2, 43);
@@ -65,12 +80,34 @@ insert into match_event_team values (6, 3, 1);
 insert into match_event_team values (7, 4, 11);
 insert into match_event_team values (8, 4, 3);
 
---  semis
+--  semis for sport 1
 insert into match_event_team values (1, 5, 12);
 insert into match_event_team values (3, 5, 1);
 insert into match_event_team values (5, 6, 11);
 insert into match_event_team values (7, 6, 3);
 
---  finals
+--  finals for sport 1
 insert into match_event_team values (1, 7, 11);
 insert into match_event_team values (5, 7, 3);
+
+
+
+--  eliminations for sport 2
+insert into match_event_team values (1, 8, 4);
+insert into match_event_team values (2, 8, 5);
+insert into match_event_team values (3, 9, 44);
+insert into match_event_team values (4, 9, 8);
+insert into match_event_team values (5, 10, 10);
+insert into match_event_team values (6, 10, 11);
+insert into match_event_team values (7, 11, 9);
+insert into match_event_team values (8, 11, 13);
+
+--  semis for sport 2
+insert into match_event_team values (2, 12, 19);
+insert into match_event_team values (3, 12, 3);
+insert into match_event_team values (6, 13, 11);
+insert into match_event_team values (8, 13, 13);
+
+--  finals for sport 2
+insert into match_event_team values (2, 14, 11);
+insert into match_event_team values (8, 14, 3);

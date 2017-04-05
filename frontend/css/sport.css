@@ -6,3 +6,8 @@ a.view-match {
 #vfl {
 	padding: 10px;
 }
+
+.schedule-contents {
+	padding-bottom: 0px !important;
+	margin-bottom: 0px !important;
+}

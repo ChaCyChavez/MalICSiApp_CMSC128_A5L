@@ -3,18 +3,12 @@
     <h3 class="header">User</h3>
     <h4 class="header">Pending User</h4>
     <div class="row contents">
-      <div carousel">
+      <div carousel>
         <div class="col s12 m3 carousel-item" ng-class="{active:!$index}" ng-repeat="(index, account) in pending_accounts">
           <div class="card small z-depth-3">
             <div class="card-image">
               <img src="img/sample-1.jpg">
               <span class="card-title">{{account.firstname}} {{account.middlename}} {{account.lastname}}</span>
-              <a href="javascript:void(0)" class="dropdown-button option" data-activates="user-menu-app{{index}}"><i class="fa fa-sort-down right fa-2x"></i></a>
-              <ul id="user-menu-app{{index}}" class='dropdown-content'>
-                <li><a href="javascript:void(0)">edit</a></li>
-                <li class="divider"></li>
-                <li><a href="javascript:void(0)">remove</a></li>
-             </ul>
             </div>
             <div class="card-content c-contents">
               <p class="stud-num">{{account.college}} | {{account.course}}</p>
@@ -35,18 +29,12 @@
             <div class="card-image">
               <img src="img/sample-1.jpg">
               <span class="card-title">{{account.firstname}} {{account.middlename}} {{account.lastname}}</span>
-              <a href="javascript:void(0)" class="dropdown-button option" data-activates="user-menuview{{index}}"><i class="fa fa-sort-down right fa-2x"></i></a>
-              <ul id="user-menuview{{index}}" class='dropdown-content'>
-                <li><a href="javascript:void(0)">edit</a></li>
-                <li class="divider"></li>
-                <li><a href="javascript:void(0)">remove</a></li>
-             </ul>
             </div>
             <div class="card-content c-contents">
               <p class="stud-num">{{account.college}} | {{account.course}}</p>
             </div>
             <div class="card-action">
-              <a class="btn waves-light blue " href="javascript:void(0)">View</a>
+              <a class="btn waves-light blue" href="#!/profile/{{index}}">View</a>
             </div>
           </div>
         </div>

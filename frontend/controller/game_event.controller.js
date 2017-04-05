@@ -72,32 +72,42 @@
 
 		$scope.view = {
 				type: undefined,
-				id: undefined
+				id: undefined,
+				gameid: undefined
 		}
+
+		$scope.team = {
+				account_id: undefined,
+				team_id: undefined
+		}
+
 		$scope.view_sponsor = () => {
-						$("#modal1").modal('close');
-            window.location.href=$scope.view.type == 'upcoming'? "#!/sponsor/" + $scope.upcoming[$scope.view.id].game_id : "#!/sponsor/" + $scope.current_games[$scope.view.id].game_id;
-        	// window.location.reload();
-        	//^temporary
-        }
-        $scope.view_sports = () => {
-            window.location.href=$scope.view.type == 'upcoming'? "#!/sports/" + $scope.upcoming[$scope.view.id].game_id : "#!/sports/" + $scope.current_games[$scope.view.id].game_id;
-            // window.location.reload();
-            // ^temporary
-        }
+			$("#modal1").modal('close');
+        window.location.href=$scope.view.type == 'upcoming'? "#!/sponsor/" + $scope.upcoming[$scope.view.id].game_id : "#!/sponsor/" + $scope.current_games[$scope.view.id].game_id;
+    	// window.location.reload();
+    	//^temporary
+    }
+    $scope.view_sports = () => {
+    	$("#modal1").modal('close');
+        window.location.href=$scope.view.type == 'upcoming'? "#!/sports/" + $scope.upcoming[$scope.view.id].game_id : "#!/sports/" + $scope.current_games[$scope.view.id].game_id;
+        // window.location.reload();
+        // ^temporary
+    }
 
-        $scope.view_setup = (id,type) =>{
-        	console.log(id);
+    $scope.view_setup = (gameid, id,type) =>{
+    	$scope.view.id = id;
+    	$scope.view.type = type;
+    	$scope.view.gameid = gameid;
 
-        	$scope.view.id = id;
-        	$scope.view.type = type;
-        }
+    	console.log(gameid);
+    }
 
-        $scope.view_registered_user = () => {
-            window.location.href=$scope.view.type == 'upcoming'? "#!/registered-user/" + $scope.upcoming[$scope.view.id].game_id : "#!/registered-user/" + $scope.current_games[$scope.view.id].game_id;
-            window.location.reload();
-            //^temporary
-        }
+    $scope.view_registered_user = () => {
+    	$("#modal1").modal('close');
+        window.location.href=$scope.view.type == 'upcoming'? "#!/registered-user/" + $scope.upcoming[$scope.view.id].game_id : "#!/registered-user/" + $scope.current_games[$scope.view.id].game_id;
+        window.location.reload();
+        //^temporary
+    }
 
 		$scope.get_current_games = () => {
 			GameEventService.get_current_games().then((data) => {
@@ -148,6 +158,68 @@
 			});
 		}
 
+		$scope.select_team = (teamid) => {
+			$scope.team.account_id = $rootScope.profile.account_id;
+			$scope.team.team_id = teamid;
+		}
+
+		$scope.get_teams = () => {
+			var data = {
+				game_id: $scope.view.gameid
+			}
+
+			GameEventService
+				.get_teams(data)
+				.then(function(res){
+					$scope.teams = res[0];
+            	},function(err){
+                	console.log(err);
+            	})
+		}
+
+		$scope.check_if_registered = () => {
+			var data = {
+				account_id: $rootScope.profile.account_id,
+				game_id: $scope.view.gameid
+			}
+
+			GameEventService
+				.get_team_of_account(data)
+				.then(function(res){
+					if (res[0] == "") {
+						$scope.is_registered = true;
+					} else {
+						$scope.is_registered = false;
+					}
+
+            	},function(err){
+                	console.log(err);
+            	})
+		}
+
+		$scope.join_account_to_team = () => {
+			var data = {
+				account_id: $scope.team.account_id,
+				team_id: $scope.team.team_id
+			}
+
+			if (data.team_id == undefined) {
+				swal("Choose a team.");
+			} else {
+			GameEventService
+				.join_account_to_team(data)
+				.then(function(res){
+					swal("Successfully joined to team.");
+					console.log(res);
+            	},function(err){
+                	console.log(err);
+            	})
+            }
+
+            $scope.team.account_id = undefined;
+			$scope.team.team_id = undefined;
+			$('#modal1').modal('close');
+		}
 
 		$scope.add_game = () => {
 			var data = {
@@ -209,15 +281,22 @@
 			function(){
 				if (type === 'upcoming') {
 					GameEventService.delete_game({game_id:$scope.upcoming_games[id].game_id}).then((err, data) => {
+						Materialize.toast("Successfully deleted.", 4000, 'teal');
+						swal("Deleted!", "Event has been deleted.", "success");
 						$scope.upcoming_games.splice(id, 1);
+					}, (err) => {
+						swal("Failure!", "You are not the game head of this game event.", "failure");
 					});
-				} else {
+				} else if (type === "current"){
 					GameEventService.delete_game({game_id:$scope.current_games[id].game_id}).then((err, data) => {
+						Materialize.toast("Successfully deleted.", 4000, 'teal');
+						swal("Deleted!", "Event has been deleted.", "success");
 						$scope.current_games.splice(id, 1);
+					}, (err) => {
+						swal("Failure!", "You are not the game head of this game event.", "failure");
 					});
 				}
-				Materialize.toast("Successfully deleted.", 4000, 'teal');
-				swal("Deleted!", "Event has been deleted.", "success");
+
 			});
 		}
     }

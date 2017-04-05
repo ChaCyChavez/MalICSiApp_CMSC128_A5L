@@ -3,17 +3,18 @@
   <a class="btn-floating btn-large waves-effect waves-light blue accent-4 add-button" href="javascript:void(0)" data-target="modal2" modal><i class="fa fa-plus"></i></a>
 
   <!-- Search -->
+  <div class="search-container">
+    <div id="wrap">
+      <form action="" autocomplete="on">
+        <input id="search" name="search" type="text" placeholder="Search Games">
+        <input id="search_submit" type="submit">
+      </form>
+    </div>
+  </div>
+  <br/>
+
   <div class="row contents">
     <h3 class="header">GAMES</h3>
-    <form class="col s7 right" ng-submit="search_game()">
-      <div class="row">
-        <div class="input-field col s7 right" class="search">
-          <i class="fa fa-search prefix"></i>
-          <input ng-model="gameSearched" id="icon_prefix" type="text" class="validate">
-          <label for="icon_prefix">Search games:</label>
-        </div>
-      </div>
-    </form>
   </div>
 
   <h4 class="header">Current Games</h4>
@@ -21,12 +22,11 @@
   <div class="row contents">
     <div class="col s12 m6" ng-repeat="(index, game) in current_games">
       <div class="card">
-        <div class="card-image waves-effect waves-block waves-light spon-icon activator teal">
-          <!-- <i class="fa fa-users fa-5x white-text" aria-hidden="true"></i> -->
+        <div class="card-image waves-effect waves-block waves-light spon-icon activator card-img">
           <img class="activator" style="width: 300px; margin: auto;" src="../img/run.png"/>
         </div>
         <div class="card-content">
-          <a class="btn white-text center-align blue" data-target="modal1" ng-click = "view_setup(index, 'current')" href="javascript:void(0)">
+          <a class="btn white-text center-align blue" data-target="modal1" ng-click = "view_setup(game.game_id, index, 'current'); check_if_registered()" href="javascript:void(0)">
              view more ...
           </a>
         </div>
@@ -52,14 +52,14 @@
   <!-- Contents -->
   <div class="row">
     <div class="card-panel col offset-l1 s12 m11 l10 z-depth-3">
-		<div class="col s12 m3" ng-repeat="(index, game) in upcoming_games">
+		<!-- <div class="col s12 m3" ng-repeat="(index, game) in upcoming_games">
 			<div class="card">
 			  <div class="card-image">
 			    <a class="edit_btn dropdown-button btn-flat right" data-activates="dropdownUpcoming{{index}}"><i class="fa fa-sort-down white-text"></i></a>
 			    <img src="img/sample-1.jpg">
 			  </div>
         <div class="card-action center-align">
-                <a class="btn white-text" data-target="modal1" ng-click = "view_setup(index, 'upcoming')" href="javascript:void(0)">
+                <a class="btn white-text" data-target="modal1" ng-click = "view_setup(game.game_id, index, 'upcoming')" href="javascript:void(0)">
                    view more ...
                 </a>
         </div>
@@ -70,8 +70,34 @@
 				<li class="divider"></li>
 				<li><a href="javascript:void(0)" ng-click="delete_game('upcoming',index)">remove</a></li>
 			</ul>
+		</div> -->
+		<div class="col s12 m3" ng-repeat="(index, game) in upcoming_games">
+		  <div class="card">
+			<div class="card-image waves-effect waves-block waves-light spon-icon activator card-img">
+			  <img class="activator" style="width: 300px; margin: auto;" src="../img/run.png"/>
+			</div>
+			<div class="card-content">
+			  <a class="btn white-text center-align blue" data-target="modal1" ng-click = "view_setup(game.game_id, index, 'upcoming'); check_if_registered()" href="javascript:void(0)">
+				 view more ...
+			  </a>
+			</div>
+
+			<div class="card-reveal" ng-show="profile.is_game_head || profile.is_admin">
+			  <div>
+				<span class="card-title grey-text text-darken-4 rev">&nbsp;<i class="right fa fa-remove" aria-hidden="true"></i>
+				  <h3 class="center-align">{{game.game_name}}</h3>
+				  <div class="opt-btn" >
+					<a href="javascript:void(0)" class="teal lighten-2 modal-action modal-close waves-effect waves-green btn-flat" data-target="modal4" ng-click="setup_edit_modal('upcoming', index)">edit</a>
+					<a href="javascript:void(0)" class="teal lighten-2 modal-action modal-close waves-effect waves-green btn-flat" ng-click="delete_game('upcoming',index)">remove</a>
+				  </div>
+
+				</span>
+			  </div>
+			</div>
+		  </div>
 		</div>
     </div>
+
   </div>
 
   <!-- Modal Structure -->
@@ -162,10 +188,10 @@
   <div id="modal1" class="modal">
     <div class="modal-content" id="select-opt">
         <h2 class="center-align">Select option</h2>
-        <br/><a href="javascript:void(0)" class="center-align label-enter teal accent-3 modal-action modal-close waves-effect waves-green btn-flat white-text" ng-click="view_sponsor()">view sponsors</a>
-        <br/><a href="javascript:void(0)" class="center-align label-enter teal accent-3 modal-action modal-close waves-effect waves-green btn-flat white-text" ng-click="view_sports()">view sports</a>
-        <br/><a href="javascript:void(0)" class="center-align label-enter teal accent-3 modal-action modal-close waves-effect waves-green btn-flat white-text" ng-click="view_registered_user()">view participants</a>
-        <br/><a href="javascript:void(0)" class="center-align label-enter teal accent-3 modal-action modal-close waves-effect waves-green btn-flat white-text" data-target="modal3" modal>register to this game</a>
+        <br/><a href="javascript:void(0)" class="center-align label-enter teal modal-action modal-close waves-effect waves-green btn-flat white-text teal" ng-click="view_sponsor()">view sponsors</a>
+        <br/><a href="javascript:void(0)" class="center-align label-enter teal modal-action modal-close waves-effect waves-green btn-flat white-text teal" ng-click="view_sports()">view sports</a>
+        <br/><a href="javascript:void(0)" class="center-align label-enter teal modal-action modal-close waves-effect waves-green btn-flat white-text teal" ng-click="view_registered_user()">view participants</a>
+        <br/><a href="javascript:void(0)" class="center-align label-enter teal modal-action modal-close waves-effect waves-green btn-flat white-text teal" data-target="modal3" ng-click="get_teams()" ng-if="is_registered">register to this game</a>
     </div>
   </div>
 
@@ -173,17 +199,14 @@
   <div id="modal3" class="modal modal-fixed-footer">
     <div class="modal-content">
       <h1 class="teams black-text">Choose a team</h1>
-      <span>
-        <a href="javascript:void(0)"><h6 class="team black-text">Team A</h6></a>
-        <a href="javascript:void(0)"><h6 class="team black-text">Team B</h6></a>
-        <a href="javascript:void(0)"><h6 class="team black-text">Team C</h6></a>
-        <a href="javascript:void(0)"><h6 class="team black-text">Team D</h6></a>
+      <span ng-repeat="team in teams">
+        <a href="javascript:void(0)" ng-click="select_team(team.team_id)"><h6 class="team black-text">{{team.team_name}}</h6></a>
       </span>
     </div>
     <div id="hey" class="modal-footer">
       <div class="modal-button">
         <a data-target="modal1" href="javascript:void(0)" id="label-enter" class="teal accent-3 modal-action modal-close waves-effect waves-green btn-flat white-text" modal>Cancel</a>
-        <a href="javascript:void(0)" id="label-enter" class="teal accent-3 modal-action modal-close waves-effect waves-green btn-flat white-text">Join</a>
+        <a href="javascript:void(0)" id="label-enter" class="teal accent-3 modal-action modal-close waves-effect waves-green btn-flat white-text" ng-click="join_account_to_team()">Join</a>
       </div>
     </div>
   </div>

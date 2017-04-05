@@ -1,8 +1,8 @@
 use malicsi;
 
+\d //
 
 /* ACCOUNT PROCEDURES */
-\d //
 DROP PROCEDURE IF EXISTS login_account//
   CREATE PROCEDURE login_account(
 	  IN _username varchar(256),
@@ -267,7 +267,22 @@ DROP PROCEDURE IF EXISTS get_all_game_event//
 //
 
 /* SPORT PROCEDURES */
-drop procedure if exists get_sport_game;
+DROP PROCEDURE IF EXISTS get_sport//
+  CREATE PROCEDURE get_sport(IN _game_id int)
+  BEGIN
+    SELECT * FROM sport WHERE game_id = _game_id;
+  END;
+//
+
+DROP PROCEDURE IF EXISTS get_all_sport//
+  CREATE PROCEDURE get_all_sport()
+  BEGIN
+    SELECT * FROM sport;
+  END;
+//
+
+
+DROP PROCEDURE IF EXISTS get_sport_game;
 \d //
   CREATE PROCEDURE get_sport_game(
 	  IN _game_id int
@@ -318,7 +333,7 @@ drop procedure if exists get_sport_team;
 /* MATCH_EVENT PROCEDURES */
 DROP PROCEDURE IF EXISTS get_match_event//
   CREATE PROCEDURE get_match_event(
-	  IN matchid int
+	  IN _match_id int
   )
   BEGIN
     SELECT
@@ -333,7 +348,7 @@ DROP PROCEDURE IF EXISTS get_match_event//
 	FROM
 		match_event
 	WHERE
-		match_id = matchid;
+		match_id = _match_id;
   END;
 //
 
@@ -529,25 +544,59 @@ DROP PROCEDURE IF EXISTS get_teams_N_scores_of_match//
 DROP PROCEDURE IF EXISTS get_pending_account//
   CREATE PROCEDURE get_pending_account()
   BEGIN
-  	SELECT
-		account_id,
-		firstname,
-		middlename,
-		lastname,
-		email,
-		username,
-		course,
-		birthday,
-		college,
-		is_game_head,
-		position,
-		is_player,
-		player_jersey_num,
-		player_role
-	FROM
-		account
-	WHERE
-		is_approved = 0;
+  	SELECT * FROM account WHERE is_approved = 0;
   END;
 //
+
+DROP PROCEDURE IF EXISTS get_game_per_sport//
+  CREATE PROCEDURE get_game_per_sport(IN _sport_id int)
+    BEGIN
+      SELECT * FROM match_event NATURAL JOIN match_event_team NATURAL JOIN team
+         NATURAL JOIN sport WHERE sport_id = _sport_id;
+    END;
+//
+
+DROP PROCEDURE IF EXISTS get_elimination_matches//
+  CREATE PROCEDURE get_elimination_matches(IN _sport_id int)
+    BEGIN
+      SELECT * FROM match_event_team, match_event, team WHERE
+          match_event_team.match_id = match_event.match_id
+          && match_event_team.team_id = team.team_id && series = "elimination"
+          && match_event.sport_id = _sport_id
+          ORDER BY match_event.match_id;
+    END;
+//
+
+DROP PROCEDURE IF EXISTS get_semis_matches//
+  CREATE PROCEDURE get_semis_matches(IN _sport_id int)
+    BEGIN
+      SELECT * FROM match_event_team, match_event, team WHERE
+          match_event_team.match_id = match_event.match_id
+          && match_event_team.team_id = team.team_id
+          && series = "semi-finals"
+          && match_event.sport_id = _sport_id
+          ORDER BY match_event.match_id;
+    END;
+//
+
+DROP PROCEDURE IF EXISTS get_finals_matches//
+  CREATE PROCEDURE get_finals_matches(IN _sport_id int)
+    BEGIN
+      SELECT * FROM match_event_team, match_event, team WHERE
+          match_event_team.match_id = match_event.match_id
+          && match_event_team.team_id = team.team_id
+          && series = "finals"
+          && match_event.sport_id = _sport_id
+          ORDER BY match_event.match_id;
+    END;
+//
+
+DROP PROCEDURE IF EXISTS get_team_of_account//
+  CREATE PROCEDURE get_team_of_account (IN _account_id int, IN _game_id int)
+    BEGIN
+      SELECT * FROM team_account NATURAL JOIN game_event_team
+      WHERE game_event_team.game_id = _game_id && team_account.account_id = _account_id;
+    END;
+//
+
 \d ;

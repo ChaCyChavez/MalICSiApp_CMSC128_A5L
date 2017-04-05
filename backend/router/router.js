@@ -14,7 +14,7 @@ const sponsor = require(__dirname + '/../controller/sponsor');
 const sport = require(__dirname + '/../controller/sport');
 const team = require(__dirname + '/../controller/team');
 const result = require(__dirname +'/../controller/result');
-const gamepersport = require(__dirname + '/../controller/game_per_sport.js')
+const game_per_sport = require(__dirname + '/../controller/game_per_sport')
 let path = require('path');
 
 module.exports = (router) => {
@@ -53,6 +53,10 @@ module.exports = (router) => {
     router.get('/api/get-user-past-events/', game_event.get_user_past_events);
 	router.get('/api/get-upcoming-events/', game_event.get_upcoming_events);
     router.get('/api/get-current-events/', game_event.get_current_events);
+    router.get('/api/get-game-teams/:game_id', game_event.get_game_teams);
+
+    router.post('/api/join-account-to-team', game_event.join_account_to_team);
+    router.get('/api/get-team-of-account/:account_id/:game_id', game_event.get_team_of_account);
 
 //log routers
     //retrieve log
@@ -73,7 +77,7 @@ module.exports = (router) => {
     router.post('/api/update-match-event', match_event.update_match_event);
     //delete match_event
     router.post('/api/delete-match-event', match_event.delete_match_event);
-    // retrieve teams in match event
+    // retrieve teams and their scores in match event
     router.get('/api/get-teams-N-scores-of-match/:match_id', match_event.get_teams_N_scores_of_match);
 
 //sponsor routers
@@ -118,14 +122,13 @@ module.exports = (router) => {
 
 // result router
     // get all elimination matches
-    router.get('/api/get-elimination-matches/', result.get_elimination_matches);
-    router.get('/api/get-semis-matches/', result.get_semis_matches);
-    router.get('/api/get-finals-matches/', result.get_finals_matches);
+    router.get('/api/get-elimination-matches/:sport_id', result.get_elimination_matches);
+    router.get('/api/get-semis-matches/:sport_id', result.get_semis_matches);
+    router.get('/api/get-finals-matches/:sport_id', result.get_finals_matches);
 
 // game per sport router
     // get games per sport
-    router.get('/api/get-game-per-sport/:sport_id', gamepersport.get_game_per_sport);
-
+    router.get('/api/get-game-per-sport/:sport_id', game_per_sport.get_game_per_sport);
     router.all('*', (req, res, next) => {
         res.status(404).send({
             'message': 'Not Found!'

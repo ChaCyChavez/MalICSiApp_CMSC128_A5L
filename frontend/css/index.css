@@ -13,8 +13,8 @@ body {
     font-family: 'Lato', sans-serif;
 }
 
-.brand-logo {
-    margin-left: 2%;
+.dropdown-content {
+    z-index: 9999 !important;
 }
 
 .box {
@@ -27,7 +27,7 @@ body {
 
 .news-announcement {
     font-family: 'Lato', sans-serif;
-    font-weight: bolder;
+    /*font-weight: bolder;*/
     font-size: 50px;
     width: 100%;
     padding: auto;

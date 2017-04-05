@@ -54,11 +54,11 @@ nav {
     padding-bottom: 20%;
 }
 
-#logo {
+.logo {
     font-family: 'Panton';
-    font-size: 50px;
+    font-size: 50px !important;
     line-height: 75px;
-    margin-left: 2% !important;
+    margin-left: 1% !important;
     margin-right: 0 !important;
 }
 
@@ -78,8 +78,35 @@ nav {
     float: left; 
 }
 
+#log-reg-btn {
+    display: none;
+}
+
+#log-reg li {
+    font-family: 'Panton', sans-serif;
+    color: #009688 !important;
+    font-size: 18px !important;
+}
+
+.dr {
+    padding-top: 5px;
+    height: 75px;
+}
+
 @media only screen and (max-width: 700px) {
   #hello {
+    display: none;
+  }
+
+  #logo-pic {
+    display: none;
+  }
+
+  #log-reg-btn {
+    display: inherit;
+  }
+
+  .logreg {
     display: none;
   }
 }
@@ -144,14 +171,15 @@ nav {
 }
 
 .header {
-  width: 100%;
-  padding-left: 5%;
+    margin-top: 0 !important;
+    width: 100%;
+    padding-left: 5%;
 }
 
 h3.header {
-  margin-top: 40px;
-  text-align: center;
-  font-weight: 600;
+    margin-top: 40px;
+    text-align: center;
+    font-weight: 600;
 }
 
 .box {
@@ -162,6 +190,7 @@ h3.header {
 }
 
 .contents {
+    margin-top: 1% !important;
     margin-left: 50px;
     margin-right: 50px;
 }
@@ -212,7 +241,7 @@ a#spon:hover, a.tab:hover {
 
 .page-footer {
     font-family: 'Lato', sans-serif;
-    font-weight: lighter;
+    font-weight: 300;
     font-size: 16px;
     box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.5);
     text-align: center;
@@ -220,12 +249,27 @@ a#spon:hover, a.tab:hover {
     padding-bottom: 1px !important;
 }
 
-  .content {
-    flex: 1 0 auto !important;
-  }
+.slider {
+    margin-top: 10px;
+}
+.slides {
+    margin-top: 10px;
+    height: 400px !important;
+}
 
-  .main-container {
+.view-cg {
+    width: 100%;
+    text-align: center;
+}
+
+.content {
+    flex: 1 0 auto !important;
+}
+
+.main-container {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-  }
+}
+
+

@@ -57,27 +57,6 @@ delimiter //
 //
 delimiter ;
 
-drop procedure if exists update_court;
-delimiter //
-    create procedure update_court (
-        IN _court_id            int(11),
-        IN _court_name          varchar(256),
-        IN _court_location      varchar(256),
-        IN _court_type          varchar(256)
-    )
-    BEGIN
-        UPDATE
-			court
-		SET
-            court_name = _court_name,
-            court_location = _court_location,
-            court_type = _court_type
-        WHERE
-			court_id = _court_id;
-    END;
-//
-delimiter ;
-
 drop procedure if exists update_game_event;
 delimiter //
     create procedure update_game_event (
