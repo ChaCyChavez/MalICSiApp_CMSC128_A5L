@@ -56,7 +56,7 @@ DROP PROCEDURE IF EXISTS add_account//
 
 DROP PROCEDURE IF EXISTS add_activity_log//
     CREATE PROCEDURE add_activity_log (
-        IN _log_description     varchar(256),
+        IN _log_description     text,
         IN _account_id          int
     )
     BEGIN
