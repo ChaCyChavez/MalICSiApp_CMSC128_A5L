@@ -11,22 +11,11 @@
 
 
         $scope.sports = [
-            {
-                sport_id: undefined,
-                sport_type: undefined,
-                division: undefined,
-				teams: [undefined]
-            }
         ];
         $scope.teams = [];
         var gameid = $routeParams.game_id;
 
         $scope.sports = [
-            {
-                sport_id: undefined,
-                sport_type: undefined,
-                division: undefined
-            }
         ];
 
         $scope.view_sport = (sport_id) => {

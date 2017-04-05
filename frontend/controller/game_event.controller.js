@@ -1,5 +1,5 @@
 'use strict';
- 
+
 (() => {
     angular
         .module('app')
@@ -11,6 +11,18 @@
 		// fetching is being implemented by other group member
 
 		$scope.current_games = [
+			{
+				game_id: undefined,
+				game_starting_time_date: undefined,
+				game_ending_time_date: undefined,
+				game_name: undefined
+			},
+			{
+				game_id: undefined,
+				game_starting_time_date: undefined,
+				game_ending_time_date: undefined,
+				game_name: undefined
+			},
 			{
 				game_id: undefined,
 				game_starting_time_date: undefined,
@@ -60,7 +72,6 @@
 		$scope.get_current_games = () => {
 			GameEventService.get_current_games().then((data) => {
 				$scope.current_games = data[0];
-				console.log(data[0]);
 			});
 		};
 
