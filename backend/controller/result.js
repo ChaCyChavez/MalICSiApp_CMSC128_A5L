@@ -5,7 +5,11 @@ const winston = require('winston');
 
 //get all matches in elimination round
 exports.get_elimination_matches = (req, res, next) => {
-	const query_string = 'CALL get_elimination_matches();';
+	const query_string = 'CALL get_elimination_matches(?);';
+
+	const payload = [
+		req.params.sport_id
+	];
 
 	const callback = (err, data) => {
 		if (err) {
@@ -23,12 +27,16 @@ exports.get_elimination_matches = (req, res, next) => {
 		}
 	};
 
-	db.query(query_string, callback);
+	db.query(query_string, payload, callback);
 };
 
 //get all matches in semi-finals round
 exports.get_semis_matches = (req, res, next) => {
-	const query_string = 'CALL get_semis_matches();';
+	const query_string = 'CALL get_semis_matches(?);';
+
+	const payload = [
+		req.params.sport_id
+	];
 
 	const callback = (err, data) => {
 		if (err) {
@@ -46,13 +54,17 @@ exports.get_semis_matches = (req, res, next) => {
 		}
 	};
 
-	db.query(query_string, callback);
+	db.query(query_string, payload, callback);
 };
 
 
 //get all matches in finals round 
 exports.get_finals_matches = (req, res, next) => {
-	const query_string = 'CALL get_finals_matches();';
+	const query_string = 'CALL get_finals_matches(?);';
+
+	const payload = [
+		req.params.sport_id
+	];
 
 	const callback = (err, data) => {
 		if (err) {
@@ -70,5 +82,5 @@ exports.get_finals_matches = (req, res, next) => {
 		}
 	};
 
-	db.query(query_string, callback);
+	db.query(query_string, payload, callback);
 };

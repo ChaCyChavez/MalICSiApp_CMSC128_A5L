@@ -133,9 +133,9 @@ module.exports = (router) => {
 
 // result router
     // get all elimination matches
-    router.get('/api/get-elimination-matches/', result.get_elimination_matches);
-    router.get('/api/get-semis-matches/', result.get_semis_matches);
-    router.get('/api/get-finals-matches/', result.get_finals_matches);
+    router.get('/api/get-elimination-matches/:sport_id', result.get_elimination_matches);
+    router.get('/api/get-semis-matches/:sport_id', result.get_semis_matches);
+    router.get('/api/get-finals-matches/:sport_id', result.get_finals_matches);
 
 // game per sport router
     // get games per sport
