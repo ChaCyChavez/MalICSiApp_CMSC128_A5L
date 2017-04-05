@@ -1,5 +1,5 @@
 <div ng-controller="sport-controller">
-  <div class="row contents" id="sport-content" ng-init = "get_matches()">
+  <div class="row contents" id="sport-content" ng-init = "get_matches();get_courts();">
     <h3 class="header">Sport</h3>
     <div class="col s0 m0 l1">&nbsp</div>
     <div class="col s12 m0">
@@ -37,8 +37,11 @@
             </div>
           </div>
         </div>
-        <div class="center">
+        <div class="left">
           <a href="javascript:void(0)" ng-click="view_tournament_bracketing()" class="btn-large">tournament bracketing</a>
+        </div>
+        <div class="right">
+          <a href="javascript:void(0)" data-target = "add-match-modal" class="btn-large">add match</a>
         </div>
       </div>
     </div>
@@ -71,7 +74,15 @@
               <label for="match_court">Court</label>
             </div>
           </div>
-
+          <div class="row">
+            <select ng-repeat = "team in teams" ng-model = "team_id">
+                  <option value="" disabled selected>Choose your option</option>
+                  <option value="men">Men</option>
+                  <option value="women">Women</option>
+                  <option value="mixed">Mixed</option>
+                  <option value="team.team_id">{{team.team_name}}</option>
+            </select>
+          </div>
         </form>
       </div>
     </div>
