@@ -79,6 +79,7 @@ CREATE TABLE sport (
     sport_type          varchar(256) NOT NULL,
     division            enum('men','women','mixed') NOT NULL,
     game_id             int NOT NULL,
+    UNIQUE KEY			(sport_type,division,game_id),
     PRIMARY KEY         (sport_id),
     CONSTRAINT          `fk_game_sport`
         FOREIGN KEY (game_id) REFERENCES game_event (game_id)

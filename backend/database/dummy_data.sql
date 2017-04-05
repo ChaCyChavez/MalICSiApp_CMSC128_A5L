@@ -32,8 +32,8 @@ CALL add_sponsor ('YSES', 'http://logos.com/logo4.png', 'official partner', 'des
 CALL add_sponsor ('COSS', 'http://logos.com/logo2.png', 'major', 'desc1', 'web_add1',4);
 
 insert into sport values (1, 'Volleyball', 'men', 1);
-insert into sport values (2, 'Volleyball', 'men', 2);
-insert into sport values (3, 'Volleyball', 'men', 3);
+insert into sport values (2, 'Volleyball', 'women', 1);
+insert into sport values (3, 'Volleyball', 'mixed', 1);
 insert into sport values (4, 'Volleyball', 'men', 4);
 
 insert into match_event values (1,true, CURDATE(), 'elimination', 1, 2);
