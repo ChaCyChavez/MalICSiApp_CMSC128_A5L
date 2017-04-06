@@ -6,7 +6,6 @@ const retrieve = require(__dirname + '/../controller/old-controller/retrieve');
 const del = require(__dirname + '/../controller/old-controller/delete');
 */
 const account = require(__dirname + '/../controller/account');
-const court = require(__dirname + '/../controller/court');
 const game_event = require(__dirname + '/../controller/game_event');
 const log = require(__dirname + '/../controller/log');
 const match_event = require(__dirname + '/../controller/match_event');

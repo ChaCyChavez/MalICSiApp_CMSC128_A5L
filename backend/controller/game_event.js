@@ -492,8 +492,6 @@ exports.get_team_of_account = (req, res, next) => {
 	};
 
 	db.query(query_string, payload, callback);
-<<<<<<< HEAD
-=======
 };
 
 
@@ -607,5 +605,4 @@ exports.get_team_of_account = (req, res, next) => {
 	};
 
 	db.query(query_string, payload, callback);
->>>>>>> e7bcf1787f2cf84b4352f90cf46af3df891af31f
 };
