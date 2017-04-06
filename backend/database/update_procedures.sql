@@ -137,16 +137,17 @@ delimiter //
     create procedure update_sport (
         IN _sport_id            int(11),
         IN _sport_type          varchar(256),
-        IN _division            enum('men','women','mixed')
+        IN _division            enum('men','women','mixed'),
+        IN _unique_key          varchar(256)
     )
     BEGIN
         UPDATE
 			sport
 		SET
             sport_type = _sport_type,
-            division = _division
-        WHERE
-			sport_id = _sport_id;
+            division = _division,
+            unique_key = _unique_key
+        WHERE sport_id = _sport_id;
     END;
 //
 delimiter ;

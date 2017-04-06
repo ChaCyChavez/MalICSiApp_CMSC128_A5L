@@ -74,6 +74,7 @@
 				type: undefined,
 				id: undefined,
 				gameid: undefined
+
 		}
 
 		$scope.team = {
@@ -83,24 +84,21 @@
 
 		$scope.view_sponsor = () => {
 			$("#modal1").modal('close');
-        window.location.href=$scope.view.type == 'upcoming'? "#!/sponsor/" + $scope.upcoming[$scope.view.id].game_id : "#!/sponsor/" + $scope.current_games[$scope.view.id].game_id;
-    	// window.location.reload();
-    	//^temporary
-    }
-    $scope.view_sports = () => {
-    	$("#modal1").modal('close');
-        window.location.href=$scope.view.type == 'upcoming'? "#!/sports/" + $scope.upcoming[$scope.view.id].game_id : "#!/sports/" + $scope.current_games[$scope.view.id].game_id;
-        // window.location.reload();
-        // ^temporary
-    }
+            window.location.href=$scope.view.type == 'upcoming'? "#!/sponsor/" + $scope.upcoming[$scope.view.id].game_id : "#!/sponsor/" + $scope.current_games[$scope.view.id].game_id;
+        	// window.location.reload();
+        	//^temporary
+        }
+        $scope.view_sports = () => {
+            window.location.href=$scope.view.type == 'upcoming'? "#!/sports/" + $scope.upcoming[$scope.view.id].game_id : "#!/sports/" + $scope.current_games[$scope.view.id].game_id;
+            // window.location.reload();
+            // ^temporary
+        }
 
-    $scope.view_setup = (gameid, id,type) =>{
-    	$scope.view.id = id;
-    	$scope.view.type = type;
-    	$scope.view.gameid = gameid;
-
-    	console.log(gameid);
-    }
+        $scope.view_setup = (gameid, id,type) =>{
+        	$scope.view.id = id;
+        	$scope.view.type = type;
+        	$scope.view.gameid = gameid;
+        }
 
     $scope.view_registered_user = () => {
     	$("#modal1").modal('close');
@@ -191,7 +189,6 @@
 					} else {
 						$scope.is_registered = false;
 					}
-
             	},function(err){
                 	console.log(err);
             	})

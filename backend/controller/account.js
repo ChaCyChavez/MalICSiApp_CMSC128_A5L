@@ -26,11 +26,19 @@ exports.login_account = (req, res, next) => {
 		} else if (data[0].length == 0) {
 			winston.level = 'info';
 			winston.log('info', 'Login failed.');
+<<<<<<< HEAD
 			res.status(401).send({message: 'Wrong username or password!'});
 		} else if (data[0][0]["is_approved"] == 0) {
 			winston.level = 'info';
 			winston.log('info', 'Account not yet approved.');
 			res.status(403).send({message: 'Account is not yet approved by the admin.'});
+=======
+			res.status(404).send({message: 'Wrong username or password!'});
+		} else if (data[0].length != 0 && data[0][0].is_approved == 0) {
+			winston.level = 'info';
+			winston.log('info', 'Account not yet approved.');
+			res.status(404).send({message: 'Account not yet approved!'});
+>>>>>>> e7bcf1787f2cf84b4352f90cf46af3df891af31f
 		} else {
 			winston.level = 'info';
 			winston.log('info', 'Login Successful!');

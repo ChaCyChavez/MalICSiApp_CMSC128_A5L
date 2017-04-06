@@ -159,7 +159,6 @@
 				return deferred.promise;
 			}
 
-
 	        const search_game = function(data) {
 				let deferred = $q.defer();
 
