@@ -65,7 +65,9 @@
 	            } else {
 	            	$window.location.href = "#!/";
 	            }
-	        });
+	        }, (err) => {
+				window.location.href = "#!/"
+			});
 	    }
 
 		$scope.login = () => {
