@@ -134,10 +134,14 @@
 			$scope.edit_id = id;
 			if (type === 'upcoming') {
 				$scope.edit_game_info =JSON.parse(JSON.stringify($scope.upcoming_games[id]));
-				console.log( $scope.edit_game_info);
+				$scope.edit_game_info.game_starting_time_date = new Date($scope.edit_game_info.game_starting_time_date);
+				$scope.edit_game_info.game_ending_time_date = new Date($scope.edit_game_info.game_ending_time_date);
+				console.log($scope.edit_game_info);
 			} else if (type === 'current') {
 				$scope.edit_game_info =JSON.parse(JSON.stringify($scope.current_games[id]));
-				console.log( $scope.edit_game_info);
+				$scope.edit_game_info.game_starting_time_date = new Date($scope.edit_game_info.game_starting_time_date);
+				$scope.edit_game_info.game_ending_time_date = new Date($scope.edit_game_info.game_ending_time_date);
+				console.log($scope.edit_game_info);
 
 			}
 		}
@@ -148,11 +152,15 @@
 			} else if ($scope.edit_type == "current") {
 				$scope.current_games[$scope.edit_id] = $scope.edit_game_info;
 			}
-			$scope.edit_game_info.game_starting_time_date = $scope.edit_game_info.game_starting_time_date.replace("Z", "");
-			$scope.edit_game_info.game_ending_time_date = $scope.edit_game_info.game_ending_time_date.replace("Z", "");
+			$scope.edit_game_info.game_starting_time_date = $("#game_starting_time_date").val();
+			$scope.edit_game_info.game_ending_time_date = $("#game_ending_time_date").val();
 
-			GameEventService.edit_game($scope.edit_game_info).then((data) => {
-
+			GameEventService
+			.edit_game($scope.edit_game_info)
+			.then((data) => {
+				Materialize.toast("Event Successfully Edited!", 4000, 'teal');
+			}, (err) => {
+				Materialize.toast("Event Unsuccessfully Edited!", 4000, 'teal');
 			});
 		}
 

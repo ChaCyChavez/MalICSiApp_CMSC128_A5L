@@ -140,9 +140,7 @@ DROP PROCEDURE IF EXISTS get_team_profile//
 		is_player,
 		player_jersey_num,
 		player_role,
-		team_id,
-		team_name,
-		team_color
+		team_id
 	FROM
 		account
 	NATURAL JOIN

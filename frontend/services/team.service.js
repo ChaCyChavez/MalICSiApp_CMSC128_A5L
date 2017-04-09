@@ -19,7 +19,6 @@
 					headers: headers
 				})
 				.then(function(res) {
-					console.log('in service');
 					console.log(res);
 					deferred.resolve(res.data);
 				}, function(err) {
