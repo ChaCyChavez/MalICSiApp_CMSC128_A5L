@@ -25,7 +25,7 @@ CREATE TABLE account (
     is_player           boolean DEFAULT false,              /*player flag*/
     player_jersey_num   int DEFAULT NULL,                   /*player attribute*/
     player_role         varchar(256) DEFAULT NULL,          /*player attribute*/
-	is_admin			boolean,
+	is_admin			boolean DEFAULT false,
     UNIQUE              (username),
     PRIMARY KEY         (account_id)
 );

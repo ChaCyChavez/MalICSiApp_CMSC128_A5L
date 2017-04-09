@@ -23,12 +23,20 @@
         </tr>
       </thead>
 
-      <tbody ng-init = "get_all_logs()">
-        <tr ng-repeat = "data in logs | orderBy:'-log_date'">
+      <tbody ng-init="get_all_logs()" ng-if="profile.is_admin == 1">
+        <tr ng-repeat="data in logs | orderBy:'-log_date'">
           <td>{{data.log_date | date: 'medium'}}</td>
           <td>{{data.log_description}}</td>
         </tr>
       </tbody>
+
+      <tbody ng-init="get_log()" ng-if="profile.is_admin == 0">
+        <tr ng-repeat="data in logs | orderBy:'-log_date'">
+          <td>{{data.log_date | date: 'medium'}}</td>
+          <td>{{data.log_description}}</td>
+        </tr>
+      </tbody>
+
     </table>
   </div>
 </div>
