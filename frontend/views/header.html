@@ -1,245 +1,205 @@
 <div ng-controller="header-controller" ng-init="get_loggedIn()">
-	<div class="navbar-fixed" ng-hide="profile == undefined">
-	  <nav>
-			<div class="nav-wrapper">
-			  <a href="javascript:void(0)" class="grey-text text-darken-4 logo" ng-click="changeView('#!/game-event')">MalICSi</a>
-			  <img class="brand-logo center" id="logo-pic"style="width: 60px; margin: 15px 0 0 0" src="../img/logo.png"/>
-			  <ul id="nav-mobile" class="right">
-				<li><div class="grey-text text-darken-4" id="hello">{{ profile.username }}</div></li>
-				<li><a href="javascript:void(0)" data-activates="dropdown1" class="teal dropdown-button dr" dropdown><i class="fa fa-reorder fa-2x" aria-hidden="true"></i></a></li>
-			  </ul>
+	<div class="ui grid">
+		<div ng-if="profile == undefined">
+			<div class="computer tablet only row">
+				<div class="ui top fixed menu">
+				  <div class="item">
+				    <a href="javascript:void(0)" class="malicsi-text ui" id="logo-text" ng-click="changeView('#!/')">Malicsi</a>
+				  </div>
+				  <div class="logo-container">
+				  	<img src="../img/logo.png" />
+				  </div>
+
+					  <a class="item right nav-btn register" id="reg">Register</a>
+					  <a class="item nav-btn login" id="log">Login</a>
+
+				  <div class="ui item dropdown right" id="lr-dd">
+	          <i class="fa fa-reorder fa-2x"></i>
+	        	<div class="menu">
+	            <a class="item nav-btn register" id="reg-mob">Register</a>
+				  		<a class="item nav-btn login" id="log-mob">Login</a>
+	          </div>
+	        </div>
+
+				</div>
 			</div>
-	  </nav>
-	</div>
-
-	<div class="navbar-fixed" ng-hide="profile != undefined">
-	  <nav>
-		<div class="nav-wrapper">
-		  <a href="javascript:void(0)" class="grey-text text-darken-4 logo" ng-click="changeView('#!/')">MalICSi</a>
-		  <img class="brand-logo center" id="logo-pic"style="width: 60px; margin: 15px 0 0 0" src="../img/logo.png"/>
-		  <ul id="nav-mobile" class="right">
-			<li class="waves-effect waves-light logreg"><a data-target='modal-register' modal>
-			  <div class="grey-text text-darken-4 box">
-				<span class="nam">not yet a member?</span><br>
-				<span class="reg">register now!</span>
-			  </div>	
-			</a></li>
-			<li><a class="teal si logreg" data-target='modal-login' modal><span class="white-text">Login</span></a></li>
-			<li><a href="javascript:void(0)" id="log-reg-btn" data-beloworigin="true" data-constrainwidth="false" data-activates="log-reg" class="teal dropdown-button dr" dropdown><i class="fa fa-reorder fa-2x" aria-hidden="true"></i></a></li>
-		  </ul>
 		</div>
-	  </nav>
-	</div>
 
-
-	<div id="modal-register" class="modal modal-fixed-footer">
-		<form>
-	  <div class="modal-content">
-		<div class="content-title teal">
-		  <h4 class="register white-text">REGISTER</h4>
-		</div>
-		<div class="form-content">
-		  <div class="row">
-			<div id="register-form" class="col s12">
-			  <div id="register-name" class="row">
-				<div class="input-field col s10">
-				  <input class="field-inputs" type="text" class="validate" ng-model="data.username">
-				  <label class="labels cyan-text text-darken-4" for="name">Username:</label>
+		<div ng-if="profile != undefined">
+			<div class="computer tablet only row">
+				<div class="ui top fixed menu">
+				  <div class="item">
+				    <a href="javascript:void(0)" class="malicsi-text ui" id="logo-text" ng-click="changeView('#!/game-event')">Malicsi</a>
+				  </div>
+				  <div class="logo-container">
+				  	<img src="../img/logo.png" />
+				  </div>
+				  <div class="ui item dropdown right">
+				 		<span id="username">Hi, {{profile.username}}</span>
+	          <i class="fa fa-reorder fa-2x"></i>
+	        	<div class="menu">
+	            <a class="item nav-btn" id="vp-mob" ng-click="changeView('#!/profile')">View Profile</a>
+				  		<a class="item nav-btn" id="vu-mob" ng-click="changeView('#!/user')">View User</a>
+				  		<a class="item nav-btn" id="va-mob" ng-click="changeView('#!/activity-log')">View Activity Log</a>
+				  		<a class="item nav-btn red" id="logo-mob" ng-click="logout()">Logout</a>
+	          </div>
+	        </div>
 				</div>
-			  </div>
-			  <div id="register-name" class="row">
-				<div class="input-field col s10">
-				  <input class="field-inputs" type="password" class="validate" ng-model="data.password">
-				  <label class="labels cyan-text text-darken-4" for="name">Password:</label>
-				</div>
-			  </div>
-			  <div id="register-name" class="row">
-				<div class="input-field col s10">
-				  <input class="field-inputs" type="text" class="validate" ng-model="data.firstname">
-				  <label class="labels cyan-text text-darken-4" for="name">First Name:</label>
-				</div>
-			  </div>
-			  <div id="register-name" class="row">
-				<div class="input-field col s10">
-				  <input class="field-inputs" type="text" class="validate" ng-model="data.middlename">
-				  <label class="labels cyan-text text-darken-4" for="name">Middle Name:</label>
-				</div>
-			  </div>
-			  <div id="register-name" class="row">
-				<div class="input-field col s10">
-				  <input class="field-inputs" type="text" class="validate" ng-model="data.lastname">
-				  <label class="labels cyan-text text-darken-4" for="name">Last Name:</label>
-				</div>
-			  </div>
-			  <div id="register-users" class="row">
-				<div class="input-field col s10">
-				  <select id="opt" ng-model='data.college' material-select watch>
-					<option value="" disabled selected>Choose your option</option>
-					<option value="CA">CA</option>
-					<option value="CAS">CAS</option>
-					<option value="CDC">CDC</option>
-					<option value="CEAT">CEAT</option>
-					<option value="CEM">CEM</option>
-					<option value="CFNR">CFNR</option>
-					<option value="CHE">CHE</option>
-					<option value="CPAf">CPAf</option>
-					<option value="CVM">CVM</option>
-					<option value="SESAM">SESAM</option>
-					<option value="GS">GS</option>
-				  </select>
-				  <label class="labels cyan-text text-darken-4">College</label>
-				</div>
-			  </div>
-			  <div id="register-users" class="row">
-				<div class="input-field col s10">
-				  <input class="field-inputs" type="text" class="validate" ng-model="data.course">
-				  <label class="labels cyan-text text-darken-4" for="course">Course:</label>
-				</div>
-			  </div>
-			  <div class="row">
-				<div class="input-field col s10">
-				  <input class="field-inputs" type="text" class="validate" ng-model="data.email">
-				  <label class="labels cyan-text text-darken-4" for="email">Email Address:</label>
-				</div>
-			  </div>
-			  <div class="row">
-				<div class="input-field col s10">
-				  <input class="field-inputs" type="text" class="validate" ng-model="data.position">
-				  <label class="labels cyan-text text-darken-4" for="email">Position:</label>
-				</div>
-			  </div>
-			  <div class="row">
-				<div class="input-field col s10">
-				  <input class="field-inputs" type="text" class="validate" ng-model="data.player_role">
-				  <label class="labels cyan-text text-darken-4" for="email">Player Role:</label>
-				</div>
-			  </div>
-			  <div class="row">
-				<div class="input-field col s10">
-				  <input name="someDate" type="date" class="datepicker" ng-model="data.birthday">
-				  <label class="labels cyan-text text-darken-4" for="someDate">Birthdate:</label>
-				</div>
-			  </div>
-			  <div class="row">
-				<p id="isp">
-				  <input type="checkbox" id="is_player"/>
-				  <label for="is_player">Are you a player?</label>
-				</p>
-				<p id="isp">
-				  <input type="checkbox" id="is_game_head"/>
-				  <label for="is_game_head">Planning to head a game event?</label>
-				</p>
-			  </div>
 			</div>
+		</div>
+
+		<div class="ui modal" id="register-modal">
+		  <i class="close icon"></i>
+		  <div class="header">
+		    Register
+		  </div>
+		  <div class="content">
+		    <form class="ui big form">
+				  <div class="three fields">
+				    <div class="field">
+				      <label>First name</label>
+				      <input placeholder="First Name" type="text">
+				    </div>
+				    <div class="field">
+				      <label>Middle name</label>
+				      <input placeholder="Middle Name" type="text">
+				    </div>
+				    <div class="field">
+				      <label>Last name</label>
+				      <input placeholder="Last Name" type="text">
+				    </div>
+				  </div>
+
+				  <div class="field">
+				  	<label>Email Address</label>
+				    <input placeholder="Email Address" type="text">
+				  </div>
+
+				  <div class="two fields">
+				  	<div class="field">
+					  	<label>Username</label>
+					    <input placeholder="Username" type="text">
+					  </div>
+					  <div class="field">
+					  	<label>Password</label>
+					    <input placeholder="Password" type="text">
+					  </div>
+				  </div>
+
+				  <div class="three fields">
+				  	<div class="ui calendar field" id="birthday">
+				  		<label>Birthday</label>
+						  <div class="ui input left icon">
+						    <i class="calendar icon"></i>
+						    <input type="text" placeholder="Date">
+						  </div>
+						</div>
+
+					  <div class="field">
+					  	<label>Course</label>
+					    <input placeholder="Course" type="text">
+					  </div>
+
+					  <div class="field">
+					  	<label>College</label>
+					    <select class="ui search dropdown">
+					    	<option value="">College</option>
+					    	<option value="CA">CA</option>
+								<option value="CAS">CAS</option>
+								<option value="CDC">CDC</option>
+								<option value="CEAT">CEAT</option>
+								<option value="CEM">CEM</option>
+								<option value="CFNR">CFNR</option>
+								<option value="CHE">CHE</option>
+								<option value="CPAf">CPAf</option>
+								<option value="CVM">CVM</option>
+								<option value="SESAM">SESAM</option>
+								<option value="GS">GS</option>
+					    </select>
+					  </div>
+				  </div>
+				  
+				  <div class="two fields">
+				  	<div class="field">
+					  	<label>Position</label>
+					    <input placeholder="Position" type="text">
+					  </div>
+
+					  <div class="field">
+					  	<label>Player Role</label>
+					    <input placeholder="Player Role" type="text">
+					  </div>
+				  </div>
+				  <div class="two fields">
+				  	<div class="inline field">
+					    <div class="ui checkbox">
+					      <input tabindex="0" class="hidden" type="checkbox">
+					      <label>Are you a player?</label>
+					    </div>
+					  </div>
+					  <div class="inline field">
+					    <div class="ui checkbox">
+					      <input tabindex="0" class="hidden" type="checkbox">
+					      <label>Planning to head a game event?</label>
+					    </div>
+					  </div>
+				  </div>
+				</form>
+		  </div>
+		  <div class="actions">
+		    <div class="ui button modal-close">Cancel</div>
+		    <div class="ui button modal-close">Submit</div>
 		  </div>
 		</div>
-	  </div>
-	  <div id="modalReg" class="modal-footer">
-			<div id="modal-button">
-				<input type="submit" value="Register" id="label-enter" class="teal modal-action modal-close waves-effect waves-green btn-flat white-text" ng-click="register()"/>
-			</div>
-	  </div>
-	  </form>
+
+		<div class="ui small modal" id="login-modal">
+		  <i class="close icon"></i>
+		  <div class="header">
+		    Login
+		  </div>
+		  <div class="content">
+		    <form class="ui big form">
+			    <div class="field">
+			      <label>Username</label>
+			      <input placeholder="Username" type="text" ng-model="info.username">
+			    </div>
+			    <div class="field">
+			      <label>Password</label>
+			      <input placeholder="Password" type="password" ng-model="info.password">
+			    </div>
+				</form>
+		  </div>
+		  <div class="actions">
+		    <div class="ui button modal-close">Cancel</div>
+		    <div class="ui button modal-close" ng-click="login()">Submit</div>
+		  </div>
+		</div>
+
+
 	</div>
-
-	<div id="modal-login" class="modal modal-fixed-footer">
-		<form>
-	   <div class="modal-content">
-			 <div class="teal content-title row">
-			   <h4 class="login white-text">LOGIN</h4>
-			 </div>
-			 <div class="form-content">
-			   <div class="row">
-				 <div id="login-form">
-				   <div id="login-users" class="row">
-					 <div class="input-field col s10">
-					   <input class="field-inputs" type="text" class="validate" ng-model="info.username">
-					   <label class="labels cyan-text text-darken-4" for="user_name">Username:</label>
-					 </div>
-				   </div>
-				   <div class="row">
-					 <div class="input-field col s10">
-					   <input class="field-inputs" type="password" class="validate" ng-model="info.password">
-					   <label class="labels cyan-text text-darken-4" for="password">Password:</label>
-					 </div>
-				   </div>
-				 </div>
-			   </div>
-			 </div>
-	   </div>
-	   <div id="login-btns" class="modal-footer">
-		   <div id="modal-button">
-			   <input type="submit" value="Enter" id="label-enter" class="teal modal-action modal-close waves-effect waves-green btn-flat white-text" ng-click="login()">
-		   </div>
-		 </div>
-		</form>
-	 </div>
-
-	  <ul id='log-reg' class='dropdown-content'>
-			<li>
-			  <a href="javascript:void(0)" class="view-dd" data-target='modal-register' modal>
-				<p class="center-align valign">Register</p>
-			  </a>
-			</li>
-			<li class="divider">
-			</li>
-			<li>
-			  <a href="javascript:void(0)" class="view-dd" data-target='modal-login' modal>
-				<p class="center-align valign">Login</p>
-			  </a>
-			</li>
-	  </ul>
-
-	 <ul id='dropdown1' class='dropdown-content'>
-			<li>
-			  <div class="container blue center-align" id="upper">
-				<i class="fa fa-user-circle fa-5x white-text"></i>
-			  </div>
-			</li>
-			<li>
-			  <a href="javascript:void(0)" class="view-dd" ng-click="changeView('#!/profile')">
-				<p class="center-align valign">VIEW PROFILE</p>
-			  </a>
-			</li>
-			<li>
-			  <a href="javascript:void(0)" class="view-dd" ng-click="changeView('#!/user')">
-				<p class="center-align valign">VIEW USER</p>
-			  </a>
-			</li>
-			<li>
-			  <a href="javascript:void(0)" class="view-dd" ng-click="changeView('#!/activity-log')">
-				<p class="center-align valign">VIEW ACTIVITY LOGS</p>
-			  </a>
-			</li>
-			<li class="divider">
-			</li>
-			<li>
-			  <a href="javascript:void(0)" class="logout-btn" ng-click="logout()">
-				<p class="center-align valign">x logout</p>
-			  </a>
-			</li>
-	  </ul>
 </div>
 
 <script type="text/javascript">
-	$(function() {
-		$('.dropdown-button').dropdown({
-      inDuration: 300,
-      outDuration: 225,
-      constrain_width: false, // Does not change width of dropdown to that of the activator
-      hover: false, // Activate on hover
-      gutter: 0, // Spacing from edge
-      belowOrigin: true, // Displays dropdown below the button
-      alignment: 'left', // Displays dropdown with edge aligned to the left of button
-      stopPropagation: false // Stops event propagation
-    });
-    $('.modal').modal({
-      dismissible: true,
-      opacity: 0.5,
-      in_duration: 300,
-      out_duration: 200,
-      starting_top: '4%',
-      ending_top: '10%',
-    });
-	});
+	$(document).ready(function() {
+		$('.ui.dropdown').dropdown();
+		$('.ui.modal').modal();
+		$('.ui.checkbox').checkbox();
+		
+		$('.ui.modal-close').click(function() {
+			$('.ui.modal').modal('close');
+		});
+		
+		$('.register').click(function() {
+			$('#register-modal').modal('show');
+		});
+
+		$('.login').click(function() {
+			$('#login-modal').modal('show');
+		});
+
+		$('#birthday').calendar({
+			type: 'date'
+		});
+	})
+	
 </script>

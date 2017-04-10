@@ -1,59 +1,74 @@
 <div ng-controller="registered-user-controller">
-<h3 class="header"> List of User Registered in &lt;Game&gt;</h3>
- <form>
-    <div class= "container">
-      <select class="browser-default">
-        <option value="javascript:void(0)" disabled selected>SELECT SPORT</option>
-        <option value="1">Option 1</option>
-        <option value="2">Option 2</option>
-        <option value="3">Option 3</option>
-      </select>
+
+  <div class="row contents">
+    <h3 class="content-header">Registered User</h3>
+    <div class="ui fluid category search">
+      <div class="ui icon input">
+        <input class="prompt" placeholder="Search animals..." type="text">
+        <i class="search icon"></i>
+      </div>
+      <div class="results"></div>
     </div>
-
-
-    <div class="input-field container">
-      <input id="search" type="search" required>
-      <label class="label-icon" for="search"><i class="fa fa-search"></i></label>
-    </div>
-  </form>
-
-  <div class="participant-list">
-    <div class="collection">
-      <a href="javascript:void(0)" class="collection-item avatar" ng-click="view_profile()">
-        <i class="fa fa-user fa-2x circle blue"></i>
-        <span class="title">Title</span>
-        <p>First Line <br>
-           Second Line
-        </p>
-      </a>
-      <a href="javascript:void(0)" class="collection-item avatar" ng-click="view_profile()">
-        <i class="fa fa-user fa-2x circle blue"></i>
-        <span class="title">Title</span>
-        <p>First Line <br>
-           Second Line
-        </p>
-      </a>
-      <a href="javascript:void(0)" class="collection-item avatar" ng-click="view_profile()">
-        <i class="fa fa-user fa-2x circle blue"></i>
-        <p>First Line <br>
-           Second Line
-        </p>
-      </a>
-      <a href="javascript:void(0)" class="collection-item avatar" ng-click="view_profile()">
-       <i class="fa fa-user fa-2x circle blue"></i>
-        <span class="title">Title</span>
-        <p>First Line <br>
-           Second Line
-        </p>
-      </a>
-
-      <a href="javascript:void(0)" class="collection-item avatar" ng-click="view_profile()">
-        <i class="fa fa-user fa-2x circle blue"></i>
-        <span class="title">Title</span>
-        <p>First Line <br>
-           Second Line
-        </p>
-      </a>
+    <div class="ui raised very fluid padded container segment" id="ru-table">
+      <table class="ui very basic selectable collapsing celled table" id="ru-table">
+        <thead>
+          <tr><th><h1>Registered User</h1></th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td>
+              <a href="javascript:void(0)">
+              <h4 class="trow ui header">
+                <i class=" fa fa-user fa-2x ui mini rounded"></i>
+                <div class="content">
+                  Lena
+                    <div class="sub header">Human Resources</div>
+                </div>
+              </h4>
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a href="javascript:void(0)">
+              <h4 class="trow ui header">
+                <i class=" fa fa-user fa-2x ui mini rounded"></i>
+                <div class="content">
+                  Matthew
+                  <div class="sub header">Fabric Design</div>
+                </div>
+              </h4>
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a href="javascript:void(0)">
+              <h4 class="trow ui header">
+                <i class=" fa fa-user fa-2x ui mini rounded"></i>
+                <div class="content">
+                  Lindsay
+                  <div class="sub header">Entertainment</div>
+                </div>
+              </h4>
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a href="javascript:void(0)">
+              <h4 class="trow ui header">
+                <i class=" fa fa-user fa-2x ui mini rounded"></i>
+                <div class="content">
+                  Mark
+                  <div class="sub header">Executive</div>
+                </div>
+              </h4>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>

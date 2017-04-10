@@ -1,31 +1,16 @@
-hr.style18 { 
-  height: 30px; 
-  border-style: solid; 
-  border-color: #8c8b8b; 
-  border-width: 1px 0 0 0; 
-  border-radius: 20px; 
-  } 
-hr.style18:before { 
-  display: block; 
-  content: ""; 
-  height: 30px; 
-  margin-top: -31px; 
-  border-style: solid; 
-  border-color: #8c8b8b; 
-  border-width: 0 0 1px 0; 
-  border-radius: 20px; 
+span#sponsor-header {
+  width: 100% !important;
+  font-size: 50px !important;
+  text-align: center !important;
 }
 
-.add-sponsor {
-  padding: 30px 100px 20px 100px;
-  margin-top: 100px;
-  height: 310px;
-  width: 100%;
-  overflow-y: scroll;
+#spons {
+  margin-top: 40px !important;
 }
 
 .spon-icon {
   padding: 25px 0;
   text-align: center;
-  font-size: 50px;
+  font-size: 250%;
+  color: #fff;
 }

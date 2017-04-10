@@ -8,10 +8,7 @@
     header_controller.$inject = ['$scope', '$location', '$window', '$routeParams', '$rootScope', 'ProfileService', 'LoginRegisterService'];
 
     function header_controller($scope, $location, $window, $routeParams, $rootScope, ProfileService, LoginRegisterService) {
-		$rootScope.changeView = (view) => {
-			$location.url(view);
-			location.reload();
-		}
+
 
 		$scope.info = {
 			username : undefined,
@@ -36,7 +33,8 @@
 		}
 
 		$rootScope.changeView = (view) => {
-			$window.location.href = view;
+			window.location.href = view;
+			$window.location.reload();
 		}
 
 		$rootScope.logout = () => {

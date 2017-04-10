@@ -1,153 +1,129 @@
 <div ng-controller="sports-controller" ng-init="get_sports()">
-  <a class="modal-trigger btn-floating btn-large waves-effect waves-light blue accent-4 add-button" data-target="AddSport"><i class="fa fa-plus"></i></a>
+
+  <a class="add-btn" id="add-sport" href="javascript:void(0)"><i class="fa fa-plus fa-3x"></i></a>
 
   <div class="row contents">
-    <h3 class="header">Sports</h3>
-    <div class="col s12 m0">
-
-      <div class="col s12 m4" ng-repeat="sport in sports track by $index">
-		  <ul id='dropdownSport{{$index}}' class='dropdown-content'>
-			  <li><a href="javascript:void(0)" data-target="editsport" ng-click = "setup_edit_modal($index)">edit</a></li>
-			  <li class="divider"></li>
-			  <li><a href="javascript:void(0)" ng-click = "delete_sport($index)" >remove</a></li>
-		 </ul>
-
-        <div class="card z-depth-3">
-          <div class="card-content">
-            <a class='dropdown-button' href="javascript:void(0)" data-beloworigin="true" data-activates='dropdownSport{{$index}}'><i class="fa fa-sort-down fa-2x left"></i></a>
-            <span class="card-title center">{{sport.sport_type}} - {{sport.division}}</span>
-            <div class="divider"></div>
-            <div>&nbsp;</div>
-            <p ng-repeat="team in sport.teams">{{team}}</p>
+    <h3 class="content-header">SPORTS</h3>
+    <div class="ui three stackable special cards" id="sports">
+        <div class="card" ng-repeat="sport in sports track by $index">
+          <div class="blurring dimmable image">
+            <div class="ui dimmer">
+              <div class="content">
+                <div class="center">
+                  <a href="javascript:void(0)" class="ui inverted button edit-sport" ng-click = "setup_edit_modal($index)">Edit</a>
+                  <a href="javascript:void(0)" class="ui inverted red button" ng-click = "delete_sport($index)">Remove</a>
+                </div>
+              </div>
+            </div>
+            <img src="../img/run.png">
           </div>
-          <!-- dropdown for edit and remove-->
-
-          <div class="card-action">
+          <div class="content">
+            <span class="header">{{sport.sport_type}} - {{sport.division}}</span>
+            <div class="meta">
+              <div ng-repeat="team in sport.teams" class="sport-team">{{team}}</div>
+            </div>
+          </div>
+          <div class="extra content">
             <a href="javascript:void(0)" ng-click="view_sport(sport.sport_id)">View Sport</a>
           </div>
-          <!-- ^originally view -->
-
-        </div>
-      </div>
-
-
+        </div>  
     </div>
   </div>
 
-  <!-- Edit Sport Modal -->
-  <div id="editsport" class="modal modal-fixed-footer">
-    <div class="modal-content">
-      <div class="teal content-title">
-        <h4 class="add white-text center-align">EDIT SPORT</h4>
-      </div>
-      <div class="form-content" style="height: 287px;">
-        <div class="row">
-          <form id="add_match_form" class="col s12">
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="sports_name" type="text" class="validate" ng-model = "edit_sport_info.sport_type">
-                <label >Sport</label>
-              </div>
-              <br>
-            </div>
-            <div class="input-field col s12">
-              <select ng-model = "edit_sport_info.division">
-                <option value="" disabled selected>Choose your option</option>
-                <option value="men">Men</option>
-                <option value="women">Women</option>
-                <option value="mixed">Mixed</option>
-              </select>
-              <label>Division</label>
-            </div>
-          </form>
+  <div class="ui modal" id="edit-sport-modal">
+    <i class="close icon"></i>
+    <div class="header">Edit Sport</div>
+    <div class="content">
+      <form class="ui big form">
+        <div class="field">
+          <label>Sport Name</label>
+          <input placeholder="Sport Name" type="text" ng-model="sport_name">
         </div>
-      </div>
+        <div class="field">
+          <label>Sport Type</label>
+          <input placeholder="Sponsor Type" type="text" ng-model="edit_sport_info.sport_type">
+        </div>
+        <div class="field">
+          <label>Sport Division</label>
+          <select class="ui search dropdown" ng-model="edit_sport_info.division" id="sport_division">
+            <option value="" disabled selected>Division</option>
+            <option value="men">Men</option>
+            <option value="women">Women</option>
+            <option value="mixed">Mixed</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Time</label>
+          <input placeholder="Sport Time" type="time">
+        </div>
+        <div class="field">
+          <label>Sport Venue</label>
+          <input placeholder="Sport Venue" type="text">
+        </div>
+      </form>
     </div>
-
-    <div class="modal-footer">
-      <div id="modal-button">
-        <a href="javascript:void(0)" id="label-enter" class="teal modal-action modal-close waves-effect waves-green btn-flat white-text" ng-click="edit_sport()">Okay</a>
-        <a href="javascript:void(0)" id="label-enter" class="teal modal-action modal-close waves-effect waves-green btn-flat white-text" ng-click="">Cancel</a>
-      </div>
+    <div class="actions">
+      <div class="ui button modal-close">Cancel</div>
+      <div class="ui button modal-close" ng-click="edit_sport()">Submit</div>
     </div>
   </div>
 
-  <div id="AddSport" class="modal modal-fixed-footer">
-    <div class="modal-content">
-      <div class="teal content-title">
-        <h4 class="add white-text center-align">ADD SPORT</h4>
-      </div>
-      <div class="form-content" style="height: 287px;">
-        <div class="row">
-          <form id="sports-form" class="col s12">
-            <div class="row">
-              <!-- <div class="input-field col s12">
-                <input id="sports_name" type="text" class="validate">
-                <label for="sports_name">Sport Name</label>
-              </div>
-              <br>
-            </div> -->
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="type" type="text" class="validate" ng-model="sport_type">
-                <label for="type">Sport Type</label>
-              </div>
-            </div>
-            <div class="input-field col s12">
-              <select ng-model="division">
-                <option value="" disabled selected>Choose your option</option>
-                <option value="men">Men</option>
-                <option value="women">Women</option>
-                <option value="mixed">Mixed</option>
-              </select>
-              <label>Division</label>
-            </div>
-            <!-- <div class="row">
-              <div class="input-field col s12">
-                <input id="time" type="time" class="validate">
-              </div>
-            </div>
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="venue" type="text" class="validate">
-                <label for="venue">Venue</label>
-              </div>
-            </div> -->
-          </form>
+  <div class="ui modal" id="add-sport-modal">
+    <i class="close icon"></i>
+    <div class="header">Add Sport</div>
+    <div class="content">
+      <form class="ui big form">
+        <div class="field">
+          <label>Sport Name</label>
+          <input placeholder="Sport Name" type="text" ng-model="sport_name">
         </div>
-      </div>
+        <div class="field">
+          <label>Sport Type</label>
+          <input placeholder="Sponsor Type" type="text" ng-model="sport_type">
+        </div>
+        <div class="field">
+          <label>Sport Division</label>
+          <select class="ui search dropdown" ng-model="division" id="sport_division">
+            <option value="">Division</option>
+            <option value="men">Men</option>
+            <option value="women">Women</option>
+            <option value="mixed">Mixed</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Time</label>
+          <input placeholder="Sport Time" type="time">
+        </div>
+        <div class="field">
+          <label>Sport Venue</label>
+          <input placeholder="Sport Venue" type="text">
+        </div>
+      </form>
     </div>
-
-    <div class="modal-footer">
-      <div id="modal-button">
-        <a href="javascript:void(0)" id="label-enter" class="teal modal-action modal-close waves-effect waves-green btn-flat white-text" ng-click="add_sport()">Add Sport</a>
-      </div>
+    <div class="actions">
+      <div class="ui button modal-close">Cancel</div>
+      <div class="ui button modal-close" ng-click="add_sport()">Submit</div>
     </div>
   </div>
-
 </div>
 
 <script type="text/javascript">
   $(document).ready(function(){
-     $('.dropdown-button').dropdown({
-        inDuration: 300,
-        outDuration: 225,
-        constrain_width: false, // Does not change width of dropdown to that of the activator
-        hover: false, // Activate on hover
-        gutter: 0, // Spacing from edge
-        belowOrigin: true, // Displays dropdown below the button
-        alignment: 'left', // Displays dropdown with edge aligned to the left of button
-        stopPropagation: false // Stops event propagation
-      }
-    );
-    $('.modal').modal({
-      dismissible: true,
-      opacity: 0.5,
-      in_duration: 300,
-      out_duration: 200,
-      starting_top: '4%',
-      ending_top: '10%',
+    $("#add-sport").click(function() {
+      $("#add-sport-modal").modal("show");
     });
-    $('select').material_select();
+
+    $(".edit-sport").click(function() {
+      $("#edit-sport-modal").modal("show");
+    });
+
+    $(".modal-close").click(function() {
+      $(".ui.modal").modal("hide");
+    });
+
+    $('.special.cards .image').dimmer({
+      on: 'hover'
+    });
+    $('.ui.dropdown').dropdown();
   });
 </script>

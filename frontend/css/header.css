@@ -1,0 +1,56 @@
+.malicsi-text, .malicsi-text:hover {
+	font-family: "Raleway";
+	font-size: 50px;
+	color: rgba(0, 0, 0, 0.75);
+}
+
+.nav-btn {
+	font-size: 20px;
+}
+
+.login {
+	border-left-color: rgba(0, 0, 0, 0.1);
+	border-left-width: 1px;
+	border-left-style: solid;
+}
+
+.logo-container {
+	width: 100%;
+	text-align: center;
+}
+
+.logo-container img {
+	width: 50px;
+	margin-top: 15px;
+}
+
+#username {
+	font-size: 20px;
+	margin-right: 10px;
+}
+
+#log-mob, #reg-mob, #va-mob, #vu-mob, #vp-mob, #logo-mob {
+	font-size: 20px !important;
+}
+
+#logo-mob {
+	color: red !important;
+}
+
+#lr-dd {
+	display: none;
+}
+
+@media only screen and (max-width: 767px) {
+  #log, #reg, #username {
+  	display: none;
+  }
+
+  .logo-container {
+  	display: none;
+  }
+
+  #lr-dd {
+  	display: inherit;
+  }
+}

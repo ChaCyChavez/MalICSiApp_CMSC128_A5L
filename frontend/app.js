@@ -24,7 +24,7 @@ mainApp.config(function($routeProvider, $locationProvider) {
 			templateUrl: 'views/participant.html',
 			controller: 'participant-controller'
 		})
-		.when('/registered-user', {
+		.when('/registered-user/:game_id', {
 			templateUrl: 'views/registered_user.html',
 			controller: 'registered-user-controller'
 		})

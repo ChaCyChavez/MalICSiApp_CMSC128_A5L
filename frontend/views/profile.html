@@ -1,44 +1,37 @@
-<div ng-controller="profile-controller">
-	<div class="row font2" id="all">
-		<div class="col s12 m12 l6 xl6">
-			<div class="card">
-				<div class="card-content">
-					<!-- <div class="row"> -->
-					<div class="container" id="profile-pic">
-						<div>
-							<i class="fa fa-user-circle fa-5x blue-text"></i>
-						</div>
+<div ng-controller="profile-controller" ng-init="get_profile_info()">
+	<div class="row contents">
+		<div class="ui two column doubling stackable grid container">
+			<div class="column">
+				<div class="ui raised very padded text container segment" id="personal-info">
+					<div class="profile-pic">
+						<i class="fa fa-user-circle fa-5x blue-text"></i>
 					</div>
-				</div><!-- </div> -->
-				<div class="card-content teal lighten-1">
-					<!-- <div class="row"> -->
-					<div class="card-content center-align white-text">
-						<h3>{{ profile.firstname + " " + profile.middlename + " " +
-						profile.lastname}}</h3>
-						<h5>{{ profile.college }}</h5>
-						<h5>{{ profile.course }}</h5>
-						<h5>{{ profile.birthday | date: 'longDate'}}</h5>
-						<h5>{{ profile.email }}</h5>
-						<h5>{{ profile.player_jersey_num }}</h5>
-						<h5>{{ profile.player_role }}</h5>
-						<h5>{{ profile.position }}</h5>
-					</div>
+
+					<h1 class="ui header">{{ profile.firstname + " " + profile.middlename + " " +profile.lastname}}</h1>	
+					<div>{{ profile.college }}</div>
+					<div>{{ profile.course }}</div>
+					<div>{{ profile.birthday | date: 'longDate'}}</div>
+					<div>{{ profile.email }}</div>
+					<div>#{{ profile.player_jersey_num }}</div>
+					<div>{{ profile.player_role }}</div>
+					<div>{{ profile.position }}</div>
 				</div>
 			</div>
-		</div>
-		<div class="col s12 m12 l6 xl6">
-			<div class="card">
-				<div class="card-content">
-					<h3 class="teal-text text-lighten-1">UPCOMING EVENTS</h3>
-					<h5 ng-repeat="user_upcoming_event in user_upcoming_events">{{ "Game name:
-					"+ user_upcoming_event.game_name +" Game Staring date and time"+
-					user_upcoming_event.game_starting_time_date +" Game Ending date and time"+
-					user_upcoming_event.game_ending_time_date }}</h5><br>
+
+			<div class="column">
+				<div class="ui raised very padded text container segment" id="upcoming_events">
+					<h1 class="ui header">UPCOMING EVENTS</h1>
+					<div ng-repeat="user_upcoming_event in user_upcoming_events">
+						<h5>{{ "Game name: "+ user_upcoming_event.game_name }}</h5>
+						<h5>{{ " Game Staring date and time: "+
+						user_upcoming_event.game_starting_time_date }}</h5>
+						<h5>{{ " Game Ending date and time: "+
+						user_upcoming_event.game_ending_time_date }}</h5><br>
+					</div>
 				</div>
-			</div>
-			<div class="card">
-				<div class="card-content">
-					<h3 class="teal-text text-lighten-1">EVENTS PLAYED</h3>
+
+				<div class="ui raised very padded text container segment" id="events_played">
+					<h1 class="ui header">EVENTS PLAYED</h1>
 					<div ng-repeat="user_past_event in user_past_events">
 						<h5>{{ "Game name: "+ user_past_event.game_name }}</h5>
 						<h5>{{ " Game Staring date and time: "+
@@ -53,13 +46,6 @@
 </div>
 <script type="text/javascript">
   $(document).ready(function(){
-    $('.modal').modal({
-      dismissible: true,
-      opacity: 0.5,
-      in_duration: 300,
-      out_duration: 200,
-      starting_top: '4%',
-      ending_top: '10%',
-    });
+    $('.ui.dropdown').dropdown();
   });
 </script>

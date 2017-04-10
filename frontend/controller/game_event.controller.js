@@ -5,9 +5,9 @@
         .module('app')
         .controller('game-event-controller', game_event_controller);
 
-    game_event_controller.$inject = ['$scope', '$rootScope','$location', 'GameEventService', 'ProfileService'];
+    game_event_controller.$inject = ['$scope', '$window', '$rootScope','$location', 'GameEventService', 'ProfileService'];
 
-    function game_event_controller($scope, $rootScope, $location, GameEventService, ProfileService) {
+    function game_event_controller($scope, $window, $rootScope, $location, GameEventService, ProfileService) {
 		// fetching is being implemented by other group member
 
 		$scope.current_games = [
@@ -85,12 +85,12 @@
 		$scope.view_sponsor = () => {
 			$("#modal1").modal('close');
             window.location.href=$scope.view.type == 'upcoming'? "#!/sponsor/" + $scope.upcoming[$scope.view.id].game_id : "#!/sponsor/" + $scope.current_games[$scope.view.id].game_id;
-        	// window.location.reload();
+        		$window.location.reload();
         	//^temporary
         }
         $scope.view_sports = () => {
             window.location.href=$scope.view.type == 'upcoming'? "#!/sports/" + $scope.upcoming[$scope.view.id].game_id : "#!/sports/" + $scope.current_games[$scope.view.id].game_id;
-            // window.location.reload();
+            $window.location.reload();
             // ^temporary
         }
 
@@ -103,7 +103,7 @@
     $scope.view_registered_user = () => {
     	$("#modal1").modal('close');
         window.location.href=$scope.view.type == 'upcoming'? "#!/registered-user/" + $scope.upcoming[$scope.view.id].game_id : "#!/registered-user/" + $scope.current_games[$scope.view.id].game_id;
-        window.location.reload();
+        $window.location.reload();
         //^temporary
     }
 

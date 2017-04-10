@@ -1,31 +1,39 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <!-- <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
     <script src="https://use.fontawesome.com/f937d2b907.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Lato|Raleway" rel="stylesheet">
-    <!-- <link type="text/css" rel="stylesheet" href='https://fonts.googleapis.com/css?family=Roboto' > -->
 
     <link type="text/css" rel="stylesheet" href="bower_components/sweetalert/dist/sweetalert.css"  media="screen,projection"/>
-    <link type="text/css" rel="stylesheet" href="bower_components/materialize/dist/css/materialize.css"  media="screen,projection"/>
-    <link type="text/css" rel="stylesheet" href="css/home.css"  media="screen,projection"/>
+    <!-- <link type="text/css" rel="stylesheet" href="bower_components/materialize/dist/css/materialize.css"  media="screen,projection"/> -->
+
+    <link rel="stylesheet" type="text/css" href="assets/semantic/dist/semantic.min.css">
+    <link rel="stylesheet" href="/bower_components/semantic-ui-calendar/dist/calendar.min.css" />
+    <link type="text/css" rel="stylesheet" href="bower_components/swiper/dist/css/swiper.min.css"  media="screen,projection"/>
+
+    <!-- 
     <link type="text/css" rel="stylesheet" href="css/game_per_sport.css"  media="screen,projection"/>
-    <link type="text/css" rel="stylesheet" href="css/index.css"  media="screen,projection"/>
-    <link type="text/css" rel="stylesheet" href="css/user.css"  media="screen,projection"/>
-    <link type="text/css" rel="stylesheet" href="css/sponsors.css"  media="screen,projection"/>
-    <link type="text/css" rel="stylesheet" href="css/profile.css"  media="screen,projection"/>
     <link type="text/css" rel="stylesheet" href="css/participant.css"  media="screen,projection"/>
-    <link type="text/css" rel="stylesheet" href="css/registereduser.css"  media="screen,projection"/>
     <link type="text/css" rel="stylesheet" href="css/preloader.css" media="screen,projection">
-    <link type="text/css" rel="stylesheet" href="css/game_event.css"  media="screen,projection"/>
     <link type="text/css" rel="stylesheet" href="css/results.css"  media="screen,projection"/>
     <link type="text/css" rel="stylesheet" href="css/match.css"  media="screen,projection"/>
-    <link type="text/css" rel="stylesheet" href="css/activity_log.css"  media="screen,projection"/>
     <link type="text/css" rel="stylesheet" href="css/team.css"  media="screen,projection"/>
     <link type="text/css" rel="stylesheet" href="css/sport.css"  media="screen,projection"/>
-    <link type="text/css" rel="stylesheet" href="css/sports.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="css/search.css"  media="screen,projection"/> -->
+
+    <link type="text/css" rel="stylesheet" href="css/index.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="css/home.css"  media="screen,projection"/>
     <link type="text/css" rel="stylesheet" href="css/error_404.css"  media="screen,projection"/>
-    <link type="text/css" rel="stylesheet" href="css/search.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="css/header.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="css/footer.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="css/login_register.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="css/game_event.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="css/activity_log.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="css/user.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="css/profile.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="css/registereduser.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="css/sports.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="css/sponsors.css"  media="screen,projection"/>
 
     <link rel="icon" href="img/logo.png">
 
@@ -37,27 +45,38 @@
   <body>
     <div ng-app="app" class="main-container">
 	  <div ng-include="'views/header.html'"></div>
-      <div ng-view class="content"></div>
+      <div ng-view class="main-content"></div>
       <div ng-include="'views/footer.html'"></div>
     </div>
 
     <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
     <script type="text/javascript" src="bower_components/angular/angular.js"></script>
     <script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
-    <script type="text/javascript" src="bower_components/materialize/dist/js/materialize.js"></script>
-    <script type="text/javascript" src="bower_components/angular-materialize/src/angular-materialize.js"></script>
+    <!-- <script type="text/javascript" src="bower_components/materialize/dist/js/materialize.js"></script> -->
+    <!-- <script type="text/javascript" src="bower_components/angular-materialize/src/angular-materialize.js"></script> -->
+
+    <script type="text/javascript" src="assets/semantic/dist/semantic.min.js"></script>
+    <script type="text/javascript" src="bower_components/semantic-ui-calendar/dist/calendar.min.js"></script>
+    <script type="text/javascript" src="bower_components/swiper/dist/js/swiper.min.js"></script>
+
     <script type="text/javascript" src="bower_components/sweetalert/dist/sweetalert.min.js"></script>
     <script type="text/javascript" src="bower_components/moment/min/moment-with-locales.min.js"></script>
     <script type="text/javascript" src="app.js"></script>
+
+    <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/search.js"></script>
+
+    <!-- <script type="text/javascript" src="js/search.js"></script>
     <script type="text/javascript" src="js/home.js"></script>
     <script type="text/javascript" src="js/user.js"></script>
     <script type="text/javascript" src="js/game_event.js"></script>
     <script type="text/javascript" src="js/match.js"></script>
     <script type="text/javascript" src="js/sport.js"></script>
-    <script type="text/javascript" src="js/sports.js"></script>
-    <script type="text/javascript" src="js/modernizr-2.6.2.min.js"></script>
-    <script type="text/javascript" src="js/preloader.js"></script>
+    <script type="text/javascript" src="js/sports.js"></script> -->
+    <!-- <script type="text/javascript" src="js/modernizr-2.6.2.min.js"></script> -->
+    <!-- <script type="text/javascript" src="js/preloader.js"></script> -->
+
+
     <script type="text/javascript" src="services/profile.service.js"></script>
     <script type="text/javascript" src="services/game_per_sport.service.js"></script>
     <script type="text/javascript" src="services/game_event.service.js"></script>

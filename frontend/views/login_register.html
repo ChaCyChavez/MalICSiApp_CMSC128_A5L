@@ -1,97 +1,81 @@
-<div ng-controller='login-register-controller' ng-init="get_currGames()">
-  <div id="loader-wrapper">
-    <div id="loader"></div>
-    <div class="loader-section section-left"></div>
-    <div class="loader-section section-right"></div>
-  </div>
+<div ng-controller="login-register-controller" ng-init="get_currGames()">
 
-  <div class="slider">
-      <ul class="slides">
-          <li>
-              <img src="../img/o1.jpg"> <!-- random image -->
-              <div class="caption center-align">
-                  <h3>This is our big Tagline!</h3>
-                  <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-              </div>
-          </li>
-          <li>
-              <img src="../img/o2.jpg"> <!-- random image -->
-              <div class="caption left-align">
-                  <h3>Left Aligned Caption</h3>
-                  <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-              </div>
-          </li>
-          <li>
-              <img src="../img/o3.jpg"> <!-- random image -->
-              <div class="caption right-align">
-                <h3>Right Aligned Caption</h3>
-                <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-              </div>
-          </li>
-          <li>
-              <img src="../img/o4.jpg"> <!-- random image -->
-              <div class="caption center-align">
-                  <h3>This is our big Tagline!</h3>
-                  <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-              </div>
-          </li>
-          <li>
-              <img src="../img/o5.jpg"> <!-- random image -->
-              <div class="caption center-align">
-                  <h3>This is our big Tagline!</h3>
-                  <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-              </div>
-          </li>
-      </ul>
-  </div>
-
-  <div class="row contents">
-    <div class="col s12 m0">
-      <h4 class="news-announcement">News and Announcements</h4>
-      <div class="col s12 m12 l4" ng-repeat="(index, game) in current_games">
-        <div class="card large z-depth-3">
-          <div class="card-image">
-            <img src="img/sample-1.jpg">
-            <span class="card-title">{{game.game_name}}</span>
-          </div>
-          <div class="card-content">
-            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-          </div>
-          <div class="card-action">
-            <a href="javascript:void(0)">Read More</a>
-          </div>
+  <!-- Swiper -->
+   <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <img class="slide-img" src="../img/o1.jpg"> <!-- random image -->
+        <div class="caption">
+            <h3>This is our big Tagline!</h3>
+            <h5>Here's our small slogan.</h5>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <img class="slide-img" src="../img/o2.jpg"> <!-- random image -->
+        <div class="caption">
+            <h3>This is our big Tagline!</h3>
+            <h5>Here's our small slogan.</h5>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <img class="slide-img" src="../img/o3.jpg"> <!-- random image -->
+        <div class="caption">
+            <h3>This is our big Tagline!</h3>
+            <h5>Here's our small slogan.</h5>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <img class="slide-img" src="../img/o4.jpg"> <!-- random image -->
+        <div class="caption">
+            <h3>This is our big Tagline!</h3>
+            <h5 >Here's our small slogan.</h5>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <img class="slide-img" src="../img/o5.jpg"> <!-- random image -->
+        <div class="caption">
+            <h3>This is our big Tagline!</h3>
+            <h5>Here's our small slogan.</h5>
         </div>
       </div>
     </div>
+
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
   </div>
-    <!-- Modal Structure -->
+
+  <div class="contents" id="cg">
+    <h3 class="content-header">Current Games</h3>
+    <div class="ui three stackable cards">
+        <div class="card" ng-repeat="(index, game) in current_games">
+          <div class="image">
+            <img src="../img/strategy.png">
+          </div>
+          <div class="content">
+            <span class="header">{{game.game_name}}</span>
+          </div>
+          <div class="extra content">
+            Start: <br/>
+            <span>{{game.game_starting_time_date}}</span>
+            <br/>
+            End: <br/>
+            <span>{{game.game_ending_time_date}}</span>
+          </div>
+        </div>  
+    </div>
+  </div>
+
 </div>
-
 <script>
-$(document).ready(function(){
-  $('.slider').slider();
-  $('select').material_select();
-  $('.modal').modal({
-    size: 'small',
-    dismissible: true,
-    opacity: 0.5,
-    in_duration: 300,
-    out_duration: 200,
-    starting_top: '4%',
-    ending_top: '10%',
-  });
-  $('.datepicker').pickadate({
-    selectMonths: true,
-    selectYears: 100,
-    format: 'yyyy-mm-dd'
-  });
-
-  $("#modal-login").width($(".modal").width());
-  $("#modal-login").height($(".modal").height());
-  $("#modal-register").width($(".modal").width());
-  $("#modal-register").height($(".modal").height());
+var swiper = new Swiper('.swiper-container', {
+    pagination: '.swiper-pagination',
+      nextButton: '.swiper-button-next',
+      prevButton: '.swiper-button-prev',
+      slidesPerView: 'auto',
+      slidesPerView: 1,
+      paginationClickable: true,
+      spaceBetween: 30,
+      loop: true
 });
 </script>
-
-<script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
-<script type="text/javascript" src="bower_components/materialize/dist/js/materialize.js"></script>
