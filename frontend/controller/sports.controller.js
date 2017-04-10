@@ -5,9 +5,9 @@
         .module('app')
         .controller('sports-controller', sports_controller);
 
-    sports_controller.$inject = ['$scope', '$location', '$routeParams','$interval', 'SportsService'];
+    sports_controller.$inject = ['$scope', '$window', '$location', '$routeParams','$interval', 'SportsService'];
 
-    function sports_controller($scope, $location, $routeParams, $interval, SportsService) {
+    function sports_controller($scope, $window, $location, $routeParams, $interval, SportsService) {
 
 
         $scope.sports = [
@@ -20,22 +20,27 @@
 
         $scope.view_sport = (sport_id) => {
             window.location.href="#!/sport/" + sport_id;
+            $window.location.reload();
         }
 
         $scope.view_profile = () => {
             window.location.href="#!/profile";
+            $window.location.reload();
         }
 
         $scope.view_user = () => {
             window.location.href="#!/user";
+            $window.location.reload();
         }
 
         $scope.logout = () => {
             window.location.href="#!/";
+            $window.location.reload();
         }
 
         $scope.back_to_home = () => {
             window.location.href="#!/game-event";
+            $window.location.reload();
         }
 
         $scope.delete_sport = (index) => {

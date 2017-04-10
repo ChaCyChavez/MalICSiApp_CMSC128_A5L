@@ -1,57 +1,55 @@
 <div ng-controller="team-controller">
 
-  <h4 class="header">Team {{team_id}}</h4>
+  
   <div class="row contents">
-    <div class="team-matches" ng-init="get_team_profile()">
-      <table>
-        <thead>
-          <tr>
-            <th>Player Name</th>
-            <th>Course</th>
-            <th>College</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr ng-repeat="users in user">
-            <td>{{users.firstname + " " + users.middlename + " " + users.lastname}}</td>
-            <td>{{users.course}}</td>
-            <td>{{users.college}}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="team-matches" ng-init="get_team_match()">
-      <table>
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Opponent</th>
-            <th>Result</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr ng-repeat="teams in team">
-            <td>{{teams.match_date_time}}</td>
-            <td>{{teams.team_name}}</td>
-            <td>{{teams.score}}</td>
-          </tr>
-        </tbody>
-      </table>
+    <h3 class="content-header">Team {{team_id}}</h3>
+    <div class="ui two column doubling stackable grid container">
+      <div class="column" ng-init="get_team_profile()">
+        <div class="ui raised very fluid padded container segment">
+          <table class="ui very basic selectable collapsing celled table" id="team-table">
+            <thead>
+              <tr>
+                <th><h3>Player Name</h3></th>
+                <th><h3>Course</h3></th>
+                <th><h3>College</h3></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="users in user">
+                <td>{{users.firstname + " " + users.middlename + " " + users.lastname}}</td>
+                <td>{{users.course}}</td>
+                <td>{{users.college}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="column" ng-init="get_team_match()">
+        <div class="ui raised very fluid padded container segment">
+          <table class="ui very basic selectable collapsing celled table" id="sched-table">
+            <thead>
+              <tr>
+                <th><h3>Date</h3></th>
+                <th><h3>Opponent</h3></th>
+                <th><h3>Result</h3></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="teams in team">
+                <td>{{teams.match_date_time}}</td>
+                <td>{{teams.team_name}}</td>
+                <td>{{teams.score}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
 <script type="text/javascript">
-  $(document).ready(function(){
-     $('.dropdown-button').dropdown({
-        inDuration: 300,
-        outDuration: 225,
-        constrain_width: false, // Does not change width of dropdown to that of the activator
-        hover: false, // Activate on hover
-        gutter: 0, // Spacing from edge
-        belowOrigin: true, // Displays dropdown below the button
-        alignment: 'left', // Displays dropdown with edge aligned to the left of button
-        stopPropagation: false // Stops event propagation
-      }
-    );
+$(document).ready(function(){
+
+});
 </script>

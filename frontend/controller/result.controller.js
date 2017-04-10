@@ -5,22 +5,26 @@
         .module('app')
         .controller('result-controller', result_controller);
 
-    function result_controller($scope, $location, $routeParams, ResultService) {
+    function result_controller($scope, $window, $location, $routeParams, ResultService) {
       let data = [];
     	$scope.view_profile = () => {
             window.location.href="#!/profile";
+            $window.location.reload();
         }
 
         $scope.view_user = () => {
             window.location.href="#!/user";
+            $window.location.reload();
         }
 
         $scope.logout = () => {
             window.location.href="#!/";
+            $window.location.reload();
         }
 
         $scope.back_to_home = () => {
             window.location.href="#!/game-event";
+            $window.location.reload();
         }
 
         $scope.elimination_matches = [];

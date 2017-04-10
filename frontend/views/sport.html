@@ -1,132 +1,118 @@
 <div ng-controller="sport-controller">
   <div class="row contents" id="sport-content" ng-init = "get_matches();get_courts();">
-    <h3 class="header">Sport</h3>
-    <div class="col s0 m0 l1">&nbsp</div>
-    <div class="col s12 m0">
+    <h3 class="content-header">Sport</h3>
+
       <!-- List of Participants -->
-      <div class="col s5 m4">
-        <div class="card-panel">
-          <ul class="collapsible" data-collapsible="accordion">
-            <li>
-              <div class="collapsible-header" ng-repeat="team in teams">
-                <a href="javascript:void(0)" class="blue-text" ng-click="view_team(team.team_id)">{{team.team_name}}</a>
-              </div>
-            </li>
-          </ul>
+    <div class="ui two column doubling stackable grid container">
+      <div class="four wide column">
+        <div class="ui raised very fluid padded container segment">
+          <table class="ui very basic selectable collapsing celled table" id="team-table">
+            <thead>
+              <tr>
+                <th>
+                  <h1>Teams</h1>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="team in teams">
+                <td>
+                  <a href="javascript:void(0)" ng-click="view_team(team.team_id)">
+                  <h4 class="trow ui header">
+                    <i class=" fa fa-group fa-2x ui mini rounded"></i>
+                    <div class="content">
+                      {{team.team_name}}
+                        <div class="sub header">{{team.team_color}}</div>
+                    </div>
+                  </h4>
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
-      <!-- Schedule of Matches -->
-      <div class="col s7 m8">
-        <div>
-          <div>
-            <div class="row schedule-contents">
-              <h4 class="card-title left">SCHEDULE</h4>
-              <div class="right">
-                <a href="javascript:void(0)" data-target = "add-match-modal" class="btn-large">add match</a>
-              </div>
-            </div>
-            <div class="center collection">
-              <div class="collection-item" ng-repeat="match in matches">
-                <div class="match-competing-teams">
-                    <span>Teams:&nbsp;</span>
-                    <span ng-repeat = "team in match.teams">{{team}} &nbsp;&nbsp;</span>
-                </div>
-                <div class="match-date-time">xx
-                  <h6>Date &amp; Time:&nbsp;{{match.date_time | date: "medium"}}</h6>
-                </div>
-                <div class="match-court">
-                    <span>Court:&nbsp;{{match.court_name}}</span>
-                </div>
-                <a href="javascript:void(0)" class="blue-text view-match" ng-click="view_match(match.match_id)">View Match</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="left">
-          <a href="javascript:void(0)" ng-click="view_tournament_bracketing(sportid)" class="btn-large">tournament bracketing</a>
+      <div class="twelve wide column">
+        <div class="ui raised very fluid padded container segment">
+          <h1>Schedule</h1>
+          <a href="javascript:void(0)" id="add-match" class="ui blue button">Add Match</a>
+          <a href="javascript:void(0)" ng-click="view_tournament_bracketing(sportid)" class="ui blue button">View Tournament Bracketing</a>
+          <table class="ui single line collapsing table" id="sched-table">
+            <tbody>
+              <tr ng-repeat="match in matches">
+                <td>
+                  <h4 class="trow ui header">
+                    <div class="content sched">
+                      <div>Teams:&nbsp;</div>
+                      <span ng-repeat = "team in match.teams">{{team}} &nbsp;&nbsp;</span>
+                      <div><i class="fa fa-clock-o"></i>&nbsp;:&nbsp;{{match.date_time | date: "medium"}}</div>
+                      <div><i class="fa fa-map"></i>&nbsp;:&nbsp;{{match.court_name}}</div>
+                    </div>
+                  </h4>
+                </td>
+                <td>
+                  <div class="view-match-container">
+                    <a href="javascript:void(0)" class="ui button" ng-click="view_match(match.match_id)">View Match</a>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
 
-  </div>
-</div>
-
-<!-- Modal -->
-<div id="add-match-modal" class="modal modal-fixed-footer">
-  <div class="modal-content" id="modal_add">
-    <div class="teal content-title">
-      <h4 class="add white-text center-align">ADD MATCH</h4>
-    </div>
-    <div class="form-content" style="height: 287px;">
-      <div class="row">
-        <form class="col s12" id="add_match_form">
-          <div class="row">
-            <div class="input-field col s6">
-              <input id="match_date" type="date" class="datepicker">
-              <label class="labels cyan-text text-darken-4" for="matchdate">Date</label>
-            </div>
-            <div class="input-field col s6">
-              <input id="match_time" type="time" class="validate">
-              <label for="time"></label>
+    <div class="ui modal" id="add-match-modal">
+      <i class="close icon"></i>
+      <div class="header">Add Match</div>
+      <div class="content">
+        <form class="ui big form">
+          <div class="ui calendar field" id="match-date">
+            <label>Match Date</label>
+            <div class="ui input left icon">
+              <i class="calendar icon"></i>
+              <input type="text" placeholder="Date">
             </div>
           </div>
-
-          <div class="input-field col s12">
-            <select ng-model="courts">
-              <option value="" disabled selected>Choose your option</option>
-              <option value="men">Court 1</option>
-              <option value="women">Court 2</option>
-              <option value="mixed">Court 3</option>
-            </select>
-            <label>Court</label>
-          </div>
-
-          <div class="input-field col s12">
-            <select multiple ng-model="selection">
-              <option value="" disabled selected>Choose your option</option>
-              <option value="men">Men</option>
-              <option value="women">Women</option>
-              <option value="mixed">Mixed</option>
-            </select>
+          <div class="field">
             <label>Teams Joining</label>
+            <select name="teams" multiple="" class="ui fluid dropdown">
+              <option value="">Teams</option>
+              <option value="blue">Team Blue</option>
+              <option value="red">Team Red</option>
+              <option value="green">Team Green</option>
+              <option value="yellow">Team Yellow</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Court</label>
+            <select class="ui dropdown">
+              <option value="">Court</option>
+              <option value="1">Court 1</option>
+              <option value="2">Court 2</option>
+              <option value="3">Court 3</option>
+            </select>
           </div>
         </form>
       </div>
+      <div class="actions">
+        <div class="ui button modal-close">Cancel</div>
+        <div class="ui button modal-close" ng-click="add_match()">Submit</div>
+      </div>
     </div>
   </div>
-  <div class="modal-footer">
-    <div id="modal-button">
-      <a href="javascript:void(0)" id="label-enter" class="teal modal-action modal-close waves-effect waves-green btn-flat white-text" ng-click="add_match()">Add Match</a>
-    </div>
-  </div>
+</div>
 
 <script type="text/javascript">
-  $(document).ready(function(){
-     $('.dropdown-button').dropdown({
-        inDuration: 300,
-        outDuration: 225,
-        constrain_width: false, // Does not change width of dropdown to that of the activator
-        hover: false, // Activate on hover
-        gutter: 0, // Spacing from edge
-        belowOrigin: true, // Displays dropdown below the button
-        alignment: 'left', // Displays dropdown with edge aligned to the left of button
-        stopPropagation: false // Stops event propagation
-      }
-    );
-    $('.modal').modal({
-      dismissible: true,
-      opacity: 0.5,
-      in_duration: 300,
-      out_duration: 200,
-      starting_top: '4%',
-      ending_top: '10%',
-    });
-    // $('.collapsible').collapsible();
-    $('.datepicker').pickadate({
-      selectMonths: true, // Creates a dropdown to control month
-      selectYears: 15 // Creates a dropdown of 15 years to control year
-    });
-
-    $('select').material_select();
+$(document).ready(function(){
+  $("#add-match").click(function() {
+    $("#add-match-modal").modal("show");
   });
+  
+  $('.ui.dropdown').dropdown();
+
+  $('#match-date').calendar({
+    type: 'datetime'
+  });
+});
 </script>

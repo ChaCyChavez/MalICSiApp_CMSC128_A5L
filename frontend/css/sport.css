@@ -1,13 +1,23 @@
-
-a.view-match {
-	font-size: 20px !important;
+#team-table, #sched-table {
+	width: 100% !important;
 }
 
-#vfl {
-	padding: 10px;
+.content.sched {
+	width: 100% !important;
+	text-align: center;
 }
 
-.schedule-contents {
-	padding-bottom: 0px !important;
-	margin-bottom: 0px !important;
+.view-match-container {
+	width: 100% !important;
+	text-align: right !important;
+}
+
+@media only screen and (max-width: 767px) {
+	.view-match-container {
+		text-align: center !important;
+	}
+
+	#team-table {
+		text-align: center !important;
+	}
 }
