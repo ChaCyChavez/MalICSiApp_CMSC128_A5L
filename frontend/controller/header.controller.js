@@ -41,11 +41,11 @@
 			LoginRegisterService
 		        .logout()
 		        .then(function(res) {
-					Materialize.toast(res.message, 4000, 'teal');
+					// Materialize.toast(res.message, 4000, 'teal');
 					$window.location.href = "#!/"
 					location.reload();
 		        }, function(err) {
-					Materialize.toast('Logout unsuccessful!', 4000, 'teal');
+					// Materialize.toast('Logout unsuccessful!', 4000, 'teal');
 		        })
 
 		}
@@ -73,7 +73,15 @@
 				$scope.info.username === '' ||
 				$scope.info.password === undefined ||
 				$scope.info.password === '') {
-				Materialize.toast("Please fill-out all the fields", 4000, 'teal');
+				$.uiAlert({
+					textHead: "Login error", // header
+					text: 'Please fill-out all the fields', // Text
+					bgcolor: '#DB2828', // background-color
+					textcolor: '#fff', // color
+					position: 'top-center',// position . top And bottom ||  left / center / right
+					icon: 'remove circle', // icon in semantic-UI
+					time: 3, // time
+				});
 				$scope.info.username = '';
 				$scope.info.password = '';
 				$scope.info.username = undefined;
@@ -87,7 +95,7 @@
 						$window.location.href = '#!/game-event';
 						location.reload();
 					}, function(err) {
-						Materialize.toast(err.message, 4000, 'teal');
+						// Materialize.toast(err.message, 4000, 'teal');
 						$scope.info.username = '';
 						$scope.info.password = '';
 						$scope.info.username = undefined;
@@ -99,9 +107,10 @@
 		$scope.register = () => {
 			let isplayer = $("#is_player").is(":checked");
 			let isgamehead = $("#is_game_head").is(":checked");
-			let e = document.getElementById("opt");
+			let e = document.getElementById("college");
 			let strUser = e.options[e.selectedIndex].value;
-			$scope.data.birthday = $('.datepicker').val();
+			$scope.data.birthday = $('#birthday').calendar('get date');
+			console.log($scope.data.birthday);
 			$scope.data.college = strUser;
 
 			if (isplayer)
@@ -144,7 +153,15 @@
 				$scope.data.position === '' ||
 				$scope.data.player_role === undefined ||
 				$scope.data.player_role === '') {
-				Materialize.toast("Please fill-out all the fields", 4000, 'teal');
+				$.uiAlert({
+					textHead: "Registration error", // header
+					text: 'Please fill-out all the fields', // Text
+					bgcolor: '#DB2828', // background-color
+					textcolor: '#fff', // color
+					position: 'top-center',// position . top And bottom ||  left / center / right
+					icon: 'remove circle', // icon in semantic-UI
+					time: 3, // time
+				});
 				$scope.data.username = '';
 				$scope.data.password = '';
 				$scope.data.firstname = '';
@@ -156,14 +173,21 @@
 				$scope.data.birthday = '';
 				$scope.data.position = '';
 				$scope.data.player_role = '';
-				$("#modal-register").modal('close');
 			} else {
 				LoginRegisterService
 					.register_account($scope.data)
 					.then(function(res) {
-						$("#modal-register").modal('close');
-						Materialize.toast("Register successful!", 4000, 'teal');
-						Materialize.toast("Your registration is now on process", 4000, 'teal');
+						// Materialize.toast("Register successful!", 4000, 'teal');
+						// Materialize.toast("Your registration is now on process", 4000, 'teal');
+						$.uiAlert({
+							textHead: "Registration successful", // header
+							text: 'Your registration is now on process', // Text
+							bgcolor: '#19c3aa', // background-color
+							textcolor: '#fff', // color
+							position: 'top-center',// position . top And bottom ||  left / center / right
+							icon: 'remove circle', // icon in semantic-UI
+							time: 3, // time
+						});
 						$scope.data.username = '';
 						$scope.data.password = '';
 						$scope.data.firstname = '';
@@ -193,7 +217,7 @@
 						$scope.data.player_jersey_num = 0;
 						$scope.data.player_role = undefined;
 					}, function(err) {
-						Materialize.toast(err.message, 4000, 'teal');
+						// Materialize.toast(err.message, 4000, 'teal');
 					})
 			}
 		}

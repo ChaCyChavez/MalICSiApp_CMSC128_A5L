@@ -16,9 +16,7 @@
                 </div>
               </div>
             </div>
-            <div class="spon-icon">
-              <i class="fa fa-group fa-5x"></i>
-            </div>
+            <img src="../img/sponsor.jpg">
           </div>
           <div class="content">
             <span class="header">{{spon.sponsor_name}}</span>
@@ -37,21 +35,23 @@
 
   <div class="ui modal" id="add-sponsor-modal">
     <i class="close icon"></i>
-    <div class="header">Add Sponsor</div>
+    <div class="header add-sponsor-header">Add Sponsor</div>
     <div class="content">
       <form class="ui big form">
-        <div class="field">
-          <label>Sponsor Name</label>
-          <input placeholder="Sponsor Name" type="text" ng-model="sponsor.sponsor_name">
-        </div>
-        <div class="field">
-          <label>Sponsor Type</label>
-          <select class="ui search dropdown" id="sponsor_type">
-            <option value="" disabled selected>Type</option>
-            <option value="minor">minor</option>
-            <option value="major">major</option>
-            <option value="major">official partner</option>
-          </select>
+        <div class="two fields">
+          <div class="field">
+            <label>Sponsor Name</label>
+            <input placeholder="Sponsor Name" type="text" ng-model="sponsor.sponsor_name">
+          </div>
+          <div class="field">
+            <label>Sponsor Type</label>
+            <select class="ui dropdown" id="sponsor_type">
+              <option value="" disabled selected>Type</option>
+              <option value="minor">minor</option>
+              <option value="major">major</option>
+              <option value="major">official partner</option>
+            </select>
+          </div>
         </div>
         <div class="field">
           <label>Sponsor Description</label>
@@ -65,27 +65,29 @@
     </div>
     <div class="actions">
       <div class="ui button modal-close">Cancel</div>
-      <div class="ui button modal-close" ng-click="add_sponsor()">Submit</div>
+      <div class="ui button modal-close green" ng-click="add_sponsor()">Submit</div>
     </div>
   </div>
 
   <div class="ui modal" id="edit-sponsor-modal">
     <i class="close icon"></i>
-    <div class="header">Edit Sponsor</div>
+    <div class="header edit-sponsor-header">Edit Sponsor</div>
     <div class="content">
       <form class="ui big form">
-        <div class="field">
-          <label>Sponsor Name</label>
-          <input placeholder="Sponsor Name" type="text" ng-model="sponsorEdit.sponsor_name">
-        </div>
-        <div class="field">
-          <label>Sponsor Type</label>
-          <select class="ui search dropdown" ng-model="sponsorEdit.sponsor_type">
-            <option value="" disabled selected>Type</option>
-            <option value="minor">minor</option>
-            <option value="major">major</option>
-            <option value="major">official partner</option>
-          </select>
+        <div class="two fields">
+          <div class="field">
+            <label>Sponsor Name</label>
+            <input placeholder="Sponsor Name" type="text" ng-model="sponsorEdit.sponsor_name">
+          </div>
+          <div class="field">
+            <label>Sponsor Type</label>
+            <select class="ui dropdown" ng-model="sponsorEdit.sponsor_type">
+              <option value="" disabled selected>Type</option>
+              <option value="minor">minor</option>
+              <option value="major">major</option>
+              <option value="major">official partner</option>
+            </select>
+          </div>
         </div>
         <div class="field">
           <label>Sponsor Description</label>
@@ -99,7 +101,7 @@
     </div>
     <div class="actions">
       <div class="ui button modal-close">Cancel</div>
-      <div class="ui button modal-close" ng-click="update_sponsor()">Submit</div>
+      <div class="ui button modal-close green" ng-click="update_sponsor()">Submit</div>
     </div>
   </div>
 </div>
@@ -107,6 +109,7 @@
 
  <script type="text/javascript">
 $(document).ready(function(){
+  $('.ui.dropdown').dropdown();
   $("#add-sponsor").click(function() {
     $("#add-sponsor-modal").modal("show");
   });

@@ -2,12 +2,12 @@
 	<div class="ui grid">
 		<div ng-if="profile == undefined">
 			<div class="computer tablet only row">
-				<div class="ui top fixed menu">
+				<div class="ui top fixed menu navbar">
 				  <div class="item">
 				    <a href="javascript:void(0)" class="malicsi-text ui" id="logo-text" ng-click="changeView('#!/')">MALICSI</a>
 				  </div>
 				  <div class="logo-container">
-				  	<img src="../img/logo.png" />
+				  	<img src="../img/logo-white.png" />
 				  </div>
 
 					  <a class="item right nav-btn register" id="reg">Register</a>
@@ -27,14 +27,14 @@
 
 		<div ng-if="profile != undefined">
 			<div class="computer tablet only row">
-				<div class="ui top fixed menu">
+				<div class="ui top fixed menu navbar">
 				  <div class="item">
 				    <a href="javascript:void(0)" class="malicsi-text ui" id="logo-text" ng-click="changeView('#!/game-event')">MALICSI</a>
 				  </div>
 				  <div class="logo-container">
-				  	<img src="../img/logo.png" />
+				  	<img src="../img/logo-white.png" />
 				  </div>
-				  <div class="ui item dropdown right">
+				  <div class="ui item dropdown right log-dd">
 				 		<span id="username">Hi, {{profile.username}}</span>
 	          <i class="fa fa-reorder fa-2x"></i>
 	        	<div class="menu">
@@ -50,7 +50,7 @@
 
 		<div class="ui modal" id="register-modal">
 		  <i class="close icon"></i>
-		  <div class="header">
+		  <div class="header reg-modal-header">
 		    Register
 		  </div>
 		  <div class="content">
@@ -58,31 +58,31 @@
 				  <div class="three fields">
 				    <div class="field">
 				      <label>First name</label>
-				      <input placeholder="First Name" type="text">
+				      <input placeholder="First Name" type="text" ng-model="data.firstname">
 				    </div>
 				    <div class="field">
 				      <label>Middle name</label>
-				      <input placeholder="Middle Name" type="text">
+				      <input placeholder="Middle Name" type="text" ng-model="data.middlename">
 				    </div>
 				    <div class="field">
 				      <label>Last name</label>
-				      <input placeholder="Last Name" type="text">
+				      <input placeholder="Last Name" type="text" ng-model="data.lastname">
 				    </div>
 				  </div>
 
 				  <div class="field">
 				  	<label>Email Address</label>
-				    <input placeholder="Email Address" type="text">
+				    <input placeholder="Email Address" type="text" ng-model="data.email">
 				  </div>
 
 				  <div class="two fields">
 				  	<div class="field">
 					  	<label>Username</label>
-					    <input placeholder="Username" type="text">
+					    <input placeholder="Username" type="text" ng-model="data.username">
 					  </div>
 					  <div class="field">
 					  	<label>Password</label>
-					    <input placeholder="Password" type="password">
+					    <input placeholder="Password" type="password" ng-model="data.password">
 					  </div>
 				  </div>
 
@@ -97,12 +97,12 @@
 
 					  <div class="field">
 					  	<label>Course</label>
-					    <input placeholder="Course" type="text">
+					    <input placeholder="Course" type="text" ng-model="data.course">
 					  </div>
 
 					  <div class="field">
 					  	<label>College</label>
-					    <select class="ui search dropdown">
+					    <select class="ui search dropdown" id="college">
 					    	<option value="">College</option>
 					    	<option value="CA">CA</option>
 								<option value="CAS">CAS</option>
@@ -122,24 +122,24 @@
 				  <div class="two fields">
 				  	<div class="field">
 					  	<label>Position</label>
-					    <input placeholder="Position" type="text">
+					    <input placeholder="Position" type="text" ng-model="data.position">
 					  </div>
 
 					  <div class="field">
 					  	<label>Player Role</label>
-					    <input placeholder="Player Role" type="text">
+					    <input placeholder="Player Role" type="text" ng-model="data.player_role">
 					  </div>
 				  </div>
 				  <div class="two fields">
 				  	<div class="inline field">
 					    <div class="ui checkbox">
-					      <input tabindex="0" class="hidden" type="checkbox">
+					      <input tabindex="0" class="hidden" type="checkbox" ng-model="data.is_player">
 					      <label>Are you a player?</label>
 					    </div>
 					  </div>
 					  <div class="inline field">
 					    <div class="ui checkbox">
-					      <input tabindex="0" class="hidden" type="checkbox">
+					      <input tabindex="0" class="hidden" type="checkbox" ng-model="data.is_game_head">
 					      <label>Planning to head a game event?</label>
 					    </div>
 					  </div>
@@ -148,13 +148,13 @@
 		  </div>
 		  <div class="actions">
 		    <div class="ui button modal-close">Cancel</div>
-		    <div class="ui button modal-close">Submit</div>
+		    <div class="ui button modal-close green" ng-click="register()">Submit</div>
 		  </div>
 		</div>
 
 		<div class="ui small modal" id="login-modal">
 		  <i class="close icon"></i>
-		  <div class="header">
+		  <div class="header log-modal-header">
 		    Login
 		  </div>
 		  <div class="content">
@@ -171,8 +171,16 @@
 		  </div>
 		  <div class="actions">
 		    <div class="ui button modal-close">Cancel</div>
-		    <div class="ui button modal-close" ng-click="login()">Submit</div>
+		    <div class="ui button modal-close green" ng-click="login()">Submit</div>
 		  </div>
+		</div>
+
+		<div class="ui message">
+		  <i class="close icon"></i>
+		  <div class="header">
+		    Welcome back!
+		  </div>
+		  <p>This is a special notification which you can dismiss if you're bored with it.</p>
 		</div>
 
 
@@ -200,6 +208,6 @@
 		$('#birthday').calendar({
 			type: 'date'
 		});
-	})
+	});
 	
 </script>

@@ -3,7 +3,7 @@
     <h3 class="content-header">User</h3>
     <h3>Pending User</h3>
 
-    <div class="ui three stackable special cards">
+    <div class="ui four stackable special cards">
       <div class="card" ng-class="{active:!$index}" ng-repeat="(index, account) in pending_accounts">
         <div class="blurring dimmable image">
           <div class="ui dimmer">
@@ -14,7 +14,7 @@
               </div>
             </div>
           </div>
-          <img src="../img/strategy.png">
+          <img src="../img/user.png">
         </div>
         <div class="content">
           <span class="header">{{account.firstname}} {{account.middlename}} {{account.lastname}}</span>
@@ -56,7 +56,7 @@
       </div>
       <div class="swiper-pagination"></div>
     </div> -->
-    <div class="ui three stackable special cards">
+    <div class="ui four stackable special cards">
       <div class="card" ng-class="{active:!$index}" ng-repeat="(index, account) in accounts | filter: {is_approved: 1}">
         <div class="blurring dimmable image">
           <div class="ui dimmer">
@@ -67,7 +67,7 @@
               </div>
             </div>
           </div>
-          <img src="../img/strategy.png">
+          <img src="../img/user.jpg">
         </div>
         <div class="content">
           <span class="header">{{account.firstname}} {{account.middlename}} {{account.lastname}}</span>
@@ -85,17 +85,11 @@
 
 </div>
 
-<script>
-var swiper = new Swiper('.swiper-container', {
-    pagination: '.swiper-pagination',    paginationClickable: true,
-    spaceBetween: 30
-});
-</script>
-
 <script type="text/javascript">
 $(document).ready(function(){
   $('.special.cards .image').dimmer({
     on: 'hover'
   });
+  $('.ui.dropdown').dropdown();
 });
 </script>

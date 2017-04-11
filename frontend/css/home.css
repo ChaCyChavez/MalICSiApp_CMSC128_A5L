@@ -1,3 +1,7 @@
+body {
+    background-color: #ddd; 
+}
+
 .add-btn {
     position: fixed;
     bottom: 0;
@@ -6,7 +10,6 @@
     z-index: 100;
     color: white;
     background-color: #2185D0;
-    /*padding: 25px;*/
     text-align: center;
     line-height: 85px !important;
     border-radius: 500px;
@@ -21,7 +24,7 @@
 
 .contents {
     text-align: center;
-    margin: 75px !important;
+    margin: 25px 75px 75px 75px !important;
 }
 
 .main-content {

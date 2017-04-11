@@ -1,12 +1,26 @@
+ @font-face {
+    font-family: 'Panton Black';
+    src: url(../fonts/panton/Panton-BlackCaps.otf);
+}
+
+.navbar {
+	background-color: #1a5a63 !important;
+}
+
 .malicsi-text, .malicsi-text:hover {
-	font-family: "Raleway";
+	font-family: "Panton Black";
 	font-size: 40px;
-	font-weight: bold;
+	color: #fff !important;
 	color: rgba(0, 0, 0, 0.75);
 }
 
 .nav-btn {
 	font-size: 20px;
+	color: #fff !important;
+}
+
+.log-dd {
+	color: #fff !important;
 }
 
 .login {
@@ -40,6 +54,11 @@
 
 #lr-dd {
 	display: none;
+}
+
+.header.reg-modal-header, .header.log-modal-header {
+	text-align: center;
+	font-size: 30px !important;
 }
 
 @media only screen and (max-width: 767px) {

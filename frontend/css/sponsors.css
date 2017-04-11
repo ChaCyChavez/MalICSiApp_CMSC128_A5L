@@ -8,9 +8,7 @@ span#sponsor-header {
   margin-top: 40px !important;
 }
 
-.spon-icon {
-  padding: 25px 0;
-  text-align: center;
-  font-size: 250%;
-  color: #fff;
+.add-sponsor-header, .edit-game-header {
+	font-size: 30px !important;
+	text-align: center !important;
 }

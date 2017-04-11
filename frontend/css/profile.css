@@ -5,3 +5,8 @@
 #events_played, #upcoming_events {
     width: 100%;
 }
+
+.profile-pic img{
+	padding: 10px !important;
+	width: 100% !important;
+}

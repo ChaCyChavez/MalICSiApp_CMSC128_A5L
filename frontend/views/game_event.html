@@ -15,7 +15,7 @@
       <div class="results"></div>
     </div>
     <h3>Current Games</h3>
-    <div class="ui three stackable special cards">
+    <div class="ui four stackable special cards">
         <div class="card" ng-repeat="(index, game) in current_games">
           <div class="blurring dimmable image">
             <div class="ui dimmer">
@@ -26,16 +26,16 @@
                 </div>
               </div>
             </div>
-            <img src="../img/strategy.png">
+            <img src="../img/games.png">
           </div>
           <div class="content">
             <span class="header">{{game.game_name}}</span>
             <div class="meta">
               Start: <br/>
-              <span>{{game.game_starting_time_date}}</span>
+              <span>{{game.game_starting_time_date | date: 'fullDate'}}</span>
               <br/>
               End: <br/>
-              <span>{{game.game_ending_time_date}}</span>
+              <span>{{game.game_ending_time_date | date: 'fullDate'}}</span>
             </div>
           </div>
           <div class="extra content">
@@ -59,7 +59,7 @@
             <img src="../img/strategy.png">
           </div>
           <div class="content">
-            <span class="header">{{game.game_name}}</span>
+            <span class="header game-title">{{game.game_name}}</span>
             <div class="meta">
               Start: <br/>
               <span>{{game.game_starting_time_date}}</span>
@@ -78,7 +78,7 @@
 
   <div class="ui modal" id="add-game-modal">
     <i class="close icon"></i>
-    <div class="header">Add Game</div>
+    <div class="header add-game-header">Add Game</div>
     <div class="content">
       <form class="ui big form">
         <div class="field">
@@ -119,13 +119,13 @@
     </div>
     <div class="actions">
       <div class="ui button modal-close">Cancel</div>
-      <div class="ui button modal-close" ng-click="add_game()">Submit</div>
+      <div class="ui button modal-close green" ng-click="add_game()">Submit</div>
     </div>
   </div>
 
   <div class="ui modal" id="edit-game-modal">
     <i class="close icon"></i>
-    <div class="header">Edit Game</div>
+    <div class="header edit-game-header">Edit Game</div>
     <div class="content">
       <form class="ui large form">
         <div class="field">
@@ -191,7 +191,7 @@
     </div>
     <div class="actions">
       <div class="ui button modal-close">Cancel</div>
-      <div class="ui button modal-close" ng-click="join_account_to_team()">Submit</div>
+      <div class="ui button modal-close green" ng-click="join_account_to_team()">Submit</div>
     </div>
   </div>
 

@@ -50,17 +50,17 @@
     <div class="ui three stackable cards">
         <div class="card" ng-repeat="(index, game) in current_games">
           <div class="image">
-            <img src="../img/strategy.png">
+            <img src="../img/games.png">
           </div>
           <div class="content">
-            <span class="header">{{game.game_name}}</span>
+            <span class="header game-title">{{game.game_name}}</span>
           </div>
           <div class="extra content">
             Start: <br/>
-            <span>{{game.game_starting_time_date}}</span>
+            <span>{{game.game_starting_time_date | date: 'fullDate'}}</span>
             <br/>
             End: <br/>
-            <span>{{game.game_ending_time_date}}</span>
+            <span>{{game.game_ending_time_date | date: 'fullDate'}}</span>
           </div>
         </div>  
     </div>
