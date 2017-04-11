@@ -4,5 +4,5 @@
 node_modules/**/*
 **/bower_components/**/*
 frontend/bower_components
-frontent/bower/assets/**/*
+frontend/assets/**/*
 **/resources/fonts/**/*
