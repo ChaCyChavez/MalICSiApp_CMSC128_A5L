@@ -102,7 +102,7 @@
 
 					  <div class="field">
 					  	<label>College</label>
-					    <select class="ui search dropdown" id="college">
+					    <select class="ui dropdown" id="college">
 					    	<option value="">College</option>
 					    	<option value="CA">CA</option>
 								<option value="CAS">CAS</option>
@@ -198,16 +198,21 @@
 		});
 		
 		$('.register').click(function() {
-			$('#register-modal').modal('show');
+			$('#register-modal').modal({
+				onShow: function() {
+					$('#birthday').calendar({
+						type: 'date'
+					});
+				}
+			}).modal('show');
+			
 		});
 
 		$('.login').click(function() {
 			$('#login-modal').modal('show');
 		});
 
-		$('#birthday').calendar({
-			type: 'date'
-		});
+		
 	});
 	
 </script>

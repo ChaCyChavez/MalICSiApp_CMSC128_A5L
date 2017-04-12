@@ -224,8 +224,17 @@ $(document).ready(function(){
   });
 
   $('.ui.dropdown').dropdown();
-
   $("#add-game").click(function() {
+    $('#add-game-modal').modal({
+      onShow: function(){
+        $('#start-date').calendar({
+          type: 'date'
+        });
+        $('#end-date').calendar({
+          type: 'date'
+        });
+      }
+    }).modal('show');
     $("#add-game-modal").modal("show");
   });
 
@@ -234,7 +243,17 @@ $(document).ready(function(){
   });
 
   $(".edit-game").click(function() {
-    $("#edit-game-modal").modal("show");
+    $("#edit-game-modal").modal({
+      onShow: function() {
+        $('#edit-start-date').calendar({
+          type: 'date'
+        });
+
+        $('#edit-end-date').calendar({
+          type: 'date'
+        });
+      }
+    }).modal("show");
   });
 
   $(".view-more").click(function() {
@@ -243,22 +262,6 @@ $(document).ready(function(){
 
   $('.modal-close').click(function() {
     $('.ui.modal').modal('hide');
-  });
-
-  $('#start-date').calendar({
-    type: 'date'
-  });
-
-  $('#end-date').calendar({
-    type: 'date'
-  });
-
-  $('#edit-start-date').calendar({
-    type: 'date'
-  });
-
-  $('#edit-end-date').calendar({
-    type: 'date'
   });
 
   $('.ui.radio.checkbox').checkbox();
