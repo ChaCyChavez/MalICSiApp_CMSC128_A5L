@@ -16,6 +16,9 @@
           </div>
           <img src="../img/user.png">
         </div>
+        <div class="image" ng-if="profile.is_admin != 1">
+          <img src="../img/user.png">
+        </div>
         <div class="content">
           <span class="header">{{account.firstname}} {{account.middlename}} {{account.lastname}}</span>
           <div class="meta">
@@ -29,7 +32,7 @@
     </div>
 
     <h3>Regular User</h3>
-    <div class="ui four stackable special cards">
+    <div class="ui four stackable special cards" ng-if="profile.is_admin == 1">
       <div class="card" ng-class="{active:!$index}" ng-repeat="(index, account) in accounts | filter: {is_approved: 1}">
         <div class="blurring dimmable image">
           <div class="ui dimmer">
@@ -40,6 +43,23 @@
               </div>
             </div>
           </div>
+          <img src="../img/user.jpg">
+        </div>
+        <div class="content">
+          <span class="header">{{account.firstname}} {{account.middlename}} {{account.lastname}}</span>
+          <div class="meta">
+            {{account.college}} | {{account.course}}
+          </div>
+        </div>
+        <div class="extra content">
+          <a href="javascript:void(0)" class="fluid ui blue button view-more">View</a>
+        </div>
+      </div>  
+    </div>
+
+    <div class="ui four stackable cards" ng-if="profile.is_admin != 1">
+      <div class="card" ng-class="{active:!$index}" ng-repeat="(index, account) in accounts | filter: {is_approved: 1}">
+        <div class="image">
           <img src="../img/user.jpg">
         </div>
         <div class="content">

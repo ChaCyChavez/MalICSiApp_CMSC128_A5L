@@ -34,6 +34,7 @@
 
 		$rootScope.changeView = (view) => {
 			window.location.href = view;
+			$window.location.reload();
 		}
 
 		$rootScope.logout = () => {
