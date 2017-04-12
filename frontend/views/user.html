@@ -1,9 +1,9 @@
 <div ng-controller="user-controller" ng-init="get_pending_accounts(); get_accounts()">
   <div class="row contents">
     <h3 class="content-header">User</h3>
-    <h3>Pending User</h3>
+    <h3 ng-if="profile.is_admin == 1">Pending User</h3>
 
-    <div class="ui four stackable special cards">
+    <div class="ui four stackable special cards" ng-if="profile.is_admin == 1">
       <div class="card" ng-class="{active:!$index}" ng-repeat="(index, account) in pending_accounts">
         <div class="blurring dimmable image">
           <div class="ui dimmer">
@@ -29,33 +29,6 @@
     </div>
 
     <h3>Regular User</h3>
-    <!-- <div class="swiper-container">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide card" ng-class="{active:!$index}" ng-repeat="(index, account) in accounts | filter: {is_approved: 1}">
-            <div class="blurring dimmable image">
-              <div class="ui dimmer">
-                <div class="content">
-                  <div class="center">
-                    <a href="javascript:void(0)" class="ui inverted button">Edit</a>
-                    <a href="javascript:void(0)" class="ui inverted red button">Remove</a>
-                  </div>
-                </div>
-              </div>
-              <img src="../img/strategy.png">
-            </div>
-            <div class="content">
-              <span class="header">{{account.firstname}} {{account.middlename}} {{account.lastname}}</span>
-              <div class="meta">
-                {{account.college}} | {{account.course}}
-              </div>
-            </div>
-            <div class="extra content">
-              <a href="javascript:void(0)" class="fluid ui blue button view-more">View</a>
-            </div>
-          </div>
-      </div>
-      <div class="swiper-pagination"></div>
-    </div> -->
     <div class="ui four stackable special cards">
       <div class="card" ng-class="{active:!$index}" ng-repeat="(index, account) in accounts | filter: {is_approved: 1}">
         <div class="blurring dimmable image">

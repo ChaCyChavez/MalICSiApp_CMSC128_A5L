@@ -1,5 +1,5 @@
 {
-  "base": "frontend/assets/semantic",
+  "base": "frontend/bower_components/semantic",
   "paths": {
     "source": {
       "config": "src/theme.config",

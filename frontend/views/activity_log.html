@@ -3,7 +3,7 @@
   <!-- Search -->
   <div class="row contents">
     <h3 class="content-header">ACTIVITY LOG</h3>
-    <div class="ui search">
+    <div class="ui search" ng-if="profile.is_admin == 1">
       <div class="ui icon input">
         <input class="prompt" placeholder="Search User" type="text">
         <i class="search icon"></i>
@@ -13,7 +13,7 @@
 
     <div class="ui raised very fluid padded container segment" id="table-container">
       <h3>{{profile.firstname}} {{profile.middlename}} {{profile.lastname}}</h3>
-      <table class="ui celled table">
+      <table class="ui celled table" ng-if="profile.is_admin == 1">
         <thead>
           <tr>
             <th><h3>Time</h3></th>
@@ -21,6 +21,20 @@
           </tr>
         </thead>
         <tbody ng-init = "get_all_logs()">
+          <tr ng-repeat = "data in logs | orderBy:'-log_date'">
+            <td>{{data.log_date | date: 'medium'}}</td>
+            <td>{{data.log_description}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="ui celled table" ng-if="profile.is_admin == 0">
+        <thead>
+          <tr>
+            <th><h3>Time</h3></th>
+            <th><h3>Activity</h3></th>
+          </tr>
+        </thead>
+        <tbody ng-init = "get_log()">
           <tr ng-repeat = "data in logs | orderBy:'-log_date'">
             <td>{{data.log_date | date: 'medium'}}</td>
             <td>{{data.log_description}}</td>

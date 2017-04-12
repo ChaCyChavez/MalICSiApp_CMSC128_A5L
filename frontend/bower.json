@@ -25,7 +25,9 @@
     "sweetalert": "^1.1.3",
     "semantic-ui-calendar": "^0.0.8",
     "swiper": "^3.4.2",
-    "semantic": "semantic-ui#^2.2.10"
+    "semantic": "semantic-ui#^2.2.10",
+    "Semantic-UI-Alert": "https://raw.githubusercontent.com/diw112/semanticUiAlert/master/Semantic-UI-Alert.css",
+    "Semantic-UI-AlertJS": "https://raw.githubusercontent.com/diw112/semanticUiAlert/master/Semantic-UI-Alert.js"
   },
   "resolutions": {
     "angular": "^1.6.4"

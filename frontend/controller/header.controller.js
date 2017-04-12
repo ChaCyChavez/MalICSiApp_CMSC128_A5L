@@ -34,7 +34,6 @@
 
 		$rootScope.changeView = (view) => {
 			window.location.href = view;
-			$window.location.reload();
 		}
 
 		$rootScope.logout = () => {
@@ -95,7 +94,15 @@
 						$window.location.href = '#!/game-event';
 						location.reload();
 					}, function(err) {
-						// Materialize.toast(err.message, 4000, 'teal');
+						$.uiAlert({
+							textHead: "Login error", // header
+							text: err.message, // Text
+							bgcolor: '#DB2828', // background-color
+							textcolor: '#fff', // color
+							position: 'top-center',// position . top And bottom ||  left / center / right
+							icon: 'remove circle', // icon in semantic-UI
+							time: 3, // time
+						});
 						$scope.info.username = '';
 						$scope.info.password = '';
 						$scope.info.username = undefined;
@@ -110,6 +117,7 @@
 			let e = document.getElementById("college");
 			let strUser = e.options[e.selectedIndex].value;
 			$scope.data.birthday = $('#birthday').calendar('get date');
+			$scope.data.birthday = moment($scope.data.birthday).format('YYYY-MM-DD');
 			console.log($scope.data.birthday);
 			$scope.data.college = strUser;
 
