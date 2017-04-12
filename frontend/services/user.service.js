@@ -66,11 +66,12 @@
 
 			const disapprove_account = function(data) {
 				let deferred = $q.defer();
-				console.log(data.account_id);
+				console.log(data);
 				$http({
 					method: 'POST',
+					data: $httpParamSerializer(data),
 					xhrFields: {withCredentials: false},
-					url: '/api/delete-account/' + data.account_id,
+					url: '/api/delete-account/',
 					headers: headers
 				})
 				.then(function(res) {
