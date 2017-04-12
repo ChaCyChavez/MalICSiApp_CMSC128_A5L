@@ -54,7 +54,6 @@
 				team_name:undefined,
 				team_color: undefined
 			});
-			console.log($scope.teams);
 		}
 
 		$scope.add_team = (id) =>{
@@ -152,9 +151,10 @@
 			} else if ($scope.edit_type == "current") {
 				$scope.current_games[$scope.edit_id] = $scope.edit_game_info;
 			}
-			$scope.edit_game_info.game_starting_time_date = $("#game_starting_time_date").val();
-			$scope.edit_game_info.game_ending_time_date = $("#game_ending_time_date").val();
-
+			$scope.edit_game_info.game_starting_time_date = $('#edit_start_game').val();
+			$scope.edit_game_info.game_ending_time_date = $('#edit_end_game').val();
+			$scope.edit_game_info.game_starting_time_date = moment($scope.edit_game_info.game_starting_time_date).format("YYYY-MM-DD");
+			$scope.edit_game_info.game_ending_time_date = moment($scope.edit_game_info.game_ending_time_date).format("YYYY-MM-DD");
 			GameEventService
 			.edit_game($scope.edit_game_info)
 			.then((data) => {
