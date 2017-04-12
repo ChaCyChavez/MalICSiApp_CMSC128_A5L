@@ -230,10 +230,9 @@
 			var data = {
 				game_name: $scope.game_name,
 				account_id: $rootScope.profile.account_id,
-				game_starting_time_date: $('#datepicker1').val(),
-				game_ending_time_date: $('#datepicker2').val()
+				game_starting_time_date: moment($('#add_start_game').val()).format("YYYY-MM-DD"),
+				game_ending_time_date: moment($('#add_end_game').val()).format("YYYY-MM-DD")
 			};
-
 			if (data.game_name == "" ||
                 data.game_starting_time_date == "" ||
                 data.game_ending_time_date == "") {
@@ -242,8 +241,6 @@
 				GameEventService
 				.add_game(data)
 				.then(function(res){
-					swal(res.message);
-					console.log("INSERT_ID: ", res[0][0]['last_insert_id()']);
 					$scope.add_team(res[0][0]['last_insert_id()']);
             	},function(err){
             		swal(res.error);

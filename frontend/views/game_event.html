@@ -123,14 +123,14 @@
       <form class="ui big form">
         <div class="field">
           <label>Game Name</label>
-          <input placeholder="Game Name" type="text" ng-model="info.username">
+          <input placeholder="Game Name" type="text" ng-model="game_name">
         </div>
         <div class="two fields">
           <div class="ui calendar field" id="start-date">
             <label>Start Date</label>
             <div class="ui input left icon">
               <i class="calendar icon"></i>
-              <input type="text" placeholder="Date">
+              <input type="text" placeholder="Date" id="add_start_game">
             </div>
           </div>
 
@@ -138,7 +138,7 @@
             <label>End Date</label>
             <div class="ui input left icon">
               <i class="calendar icon"></i>
-              <input type="text" placeholder="Date">
+              <input type="text" placeholder="Date" id="add_end_game">
             </div>
           </div>
         </div>
