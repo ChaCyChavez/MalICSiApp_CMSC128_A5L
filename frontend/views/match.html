@@ -1,37 +1,40 @@
-<div ng-controller="match-controller" ng-init="init_match(); init_match_court(); init_match_teams()">
+<div ng-controller="match-controller" ng-init="init_match(); init_match_teams()">
   <!-- Contents -->
   <div class="row contents" id="match-content">
-    <h3 class="content-header">MATCH RESULTS</h3>
-
     <div class="ui two column doubling stackable grid container">
-      <div class="four wide column">
+      <div class="eight wide column">
         <div class="ui raised very fluid padded container segment">
-          <table class="ui very basic selectable collapsing celled table" id="team-table">
-            <thead>
-                <tr>
-                  <th><h5>TEAM</h5></th>
-                  <th><h5>SCORE</h5></th>
-                </tr>
-              </thead>
-              <tbody ng-repeat="team_score in match_teams_scores">
-                <tr ng-class="{gold: team_score.is_winner}">
-                  <td>{{team_score.team_name}}&nbsp;
-                      <i ng-if="team_score.is_winner" class="fa fa-trophy">
-                  </td>
-                  <td>{{team_score.score}}</td>
-                </tr>
-              </tbody>
-          </table>
+          <h1>MATCH RESULTS</h1>
+          <div class="ui raised very fluid padded container segment">
+            <table class="ui very basic selectable collapsing celled table" id="team-table">
+              <thead>
+                  <tr>
+                    <th><h5>TEAM</h5></th>
+                    <th><h5>SCORE</h5></th>
+                  </tr>
+                </thead>
+                <tbody ng-repeat="team_score in match_teams_scores">
+                  <tr ng-class="{gold: team_score.is_winner}">
+                    <td>{{team_score.team_name}}&nbsp;
+                        <i ng-if="team_score.is_winner" class="fa fa-trophy">
+                    </td>
+                    <td>{{team_score.score}}</td>
+                  </tr>
+                </tbody>
+            </table>
+          </div>
         </div>
       </div>
-      <div class="twelve wide column">
+      <div class="eight wide column">
         <div class="ui raised very fluid padded container segment">
-          <h1>Match Details</h1>
+          <h1>MATCH DETAILS</h1>
           <div class="content">
-            <h5><i class="fa fa-clock-o"></i>&nbsp;:&nbsp;{{match.match_date_time | date : 'MMMM d, yyyy'}}</h5>
-            <i class="fa fa-map"></i>
-            <div>Court Name : {{court.court_name}}</div>
-            <div>Court Location: {{court.court_location}}</div>
+            <h3><i class="fa fa-clock-o"></i>&nbsp;:&nbsp;{{match.match_date_time | date: "medium"}}</h3>
+            <h3>
+              <i class="fa fa-map"></i>
+              <div>Court Name : {{match.court_name}}</div>
+              <div>Court Location: {{match.court_location}}</div>
+            </h3>
           </div>
         </div>
       </div>

@@ -44,18 +44,7 @@
                     $scope.match = res[0][0];
                     console.log(res[0]);
                 }, function(err) {
-                    console.log(res[0]);
-                })
-        }
-
-        $scope.init_match_court = () => {
-            MatchService
-                .init_match_court($scope.match_id)
-                .then(function(res) {
-                    $scope.court = res[0][0];
-                    console.log(res[0]);
-                }, function(err) {
-                    console.log(res[0]);
+                    console.log(err);
                 })
         }
 
@@ -67,7 +56,7 @@
                     console.log(res[0]);
                     MatchService.determine_winner($scope.match_teams_scores);
                 }, function(err) {
-                    console.log(res[0]);
+                    console.log(err);
                 })
         }
     }
