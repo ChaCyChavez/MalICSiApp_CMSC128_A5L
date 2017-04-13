@@ -1,6 +1,6 @@
 <div ng-controller="sponsor-controller" ng-init="init_sponsor()">
 
-  <a class="add-btn" ng-click="reset_add_modal()" id="add-sponsor" href="javascript:void(0)"><i class="fa fa-plus fa-3x"></i></a>
+  <a class="add-btn" ng-if="profile.is_admin == 1" ng-click="reset_add_modal()" id="add-sponsor" href="javascript:void(0)"><i class="fa fa-plus fa-3x"></i></a>
 
   <div class="row contents">
     <h3 class="content-header">SPONSORS</h3>

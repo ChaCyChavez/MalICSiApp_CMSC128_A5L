@@ -287,7 +287,7 @@
 						swal("Deleted!", "Event has been deleted.", "success");
 						$scope.upcoming_games.splice(id, 1);
 					}, (err) => {
-						swal("Failure!", "You are not the game head of this game event.", "failure");
+						swal("Failure!", "You are not the game head of this game event.", "error");
 					});
 				} else if (type === "current"){
 					GameEventService.delete_game({game_id:$scope.current_games[id].game_id}).then((err, data) => {
@@ -295,7 +295,7 @@
 						swal("Deleted!", "Event has been deleted.", "success");
 						$scope.current_games.splice(id, 1);
 					}, (err) => {
-						swal("Failure!", "You are not the game head of this game event.", "failure");
+						swal("Failure!", "You are not the game head of this game event.", "error");
 					});
 				}
 

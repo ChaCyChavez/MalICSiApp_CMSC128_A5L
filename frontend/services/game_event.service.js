@@ -71,7 +71,6 @@
 			const get_teams = (data) => {
 				let deferred = $q.defer();
 
-				console.log(data.game_id);
 				$http({
 					method: 'GET',
 					data: $httpParamSerializer(data),

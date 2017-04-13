@@ -1,6 +1,6 @@
 <div ng-controller="sports-controller" ng-init="get_sports()">
 
-  <a class="add-btn" id="add-sport" href="javascript:void(0)"><i class="fa fa-plus fa-3x"></i></a>
+  <a class="add-btn" id="add-sport" ng-show="profile.is_admin == 1" href="javascript:void(0)"><i class="fa fa-plus fa-3x"></i></a>
 
   <div class="row contents">
     <h3 class="content-header">SPORTS</h3>
@@ -36,16 +36,12 @@
     <div class="content">
       <form class="ui big form">
         <div class="field">
-          <label>Sport Name</label>
-          <input placeholder="Sport Name" type="text" ng-model="sport_name">
-        </div>
-        <div class="field">
           <label>Sport Type</label>
           <input placeholder="Sponsor Type" type="text" ng-model="edit_sport_info.sport_type">
         </div>
         <div class="field">
           <label>Sport Division</label>
-          <select class="ui search dropdown" ng-model="edit_sport_info.division" id="sport_division">
+          <select class="ui dropdown" ng-model="edit_sport_info.division" id="sport_division">
             <option value="" disabled selected>Division</option>
             <option value="men">Men</option>
             <option value="women">Women</option>
@@ -74,16 +70,12 @@
     <div class="content">
       <form class="ui big form">
         <div class="field">
-          <label>Sport Name</label>
-          <input placeholder="Sport Name" type="text" ng-model="sport_name">
-        </div>
-        <div class="field">
           <label>Sport Type</label>
           <input placeholder="Sponsor Type" type="text" ng-model="sport_type">
         </div>
         <div class="field">
           <label>Sport Division</label>
-          <select class="ui search dropdown" ng-model="division" id="sport_division">
+          <select class="ui dropdown" ng-model="division" id="sport_division">
             <option value="">Division</option>
             <option value="men">Men</option>
             <option value="women">Women</option>

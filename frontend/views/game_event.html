@@ -2,7 +2,7 @@
   
   <!-- button for adding new game-->
  
-  <a href="javascript:void(0)" class="ui add-btn" id="add-game"><i class="fa fa-plus fa-3x"></i></a>
+  <a href="javascript:void(0)" class="ui add-btn" ng-if="profile.is_admin == 1" id="add-game"><i class="fa fa-plus fa-3x"></i></a>
 
   <!-- Contents -->
   <div class="row contents">
@@ -210,7 +210,7 @@
         <br/>
         <div class="ui button inverted modal-close" id="vp" ng-click="view_registered_user()">View Participants</div>
         <br/>
-        <div class="ui button inverted modal-close reg-to-game" id="rttg" ng-click="get_teams()">Register to this Game</div>
+        <div class="ui button inverted modal-close reg-to-game" id="rttg" ng-show="is_registered" ng-click="get_teams()">Register to this Game</div>
       </form>
     </div>
   </div>
@@ -222,8 +222,8 @@
       <div class="ui big form">
         <div class="field">
           <label>Team</label>
-          <select class="ui search dropdown">
-            <option value="">Team Name</option>
+          <select class="ui dropdown">
+            <option value="" disabled selected>Team Name</option>
             <option value="{{team.team_name}}" ng-repeat="team in teams">{{team.team_name}}</option>
           </select>
         </div>
@@ -261,6 +261,10 @@ $(document).ready(function(){
 
   $("#remove-game").click(function() {
     $("#remove-game-modal").modal("show");
+  });
+
+  $("#rttg").click(function() {
+    $("#choose-team-modal").modal("show");
   });
 
   $(".edit-game").click(function() {
