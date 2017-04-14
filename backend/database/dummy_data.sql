@@ -30,27 +30,27 @@ insert into sport values (3, 'Volleyball', 'mixed',1, 'YHeNIz/YO+UEK53LbE16T1MFA
 insert into sport values (4, 'Volleyball', 'men', 4,'DcbMRhh4wpKCZBpTaIIn4g98KMvd3yTbOvrdmpthCPY=');
 
 
-insert into match_event values (1,true, CURDATE(), 'elimination', 1, 'Baker Hall', 'Gym', 'UPLB');
-insert into match_event values (2,true, CURDATE(), 'elimination', 1, 'Copeland Gym','GYM', 'UPLB');
-insert into match_event values (3,true, CURDATE(), 'elimination', 1, 'Physci Building', 'Building', 'UPLB');
-insert into match_event values (4,true, CURDATE(), 'elimination', 1, 'Freedom Park', 'Park', 'UPLB');
+insert into match_event values (1,true, CURDATE(), 'elimination', 1, 'Baker Hall', 'UPLB', 'Gym');
+insert into match_event values (2,true, CURDATE(), 'elimination', 1, 'Copeland Gym','UPLB', 'Gym');
+insert into match_event values (3,true, CURDATE(), 'elimination', 1, 'Physci Building', 'UPLB', 'Building');
+insert into match_event values (4,true, CURDATE(), 'elimination', 1, 'Freedom Park', 'UPLB', 'Park');
 
-insert into match_event values (5,true, CURDATE(), 'semi-finals', 1, 'Freedom Park', 'Park', 'UPLB');
-insert into match_event values (6,true, CURDATE(), 'semi-finals', 1, 'Freedom Park', 'Park', 'UPLB');
+insert into match_event values (5,true, CURDATE(), 'semi-finals', 1, 'Freedom Park', 'UPLB', 'Park');
+insert into match_event values (6,true, CURDATE(), 'semi-finals', 1, 'Freedom Park', 'UPLB', 'Park');
 
-insert into match_event values (7,true, CURDATE(), 'finals', 1,'Freedom Park', 'Park', 'UPLB');
+insert into match_event values (7,true, CURDATE(), 'finals', 1,'Freedom Park', 'UPLB', 'Park');
 
 -- matches for sport 2
 
-insert into match_event values (8,true, CURDATE(), 'elimination', 2, 'Baker Hall', 'Gym', 'UPLB');
-insert into match_event values (9,true, CURDATE(), 'elimination', 2, 'Baker Hall', 'Gym', 'UPLB');
-insert into match_event values (10,true, CURDATE(), 'elimination', 2, 'Baker Hall', 'Gym', 'UPLB');
-insert into match_event values (11,true, CURDATE(), 'elimination', 2, 'Baker Hall', 'Gym', 'UPLB');
+insert into match_event values (8,true, CURDATE(), 'elimination', 2, 'Baker Hall', 'UPLB', 'Gym');
+insert into match_event values (9,true, CURDATE(), 'elimination', 2, 'Baker Hall', 'UPLB', 'Gym');
+insert into match_event values (10,true, CURDATE(), 'elimination', 2, 'Baker Hall', 'UPLB', 'Gym');
+insert into match_event values (11,true, CURDATE(), 'elimination', 2, 'Baker Hall', 'UPLB', 'Gym');
 
-insert into match_event values (12,true, CURDATE(), 'semi-finals', 2, 'Baker Hall', 'Gym', 'UPLB');
-insert into match_event values (13,true, CURDATE(), 'semi-finals', 2, 'Baker Hall', 'Gym', 'UPLB');
+insert into match_event values (12,true, CURDATE(), 'semi-finals', 2, 'Baker Hall', 'UPLB', 'Gym');
+insert into match_event values (13,true, CURDATE(), 'semi-finals', 2, 'Baker Hall', 'UPLB', 'Gym');
 
-insert into match_event values (14,true, CURDATE(), 'finals', 2, 'Baker Hall', 'Gym', 'UPLB');
+insert into match_event values (14,true, CURDATE(), 'finals', 2, 'Baker Hall', 'UPLB', 'Gym');
 
 
 -- matches for sport 2
