@@ -87,31 +87,27 @@
 
 		$scope.view_sponsor = () => {
 			$("#modal1").modal('close');
-            window.location.href=$scope.view.type == 'upcoming'? "#!/sponsor/" + $scope.upcoming[$scope.view.id].game_id : "#!/sponsor/" + $scope.current_games[$scope.view.id].game_id;
-        		$window.location.reload();
-        	//^temporary
+            window.location.href= "#!/sponsor/" + $scope.view.gameid; 
         }
         $scope.view_sports = () => {
-            window.location.href=$scope.view.type == 'upcoming'? "#!/sports/" + $scope.upcoming[$scope.view.id].game_id : "#!/sports/" + $scope.current_games[$scope.view.id].game_id;
-            $window.location.reload();
-            // ^temporary
+            window.location.href= "#!/sports/" +$scope.view.gameid; 
         }
 
         $scope.view_setup = (gameid, id,type) =>{
+        	$scope.view.gameid = gameid;
         	$scope.view.id = id;
         	$scope.view.type = type;
-        	$scope.view.gameid = gameid;
         }
 
 	    $scope.view_registered_user = () => {
 	    	$("#modal1").modal('close');
-	        window.location.href=$scope.view.type == 'upcoming'? "#!/registered-user/" + $scope.upcoming[$scope.view.id].game_id : "#!/registered-user/" + $scope.current_games[$scope.view.id].game_id;
-	        $window.location.reload();
-	        //^temporary
+	        window.location.href="#!/registered-user/" + $scope.view.gameid; 
 	    }
 
 		$scope.get_current_games = () => {
-			GameEventService.get_current_games().then((data) => {
+			GameEventService
+			.get_current_games()
+			.then((data) => {
 				$scope.current_games = data[0];
 			});
 		};
@@ -121,6 +117,7 @@
 			.get_upcoming_games()
 			.then((data) => {
 				$scope.upcoming_games = data[0];
+				console.log(data[0]);
 			});
 		}
 		$scope.edit_game_info = {

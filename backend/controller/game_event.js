@@ -286,6 +286,50 @@ exports.get_upcoming_events = (req, res, next) => {
 	}
 };
 
+exports.get_events = (req, res, next) => {
+		if (req.session.user) {
+		const query_string = 'CALL get_events()';
+
+		const payload = [];
+
+		const callback = (err, data) => {
+			if (err) {
+				winston.level = 'debug';
+				winston.log('debug', 'Error', prettyjson.render({
+					details: err,
+					origin: "get_events in game_event.js",
+					payload: payload,
+					query_string: query_string
+				}));
+				res.status(500).send({ error_code:err.code });
+			} else if (data[0].length == 0) {
+				winston.level = 'info';
+				winston.log('info', '0 rows returned', prettyjson.render({
+					details: data,
+					origin: "get_events controller in game_event.js",
+					payload: payload,
+					query_string: query_string
+				}));
+				res.status(200).send(data);
+			} else {
+				winston.level = 'info';
+				winston.log('info', 'Success', prettyjson.render({
+					details: data,
+					origin: "get_events controller in game_event.js",
+					payload: payload,
+					query_string: query_string
+				}));
+				res.status(200).send(data);
+			}
+		};
+
+		db.query(query_string, payload, callback);
+	} else {
+		res.status(401).send({message:"You must be logged in."});
+	}
+};
+
+
 exports.update_game_event = (req, res, next) => {
 	if (req.session.user && req.session.user.is_game_head) {
 		const query_string = 'CALL update_game_event(?,?,?,?,?)';
