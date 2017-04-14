@@ -76,18 +76,15 @@
           </div>
           <div class="field">
             <label>Teams Joining</label>
-            <select name="teams" multiple="" class="ui fluid dropdown">
-              <option value="">Teams</option>
-              <option value="blue">Team Blue</option>
-              <option value="red">Team Red</option>
-              <option value="green">Team Green</option>
-              <option value="yellow">Team Yellow</option>
+            <select id ="teamJoin" name="teams" multiple="" class="ui fluid dropdown">
+              <option disabled selected></option>
+              <option ng-repeat = "team in teams" value="{{team.team_id}}">Team {{team.team_name}}</option>
             </select>
           </div>
           <div class="field">
             <label>Court</label>
-            <select class="ui dropdown">
-              <option value="">Court</option>
+            <select id = "courtJoin" class="ui dropdown">
+              <option value="5">Court</option>
               <option value="1">Court 1</option>
               <option value="2">Court 2</option>
               <option value="3">Court 3</option>

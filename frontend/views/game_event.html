@@ -22,7 +22,7 @@
               <div class="content">
                 <div class="center">
                   <a href="javascript:void(0)" class="ui inverted button edit-game" ng-click="setup_edit_modal('current', index)">Edit</a>
-                  <a href="javascript:void(0)" class="ui inverted red button" id="remove-game" ng-click="delete_game('current',index)">Remove</a>
+                  <a href="javascript:void(0)" class="ui inverted red button remove-game" ng-click="delete_game('current',index)">Remove</a>
                 </div>
               </div>
             </div>
@@ -71,8 +71,8 @@
             <div class="ui dimmer">
               <div class="content">
                 <div class="center">
-                  <a href="javascript:void(0)" class="ui inverted button" ng-click="setup_edit_modal('current', index)">Edit</a>
-                  <a href="javascript:void(0)" class="ui inverted button" ng-click="delete_game('current',index)">Remove</a>
+                  <a href="javascript:void(0)" class="ui inverted button edit-game" ng-click="setup_edit_modal('upcoming', index)">Edit</a>
+                  <a href="javascript:void(0)" class="ui inverted red button remove-game" ng-click="delete_game('upcoming',index)">Remove</a>
                 </div>
               </div>
             </div>
@@ -89,7 +89,7 @@
             </div>
           </div>
           <div class="extra content">
-            <a href="javascript:void(0)">View More</a>
+            <a href="javascript:void(0)" class="fluid ui blue button view-more"  ng-click="view_setup(game.game_id, index, 'current'); check_if_registered()" >View More</a>
           </div>
         </div>  
     </div>
@@ -259,7 +259,7 @@ $(document).ready(function(){
     $("#add-game-modal").modal("show");
   });
 
-  $("#remove-game").click(function() {
+  $(".remove-game").click(function() {
     $("#remove-game-modal").modal("show");
   });
 
