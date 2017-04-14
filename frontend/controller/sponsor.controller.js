@@ -92,14 +92,14 @@
                 .then(function(res) {
                     $scope.sponsors = res[0];
                 }, function(err) {
-                    console.log(err.data);
+                    console.log(err.data)   ;
                 })
         }
 
         $scope.init_edit_modal = (sponsor_id) => {
             for(var i = 0; i < $scope.sponsors.length; i++) {
                 if($scope.sponsors[i].sponsor_id === sponsor_id) {
-                    $scope.sponsorEdit.sponsor_id = sponsor_id;
+
                     $scope.sponsorEdit.sponsor_name = $scope.sponsors[i].sponsor_name;
                     $scope.sponsorEdit.sponsor_type = $scope.sponsors[i].sponsor_type;
                     $scope.sponsorEdit.sponsor_desc = $scope.sponsors[i].sponsor_desc;
@@ -111,21 +111,25 @@
         }
 
         $scope.update_sponsor = () => {
-            SponsorService
-                .update_sponsors($scope.sponsorEdit)
-                .then(function(res) {
-                    swal(res.message);
-                    for(var i = 0; i < $scope.sponsors.length; i++) {
-                        if($scope.sponsors[i].sponsor_id === $scope.sponsorEdit.sponsor_id) {
-                            $scope.sponsors[i] = JSON.parse(JSON.stringify($scope.sponsorEdit));
+            if ($scope.sponsor.sponsor_name == "" ||
+                $scope.sponsor.sponsor_type == "" ||
+                $scope.sponsor.sponsor_desc == "" ||
+                $scope.sponsor.web_address == "") {
+                swal("Please fill up all fields");
+            } else { 
+                SponsorService
+                    .update_sponsors($scope.sponsorEdit)
+                    .then(function(res) {
+                        swal("Success!", "Sponsor has been successfully edited.", "success");
+                        for(var i = 0; i < $scope.sponsors.length; i++) {
+                            if($scope.sponsors[i].sponsor_id === $scope.sponsorEdit.sponsor_id) {
+                                $scope.sponsors[i] = JSON.parse(JSON.stringify($scope.sponsorEdit));
+                            }
                         }
-                    }
-                }, function(err) {
-                   swal(err.message);
-                })
-
-
-           
+                    }, function(err) {
+                       swal(err.message);
+                    })
+            }
         }
 
         $scope.delete_sponsor = (sponsorid) => {
@@ -158,18 +162,11 @@
             let strUser = e.options[e.selectedIndex].value;
             $scope.sponsor.sponsor_type = strUser;
             if ($scope.sponsor.sponsor_name == "" ||
-                $scope.sponsor.sponsor_logo == "" ||
                 $scope.sponsor.sponsor_type == "" ||
-                $scope.sponsor.sponsor_desc == "") {
+                $scope.sponsor.sponsor_desc == "" ||
+                $scope.sponsor.web_address == "") {
                 swal("Please fill up all fields");
-                $scope.sponsor = {
-                    sponsor_name: "",
-                    sponsor_logo: "/",
-                    sponsor_type: "",
-                    sponsor_desc: "",
-                    web_address: "",
-                    game_id: 0
-                }
+                
             }
             else {
                 $scope.sponsor.game_id = $routeParams.game_id;
@@ -181,6 +178,15 @@
                     }, function(err) {  
                         swal(err.message);
                     })
+            }
+
+            $scope.sponsor = {
+                sponsor_name: "",
+                sponsor_logo: "/",
+                sponsor_type: "",
+                sponsor_desc: "",
+                web_address: "",
+                game_id: 0
             }
         }
     }
