@@ -223,9 +223,9 @@
       <div class="ui big form">
         <div class="field">
           <label>Team</label>
-          <select class="ui dropdown">
+          <select class="ui dropdown" ng-model = "team.team_id">
             <option value="" disabled selected>Team Name</option>
-            <option value="{{team.team_name}}" ng-repeat="team in teams">{{team.team_name}}</option>
+            <option value="{{team.team_id}}" ng-repeat="team in teams">{{team.team_name}}</option>
           </select>
         </div>
       </div>

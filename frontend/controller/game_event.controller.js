@@ -174,11 +174,13 @@
 			var data = {
 				game_id: $scope.view.gameid
 			}
-
+			console.log(data);
 			GameEventService
 				.get_teams(data)
 				.then(function(res){
 					$scope.teams = res[0];
+					console.log(res[0]);
+					console.log("teams");
             	},function(err){
                 	console.log(err);
             	})
@@ -205,7 +207,7 @@
 
 		$scope.join_account_to_team = () => {
 			var data = {
-				account_id: $scope.team.account_id,
+				account_id: $rootScope.profile.account_id,
 				team_id: $scope.team.team_id
 			}
 
