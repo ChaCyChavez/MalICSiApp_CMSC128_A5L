@@ -78,6 +78,7 @@
 				GameEventService
 				.add_team($scope.teams[i])
 				.then(function(res) {
+					swal("Success!", "Event has been successfully added.", "success");
 					console.log(res);
 				}, function(err) {
 					console.log(err);
@@ -97,33 +98,32 @@
 				team_id: undefined
 		}
 
+		
+
+
 		$scope.view_sponsor = () => {
 			$("#modal1").modal('close');
-            window.location.href=$scope.view.type == 'upcoming'? "#!/sponsor/" + $scope.upcoming[$scope.view.id].game_id : "#!/sponsor/" + $scope.current_games[$scope.view.id].game_id;
-        		$window.location.reload();
-        	//^temporary
+            window.location.href= "#!/sponsor/" + $scope.view.gameid; 
         }
         $scope.view_sports = () => {
-            window.location.href=$scope.view.type == 'upcoming'? "#!/sports/" + $scope.upcoming[$scope.view.id].game_id : "#!/sports/" + $scope.current_games[$scope.view.id].game_id;
-            $window.location.reload();
-            // ^temporary
+            window.location.href= "#!/sports/" +$scope.view.gameid; 
         }
 
         $scope.view_setup = (gameid, id,type) =>{
+        	$scope.view.gameid = gameid;
         	$scope.view.id = id;
         	$scope.view.type = type;
-        	$scope.view.gameid = gameid;
         }
 
-    $scope.view_registered_user = () => {
-    	$("#modal1").modal('close');
-        window.location.href=$scope.view.type == 'upcoming'? "#!/registered-user/" + $scope.upcoming[$scope.view.id].game_id : "#!/registered-user/" + $scope.current_games[$scope.view.id].game_id;
-        $window.location.reload();
-        //^temporary
-    }
+	    $scope.view_registered_user = () => {
+	    	$("#modal1").modal('close');
+	        window.location.href="#!/registered-user/" + $scope.view.gameid; 
+	    }
 
 		$scope.get_current_games = () => {
-			GameEventService.get_current_games().then((data) => {
+			GameEventService
+			.get_current_games()
+			.then((data) => {
 				$scope.current_games = data[0];
 			});
 		};
@@ -133,6 +133,7 @@
 			.get_upcoming_games()
 			.then((data) => {
 				$scope.upcoming_games = data[0];
+				console.log(data[0]);
 			});
 		}
 		$scope.edit_game_info = {
@@ -174,9 +175,9 @@
 			GameEventService
 			.edit_game($scope.edit_game_info)
 			.then((data) => {
-				Materialize.toast("Event Successfully Edited!", 4000, 'teal');
+				swal("Success!", "Event has been edited.", "success");
 			}, (err) => {
-				Materialize.toast("Event Unsuccessfully Edited!", 4000, 'teal');
+				swal("Failure!", "You are not the game head of this game event.", "error");
 			});
 		}
 
@@ -189,11 +190,13 @@
 			var data = {
 				game_id: $scope.view.gameid
 			}
-
+			console.log(data);
 			GameEventService
 				.get_teams(data)
 				.then(function(res){
 					$scope.teams = res[0];
+					console.log(res[0]);
+					console.log("teams");
             	},function(err){
                 	console.log(err);
             	})
@@ -220,7 +223,7 @@
 
 		$scope.join_account_to_team = () => {
 			var data = {
-				account_id: $scope.team.account_id,
+				account_id: $rootScope.profile.account_id,
 				team_id: $scope.team.team_id
 			}
 
@@ -230,7 +233,7 @@
 			GameEventService
 				.join_account_to_team(data)
 				.then(function(res){
-					swal("Successfully joined to team.");
+					swal("Success!", "Successfully joined the team.", "success");
 					console.log(res);
             	},function(err){
                 	console.log(err);
@@ -249,9 +252,10 @@
 				game_starting_time_date: moment($('#add_start_game').val()).format("YYYY-MM-DD"),
 				game_ending_time_date: moment($('#add_end_game').val()).format("YYYY-MM-DD")
 			};
-			if (data.game_name == "" ||
-                data.game_starting_time_date == "" ||
-                data.game_ending_time_date == "") {
+
+			if (data.game_name == undefined ||
+                data.game_starting_time_date == "Invalid date" ||
+                data.game_ending_time_date == "Invalid date") {
                 swal("Please fill up all fields");
             } else {
 				GameEventService
@@ -266,8 +270,8 @@
 			}
 
 			$scope.game_name = "";
-           	$('#datepicker1').val('');
-           	$('#datepicker2').val('');
+           	$('#add_start_game').val('');
+           	$('#add_end_game').val('');
 		}
 
 		$scope.search_game = () =>{
@@ -299,7 +303,6 @@
 			function(){
 				if (type === 'upcoming') {
 					GameEventService.delete_game({game_id:$scope.upcoming_games[id].game_id}).then((err, data) => {
-						Materialize.toast("Successfully deleted.", 4000, 'teal');
 						swal("Deleted!", "Event has been deleted.", "success");
 						$scope.upcoming_games.splice(id, 1);
 					}, (err) => {
@@ -307,7 +310,6 @@
 					});
 				} else if (type === "current"){
 					GameEventService.delete_game({game_id:$scope.current_games[id].game_id}).then((err, data) => {
-						Materialize.toast("Successfully deleted.", 4000, 'teal');
 						swal("Deleted!", "Event has been deleted.", "success");
 						$scope.current_games.splice(id, 1);
 					}, (err) => {

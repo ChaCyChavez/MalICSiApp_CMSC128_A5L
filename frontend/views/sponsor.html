@@ -1,11 +1,11 @@
 <div ng-controller="sponsor-controller" ng-init="init_sponsor()">
 
-  <a class="add-btn" ng-if="profile.is_admin == 1" ng-click="reset_add_modal()" id="add-sponsor" href="javascript:void(0)"><i class="fa fa-plus fa-3x"></i></a>
+  <a class="add-btn" ng-show="profile.is_admin == 1" ng-click="reset_add_modal()" id="add-sponsor" href="javascript:void(0)"><i class="fa fa-plus fa-3x"></i></a>
 
   <div class="row contents">
     <h3 class="content-header">SPONSORS</h3>
     <h2 class="center-align" ng-if="sponsors.length == 0">No Sponsor Available</h2>
-    <div class="ui three stackable special cards" id="spons">
+    <div class="ui three stackable special cards" id="spons" ng-if="profile.is_admin == 1">
         <div class="card" ng-repeat="spon in sponsors">
           <div class="blurring dimmable image">
             <div class="ui dimmer">
@@ -31,7 +31,26 @@
           </div>
         </div>  
     </div>
-  </div>
+
+    <div class="ui three stackable cards" id="spons" ng-if="profile.is_admin != 1">
+        <div class="card" ng-repeat="spon in sponsors">
+          <div class="image">
+            <img src="../img/sponsor.jpg">
+          </div>
+          <div class="content">
+            <span class="header">{{spon.sponsor_name}}</span>
+            <div class="meta">
+              <span>{{spon.sponsor_type}}</span>
+              <br/>
+              <p>{{spon.sponsor_desc}}</p>
+            </div>
+          </div>
+          <div class="extra content">
+            <a href="{{spon.web_address}}">Visit Website</a>
+          </div>
+        </div>  
+    </div>
+  </div>  
 
   <div class="ui modal" id="add-sponsor-modal">
     <i class="close icon"></i>
@@ -77,11 +96,11 @@
         <div class="two fields">
           <div class="field">
             <label>Sponsor Name</label>
-            <input placeholder="Sponsor Name" type="text" ng-model="sponsorEdit.sponsor_name">
+            <input placeholder="Sponsor Name" type="text" id="sponsorEdit_name" ng-model="sponsorEdit.sponsor_name">
           </div>
           <div class="field">
             <label>Sponsor Type</label>
-            <select class="ui dropdown" ng-model="sponsorEdit.sponsor_type">
+            <select class="ui dropdown" id="sponsorEdit_type" ng-model="sponsorEdit.sponsor_type">
               <option value="" disabled selected>Type</option>
               <option value="minor">minor</option>
               <option value="major">major</option>
@@ -91,11 +110,11 @@
         </div>
         <div class="field">
           <label>Sponsor Description</label>
-          <textarea rows="2" ng-model="sponsorEdit.sponsor_desc"></textarea>
+          <textarea rows="2" id="sponsorEdit_desc" ng-model="sponsorEdit.sponsor_desc"></textarea>
         </div>
         <div class="field">
           <label>Sponsor Website</label>
-          <input placeholder="Sponsor Website" type="text" ng-model="sponsorEdit.web_address">
+          <input placeholder="Sponsor Website" id="sponsorEdit_web" type="text" ng-model="sponsorEdit.web_address">
         </div>
       </form>
     </div>

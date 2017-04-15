@@ -116,12 +116,20 @@
             .get_court()
             .then(function(res){
                 console.log(res);
+                console.log("res above");
             }, function(err){
                 console.log(err);
             });
 
+        }
 
-
+        $scope.add_match = () => {
+            var selectedValues = [];    
+            $("#teamJoin :selected").each(function(){
+                selectedValues.push($(this).val()); 
+            });
+            console.log($("#courtJoin").val());
+            console.log(selectedValues);
         }                                
 
     }

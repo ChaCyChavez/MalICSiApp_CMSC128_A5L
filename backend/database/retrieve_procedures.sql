@@ -506,6 +506,20 @@ DROP PROCEDURE IF EXISTS get_current_events//
   END;
 //
 
+DROP PROCEDURE IF EXISTS get_events//
+  CREATE PROCEDURE get_events()
+  BEGIN
+    SELECT
+		game_id,
+		game_name,
+		game_starting_time_date,
+		game_ending_time_date,
+		account_id
+	FROM
+		game_event;
+  END;
+//
+
 DROP PROCEDURE IF EXISTS get_upcoming_events//
   CREATE PROCEDURE get_upcoming_events()
   BEGIN
