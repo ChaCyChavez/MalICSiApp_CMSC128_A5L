@@ -135,27 +135,38 @@
                 court_type: courttype
             }
 
-            SportService
-                .add_match(data)
-                .then(function(res){
-                    console.log("yay");
-                    console.log(selectedValues);
-                    for(var i = 0; i < selectedValues.length; i++){
-                        data = {
-                            team_id: selectedValues[i],
-                            score: Math.floor(Math.random() * (100 - 0 + 1)) + 0
+            if(data.match_date_time == undefined || data.series == undefined ||
+                data.court_name == undefined){
+                swal("Failure!", "Please fill up all fields", "error");
+            }
+            else if(selectedValues.length < 2 ){
+                swal("Failure!", "A match needs atleast two teams", "error");
+            }
+            else{
+                SportService
+                    .add_match(data)
+                    .then(function(res){
+                        console.log("yay");
+                        console.log(selectedValues);
+                        for(var i = 0; i < selectedValues.length; i++){
+                            data = {
+                                team_id: selectedValues[i],
+                                score: Math.floor(Math.random() * (100 - 0 + 1)) + 0
+                            }
+                            SportService
+                                .add_team_to_match(data)
+                                .then(function(res){
+                                
+                                }, function(err){
+                                    console.log(err)
+                                })
+                            swal("Success!", "Match has been added", "success");
                         }
-                        SportService
-                            .add_team_to_match(data)
-                            .then(function(res){
-                                console.log("res")
-                            }, function(err){
-                                console.log(err)
-                            })
-                    }
-                },function(err){
-                    console.log(err);
-                })
+                    },function(err){
+                        swal("Failure!", "You are not the game head of this game event.", "error");
+                        console.log(err);
+                    })
+            }
             
         }                                
 
