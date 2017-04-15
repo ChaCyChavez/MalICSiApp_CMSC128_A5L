@@ -46,7 +46,22 @@
 				team_name:undefined,
 				team_color: undefined,
 				game_id:undefined
-			}
+			}/*,
+			{
+				team_name:undefined,
+				team_color: undefined,
+				game_id:undefined
+			},
+			{
+				team_name:undefined,
+				team_color: undefined,
+				game_id:undefined
+			},
+			{
+				team_name:undefined,
+				team_color: undefined,
+				game_id:undefined
+			}*/
 		];
 		$scope.append_fills = () =>{
 			$scope.teams.push(
@@ -54,6 +69,7 @@
 				team_name:undefined,
 				team_color: undefined
 			});
+			$("#add-game-modal").modal("refresh");
 		}
 
 		$scope.add_team = (id) =>{
