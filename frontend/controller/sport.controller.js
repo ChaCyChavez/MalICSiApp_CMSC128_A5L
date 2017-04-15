@@ -137,10 +137,10 @@
 
             if(data.match_date_time == undefined || data.series == undefined ||
                 data.court_name == undefined){
-                swal("Failure!", "Please fill up all fields", "error");
+                swal("Failed!", "Please fill up all fields", "error");
             }
             else if(selectedValues.length < 2 ){
-                swal("Failure!", "A match needs atleast two teams", "error");
+                swal("Failed!", "A match needs atleast two teams", "error");
             }
             else{
                 SportService

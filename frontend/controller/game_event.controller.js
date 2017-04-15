@@ -238,11 +238,20 @@
 				game_starting_time_date: moment($('#add_start_game').val()).format("YYYY-MM-DD"),
 				game_ending_time_date: moment($('#add_end_game').val()).format("YYYY-MM-DD")
 			};
-
+			var blank = 1;
+			for(var i = 0 ;i < $scope.teams.length; i++){
+				if($scope.teams[i].team_name == undefined || $scope.teams[i].team_color == undefined){
+					blank = 0;
+					break;
+				}
+			}
 			if (data.game_name == undefined ||
                 data.game_starting_time_date == "Invalid date" ||
-                data.game_ending_time_date == "Invalid date") {
-                swal("Please fill up all fields");
+                data.game_ending_time_date == "Invalid date" || blank == 0) {
+                swal("Failed","Please fill up all fields","error");
+            }
+            else if($scope.teams.length < 2){
+            	swal("Failed","A game event needs atleast two teams","error");
             } else {
 				GameEventService
 				.add_game(data)
