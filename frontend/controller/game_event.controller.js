@@ -54,6 +54,7 @@
 				team_name:undefined,
 				team_color: undefined
 			});
+			$("#add-game-modal").modal("refresh");
 		}
 
 		$scope.add_team = (id) =>{
