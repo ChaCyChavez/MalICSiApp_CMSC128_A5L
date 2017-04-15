@@ -35,7 +35,7 @@ DROP PROCEDURE IF EXISTS add_account//
             is_player,
             player_jersey_num,
             player_role,
-			is_admin
+            is_admin
         )VALUES(
             _firstname,
             _middlename,
@@ -51,7 +51,7 @@ DROP PROCEDURE IF EXISTS add_account//
             _is_player,
             _player_jersey_num,
             _player_role,
-			true
+            true
         );
     END;
 //
@@ -190,9 +190,9 @@ DROP PROCEDURE IF EXISTS add_match_event//
         IN _match_date_time    datetime,
         IN _series             enum('elimination','semi-finals','finals'),
         IN _sport_id           int,
-        IN _court_name		   varchar(256),
-		IN _court_type		   varchar(256),
-		IN _court_location	   varchar(256)
+        IN _court_name         varchar(256),
+        IN _court_type         varchar(256),
+        IN _court_location     varchar(256)
     )
     BEGIN
         INSERT INTO match_event(
@@ -201,16 +201,35 @@ DROP PROCEDURE IF EXISTS add_match_event//
             series,
             sport_id,
             court_name,
-			court_type,
-			court_location
+            court_type,
+            court_location
         )VALUES(
             _status,
             _match_date_time,
             _series,
             _sport_id,
             _court_name,
-			_court_type,
-			_court_location
+            _court_type,
+            _court_location
+        );
+        SET @match_id = LAST_INSERT_ID();
+    END;
+//
+
+DROP PROCEDURE IF EXISTS add_match_event_team//
+    CREATE PROCEDURE add_match_event_team(
+        IN _team_id             int,
+        IN _score               int
+    )
+    BEGIN
+        INSERT INTO match_event_team(
+            team_id,
+            match_id,
+            score
+        )VALUES(
+            _team_id,
+            @match_id,
+            _score
         );
     END;
 //
@@ -231,23 +250,5 @@ DROP PROCEDURE IF EXISTS join_account_to_team//
     END;
 //
 
-DROP PROCEDURE IF EXISTS add_score//
-    CREATE PROCEDURE add_score(
-        IN _team_id             int,
-        IN _match_id            int,
-        IN _score               int
-    )
-    BEGIN
-        INSERT INTO match_event_team(
-            team_id,
-            match_id,
-            score
-        )VALUES(
-            _team_id,
-            _match_id,
-            _score
-        );
-    END;
-//
 
 \d ;

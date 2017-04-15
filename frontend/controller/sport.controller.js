@@ -118,12 +118,44 @@
                 selectedValues.push($(this).val()); 
             });
             var wow = new Date($('#add-start-match').val());
-            
+            var courttype = "";
+            var court = $('#courtJoin').val();
+            if (court == "Baker Hall" || court == "Copeland Gym") courttype = "Gym"
+            else if (court == "Physci Building") courttype = "Building";
+            else courttype = "Park"
             var data = {
+                status: 1,
                 match_date_time: wow.getFullYear() + '-' + (wow.getMonth()+1) + 
                                  '-' + wow.getDate()  + ' ' + wow.getHours() +
-                                 ':' + wow.getMinutes() 
+                                 ':' + wow.getMinutes(),
+                series: $('#series').val(),
+                sport_id: sportid,
+                court_name: court,
+                court_location: 'UPLB',
+                court_type: courttype
             }
+
+            SportService
+                .add_match(data)
+                .then(function(res){
+                    console.log("yay");
+                    console.log(selectedValues);
+                    for(var i = 0; i < selectedValues.length; i++){
+                        data = {
+                            team_id: selectedValues[i],
+                            score: Math.floor(Math.random() * (100 - 0 + 1)) + 0
+                        }
+                        SportService
+                            .add_team_to_match(data)
+                            .then(function(res){
+                                console.log("res")
+                            }, function(err){
+                                console.log(err)
+                            })
+                    }
+                },function(err){
+                    console.log(err);
+                })
             
         }                                
 
