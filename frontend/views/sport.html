@@ -71,7 +71,7 @@
             <label>Match Date</label>
             <div class="ui input left icon">
               <i class="calendar icon"></i>
-              <input type="text" placeholder="Date">
+              <input type="text" placeholder="Date" id = "add-start-match">
             </div>
           </div>
           <div class="field">
@@ -83,11 +83,12 @@
           </div>
           <div class="field">
             <label>Court</label>
-            <select id = "courtJoin" class="ui dropdown">
-              <option value="5">Court</option>
-              <option value="1">Court 1</option>
-              <option value="2">Court 2</option>
-              <option value="3">Court 3</option>
+            <select id = "courtJoin" class="ui dropdown" ng-model = "">
+              <option disabled selected></option>
+              <option value="Copeland">Copeland</option>
+              <option value="Baker Hall">Baker Hall</option>
+              <option value="Freedom Park">Freedom Park</option>
+              <option value="Physci Building">Physci Building</option>
             </select>
           </div>
         </form>
@@ -109,7 +110,7 @@ $(document).ready(function(){
   $('.ui.dropdown').dropdown();
 
   $('#match-date').calendar({
-    type: 'datetime'
+    type: 'datetime'  
   });
 });
 </script>

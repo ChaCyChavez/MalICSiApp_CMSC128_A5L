@@ -571,6 +571,7 @@ exports.get_game_teams = (req, res, next) => {
 		}
 	};
 
+	console.log(payload)
 	db.query(query_string, payload, callback);
 };
 

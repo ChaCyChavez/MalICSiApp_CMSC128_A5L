@@ -195,6 +195,7 @@
 			GameEventService
 				.get_team_of_account(data)
 				.then(function(res){
+					console.log(res[0]);
 					if (res[0] == "") {
 						$scope.is_registered = true;
 					} else {

@@ -55,10 +55,14 @@ insert into match_event values (14,true, CURDATE(), 'finals', 2, 'Baker Hall', '
 
 -- matches for sport 2
 
-insert into game_event_team values (1, 3);
-insert into game_event_team values (2, 3);
-insert into game_event_team values (1, 4);
-insert into game_event_team values (3, 4);
+insert into game_event_team values (1, 1);
+insert into game_event_team values (2, 1);
+insert into game_event_team values (3, 1);
+insert into game_event_team values (4, 1);
+insert into game_event_team values (5, 1);
+insert into game_event_team values (6, 1);
+insert into game_event_team values (7, 1);
+insert into game_event_team values (8, 1);
 
 insert into team_account values (1, 4);
 insert into team_account values (2, 2);

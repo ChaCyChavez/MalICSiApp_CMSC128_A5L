@@ -51,8 +51,7 @@
 
 			const join_account_to_team = (data) => {
 				let deferred = $q.defer();
-				console.log(data);
-				console.log("service");
+				
 				$http({
 					method: 'POST',
 					data: $httpParamSerializer(data),
@@ -71,7 +70,8 @@
 
 			const get_teams = (data) => {
 				let deferred = $q.defer();
-
+				console.log(data);
+				console.log("service");
 				$http({
 					method: 'GET',
 					data: $httpParamSerializer(data),

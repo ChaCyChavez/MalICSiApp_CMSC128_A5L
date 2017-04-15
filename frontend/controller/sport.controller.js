@@ -111,25 +111,20 @@
                 });
         }
 
-        $scope.get_courts = () => {
-            SportService
-            .get_court()
-            .then(function(res){
-                console.log(res);
-                console.log("res above");
-            }, function(err){
-                console.log(err);
-            });
-
-        }
 
         $scope.add_match = () => {
             var selectedValues = [];    
             $("#teamJoin :selected").each(function(){
                 selectedValues.push($(this).val()); 
             });
-            console.log($("#courtJoin").val());
-            console.log(selectedValues);
+            var wow = new Date($('#add-start-match').val());
+            
+            var data = {
+                match_date_time: wow.getFullYear() + '-' + (wow.getMonth()+1) + 
+                                 '-' + wow.getDate()  + ' ' + wow.getHours() +
+                                 ':' + wow.getMinutes() 
+            }
+            
         }                                
 
     }
