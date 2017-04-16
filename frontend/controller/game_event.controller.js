@@ -143,7 +143,6 @@
 				$scope.edit_game_info.game_starting_time_date = new Date($scope.edit_game_info.game_starting_time_date);
 				$scope.edit_game_info.game_ending_time_date = new Date($scope.edit_game_info.game_ending_time_date);
 				console.log($scope.edit_game_info);
-
 			}
 		}
 
@@ -157,13 +156,18 @@
 			$scope.edit_game_info.game_ending_time_date = $('#edit_end_game').val();
 			$scope.edit_game_info.game_starting_time_date = moment($scope.edit_game_info.game_starting_time_date).format("YYYY-MM-DD");
 			$scope.edit_game_info.game_ending_time_date = moment($scope.edit_game_info.game_ending_time_date).format("YYYY-MM-DD");
-			GameEventService
-			.edit_game($scope.edit_game_info)
-			.then((data) => {
-				swal("Success!", "Event has been edited.", "success");
-			}, (err) => {
-				swal("Failure!", "You are not the game head of this game event.", "error");
-			});
+			if($scope.edit_game_info.game_starting_time_date == undefined || $scope.edit_game_info.game_ending_time_date == undefined ||
+				$scope.edit_game_info.game_name == undefined){
+				swal("Failure!", "Please fill out all fields", "error");
+			}else{
+				GameEventService
+				.edit_game($scope.edit_game_info)
+				.then((data) => {
+					swal("Success!", "Event has been edited.", "success");
+				}, (err) => {
+					swal("Failure!", "You are not the game head of this game event.", "error");
+				});
+			}
 		}
 
 		$scope.select_team = (teamid) => {
