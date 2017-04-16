@@ -211,10 +211,10 @@
             	})
 		}
 
-		$scope.join_account_to_team = () => {
+		$scope.join_account_to_team = (team) => {
 			var data = {
 				account_id: $rootScope.profile.account_id,
-				team_id: $scope.team.team_id
+				team_id: $("#chosen_team").val()
 			}
 
 			if (data.team_id == undefined) {
