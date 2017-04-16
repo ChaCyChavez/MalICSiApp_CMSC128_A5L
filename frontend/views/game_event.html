@@ -2,7 +2,7 @@
   
   <!-- button for adding new game-->
  
-  <a href="javascript:void(0)" class="ui add-btn" ng-if="profile.is_admin == 1" id="add-game"><i class="fa fa-plus fa-3x"></i></a>
+  <a href="javascript:void(0)" class="ui add-btn" ng-if="profile.is_admin || profile.is_game_head" id="add-game"><i class="fa fa-plus fa-3x"></i></a>
 
   <!-- Contents -->
   <div class="row contents">
@@ -89,7 +89,7 @@
             </div>
           </div>
           <div class="extra content">
-            <a href="javascript:void(0)">View More</a>
+            <a href="javascript:void(0)" class="fluid ui blue button view-more" ng-click="view_setup(game.game_id, index, 'upcoming'); check_if_registered()">View More</a>
           </div>
         </div>  
     </div>
@@ -109,7 +109,7 @@
             </div>
           </div>
           <div class="extra content">
-            <a href="javascript:void(0)">View More</a>
+            <a href="javascript:void(0)" class="fluid ui blue button view-more" ng-click="view_setup(game.game_id, index, 'upcoming'); check_if_registered()">View More</a>
           </div>
         </div>  
     </div>
