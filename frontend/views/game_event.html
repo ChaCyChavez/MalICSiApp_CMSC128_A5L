@@ -65,7 +65,7 @@
     </div>
     
     <h3>Upcoming Games</h3>
-    <div class="ui three stackable special cards" ng-if="profile.is_admin == 1">
+    <div class="ui four stackable special cards" ng-if="profile.is_admin == 1">
         <div class="card" ng-repeat="(index, game) in upcoming_games">
           <div class="blurring dimmable image">
             <div class="ui dimmer">
@@ -76,7 +76,7 @@
                 </div>
               </div>
             </div>
-            <img src="../img/strategy.png">
+            <img src="../img/games.png">
           </div>
           <div class="content">
             <span class="header game-title">{{game.game_name}}</span>
