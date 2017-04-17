@@ -34,8 +34,7 @@ DROP PROCEDURE IF EXISTS add_account//
             position,
             is_player,
             player_jersey_num,
-            player_role,
-            is_admin
+            player_role
         )VALUES(
             _firstname,
             _middlename,
@@ -50,8 +49,7 @@ DROP PROCEDURE IF EXISTS add_account//
             _position,
             _is_player,
             _player_jersey_num,
-            _player_role,
-            true
+            _player_role
         );
     END;
 //
