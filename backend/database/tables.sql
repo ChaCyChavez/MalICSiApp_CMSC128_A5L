@@ -81,7 +81,7 @@ CREATE TABLE sport (
     sport_type          varchar(256) NOT NULL,
     division            enum('men','women','mixed') NOT NULL,
     game_id             int NOT NULL,
-    unique_key          varchar(128) NOT NULL,
+    unique_key          varchar(128),
     UNIQUE KEY          (unique_key),
     PRIMARY KEY         (sport_id),
     CONSTRAINT          `fk_game_sport`
