@@ -83,12 +83,21 @@
           </div>
           <div class="field">
             <label>Court</label>
-            <select id = "courtJoin" class="ui dropdown" ng-model = "">
+            <select id = "courtJoin" class="ui dropdown">
               <option disabled selected></option>
               <option value="Copeland">Copeland</option>
               <option value="Baker Hall">Baker Hall</option>
               <option value="Freedom Park">Freedom Park</option>
               <option value="Physci Building">Physci Building</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Series</label>
+            <select id = "series" class="ui dropdown">
+              <option disabled selected></option>
+              <option value="elimination">Eliminations</option>
+              <option value="semi-finals">Semi-Finals</option>
+              <option value="finals">Finals</option>
             </select>
           </div>
         </form>
@@ -100,7 +109,7 @@
     </div>
   </div>
 </div>
-
+ 
 <script type="text/javascript">
 $(document).ready(function(){
   $("#add-match").click(function() {
@@ -111,6 +120,9 @@ $(document).ready(function(){
 
   $('#match-date').calendar({
     type: 'datetime'  
+  });
+  $('.modal-close').click(function() {
+    $('.ui.modal').modal('hide');
   });
 });
 </script>

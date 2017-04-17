@@ -6,13 +6,17 @@ const winston = require('winston');
 exports.add_match_event = (req, res, next) => {
 	if (req.session.user && req.session.user.is_game_head) {
 		// to do, check if game_head is owner of match_event
-		const query_string = 'CALL add_match_event(?,?,?,?)';
+		const query_string = 'CALL add_match_event(?,?,?,?,?,?,?)';
 
 		const payload = [
-			req.body.match_date_time,
 			req.body.status,
+			req.body.match_date_time,
+			req.body.series,
 			req.body.sport_id,
-			req.body.court_id
+			req.body.court_name,
+			req.body.court_location,
+			req.body.court_type
+
 		];
 
 		const callback = (err,data) => {
@@ -26,7 +30,34 @@ exports.add_match_event = (req, res, next) => {
 				res.status(200).send(data);
 			}
 		};
+		db.query(query_string, payload, callback);
+	} else {
+		res.status(401).send({message:"You must be a game head."});
+	}
+};
 
+exports.add_match_event_team = (req, res, next) => {
+	if (req.session.user && req.session.user.is_game_head) {
+		// to do, check if game_head is owner of match_event
+		const query_string = 'CALL add_match_event_team(?,?)';
+
+		const payload = [
+			req.body.team_id,
+			req.body.score
+		];
+
+		const callback = (err,data) => {
+			if (err) {
+				winston.level = 'debug';
+				winston.log('debug', 'err: ', err);
+				res.status(500).send({ error_code:err.code });
+			} else {
+				winston.level = 'info';
+				winston.log('info', 'Successfully added team to a match event!');
+				res.status(200).send(data);
+			}
+		};
+		// console.log(payload);
 		db.query(query_string, payload, callback);
 	} else {
 		res.status(401).send({message:"You must be a game head."});

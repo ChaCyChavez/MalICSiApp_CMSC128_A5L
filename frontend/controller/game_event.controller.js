@@ -143,7 +143,6 @@
 				$scope.edit_game_info.game_starting_time_date = new Date($scope.edit_game_info.game_starting_time_date);
 				$scope.edit_game_info.game_ending_time_date = new Date($scope.edit_game_info.game_ending_time_date);
 				console.log($scope.edit_game_info);
-
 			}
 		}
 
@@ -157,13 +156,18 @@
 			$scope.edit_game_info.game_ending_time_date = $('#edit_end_game').val();
 			$scope.edit_game_info.game_starting_time_date = moment($scope.edit_game_info.game_starting_time_date).format("YYYY-MM-DD");
 			$scope.edit_game_info.game_ending_time_date = moment($scope.edit_game_info.game_ending_time_date).format("YYYY-MM-DD");
-			GameEventService
-			.edit_game($scope.edit_game_info)
-			.then((data) => {
-				swal("Success!", "Event has been edited.", "success");
-			}, (err) => {
-				swal("Failure!", "You are not the game head of this game event.", "error");
-			});
+			if($scope.edit_game_info.game_starting_time_date == undefined || $scope.edit_game_info.game_ending_time_date == undefined ||
+				$scope.edit_game_info.game_name == undefined){
+				swal("Failure!", "Please fill out all fields", "error");
+			}else{
+				GameEventService
+				.edit_game($scope.edit_game_info)
+				.then((data) => {
+					swal("Success!", "Event has been edited.", "success");
+				}, (err) => {
+					swal("Failure!", "You are not the game head of this game event.", "error");
+				});
+			}
 		}
 
 		$scope.select_team = (teamid) => {
@@ -207,10 +211,10 @@
             	})
 		}
 
-		$scope.join_account_to_team = () => {
+		$scope.join_account_to_team = (team) => {
 			var data = {
 				account_id: $rootScope.profile.account_id,
-				team_id: $scope.team.team_id
+				team_id: $("#chosen_team").val()
 			}
 
 			if (data.team_id == undefined) {
@@ -238,11 +242,20 @@
 				game_starting_time_date: moment($('#add_start_game').val()).format("YYYY-MM-DD"),
 				game_ending_time_date: moment($('#add_end_game').val()).format("YYYY-MM-DD")
 			};
-
+			var blank = 1;
+			for(var i = 0 ;i < $scope.teams.length; i++){
+				if($scope.teams[i].team_name == undefined || $scope.teams[i].team_color == undefined){
+					blank = 0;
+					break;
+				}
+			}
 			if (data.game_name == undefined ||
                 data.game_starting_time_date == "Invalid date" ||
-                data.game_ending_time_date == "Invalid date") {
-                swal("Please fill up all fields");
+                data.game_ending_time_date == "Invalid date" || blank == 0) {
+                swal("Failed","Please fill up all fields","error");
+            }
+            else if($scope.teams.length < 2){
+            	swal("Failed","A game event needs atleast two teams","error");
             } else {
 				GameEventService
 				.add_game(data)
