@@ -47,7 +47,7 @@
           ret_sport.push(obj2);
         });
         $scope.sports = ret_sport;
-
+        console.log($scope.sports);
       }, function(err) {
         console.log(err);
       });
@@ -72,9 +72,14 @@
       SportsService
       .get_sports_game(data).
       then(function(res) {
-        if ($scope.selected != 0) s.push({sport_id: $scope.selected});
-        else { res.data[0].forEach(function(sport){  
-          s.push({sport_id: sport.sport_id});
+        if ($scope.selected != 0) {
+          s.push({sport_id: $scope.selected.sport_id});
+          $scope.sport = $scope.selected.sport_type + " - " + $scope.selected.division;
+        }
+        else {
+          $scope.sport = "All Sports";
+          res.data[0].forEach(function(sport){  
+            s.push({sport_id: sport.sport_id});
           });
         }
 
