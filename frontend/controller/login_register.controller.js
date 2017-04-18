@@ -16,7 +16,6 @@
                 if (data[0].length != 0)
                 {
                     $window.location.href = "#!/game-event";
-                    $window.location.relaoad();
                 } else {
                     $window.location.href = "#!/"
                 }

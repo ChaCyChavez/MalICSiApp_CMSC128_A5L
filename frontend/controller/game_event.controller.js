@@ -88,7 +88,7 @@
 
 		$scope.view_sponsor = () => {
 			$("#modal1").modal('close');
-            window.location.href= "#!/sponsor/" + $scope.view.gameid; 
+            window.location.href= "#!/sponsor/" + $scope.view.gameid;
         }
         $scope.view_sports = () => {
             window.location.href= "#!/sports/" +$scope.view.gameid; 
