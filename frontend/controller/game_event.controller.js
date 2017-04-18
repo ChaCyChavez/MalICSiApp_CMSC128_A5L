@@ -102,9 +102,9 @@
         	$scope.view.type = type;
         }
 
-	    $scope.view_registered_user = () => {
+	    $scope.view_participant = () => {
 	    	$("#modal1").modal('close');
-	        window.location.href="#!/registered-user/" + $scope.view.gameid;
+	        window.location.href="#!/participant/" + $scope.view.gameid;
 	        window.location.reload();
 	    }
 
