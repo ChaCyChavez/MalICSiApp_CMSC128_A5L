@@ -446,18 +446,22 @@ DROP PROCEDURE IF EXISTS get_user_upcoming_events//
   )
   BEGIN
     SELECT
-		game_id,
+		game_event.game_id,
 		game_name,
 		game_starting_time_date,
 		game_ending_time_date,
-		account_id
+		team_account.account_id
 	FROM
 		game_event
-	NATURAL JOIN
+	JOIN
 		game_event_team
-	NATURAL JOIN
+	JOIN
 		team_account
 	WHERE
+		game_event.game_id = game_event_team.game_id 
+	AND
+		game_event_team.team_id = team_account.team_id
+	AND
 		team_account.account_id = _account_id
 	AND
         game_starting_time_date > NOW();
@@ -470,18 +474,22 @@ DROP PROCEDURE IF EXISTS get_user_past_events//
   )
   BEGIN
     SELECT
-		game_id,
+		game_event.game_id,
 		game_name,
 		game_starting_time_date,
 		game_ending_time_date,
-		account_id
+		team_account.account_id
 	FROM
 		game_event
-	NATURAL JOIN
+	JOIN
 		game_event_team
-	NATURAL JOIN
+	JOIN
 		team_account
 	WHERE
+		game_event.game_id = game_event_team.game_id 
+	AND
+		game_event_team.team_id = team_account.team_id
+	AND
 		team_account.account_id = _account_id
 	AND
         game_ending_time_date <= NOW();
