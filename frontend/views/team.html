@@ -2,7 +2,7 @@
 
   
   <div class="row contents">
-    <h3 class="content-header">Team {{team_id}}</h3>
+    <h3 class="content-header" ng-init="get_team_name()">Team {{team_name}}</h3>
     <div class="ui two column doubling stackable grid container">
       <div class="column" ng-init="get_team_profile()">
         <div class="ui raised very fluid padded container segment">
@@ -29,6 +29,7 @@
           <table class="ui very basic selectable collapsing celled table" id="sched-table">
             <thead>
               <tr>
+                <th><h3>Match ID</h3></th>
                 <th><h3>Date</h3></th>
                 <th><h3>Opponent</h3></th>
                 <th><h3>Result</h3></th>
@@ -36,7 +37,8 @@
             </thead>
             <tbody>
               <tr ng-repeat="teams in team">
-                <td>{{teams.match_date_time}}</td>
+                <td>{{teams.match_id}}</td>
+                <td>{{teams.match_date_time | date: "medium"}}</td>
                 <td>{{teams.team_name}}</td>
                 <td>{{teams.score}}</td>
               </tr>
