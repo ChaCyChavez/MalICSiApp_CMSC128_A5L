@@ -25,6 +25,7 @@
                 .get_pending_account()
                 .then(function(res) {
                     $scope.pending_accounts = res[0];
+                    console.log($scope.profile.is_admin);
                 }, function(err) {
                     console.log(err);
                 });

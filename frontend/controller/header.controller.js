@@ -34,7 +34,7 @@
 
 		$rootScope.changeView = (view) => {
 			window.location.href = view;
-			$window.location.reload();
+			window.location.reload();
 		}
 
 		$rootScope.logout = () => {
@@ -43,7 +43,7 @@
 		        .then(function(res) {
 					// Materialize.toast(res.message, 4000, 'teal');
 					$window.location.href = "#!/"
-					location.reload();
+					window.location.reload();
 		        }, function(err) {
 					// Materialize.toast('Logout unsuccessful!', 4000, 'teal');
 		        })

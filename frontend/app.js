@@ -20,13 +20,9 @@ mainApp.config(function($routeProvider, $locationProvider) {
 			templateUrl: 'views/profile.html',
 			controller: 'profile-controller'
 		})
-		.when('/participant', {
+		.when('/participant/:game_id', {
 			templateUrl: 'views/participant.html',
 			controller: 'participant-controller'
-		})
-		.when('/registered-user/:game_id', {
-			templateUrl: 'views/registered_user.html',
-			controller: 'registered-user-controller'
 		})
 		.when('/sponsor/:game_id', {
 			templateUrl: 'views/sponsor.html',

@@ -7,6 +7,7 @@
 
     function sponsor_controller($scope, $location, $routeParams, SponsorService, GameEventService) {
 
+
     	$scope.sponsors = [];
         $scope.game_id = $routeParams.game_id;
 
@@ -58,46 +59,19 @@
             }
         }
 
-        $scope.is_exists = () => {
-            $scope.game_id = $routeParams.game_id;
-            for(var i = 0; i < $scope.games.length; i++) {
-                console.log( $scope.game_id + ' ' + $scope.games[i].game_id);
-                if($scope.game_id == $scope.games[i].game_id) {
-                    return true;
-                }
-            }
-            return false;
-        }
+
 
         $scope.init_sponsor = () => {
-            GameEventService
-                .get_games()
-                .then(function(res) {
-                    $scope.games = res[0];
-                    console.log($scope.games);
-                    if(!($scope.is_exists())) {
-                       swal({
-                          title: "Game Event does not exists!",
-                          showCancelButton: false,
-                          confirmButtonColor: "#DD6B55",
-                          confirmButtonText: "Return to Home",
-                          closeOnConfirm: true
-                        },
-                        function(){
-                            window.location.href="#!/game-event";
-                        });
-                    } else{
-                        SponsorService
-                        .init_sponsors($scope.game_id)
-                        .then(function(res) {
-                            $scope.sponsors = res[0];
-                        }, function(err) {
-                            console.log(err.data)   ;
-                        })
-                    }
-                }, function(err) {
-                    console.log(err.data)
-                })     
+
+            SponsorService
+            .init_sponsors($scope.game_id)
+            .then(function(res) {
+                $scope.sponsors = res[0];
+                console.log($scope.profile.is_admin);
+            }, function(err) {
+                console.log(err.data)   ;
+            })
+  
         }
 
         $scope.init_edit_modal = (sponsor_id) => {
