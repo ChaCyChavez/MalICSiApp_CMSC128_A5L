@@ -14,8 +14,8 @@
       </div>
       <div class="results"></div>
     </div>
-    <h3>Current Games</h3>
-    <div class="ui four stackable special cards" ng-if="profile.is_admin == 1">
+    <h2>Current Games</h2>
+    <div class="ui four stackable special cards" ng-if="profile.is_admin || profile.is_game_head">
         <div class="card" ng-repeat="(index, game) in current_games | filter: {game_name: gamesearch}">
           <div class="blurring dimmable image">
             <div class="ui dimmer">
@@ -29,7 +29,7 @@
             <img src="../img/games.png">
           </div>
           <div class="content">
-            <span class="header">{{game.game_name}}</span>
+            <span class="header game-title">{{game.game_name}}</span>
             <div class="meta">
               Start: <br/>
               <span>{{game.game_starting_time_date | date: 'fullDate'}}</span>
@@ -43,13 +43,13 @@
           </div>
         </div>  
     </div>
-    <div class="ui four stackable cards" ng-if="profile.is_admin != 1">
+    <div class="ui four stackable cards" ng-if="profile.is_admin != 1 && profile.is_game_head != 1">
         <div class="card" ng-repeat="(index, game) in current_games">
           <div class="image">
             <img src="../img/games.png">
           </div>
           <div class="content">
-            <span class="header">{{game.game_name}}</span>
+            <span class="header game-title">{{game.game_name}}</span>
             <div class="meta">
               Start: <br/>
               <span>{{game.game_starting_time_date | date: 'fullDate'}}</span>
@@ -64,7 +64,7 @@
         </div>  
     </div>
     
-    <h3>Upcoming Games</h3>
+    <h2>Upcoming Games</h2>
     <div class="ui four stackable special cards" ng-if="profile.is_admin == 1">
         <div class="card" ng-repeat="(index, game) in upcoming_games  | filter: {game_name: gamesearch}">
           <div class="blurring dimmable image">
@@ -210,7 +210,7 @@
         <br/>
         <div class="ui button inverted modal-close" id="vp" ng-click="view_participant()">View Participants</div>
         <br/>
-        <div class="ui button inverted modal-close reg-to-game" id="rttg" ng-show="is_registered" ng-click="get_teams()">Register to this Game</div>
+        <div class="ui button inverted modal-close reg-to-game" ng-if="!profile.is_admin" id="rttg" ng-show="is_registered" ng-click="get_teams()">Register to this Game</div>
       </form>
     </div>
   </div>

@@ -6,32 +6,36 @@ const crypto = require('crypto');
 
 
 exports.add_sport = (req,res,next) => {
-	const query_string = 'CALL add_sport(?,?,?,?)';
+	if (req.session.user && req.session.user.is_game_head) {
+		const query_string = 'CALL add_sport(?,?,?,?)';
 
-	const payload = [
-		req.body.sport_type,
-		req.body.division,
-		req.body.game_id,
-		crypto.createHash('sha256').update(
-			req.body.sport_id+
-			req.body.sport_type+
-			req.body.division
-				).digest('base64')
-		];
+		const payload = [
+			req.body.sport_type,
+			req.body.division,
+			req.body.game_id,
+			crypto.createHash('sha256').update(
+				req.body.sport_id+
+				req.body.sport_type+
+				req.body.division
+					).digest('base64')
+			];
 
-	const callback = (err,data) => {
-		if (err) {
-			winston.level = 'debug';
-			winston.log('debug', 'err: ', err);
-			res.status(500).send({ error_code:err.code });
-		} else {
-			winston.level = 'info';
-			winston.log('info', 'Successfully added sport!');
-			res.status(200).send(data);
-		}
-	};
+		const callback = (err,data) => {
+			if (err) {
+				winston.level = 'debug';
+				winston.log('debug', 'err: ', err);
+				res.status(500).send({ error_code:err.code });
+			} else {
+				winston.level = 'info';
+				winston.log('info', 'Successfully added sport!');
+				res.status(200).send(data);
+			}
+		};
 
-	db.query(query_string, payload, callback);
+		db.query(query_string, payload, callback);
+	} else {
+		res.status(403).send({message:"You must be game head or admin."});
+	}
 };
 
 exports.get_sport = (req, res, next) => {
@@ -59,59 +63,67 @@ exports.get_sport = (req, res, next) => {
 };
 
 exports.update_sport = (req, res, next) => {
-	const query_string = 'CALL update_sport(?,?,?,?);';
+	if (req.session.user && req.session.user.is_game_head) {
+		const query_string = 'CALL update_sport(?,?,?,?);';
 
-	const payload = [
-		req.body.sport_id,
-		req.body.sport_type,
-		req.body.division,
-		crypto.createHash('sha256').update(
-			req.body.sport_id+
-			req.body.sport_type+
-			req.body.division
-				).digest('base64')
-	];
+		const payload = [
+			req.body.sport_id,
+			req.body.sport_type,
+			req.body.division,
+			crypto.createHash('sha256').update(
+				req.body.sport_id+
+				req.body.sport_type+
+				req.body.division
+					).digest('base64')
+		];
 
-	const callback = (err, data) => {
-		if (err) {
-			winston.level = 'debug';
-			winston.log('debug', 'err: ', err);
-			res.status(500).send({ error_code:err.code });
-		} else if (data.affectedRows == 0) {
-			winston.level = 'info';
-			winston.log('info', 'Not found! Update failed');
-			res.status(404).send();
-		} else {
-			winston.level = 'info';
-			winston.log('info', 'Successfully updated sport!');
-			res.status(200).send(data);
-		}
-	};
-	db.query(query_string, payload, callback);
+		const callback = (err, data) => {
+			if (err) {
+				winston.level = 'debug';
+				winston.log('debug', 'err: ', err);
+				res.status(500).send({ error_code:err.code });
+			} else if (data.affectedRows == 0) {
+				winston.level = 'info';
+				winston.log('info', 'Not found! Update failed');
+				res.status(404).send();
+			} else {
+				winston.level = 'info';
+				winston.log('info', 'Successfully updated sport!');
+				res.status(200).send(data);
+			}
+		};
+		db.query(query_string, payload, callback);
+	} else {
+		res.status(403).send({message:"You must be game head or admin."});
+	}
 };
 
 exports.delete_sport = (req, res, next) => {
-	const query_string ='CALL delete_sport(?)';
+	if (req.session.user && req.session.user.is_game_head) {
+		const query_string ='CALL delete_sport(?)';
 
-	const payload = [req.body.sport_id];
+		const payload = [req.body.sport_id];
 
-	const callback = (err, data) => {
-		if (err) {
-			winston.level = 'debug';
-			winston.log('debug', 'err: ', err);
-			res.status(500).send({ error_code:err.code });
-		} else if (data.affectedRows == 0) {
-			winston.level = 'info';
-			winston.log('info', 'Not found! Delete failed');
-			res.status(404).send();
-		} else {
-			winston.level = 'info';
-			winston.log('info', 'Successfully deleted sport!');
-			res.status(200).send(data);
-		}
-	};
+		const callback = (err, data) => {
+			if (err) {
+				winston.level = 'debug';
+				winston.log('debug', 'err: ', err);
+				res.status(500).send({ error_code:err.code });
+			} else if (data.affectedRows == 0) {
+				winston.level = 'info';
+				winston.log('info', 'Not found! Delete failed');
+				res.status(404).send();
+			} else {
+				winston.level = 'info';
+				winston.log('info', 'Successfully deleted sport!');
+				res.status(200).send(data);
+			}
+		};
 
-	db.query(query_string, payload, callback);
+		db.query(query_string, payload, callback);
+	} else {
+		res.status(403).send({message:"You must be game head or admin."});
+	}
 };
 
 exports.get_sport_game = (req, res, next) => {

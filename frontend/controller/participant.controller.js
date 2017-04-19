@@ -94,9 +94,7 @@
                 res[0].forEach(function(element) {
                   let profile = {
                     account_id: element.account_id,
-                    firstname: element.firstname,
-                    middlename: element.middlename,
-                    lastname: element.lastname
+                    name: element.firstname + " " + element.middlename + " " + element.lastname
                   }
                   if (!inArray(profile)) $scope.participants.push(profile);
                 });

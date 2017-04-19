@@ -9,7 +9,7 @@
 
     function game_event_controller($scope, $window, $rootScope, $location, GameEventService, ProfileService) {
 		// fetching is being implemented by other group member
-
+		console.log($scope.profile);
 		$scope.current_games = [
 			{
 				game_id: undefined,
@@ -63,11 +63,8 @@
 				GameEventService
 				.add_team($scope.teams[i])
 				.then(function(res) {
-
 					swal("Success!", "Event has been successfully added.", "success");
-					console.log(res);
 				}, function(err) {
-					console.log(err);
 				});
 			}
 		}

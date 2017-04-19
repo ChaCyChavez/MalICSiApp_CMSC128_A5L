@@ -114,9 +114,12 @@ DROP PROCEDURE IF EXISTS get_all_activity_logs//
 		log_id,
 		log_description,
 		log_date,
-		account_id
+		account_id,
+		CONCAT(firstname,CONCAT(CONCAT(" ", middlename), CONCAT(" ", lastname))) as name
 	FROM
-		activity_log;
+		activity_log
+	NATURAL JOIN
+		account;
   END;
 //
 
