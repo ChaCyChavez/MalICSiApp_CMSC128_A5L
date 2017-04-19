@@ -78,44 +78,40 @@ exports.search_game_event = (req, res, next) => {
 };
 
 exports.get_game_event = (req, res, next) => {
-	if (req.session.user) {
-		const query_string = 'CALL get_game_event(?)';
+	const query_string = 'CALL get_game_event(?)';
 
-		const payload = [req.params.game_id];
+	const payload = [req.params.game_id];
 
-		const callback = (err, data) => {
-			if (err) {
-				winston.level = 'debug';
-				winston.log('debug', 'Error', prettyjson.render({
-					details: err,
-					origin: "get_game_event controller in game_event.js",
-					payload: payload,
-					query_string: query_string
-				}));
-				res.status(500).send({ error_code:err.code });
-			} else if (data[0].length == 0) {
-				winston.log('info', 'Not found.', prettyjson.render({
-					origin: "get_game_event controller in game_event.js",
-					payload: payload,
-					query_string: query_string
-				}));
-				res.status(500).send();
-			} else {
-				winston.level = 'info';
-				winston.log('info', 'Success', prettyjson.render({
-					details: data,
-					origin: "get_game_event controller in game_event.js",
-					payload: payload,
-					query_string: query_string
-				}));
-				res.status(200).send(data);
-			}
-		};
+	const callback = (err, data) => {
+		if (err) {
+			winston.level = 'debug';
+			winston.log('debug', 'Error', prettyjson.render({
+				details: err,
+				origin: "get_game_event controller in game_event.js",
+				payload: payload,
+				query_string: query_string
+			}));
+			res.status(500).send({ error_code:err.code });
+		} else if (data[0].length == 0) {
+			winston.log('info', 'Not found.', prettyjson.render({
+				origin: "get_game_event controller in game_event.js",
+				payload: payload,
+				query_string: query_string
+			}));
+			res.status(500).send();
+		} else {
+			winston.level = 'info';
+			winston.log('info', 'Success', prettyjson.render({
+				details: data,
+				origin: "get_game_event controller in game_event.js",
+				payload: payload,
+				query_string: query_string
+			}));
+			res.status(200).send(data);
+		}
+	};
 
-		db.query(query_string, payload, callback);
-	} else {
-		res.status(401).send({message:"You must be logged in."});
-	}
+	db.query(query_string, payload, callback);
 };
 
 exports.get_user_upcoming_events = (req, res, next) => {

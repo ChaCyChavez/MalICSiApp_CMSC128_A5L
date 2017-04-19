@@ -114,9 +114,12 @@ DROP PROCEDURE IF EXISTS get_all_activity_logs//
 		log_id,
 		log_description,
 		log_date,
-		account_id
+		account_id,
+		CONCAT(firstname,CONCAT(CONCAT(" ", middlename), CONCAT(" ", lastname))) as name
 	FROM
-		activity_log;
+		activity_log
+	NATURAL JOIN
+		account;
   END;
 //
 
@@ -141,35 +144,35 @@ DROP PROCEDURE IF EXISTS get_team_profile//
   END;
 //
 
+
 DROP PROCEDURE IF EXISTS get_team_match//
   CREATE PROCEDURE get_team_match(
 	  IN _team_id int
   )
   BEGIN
-    SELECT
-		match_date_time, 
-		team_name, 
-		score,
-		match_id
-    FROM
-		team
-	NATURAL JOIN
-		match_event_team
-	NATURAL JOIN
-		match_event
-    WHERE 
-    	match_id 
-    IN (
-		SELECT
-			match_id
-      	FROM
-			match_event_team
-		WHERE
-			team_id = _team_id
-		)
-	ORDER BY
-		match_id;
+    SELECT 
+    	t.team_name, 
+    	m.match_date_time, 
+    	m.series, 
+    	m.match_id
+    FROM 
+    	team t 
+    NATURAL JOIN 
+    	match_event_team me 
+    NATURAL JOIN 
+    	match_event m
+    WHERE match_id in (
+    	SELECT 
+    		m.match_id
+      	FROM 
+      		team t 
+      	NATURAL JOIN 
+      		match_event_team me 
+      	NATURAL JOIN 
+      		match_event m
+      WHERE m.match_id = me.match_id && t.team_id = _team_id) && t.team_id != _team_id;
   END;
+
 //
 
 DROP PROCEDURE IF EXISTS get_team_name//

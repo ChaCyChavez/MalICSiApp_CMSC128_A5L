@@ -33,8 +33,8 @@
 		}
 
 		$rootScope.changeView = (view) => {
-			window.location.href = view;
-			window.location.reload();
+			$window.location.href = view;
+			$window.location.reload();
 		}
 
 		$rootScope.logout = () => {
@@ -119,7 +119,6 @@
 			let strUser = e.options[e.selectedIndex].value;
 			$scope.data.birthday = $('#birthday').calendar('get date');
 			$scope.data.birthday = moment($scope.data.birthday).format('YYYY-MM-DD');
-			console.log($scope.data.birthday);
 			$scope.data.college = strUser;
 
 			if (isplayer)

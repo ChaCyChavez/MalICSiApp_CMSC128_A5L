@@ -8,7 +8,6 @@
 		LogCtrl.$inject = ['$scope', '$location', 'LogService'];
 
 		function LogCtrl($scope, $location, LogService) {
-
 			$scope.get_log = function(){
 				LogService
 				.get_log()
