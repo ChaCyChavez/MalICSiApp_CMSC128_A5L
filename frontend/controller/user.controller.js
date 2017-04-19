@@ -65,5 +65,9 @@
               }
             });
         }
+
+        $scope.view_account = (account_id) => {
+            window.location.href="#!/profile/" + account_id;
+        }
     }
 })();

@@ -104,6 +104,19 @@
                     });
                     $scope.matches = matches;
                     $scope.teams = team_list;
+                    console.log(matches);
+                    let BreakException = {};
+                    try{
+	                    matches.forEach(function(j){
+	                        if(j.teams.length != 2){
+	                        	document.getElementById("tourn-brac").disabled = true;
+	                        	$scope.dis_tourn = true;
+	                        	throw BreakException;
+	                        }
+	                    });
+                    }catch (e) {
+                        if (e !== BreakException) throw e;
+                    }        
                 }, function(err) {
                     console.log(err);
                 });

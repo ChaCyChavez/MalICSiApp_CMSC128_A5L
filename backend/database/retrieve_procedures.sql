@@ -130,20 +130,11 @@ DROP PROCEDURE IF EXISTS get_team_profile//
   )
   BEGIN
     SELECT
-		account_id,
 		firstname,
 		middlename,
 		lastname,
-		email,
-		username,
 		course,
-		birthday,
-		college,
-		position,
-		is_player,
-		player_jersey_num,
-		player_role,
-		team_id
+		college
 	FROM
 		account
 	NATURAL JOIN
@@ -159,37 +150,42 @@ DROP PROCEDURE IF EXISTS get_team_match//
   )
   BEGIN
     SELECT
-		t.team_id,
-		t.team_name,
-		t.team_color,
-		m.match_id,
-		m.status,
-		m.match_date_time,
-		m.series,
-		m.sport_id,
-		m.court_name,
-		m.court_location,
-		m.court_type
+		match_date_time, 
+		team_name, 
+		score,
+		match_id
     FROM
-		team t
+		team
 	NATURAL JOIN
-		match_event_team me
+		match_event_team
 	NATURAL JOIN
-		match_event m
-    WHERE match_id IN (
+		match_event
+    WHERE 
+    	match_id 
+    IN (
 		SELECT
-			m.match_id
+			match_id
       	FROM
-			team t
-		NATURAL JOIN
-			match_event_team me
-		NATURAL JOIN
-			match_event m
+			match_event_team
 		WHERE
-			t.team_id = _team_id
-	)
-	AND
-		t.team_id = _team_id;
+			team_id = _team_id
+		)
+	ORDER BY
+		match_id;
+  END;
+//
+
+DROP PROCEDURE IF EXISTS get_team_name//
+  CREATE PROCEDURE get_team_name(
+	  IN _team_id int
+  )
+  BEGIN
+    SELECT
+		team_name 
+    FROM
+		team
+	WHERE
+		team_id = _team_id;
   END;
 //
 
