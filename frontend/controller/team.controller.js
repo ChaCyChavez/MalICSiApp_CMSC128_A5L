@@ -50,5 +50,18 @@
 					console.log(err);
 				});
 		}
+
+		$scope.team_id = $routeParams.team_id;
+
+		$scope.get_team_name= () => {
+			TeamService
+				.get_team_name($scope.team_id)
+				.then(function(res) {
+					$scope.team_name = res[0][0].team_name;
+					console.log($scope.team_name);
+				}, function(err) {
+					console.log(err);
+				});
+		}
     }
 })();

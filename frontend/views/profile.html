@@ -23,22 +23,18 @@
 				<div class="ui raised very padded text container segment" id="upcoming_events">
 					<h1 class="ui header">UPCOMING EVENTS</h1>
 					<div ng-repeat="user_upcoming_event in user_upcoming_events">
-						<h5>{{ "Game name: "+ user_upcoming_event.game_name }}</h5>
-						<h5>{{ " Game Staring date and time: "+
-						user_upcoming_event.game_starting_time_date }}</h5>
-						<h5>{{ " Game Ending date and time: "+
-						user_upcoming_event.game_ending_time_date }}</h5><br>
+						<h5>Game name: {{ user_upcoming_event.game_name }}</h5>
+						<h5>Game Staring date and time: {{ user_upcoming_event.game_starting_time_date | date: 'medium'}}</h5>
+						<h5>Game Ending date and time: {{ user_upcoming_event.game_ending_time_date | date: 'medium'}}</h5><br>
 					</div>
 				</div>
 
 				<div class="ui raised very padded text container segment" id="events_played">
 					<h1 class="ui header">EVENTS PLAYED</h1>
 					<div ng-repeat="user_past_event in user_past_events">
-						<h5>{{ "Game name: "+ user_past_event.game_name }}</h5>
-						<h5>{{ " Game Staring date and time: "+
-						user_past_event.game_starting_time_date }}</h5>
-						<h5>{{ " Game Ending date and time: "+
-						user_past_event.game_ending_time_date }}</h5><br>
+						<h5>Game name: {{ user_past_event.game_name }}</h5>
+						<h5>Game Staring date and time: {{ user_past_event.game_starting_time_date | date: 'medium'}}</h5>
+						<h5>Game Ending date and time: {{ user_past_event.game_ending_time_date | date: 'medium'}}</h5><br>
 					</div>
 				</div>
 			</div>

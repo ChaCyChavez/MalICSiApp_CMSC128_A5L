@@ -28,8 +28,8 @@ exports.add_team = (req,res,next) => {
 };
 
 //Controller to be used to get a team given a team_id
-exports.get_team = (req, res, next) => {
-	const query_string = "CALL get_team(?)";
+exports.get_team_name = (req, res, next) => {
+	const query_string = "CALL get_team_name(?)";
 
 	const payload = [req.params.team_id];
 
