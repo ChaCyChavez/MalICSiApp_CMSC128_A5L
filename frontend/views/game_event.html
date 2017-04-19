@@ -9,14 +9,14 @@
     <h3 class="content-header">GAMES</h3>
     <div class="ui search">
       <div class="ui icon input">
-        <input class="prompt" placeholder="Search User" type="text">
+        <input class="prompt" placeholder="Search Game Event" type="text" ng-model="gamesearch">
         <i class="search icon"></i>
       </div>
       <div class="results"></div>
     </div>
     <h3>Current Games</h3>
     <div class="ui four stackable special cards" ng-if="profile.is_admin == 1">
-        <div class="card" ng-repeat="(index, game) in current_games">
+        <div class="card" ng-repeat="(index, game) in current_games | filter: {game_name: gamesearch}">
           <div class="blurring dimmable image">
             <div class="ui dimmer">
               <div class="content">
@@ -66,7 +66,7 @@
     
     <h3>Upcoming Games</h3>
     <div class="ui four stackable special cards" ng-if="profile.is_admin == 1">
-        <div class="card" ng-repeat="(index, game) in upcoming_games">
+        <div class="card" ng-repeat="(index, game) in upcoming_games  | filter: {game_name: gamesearch}">
           <div class="blurring dimmable image">
             <div class="ui dimmer">
               <div class="content">
@@ -82,10 +82,10 @@
             <span class="header game-title">{{game.game_name}}</span>
             <div class="meta">
               Start: <br/>
-              <span>{{game.game_starting_time_date}}</span>
+              <span>{{game.game_starting_time_date | date: 'fullDate'}}</span>
               <br/>
               End: <br/>
-              <span>{{game.game_ending_time_date}}</span>
+              <span>{{game.game_ending_time_date | date: 'fullDate'}}</span>
             </div>
           </div>
           <div class="extra content">
@@ -102,10 +102,10 @@
             <span class="header game-title">{{game.game_name}}</span>
             <div class="meta">
               Start: <br/>
-              <span>{{game.game_starting_time_date}}</span>
+              <span>{{game.game_starting_time_date | date: 'fullDate'}}</span>
               <br/>
               End: <br/>
-              <span>{{game.game_ending_time_date}}</span>
+              <span>{{game.game_ending_time_date | date: 'fullDate'}}</span>
             </div>
           </div>
           <div class="extra content">
@@ -208,7 +208,7 @@
         <br/>
         <div class="ui button inverted modal-close" id="vspt" ng-click="view_sports()">View Sports</div>
         <br/>
-        <div class="ui button inverted modal-close" id="vp" ng-click="view_registered_user()">View Participants</div>
+        <div class="ui button inverted modal-close" id="vp" ng-click="view_participant()">View Participants</div>
         <br/>
         <div class="ui button inverted modal-close reg-to-game" id="rttg" ng-show="is_registered" ng-click="get_teams()">Register to this Game</div>
       </form>

@@ -63,6 +63,7 @@
 				GameEventService
 				.add_team($scope.teams[i])
 				.then(function(res) {
+
 					swal("Success!", "Event has been successfully added.", "success");
 					console.log(res);
 				}, function(err) {
@@ -102,9 +103,9 @@
         	$scope.view.type = type;
         }
 
-	    $scope.view_registered_user = () => {
+	    $scope.view_participant = () => {
 	    	$("#modal1").modal('close');
-	        window.location.href="#!/registered-user/" + $scope.view.gameid;
+	        window.location.href="#!/participant/" + $scope.view.gameid;
 	        window.location.reload();
 	    }
 
@@ -187,8 +188,6 @@
 				.get_teams(data)
 				.then(function(res){
 					$scope.teams = res[0];
-					console.log(res[0]);
-					console.log("teams");
             	},function(err){
                 	console.log(err);
             	})
@@ -264,6 +263,8 @@
 				.add_game(data)
 				.then(function(res){
 					$scope.add_team(res[0][0]['last_insert_id()']);
+					$scope.get_upcoming_games();
+					$scope.get_current_games();
             	},function(err){
             		swal(res.error);
                 	console.log(err);

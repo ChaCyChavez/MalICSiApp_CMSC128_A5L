@@ -25,7 +25,6 @@
                 .get_pending_account()
                 .then(function(res) {
                     $scope.pending_accounts = res[0];
-                    console.log($scope.profile.is_admin);
                 }, function(err) {
                     console.log(err);
                 });
@@ -48,7 +47,8 @@
                 UserService
                 .approve_account({account_id:$scope.pending_accounts[data].account_id})
                 .then((res) => {
-      					 $scope.pending_accounts.splice(data, 1);
+                 $scope.get_accounts();
+                 $scope.pending_accounts.splice(data, 1);
       					 swal("Approved!", "Account has been approved!", "success");
                 }, (err) => {
 					       alert("Internal Server Error. Dev please debug.");

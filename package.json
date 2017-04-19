@@ -30,12 +30,11 @@
     "method-override": "^2.3.7",
     "minimatch": "^3.0.3",
     "mysql": "^2.13.0",
-    "nodemailer": "^3.1.7",
+    "nodemailer": "^4.0.1",
     "nodemon": "^1.11.0",
     "path": "^0.12.7",
     "prettyjson": "^1.2.1",
     "redis": "^2.6.5",
-    "semantic-ui": "^2.2.10",
     "winston": "^2.3.1"
   }
 }

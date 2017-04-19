@@ -1,64 +1,44 @@
+<div ng-controller="participant-controller" ng-init="get_sports(); load_participants()">
+  <div class="row contents">
+    <h3 class="content-header"> Participants in {{sport}}</h3>
 
-<div ng-controller="participant-controller">
-    <br></br>
-
-    <h3 class="header"> List of User Registered in &lt;Sport&gt;</h3>
-    <form>
-      <div class= "container">
-        <select class="browser-default">
-          <option value="javascript:void(0)" disabled selected>SELECT SPORT</option>
-          <option value="1">Option 1</option>
-          <option value="2">Option 2</option>
-          <option value="3">Option 3</option>
-        </select>
+    <div class="ui fluid category search">
+      <div class="ui icon input">
+        <input class="prompt" placeholder="Search animals..." type="text">
+        <i class="search icon"></i>
       </div>
+      <div class="results"></div>
+    </div>
+    
+    <div class="ui raised very fluid padded container segment" id="ru-table">
+      <form>
+        <div class= "container">
+          <select class="ui dropdown" ng-model="selected" ng-change="load_participants()" ng-options="sport.sport_type + ' - ' + sport.division for sport in sports">
+            <option value="">Select Sport...</option>
+          </select>
+        </div>
+      </form>
 
-
-      <div class="input-field container">
-        <input id="search" type="search" required>
-        <label class="label-icon" for="search"><i class="fa fa-search"></i></label>
-      </div>
-    </form>
-
-    <div class="participant-list">
-      <div class="collection">
-        <a href="javascript:void(0)" class="collection-item avatar" ng-click="view_profile()">
-          <i class="fa fa-user fa-2x circle blue"></i>
-          <span class="title">Title</span>
-          <p>First Line <br>
-             Second Line
-          </p>
-        </a>
-        <a href="javascript:void(0)" class="collection-item avatar" ng-click="view_profile()">
-          <i class="fa fa-user fa-2x circle blue"></i>
-          <span class="title">Title</span>
-          <p>First Line <br>
-             Second Line
-          </p>
-        </a>
-        <a href="javascript:void(0)" class="collection-item avatar" ng-click="view_profile()">
-          <i class="fa fa-user fa-2x circle blue"></i>
-          <span class="title">Title</span>
-          <p>First Line <br>
-             Second Line
-          </p>
-        </a>
-        <a href="javascript:void(0)" class="collection-item avatar" ng-click="view_profile()">
-          <i class="fa fa-user fa-2x circle blue"></i>
-          <span class="title">Title</span>
-          <p>First Line <br>
-             Second Line
-          </p>
-        </a>
-
-        <a href="javascript:void(0)" class="collection-item avatar" ng-click="view_profile()">
-          <i class="fa fa-user fa-2x circle blue"></i>
-          <span class="title">Title</span>
-          <p>First Line <br>
-             Second Line
-          </p>
-        </a>
-      </div>
+      <table class="ui very basic selectable collapsing celled table" id="ru-table">
+        <thead>
+          <tr>
+            <h1>List of Participants</h1>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="participant in participants">
+            <td href="javascript:void(0)">
+              <h4 class="trow ui header">
+                <i class=" fa fa-user fa-2x ui mini rounded"></i>
+                <div class="content">
+                  {{participant.firstname}} {{participant.middlename}} {{participant.lastname}}
+                </div>
+              </h4>
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
     </div>
 </div>
 

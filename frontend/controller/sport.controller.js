@@ -102,8 +102,6 @@
                         });
                         matches.push(obj);
                     });
-                    console.log(matches);
-                    console.log(team_list);
                     $scope.matches = matches;
                     $scope.teams = team_list;
                 }, function(err) {
@@ -146,8 +144,6 @@
                 SportService
                     .add_match(data)
                     .then(function(res){
-                        console.log("yay");
-                        console.log(selectedValues);
                         for(var i = 0; i < selectedValues.length; i++){
                             data = {
                                 team_id: selectedValues[i],
@@ -156,7 +152,7 @@
                             SportService
                                 .add_team_to_match(data)
                                 .then(function(res){
-                                
+                                    $scope.get_matches();
                                 }, function(err){
                                     console.log(err)
                                 })
