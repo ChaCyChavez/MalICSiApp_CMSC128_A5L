@@ -60,14 +60,11 @@
         }
 
 
-
         $scope.init_sponsor = () => {
-
             SponsorService
             .init_sponsors($scope.game_id)
             .then(function(res) {
                 $scope.sponsors = res[0];
-                console.log($scope.profile.is_admin);
             }, function(err) {
                 console.log(err.data)   ;
             })
@@ -77,7 +74,6 @@
         $scope.init_edit_modal = (sponsor_id) => {
             for(var i = 0; i < $scope.sponsors.length; i++) {
                 if($scope.sponsors[i].sponsor_id === sponsor_id) {
-
                     $scope.sponsorEdit.sponsor_name = $scope.sponsors[i].sponsor_name;
                     $scope.sponsorEdit.sponsor_type = $scope.sponsors[i].sponsor_type;
                     $scope.sponsorEdit.sponsor_desc = $scope.sponsors[i].sponsor_desc;
@@ -166,6 +162,8 @@
                 web_address: "",
                 game_id: 0
             }
+            $scope.init_sponsor();
+
         }
     }
 })();

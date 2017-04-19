@@ -62,7 +62,7 @@
                             $scope.sports.splice(index, 1);
                             swal("Deleted!", "Sport has been successfully removed.", "success");
                         }, function(err) {
-                            console.log(err);
+                            swal(err.message);
                         });
 
                 });
@@ -83,7 +83,7 @@
 					$scope.sports[$scope.edit_id] = $scope.edit_sport_info;
                     swal("Sport has been successfully edited.");
                 } , function(err){
-                	swal("Error");
+                	swal(err.message);
                 });
         }
 
@@ -151,12 +151,10 @@
 	            SportsService
 	                .add_sport(data)
 	                .then(function(res) {
-	                    console.log(res);
 	                    swal(res.message);
 	                    document.getElementById("sports-form").reset();
 	                }, function(err) {
-	                    swal(res.error);
-	                    console.log(err);
+	                    swal(err.message);
 	                })
             }
         }
