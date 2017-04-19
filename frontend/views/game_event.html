@@ -9,7 +9,7 @@
     <h3 class="content-header">GAMES</h3>
     <div class="ui search">
       <div class="ui icon input">
-        <input class="prompt" placeholder="Search User" type="text">
+        <input class="prompt" placeholder="Search Game Event" type="text">
         <i class="search icon"></i>
       </div>
       <div class="results"></div>
@@ -82,10 +82,10 @@
             <span class="header game-title">{{game.game_name}}</span>
             <div class="meta">
               Start: <br/>
-              <span>{{game.game_starting_time_date}}</span>
+              <span>{{game.game_starting_time_date | date: 'fullDate'}}</span>
               <br/>
               End: <br/>
-              <span>{{game.game_ending_time_date}}</span>
+              <span>{{game.game_ending_time_date | date: 'fullDate'}}</span>
             </div>
           </div>
           <div class="extra content">
@@ -102,10 +102,10 @@
             <span class="header game-title">{{game.game_name}}</span>
             <div class="meta">
               Start: <br/>
-              <span>{{game.game_starting_time_date}}</span>
+              <span>{{game.game_starting_time_date | date: 'fullDate'}}</span>
               <br/>
               End: <br/>
-              <span>{{game.game_ending_time_date}}</span>
+              <span>{{game.game_ending_time_date | date: 'fullDate'}}</span>
             </div>
           </div>
           <div class="extra content">

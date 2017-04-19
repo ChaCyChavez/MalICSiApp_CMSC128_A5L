@@ -47,7 +47,7 @@
                 UserService
                 .approve_account({account_id:$scope.pending_accounts[data].account_id})
                 .then((res) => {
-      					 $scope.pending_accounts.splice(data, 1);
+                 $scope.pending_accounts.splice(data, 1);
       					 swal("Approved!", "Account has been approved!", "success");
                 }, (err) => {
 					       alert("Internal Server Error. Dev please debug.");
