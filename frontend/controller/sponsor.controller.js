@@ -5,11 +5,12 @@
         .module('app')
         .controller('sponsor-controller', sponsor_controller);
 
-    function sponsor_controller($scope, $location, $routeParams, SponsorService, GameEventService) {
+    function sponsor_controller($scope, $location, $window, $routeParams, SponsorService, GameEventService) {
 
 
     	$scope.sponsors = [];
         $scope.game_id = $routeParams.game_id;
+        $scope.hcpurl;
 
         $scope.sponsor = {
             sponsor_id: 0,
@@ -164,6 +165,16 @@
             }
             $scope.init_sponsor();
 
+        }
+
+        $scope.visit_site = (link) => {
+            let text = link;
+            if (/http/i.test(text)) {
+                window.location.replace(text);
+            } else {
+                text = "http://" + link;
+                window.location.replace(text);
+            }
         }
     }
 })();
