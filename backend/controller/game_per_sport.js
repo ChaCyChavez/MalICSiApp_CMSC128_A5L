@@ -6,7 +6,7 @@ const winston = require('winston');
 exports.get_game_per_sport  = (req,res,next) => {
 	if (req.session.user) {
 		const query_string = 'CALL get_game_per_sport(?);';
-		const payload = [req.params.sport_id];
+		const payload = [req.params.sport_type];
 		const callback = (err,data) => {
 			if (err) {
 				winston.level = 'debug';

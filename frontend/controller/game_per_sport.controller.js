@@ -7,31 +7,36 @@ localhost:8000/#!/game-per-sport/:sport-id
         .module('app')
         .controller('game-per-sport-controller', game_per_sport_controller);
 
-    function game_per_sport_controller($scope, $location, GamePerSportService) {
+    function game_per_sport_controller($scope, $location, $routeParams, GamePerSportService) {
         $scope.sprts = [];
+        $scope.size = 0;
+        $scope.loop = [];
+        $scope.name = $routeParams.sport_id;
+        let sportype = $routeParams.sport_id;
 
-        $scope.get_all_sport = GamePerSportService
-            .get_all_sport()
+        $scope.gps = GamePerSportService
+            .get_game_per_sport(sportype)
             .then(
                 function(res){
-                    console.log(res);
-                    $scope.sprts = res;
+                    $scope.sprts = res[0];
+                    $scope.size = res[0].length;
+                    $scope.loop = $scope.range($scope.size);
                 },
                 function(err){
                     console.log(err.data);
                 });
 
-        // $scope.gps = GamePerSportService
-        //     .get_game_per_sport($scope.sport_id)
-        //     .then(
-        //         function(res){
-        //             console.log(res.data);
-        //         },
-        //         function(err){
-        //             console.log(err.data);
-        //         });
+        console.log($scope.sprts);
 
-        // console.log($scope.gps);
+        $scope.range = function(size) {
+            var ret = [];
+
+            for(var i = 0; i < size; i += 2){
+                ret.push(i);
+            }
+
+            return ret;
+        }
 
         // $scope.view_tournament_bracketing = () => {
         //     window.location.href="#!/result";

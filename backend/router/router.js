@@ -132,7 +132,7 @@ module.exports = (router) => {
 
 // game per sport router
     // get games per sport
-    router.get('/api/get-game-per-sport/:sport_id', game_per_sport.get_game_per_sport);
+    router.get('/api/get-game-per-sport/:sport_type', game_per_sport.get_game_per_sport);
     router.all('*', (req, res, next) => {
         res.status(404).send({
             'message': 'Not Found!'

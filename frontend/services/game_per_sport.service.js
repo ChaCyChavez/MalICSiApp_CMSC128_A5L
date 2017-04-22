@@ -15,11 +15,11 @@
 			const get_game_per_sport = (data) => {
 				let deferred = $q.defer();
 
+				console.log(data);
+
 				$http({
 					method: 'GET',
-					data: $httpParamSerializer(data),
-					xhrFields: {withCredentials: false},
-					url: '/api/get-game-per-sport/:sport_id',
+					url: '/api/get-game-per-sport/' + data,
 					headers: headers
 				})
 				.then(function(res) {

@@ -1,10 +1,33 @@
-<div id="aaaa" class="container center font2">
-	<div class="row card center" ng-repeat = "match in sprts">
-		<div class="col s12 m12 l6 xl6">
-			{{match.match_id}}
+<div class="row contents">
+	<h3 class="content-header">ALL GAMES FOR {{name | uppercase}}</h3>
+	<!-- <div class="ui four stackable special cards">
+		<div class="column">
+			<div class="card ui" ng-repeat="i in loop">
+				<div class="image">
+				<img src="../../img/games.png">
+				</div>
+				<div class="center aligned content">
+					<span class="header">{{sprts[i].team_name | uppercase}} vs. {{sprts[i+1].team_name | uppercase}}</span>
+					{{sprts[i].division | uppercase}}<span ng-if="sprts[i].division == 'men' || sprts[i].division == 'women'">'s</span> DIVISION <br>
+					{{sprts[i].court_name}}<br>
+					{{sprts[i].match_date_time | date: 'MMM d, yyyy h:mm a'}}<br>
+				</div>
+			</div>
 		</div>
-		<div class="col s12 m12 l6 xl6">
-			{{match.match_date_time}}
-		</div>
-	</div>
+	</div> -->
+	<div class="ui four stackable cards">
+        <div class="card" ng-repeat="i in loop">
+          <div class="image">
+            <img src="../img/games.png">
+          </div>
+          <div class="content">
+            <span class="header game-title">{{sprts[i].team_name | uppercase}} vs. {{sprts[i+1].team_name | uppercase}}</span>
+            <div class="meta">
+				{{sprts[i].division | uppercase}}<span ng-if="sprts[i].division == 'men' || sprts[i].division == 'women'">'s</span> DIVISION <br>
+				{{sprts[i].court_name}}<br>
+				{{sprts[i].match_date_time | date: 'MMM d, yyyy h:mm a'}}<br>
+            </div>
+          </div>
+        </div>  
+    </div>
 </div>
