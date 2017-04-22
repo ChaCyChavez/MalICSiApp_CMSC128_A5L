@@ -2,7 +2,18 @@
   <div class="row contents">
     <h3 class="content-header"> Participants in {{sport}}</h3>
 
-    <div class="ui fluid category search">
+    <div class="ui two top attached buttons" id="butt-container">
+      <button class="ui left labeled icon blue button" id="vsp-button" ng-click="change_view('#!/sports/')">
+        <i class="left arrow icon"></i>
+        View Sports
+      </button>
+      <button class="ui right labeled icon green button" id="vsp-button" ng-click="change_view('#!/sponsor/')">
+        <i class="right arrow icon"></i>
+        View Sponsor
+      </button>
+    </div>
+
+    <div class="ui fluid category search" id="searh-part" style="margin-top: 25px !important;">
       <div class="ui icon input">
         <input class="prompt" placeholder="Search Participant" type="text" ng-model="partic">
         <i class="search icon"></i>
@@ -52,6 +63,5 @@
       starting_top: '4%',
       ending_top: '10%',
     });
-
   });
 </script>

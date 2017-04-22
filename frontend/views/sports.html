@@ -4,6 +4,16 @@
 
   <div class="row contents">
     <h3 class="content-header">SPORTS</h3>
+    <div class="ui two top attached buttons" id="butt-container">
+      <button class="ui left labeled icon blue button" id="vsp-button" ng-click="change_view('#!/participant/')">
+        <i class="left arrow icon"></i>
+        View Participant
+      </button>
+      <button class="ui right labeled icon green button" id="vsp-button" ng-click="change_view('#!/sponsor/')">
+        <i class="right arrow icon"></i>
+        View Sponsor
+      </button>
+    </div>
     <div class="ui four stackable special cards" id="sports">
         <div class="card" ng-repeat="sport in sports track by $index" >
           <div class="blurring dimmable image" ng-if="profile.is_game_head = 1">

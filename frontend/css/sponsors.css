@@ -12,3 +12,14 @@ span#sponsor-header {
 	font-size: 30px !important;
 	text-align: center !important;
 }
+
+#butt-container {
+	margin: auto !important;
+	width: 80% !important;
+}
+
+@media only screen and (max-width: 767px) {
+  #butt-container {
+	width: 100% !important;
+}
+}
