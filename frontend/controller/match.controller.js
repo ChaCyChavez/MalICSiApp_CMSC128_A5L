@@ -83,6 +83,8 @@
                 $scope.update_scores(data);
                 counter = counter + 1;
             });
+
+            MatchService.determine_winner($scope.match_teams_scores);
             $('.scores').prop('contentEditable', false);
             $scope.not_editing = true;
             $scope.editing = false;
