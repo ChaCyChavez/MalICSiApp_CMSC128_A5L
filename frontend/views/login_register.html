@@ -57,27 +57,55 @@
   <div class="contents" id="cg">
     <h3 class="content-header">Current Games</h3>
     <div class="ui three stackable cards">
-        <div class="card" ng-repeat="(index, game) in current_games">
+      <div class="card" ng-repeat="(index, game) in current_games">
+        <div class="image">
+          <img src="../img/games.png">
+        </div>
+        <div class="content">
+          <span class="header game-title">{{game.game_name}}</span>
+        </div>
+        <div class="extra content">
+          Start: <br/>
+          <span>{{game.game_starting_time_date | date: 'fullDate'}}</span>
+          <br/>
+          End: <br/>
+          <span>{{game.game_ending_time_date | date: 'fullDate'}}</span>
+        </div>
+        <div class="extra content">
+          <a href="javascript:void(0)" class="fluid ui blue button view-sports-guest" ng-click="init_sports(game.game_id)">View Sports</a>
+        </div>
+      </div> 
+    </div>  
+  </div>
+
+  <div id="view-sports-modal" class="ui large modal">
+    <i class="close icon"></i>
+    <div class="header">Sports</div>
+    <div class="content">
+      <div class="ui three stackable cards">
+        <div class="card" ng-repeat="sport in sports_guest">
           <div class="image">
-            <img src="../img/games.png">
+            <img src="../img/sport.jpg">
           </div>
           <div class="content">
-            <span class="header game-title">{{game.game_name}}</span>
+            <span class="header game-title">{{sport.sport_type}} - {{sport.division}}</span>
           </div>
           <div class="extra content">
-            Start: <br/>
-            <span>{{game.game_starting_time_date | date: 'fullDate'}}</span>
-            <br/>
-            End: <br/>
-            <span>{{game.game_ending_time_date | date: 'fullDate'}}</span>
           </div>
-        </div>  
+          <div class="extra content">
+            <a href="javascript:void(0)" class="fluid ui blue button" ng-click="view_sport(sport.sport_id)">View Sport</a>
+          </div>
+        </div> 
+      </div>  
+    </div>
     </div>
   </div>
 
 </div>
+
+
 <script>
-    var swiper = new Swiper('.swiper-container', {
+  var swiper = new Swiper('.swiper-container', {
     loop: 0,
     pagination: '.swiper-pagination',
     nextButton: '.swiper-button-next',
@@ -86,5 +114,5 @@
     slidesPerView: 1,
     paginationClickable: true,
     spaceBetween: 0
-    });
+  });
 </script>
