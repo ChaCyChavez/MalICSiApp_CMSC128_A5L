@@ -83,6 +83,7 @@
                             if (e !== BreakException) throw e;
                         }
                     });
+                    console.log("IDs:" + match_ids);
                     match_ids.forEach(function(i){
                         let obj = {
                             ["match_id"]:i,

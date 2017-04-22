@@ -104,6 +104,24 @@
 				data[indexOfWinner].is_winner = true;
 			}
 
+			const update_scores = function(data) {
+				let deferred = $q.defer();
+				$http({
+					method: 'POST',
+					data: $httpParamSerializer(data),
+					xhrFields: {withCredentials: false},
+					url: '/api/update-match-score',
+					headers: headers
+				})
+				.then(function(res) {
+					deferred.resolve(res.data);
+				}, function(err) {
+					deferred.reject(err.data);
+				})
+
+				return deferred.promise;
+			}
+
 			let service = {};
 			service.add_match = add_match;
 			service.delete_match = delete_match;
@@ -111,6 +129,7 @@
 			service.init_match_court = init_match_court;
 			service.init_match_teams_scores = init_match_teams_scores;
 			service.determine_winner = determine_winner;
+			service.update_scores = update_scores;
 			
 			return service;
 		}

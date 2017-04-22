@@ -79,6 +79,7 @@ module.exports = (router) => {
     router.post('/api/delete-match-event', match_event.delete_match_event);
     // retrieve teams and their scores in match event
     router.get('/api/get-teams-N-scores-of-match/:match_id', match_event.get_teams_N_scores_of_match);
+    router.post('/api/update-match-score', match_event.update_match_score);
 
 // match_event_team router
     router.post('/api/add-match-event-team', match_event.add_match_event_team);
