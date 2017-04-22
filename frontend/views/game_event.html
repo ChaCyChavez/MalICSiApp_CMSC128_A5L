@@ -65,7 +65,7 @@
     </div>
     
     <h2>Upcoming Games</h2>
-    <div class="ui four stackable special cards" ng-if="profile.is_admin == 1">
+    <div class="ui four stackable special cards" ng-if="profile.is_admin == 1 || profile.is_game_head == 1">
         <div class="card" ng-repeat="(index, game) in upcoming_games  | filter: {game_name: gamesearch}">
           <div class="blurring dimmable image">
             <div class="ui dimmer">
@@ -93,10 +93,10 @@
           </div>
         </div>  
     </div>
-    <div class="ui three stackable cards" ng-if="profile.is_admin != 1">
+    <div class="ui three stackable cards" ng-if="profile.is_admin != 1 && profile.is_game_head != 1">
         <div class="card" ng-repeat="(index, game) in upcoming_games">
           <div class="image">
-            <img src="../img/games.png">
+            <img src="../img/strategy.png">
           </div>
           <div class="content">
             <span class="header game-title">{{game.game_name}}</span>
