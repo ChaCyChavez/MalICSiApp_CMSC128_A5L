@@ -212,4 +212,36 @@ exports.get_teams_N_scores_of_match = (req, res, next) => {
 	} else {
 		res.status(401).send({message:"You must be logged in."});
 	}
+};
+
+exports.update_match_score = (req, res, next) => {
+	if (req.session.user) {
+		const query_string ='CALL update_match_score(?,?,?)';
+
+		const payload = [
+			req.body.team_id,
+			req.body.match_id,
+			req.body.score
+		];
+
+		const callback = (err, data) => {
+			if (err) {
+				winston.level = 'debug';
+				winston.log('debug', 'err: ', err);
+				res.status(500).send({ error_code:err.code });
+			} else if (data.affectedRows == 0) {
+				winston.level = 'info';
+				winston.log('info', 'Not found! Update failed');
+				res.status(200).send();
+			} else {
+				winston.level = 'info';
+				winston.log('info', 'Successfully updated scores!');
+				res.status(200).send(data);
+			}
+		};
+
+		db.query(query_string, payload, callback);
+	} else {
+		res.status(401).send({message:"You must be logged in."});
+	}
 } ;

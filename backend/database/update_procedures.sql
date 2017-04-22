@@ -189,3 +189,22 @@ delimiter //
     END;
 //
 delimiter ;
+
+drop procedure if exists update_match_score;
+delimiter //
+    create procedure update_match_score (
+        IN _team_id     int(11),
+        IN _match_id    int(11),
+        IN _score       int(11)
+    )
+    BEGIN
+        UPDATE
+            match_event_team
+        SET
+            score = _score
+        WHERE
+            team_id = _team_id AND
+            match_id = _match_id;
+    END;
+//
+delimiter ;
