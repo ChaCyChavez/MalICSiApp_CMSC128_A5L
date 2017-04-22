@@ -80,6 +80,7 @@
         $scope.init_edit_modal = (sponsor_id) => {
             for(var i = 0; i < $scope.sponsors.length; i++) {
                 if($scope.sponsors[i].sponsor_id === sponsor_id) {
+                    $scope.sponsorEdit.sponsor_id = sponsor_id;
                     $scope.sponsorEdit.sponsor_name = $scope.sponsors[i].sponsor_name;
                     $scope.sponsorEdit.sponsor_type = $scope.sponsors[i].sponsor_type;
                     $scope.sponsorEdit.sponsor_desc = $scope.sponsors[i].sponsor_desc;
@@ -91,10 +92,13 @@
         }
 
         $scope.update_sponsor = () => {
-            if ($scope.sponsor.sponsor_name == "" ||
-                $scope.sponsor.sponsor_type == "" ||
-                $scope.sponsor.sponsor_desc == "" ||
-                $scope.sponsor.web_address == "") {
+            let e = document.getElementById("sponsorEdit_type");
+            let strUser = e.options[e.selectedIndex].value;
+            $scope.sponsorEdit.sponsor_type = strUser;
+            if ($scope.sponsorEdit.sponsor_name == "" ||
+                $scope.sponsorEdit.sponsor_type == "" ||
+                $scope.sponsorEdit.sponsor_desc == "" ||
+                $scope.sponsorEdit.web_address == "") {
                 swal("Please fill up all fields");
             } else { 
                 SponsorService
@@ -125,7 +129,7 @@
 	            SponsorService
 	                .delete_sponsors({sponsor_id: sponsorid})
 	                .then(function(res) {
-	                    swal(res.message)
+	                    swal("Success!", "Sponsor has been successfully deleted.", "success")
 	                    for(var i = 0; i < $scope.sponsors.length; i++) {
 	                        if($scope.sponsors[i].sponsor_id == sponsorid) {
 	                            $scope.sponsors.splice(i, 1);
@@ -153,10 +157,10 @@
                 SponsorService
                     .add_sponsors($scope.sponsor)
                     .then(function(res) {
-                        swal(res.message);
+                        swal("Success!", "Sponsor has been successfully added.", "success")
                         $scope.sponsors.push($scope.sponsor);
                     }, function(err) {  
-                        swal(err.message);
+                        swal("Error!", "Failed to edit sponsor", "error")
                     })
             }
 
