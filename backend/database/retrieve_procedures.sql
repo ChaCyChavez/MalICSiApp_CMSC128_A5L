@@ -130,6 +130,7 @@ DROP PROCEDURE IF EXISTS get_team_profile//
   )
   BEGIN
     SELECT
+    	account_id,
 		firstname,
 		middlename,
 		lastname,
