@@ -24,6 +24,7 @@
             <span class="header game-title">{{sprts[i].team_name | uppercase}} vs. {{sprts[i+1].team_name | uppercase}}</span>
             <div class="meta">
 				{{sprts[i].division | uppercase}}<span ng-if="sprts[i].division == 'men' || sprts[i].division == 'women'">'s</span> DIVISION <br>
+				{{sprts[i].sport_type}}<br>
 				{{sprts[i].court_name}}<br>
 				{{sprts[i].match_date_time | date: 'MMM d, yyyy h:mm a'}}<br>
             </div>

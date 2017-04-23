@@ -11,14 +11,15 @@ localhost:8000/#!/game-per-sport/:sport-id
         $scope.sprts = [];
         $scope.size = 0;
         $scope.loop = [];
-        $scope.name = $routeParams.sport_id;
-        let sportype = $routeParams.sport_id;
+        $scope.name = " ";
+        let gamid = $routeParams.sport_id;
 
         $scope.gps = GamePerSportService
-            .get_game_per_sport(sportype)
+            .get_game_per_sport(gamid)
             .then(
                 function(res){
                     $scope.sprts = res[0];
+                    $scope.name = res[0][0].game_name;
                     $scope.size = res[0].length;
                     $scope.loop = $scope.range($scope.size);
                 },

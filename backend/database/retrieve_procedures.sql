@@ -570,11 +570,11 @@ DROP PROCEDURE IF EXISTS get_pending_account//
 //
 
 DROP PROCEDURE IF EXISTS get_game_per_sport//
-  CREATE PROCEDURE get_game_per_sport(IN _sport_type varchar(256))
+  CREATE PROCEDURE get_game_per_sport(IN _game_id int)
     BEGIN
-      SELECT match_id, division, match_date_time, team_name 
-      FROM match_event NATURAL JOIN match_event_team NATURAL JOIN
-      team NATURAL JOIN sport WHERE sport_type = _sport_type;
+      SELECT match_id, game_id, game_name, division, match_date_time, court_name, team_name, 
+      sport_type FROM match_event NATURAL JOIN sport NATURAL JOIN game_event 
+      NATURAL JOIN match_event_team NATURAL JOIN team WHERE game_id = _game_id;
     END;
 //
 
