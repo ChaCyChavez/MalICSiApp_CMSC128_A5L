@@ -15,7 +15,6 @@
         $scope.user_past_events = {}
     */
 
-
         $scope.get_profile_info = () => {
             ProfileService
             .get_profile()
