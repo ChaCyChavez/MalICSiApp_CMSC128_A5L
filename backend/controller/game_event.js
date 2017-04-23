@@ -325,7 +325,7 @@ exports.get_events = (req, res, next) => {
 
 
 exports.update_game_event = (req, res, next) => {
-	if (req.session.user && (req.session.user.is_game_head || req.session.user.is_game_head.is_admin)) {
+	if (req.session.user && (req.session.user.is_game_head || req.session.user.is_admin)) {
 		const query_string = 'CALL update_game_event(?,?,?,?,?)';
 		const payload = [
 			req.body.game_id,
