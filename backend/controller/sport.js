@@ -6,7 +6,7 @@ const crypto = require('crypto');
 
 
 exports.add_sport = (req,res,next) => {
-	if (req.session.user && req.session.user.is_game_head) {
+	if (req.session.user && (req.session.user.is_game_head || req.session.user.is_admin)) {
 		const query_string = 'CALL add_sport(?,?,?,?)';
 
 		const payload = [
@@ -28,7 +28,9 @@ exports.add_sport = (req,res,next) => {
 			} else {
 				winston.level = 'info';
 				winston.log('info', 'Successfully added sport!');
-				res.status(200).send(data);
+				res.status(200).send({
+					"message": "Successfully added sport!"
+				});
 			}
 		};
 
@@ -39,31 +41,31 @@ exports.add_sport = (req,res,next) => {
 };
 
 exports.get_sport = (req, res, next) => {
-	const query_string = 'CALL get_sport(?)';
+		const query_string = 'CALL get_sport(?)';
 
-	const payload = [req.params.sport_id];
+		const payload = [req.params.sport_id];
 
-	const callback = (err, data) => {
-		if (err) {
-			winston.level = 'debug';
-			winston.log('debug', 'err: ', err);
-			res.status(500).send({ error_code:err.code });
-		} else if (data[0].length == 0) {
-			winston.level = 'info';
-			winston.log('info', 'Not found!');
-			res.status(404).send(data);
-		} else {
-			winston.level = 'info';
-			winston.log('info', 'Successfully retrieved sport!');
-			res.status(200).send(data);
-		}
-	};
+		const callback = (err, data) => {
+			if (err) {
+				winston.level = 'debug';
+				winston.log('debug', 'err: ', err);
+				res.status(500).send({ error_code:err.code });
+			} else if (data[0].length == 0) {
+				winston.level = 'info';
+				winston.log('info', 'Not found!');
+				res.status(404).send(data);
+			} else {
+				winston.level = 'info';
+				winston.log('info', 'Successfully retrieved sport!');
+				res.status(200).send(data);
+			}
+		};
 
-	db.query(query_string, payload, callback);
+		db.query(query_string, payload, callback);
 };
 
 exports.update_sport = (req, res, next) => {
-	if (req.session.user && req.session.user.is_game_head) {
+	if (req.session.user && (req.session.user.is_game_head || req.session.user.is_admin)) {
 		const query_string = 'CALL update_sport(?,?,?,?);';
 
 		const payload = [
@@ -99,8 +101,8 @@ exports.update_sport = (req, res, next) => {
 };
 
 exports.delete_sport = (req, res, next) => {
-	if (req.session.user && req.session.user.is_game_head) {
-		const query_string ='CALL delete_sport(?,?)';
+	if (req.session.user && (req.session.user.is_game_head || req.session.user.is_admin)) {
+		const query_string ='CALL delete_sport(?)';
 
 		const payload = [req.body.sport_id, req.session.user.account_id];
 
