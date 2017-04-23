@@ -111,7 +111,7 @@ transporter.sendMail(mailOptions, (err, info) =>{
 };
 
 exports.approve_account = (req,res,next) => {
-	if (req.session.user && req.session.user.is_admin == true) {
+	if (req.session.user && req.session.user.is_admin) {
 		const query_string = 'CALL approve_account(?)';
 
 		const payload = [req.body.account_id];
@@ -183,7 +183,7 @@ exports.update_account = (req,res,next) => {
 };
 
 exports.get_account = (req, res, next) => {
-	if (req.session.user) {
+	if (req.session.user || req.params.account_id != undefined) {
 		const query_string = "CALL get_account(?)";
 
 		const payload = [req.params.account_id != undefined ? req.params.account_id : req.session.user.account_id];
