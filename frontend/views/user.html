@@ -2,7 +2,7 @@
   <div class="row contents">
     <h3 class="content-header">User</h3>
     <h3 ng-if="profile.is_admin == 1">Pending User</h3>
-
+    <h4 ng-if="pending_accounts.length == 0">No Pending User</h4>
     <div class="ui four stackable cards" ng-if="profile.is_admin == 1">
       <div class="card" ng-class="{active:!$index}" ng-repeat="(index, account) in pending_accounts">
         <div class="blurring dimmable image">
@@ -36,7 +36,7 @@
           <div class="ui dimmer">
             <div class="content">
               <div class="center">
-                <a href="javascript:void(0)" class="ui inverted red button"">Remove</a>
+                <a href="javascript:void(0)" class="ui inverted red button" ng-click="delete_approved_user(index)">Remove</a>
               </div>
             </div>
           </div>
