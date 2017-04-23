@@ -69,5 +69,27 @@
         $scope.view_account = (account_id) => {
             window.location.href="#!/profile/" + account_id;
         }
+
+        $scope.delete_approved_user = (data) => {
+          swal({
+            title: "Are you sure?",
+            text: "You will not be able to recover the user!",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Yes, delete it!",
+            closeOnConfirm: false
+          },
+          function(){
+              UserService
+              .disapprove_account({account_id:$scope.accounts[data].account_id}).then((err, data) => {
+                swal("Deleted!", "User has been deleted.", "success");
+                $scope.get_accounts();
+              }, (err) => {
+                swal("Failure!", "You are not allowed to delete this user.", "error");
+              });
+          });
+
+        }
     }
 })();

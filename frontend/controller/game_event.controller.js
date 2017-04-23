@@ -313,7 +313,7 @@
 						swal("Deleted!", "Event has been deleted.", "success");
 						$scope.current_games.splice(id, 1);
 					}, (err) => {
-						swal("Failure!", "You are not the game head of this game event.", "error");
+						swal("Failure!", "You are not the admin or game head of this game event.", "error");
 					});
 				}
 
