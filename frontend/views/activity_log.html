@@ -21,7 +21,7 @@
           </tr>
         </thead>
         <tbody ng-init = "get_all_logs()">
-          <tr ng-repeat = "data in logs | orderBy:'-log_date'">
+          <tr ng-repeat = "data in logs | orderBy:'-log_date' | filter: naming">
             <td>{{data.log_date | date: 'medium'}}</td>
             <td>{{data.log_description}}</td>
           </tr>
