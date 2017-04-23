@@ -30,20 +30,8 @@
             });
         }
 
-        $scope.init_sports = (gameid) => {
-             $("#view-sports-modal").modal("refresh");
-
-            LoginRegisterService
-            .get_sports(gameid).then((data) => {
-                $scope.sports_guest = data[0];
-                $("#view-sports-modal")
-                .modal({
-                    onVisible: function () {
-                        $("#view-sports-modal").modal("refresh");
-                    }
-                })
-                .modal("show");
-            });
+        $scope.view_sports_guest = (gameid) => {
+            window.location.href = "#!/game-per-sport/" + gameid;
         }
 
         $scope.view_sport = (sportid) => {
