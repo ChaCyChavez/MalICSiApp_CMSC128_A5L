@@ -214,7 +214,7 @@ DROP PROCEDURE IF EXISTS get_sponsor_of_game//
 /* GAME_EVENT PROCEDURES */
 DROP PROCEDURE IF EXISTS get_game_event//
   CREATE PROCEDURE get_game_event(
-	  IN _game_id varchar(256)
+	  IN _game_id int
   )
   BEGIN
     SELECT
@@ -226,7 +226,7 @@ DROP PROCEDURE IF EXISTS get_game_event//
 	FROM
 		game_event
 	WHERE
-		game_name = _game_id;
+		game_id = _game_id;
   END;
 //
 
@@ -342,9 +342,14 @@ DROP PROCEDURE IF EXISTS get_match_event//
 		sport_id,
 		court_name,
 		court_location,
-		court_type
+		court_type,
+		game_event.account_id
 	FROM
 		match_event
+	NATURAL JOIN
+		sport
+	NATURAL JOIN
+	 	game_event
 	WHERE
 		match_id = _match_id;
   END;
