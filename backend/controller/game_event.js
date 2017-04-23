@@ -196,12 +196,6 @@ exports.get_user_past_events = (req, res, next) => {
 			}
 		};
 
-		db.query(query_string, payload, callback);
-	} else {
-		res.status(401).send({message:"You must be logged in."});
-	}
-};
-
 exports.get_current_events = (req, res, next) => {
 	const query_string = 'CALL get_current_events()';
 
@@ -329,7 +323,7 @@ exports.get_events = (req, res, next) => {
 
 
 exports.update_game_event = (req, res, next) => {
-	if (req.session.user && req.session.user.is_game_head) {
+	if (req.session.user && (req.session.user.is_game_head || req.session.user.is_game_head.is_admin)) {
 		const query_string = 'CALL update_game_event(?,?,?,?,?)';
 		const payload = [
 			req.body.game_id,
@@ -377,7 +371,7 @@ exports.update_game_event = (req, res, next) => {
 };
 
 exports.delete_game_event = (req, res, next) => {
-	if (req.session.user && req.session.user.is_game_head) {
+	if (req.session.user && (req.session.user.is_game_head || req.session.user.is_admin)) {
 		const query_string ='CALL delete_game_event(?, ?)';
 
 		const payload = [req.body.game_id, req.session.user.account_id];
@@ -415,7 +409,7 @@ exports.delete_game_event = (req, res, next) => {
 
 		db.query(query_string, payload, callback);
 	} else {
-		res.status(401).send({message:"You are not a game head."});
+		res.status(401).send({message:"You are not a game head or admin."});
 	}
 };
 

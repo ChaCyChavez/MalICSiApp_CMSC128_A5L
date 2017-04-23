@@ -15,6 +15,11 @@
     $scope.selected_sport = {};
     $scope.participants = [];
 
+    $scope.change_view = (view) => {
+            window.location.href= view + gameid;
+            $window.location.reload();
+        }
+
     $scope.view_profile = () => {
       window.location.href="#!/profile";
     }
@@ -29,6 +34,10 @@
     $scope.back_to_home = () => {
       window.location.href="#!/game-event";
     }
+
+    // $scope.go_to_profile = (data) => {
+    //   window.location.href="#!/profile"
+    // }
 
     $scope.get_sports = () => {
       let data = {
@@ -47,23 +56,25 @@
           ret_sport.push(obj2);
         });
         $scope.sports = ret_sport;
-        console.log($scope.sports);
       }, function(err) {
         console.log(err);
       });
     }
 
-    var inArray = (data) => {
-      let exist = false;
-      $scope.participants.forEach(function(profile){
-        if (profile.account_id == data.account_id) exist = true;
+    var check_duplicates = (arr, element) => {
+      let duplicate_found = false;
+      arr.forEach(function(item) {
+        if (item.account_id == element.account_id) {
+          duplicate_found = true;
+        }
       });
-      return exist
+      return duplicate_found;
     }
 
     $scope.load_participants = () => {
       while ($scope.participants.length) $scope.participants.pop();
       var s = [];
+      var profiles = [];
 
       let data = {
         game_id: gameid
@@ -94,9 +105,9 @@
                 res[0].forEach(function(element) {
                   let profile = {
                     account_id: element.account_id,
-                    name: element.firstname + " " + element.middlename + " " + element.lastname
+                    fullname: element.firstname + " " + element.middlename + " " + element.lastname
                   }
-                  if (!inArray(profile)) $scope.participants.push(profile);
+                  if (!check_duplicates(profiles, profile)) profiles.push(profile);
                 });
               }, function(err) {
                 console.log(err);
@@ -106,11 +117,11 @@
             console.log(err);
           });
         });
-
       }, function(err) {
         console.log(err);
       });
       
+      $scope.participants = profiles;
     }
   }
 })();

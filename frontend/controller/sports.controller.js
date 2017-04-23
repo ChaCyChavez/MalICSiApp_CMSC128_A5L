@@ -18,6 +18,11 @@
         $scope.sports = [
         ];
 
+        $scope.change_view = (view) => {
+            window.location.href= view + gameid;
+            $window.location.reload();
+        }
+
         $scope.view_sport = (sport_id) => {
             window.location.href="#!/sport/" + sport_id;
             $window.location.reload();

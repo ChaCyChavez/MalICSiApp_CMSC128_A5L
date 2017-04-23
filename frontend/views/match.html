@@ -5,6 +5,9 @@
       <div class="eight wide column">
         <div class="ui raised very fluid padded container segment">
           <h1>MATCH RESULTS</h1>
+          <a href="javascript:void(0)" id="edit-scores" class="ui blue button" ng-show="not_editing" ng-click="edit_scores()">Edit Scores</a>
+          <a href="javascript:void(0)" id="save-scores" class="ui blue button" ng-show="editing" ng-click="save_scores()">Save Scores</a>
+          <a href="javascript:void(0)" id="cancel" class="ui blue button" ng-show="editing" ng-click="cancel()">Cancel</a>
           <div class="ui raised very fluid padded container segment">
             <table class="ui very basic selectable collapsing celled table" id="team-table">
               <thead>
@@ -18,7 +21,7 @@
                     <td>{{team_score.team_name}}&nbsp;
                         <i ng-if="team_score.is_winner" class="fa fa-trophy">
                     </td>
-                    <td>{{team_score.score}}</td>
+                    <td class="scores">{{team_score.score}}</td>
                   </tr>
                 </tbody>
             </table>

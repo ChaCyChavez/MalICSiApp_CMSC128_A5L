@@ -4,6 +4,16 @@
 
   <div class="row contents">
     <h3 class="content-header">SPONSORS</h3>
+    <div class="ui two top attached buttons" id="butt-container">
+      <button class="ui left labeled icon blue button" id="vsp-button" ng-click="change_view('#!/sports/')">
+        <i class="left arrow icon"></i>
+        View Sports
+      </button>
+      <button class="ui right labeled icon green button" id="vsp-button" ng-click="change_view('#!/participant/')">
+        <i class="right arrow icon"></i>
+        View Participant
+      </button>
+    </div>
     <h2 class="center-align" ng-if="sponsors.length == 0">No Sponsor Available</h2>
     <div class="ui three stackable special cards" id="spons" ng-if="profile.is_admin == 1">
         <div class="card" ng-repeat="spon in sponsors">

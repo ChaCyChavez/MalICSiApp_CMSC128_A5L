@@ -130,6 +130,7 @@ DROP PROCEDURE IF EXISTS get_team_profile//
   )
   BEGIN
     SELECT
+    	account_id,
 		firstname,
 		middlename,
 		lastname,
@@ -549,6 +550,7 @@ DROP PROCEDURE IF EXISTS get_teams_N_scores_of_match//
   )
   BEGIN
     SELECT
+    	team_id,
 		team_name,
 		score
 	FROM
