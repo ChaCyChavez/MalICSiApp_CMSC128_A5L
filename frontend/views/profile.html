@@ -1,5 +1,11 @@
 <div ng-controller="profile-controller" ng-init="init_profile()">
+
+	<br>
+	
+ 		<a href="#!"><i class="huge left arrow icon"></i></a>
+ 	
 	<div class="row contents">
+
 		<h3 class="content-header">PROFILE</h3>
 		<div class="ui two column doubling stackable grid container">
 			<div class="column">
@@ -45,4 +51,10 @@
   $(document).ready(function(){
     $('.ui.dropdown').dropdown();
   });
+
+  $('.ui.sticky')
+  .sticky({
+    context: '#example3'
+  })
+;
 </script>
