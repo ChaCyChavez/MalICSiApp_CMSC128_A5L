@@ -239,7 +239,6 @@ exports.get_all_account = (req, res, next) => {
 };
 
 exports.delete_account = (req, res, next) => {
-	console.log(req.session.user);
 	if (req.session.user && (req.session.user.account_id == req.body.account_id || req.session.user.is_admin)) {
 		const query_string ='CALL delete_account(?)';
 
