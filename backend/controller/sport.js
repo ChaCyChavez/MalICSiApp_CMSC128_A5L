@@ -100,9 +100,9 @@ exports.update_sport = (req, res, next) => {
 
 exports.delete_sport = (req, res, next) => {
 	if (req.session.user && req.session.user.is_game_head) {
-		const query_string ='CALL delete_sport(?)';
+		const query_string ='CALL delete_sport(?,?)';
 
-		const payload = [req.body.sport_id];
+		const payload = [req.body.sport_id, req.session.user.account_id];
 
 		const callback = (err, data) => {
 			if (err) {
