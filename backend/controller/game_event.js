@@ -195,6 +195,8 @@ exports.get_user_past_events = (req, res, next) => {
 				res.status(200).send(data);
 			}
 		};
+	}
+}
 
 exports.get_current_events = (req, res, next) => {
 	const query_string = 'CALL get_current_events()';
