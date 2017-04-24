@@ -12,8 +12,8 @@
 				<div class="info-field">Birthday: {{ profile.birthday | date: 'longDate'}}</div>
 				<div class="info-field">Email: {{ profile.email }}</div>
 				<div class="info-field">Jersey Number: #{{ profile.player_jersey_num }}</div>
-				<div class="info-field">Player Role: {{ profile.player_role }}</div>
-				<div class="info-field">Position: {{ profile.position }}</div>
+				<div class="info-field" ng-show="profile.is_player">Player Role: {{ profile.player_role }}</div>
+				<div class="info-field" ng-show="profile.is_game_head || profile.is_admin">Position: {{ profile.position }}</div>
 			</div>
 		</div>
 		<div class="ui two column doubling stackable grid container">
