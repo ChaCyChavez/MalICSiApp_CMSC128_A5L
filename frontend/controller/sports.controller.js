@@ -152,10 +152,7 @@
                 });
         }
 
-<<<<<<< HEAD
-        /*$interval($scope.get_sports, 5000);*/
-=======
->>>>>>> 9b11a3ab6425d35b2cf4184a2eb7fc6e78322d1e
+        $interval($scope.get_sports, 5000);
         $scope.add_sport = function() {
             var data = {
                 game_id: gameid,
