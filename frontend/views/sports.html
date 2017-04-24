@@ -1,6 +1,6 @@
-<div ng-controller="sports-controller" ng-init="get_sports()">
+<div ng-controller="sports-controller" ng-init="ownership_init(); get_sports()">
 
-  <a class="add-btn" id="add-sport" ng-show="profile.is_admin == 1" href="javascript:void(0)"><i class="fa fa-plus fa-3x"></i></a>
+  <a class="add-btn" id="add-sport" ng-show="profile.is_admin == 1 || is_owner" href="javascript:void(0)"><i class="fa fa-plus fa-3x"></i></a>
 
   <div class="row contents">
     <h3 class="content-header">SPORTS</h3>
@@ -16,8 +16,8 @@
     </div>
     <div class="ui four stackable special cards" id="sports">
         <div class="card" ng-repeat="sport in sports track by $index" >
-          <div class="blurring dimmable image" ng-if="profile.is_game_head = 1">
-            <div class="ui dimmer">
+          <div class="blurring dimmable image">
+            <div class="ui dimmer" ng-if="is_owner || profile.is_admin">
               <div class="content">
                 <div class="center">
                   <a href="javascript:void(0)" class="ui inverted button edit-sport" ng-click = "setup_edit_modal($index)">Edit</a>

@@ -44,9 +44,8 @@
                 .init_match($scope.match_id)
                 .then(function(res) {
                     $scope.match = res[0][0];
-                    console.log(res[0]);
                 }, function(err) {
-                    console.log(err);
+                    window.location.href = "#!/error_404"
                 })
         }
 
@@ -55,7 +54,6 @@
                 .init_match_teams_scores($scope.match_id)
                 .then(function(res) {
                     $scope.match_teams_scores = res[0];
-                    console.log(res[0]);
                     MatchService.determine_winner($scope.match_teams_scores);
                 }, function(err) {
                     console.log(err);
