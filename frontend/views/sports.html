@@ -1,6 +1,6 @@
 <div ng-controller="sports-controller" ng-init="get_sports()">
 
-  <a class="add-btn" id="add-sport" ng-show="profile.is_admin == 1" href="javascript:void(0)"><i class="fa fa-plus fa-3x"></i></a>
+  <a class="add-btn" id="add-sport" ng-show="profile.is_admin == 1 || profile.is_game_head == 1 " href="javascript:void(0)"><i class="fa fa-plus fa-3x"></i></a>
 
   <div class="row contents">
     <h3 class="content-header">SPORTS</h3>

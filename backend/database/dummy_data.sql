@@ -1017,7 +1017,7 @@ delete from sport;
   create sports of game_events
 */
 INSERT INTO
-  sport (sport_id, sport_type, division, game_id)
+  sport
 VALUES
   (1, 'Volleyball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 1')),
   (2, 'Volleyball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 2')),

@@ -53,8 +53,8 @@
                     sport_id: $scope.sports[index].sport_id
                 }
                 swal({
-                  title: "Are you sure?",
                   type: "warning",
+                  title: "Are you sure?",
                   showCancelButton: true,
                   confirmButtonColor: "#DD6B55",
                   confirmButtonText: "Yes, delete it!",
@@ -73,14 +73,6 @@
                 });
         }
 
-        //$scope.get_sports();
-        $scope.edit_sport_info = {};
-		$scope.edit_id = -1;
-        $scope.setup_edit_modal = (id) => {
-            $scope.edit_sport_info= JSON.parse(JSON.stringify($scope.sports[id]));
-			$scope.edit_id = id;
-        }
-
         $scope.edit_sport = () => {
             SportsService
                 .update_sport($scope.edit_sport_info)
@@ -91,6 +83,14 @@
                 	swal(err.message);
                 });
         }
+       
+        $scope.edit_sport_info = {};
+        $scope.edit_id = -1;
+        $scope.setup_edit_modal = (id) => {
+            $scope.edit_sport_info = JSON.parse(JSON.stringify($scope.sports[id]));
+            $scope.edit_id = id;
+        }
+
 
         var get_teams_of_sport = (data, func) =>  {
             SportsService
@@ -107,11 +107,11 @@
 			let data = {
 				game_id : gameid
 			}
-			console.log("asds");
             let ret_sport = [];
             SportsService
                 .get_sports_game(data).
                 then(function(res) {
+			        console.log(res.data[0]);
                 	res.data[0].forEach(function(element){
                         let obj2 = {
                             sport_id: element.sport_id,
@@ -139,12 +139,12 @@
                 });
         }
 
-        $interval($scope.get_sports, 5000);
+        /*$interval($scope.get_sports, 5000);*/
         $scope.add_sport = function() {
             var data = {
+                game_id: gameid,
                 sport_type: $scope.sport_type,
-                division: $scope.division,
-                game_id: gameid
+                division: $scope.division
             }
 
             if ($scope.sport_type == undefined ||
