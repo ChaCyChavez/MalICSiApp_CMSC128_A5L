@@ -17,13 +17,10 @@
 
 				$http({
 					method: 'GET',
-					data: $httpParamSerializer(data),
-					xhrFields: {withCredentials: false},
-					url: '/api/get-game-per-sport/:sport_id',
+					url: '/api/get-game-per-sport/' + data,
 					headers: headers
 				})
 				.then(function(res) {
-					console.log(res.data);
 					deferred.resolve(res.data);
 				}, function(err) {
 					deferred.reject(err.data);

@@ -12,7 +12,7 @@ mainApp.config(function($routeProvider, $locationProvider) {
 			templateUrl: 'views/game_event.html',
 			controller: "game-event-controller"
 		})
-		.when('/game-per-sport/:sport_id', {
+		.when('/game-per-sport/:game_id', {
 			templateUrl: 'views/game_per_sport.html',
 			controller: "game-per-sport-controller"
 		})

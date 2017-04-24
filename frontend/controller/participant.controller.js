@@ -16,9 +16,9 @@
     $scope.participants = [];
 
     $scope.change_view = (view) => {
-            window.location.href= view + gameid;
-            $window.location.reload();
-        }
+      window.location.href= view + gameid;
+      $window.location.reload();
+    }
 
     $scope.view_profile = () => {
       window.location.href="#!/profile";

@@ -6,7 +6,33 @@
     width: 100%;
 }
 
-.profile-pic img{
-	padding: 10px !important;
-	width: 100% !important;
+.profile-pic img {
+	/*margin-right: 25px !important;*/
+	width: 250px !important;
+	float: left;
+}
+
+#name {
+	font-size: 36px;
+}
+
+#info {
+	margin-left: 300px !important;
+	text-align: left;
+}
+
+.info-field {
+	font-size: 20px;
+	margin-bottom: 9px;
+}
+
+@media only screen and (max-width: 767px) {
+	.profile-pic img{
+		float: none;
+	}
+
+	#info {
+		margin-left: 0 !important;
+		text-align: center;
+	}
 }
