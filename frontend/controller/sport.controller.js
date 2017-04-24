@@ -132,7 +132,7 @@
             var wow = new Date($('#add-start-match').val());
             var courttype = "";
             var court = $('#courtJoin').val();
-            if (court == "Baker Hall" || court == "Copeland Gym") courttype = "Gym"
+            if (court == "Baker Hall" || court == "Copeland Gym") courttype = "Gym";
             else if (court == "Physci Building") courttype = "Building";
             else courttype = "Park"
             var data = {

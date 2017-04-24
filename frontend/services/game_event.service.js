@@ -14,7 +14,6 @@
 		function GameEventService($window, $http, $q, $httpParamSerializer) {
 			const edit_game = (data) => {
 				let deferred = $q.defer();
-				console.log(data);
 				$http({
 					method: 'POST',
 					data: $httpParamSerializer(data),
@@ -87,6 +86,7 @@
 
 				return deferred.promise;
 			}
+
 			const delete_game = (data) => {
 				let deferred = $q.defer();
 				$http({
@@ -218,6 +218,24 @@
 				return deferred.promise;
 			}
 
+			const get_game_event = (data) => {
+				let deferred = $q.defer();
+
+				$http({
+					method: 'GET',
+					data: $httpParamSerializer(data),
+					xhrFields: {withCredentials: false},
+					url: '/api/get-game-event/' + data.game_id,
+					headers: headers
+				})
+				.then(function(res) {
+					deferred.resolve(res.data);
+				}, function(err) {
+					deferred.reject(err.data);
+				})
+
+				return deferred.promise;
+			}
 
 			let service = {};
 			service.edit_game 	= 				edit_game;
@@ -231,6 +249,7 @@
 			service.add_team 			= 		add_team;
 			service.join_account_to_team = 		join_account_to_team;
 			service.get_team_of_account = 		get_team_of_account;
+			service.get_game_event 		= 		get_game_event;
 			return service;
 		}
 })();

@@ -5,18 +5,24 @@
         .module('app')
         .controller('sports-controller', sports_controller);
 
-    sports_controller.$inject = ['$scope', '$window', '$location', '$routeParams','$interval', 'SportsService'];
+    sports_controller.$inject = ['$scope', '$rootScope', '$window', '$location', '$routeParams','$interval', 'SportsService', 'GameEventService'];
 
-    function sports_controller($scope, $window, $location, $routeParams, $interval, SportsService) {
+    function sports_controller($scope, $rootScope, $window, $location, $routeParams, $interval, SportsService, GameEventService) {
 
 
-        $scope.sports = [
-        ];
+        $scope.sports = [];
         $scope.teams = [];
         var gameid = $routeParams.game_id;
+        $scope.is_owner = false;
 
-        $scope.sports = [
-        ];
+        $scope.ownership_init = () => {
+            GameEventService.get_game_event({"game_id": gameid}).then((data) => {
+                $scope.is_owner = data[0][0].account_id == $rootScope.profile.account_id;
+            });
+            
+        }
+
+        $scope.sports = [];
 
         $scope.change_view = (view) => {
             window.location.href= view + gameid;
@@ -73,6 +79,13 @@
                 });
         }
 
+        $scope.edit_sport_info = {};
+		$scope.edit_id = -1;
+        $scope.setup_edit_modal = (id) => {
+            $scope.edit_sport_info= JSON.parse(JSON.stringify($scope.sports[id]));
+			$scope.edit_id = id;
+        }
+        
         $scope.edit_sport = () => {
             SportsService
                 .update_sport($scope.edit_sport_info)
@@ -139,7 +152,10 @@
                 });
         }
 
+<<<<<<< HEAD
         /*$interval($scope.get_sports, 5000);*/
+=======
+>>>>>>> 9b11a3ab6425d35b2cf4184a2eb7fc6e78322d1e
         $scope.add_sport = function() {
             var data = {
                 game_id: gameid,
