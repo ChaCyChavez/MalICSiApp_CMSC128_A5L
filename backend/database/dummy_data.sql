@@ -1017,7 +1017,7 @@ delete from sport;
   create sports of game_events
 */
 INSERT INTO
-  sport
+  sport (sport_id, sport_type, division, game_id)
 VALUES
   (1, 'Volleyball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 1')),
   (2, 'Volleyball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 2')),
@@ -2908,14 +2908,14 @@ delete from team_account;
 INSERT INTO 
   team_account 
 VALUES
-((SELECT account_id FROM account WHERE player_jersey_num = '1', 1),
-((SELECT account_id FROM account WHERE player_jersey_num = '2', 2),
-((SELECT account_id FROM account WHERE player_jersey_num = '3', 3),
-((SELECT account_id FROM account WHERE player_jersey_num = '4', 4),
-((SELECT account_id FROM account WHERE player_jersey_num = '5', 5),
-((SELECT account_id FROM account WHERE player_jersey_num = '6', 6),
-((SELECT account_id FROM account WHERE player_jersey_num = '7', 7),
-((SELECT account_id FROM account WHERE player_jersey_num = '8', 8);
+((SELECT account_id FROM account WHERE player_jersey_num = '1'), 1),
+((SELECT account_id FROM account WHERE player_jersey_num = '2'), 2),
+((SELECT account_id FROM account WHERE player_jersey_num = '3'), 3),
+((SELECT account_id FROM account WHERE player_jersey_num = '4'), 4),
+((SELECT account_id FROM account WHERE player_jersey_num = '5'), 5),
+((SELECT account_id FROM account WHERE player_jersey_num = '6'), 6),
+((SELECT account_id FROM account WHERE player_jersey_num = '7'), 7),
+((SELECT account_id FROM account WHERE player_jersey_num = '8'), 8);
 
 delete from match_event_team;
 /*
