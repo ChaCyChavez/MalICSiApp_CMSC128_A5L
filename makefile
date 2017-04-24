@@ -1,3 +1,6 @@
+run:
+	reset
+	sudo npm start
 build:
 	reset
 	sudo npm install
@@ -6,6 +9,3 @@ build:
 	sudo npm install -g bower
 	sudo npm install -g n
 	sudo n stable
-run:
-	reset
-	sudo npm start
