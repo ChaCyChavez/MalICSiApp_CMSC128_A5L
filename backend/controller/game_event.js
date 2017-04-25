@@ -154,6 +154,7 @@ exports.get_user_upcoming_events = (req, res, next) => {
 };
 
 exports.get_user_past_events = (req, res, next) => {
+	console.log("                                                                                      get_user_past_events");
 	if (req.session.user || req.params.account_id != undefined) {
 		const query_string = 'CALL get_user_past_events(?)';
 
@@ -188,7 +189,10 @@ exports.get_user_past_events = (req, res, next) => {
 				}));
 				res.status(200).send(data);
 			}
+			
 		};
+
+		db.query(query_string, payload, callback);
 	} else {
 		res.status(401).send({message:"You must be logged in."});
 	}

@@ -16,7 +16,7 @@
 				<div class="info-field" ng-show="profile.is_game_head || profile.is_admin">Position: {{ profile.position }}</div>
 			</div>
 		</div>
-		<div class="ui two column doubling stackable grid container">
+		<div class="ui two column doubling stackable grid container" ng-show="profile.is_player">
 			<div class="column">
 				<div class="ui raised very padded text container segment" id="upcoming_events">
 					<h1 class="ui header">UPCOMING EVENTS</h1>

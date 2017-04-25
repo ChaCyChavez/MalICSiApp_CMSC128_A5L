@@ -47,6 +47,7 @@
 			}
 
 			const get_user_upcoming_events = () => {
+				console.log("get_user_upcoming_events");
 				let deferred = $q.defer();
 
 				$http({
@@ -64,12 +65,14 @@
 			}
 
 			const get_user_past_events = () => {
+				console.log("get_user_past_events");
 				let deferred = $q.defer();
 
 				$http({
 					method: 'GET',
 					xhrFields: {withCredentials: false},
 					url: '/api/get-user-past-events/',
+					headers: headers
 				})
 				.then(function(res) {
 					deferred.resolve(res.data);
@@ -104,6 +107,7 @@
 					method: 'GET',
 					xhrFields: {withCredentials: false},
 					url: '/api/get-user-past-events/' + data,
+					headers: headers
 				})
 				.then(function(res) {
 					deferred.resolve(res.data);
