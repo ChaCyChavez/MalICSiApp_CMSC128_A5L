@@ -78,11 +78,10 @@ CREATE TABLE sponsor (
 DROP TABLE IF EXISTS sport;
 CREATE TABLE sport (
     sport_id            int NOT NULL AUTO_INCREMENT,
-    sport_type          varchar(256) NOT NULL,
+    sport_type          varchar(128) NOT NULL,
     division            enum('men','women','mixed') NOT NULL,
     game_id             int NOT NULL,
-    unique_key          varchar(128),
-    UNIQUE KEY          (unique_key),
+    UNIQUE              (sport_type, division, game_id),
     PRIMARY KEY         (sport_id),
     CONSTRAINT          `fk_game_sport`
         FOREIGN KEY (game_id) REFERENCES game_event (game_id)

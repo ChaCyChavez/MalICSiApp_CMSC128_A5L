@@ -12,13 +12,8 @@ exports.add_sport = (req,res,next) => {
 		const payload = [
 			req.body.sport_type,
 			req.body.division,
-			req.body.game_id,
-			crypto.createHash('sha256').update(
-				req.body.sport_id+
-				req.body.sport_type+
-				req.body.division
-					).digest('base64')
-			];
+			req.body.game_id
+		];
 
 		const callback = (err,data) => {
 			if (err) {
@@ -71,12 +66,7 @@ exports.update_sport = (req, res, next) => {
 		const payload = [
 			req.body.sport_id,
 			req.body.sport_type,
-			req.body.division,
-			crypto.createHash('sha256').update(
-				req.body.sport_id+
-				req.body.sport_type+
-				req.body.division
-					).digest('base64')
+			req.body.division
 		];
 
 		const callback = (err, data) => {

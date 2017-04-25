@@ -86,9 +86,27 @@
 				return deferred.promise;
 			}
 
+			const get_sport = function(data) {
+				let deferred = $q.defer();
+				$http({
+					method: 'GET',
+					xhrFields: {withCredentials: false},
+					url: '/api/get-sport/' + data.sport_id,
+					headers: headers
+				})
+				.then(function(res) {
+					deferred.resolve(res.data);
+				}, function(err) {
+					deferred.reject(err.data);
+				})
+
+				return deferred.promise;
+			}
+
 			let service = {};
 			service.get_match 				= get_match;			
 			service.get_court 				= get_court;
+			service.get_sport				= get_sport;
 			service.add_match				= add_match;			
 			service.add_team_to_match		= add_team_to_match;			
 			return service;

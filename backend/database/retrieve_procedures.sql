@@ -266,9 +266,20 @@ DROP PROCEDURE IF EXISTS get_all_game_event//
 
 /* SPORT PROCEDURES */
 DROP PROCEDURE IF EXISTS get_sport//
-  CREATE PROCEDURE get_sport(IN _game_id int)
+  CREATE PROCEDURE get_sport(IN _sport_id int)
   BEGIN
-    SELECT * FROM sport WHERE game_id = _game_id;
+    SELECT
+			sport_id,
+			sport_type,
+			division,
+			game_id,
+			account_id
+		FROM
+			sport
+		NATURAL JOIN
+			game_event
+		WHERE
+			sport_id = _sport_id;
   END;
 //
 
@@ -286,12 +297,12 @@ DROP PROCEDURE IF EXISTS get_sport_game;
 	  IN _game_id int
   )
   BEGIN
-    SELECT
+  SELECT
 		sport_id,
 		sport_type,
 		division,
 		game_id
-    FROM
+  FROM
 		sport s
 	WHERE
 		game_id = _game_id;
@@ -310,6 +321,7 @@ drop procedure if exists get_sport_team;
     SELECT
 		t.team_id,
 		t.team_name,
+		t.team_color,
 		mt.match_id,
 		m.match_date_time,
 		m.court_name,
@@ -319,11 +331,11 @@ drop procedure if exists get_sport_team;
 		team t
 	NATURAL JOIN
 		match_event_team mt
-    NATURAL JOIN
+  NATURAL JOIN
 		match_event m
-    NATURAL JOIN
+  NATURAL JOIN
 		sport s
-    WHERE
+  WHERE
 		s.sport_id = _sport_id;
   END;
 //
