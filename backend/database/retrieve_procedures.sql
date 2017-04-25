@@ -173,7 +173,26 @@ DROP PROCEDURE IF EXISTS get_team_match//
             match_event m
       WHERE m.match_id = me.match_id && t.team_id = _team_id) && t.team_id != _team_id;
   END;
+//
 
+DROP PROCEDURE IF EXISTS get_match_teams//
+  CREATE PROCEDURE get_match_teams(
+      IN _sport_id int
+  )
+  BEGIN
+    SELECT 
+        *
+    FROM 
+        team
+    WHERE game_id = (
+        SELECT 
+            game_id
+        FROM 
+            sport
+        WHERE
+            sport_id = _sport_id
+    );
+  END;
 //
 
 DROP PROCEDURE IF EXISTS get_team_name//

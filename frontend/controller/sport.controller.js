@@ -130,7 +130,23 @@
                 });
         }
 
+        $scope.match_teams = [];
 
+        $scope.data = {}
+        $scope.get_game_event_teams = () => {
+            $scope.data = {
+                sport_id:$scope.sportid
+            }
+            SportService
+                .get_match_teams($scope.data)
+                .then(function(res) {
+                    $scope.match_teams = res.data[0];
+
+                    // console.log(res.data[0].length); 
+                }, function(err) {
+                    swal(err.message);
+                })
+        }
         $scope.add_match = () => {
             var selectedValues = [];    
             $("#teamJoin :selected").each(function(){

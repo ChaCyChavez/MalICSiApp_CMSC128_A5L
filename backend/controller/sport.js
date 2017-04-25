@@ -33,6 +33,29 @@ exports.add_sport = (req,res,next) => {
 	}
 };
 
+exports.get_match_teams = (req, res, next) => {
+		const query_string = 'CALL get_match_teams(?)';
+
+		const payload = [req.params.sport_id];
+
+		const callback = (err, data) => {
+			if (err) {
+				winston.level = 'debug';
+				winston.log('debug', 'err: ', err);
+				res.status(500).send({ error_code:err.code });
+			} else if (data[0].length == 0) {
+				winston.level = 'info';
+				winston.log('info', 'Not found!');
+				res.status(404).send(data);
+			} else {
+				winston.level = 'info';
+				winston.log('info', 'Successfully retrieved teams!');
+				res.status(200).send(data);
+			}
+		};
+		// console.log(payload)
+		db.query(query_string, payload, callback);
+};
 exports.get_sport = (req, res, next) => {
 		const query_string = 'CALL get_sport(?)';
 

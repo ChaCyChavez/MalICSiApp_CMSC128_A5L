@@ -198,7 +198,6 @@ DROP PROCEDURE IF EXISTS add_match_event//
 DROP PROCEDURE IF EXISTS add_match_event_team//
     CREATE PROCEDURE add_match_event_team(
         IN _team_id             int,
-        IN _match_id            int,
         IN _score               int
     )
     BEGIN
@@ -208,7 +207,7 @@ DROP PROCEDURE IF EXISTS add_match_event_team//
             score
         )VALUES(
             _team_id,
-            _match_id,
+            @match_id,
             _score
         );
     END;
