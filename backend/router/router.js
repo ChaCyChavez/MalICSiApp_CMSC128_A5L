@@ -109,6 +109,8 @@ module.exports = (router) => {
     router.get('/api/get-sport-game/:game_id', sport.get_sport_game);
     //get teams in a sport
     router.get('/api/get-sport-team/:sport_id', sport.get_sport_team);
+    //check for duplicate sport
+    router.get('/api/get-a-sport/:game_id/:sport_type/:division', sport.get_a_sport);
 
 //team routers
     //create team
