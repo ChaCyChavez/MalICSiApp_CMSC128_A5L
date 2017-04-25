@@ -2,8 +2,6 @@
 
 const db = require(__dirname + '/../lib/mysql');
 const winston = require('winston');
-const crypto = require('crypto');
-
 
 exports.add_sport = (req,res,next) => {
 	if (req.session.user && (req.session.user.is_game_head || req.session.user.is_admin)) {
