@@ -5,9 +5,9 @@
         .module('app')
         .controller('sport-controller', sport_controller);
 
-    sport_controller.$inject = ['$scope', '$location', '$routeParams', 'SportService'];
+    sport_controller.$inject = ['$scope', '$rootScope', '$location', '$routeParams', 'SportService'];
 
-    function sport_controller($scope, $location, $routeParams, SportService) {
+    function sport_controller($scope, $rootScope, $location, $routeParams, SportService) {
 
         var sportid = $routeParams.sport_id;
         $scope.sportid = $routeParams.sport_id;
@@ -43,6 +43,13 @@
             window.location.href="#!/game-event";
         }
 
+        $scope.init_sport = () => {
+            SportService.get_sport({"sport_id":$scope.sportid}).then((data) => {
+                $scope.sport = data[0][0];
+                $scope.is_owner = $scope.sport.account_id == $rootScope.profile.account_id;
+            });
+        }
+
         $scope.get_matches = () => {
             let data = {
                 sport_id: sportid
@@ -52,7 +59,6 @@
                 .get_match(data).
                 then(function(res) {
                     let arr = res.data[0];
-                    console.log(arr);
                     let matches = [];
                     let teams = [];
                     let team_list = [];
@@ -72,8 +78,9 @@
 
                                 if(teamname === element.team_name){
                                     let ob = {
-                                        ["team_id"]: element.team_id,
-                                        ["team_name"]: element.team_name
+                                        "team_id": element.team_id,
+                                        "team_name": element.team_name,
+                                        "team_color": element.team_color.toLowerCase()
                                     }
                                     team_list.push(ob);
                                     throw BreakException;
@@ -83,7 +90,7 @@
                             if (e !== BreakException) throw e;
                         }
                     });
-                    console.log("IDs:" + match_ids);
+
                     match_ids.forEach(function(i){
                         let obj = {
                             ["match_id"]:i,
@@ -97,7 +104,8 @@
                                 obj["date_time"] = j.match_date_time;
                                 obj["court_name"] = j.court_name;
                                 if(!obj["teams"].includes(j.team_name)){
-                                    obj["teams"].push(j.team_name);
+                                    j.team_color = j.team_color.toLowerCase();
+                                    obj["teams"].push(j);
                                 }
                             }
                         });
@@ -105,7 +113,6 @@
                     });
                     $scope.matches = matches;
                     $scope.teams = team_list;
-                    console.log(matches);
                     let BreakException = {};
                     try{
 	                    matches.forEach(function(j){

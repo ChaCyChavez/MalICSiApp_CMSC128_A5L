@@ -1,4 +1,4 @@
-<div ng-controller="sport-controller">
+<div ng-controller="sport-controller" ng-init="init_sport()">
   <div class="row contents" id="sport-content" ng-init = "get_matches();get_courts();">
     <h3 class="content-header">Sport</h3>
 
@@ -19,7 +19,7 @@
                 <td>
                   <a href="javascript:void(0)" ng-click="view_team(team.team_id)">
                   <h4 class="trow ui header">
-                    <i class=" fa fa-group fa-2x ui mini rounded"></i>
+                    <i class=" fa fa-group fa-2x ui mini rounded" style="color: {{team.team_color}}"></i>
                     <div class="content">
                       {{team.team_name}}
                         <div class="sub header">{{team.team_color}}</div>
@@ -42,9 +42,9 @@
               <tr ng-repeat="match in matches">
                 <td>
                   <h4 class="trow ui header">
-                    <div class="content sched">
+                    <div class="content">
                       <div>Teams:&nbsp;</div>
-                      <span ng-repeat = "team in match.teams">{{team}} &nbsp;&nbsp;</span>
+                      <span ng-repeat = "team in match.teams"><i style="color: {{team.team_color}}" class="flag icon"></i>{{team.team_name}} &nbsp;&nbsp;</span>
                       <div><i class="fa fa-clock-o"></i>&nbsp;:&nbsp;{{match.date_time | date: "medium"}}</div>
                       <div><i class="fa fa-map"></i>&nbsp;:&nbsp;{{match.court_name}}</div>
                     </div>

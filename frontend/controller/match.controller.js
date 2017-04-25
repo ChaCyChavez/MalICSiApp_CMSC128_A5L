@@ -82,6 +82,7 @@
                 counter = counter + 1;
             });
 
+            
             MatchService.determine_winner($scope.match_teams_scores);
             $('.scores').prop('contentEditable', false);
             $scope.not_editing = true;
@@ -105,7 +106,7 @@
             MatchService
                 .update_scores(data)
                 .then(function(res) {
-                    console.log(res[0]);
+                    console.log(res);
                 }, function(err) {
                     console.log(err);
                 })
