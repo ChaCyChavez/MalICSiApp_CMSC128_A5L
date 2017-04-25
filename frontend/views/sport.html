@@ -1,5 +1,5 @@
 <div ng-controller="sport-controller" ng-init="init_sport()">
-  <div class="row contents" id="sport-content" ng-init = "get_matches();get_courts();">
+  <div class="row contents" id="sport-content" ng-init = "get_matches();get_courts();get_game_event_teams()">
     <h3 class="content-header">Sport</h3>
 
       <!-- List of Participants -->
@@ -78,7 +78,7 @@
             <label>Teams Joining</label>
             <select id ="teamJoin" name="teams" multiple="" class="ui fluid dropdown">
               <option disabled selected></option>
-              <option ng-repeat = "team in teams" value="{{team.team_id}}">Team {{team.team_name}}</option>
+              <option ng-repeat = "team in match_teams" value="{{team.team_id}}">Team {{team.team_name}}</option>
             </select>
           </div>
           <div class="field">

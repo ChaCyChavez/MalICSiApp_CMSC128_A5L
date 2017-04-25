@@ -84,6 +84,7 @@ module.exports = (router) => {
 // match_event_team router
     router.post('/api/add-match-event-team', match_event.add_match_event_team);
 
+
 //sponsor routers
     //create sponsor
     router.post('/api/add-sponsor', sponsor.add_sponsor);
@@ -109,6 +110,10 @@ module.exports = (router) => {
     router.get('/api/get-sport-game/:game_id', sport.get_sport_game);
     //get teams in a sport
     router.get('/api/get-sport-team/:sport_id', sport.get_sport_team);
+    //check for duplicate sport
+    router.get('/api/get-a-sport/:game_id/:sport_type/:division', sport.get_a_sport);
+    //get game event teams
+    router.get('/api/get-match-teams/:sport_id', sport.get_match_teams);
 
 //team routers
     //create team
