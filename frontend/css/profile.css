@@ -1,15 +1,19 @@
 #personal-info {
     width: 100%;
+    display: inline-block;
 }
 
 #events_played, #upcoming_events {
     width: 100%;
 }
 
-.profile-pic img {
-	/*margin-right: 25px !important;*/
-	width: 250px !important;
+.profile-pic {
 	float: left;
+}
+
+.profile-pic img {
+	width: 250px !important;
+	margin-bottom: 25px !important;
 }
 
 #name {
