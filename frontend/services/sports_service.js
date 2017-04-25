@@ -110,13 +110,12 @@
 
 			const get_teams_sport = function (data) {
 				let deferred = $q.defer();
-
+				console.log(data.sport_id);
 				$http({
 					method: 'GET',
 					xhrFields: {withCredentials: true},
 					url: '/api/get-sport-team/' + data.sport_id,
 					headers: headers
-
 				})
 				.then(function(res) {
 					deferred.resolve(res);

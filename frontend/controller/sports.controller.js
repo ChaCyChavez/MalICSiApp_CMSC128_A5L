@@ -52,6 +52,22 @@
             $window.location.reload();
         }
 
+        $scope.ngRepeatFinished = () => {
+            $('.special.cards .image').dimmer({
+                on: 'hover'
+            });
+
+			$(".edit-sport").click(function() {
+			$("#edit-sport-modal").modal("show");
+			});
+
+			$(".modal-close").click(function() {
+			$(".ui.modal").modal("hide");
+			});
+
+			$('.ui.dropdown').dropdown();
+        }
+
         $scope.delete_sport = (index) => {
                 var data = {
                     sport_id: $scope.sports[index].sport_id
@@ -166,7 +182,6 @@
 	                .add_sport(data)
 	                .then(function(res) {
 	                    swal(res.message);
-	                    document.getElementById("sports-form").reset();
 	                }, function(err) {
 	                    swal(err.message);
 	                })

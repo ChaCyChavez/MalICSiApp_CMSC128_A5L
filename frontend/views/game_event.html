@@ -2,7 +2,7 @@
   
   <!-- button for adding new game-->
  
-  <a href="javascript:void(0)" class="ui add-btn" ng-if="profile.is_admin || profile.is_game_head" id="add-game"><i class="fa fa-plus fa-3x"></i></a>
+  <a href="javascript:void(0)" class="ui add-btn" ng-if="profile.is_admin || profile.is_game_head" id="add-game" ng-init="setup_add_game();"><i class="fa fa-plus fa-3x"></i></a>
 
   <!-- Contents -->
   <div class="row contents">
@@ -148,10 +148,12 @@
          <thead>
           <tr><th>Team Name</th>
           <th>Team Color</th>
+          <th></th>
         </tr></thead>
          <tr ng-repeat = "team in teams track by $index">
           <td><input placeholder="Name" type="text" name="links" ng-model = "team.team_name"/></td>
-          <td><input placeholder="Color" type="text" name="keywords" ng-model = "team.team_color"/></td> 
+          <td><input style="width: 200px; height: 50px; border-width: 0;" type="color" name="keywords" ng-model = "team.team_color"/></td> 
+          <td><button class="ui button" ng-click="remove_team($index)">Remove</button></td> 
         </tr>
         </table>
         <div class="team-button">
@@ -237,65 +239,3 @@
     </div>
   </div>
 </div>
-
-
-<script>
-$(document).ready(function(){
-  $('.special.cards .image').dimmer({
-    on: 'hover'
-  });
-
-  $('.ui.dropdown').dropdown();
-
-  $("#add-game").click(function() {
-    $('#add-game-modal').modal({
-      onShow: function(){
-        $('#start-date').calendar({
-          type: 'date'
-        });
-        $('#end-date').calendar({
-          type: 'date'
-        });
-      }
-    }).modal('show');
-  });
-
-  $("#remove-game").click(function() {
-    $("#remove-game-modal").modal("show");
-  });
-
-  $("#rttg").click(function() {
-    $("#choose-team-modal").modal("show");
-  });
-
-  $(".edit-game").click(function() {
-    $("#edit-game-modal").modal({
-      onShow: function() {
-        $('#edit-start-date').calendar({
-          type: 'date'
-        });
-
-        $('#edit-end-date').calendar({
-          type: 'date'
-        });
-      }
-    }).modal("show");
-  });
-
-  $(".view-more").click(function() {
-    $("#view-more-modal").modal("show");
-  });
-
-  $('.modal-close').click(function() {
-    $('.ui.modal').modal('hide');
-  });
-
-  $('.ui.radio.checkbox').checkbox();
-
-  $('.reg-to-game').click(function() {
-    $('#choose-team-modal').modal("show");
-  });
-});
-
-</script>  
-

@@ -7,7 +7,7 @@ const crypto = require('crypto');
 
 exports.add_sport = (req,res,next) => {
 	if (req.session.user && (req.session.user.is_game_head || req.session.user.is_admin)) {
-		const query_string = 'CALL add_sport(?,?,?,?)';
+		const query_string = 'CALL add_sport(?,?,?)';
 
 		const payload = [
 			req.body.sport_type,
@@ -66,7 +66,8 @@ exports.update_sport = (req, res, next) => {
 		const payload = [
 			req.body.sport_id,
 			req.body.sport_type,
-			req.body.division
+			req.body.division,
+			req.session.user.account_id
 		];
 
 		const callback = (err, data) => {

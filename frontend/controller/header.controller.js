@@ -9,7 +9,6 @@
 
     function header_controller($scope, $location, $window, $routeParams, $rootScope, ProfileService, LoginRegisterService) {
 
-
 		$scope.info = {
 			username : undefined,
 			password : undefined
@@ -68,6 +67,12 @@
 	                $rootScope.profile = data[0][0];
 	            } else {
 	            	$window.location.href = "#!/";
+					$rootScope.profile = {
+						account_id: undefined,
+						is_admin: false,
+						is_player: false,
+						is_game_head: false
+					};
 	            }
 	        }, (err) => {
 				window.location.href = "#!/"
