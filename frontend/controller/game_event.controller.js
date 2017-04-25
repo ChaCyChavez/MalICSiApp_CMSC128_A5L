@@ -13,60 +13,63 @@
 		$scope.teams = [];
 
 		$scope.ngRepeatFinished = () => {
-			$('.special.cards .image').dimmer({
+			//http://stackoverflow.com/questions/24437658/angular-ng-if-how-to-callback-after-ng-if-template-has-been-rendered
+			setTimeout(() => {
+				$('.special.cards .image').dimmer({
                 on: 'hover'
-            });
+				});
 
-			$('.ui.dropdown').dropdown();
+				$('.ui.dropdown').dropdown();
 
-			$("#add-game").click(function() {
-				$('#add-game-modal').modal({
-				onShow: function(){
-					$('#start-date').calendar({
-					type: 'date'
-					});
-					$('#end-date').calendar({
-					type: 'date'
-					});
-				}
-				}).modal('show');
-			});
+				$("#add-game").click(function() {
+					$('#add-game-modal').modal({
+					onShow: function(){
+						$('#start-date').calendar({
+						type: 'date'
+						});
+						$('#end-date').calendar({
+						type: 'date'
+						});
+					}
+					}).modal('show');
+				});
 
-			$("#remove-game").click(function() {
-				$("#remove-game-modal").modal("show");
-			});
+				$("#remove-game").click(function() {
+					$("#remove-game-modal").modal("show");
+				});
 
-			$("#rttg").click(function() {
-				$("#choose-team-modal").modal("show");
-			});
+				$("#rttg").click(function() {
+					$("#choose-team-modal").modal("show");
+				});
 
-			$(".edit-game").click(function() {
-				$("#edit-game-modal").modal({
-				onShow: function() {
-					$('#edit-start-date').calendar({
-					type: 'date'
-					});
+				$(".edit-game").click(function() {
+					$("#edit-game-modal").modal({
+					onShow: function() {
+						$('#edit-start-date').calendar({
+						type: 'date'
+						});
 
-					$('#edit-end-date').calendar({
-					type: 'date'
-					});
-				}
-				}).modal("show");
-			});
+						$('#edit-end-date').calendar({
+						type: 'date'
+						});
+					}
+					}).modal("show");
+				});
 
-			$(".view-more").click(function() {
-				$("#view-more-modal").modal("show");
-			});
+				$(".view-more").click(function() {
+					$("#view-more-modal").modal("show");
+				});
 
-			$('.modal-close').click(function() {
-				$('.ui.modal').modal('hide');
-			});
+				$('.modal-close').click(function() {
+					$('.ui.modal').modal('hide');
+				});
 
-			$('.ui.radio.checkbox').checkbox();
+				$('.ui.radio.checkbox').checkbox();
 
-			$('.reg-to-game').click(function() {
-				$('#choose-team-modal').modal("show");
-			});
+				$('.reg-to-game').click(function() {
+					$('#choose-team-modal').modal("show");
+				});
+			},0);
 		};
 		
 		$scope.append_fills = () =>{
