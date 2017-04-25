@@ -37,6 +37,12 @@
 			$window.location.reload();
 		}
 
+		$rootScope.ngRepeatFinished = () => {
+            $('.special.cards .image').dimmer({
+                on: 'hover'
+            });
+        }
+
 		$rootScope.logout = () => {
 			LoginRegisterService
 		        .logout()

@@ -5,7 +5,7 @@
         .module('app')
         .controller('sponsor-controller', sponsor_controller);
 
-    function sponsor_controller($scope, $location, $window, $routeParams, SponsorService, GameEventService) {
+    function sponsor_controller($scope, $rootScope, $location, $window, $routeParams, SponsorService, GameEventService) {
 
 
     	$scope.sponsors = [];
@@ -29,6 +29,12 @@
             sponsor_desc: "",
             web_address: "",
             game_id: 0
+        }
+
+        $scope.ownership_init = () => {
+            GameEventService.get_game_event({"game_id": $scope.game_id}).then((data) => {
+                $scope.is_owner = data[0][0].account_id == $rootScope.profile.account_id;
+            });
         }
 
         $scope.change_view = (view) => {
@@ -72,9 +78,8 @@
             .then(function(res) {
                 $scope.sponsors = res[0];
             }, function(err) {
-                console.log(err.data)   ;
+                console.log(err.data);
             })
-  
         }
 
         $scope.init_edit_modal = (sponsor_id) => {
