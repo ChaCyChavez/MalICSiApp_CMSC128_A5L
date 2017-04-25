@@ -19,14 +19,12 @@
             GameEventService.get_game_event({"game_id": gameid}).then((data) => {
                 $scope.is_owner = data[0][0].account_id == $rootScope.profile.account_id;
             });
-            
         }
 
         $scope.sports = [];
 
         $scope.change_view = (view) => {
             window.location.href= view + gameid;
-            $window.location.reload();
         }
 
         $scope.view_sport = (sport_id) => {
@@ -124,7 +122,6 @@
             SportsService
                 .get_sports_game(data).
                 then(function(res) {
-			        console.log(res.data[0]);
                 	res.data[0].forEach(function(element){
                         let obj2 = {
                             sport_id: element.sport_id,
@@ -152,7 +149,6 @@
                 });
         }
 
-        $interval($scope.get_sports, 5000);
         $scope.add_sport = function() {
             var data = {
                 game_id: gameid,
