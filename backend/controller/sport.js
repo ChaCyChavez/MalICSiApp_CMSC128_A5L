@@ -57,6 +57,28 @@ exports.get_sport = (req, res, next) => {
 		db.query(query_string, payload, callback);
 };
 
+exports.get_a_sport = (req, res, next) => {
+		const query_string = 'CALL get_a_sport(?,?,?)';
+
+		const payload = [req.params.game_id,
+						req.params.sport_type,
+						req.params.division];
+
+		const callback = (err, data) => {
+			if (err) {
+				winston.level = 'debug';
+				winston.log('debug', 'err: ', err);
+				res.status(500).send({ error_code:err.code });
+			} else {
+				winston.level = 'info';
+				winston.log('info', 'Successfully retrieved sport!');
+				res.status(200).send(data);
+			}
+		};
+		// console.log(payload)
+		db.query(query_string, payload, callback);
+};
+
 exports.update_sport = (req, res, next) => {
 	if (req.session.user && (req.session.user.is_game_head || req.session.user.is_admin)) {
 		const query_string = 'CALL update_sport(?,?,?,?);';
