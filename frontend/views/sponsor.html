@@ -16,7 +16,7 @@
     </div>
     <h2 class="center-align" ng-if="sponsors.length == 0">No Sponsor Available</h2>
     <div class="ui three stackable special cards" id="spons" >
-        <div class="card" ng-repeat="spon in sponsors">
+        <div class="card" ng-repeat="spon in sponsors" ng-init="$last && (profile.is_admin || is_owner) ? ngRepeatFinished() : null">
           <div class='blurring dimmable image'>
             <div class="ui dimmer">
               <div class="content">
