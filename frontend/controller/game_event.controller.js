@@ -178,6 +178,10 @@
 			$scope.edit_game_info.game_ending_time_date = $('#edit_end_game').val();
 			$scope.edit_game_info.game_starting_time_date = moment($scope.edit_game_info.game_starting_time_date).format("YYYY-MM-DD");
 			$scope.edit_game_info.game_ending_time_date = moment($scope.edit_game_info.game_ending_time_date).format("YYYY-MM-DD");
+			if (!moment($scope.edit_game_info.game_ending_time_date).isAfter($scope.edit_game_info.game_starting_time_date)) {
+				swal("Failed","Ending date precedes starting date.","error");
+				return;
+			}
 			if($scope.edit_game_info.game_starting_time_date == undefined || $scope.edit_game_info.game_ending_time_date == undefined ||
 				$scope.edit_game_info.game_name == undefined){
 				swal("Failure!", "Please fill out all fields", "error");
@@ -219,13 +223,11 @@
 			GameEventService
 				.get_team_of_account(data)
 				.then(function(res){
-					console.log(res[0]);
 					if (res[0] == "") {
 						$scope.is_registered = true;
 					} else {
 						$scope.is_registered = false;
 					}
-					console.log($scope.is_registered)
             	},function(err){
                 	console.log(err);
             	})
@@ -266,6 +268,10 @@
 				game_starting_time_date: moment($('#add_start_game').val()).format("YYYY-MM-DD"),
 				game_ending_time_date: moment($('#add_end_game').val()).format("YYYY-MM-DD")
 			};
+			if (!moment(data.game_ending_time_date).isAfter(data.game_starting_time_date)) {
+				swal("Failed","Ending date precedes starting date.","error");
+				return;
+			}
 			var blank = 1;
 			for(var i = 0 ;i < $scope.teams.length; i++){
 				if($scope.teams[i].team_name == undefined){
