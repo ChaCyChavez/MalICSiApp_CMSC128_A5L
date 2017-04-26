@@ -39,14 +39,6 @@ CREATE TABLE activity_log (
     PRIMARY KEY         (log_id)
 );
 
-DROP TABLE IF EXISTS team;
-CREATE TABLE team (
-    team_id             int NOT NULL AUTO_INCREMENT,
-    team_name           varchar(256) NOT NULL,
-    team_color          varchar(256) NOT NULL,
-    PRIMARY KEY         (team_id)
-);
-
 DROP TABLE IF EXISTS game_event;
 CREATE TABLE game_event (
     game_id                     int NOT NULL AUTO_INCREMENT,
@@ -57,6 +49,18 @@ CREATE TABLE game_event (
     PRIMARY KEY                 (game_id),
     CONSTRAINT                  `fk_game_account`
         FOREIGN KEY (account_id) REFERENCES account (account_id)
+        ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+DROP TABLE IF EXISTS team;
+CREATE TABLE team (
+    team_id             int NOT NULL AUTO_INCREMENT,
+    team_name           varchar(256) NOT NULL,
+    team_color          varchar(256) NOT NULL,
+    PRIMARY KEY         (team_id),
+    game_id             int NOT NULL,
+    CONSTRAINT          `fk_team_game`
+        FOREIGN KEY (game_id) REFERENCES game_event (game_id)
         ON UPDATE CASCADE ON DELETE CASCADE
 );
 
@@ -101,20 +105,6 @@ CREATE TABLE match_event (
     PRIMARY KEY         (match_id),
     CONSTRAINT          `fk_sport_match`
         FOREIGN KEY (sport_id) REFERENCES sport (sport_id)
-        ON UPDATE CASCADE ON DELETE CASCADE
-);
-
-/*N-M relationship tables*/
-DROP TABLE IF EXISTS game_event_team;
-CREATE TABLE game_event_team (          /*table for teams that registered in a game_event*/
-    team_id             int NOT NULL,
-    game_id             int NOT NULL,
-    PRIMARY KEY         (team_id, game_id),
-    CONSTRAINT          `fk_game_of_team`
-        FOREIGN KEY (game_id) REFERENCES game_event (game_id)
-        ON UPDATE CASCADE ON DELETE CASCADE,
-    CONSTRAINT          `fk_team_in_game`
-        FOREIGN KEY (team_id) REFERENCES team (team_id)
         ON UPDATE CASCADE ON DELETE CASCADE
 );
 

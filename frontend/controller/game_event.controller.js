@@ -8,51 +8,75 @@
     game_event_controller.$inject = ['$scope', '$window', '$rootScope','$location', 'GameEventService', 'ProfileService'];
 
     function game_event_controller($scope, $window, $rootScope, $location, GameEventService, ProfileService) {
-		// fetching is being implemented by other group member
-		console.log($scope.profile);
-		$scope.current_games = [
-			{
-				game_id: undefined,
-				game_starting_time_date: undefined,
-				game_ending_time_date: undefined,
-				game_name: undefined
-			},
-			{
-				game_id: undefined,
-				game_starting_time_date: undefined,
-				game_ending_time_date: undefined,
-				game_name: undefined
-			},
-			{
-				game_id: undefined,
-				game_starting_time_date: undefined,
-				game_ending_time_date: undefined,
-				game_name: undefined
-			}
-		];
+		$scope.current_games = [];
+		$scope.upcoming_games = [];
+		$scope.teams = [];
 
-		$scope.upcoming_games = [
-			{
-				game_id: undefined,
-				game_starting_time_date: undefined,
-				game_ending_time_date: undefined,
-				game_name: undefined
-			}
-		];
+		$scope.ngRepeatFinished = () => {
+			//http://stackoverflow.com/questions/24437658/angular-ng-if-how-to-callback-after-ng-if-template-has-been-rendered
+			setTimeout(() => {
+				$('.special.cards .image').dimmer({
+                on: 'hover'
+				});
 
+				$('.ui.dropdown').dropdown();
 
-		$scope.teams = [
-			{
-				team_name:undefined,
-				team_color: undefined,
-				game_id:undefined
-			}
-		];
+				$("#add-game").click(function() {
+					$('#add-game-modal').modal({
+					onShow: function(){
+						$('#start-date').calendar({
+						type: 'date'
+						});
+						$('#end-date').calendar({
+						type: 'date'
+						});
+					}
+					}).modal('show');
+				});
+
+				$("#remove-game").click(function() {
+					$("#remove-game-modal").modal("show");
+				});
+
+				$("#rttg").click(function() {
+					$("#choose-team-modal").modal("show");
+				});
+
+				$(".edit-game").click(function() {
+					$("#edit-game-modal").modal({
+					onShow: function() {
+						$('#edit-start-date').calendar({
+						type: 'date'
+						});
+
+						$('#edit-end-date').calendar({
+						type: 'date'
+						});
+					}
+					}).modal("show");
+				});
+
+				$(".view-more").click(function() {
+					$("#view-more-modal").modal("show");
+				});
+
+				$('.modal-close').click(function() {
+					$('.ui.modal').modal('hide');
+				});
+
+				$('.ui.radio.checkbox').checkbox();
+
+				$('.reg-to-game').click(function() {
+					$('#choose-team-modal').modal("show");
+				});
+			},0);
+		};
+		
 		$scope.append_fills = () =>{
 			$scope.teams.push(
 			{
 				team_name:undefined,
-				team_color: undefined
+				team_color: $scope.random_color()
 			});
 			$("#add-game-modal").modal("refresh");
 		}
@@ -80,9 +104,6 @@
 				account_id: undefined,
 				team_id: undefined
 		}
-
-		
-
 
 		$scope.view_sponsor = () => {
 			$("#modal1").modal('close');
@@ -157,6 +178,10 @@
 			$scope.edit_game_info.game_ending_time_date = $('#edit_end_game').val();
 			$scope.edit_game_info.game_starting_time_date = moment($scope.edit_game_info.game_starting_time_date).format("YYYY-MM-DD");
 			$scope.edit_game_info.game_ending_time_date = moment($scope.edit_game_info.game_ending_time_date).format("YYYY-MM-DD");
+			if (!moment($scope.edit_game_info.game_ending_time_date).isAfter($scope.edit_game_info.game_starting_time_date)) {
+				swal("Failed","Ending date precedes starting date.","error");
+				return;
+			}
 			if($scope.edit_game_info.game_starting_time_date == undefined || $scope.edit_game_info.game_ending_time_date == undefined ||
 				$scope.edit_game_info.game_name == undefined){
 				swal("Failure!", "Please fill out all fields", "error");
@@ -195,11 +220,9 @@
 				account_id: $rootScope.profile.account_id,
 				game_id: $scope.view.gameid
 			}
-
 			GameEventService
 				.get_team_of_account(data)
 				.then(function(res){
-					console.log(res[0]);
 					if (res[0] == "") {
 						$scope.is_registered = true;
 					} else {
@@ -234,6 +257,10 @@
 			$('#modal1').modal('close');
 		}
 
+		$scope.random_color = () => {
+			return '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6);
+		}
+
 		$scope.add_game = () => {
 			var data = {
 				game_name: $scope.game_name,
@@ -241,9 +268,13 @@
 				game_starting_time_date: moment($('#add_start_game').val()).format("YYYY-MM-DD"),
 				game_ending_time_date: moment($('#add_end_game').val()).format("YYYY-MM-DD")
 			};
+			if (!moment(data.game_ending_time_date).isAfter(data.game_starting_time_date)) {
+				swal("Failed","Ending date precedes starting date.","error");
+				return;
+			}
 			var blank = 1;
 			for(var i = 0 ;i < $scope.teams.length; i++){
-				if($scope.teams[i].team_name == undefined || $scope.teams[i].team_color == undefined){
+				if($scope.teams[i].team_name == undefined){
 					blank = 0;
 					break;
 				}
@@ -268,10 +299,18 @@
             	})
 
 			}
+		}
 
+		$scope.setup_add_game = () => {
 			$scope.game_name = "";
            	$('#add_start_game').val('');
            	$('#add_end_game').val('');
+			$scope.teams = [];
+			$scope.append_fills();
+		}
+
+		$scope.remove_team = (index) => {
+			$scope.teams.splice(index,1 );
 		}
 
 		$scope.search_game = () =>{

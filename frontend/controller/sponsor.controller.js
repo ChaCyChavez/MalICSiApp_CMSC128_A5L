@@ -37,6 +37,25 @@
             });
         }
 
+        $scope.ngRepeatFinished = () => {
+            $('.special.cards .image').dimmer({
+                on: 'hover'
+            });
+            $('.ui.dropdown').dropdown();
+  
+            $("#add-sponsor").click(function() {
+                $("#add-sponsor-modal").modal("show");
+            });
+
+            $(".edit-sponsor").click(function() {
+                $("#edit-sponsor-modal").modal("show");
+            });
+
+            $(".modal-close").click(function() {
+                $(".ui.modal").modal("hide");
+            });
+        }
+
         $scope.change_view = (view) => {
             window.location.href= view + $scope.game_id;
             $window.location.reload();
@@ -96,10 +115,10 @@
         }
 
         $scope.update_sponsor = () => {
-            if ($scope.sponsor.sponsor_name == "" ||
-                $scope.sponsor.sponsor_type == "" ||
-                $scope.sponsor.sponsor_desc == "" ||
-                $scope.sponsor.web_address == "") {
+            if ($scope.sponsorEdit.sponsor_name == "" ||
+                $scope.sponsorEdit.sponsor_type == "" ||
+                $scope.sponsorEdit.sponsor_desc == "" ||
+                $scope.sponsorEdit.web_address == "") {
                 swal("Please fill up all fields");
             } else { 
                 SponsorService

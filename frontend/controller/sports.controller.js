@@ -52,6 +52,22 @@
             $window.location.reload();
         }
 
+        $scope.ngRepeatFinished = () => {
+            $('.special.cards .image').dimmer({
+                on: 'hover'
+            });
+
+			$(".edit-sport").click(function() {
+			$("#edit-sport-modal").modal("show");
+			});
+
+			$(".modal-close").click(function() {
+			$(".ui.modal").modal("hide");
+			});
+
+			$('.ui.dropdown').dropdown();
+        }
+
         $scope.delete_sport = (index) => {
                 var data = {
                     sport_id: $scope.sports[index].sport_id
@@ -85,21 +101,26 @@
         }
         
         $scope.edit_sport = () => {
+            $scope.edit_sport_info.game_id = gameid;
             SportsService
-                .update_sport($scope.edit_sport_info)
-                .then(function(res){
-					$scope.sports[$scope.edit_id] = $scope.edit_sport_info;
-                    swal("Sport has been successfully edited.");
-                } , function(err){
-                	swal(err.message);
-                });
-        }
-       
-        $scope.edit_sport_info = {};
-        $scope.edit_id = -1;
-        $scope.setup_edit_modal = (id) => {
-            $scope.edit_sport_info = JSON.parse(JSON.stringify($scope.sports[id]));
-            $scope.edit_id = id;
+                .get_sport($scope.edit_sport_info)
+                .then(function(res) {
+                    if(res[0].length == 0 || res[0][0].sport_id == $scope.edit_sport_info.sport_id){
+                        SportsService
+                            .update_sport($scope.edit_sport_info)
+                            .then(function(res){
+                                $scope.sports[$scope.edit_id] = $scope.edit_sport_info;
+                                swal("Success!" ,"Sport has been successfully edited.", "success");
+                            } , function(err){
+                                console.log(err)
+                                swal(err.message);
+                            });
+                    } else{
+                        swal("Failure!", "Sport you tried to edit already exists", "error");
+                    }
+                }, function(err) {
+                    swal(err.message);
+                })
         }
 
 
@@ -162,14 +183,25 @@
 	            $scope.sport_type = undefined;
 		       	$scope.division = null;
             } else {
-	            SportsService
-	                .add_sport(data)
-	                .then(function(res) {
-	                    swal(res.message);
-	                    document.getElementById("sports-form").reset();
-	                }, function(err) {
-	                    swal(err.message);
-	                })
+                SportsService
+                    .get_sport(data)
+                    .then(function(res) {
+                        if(res[0].length == 0){
+                            SportsService
+                                .add_sport(data)
+                                .then(function(res) {
+                                    $scope.get_sports();
+                                    swal("Success!" ,"Sport has been successfully added.", "success");
+                                }, function(err) {
+                                    swal(err.message);
+                                })
+                        } else{
+                            swal("Failure!", "Sport you tried to add already exists", "error");
+                        }
+                    }, function(err) {
+                        swal(err.message);
+                    })
+
             }
         }
     }

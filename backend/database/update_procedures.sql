@@ -150,16 +150,37 @@ delimiter //
         IN _sport_id            int(11),
         IN _sport_type          varchar(256),
         IN _division            enum('men','women','mixed'),
-        IN _unique_key          varchar(256)
+        IN _account_id          int(11)
     )
     BEGIN
-        UPDATE
-            sport
-        SET
-            sport_type = _sport_type,
-            division = _division,
-            unique_key = _unique_key
-        WHERE sport_id = _sport_id;
+        SET @account_type = (SELECT is_admin FROM account WHERE account_id = _account_id);
+        IF @account_type = 1 THEN
+            UPDATE
+                sport
+            SET
+                sport_type = _sport_type,
+                division = _division
+            WHERE
+                sport_id = _sport_id;
+        ELSE
+            UPDATE
+                sport
+            SET
+                sport_type = _sport_type,
+                division = _division
+            WHERE
+                sport_id IN
+                (SELECT
+                    sport_id
+                FROM
+                    sport
+                NATURAL JOIN
+                    game_event
+                WHERE
+                    sport_id = _sport_id
+                AND
+                    account_id = _account_id);
+        END IF;
     END;
 //
 delimiter ;

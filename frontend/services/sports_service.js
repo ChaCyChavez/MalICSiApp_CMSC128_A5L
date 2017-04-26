@@ -69,6 +69,23 @@
 				return deferred.promise;
 			}
 
+			const get_sport = function (data) {
+				let deferred = $q.defer();
+				$http({
+					method: 'GET',
+					xhrFields: {withCredentials: true},
+					url: '/api/get-a-sport/' + data.game_id + "/" + data.sport_type + "/" + data.division ,
+					headers: headers
+				})
+				.then(function(res) {
+					deferred.resolve(res.data);
+				}, function(err) {
+					deferred.reject(err.data);
+				})
+
+				return deferred.promise;
+			}
+
 			const delete_sport = function (data) {
 				let deferred = $q.defer();
 
@@ -110,13 +127,12 @@
 
 			const get_teams_sport = function (data) {
 				let deferred = $q.defer();
-
+				console.log(data.sport_id);
 				$http({
 					method: 'GET',
 					xhrFields: {withCredentials: true},
 					url: '/api/get-sport-team/' + data.sport_id,
 					headers: headers
-
 				})
 				.then(function(res) {
 					deferred.resolve(res);
@@ -131,6 +147,7 @@
 			service.add_sport 				= add_sport;
 			service.update_sport 			= update_sport;
 			service.get_sports 				= get_sports;
+			service.get_sport 				= get_sport;
 			service.delete_sport			= delete_sport;
 			service.get_sports_game			= get_sports_game;
 			service.get_teams_sport			= get_teams_sport;
