@@ -42,11 +42,12 @@
         $scope.back_to_home = () => {
             window.location.href="#!/game-event";
         }
-
+        $scope.starting_date = "";
+        $scope.ending_date = "";
         $scope.init_sport = () => {
             SportService.get_sport({"sport_id":$scope.sportid}).then((data) => {
                 $scope.sport = data[0][0];
-                $scope.is_owner = $scope.sport.account_id == $rootScope.profile.account_id;
+                $scope.is_owner = $scope.sport.account_id = $rootScope.profile.account_id;
                 $scope.starting_date = $scope.sport.game_starting_time_date;
                 $scope.ending_date = $scope.sport.game_ending_time_date;
             });
@@ -172,17 +173,16 @@
                 court_location: 'UPLB',
                 court_type: courttype
             }
-
             if(data.match_date_time == undefined || data.series == undefined ||
                 data.court_name == undefined){
                 swal("Failed!", "Please fill up all fields", "error");
             }
-            else if (moment($scope.starting_date).isAfter(moment(wow))) {
-                swal("Failed","Match date is before game event starting date.","error");
-            }
-            else if (moment(wow).isAfter(moment($scope.ending_date))) {
-                swal("Failed","Match date is after game event ending date.","error");
-            }
+            // else if (moment(wow).isBefore(moment($scope.starting_date))) {
+            //     swal("Failed","Match date is before game event starting date.","error");
+            // }
+            // else if (moment(wow).isAfter(moment($scope.ending_date))) {
+            //     swal("Failed","Match date is after game event ending date.","error");
+            // }
             else if(selectedValues.length < 2 ){
                 swal("Failed!", "A match needs atleast two teams", "error");
             }
