@@ -6,14 +6,14 @@ delete from account;
 */
   INSERT INTO account VALUES (
     NULL,                                           /*account_id*/
-    'Admin',                                        /*firstname*/
-    'MALicsI App',                                  /*middlename*/
-    'Account',                                      /*lastname*/
+    'Eddie Ron Adolph',                             /*firstname*/
+    '',                                             /*middlename*/
+    'Vallejos',                                     /*lastname*/
     'admin@gmail.com',                              /*email*/
     'admin',                                        /*username*/
     '10/w7o2juYBrGMh32/KbveULW9jk2tejpyUAD+uC6PE=', /*password*/
     'BSCS',                                         /*course*/
-    NOW(),                                      /*birthday*/
+    NOW(),                                          /*birthday*/
     'CAS',                                          /*college*/
     true,                                           /*is_approved*/
     true,                                           /*is_game_head*/
@@ -23,18 +23,18 @@ delete from account;
     NULL,                                           /*player_role*/
     true                                            /*is_admin*/
   );
-  /*
-    create game_head accounts
-  */
+/*
+  create game_head accounts
+*/
   CALL add_account(
-    'Past Game Events',                             /*firstname*/
-    'MALicsI App',                                  /*middlename*/
-    'Game Head Account',                            /*lastname*/
+    'Cyrez',                                        /*firstname*/
+    '',                                             /*middlename*/
+    'Ronquillo',                                    /*lastname*/
     'past_game_events@gmail.com',                   /*email*/
     'past_game_events',                             /*username*/
     '10/w7o2juYBrGMh32/KbveULW9jk2tejpyUAD+uC6PE=', /*password*/
     'BSCS',                                         /*course*/
-    NOW(),                                      /*birthday*/
+    NOW(),                                          /*birthday*/
     'CAS',                                          /*college*/
     true,                                           /*is_game_head*/
     'Game Head',                                    /*position*/
@@ -44,14 +44,14 @@ delete from account;
   );
   CALL approve_account(LAST_INSERT_ID());
   CALL add_account(
-    'Current Game Events',                          /*firstname*/
-    'MALicsI App',                                  /*middlename*/
-    'Game Head Account',                            /*lastname*/
+    'Charles Cyrus',                                /*firstname*/
+    '',                                             /*middlename*/
+    'Chavez',                                       /*lastname*/
     'current_game_events@gmail.com',                /*email*/
     'current_game_events',                          /*username*/
     '10/w7o2juYBrGMh32/KbveULW9jk2tejpyUAD+uC6PE=', /*password*/
     'BSCS',                                         /*course*/
-    NOW(),                                      /*birthday*/
+    NOW(),                                          /*birthday*/
     'CAS',                                          /*college*/
     true,                                           /*is_game_head*/
     'Game Head',                                    /*position*/
@@ -61,14 +61,14 @@ delete from account;
   );
   CALL approve_account(LAST_INSERT_ID());
   CALL add_account(
-    'Upcoming Game Events',                         /*firstname*/
-    'MALicsI App',                                  /*middlename*/
-    'Game Head Account',                            /*lastname*/
+    'Charles Joe',                                  /*firstname*/
+    '',                                             /*middlename*/
+    'Marquez',                                      /*lastname*/
     'upcoming_game_events@gmail.com',               /*email*/
     'upcoming_game_events',                         /*username*/
     '10/w7o2juYBrGMh32/KbveULW9jk2tejpyUAD+uC6PE=', /*password*/
     'BSCS',                                         /*course*/
-    NOW(),                                      /*birthday*/
+    NOW(),                                          /*birthday*/
     'CAS',                                          /*college*/
     true,                                           /*is_game_head*/
     'Game Head',                                    /*position*/
@@ -90,153 +90,153 @@ delete from game_event;
   past_game_events
 */
     CALL add_game_event (
-      'Game 1',                                                               /*game_name*/
-      SUBDATE(NOW(), INTERVAL 10 WEEK),                                    /*game_starting_time_date*/
+      'Game 1',                                                           /*game_name*/
+      SUBDATE(NOW(), INTERVAL 10 WEEK),                                   /*game_starting_time_date*/
       SUBDATE(NOW(), INTERVAL 8 WEEK),                                    /*game_ending_time_date*/
-      (SELECT account_id FROM account WHERE username = 'past_game_events')    /*account_id*/
+      (SELECT account_id FROM account WHERE username = 'past_game_events')/*account_id*/
     );
     CALL add_game_event (
-      'Game 2',                                                               /*game_name*/
+      'Game 2',                                                           /*game_name*/
       SUBDATE(NOW(), INTERVAL 9 WEEK),                                    /*game_starting_time_date*/
       SUBDATE(NOW(), INTERVAL 7 WEEK),                                    /*game_ending_time_date*/
-      (SELECT account_id FROM account WHERE username = 'past_game_events')    /*account_id*/
+      (SELECT account_id FROM account WHERE username = 'past_game_events')/*account_id*/
     );
     CALL add_game_event (
-      'Game 3',                                                               /*game_name*/
+      'Game 3',                                                           /*game_name*/
       SUBDATE(NOW(), INTERVAL 8 WEEK),                                    /*game_starting_time_date*/
       SUBDATE(NOW(), INTERVAL 6 WEEK),                                    /*game_ending_time_date*/
-      (SELECT account_id FROM account WHERE username = 'past_game_events')    /*account_id*/
+      (SELECT account_id FROM account WHERE username = 'past_game_events')/*account_id*/
     );
     CALL add_game_event (
-      'Game 4',                                                               /*game_name*/
+      'Game 4',                                                           /*game_name*/
       SUBDATE(NOW(), INTERVAL 7 WEEK),                                    /*game_starting_time_date*/
       SUBDATE(NOW(), INTERVAL 5 WEEK),                                    /*game_ending_time_date*/
-      (SELECT account_id FROM account WHERE username = 'past_game_events')    /*account_id*/
+      (SELECT account_id FROM account WHERE username = 'past_game_events')/*account_id*/
     );
     CALL add_game_event (
-      'Game 5',                                                               /*game_name*/
+      'Game 5',                                                           /*game_name*/
       SUBDATE(NOW(), INTERVAL 6 WEEK),                                    /*game_starting_time_date*/
       SUBDATE(NOW(), INTERVAL 4 WEEK),                                    /*game_ending_time_date*/
-      (SELECT account_id FROM account WHERE username = 'past_game_events')    /*account_id*/
+      (SELECT account_id FROM account WHERE username = 'past_game_events')/*account_id*/
     );
     CALL add_game_event (
-      'Game 6',                                                               /*game_name*/
+      'Game 6',                                                           /*game_name*/
       SUBDATE(NOW(), INTERVAL 5 WEEK),                                    /*game_starting_time_date*/
       SUBDATE(NOW(), INTERVAL 3 WEEK),                                    /*game_ending_time_date*/
-      (SELECT account_id FROM account WHERE username = 'past_game_events')    /*account_id*/
+      (SELECT account_id FROM account WHERE username = 'past_game_events')/*account_id*/
     );
     CALL add_game_event (
-      'Game 7',                                                               /*game_name*/
+      'Game 7',                                                           /*game_name*/
       SUBDATE(NOW(), INTERVAL 4 WEEK),                                    /*game_starting_time_date*/
       SUBDATE(NOW(), INTERVAL 2 WEEK),                                    /*game_ending_time_date*/
-      (SELECT account_id FROM account WHERE username = 'past_game_events')    /*account_id*/
+      (SELECT account_id FROM account WHERE username = 'past_game_events')/*account_id*/
     );
     CALL add_game_event (
-      'Game 8',                                                               /*game_name*/
+      'Game 8',                                                           /*game_name*/
       SUBDATE(NOW(), INTERVAL 3 WEEK),                                    /*game_starting_time_date*/
       SUBDATE(NOW(), INTERVAL 1 WEEK),                                    /*game_ending_time_date*/
-      (SELECT account_id FROM account WHERE username = 'past_game_events')    /*account_id*/
+      (SELECT account_id FROM account WHERE username = 'past_game_events')/*account_id*/
     );
 /*
   current_game_events
 */
   CALL add_game_event (
-    'Game 9',                                                              /*game_name*/
-    SUBDATE(NOW(), INTERVAL 8 DAY),                                     /*game_starting_time_date*/
-    ADDDATE(NOW(), INTERVAL 1 DAY),                                     /*game_ending_time_date*/
+    'Game 9',                                                               /*game_name*/
+    SUBDATE(NOW(), INTERVAL 8 DAY),                                         /*game_starting_time_date*/
+    ADDDATE(NOW(), INTERVAL 1 DAY),                                         /*game_ending_time_date*/
     (SELECT account_id FROM account WHERE username = 'current_game_events') /*account_id*/
   );
   CALL add_game_event (
     'Game 10',                                                              /*game_name*/
-    SUBDATE(NOW(), INTERVAL 7 DAY),                                     /*game_starting_time_date*/
-    ADDDATE(NOW(), INTERVAL 2 DAY),                                     /*game_ending_time_date*/
+    SUBDATE(NOW(), INTERVAL 7 DAY),                                         /*game_starting_time_date*/
+    ADDDATE(NOW(), INTERVAL 2 DAY),                                         /*game_ending_time_date*/
     (SELECT account_id FROM account WHERE username = 'current_game_events') /*account_id*/
   );
   CALL add_game_event (
     'Game 11',                                                              /*game_name*/
-    SUBDATE(NOW(), INTERVAL 6 DAY),                                     /*game_starting_time_date*/
-    ADDDATE(NOW(), INTERVAL 3 DAY),                                     /*game_ending_time_date*/
+    SUBDATE(NOW(), INTERVAL 6 DAY),                                         /*game_starting_time_date*/
+    ADDDATE(NOW(), INTERVAL 3 DAY),                                         /*game_ending_time_date*/
     (SELECT account_id FROM account WHERE username = 'current_game_events') /*account_id*/
   );
   CALL add_game_event (
     'Game 12',                                                              /*game_name*/
-    SUBDATE(NOW(), INTERVAL 5 DAY),                                     /*game_starting_time_date*/
-    ADDDATE(NOW(), INTERVAL 4 DAY),                                     /*game_ending_time_date*/
+    SUBDATE(NOW(), INTERVAL 5 DAY),                                         /*game_starting_time_date*/
+    ADDDATE(NOW(), INTERVAL 4 DAY),                                         /*game_ending_time_date*/
     (SELECT account_id FROM account WHERE username = 'current_game_events') /*account_id*/
   );
   CALL add_game_event (
     'Game 13',                                                              /*game_name*/
-    SUBDATE(NOW(), INTERVAL 4 DAY),                                     /*game_starting_time_date*/
-    ADDDATE(NOW(), INTERVAL 5 DAY),                                     /*game_ending_time_date*/
+    SUBDATE(NOW(), INTERVAL 4 DAY),                                         /*game_starting_time_date*/
+    ADDDATE(NOW(), INTERVAL 5 DAY),                                         /*game_ending_time_date*/
     (SELECT account_id FROM account WHERE username = 'current_game_events') /*account_id*/
   );
   CALL add_game_event (
     'Game 14',                                                              /*game_name*/
-    SUBDATE(NOW(), INTERVAL 3 DAY),                                     /*game_starting_time_date*/
-    ADDDATE(NOW(), INTERVAL 6 DAY),                                     /*game_ending_time_date*/
+    SUBDATE(NOW(), INTERVAL 3 DAY),                                         /*game_starting_time_date*/
+    ADDDATE(NOW(), INTERVAL 6 DAY),                                         /*game_ending_time_date*/
     (SELECT account_id FROM account WHERE username = 'current_game_events') /*account_id*/
   );
   CALL add_game_event (
     'Game 15',                                                              /*game_name*/
-    SUBDATE(NOW(), INTERVAL 2 DAY),                                     /*game_starting_time_date*/
-    ADDDATE(NOW(), INTERVAL 7 DAY),                                     /*game_ending_time_date*/
+    SUBDATE(NOW(), INTERVAL 2 DAY),                                         /*game_starting_time_date*/
+    ADDDATE(NOW(), INTERVAL 7 DAY),                                         /*game_ending_time_date*/
     (SELECT account_id FROM account WHERE username = 'current_game_events') /*account_id*/
   );
   CALL add_game_event (
     'Game 16',                                                              /*game_name*/
-    SUBDATE(NOW(), INTERVAL 1 DAY),                                     /*game_starting_time_date*/
-    ADDDATE(NOW(), INTERVAL 8 DAY),                                     /*game_ending_time_date*/
+    SUBDATE(NOW(), INTERVAL 1 DAY),                                         /*game_starting_time_date*/
+    ADDDATE(NOW(), INTERVAL 8 DAY),                                         /*game_ending_time_date*/
     (SELECT account_id FROM account WHERE username = 'current_game_events') /*account_id*/
   );
 /*
   upcoming_game_events
 */
   CALL add_game_event (
-    'Game 17',                                                              /*game_name*/
-    ADDDATE(NOW(), INTERVAL 1 WEEK),                                    /*game_starting_time_date*/
-    ADDDATE(NOW(), INTERVAL 3 WEEK),                                     /*game_ending_time_date*/
+    'Game 17',                                                               /*game_name*/
+    ADDDATE(NOW(), INTERVAL 1 WEEK),                                         /*game_starting_time_date*/
+    ADDDATE(NOW(), INTERVAL 3 WEEK),                                         /*game_ending_time_date*/
     (SELECT account_id FROM account WHERE username = 'upcoming_game_events') /*account_id*/
   );
   CALL add_game_event (
-    'Game 18',                                                              /*game_name*/
-    ADDDATE(NOW(), INTERVAL 2 WEEK),                                    /*game_starting_time_date*/
-    ADDDATE(NOW(), INTERVAL 4 WEEK),                                     /*game_ending_time_date*/
+    'Game 18',                                                               /*game_name*/
+    ADDDATE(NOW(), INTERVAL 2 WEEK),                                         /*game_starting_time_date*/
+    ADDDATE(NOW(), INTERVAL 4 WEEK),                                         /*game_ending_time_date*/
     (SELECT account_id FROM account WHERE username = 'upcoming_game_events') /*account_id*/
   );
   CALL add_game_event (
-    'Game 19',                                                              /*game_name*/
-    ADDDATE(NOW(), INTERVAL 3 WEEK),                                    /*game_starting_time_date*/
-    ADDDATE(NOW(), INTERVAL 5 WEEK),                                     /*game_ending_time_date*/
+    'Game 19',                                                               /*game_name*/
+    ADDDATE(NOW(), INTERVAL 3 WEEK),                                         /*game_starting_time_date*/
+    ADDDATE(NOW(), INTERVAL 5 WEEK),                                         /*game_ending_time_date*/
     (SELECT account_id FROM account WHERE username = 'upcoming_game_events') /*account_id*/
   );
   CALL add_game_event (
-    'Game 20',                                                              /*game_name*/
-    ADDDATE(NOW(), INTERVAL 4 WEEK),                                    /*game_starting_time_date*/
-    ADDDATE(NOW(), INTERVAL 6 WEEK),                                     /*game_ending_time_date*/
+    'Game 20',                                                               /*game_name*/
+    ADDDATE(NOW(), INTERVAL 4 WEEK),                                         /*game_starting_time_date*/
+    ADDDATE(NOW(), INTERVAL 6 WEEK),                                         /*game_ending_time_date*/
     (SELECT account_id FROM account WHERE username = 'upcoming_game_events') /*account_id*/
   );
   CALL add_game_event (
-    'Game 21',                                                              /*game_name*/
-    ADDDATE(NOW(), INTERVAL 5 WEEK),                                    /*game_starting_time_date*/
-    ADDDATE(NOW(), INTERVAL 7 WEEK),                                     /*game_ending_time_date*/
+    'Game 21',                                                               /*game_name*/
+    ADDDATE(NOW(), INTERVAL 5 WEEK),                                         /*game_starting_time_date*/
+    ADDDATE(NOW(), INTERVAL 7 WEEK),                                         /*game_ending_time_date*/
     (SELECT account_id FROM account WHERE username = 'upcoming_game_events') /*account_id*/
   );
   CALL add_game_event (
-    'Game 22',                                                              /*game_name*/
-    ADDDATE(NOW(), INTERVAL 6 WEEK),                                    /*game_starting_time_date*/
-    ADDDATE(NOW(), INTERVAL 8 WEEK),                                     /*game_ending_time_date*/
+    'Game 22',                                                               /*game_name*/
+    ADDDATE(NOW(), INTERVAL 6 WEEK),                                         /*game_starting_time_date*/
+    ADDDATE(NOW(), INTERVAL 8 WEEK),                                         /*game_ending_time_date*/
     (SELECT account_id FROM account WHERE username = 'upcoming_game_events') /*account_id*/
   );
   CALL add_game_event (
-    'Game 23',                                                              /*game_name*/
-    ADDDATE(NOW(), INTERVAL 7 WEEK),                                    /*game_starting_time_date*/
-    ADDDATE(NOW(), INTERVAL 9 WEEK),                                     /*game_ending_time_date*/
+    'Game 23',                                                               /*game_name*/
+    ADDDATE(NOW(), INTERVAL 7 WEEK),                                         /*game_starting_time_date*/
+    ADDDATE(NOW(), INTERVAL 9 WEEK),                                         /*game_ending_time_date*/
     (SELECT account_id FROM account WHERE username = 'upcoming_game_events') /*account_id*/
   );
   CALL add_game_event (
-    'Game 24',                                                              /*game_name*/
-    ADDDATE(NOW(), INTERVAL 8 WEEK),                                    /*game_starting_time_date*/
-    ADDDATE(NOW(), INTERVAL 10 WEEK),                                     /*game_ending_time_date*/
+    'Game 24',                                                               /*game_name*/
+    ADDDATE(NOW(), INTERVAL 8 WEEK),                                         /*game_starting_time_date*/
+    ADDDATE(NOW(), INTERVAL 10 WEEK),                                        /*game_ending_time_date*/
     (SELECT account_id FROM account WHERE username = 'upcoming_game_events') /*account_id*/
   );
 
@@ -246,7 +246,7 @@ delete from sponsor;
   create sponsors of game_events
 */
   CALL add_sponsor (
-    'Intel',                                                      /*sponsor_name*/
+    'Intel',                                                       /*sponsor_name*/
     'http://logos.com/logo2.png',                                 /*sponsor_logo*/
     'minor',                                                      /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -254,7 +254,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 1')   /*game_id*/
   );
   CALL add_sponsor (
-    'ACSS',                                                      /*sponsor_name*/
+    'ACSS',                                                       /*sponsor_name*/
     'http://logos.com/logo3.png',                                 /*sponsor_logo*/
     'major',                                                      /*sponsor_type*/
     'desc2',                                                      /*sponsor_desc*/
@@ -262,7 +262,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 1')   /*game_id*/
   );
   CALL add_sponsor (
-    'YSES',                                                      /*sponsor_name*/
+    'YSES',                                                       /*sponsor_name*/
     'http://logos.com/logo4.png',                                 /*sponsor_logo*/
     'official partner',                                           /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -270,7 +270,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 1')   /*game_id*/
   );
   CALL add_sponsor (
-    'COSS',                                                      /*sponsor_name*/
+    'COSS',                                                       /*sponsor_name*/
     'http://logos.com/logo2.png',                                 /*sponsor_logo*/
     'major',                                                      /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -278,7 +278,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 1')   /*game_id*/
   );
   CALL add_sponsor (
-    'Intel',                                                      /*sponsor_name*/
+    'Intel',                                                       /*sponsor_name*/
     'http://logos.com/logo2.png',                                 /*sponsor_logo*/
     'minor',                                                      /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -286,7 +286,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 2')   /*game_id*/
   );
   CALL add_sponsor (
-    'ACSS',                                                      /*sponsor_name*/
+    'ACSS',                                                       /*sponsor_name*/
     'http://logos.com/logo3.png',                                 /*sponsor_logo*/
     'major',                                                      /*sponsor_type*/
     'desc2',                                                      /*sponsor_desc*/
@@ -294,7 +294,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 2')   /*game_id*/
   );
   CALL add_sponsor (
-    'YSES',                                                      /*sponsor_name*/
+    'YSES',                                                       /*sponsor_name*/
     'http://logos.com/logo4.png',                                 /*sponsor_logo*/
     'official partner',                                           /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -302,7 +302,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 2')   /*game_id*/
   );
   CALL add_sponsor (
-    'COSS',                                                      /*sponsor_name*/
+    'COSS',                                                       /*sponsor_name*/
     'http://logos.com/logo2.png',                                 /*sponsor_logo*/
     'major',                                                      /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -310,7 +310,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 2')   /*game_id*/
   );
   CALL add_sponsor (
-    'Intel',                                                      /*sponsor_name*/
+    'Intel',                                                       /*sponsor_name*/
     'http://logos.com/logo2.png',                                 /*sponsor_logo*/
     'minor',                                                      /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -318,7 +318,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 3')   /*game_id*/
   );
   CALL add_sponsor (
-    'ACSS',                                                      /*sponsor_name*/
+    'ACSS',                                                       /*sponsor_name*/
     'http://logos.com/logo3.png',                                 /*sponsor_logo*/
     'major',                                                      /*sponsor_type*/
     'desc2',                                                      /*sponsor_desc*/
@@ -326,7 +326,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 3')   /*game_id*/
   );
   CALL add_sponsor (
-    'YSES',                                                      /*sponsor_name*/
+    'YSES',                                                       /*sponsor_name*/
     'http://logos.com/logo4.png',                                 /*sponsor_logo*/
     'official partner',                                           /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -334,7 +334,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 3')   /*game_id*/
   );
   CALL add_sponsor (
-    'COSS',                                                      /*sponsor_name*/
+    'COSS',                                                       /*sponsor_name*/
     'http://logos.com/logo2.png',                                 /*sponsor_logo*/
     'major',                                                      /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -342,7 +342,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 3')   /*game_id*/
   );
   CALL add_sponsor (
-    'Intel',                                                      /*sponsor_name*/
+    'Intel',                                                       /*sponsor_name*/
     'http://logos.com/logo2.png',                                 /*sponsor_logo*/
     'minor',                                                      /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -350,7 +350,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 4')   /*game_id*/
   );
   CALL add_sponsor (
-    'ACSS',                                                      /*sponsor_name*/
+    'ACSS',                                                       /*sponsor_name*/
     'http://logos.com/logo3.png',                                 /*sponsor_logo*/
     'major',                                                      /*sponsor_type*/
     'desc2',                                                      /*sponsor_desc*/
@@ -358,7 +358,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 4')   /*game_id*/
   );
   CALL add_sponsor (
-    'YSES',                                                      /*sponsor_name*/
+    'YSES',                                                       /*sponsor_name*/
     'http://logos.com/logo4.png',                                 /*sponsor_logo*/
     'official partner',                                           /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -366,7 +366,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 4')   /*game_id*/
   );
   CALL add_sponsor (
-    'COSS',                                                      /*sponsor_name*/
+    'COSS',                                                       /*sponsor_name*/
     'http://logos.com/logo2.png',                                 /*sponsor_logo*/
     'major',                                                      /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -374,7 +374,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 4')   /*game_id*/
   );
   CALL add_sponsor (
-    'Intel',                                                      /*sponsor_name*/
+    'Intel',                                                       /*sponsor_name*/
     'http://logos.com/logo2.png',                                 /*sponsor_logo*/
     'minor',                                                      /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -382,7 +382,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 5')   /*game_id*/
   );
   CALL add_sponsor (
-    'ACSS',                                                      /*sponsor_name*/
+    'ACSS',                                                       /*sponsor_name*/
     'http://logos.com/logo3.png',                                 /*sponsor_logo*/
     'major',                                                      /*sponsor_type*/
     'desc2',                                                      /*sponsor_desc*/
@@ -390,7 +390,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 5')   /*game_id*/
   );
   CALL add_sponsor (
-    'YSES',                                                      /*sponsor_name*/
+    'YSES',                                                       /*sponsor_name*/
     'http://logos.com/logo4.png',                                 /*sponsor_logo*/
     'official partner',                                           /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -398,7 +398,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 5')   /*game_id*/
   );
   CALL add_sponsor (
-    'COSS',                                                      /*sponsor_name*/
+    'COSS',                                                       /*sponsor_name*/
     'http://logos.com/logo2.png',                                 /*sponsor_logo*/
     'major',                                                      /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -406,7 +406,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 5')   /*game_id*/
   );
   CALL add_sponsor (
-    'Intel',                                                      /*sponsor_name*/
+    'Intel',                                                       /*sponsor_name*/
     'http://logos.com/logo2.png',                                 /*sponsor_logo*/
     'minor',                                                      /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -414,7 +414,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 6')   /*game_id*/
   );
   CALL add_sponsor (
-    'ACSS',                                                      /*sponsor_name*/
+    'ACSS',                                                       /*sponsor_name*/
     'http://logos.com/logo3.png',                                 /*sponsor_logo*/
     'major',                                                      /*sponsor_type*/
     'desc2',                                                      /*sponsor_desc*/
@@ -422,7 +422,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 6')   /*game_id*/
   );
   CALL add_sponsor (
-    'YSES',                                                      /*sponsor_name*/
+    'YSES',                                                       /*sponsor_name*/
     'http://logos.com/logo4.png',                                 /*sponsor_logo*/
     'official partner',                                           /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -430,7 +430,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 6')   /*game_id*/
   );
   CALL add_sponsor (
-    'COSS',                                                      /*sponsor_name*/
+    'COSS',                                                       /*sponsor_name*/
     'http://logos.com/logo2.png',                                 /*sponsor_logo*/
     'major',                                                      /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -438,7 +438,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 6')   /*game_id*/
   );
   CALL add_sponsor (
-    'Intel',                                                      /*sponsor_name*/
+    'Intel',                                                       /*sponsor_name*/
     'http://logos.com/logo2.png',                                 /*sponsor_logo*/
     'minor',                                                      /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -446,7 +446,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 7')   /*game_id*/
   );
   CALL add_sponsor (
-    'ACSS',                                                      /*sponsor_name*/
+    'ACSS',                                                       /*sponsor_name*/
     'http://logos.com/logo3.png',                                 /*sponsor_logo*/
     'major',                                                      /*sponsor_type*/
     'desc2',                                                      /*sponsor_desc*/
@@ -454,7 +454,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 7')   /*game_id*/
   );
   CALL add_sponsor (
-    'YSES',                                                      /*sponsor_name*/
+    'YSES',                                                       /*sponsor_name*/
     'http://logos.com/logo4.png',                                 /*sponsor_logo*/
     'official partner',                                           /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -462,7 +462,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 7')   /*game_id*/
   );
   CALL add_sponsor (
-    'COSS',                                                      /*sponsor_name*/
+    'COSS',                                                       /*sponsor_name*/
     'http://logos.com/logo2.png',                                 /*sponsor_logo*/
     'major',                                                      /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -470,7 +470,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 7')   /*game_id*/
   );
   CALL add_sponsor (
-    'Intel',                                                      /*sponsor_name*/
+    'Intel',                                                       /*sponsor_name*/
     'http://logos.com/logo2.png',                                 /*sponsor_logo*/
     'minor',                                                      /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -478,7 +478,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 8')   /*game_id*/
   );
   CALL add_sponsor (
-    'ACSS',                                                      /*sponsor_name*/
+    'ACSS',                                                       /*sponsor_name*/
     'http://logos.com/logo3.png',                                 /*sponsor_logo*/
     'major',                                                      /*sponsor_type*/
     'desc2',                                                      /*sponsor_desc*/
@@ -486,7 +486,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 8')   /*game_id*/
   );
   CALL add_sponsor (
-    'YSES',                                                      /*sponsor_name*/
+    'YSES',                                                       /*sponsor_name*/
     'http://logos.com/logo4.png',                                 /*sponsor_logo*/
     'official partner',                                           /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -494,7 +494,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 8')   /*game_id*/
   );
   CALL add_sponsor (
-    'COSS',                                                      /*sponsor_name*/
+    'COSS',                                                       /*sponsor_name*/
     'http://logos.com/logo2.png',                                 /*sponsor_logo*/
     'major',                                                      /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -502,7 +502,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 8')   /*game_id*/
   );
   CALL add_sponsor (
-    'Intel',                                                      /*sponsor_name*/
+    'Intel',                                                       /*sponsor_name*/
     'http://logos.com/logo2.png',                                 /*sponsor_logo*/
     'minor',                                                      /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -510,7 +510,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 9')   /*game_id*/
   );
   CALL add_sponsor (
-    'ACSS',                                                      /*sponsor_name*/
+    'ACSS',                                                       /*sponsor_name*/
     'http://logos.com/logo3.png',                                 /*sponsor_logo*/
     'major',                                                      /*sponsor_type*/
     'desc2',                                                      /*sponsor_desc*/
@@ -518,7 +518,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 9')   /*game_id*/
   );
   CALL add_sponsor (
-    'YSES',                                                      /*sponsor_name*/
+    'YSES',                                                       /*sponsor_name*/
     'http://logos.com/logo4.png',                                 /*sponsor_logo*/
     'official partner',                                           /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -526,7 +526,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 9')   /*game_id*/
   );
   CALL add_sponsor (
-    'COSS',                                                      /*sponsor_name*/
+    'COSS',                                                       /*sponsor_name*/
     'http://logos.com/logo2.png',                                 /*sponsor_logo*/
     'major',                                                      /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -534,7 +534,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 9')   /*game_id*/
   );
   CALL add_sponsor (
-    'Intel',                                                      /*sponsor_name*/
+    'Intel',                                                       /*sponsor_name*/
     'http://logos.com/logo2.png',                                 /*sponsor_logo*/
     'minor',                                                      /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -542,7 +542,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 10')   /*game_id*/
   );
   CALL add_sponsor (
-    'ACSS',                                                      /*sponsor_name*/
+    'ACSS',                                                       /*sponsor_name*/
     'http://logos.com/logo3.png',                                 /*sponsor_logo*/
     'major',                                                      /*sponsor_type*/
     'desc2',                                                      /*sponsor_desc*/
@@ -550,7 +550,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 10')   /*game_id*/
   );
   CALL add_sponsor (
-    'YSES',                                                      /*sponsor_name*/
+    'YSES',                                                       /*sponsor_name*/
     'http://logos.com/logo4.png',                                 /*sponsor_logo*/
     'official partner',                                           /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -558,7 +558,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 10')   /*game_id*/
   );
   CALL add_sponsor (
-    'COSS',                                                      /*sponsor_name*/
+    'COSS',                                                       /*sponsor_name*/
     'http://logos.com/logo2.png',                                 /*sponsor_logo*/
     'major',                                                      /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -566,7 +566,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 10')   /*game_id*/
   );
   CALL add_sponsor (
-    'Intel',                                                      /*sponsor_name*/
+    'Intel',                                                       /*sponsor_name*/
     'http://logos.com/logo2.png',                                 /*sponsor_logo*/
     'minor',                                                      /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -574,7 +574,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 11')   /*game_id*/
   );
   CALL add_sponsor (
-    'ACSS',                                                      /*sponsor_name*/
+    'ACSS',                                                       /*sponsor_name*/
     'http://logos.com/logo3.png',                                 /*sponsor_logo*/
     'major',                                                      /*sponsor_type*/
     'desc2',                                                      /*sponsor_desc*/
@@ -582,7 +582,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 11')   /*game_id*/
   );
   CALL add_sponsor (
-    'YSES',                                                      /*sponsor_name*/
+    'YSES',                                                       /*sponsor_name*/
     'http://logos.com/logo4.png',                                 /*sponsor_logo*/
     'official partner',                                           /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -590,7 +590,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 11')   /*game_id*/
   );
   CALL add_sponsor (
-    'COSS',                                                      /*sponsor_name*/
+    'COSS',                                                       /*sponsor_name*/
     'http://logos.com/logo2.png',                                 /*sponsor_logo*/
     'major',                                                      /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -598,7 +598,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 11')   /*game_id*/
   );
   CALL add_sponsor (
-    'Intel',                                                      /*sponsor_name*/
+    'Intel',                                                       /*sponsor_name*/
     'http://logos.com/logo2.png',                                 /*sponsor_logo*/
     'minor',                                                      /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -606,7 +606,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 12')   /*game_id*/
   );
   CALL add_sponsor (
-    'ACSS',                                                      /*sponsor_name*/
+    'ACSS',                                                       /*sponsor_name*/
     'http://logos.com/logo3.png',                                 /*sponsor_logo*/
     'major',                                                      /*sponsor_type*/
     'desc2',                                                      /*sponsor_desc*/
@@ -614,7 +614,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 12')   /*game_id*/
   );
   CALL add_sponsor (
-    'YSES',                                                      /*sponsor_name*/
+    'YSES',                                                       /*sponsor_name*/
     'http://logos.com/logo4.png',                                 /*sponsor_logo*/
     'official partner',                                           /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -622,7 +622,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 12')   /*game_id*/
   );
   CALL add_sponsor (
-    'COSS',                                                      /*sponsor_name*/
+    'COSS',                                                       /*sponsor_name*/
     'http://logos.com/logo2.png',                                 /*sponsor_logo*/
     'major',                                                      /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -630,7 +630,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 12')   /*game_id*/
   );
   CALL add_sponsor (
-    'Intel',                                                      /*sponsor_name*/
+    'Intel',                                                       /*sponsor_name*/
     'http://logos.com/logo2.png',                                 /*sponsor_logo*/
     'minor',                                                      /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -638,7 +638,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 13')   /*game_id*/
   );
   CALL add_sponsor (
-    'ACSS',                                                      /*sponsor_name*/
+    'ACSS',                                                       /*sponsor_name*/
     'http://logos.com/logo3.png',                                 /*sponsor_logo*/
     'major',                                                      /*sponsor_type*/
     'desc2',                                                      /*sponsor_desc*/
@@ -646,7 +646,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 13')   /*game_id*/
   );
   CALL add_sponsor (
-    'YSES',                                                      /*sponsor_name*/
+    'YSES',                                                       /*sponsor_name*/
     'http://logos.com/logo4.png',                                 /*sponsor_logo*/
     'official partner',                                           /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -654,7 +654,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 13')   /*game_id*/
   );
   CALL add_sponsor (
-    'COSS',                                                      /*sponsor_name*/
+    'COSS',                                                       /*sponsor_name*/
     'http://logos.com/logo2.png',                                 /*sponsor_logo*/
     'major',                                                      /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -662,7 +662,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 13')   /*game_id*/
   );
   CALL add_sponsor (
-    'Intel',                                                      /*sponsor_name*/
+    'Intel',                                                       /*sponsor_name*/
     'http://logos.com/logo2.png',                                 /*sponsor_logo*/
     'minor',                                                      /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -670,7 +670,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 14')   /*game_id*/
   );
   CALL add_sponsor (
-    'ACSS',                                                      /*sponsor_name*/
+    'ACSS',                                                       /*sponsor_name*/
     'http://logos.com/logo3.png',                                 /*sponsor_logo*/
     'major',                                                      /*sponsor_type*/
     'desc2',                                                      /*sponsor_desc*/
@@ -678,7 +678,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 14')   /*game_id*/
   );
   CALL add_sponsor (
-    'YSES',                                                      /*sponsor_name*/
+    'YSES',                                                       /*sponsor_name*/
     'http://logos.com/logo4.png',                                 /*sponsor_logo*/
     'official partner',                                           /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -686,7 +686,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 14')   /*game_id*/
   );
   CALL add_sponsor (
-    'COSS',                                                      /*sponsor_name*/
+    'COSS',                                                       /*sponsor_name*/
     'http://logos.com/logo2.png',                                 /*sponsor_logo*/
     'major',                                                      /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -694,7 +694,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 14')   /*game_id*/
   );
   CALL add_sponsor (
-    'Intel',                                                      /*sponsor_name*/
+    'Intel',                                                       /*sponsor_name*/
     'http://logos.com/logo2.png',                                 /*sponsor_logo*/
     'minor',                                                      /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -702,7 +702,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 15')   /*game_id*/
   );
   CALL add_sponsor (
-    'ACSS',                                                      /*sponsor_name*/
+    'ACSS',                                                       /*sponsor_name*/
     'http://logos.com/logo3.png',                                 /*sponsor_logo*/
     'major',                                                      /*sponsor_type*/
     'desc2',                                                      /*sponsor_desc*/
@@ -710,7 +710,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 15')   /*game_id*/
   );
   CALL add_sponsor (
-    'YSES',                                                      /*sponsor_name*/
+    'YSES',                                                       /*sponsor_name*/
     'http://logos.com/logo4.png',                                 /*sponsor_logo*/
     'official partner',                                           /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -718,7 +718,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 15')   /*game_id*/
   );
   CALL add_sponsor (
-    'COSS',                                                      /*sponsor_name*/
+    'COSS',                                                       /*sponsor_name*/
     'http://logos.com/logo2.png',                                 /*sponsor_logo*/
     'major',                                                      /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -726,7 +726,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 15')   /*game_id*/
   );
   CALL add_sponsor (
-    'Intel',                                                      /*sponsor_name*/
+    'Intel',                                                       /*sponsor_name*/
     'http://logos.com/logo2.png',                                 /*sponsor_logo*/
     'minor',                                                      /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -734,7 +734,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 16')   /*game_id*/
   );
   CALL add_sponsor (
-    'ACSS',                                                      /*sponsor_name*/
+    'ACSS',                                                       /*sponsor_name*/
     'http://logos.com/logo3.png',                                 /*sponsor_logo*/
     'major',                                                      /*sponsor_type*/
     'desc2',                                                      /*sponsor_desc*/
@@ -742,7 +742,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 16')   /*game_id*/
   );
   CALL add_sponsor (
-    'YSES',                                                      /*sponsor_name*/
+    'YSES',                                                       /*sponsor_name*/
     'http://logos.com/logo4.png',                                 /*sponsor_logo*/
     'official partner',                                           /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -750,7 +750,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 16')   /*game_id*/
   );
   CALL add_sponsor (
-    'COSS',                                                      /*sponsor_name*/
+    'COSS',                                                       /*sponsor_name*/
     'http://logos.com/logo2.png',                                 /*sponsor_logo*/
     'major',                                                      /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -758,7 +758,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 16')   /*game_id*/
   );
   CALL add_sponsor (
-    'Intel',                                                      /*sponsor_name*/
+    'Intel',                                                       /*sponsor_name*/
     'http://logos.com/logo2.png',                                 /*sponsor_logo*/
     'minor',                                                      /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -766,7 +766,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 17')   /*game_id*/
   );
   CALL add_sponsor (
-    'ACSS',                                                      /*sponsor_name*/
+    'ACSS',                                                       /*sponsor_name*/
     'http://logos.com/logo3.png',                                 /*sponsor_logo*/
     'major',                                                      /*sponsor_type*/
     'desc2',                                                      /*sponsor_desc*/
@@ -774,7 +774,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 17')   /*game_id*/
   );
   CALL add_sponsor (
-    'YSES',                                                      /*sponsor_name*/
+    'YSES',                                                       /*sponsor_name*/
     'http://logos.com/logo4.png',                                 /*sponsor_logo*/
     'official partner',                                           /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -782,7 +782,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 17')   /*game_id*/
   );
   CALL add_sponsor (
-    'COSS',                                                      /*sponsor_name*/
+    'COSS',                                                       /*sponsor_name*/
     'http://logos.com/logo2.png',                                 /*sponsor_logo*/
     'major',                                                      /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -790,7 +790,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 17')   /*game_id*/
   );
   CALL add_sponsor (
-    'Intel',                                                      /*sponsor_name*/
+    'Intel',                                                       /*sponsor_name*/
     'http://logos.com/logo2.png',                                 /*sponsor_logo*/
     'minor',                                                      /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -798,7 +798,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 18')   /*game_id*/
   );
   CALL add_sponsor (
-    'ACSS',                                                      /*sponsor_name*/
+    'ACSS',                                                       /*sponsor_name*/
     'http://logos.com/logo3.png',                                 /*sponsor_logo*/
     'major',                                                      /*sponsor_type*/
     'desc2',                                                      /*sponsor_desc*/
@@ -806,7 +806,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 18')   /*game_id*/
   );
   CALL add_sponsor (
-    'YSES',                                                      /*sponsor_name*/
+    'YSES',                                                       /*sponsor_name*/
     'http://logos.com/logo4.png',                                 /*sponsor_logo*/
     'official partner',                                           /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -814,7 +814,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 18')   /*game_id*/
   );
   CALL add_sponsor (
-    'COSS',                                                      /*sponsor_name*/
+    'COSS',                                                       /*sponsor_name*/
     'http://logos.com/logo2.png',                                 /*sponsor_logo*/
     'major',                                                      /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -822,7 +822,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 18')   /*game_id*/
   );
   CALL add_sponsor (
-    'Intel',                                                      /*sponsor_name*/
+    'Intel',                                                       /*sponsor_name*/
     'http://logos.com/logo2.png',                                 /*sponsor_logo*/
     'minor',                                                      /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -830,7 +830,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 19')   /*game_id*/
   );
   CALL add_sponsor (
-    'ACSS',                                                      /*sponsor_name*/
+    'ACSS',                                                       /*sponsor_name*/
     'http://logos.com/logo3.png',                                 /*sponsor_logo*/
     'major',                                                      /*sponsor_type*/
     'desc2',                                                      /*sponsor_desc*/
@@ -838,7 +838,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 19')   /*game_id*/
   );
   CALL add_sponsor (
-    'YSES',                                                      /*sponsor_name*/
+    'YSES',                                                       /*sponsor_name*/
     'http://logos.com/logo4.png',                                 /*sponsor_logo*/
     'official partner',                                           /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -846,7 +846,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 19')   /*game_id*/
   );
   CALL add_sponsor (
-    'COSS',                                                      /*sponsor_name*/
+    'COSS',                                                       /*sponsor_name*/
     'http://logos.com/logo2.png',                                 /*sponsor_logo*/
     'major',                                                      /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -854,7 +854,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 19')   /*game_id*/
   );
   CALL add_sponsor (
-    'Intel',                                                      /*sponsor_name*/
+    'Intel',                                                       /*sponsor_name*/
     'http://logos.com/logo2.png',                                 /*sponsor_logo*/
     'minor',                                                      /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -862,7 +862,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 20')   /*game_id*/
   );
   CALL add_sponsor (
-    'ACSS',                                                      /*sponsor_name*/
+    'ACSS',                                                       /*sponsor_name*/
     'http://logos.com/logo3.png',                                 /*sponsor_logo*/
     'major',                                                      /*sponsor_type*/
     'desc2',                                                      /*sponsor_desc*/
@@ -870,7 +870,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 20')   /*game_id*/
   );
   CALL add_sponsor (
-    'YSES',                                                      /*sponsor_name*/
+    'YSES',                                                       /*sponsor_name*/
     'http://logos.com/logo4.png',                                 /*sponsor_logo*/
     'official partner',                                           /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -878,7 +878,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 20')   /*game_id*/
   );
   CALL add_sponsor (
-    'COSS',                                                      /*sponsor_name*/
+    'COSS',                                                       /*sponsor_name*/
     'http://logos.com/logo2.png',                                 /*sponsor_logo*/
     'major',                                                      /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -886,7 +886,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 20')   /*game_id*/
   );
   CALL add_sponsor (
-    'Intel',                                                      /*sponsor_name*/
+    'Intel',                                                       /*sponsor_name*/
     'http://logos.com/logo2.png',                                 /*sponsor_logo*/
     'minor',                                                      /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -894,7 +894,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 21')   /*game_id*/
   );
   CALL add_sponsor (
-    'ACSS',                                                      /*sponsor_name*/
+    'ACSS',                                                       /*sponsor_name*/
     'http://logos.com/logo3.png',                                 /*sponsor_logo*/
     'major',                                                      /*sponsor_type*/
     'desc2',                                                      /*sponsor_desc*/
@@ -902,7 +902,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 21')   /*game_id*/
   );
   CALL add_sponsor (
-    'YSES',                                                      /*sponsor_name*/
+    'YSES',                                                       /*sponsor_name*/
     'http://logos.com/logo4.png',                                 /*sponsor_logo*/
     'official partner',                                           /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -910,7 +910,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 21')   /*game_id*/
   );
   CALL add_sponsor (
-    'COSS',                                                      /*sponsor_name*/
+    'COSS',                                                       /*sponsor_name*/
     'http://logos.com/logo2.png',                                 /*sponsor_logo*/
     'major',                                                      /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -918,7 +918,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 21')   /*game_id*/
   );
   CALL add_sponsor (
-    'Intel',                                                      /*sponsor_name*/
+    'Intel',                                                       /*sponsor_name*/
     'http://logos.com/logo2.png',                                 /*sponsor_logo*/
     'minor',                                                      /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -926,7 +926,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 22')   /*game_id*/
   );
   CALL add_sponsor (
-    'ACSS',                                                      /*sponsor_name*/
+    'ACSS',                                                       /*sponsor_name*/
     'http://logos.com/logo3.png',                                 /*sponsor_logo*/
     'major',                                                      /*sponsor_type*/
     'desc2',                                                      /*sponsor_desc*/
@@ -934,7 +934,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 22')   /*game_id*/
   );
   CALL add_sponsor (
-    'YSES',                                                      /*sponsor_name*/
+    'YSES',                                                       /*sponsor_name*/
     'http://logos.com/logo4.png',                                 /*sponsor_logo*/
     'official partner',                                           /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -942,7 +942,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 22')   /*game_id*/
   );
   CALL add_sponsor (
-    'COSS',                                                      /*sponsor_name*/
+    'COSS',                                                       /*sponsor_name*/
     'http://logos.com/logo2.png',                                 /*sponsor_logo*/
     'major',                                                      /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -950,7 +950,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 22')   /*game_id*/
   );
   CALL add_sponsor (
-    'Intel',                                                      /*sponsor_name*/
+    'Intel',                                                       /*sponsor_name*/
     'http://logos.com/logo2.png',                                 /*sponsor_logo*/
     'minor',                                                      /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -958,7 +958,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 23')   /*game_id*/
   );
   CALL add_sponsor (
-    'ACSS',                                                      /*sponsor_name*/
+    'ACSS',                                                       /*sponsor_name*/
     'http://logos.com/logo3.png',                                 /*sponsor_logo*/
     'major',                                                      /*sponsor_type*/
     'desc2',                                                      /*sponsor_desc*/
@@ -966,7 +966,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 23')   /*game_id*/
   );
   CALL add_sponsor (
-    'YSES',                                                      /*sponsor_name*/
+    'YSES',                                                       /*sponsor_name*/
     'http://logos.com/logo4.png',                                 /*sponsor_logo*/
     'official partner',                                           /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -974,7 +974,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 23')   /*game_id*/
   );
   CALL add_sponsor (
-    'COSS',                                                      /*sponsor_name*/
+    'COSS',                                                       /*sponsor_name*/
     'http://logos.com/logo2.png',                                 /*sponsor_logo*/
     'major',                                                      /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -982,7 +982,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 23')   /*game_id*/
   );
   CALL add_sponsor (
-    'Intel',                                                      /*sponsor_name*/
+    'Intel',                                                       /*sponsor_name*/
     'http://logos.com/logo2.png',                                 /*sponsor_logo*/
     'minor',                                                      /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -990,7 +990,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 24')   /*game_id*/
   );
   CALL add_sponsor (
-    'ACSS',                                                      /*sponsor_name*/
+    'ACSS',                                                       /*sponsor_name*/
     'http://logos.com/logo3.png',                                 /*sponsor_logo*/
     'major',                                                      /*sponsor_type*/
     'desc2',                                                      /*sponsor_desc*/
@@ -998,7 +998,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 24')   /*game_id*/
   );
   CALL add_sponsor (
-    'YSES',                                                      /*sponsor_name*/
+    'YSES',                                                       /*sponsor_name*/
     'http://logos.com/logo4.png',                                 /*sponsor_logo*/
     'official partner',                                           /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -1006,7 +1006,7 @@ delete from sponsor;
     (SELECT game_id FROM game_event WHERE game_name = 'Game 24')   /*game_id*/
   );
   CALL add_sponsor (
-    'COSS',                                                      /*sponsor_name*/
+    'COSS',                                                       /*sponsor_name*/
     'http://logos.com/logo2.png',                                 /*sponsor_logo*/
     'major',                                                      /*sponsor_type*/
     'desc1',                                                      /*sponsor_desc*/
@@ -1019,178 +1019,177 @@ delete from sport;
   create sports of game_events
 */
 INSERT INTO
-  sport (sport_id, sport_type, division, game_id)
+  sport 
 VALUES
   (1, 'Volleyball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 1')),
-  (2, 'Volleyball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 2')),
-  (3, 'Volleyball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 3')),
-  (4, 'Volleyball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 4')),
-  (5, 'Volleyball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 5')),
-  (6, 'Volleyball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 6')),
-  (7, 'Volleyball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 7')),
-  (8, 'Volleyball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 8')),
-  (9, 'Volleyball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 9')),
-  (10, 'Volleyball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 10')),
-  (11, 'Volleyball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 11')),
-  (12, 'Volleyball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 12')),
-  (13, 'Volleyball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 13')),
-  (14, 'Volleyball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 14')),
-  (15, 'Volleyball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 15')),
-  (16, 'Volleyball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 16')),
-  (17, 'Volleyball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 17')),
-  (18, 'Volleyball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 18')),
-  (19, 'Volleyball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 19')),
-  (20, 'Volleyball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 20')),
-  (21, 'Volleyball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 21')),
-  (22, 'Volleyball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 22')),
-  (23, 'Volleyball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 23')),
-  (24, 'Volleyball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 24')),
-  (25, 'Volleyball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 1')),
-  (26, 'Volleyball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 2')),
-  (27, 'Volleyball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 3')),
-  (28, 'Volleyball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 4')),
-  (29, 'Volleyball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 5')),
-  (30, 'Volleyball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 6')),
-  (31, 'Volleyball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 7')),
-  (32, 'Volleyball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 8')),
-  (33, 'Volleyball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 9')),
-  (34, 'Volleyball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 10')),
-  (35, 'Volleyball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 11')),
-  (36, 'Volleyball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 12')),
-  (37, 'Volleyball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 13')),
-  (38, 'Volleyball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 14')),
-  (39, 'Volleyball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 15')),
-  (40, 'Volleyball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 16')),
-  (41, 'Volleyball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 17')),
-  (42, 'Volleyball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 18')),
-  (43, 'Volleyball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 19')),
-  (44, 'Volleyball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 20')),
-  (45, 'Volleyball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 21')),
-  (46, 'Volleyball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 22')),
-  (47, 'Volleyball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 23')),
-  (48, 'Volleyball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 24')),
-  (49, 'Volleyball', 'mixed', (SELECT game_id FROM game_event WHERE game_name = 'Game 1')),
-  (50, 'Volleyball', 'mixed', (SELECT game_id FROM game_event WHERE game_name = 'Game 2')),
-  (51, 'Volleyball', 'mixed', (SELECT game_id FROM game_event WHERE game_name = 'Game 3')),
-  (52, 'Volleyball', 'mixed', (SELECT game_id FROM game_event WHERE game_name = 'Game 4')),
-  (53, 'Volleyball', 'mixed', (SELECT game_id FROM game_event WHERE game_name = 'Game 5')),
-  (54, 'Volleyball', 'mixed', (SELECT game_id FROM game_event WHERE game_name = 'Game 6')),
-  (55, 'Volleyball', 'mixed', (SELECT game_id FROM game_event WHERE game_name = 'Game 7')),
-  (56, 'Volleyball', 'mixed', (SELECT game_id FROM game_event WHERE game_name = 'Game 8')),
-  (57, 'Volleyball', 'mixed', (SELECT game_id FROM game_event WHERE game_name = 'Game 9')),
-  (58, 'Volleyball', 'mixed', (SELECT game_id FROM game_event WHERE game_name = 'Game 10')),
-  (59, 'Volleyball', 'mixed', (SELECT game_id FROM game_event WHERE game_name = 'Game 11')),
-  (60, 'Volleyball', 'mixed', (SELECT game_id FROM game_event WHERE game_name = 'Game 12')),
-  (61, 'Volleyball', 'mixed', (SELECT game_id FROM game_event WHERE game_name = 'Game 13')),
-  (62, 'Volleyball', 'mixed', (SELECT game_id FROM game_event WHERE game_name = 'Game 14')),
-  (63, 'Volleyball', 'mixed', (SELECT game_id FROM game_event WHERE game_name = 'Game 15')),
-  (64, 'Volleyball', 'mixed', (SELECT game_id FROM game_event WHERE game_name = 'Game 16')),
-  (65, 'Volleyball', 'mixed', (SELECT game_id FROM game_event WHERE game_name = 'Game 17')),
-  (66, 'Volleyball', 'mixed', (SELECT game_id FROM game_event WHERE game_name = 'Game 18')),
-  (67, 'Volleyball', 'mixed', (SELECT game_id FROM game_event WHERE game_name = 'Game 19')),
-  (68, 'Volleyball', 'mixed', (SELECT game_id FROM game_event WHERE game_name = 'Game 20')),
-  (69, 'Volleyball', 'mixed', (SELECT game_id FROM game_event WHERE game_name = 'Game 21')),
-  (70, 'Volleyball', 'mixed', (SELECT game_id FROM game_event WHERE game_name = 'Game 22')),
-  (71, 'Volleyball', 'mixed', (SELECT game_id FROM game_event WHERE game_name = 'Game 23')),
-  (72, 'Volleyball', 'mixed', (SELECT game_id FROM game_event WHERE game_name = 'Game 24')),
-  (73, 'Basketball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 1')),
-  (74, 'Basketball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 2')),
-  (75, 'Basketball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 3')),
-  (76, 'Basketball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 4')),
-  (77, 'Basketball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 5')),
-  (78, 'Basketball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 6')),
-  (79, 'Basketball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 7')),
-  (80, 'Basketball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 8')),
-  (81, 'Basketball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 9')),
-  (82, 'Basketball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 10')),
-  (83, 'Basketball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 11')),
-  (84, 'Basketball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 12')),
-  (85, 'Basketball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 13')),
-  (86, 'Basketball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 14')),
-  (87, 'Basketball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 15')),
-  (88, 'Basketball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 16')),
-  (89, 'Basketball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 17')),
-  (90, 'Basketball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 18')),
-  (91, 'Basketball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 19')),
-  (92, 'Basketball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 20')),
-  (93, 'Basketball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 21')),
-  (94, 'Basketball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 22')),
-  (95, 'Basketball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 23')),
-  (96, 'Basketball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 24')),
-  (97, 'Basketball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 1')),
-  (98, 'Basketball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 2')),
-  (99, 'Basketball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 3')),
-  (100, 'Basketball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 4')),
-  (101, 'Basketball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 5')),
-  (102, 'Basketball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 6')),
-  (103, 'Basketball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 7')),
-  (104, 'Basketball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 8')),
-  (105, 'Basketball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 9')),
-  (106, 'Basketball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 10')),
-  (107, 'Basketball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 11')),
-  (108, 'Basketball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 12')),
-  (109, 'Basketball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 13')),
-  (110, 'Basketball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 14')),
-  (111, 'Basketball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 15')),
-  (112, 'Basketball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 16')),
-  (113, 'Basketball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 17')),
-  (114, 'Basketball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 18')),
-  (115, 'Basketball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 19')),
-  (116, 'Basketball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 20')),
-  (117, 'Basketball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 21')),
-  (118, 'Basketball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 22')),
-  (119, 'Basketball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 23')),
-  (120, 'Basketball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 24')),
-  (121, 'Football', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 1')),
-  (122, 'Football', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 2')),
-  (123, 'Football', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 3')),
-  (124, 'Football', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 4')),
-  (125, 'Football', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 5')),
-  (126, 'Football', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 6')),
-  (127, 'Football', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 7')),
-  (128, 'Football', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 8')),
-  (129, 'Football', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 9')),
-  (130, 'Football', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 10')),
-  (131, 'Football', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 11')),
-  (132, 'Football', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 12')),
-  (133, 'Football', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 13')),
-  (134, 'Football', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 14')),
-  (135, 'Football', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 15')),
-  (136, 'Football', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 16')),
-  (137, 'Football', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 17')),
-  (138, 'Football', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 18')),
-  (139, 'Football', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 19')),
-  (140, 'Football', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 20')),
-  (141, 'Football', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 21')),
-  (142, 'Football', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 22')),
-  (143, 'Football', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 23')),
-  (144, 'Football', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 24')),
-  (145, 'Football', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 1')),
-  (146, 'Football', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 2')),
-  (147, 'Football', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 3')),
-  (148, 'Football', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 4')),
-  (149, 'Football', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 5')),
-  (150, 'Football', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 6')),
-  (151, 'Football', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 7')),
-  (152, 'Football', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 8')),
-  (153, 'Football', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 9')),
-  (154, 'Football', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 10')),
-  (155, 'Football', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 11')),
-  (156, 'Football', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 12')),
-  (157, 'Football', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 13')),
-  (158, 'Football', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 14')),
-  (159, 'Football', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 15')),
-  (160, 'Football', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 16')),
-  (161, 'Football', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 17')),
-  (162, 'Football', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 18')),
-  (163, 'Football', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 19')),
-  (164, 'Football', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 20')),
-  (165, 'Football', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 21')),
-  (166, 'Football', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 22')),
-  (167, 'Football', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 23')),
+  (2, 'Volleyball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 1')),
+  (3, 'Volleyball', 'mixed', (SELECT game_id FROM game_event WHERE game_name = 'Game 1')),
+  (4, 'Basketball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 1')),
+  (5, 'Basketball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 1')),
+  (6, 'Football', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 1')),
+  (7, 'Football', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 1')),
+  (8, 'Volleyball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 2')),
+  (9, 'Volleyball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 2')),
+  (10, 'Volleyball', 'mixed', (SELECT game_id FROM game_event WHERE game_name = 'Game 2')),
+  (11, 'Basketball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 2')),
+  (12, 'Basketball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 2')),
+  (13, 'Football', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 2')),
+  (14, 'Football', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 2')),
+  (15, 'Volleyball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 3')),
+  (16, 'Volleyball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 3')),
+  (17, 'Volleyball', 'mixed', (SELECT game_id FROM game_event WHERE game_name = 'Game 3')),
+  (18, 'Basketball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 3')),
+  (19, 'Basketball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 3')),
+  (20, 'Football', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 3')),
+  (21, 'Football', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 3')),
+  (22, 'Volleyball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 4')),
+  (23, 'Volleyball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 4')),
+  (24, 'Volleyball', 'mixed', (SELECT game_id FROM game_event WHERE game_name = 'Game 4')),
+  (25, 'Basketball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 4')),
+  (26, 'Basketball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 4')),
+  (27, 'Football', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 4')),
+  (28, 'Football', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 4')),
+  (29, 'Volleyball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 5')),
+  (30, 'Volleyball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 5')),
+  (31, 'Volleyball', 'mixed', (SELECT game_id FROM game_event WHERE game_name = 'Game 5')),
+  (32, 'Basketball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 5')),
+  (33, 'Basketball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 5')),
+  (34, 'Football', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 5')),
+  (35, 'Football', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 5')),
+  (36, 'Volleyball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 6')),
+  (37, 'Volleyball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 6')),
+  (38, 'Volleyball', 'mixed', (SELECT game_id FROM game_event WHERE game_name = 'Game 6')),
+  (39, 'Basketball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 6')),
+  (40, 'Basketball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 6')),
+  (41, 'Football', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 6')),
+  (42, 'Football', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 6')),
+  (43, 'Volleyball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 7')),
+  (44, 'Volleyball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 7')),
+  (45, 'Volleyball', 'mixed', (SELECT game_id FROM game_event WHERE game_name = 'Game 7')),
+  (46, 'Basketball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 7')),
+  (47, 'Basketball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 7')),
+  (48, 'Football', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 7')),
+  (49, 'Football', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 7')),
+  (50, 'Volleyball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 8')),
+  (51, 'Volleyball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 8')),
+  (52, 'Volleyball', 'mixed', (SELECT game_id FROM game_event WHERE game_name = 'Game 8')),
+  (53, 'Basketball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 8')),
+  (54, 'Basketball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 8')),
+  (55, 'Football', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 8')),
+  (56, 'Football', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 8')),
+  (57, 'Volleyball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 9')),
+  (58, 'Volleyball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 9')),
+  (59, 'Volleyball', 'mixed', (SELECT game_id FROM game_event WHERE game_name = 'Game 9')),
+  (60, 'Basketball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 9')),
+  (61, 'Basketball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 9')),
+  (62, 'Football', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 9')),
+  (63, 'Football', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 9')),
+  (64, 'Volleyball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 10')),
+  (65, 'Volleyball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 10')),
+  (66, 'Volleyball', 'mixed', (SELECT game_id FROM game_event WHERE game_name = 'Game 10')),
+  (67, 'Basketball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 10')),
+  (68, 'Basketball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 10')),
+  (69, 'Football', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 10')),
+  (70, 'Football', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 10')),
+  (71, 'Volleyball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 11')),
+  (72, 'Volleyball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 11')),
+  (73, 'Volleyball', 'mixed', (SELECT game_id FROM game_event WHERE game_name = 'Game 11')),
+  (74, 'Basketball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 11')),
+  (75, 'Basketball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 11')),
+  (76, 'Football', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 11')),
+  (77, 'Football', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 11')),
+  (78, 'Volleyball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 12')),
+  (79, 'Volleyball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 12')),
+  (80, 'Volleyball', 'mixed', (SELECT game_id FROM game_event WHERE game_name = 'Game 12')),
+  (81, 'Basketball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 12')),
+  (82, 'Basketball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 12')),
+  (83, 'Football', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 12')),
+  (84, 'Football', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 12')),
+  (85, 'Volleyball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 13')),
+  (86, 'Volleyball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 13')),
+  (87, 'Volleyball', 'mixed', (SELECT game_id FROM game_event WHERE game_name = 'Game 13')),
+  (88, 'Basketball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 13')),
+  (89, 'Basketball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 13')),
+  (90, 'Football', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 13')),
+  (91, 'Football', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 13')),
+  (92, 'Volleyball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 14')),
+  (93, 'Volleyball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 14')),
+  (94, 'Volleyball', 'mixed', (SELECT game_id FROM game_event WHERE game_name = 'Game 14')),
+  (95, 'Basketball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 14')),
+  (96, 'Basketball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 14')),
+  (97, 'Football', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 14')),
+  (98, 'Football', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 14')),
+  (99, 'Volleyball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 15')),
+  (100, 'Volleyball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 15')),
+  (101, 'Volleyball', 'mixed', (SELECT game_id FROM game_event WHERE game_name = 'Game 15')),
+  (102, 'Basketball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 15')),
+  (103, 'Basketball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 15')),
+  (104, 'Football', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 15')),
+  (105, 'Football', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 15')),
+  (106, 'Volleyball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 16')),
+  (107, 'Volleyball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 16')),
+  (108, 'Volleyball', 'mixed', (SELECT game_id FROM game_event WHERE game_name = 'Game 16')),
+  (109, 'Basketball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 16')),
+  (110, 'Basketball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 16')),
+  (111, 'Football', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 16')),
+  (112, 'Football', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 16')),
+  (113, 'Volleyball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 17')),
+  (114, 'Volleyball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 17')),
+  (115, 'Volleyball', 'mixed', (SELECT game_id FROM game_event WHERE game_name = 'Game 17')),
+  (116, 'Basketball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 17')),
+  (117, 'Basketball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 17')),
+  (118, 'Football', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 17')),
+  (119, 'Football', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 17')),
+  (120, 'Volleyball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 18')),
+  (121, 'Volleyball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 18')),
+  (122, 'Volleyball', 'mixed', (SELECT game_id FROM game_event WHERE game_name = 'Game 18')),
+  (123, 'Basketball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 18')),
+  (124, 'Basketball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 18')),
+  (125, 'Football', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 18')),
+  (126, 'Football', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 18')),
+  (127, 'Volleyball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 19')),
+  (128, 'Volleyball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 19')),
+  (129, 'Volleyball', 'mixed', (SELECT game_id FROM game_event WHERE game_name = 'Game 19')),
+  (130, 'Basketball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 19')),
+  (131, 'Basketball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 19')),
+  (132, 'Football', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 19')),
+  (133, 'Football', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 19')),
+  (134, 'Volleyball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 20')),
+  (135, 'Volleyball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 20')),
+  (136, 'Volleyball', 'mixed', (SELECT game_id FROM game_event WHERE game_name = 'Game 20')),
+  (137, 'Basketball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 20')),
+  (138, 'Basketball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 20')),
+  (139, 'Football', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 20')),
+  (140, 'Football', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 20')),
+  (141, 'Volleyball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 21')),
+  (142, 'Volleyball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 21')),
+  (143, 'Volleyball', 'mixed', (SELECT game_id FROM game_event WHERE game_name = 'Game 21')),
+  (144, 'Basketball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 21')),
+  (145, 'Basketball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 21')),
+  (146, 'Football', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 21')),
+  (147, 'Football', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 21')),
+  (148, 'Volleyball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 22')),
+  (149, 'Volleyball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 22')),
+  (150, 'Volleyball', 'mixed', (SELECT game_id FROM game_event WHERE game_name = 'Game 22')),
+  (151, 'Basketball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 22')),
+  (152, 'Basketball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 22')),
+  (153, 'Football', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 22')),
+  (154, 'Football', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 22')),
+  (155, 'Volleyball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 23')),
+  (156, 'Volleyball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 23')),
+  (157, 'Volleyball', 'mixed', (SELECT game_id FROM game_event WHERE game_name = 'Game 23')),
+  (158, 'Basketball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 23')),
+  (159, 'Basketball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 23')),
+  (160, 'Football', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 23')),
+  (161, 'Football', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 23')),
+  (162, 'Volleyball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 24')),
+  (163, 'Volleyball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 24')),
+  (164, 'Volleyball', 'mixed', (SELECT game_id FROM game_event WHERE game_name = 'Game 24')),
+  (165, 'Basketball', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 24')),
+  (166, 'Basketball', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 24')),
+  (167, 'Football', 'men', (SELECT game_id FROM game_event WHERE game_name = 'Game 24')),
   (168, 'Football', 'women', (SELECT game_id FROM game_event WHERE game_name = 'Game 24'));
-
-
+  
 delete from match_event;
 /*
   create match_events per sport
@@ -2580,15 +2579,15 @@ VALUES
   create players
 */
   CALL add_account(
-    'Juan',                                         /*firstname*/
-    'Player',                                       /*middlename*/
-    'Dela Cruz',                                    /*lastname*/
+    'Carl',                                         /*firstname*/
+    'Recto',                                        /*middlename*/
+    'Janoras',                                      /*lastname*/
     'playerJuan@gmail.com',                         /*email*/
     'playerJuan',                                   /*username*/
     '10/w7o2juYBrGMh32/KbveULW9jk2tejpyUAD+uC6PE=', /*password*/
-    'BSCE',                                         /*course*/
-    NOW(),                                      /*birthday*/
-    'CEAT',                                         /*college*/
+    'BSCS',                                         /*course*/
+    '1997-07-29',                                   /*birthday*/
+    'CAS',                                          /*college*/
     false,                                          /*is_game_head*/
     NULL,                                           /*position*/
     true,                                           /*is_player*/
@@ -2597,15 +2596,15 @@ VALUES
   );
   CALL approve_account(LAST_INSERT_ID());
   CALL add_account(
-    'Tuu',                                          /*firstname*/
-    'Player',                                       /*middlename*/
-    'Pak',                                          /*lastname*/
+    'Carlo Anthony',                                /*firstname*/
+    '',                                             /*middlename*/
+    'Serrano',                                      /*lastname*/
     'playerTuu@gmail.com',                          /*email*/
     'playerTuu',                                    /*username*/
     '10/w7o2juYBrGMh32/KbveULW9jk2tejpyUAD+uC6PE=', /*password*/
-    'BSA',                                          /*course*/
-    NOW(),                                      /*birthday*/
-    'CA',                                           /*college*/
+    'BSCS',                                         /*course*/
+    NOW(),                                          /*birthday*/
+    'CAS',                                          /*college*/
     false,                                          /*is_game_head*/
     NULL,                                           /*position*/
     true,                                           /*is_player*/
@@ -2614,14 +2613,14 @@ VALUES
   );
   CALL approve_account(LAST_INSERT_ID());
   CALL add_account(
-    'Tresa',                                        /*firstname*/
-    'Player',                                       /*middlename*/
-    'Syeta',                                          /*lastname*/
-    'playerTresa@gmail.com',                        /*email*/
-    'playerTresa',                                  /*username*/
+    'Shirlene',                                     /*firstname*/
+    '',                                             /*middlename*/
+    'Garcia',                                       /*lastname*/
+    'playerTri@gmail.com',                        /*email*/
+    'playerTri',                                  /*username*/
     '10/w7o2juYBrGMh32/KbveULW9jk2tejpyUAD+uC6PE=', /*password*/
-    'BSStat',                                       /*course*/
-    NOW(),                                      /*birthday*/
+    'BSCS',                                         /*course*/
+    NOW(),                                          /*birthday*/
     'CAS',                                          /*college*/
     false,                                          /*is_game_head*/
     NULL,                                           /*position*/
@@ -2631,14 +2630,14 @@ VALUES
   );
   CALL approve_account(LAST_INSERT_ID());
   CALL add_account(
-    'Por',                                          /*firstname*/
-    'Player',                                       /*middlename*/
-    'Tipayb',                                       /*lastname*/
+    'Justine Paul',                                 /*firstname*/
+    '',                                             /*middlename*/
+    'Guaio',                                        /*lastname*/
     'playerPor@gmail.com',                          /*email*/
     'playerPor',                                    /*username*/
     '10/w7o2juYBrGMh32/KbveULW9jk2tejpyUAD+uC6PE=', /*password*/
-    'BSBio',                                        /*course*/
-    NOW(),                                      /*birthday*/
+    'BSCS',                                         /*course*/
+    NOW(),                                          /*birthday*/
     'CAS',                                          /*college*/
     false,                                          /*is_game_head*/
     NULL,                                           /*position*/
@@ -2648,15 +2647,15 @@ VALUES
   );
   CALL approve_account(LAST_INSERT_ID());
   CALL add_account(
-    'Payb',                                         /*firstname*/
-    'Player',                                       /*middlename*/
-    'Ber',                                          /*lastname*/
+    'Pearl Antonette',                              /*firstname*/
+    '',                                             /*middlename*/
+    'Pamfilo',                                      /*lastname*/
     'playerPayb@gmail.com',                         /*email*/
     'playerPayb',                                   /*username*/
     '10/w7o2juYBrGMh32/KbveULW9jk2tejpyUAD+uC6PE=', /*password*/
-    'BSF',                                          /*course*/
-    NOW(),                                      /*birthday*/
-    'CFNR',                                         /*college*/
+    'BSCS',                                         /*course*/
+    NOW(),                                          /*birthday*/
+    'CAS',                                          /*college*/
     false,                                          /*is_game_head*/
     NULL,                                           /*position*/
     true,                                           /*is_player*/
@@ -2665,14 +2664,14 @@ VALUES
   );
   CALL approve_account(LAST_INSERT_ID());
   CALL add_account(
-    'Bert',                                         /*firstname*/
-    'Tran',                                         /*middlename*/
-    'Ting',                                         /*lastname*/
-    'bert@gmail.com',                               /*email*/
-    'Bert',                                         /*username*/
+    'Honey Grace',                                  /*firstname*/
+    '',                                             /*middlename*/
+    'Garay',                                        /*lastname*/
+    'hgaray@gmail.com',                             /*email*/
+    'hgaray',                                       /*username*/
     '10/w7o2juYBrGMh32/KbveULW9jk2tejpyUAD+uC6PE=', /*password*/
-    'BSChem',                                       /*course*/
-    NOW(),                                      /*birthday*/
+    'BSCS',                                         /*course*/
+    NOW(),                                          /*birthday*/
     'CAS',                                          /*college*/
     false,                                          /*is_game_head*/
     NULL,                                           /*position*/
@@ -2681,14 +2680,14 @@ VALUES
     'Member'                                        /*player_role*/
   );
   CALL add_account(
-    'David',                                        /*firstname*/
-    'Delos Santos',                                 /*middlename*/
-    'Dimaano',                                      /*lastname*/
-    'david@gmail.com',                              /*email*/
-    'David',                                        /*username*/
+    'Kendrick Timothy',                             /*firstname*/
+    '',                                             /*middlename*/
+    'Mercado',                                      /*lastname*/
+    'kmercado@gmail.com',                           /*email*/
+    'kmercado',                                     /*username*/
     '10/w7o2juYBrGMh32/KbveULW9jk2tejpyUAD+uC6PE=', /*password*/
-    'BSChem',                                       /*course*/
-    NOW(),                                      /*birthday*/
+    'BSCS',                                         /*course*/
+    NOW(),                                          /*birthday*/
     'CAS',                                          /*college*/
     false,                                          /*is_game_head*/
     NULL,                                           /*position*/
@@ -3006,38 +3005,6 @@ VALUES
   ((SELECT account_id FROM account WHERE player_jersey_num = '6'), 94),
   ((SELECT account_id FROM account WHERE player_jersey_num = '7'), 95),
   ((SELECT account_id FROM account WHERE player_jersey_num = '8'), 96),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '1'), 97),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '2'), 98),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '3'), 99),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '4'), 100),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '5'), 101),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '6'), 102),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '7'), 103),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '8'), 104),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '1'), 105),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '2'), 106),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '3'), 107),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '4'), 108),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '5'), 109),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '6'), 110),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '7'), 111),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '8'), 112),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '1'), 113),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '2'), 114),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '3'), 115),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '4'), 116),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '5'), 117),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '6'), 118),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '7'), 119),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '8'), 120),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '1'), 121),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '2'), 122),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '3'), 123),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '4'), 124),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '5'), 125),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '6'), 126),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '7'), 127),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '8'), 128),
   ((SELECT account_id FROM account WHERE player_jersey_num = '1'), 129),
   ((SELECT account_id FROM account WHERE player_jersey_num = '2'), 130),
   ((SELECT account_id FROM account WHERE player_jersey_num = '3'), 131),
@@ -3068,40 +3035,9 @@ VALUES
   ((SELECT account_id FROM account WHERE player_jersey_num = '4'), 156),
   ((SELECT account_id FROM account WHERE player_jersey_num = '5'), 157),
   ((SELECT account_id FROM account WHERE player_jersey_num = '6'), 158),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '7'), 159),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '8'), 160),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '1'), 161),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '2'), 162),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '3'), 163),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '4'), 164),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '5'), 165),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '6'), 166),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '7'), 167),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '8'), 168),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '1'), 169),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '2'), 170),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '3'), 171),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '4'), 172),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '5'), 173),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '6'), 174),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '7'), 175),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '8'), 176),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '1'), 177),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '2'), 178),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '3'), 179),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '4'), 180),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '5'), 181),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '6'), 182),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '7'), 183),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '8'), 184),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '1'), 185),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '2'), 186),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '3'), 187),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '4'), 188),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '5'), 189),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '6'), 190),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '7'), 191),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '8'), 192);
+  ((SELECT account_id FROM account WHERE player_jersey_num = '7'), 159);
+
+
 delete from match_event_team;
 /*
   teams of match_events
