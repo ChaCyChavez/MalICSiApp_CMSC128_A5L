@@ -1,7 +1,7 @@
 <div ng-controller="sponsor-controller" ng-init="ownership_init(); init_sponsor()">
 
   <a class="add-btn" ng-show="profile.is_admin == 1 || is_owner" ng-click="reset_add_modal()" id="add-sponsor" href="javascript:void(0)"><i class="fa fa-plus fa-3x"></i></a>
-
+  
   <div class="row contents">
     <h3 class="content-header">SPONSORS</h3>
     <div class="ui two top attached buttons" id="butt-container">
@@ -115,3 +115,14 @@
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $("#add-sponsor").click(function() {
+    $("#add-sponsor-modal").modal("show");
+  });
+  $('.modal-close').click(function() {
+    $('.ui.modal').modal('hide');
+  });
+});
+</script>
