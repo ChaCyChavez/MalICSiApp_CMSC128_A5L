@@ -47,6 +47,8 @@
             SportService.get_sport({"sport_id":$scope.sportid}).then((data) => {
                 $scope.sport = data[0][0];
                 $scope.is_owner = $scope.sport.account_id == $rootScope.profile.account_id;
+                $scope.starting_date = $scope.sport.game_starting_time_date;
+                $scope.ending_date = $scope.sport.game_ending_time_date;
             });
         }
 

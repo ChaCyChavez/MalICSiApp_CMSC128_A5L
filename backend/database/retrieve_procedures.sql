@@ -292,7 +292,9 @@ DROP PROCEDURE IF EXISTS get_sport//
             sport_type,
             division,
             game_id,
-            account_id
+            account_id,
+            game_starting_time_date,
+            game_ending_time_date 
         FROM
             sport
         NATURAL JOIN
