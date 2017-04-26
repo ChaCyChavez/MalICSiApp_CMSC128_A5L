@@ -216,7 +216,6 @@
 				account_id: $rootScope.profile.account_id,
 				game_id: $scope.view.gameid
 			}
-
 			GameEventService
 				.get_team_of_account(data)
 				.then(function(res){
@@ -226,6 +225,7 @@
 					} else {
 						$scope.is_registered = false;
 					}
+					console.log($scope.is_registered)
             	},function(err){
                 	console.log(err);
             	})

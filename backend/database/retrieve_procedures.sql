@@ -437,10 +437,8 @@ DROP PROCEDURE IF EXISTS get_teams_of_game//
         game_id
     FROM
         team
-    NATURAL JOIN
-        game_event_team
     WHERE
-        game_event_team.game_id = _game_id;
+        game_id = _game_id;
   END;
 //
 
@@ -673,8 +671,8 @@ DROP PROCEDURE IF EXISTS get_finals_matches//
 DROP PROCEDURE IF EXISTS get_team_of_account//
   CREATE PROCEDURE get_team_of_account (IN _account_id int, IN _game_id int)
     BEGIN
-      SELECT * FROM team_account NATURAL JOIN game_event_team
-      WHERE game_event_team.game_id = _game_id && team_account.account_id = _account_id;
+      SELECT * FROM team_account NATURAL JOIN team
+      WHERE team.game_id = _game_id && team_account.account_id = _account_id;
     END;
 //
 

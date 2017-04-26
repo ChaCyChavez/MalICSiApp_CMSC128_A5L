@@ -479,7 +479,7 @@ exports.join_account_to_team = (req, res, next) => {
 
 	db.query(query_string, payload, callback);
 };
-
+ 
 exports.get_team_of_account = (req, res, next) => {
 	const query_string = 'CALL get_team_of_account(?,?)';
 
