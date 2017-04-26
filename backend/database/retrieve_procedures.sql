@@ -239,7 +239,7 @@ DROP PROCEDURE IF EXISTS get_game_event//
     SELECT
         game_id,
         game_name,
-        game_starting_time_date
+        game_starting_time_date,
         game_ending_time_date,
         account_id
     FROM
