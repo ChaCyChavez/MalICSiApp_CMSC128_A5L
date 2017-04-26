@@ -511,13 +511,13 @@ DROP PROCEDURE IF EXISTS get_user_upcoming_events//
     FROM
         game_event
     JOIN
-        game_event_team
+        team
     JOIN
         team_account
     WHERE
-        game_event.game_id = game_event_team.game_id 
+        game_event.game_id = team.game_id 
     AND
-        game_event_team.team_id = team_account.team_id
+        team.team_id = team_account.team_id
     AND
         team_account.account_id = _account_id
     AND
@@ -539,13 +539,13 @@ DROP PROCEDURE IF EXISTS get_user_past_events//
     FROM
         game_event
     JOIN
-        game_event_team
+        team
     JOIN
         team_account
     WHERE
-        game_event.game_id = game_event_team.game_id 
+        game_event.game_id = team.game_id 
     AND
-        game_event_team.team_id = team_account.team_id
+        team.team_id = team_account.team_id
     AND
         team_account.account_id = _account_id
     AND
