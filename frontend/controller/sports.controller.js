@@ -190,6 +190,7 @@
                             SportsService
                                 .add_sport(data)
                                 .then(function(res) {
+                                    $scope.get_sports();
                                     swal("Success!" ,"Sport has been successfully added.", "success");
                                 }, function(err) {
                                     swal(err.message);
