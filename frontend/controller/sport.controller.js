@@ -155,6 +155,7 @@
                 selectedValues.push($(this).val()); 
             });
             var wow = new Date($('#add-start-match').val());
+            console.log(moment(wow));
             var courttype = "";
             var court = $('#courtJoin').val();
             if (court == "Baker Hall" || court == "Copeland Gym") courttype = "Gym";
@@ -175,6 +176,12 @@
             if(data.match_date_time == undefined || data.series == undefined ||
                 data.court_name == undefined){
                 swal("Failed!", "Please fill up all fields", "error");
+            }
+            else if (moment($scope.starting_date).isAfter(moment(wow))) {
+                swal("Failed","Match date is before game event starting date.","error");
+            }
+            else if (moment(wow).isAfter(moment($scope.ending_date))) {
+                swal("Failed","Match date is after game event ending date.","error");
             }
             else if(selectedValues.length < 2 ){
                 swal("Failed!", "A match needs atleast two teams", "error");
