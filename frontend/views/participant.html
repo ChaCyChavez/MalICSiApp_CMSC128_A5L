@@ -38,12 +38,12 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="participant in participants | filter: {fullname: partic}">
+          <tr ng-repeat="participant in participants">
             <td href="javascript:void(0)">
               <h4 class="trow ui header">
                 <i class=" fa fa-user fa-2x ui mini rounded"></i>
                 <div class="content">
-                  {{participant.fullname}}
+                  {{participant.firstname}} {{participant.middlename}} {{participant.lastname}}
                 </div>
               </h4>
             </td>

@@ -129,7 +129,6 @@ exports.get_user_upcoming_events = (req, res, next) => {
 };
 
 exports.get_user_ongoing_events = (req, res, next) => {
-	console.log("---------------------------------------------------------get_user_ongoing_events");
 	if (req.session.user || req.params.account_id != undefined) {
 		const query_string = 'CALL get_user_ongoing_events(?)';
 
@@ -538,6 +537,38 @@ exports.get_team_of_account = (req, res, next) => {
 			winston.log('info', 'Success', prettyjson.render({
 				details: data,
 				origin: "get_team_of_account() in game_event.js",
+				payload: payload,
+				query_string: query_string
+			}));
+			res.status(200).send(data);
+		}
+	};
+
+	db.query(query_string, payload, callback);
+};
+
+exports.get_participants = (req, res, next) => {
+	const query_string = 'CALL get_participants(?)';
+
+	const payload = [
+		req.params.game_id
+	];
+
+	const callback = (err, data) => {
+		if (err) {
+			winston.level = 'debug';
+			winston.log('debug', 'Error', prettyjson.render({
+				details: errors.QUERY_FAILED.response.message,
+				origin: "get_participants() in game_event.js",
+				payload: payload,
+				query_string: query_string
+			}));
+			res.status(errors.QUERY_FAILED.code).send(errors.QUERY_FAILED.response.message);
+		} else {
+			winston.level = 'info';
+			winston.log('info', 'Success', prettyjson.render({
+				details: data,
+				origin: "get_participants() in game_event.js",
 				payload: payload,
 				query_string: query_string
 			}));

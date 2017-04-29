@@ -97,7 +97,7 @@
 				return deferred.promise;
 			}
 
-			const get_user_ongoing_events2 = () => {
+			const get_user_ongoing_events2 = (data) => {
 				let deferred = $q.defer();
 
 				$http({

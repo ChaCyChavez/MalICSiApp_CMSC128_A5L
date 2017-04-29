@@ -726,4 +726,24 @@ DROP PROCEDURE IF EXISTS get_team_of_account//
     END;
 //
 
+DROP PROCEDURE IF EXISTS get_participants//
+  CREATE PROCEDURE get_participants (IN _game_id int)
+    BEGIN
+      SELECT 
+        firstname, 
+        middlename, 
+        lastname
+      FROM 
+        team_account 
+      NATURAL JOIN 
+        account
+      WHERE team_id 
+      IN (
+          SELECT team_id 
+          FROM game_event natural join team 
+          WHERE game_id = _game_id
+      );
+    END;
+//
+
 \d ;

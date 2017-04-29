@@ -5,7 +5,7 @@
   .module('app')
   .controller('participant-controller', participant_controller);
 
-  function participant_controller($scope, $window, $location, $routeParams, $interval, SportsService, TeamService) {
+  function participant_controller($scope, $window, $location, $routeParams, $interval, SportsService, ParticipantService) {
 
     var gameid = $routeParams.game_id;
     $scope.sports = [
@@ -71,56 +71,13 @@
     }
 
     $scope.load_participants = () => {
-      while ($scope.participants.length) $scope.participants.pop();
-      var s = [];
-      var profiles = [];
-
-      let data = {
-        game_id: gameid
-      }
-
-      SportsService
-      .get_sports_game(data).
-      then(function(res) {
-        if ($scope.selected != 0) {
-          s.push({sport_id: $scope.selected.sport_id});
-          $scope.sport = $scope.selected.sport_type + " - " + $scope.selected.division;
-        }
-        else {
-          $scope.sport = "All Sports";
-          res.data[0].forEach(function(sport){  
-            s.push({sport_id: sport.sport_id});
-          });
-        }
-
-        s.forEach(function(sport) {
-          SportsService
-          .get_teams_sport(sport).
-          then(function(res) {
-            res.data[0].forEach(function(team){
-              TeamService
-              .get_team_profile(team.team_id).
-              then(function(res) {
-                res[0].forEach(function(element) {
-                  let profile = {
-                    account_id: element.account_id,
-                    fullname: element.firstname + " " + element.middlename + " " + element.lastname
-                  }
-                  if (!check_duplicates(profiles, profile)) profiles.push(profile);
-                });
-              }, function(err) {
-                console.log(err);
-              });
-            });
-          }, function(err) {
-            console.log(err);
-          });
+      ParticipantService
+        .get_participants(gameid)
+        .then((data) => {
+          if (data[0].length != 0) {
+            $scope.participants = data[0];
+          }
         });
-      }, function(err) {
-        console.log(err);
-      });
-      
-      $scope.participants = profiles;
     }
   }
 })();
