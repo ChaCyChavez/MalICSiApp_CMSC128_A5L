@@ -70,12 +70,16 @@ exports.update_sponsor = (req, res, next) => {
 		req.body.sponsor_desc,
 		req.body.web_address
 	];
-
+	
 	const callback = (err, data) => {
 		if (err) {
 		  winston.level = 'debug';
 		  winston.log('debug', 'err: ', err);
 		  res.status(500).send({ error_code: err.code });
+		} else if (data.affectedRows == 0) {
+				winston.level = 'info';
+				winston.log('info', 'Not found! Update failed');
+				res.status(404).send();
 		} else {
 		  winston.level = 'info';
 		  winston.log('info', 'Successfully updated sponsor!');
