@@ -373,13 +373,13 @@ drop procedure if exists get_sport_team;
         team t
     NATURAL JOIN
         match_event_team mt
-  NATURAL JOIN
+    NATURAL JOIN
         match_event m
-  NATURAL JOIN
+    NATURAL JOIN
         sport s
-  WHERE
+    WHERE
         s.sport_id = _sport_id;
-  END;
+    END;
 //
 
 /* MATCH_EVENT PROCEDURES */
