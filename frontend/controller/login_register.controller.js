@@ -5,8 +5,6 @@
         .module('app')
         .controller('login-register-controller', login_register_controller);
 
-    login_register_controller.$inject = ['$scope', '$location', '$window', '$routeParams', '$rootScope', 'ProfileService', 'LoginRegisterService'];
-
     function login_register_controller($scope, $location, $window, $routeParams, $rootScope, ProfileService, LoginRegisterService) {
         $scope.sports_guest = {};
 

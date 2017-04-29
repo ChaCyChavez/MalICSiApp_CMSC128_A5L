@@ -5,8 +5,6 @@
         .module('app')
         .controller('game-event-controller', game_event_controller);
 
-    game_event_controller.$inject = ['$scope', '$window', '$rootScope','$location', 'GameEventService', 'ProfileService'];
-
     function game_event_controller($scope, $window, $rootScope, $location, GameEventService, ProfileService) {
 		$scope.current_games = [];
 		$scope.upcoming_games = [];

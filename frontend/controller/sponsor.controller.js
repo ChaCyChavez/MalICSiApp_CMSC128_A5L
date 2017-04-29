@@ -6,8 +6,6 @@
         .controller('sponsor-controller', sponsor_controller);
 
     function sponsor_controller($scope, $rootScope, $location, $window, $routeParams, SponsorService, GameEventService) {
-
-
     	$scope.sponsors = [];
         $scope.game_id = $routeParams.game_id;
         $scope.hcpurl;

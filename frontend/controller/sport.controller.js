@@ -5,8 +5,6 @@
         .module('app')
         .controller('sport-controller', sport_controller);
 
-    sport_controller.$inject = ['$scope', '$rootScope', '$location', '$routeParams', 'SportService'];
-
     function sport_controller($scope, $rootScope, $location, $routeParams, SportService) {
 
         var sportid = $routeParams.sport_id;

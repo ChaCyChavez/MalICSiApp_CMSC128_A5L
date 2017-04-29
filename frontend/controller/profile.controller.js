@@ -5,8 +5,6 @@
         .module('app')
         .controller('profile-controller', profile_controller);
 
-    profile_controller.$inject = ['$scope', '$location', '$routeParams', 'ProfileService'];
-
     function profile_controller($scope, $location, $routeParams, ProfileService) {
     /*
         $scope.info = 1

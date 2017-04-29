@@ -4,9 +4,7 @@
     angular
         .module('app')
         .controller('sports-controller', sports_controller);
-
-    sports_controller.$inject = ['$scope', '$rootScope', '$window', '$location', '$routeParams','$interval', 'SportsService', 'GameEventService'];
-
+        
     function sports_controller($scope, $rootScope, $window, $location, $routeParams, $interval, SportsService, GameEventService) {
 
 
