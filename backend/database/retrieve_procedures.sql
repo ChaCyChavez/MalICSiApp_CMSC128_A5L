@@ -524,6 +524,38 @@ DROP PROCEDURE IF EXISTS get_user_upcoming_events//
   END;
 //
 
+
+DROP PROCEDURE IF EXISTS get_user_ongoing_events//
+  CREATE PROCEDURE get_user_ongoing_events(
+      IN _account_id int
+  )
+  BEGIN
+    SELECT
+        game_event.game_id,
+        game_name,
+        game_starting_time_date,
+        game_ending_time_date,
+        team_account.account_id
+    FROM
+        game_event
+    JOIN
+        team
+    JOIN
+        team_account
+    WHERE
+        game_event.game_id = team.game_id
+    AND
+        team.team_id = team_account.team_id
+    AND
+        team_account.account_id = _account_id
+    AND
+        game_starting_time_date <= NOW()
+    AND
+        game_ending_time_date >= NOW();
+  END;
+//
+
+
 DROP PROCEDURE IF EXISTS get_user_past_events//
   CREATE PROCEDURE get_user_past_events(
       IN _account_id int

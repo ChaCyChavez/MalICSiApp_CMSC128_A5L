@@ -21,7 +21,19 @@
 			</div>
 		</div>
 
-		<div class="ui two column doubling stackable grid container" ng-show="profile.is_player">
+		<div class="ui three column doubling stackable grid container" ng-show="profile.is_player">
+			<div class="column">
+				<div class="ui raised very padded text container segment" id="events_played">
+					<h1 class="ui header">ONGOING EVENTS</h1>
+					<div ng-repeat="user_ongoing_event in user_ongoing_events">
+						<h5>{{ user_ongoing_event.game_name }}</h5>
+						<h5>Start: {{ user_ongoing_event.game_starting_time_date | date: 'fullDate'}}</h5>
+						<h5>End: {{ user_ongoing_event.game_ending_time_date | date: 'fullDate'}}</h5>
+						<hr>
+					</div>
+				</div>
+			</div>
+
 			<div class="column">
 				<div class="ui raised very padded text container segment" id="upcoming_events">
 					<h1 class="ui header">UPCOMING EVENTS</h1>
