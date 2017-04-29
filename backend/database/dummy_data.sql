@@ -240,7 +240,6 @@ delete from game_event;
     (SELECT account_id FROM account WHERE username = 'upcoming_game_events') /*account_id*/
   );
 
-
 delete from sponsor;
 /*
   create sponsors of game_events
@@ -1197,1712 +1196,1710 @@ delete from match_event;
 INSERT INTO
   match_event 
 VALUES 
-/*Matches of Game 1*/
-  /*
-    Matches of sport_id 1
-  */
-    (1,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 1, 'Baker Hall', 'UPLB', 'Gym'),
-    (2,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 1, 'Copeland Gym','UPLB', 'Gym'),
-    (3,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 1, 'Physci Building', 'UPLB', 'Building'),
-    (4,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 1, 'Freedom Park', 'UPLB', 'Park'),
-    (5,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 1, 'Freedom Park', 'UPLB', 'Park'),
-    (6,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 1, 'Freedom Park', 'UPLB', 'Park'),
-    (7,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 1,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 2
-  */
-    (8,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 2, 'Baker Hall', 'UPLB', 'Gym'),
-    (9,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 2, 'Copeland Gym','UPLB', 'Gym'),
-    (10,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 2, 'Physci Building', 'UPLB', 'Building'),
-    (11,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 2, 'Freedom Park', 'UPLB', 'Park'),
-    (12,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 2, 'Freedom Park', 'UPLB', 'Park'),
-    (13,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 2, 'Freedom Park', 'UPLB', 'Park'),
-    (14,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 2,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 3
-  */
-    (15,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 3, 'Baker Hall', 'UPLB', 'Gym'),
-    (16,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 3, 'Copeland Gym','UPLB', 'Gym'),
-    (17,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 3, 'Physci Building', 'UPLB', 'Building'),
-    (18,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 3, 'Freedom Park', 'UPLB', 'Park'),
-    (19,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 3, 'Freedom Park', 'UPLB', 'Park'),
-    (20,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 3, 'Freedom Park', 'UPLB', 'Park'),
-    (21,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 3,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 4
-  */
-    (22,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 4, 'Baker Hall', 'UPLB', 'Gym'),
-    (23,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 4, 'Copeland Gym','UPLB', 'Gym'),
-    (24,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 4, 'Physci Building', 'UPLB', 'Building'),
-    (25,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 4, 'Freedom Park', 'UPLB', 'Park'),
-    (26,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 4, 'Freedom Park', 'UPLB', 'Park'),
-    (27,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 4, 'Freedom Park', 'UPLB', 'Park'),
-    (28,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 4,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 5
-  */
-    (29,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 5, 'Baker Hall', 'UPLB', 'Gym'),
-    (30,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 5, 'Copeland Gym','UPLB', 'Gym'),
-    (31,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 5, 'Physci Building', 'UPLB', 'Building'),
-    (32,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 5, 'Freedom Park', 'UPLB', 'Park'),
-    (33,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 5, 'Freedom Park', 'UPLB', 'Park'),
-    (34,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 5, 'Freedom Park', 'UPLB', 'Park'),
-    (35,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 5,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 6
-  */
-    (36,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 6, 'Baker Hall', 'UPLB', 'Gym'),
-    (37,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 6, 'Copeland Gym','UPLB', 'Gym'),
-    (38,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 6, 'Physci Building', 'UPLB', 'Building'),
-    (39,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 6, 'Freedom Park', 'UPLB', 'Park'),
-    (40,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 6, 'Freedom Park', 'UPLB', 'Park'),
-    (41,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 6, 'Freedom Park', 'UPLB', 'Park'),
-    (42,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 6,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 7
-  */
-    (43,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 7, 'Baker Hall', 'UPLB', 'Gym'),
-    (44,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 7, 'Copeland Gym','UPLB', 'Gym'),
-    (45,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 7, 'Physci Building', 'UPLB', 'Building'),
-    (46,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 7, 'Freedom Park', 'UPLB', 'Park'),
-    (47,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 7, 'Freedom Park', 'UPLB', 'Park'),
-    (48,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 7, 'Freedom Park', 'UPLB', 'Park'),
-    (49,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 7,'Freedom Park', 'UPLB', 'Park'),
-/*Matches of Game 2*/
-  /*
-    Matches of sport_id 8
-  */
-    (50,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 8, 'Baker Hall', 'UPLB', 'Gym'),
-    (51,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 8, 'Copeland Gym','UPLB', 'Gym'),
-    (52,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 8, 'Physci Building', 'UPLB', 'Building'),
-    (53,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 8, 'Freedom Park', 'UPLB', 'Park'),
-    (54,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 8, 'Freedom Park', 'UPLB', 'Park'),
-    (55,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 8, 'Freedom Park', 'UPLB', 'Park'),
-    (56,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 8,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 9
-  */
-    (57,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 9, 'Baker Hall', 'UPLB', 'Gym'),
-    (58,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 9, 'Copeland Gym','UPLB', 'Gym'),
-    (59,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 9, 'Physci Building', 'UPLB', 'Building'),
-    (60,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 9, 'Freedom Park', 'UPLB', 'Park'),
-    (61,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 9, 'Freedom Park', 'UPLB', 'Park'),
-    (62,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 9, 'Freedom Park', 'UPLB', 'Park'),
-    (63,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 9,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 10
-  */
-    (64,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 10, 'Baker Hall', 'UPLB', 'Gym'),
-    (65,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 10, 'Copeland Gym','UPLB', 'Gym'),
-    (66,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 10, 'Physci Building', 'UPLB', 'Building'),
-    (67,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 10, 'Freedom Park', 'UPLB', 'Park'),
-    (68,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 10, 'Freedom Park', 'UPLB', 'Park'),
-    (69,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 10, 'Freedom Park', 'UPLB', 'Park'),
-    (70,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 10,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 11
-  */
-    (71,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 11, 'Baker Hall', 'UPLB', 'Gym'),
-    (72,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 11, 'Copeland Gym','UPLB', 'Gym'),
-    (73,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 11, 'Physci Building', 'UPLB', 'Building'),
-    (74,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 11, 'Freedom Park', 'UPLB', 'Park'),
-    (75,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 11, 'Freedom Park', 'UPLB', 'Park'),
-    (76,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 11, 'Freedom Park', 'UPLB', 'Park'),
-    (77,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 11,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 12
-  */
-    (78,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 12, 'Baker Hall', 'UPLB', 'Gym'),
-    (79,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 12, 'Copeland Gym','UPLB', 'Gym'),
-    (80,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 12, 'Physci Building', 'UPLB', 'Building'),
-    (81,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 12, 'Freedom Park', 'UPLB', 'Park'),
-    (82,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 12, 'Freedom Park', 'UPLB', 'Park'),
-    (83,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 12, 'Freedom Park', 'UPLB', 'Park'),
-    (84,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 12,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 13
-  */
-    (85,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 13, 'Baker Hall', 'UPLB', 'Gym'),
-    (86,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 13, 'Copeland Gym','UPLB', 'Gym'),
-    (87,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 13, 'Physci Building', 'UPLB', 'Building'),
-    (88,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 13, 'Freedom Park', 'UPLB', 'Park'),
-    (89,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 13, 'Freedom Park', 'UPLB', 'Park'),
-    (90,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 13, 'Freedom Park', 'UPLB', 'Park'),
-    (91,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 13,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 14
-  */
-    (92,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 14, 'Baker Hall', 'UPLB', 'Gym'),
-    (93,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 14, 'Copeland Gym','UPLB', 'Gym'),
-    (94,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 14, 'Physci Building', 'UPLB', 'Building'),
-    (95,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 14, 'Freedom Park', 'UPLB', 'Park'),
-    (96,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 14, 'Freedom Park', 'UPLB', 'Park'),
-    (97,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 14, 'Freedom Park', 'UPLB', 'Park'),
-    (98,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 14,'Freedom Park', 'UPLB', 'Park'),
-/*Matches of Game 3*/
-  /*
-    Matches of sport_id 15
-  */
-    (99,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 15, 'Baker Hall', 'UPLB', 'Gym'),
-    (100,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 15, 'Copeland Gym','UPLB', 'Gym'),
-    (101,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 15, 'Physci Building', 'UPLB', 'Building'),
-    (102,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 15, 'Freedom Park', 'UPLB', 'Park'),
-    (103,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 15, 'Freedom Park', 'UPLB', 'Park'),
-    (104,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 15, 'Freedom Park', 'UPLB', 'Park'),
-    (105,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 15,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 16
-  */
-    (106,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 16, 'Baker Hall', 'UPLB', 'Gym'),
-    (107,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 16, 'Copeland Gym','UPLB', 'Gym'),
-    (108,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 16, 'Physci Building', 'UPLB', 'Building'),
-    (109,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 16, 'Freedom Park', 'UPLB', 'Park'),
-    (110,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 16, 'Freedom Park', 'UPLB', 'Park'),
-    (111,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 16, 'Freedom Park', 'UPLB', 'Park'),
-    (112,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 16,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 17
-  */
-    (113,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 17, 'Baker Hall', 'UPLB', 'Gym'),
-    (114,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 17, 'Copeland Gym','UPLB', 'Gym'),
-    (115,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 17, 'Physci Building', 'UPLB', 'Building'),
-    (116,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 17, 'Freedom Park', 'UPLB', 'Park'),
-    (117,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 17, 'Freedom Park', 'UPLB', 'Park'),
-    (118,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 17, 'Freedom Park', 'UPLB', 'Park'),
-    (119,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 17,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 18
-  */
-    (120,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 18, 'Baker Hall', 'UPLB', 'Gym'),
-    (121,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 18, 'Copeland Gym','UPLB', 'Gym'),
-    (122,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 18, 'Physci Building', 'UPLB', 'Building'),
-    (123,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 18, 'Freedom Park', 'UPLB', 'Park'),
-    (124,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 18, 'Freedom Park', 'UPLB', 'Park'),
-    (125,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 18, 'Freedom Park', 'UPLB', 'Park'),
-    (126,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 18,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 19
-  */
-    (127,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 19, 'Baker Hall', 'UPLB', 'Gym'),
-    (128,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 19, 'Copeland Gym','UPLB', 'Gym'),
-    (129,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 19, 'Physci Building', 'UPLB', 'Building'),
-    (130,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 19, 'Freedom Park', 'UPLB', 'Park'),
-    (131,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 19, 'Freedom Park', 'UPLB', 'Park'),
-    (132,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 19, 'Freedom Park', 'UPLB', 'Park'),
-    (133,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 19,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 20
-  */
-    (134,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 20, 'Baker Hall', 'UPLB', 'Gym'),
-    (135,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 20, 'Copeland Gym','UPLB', 'Gym'),
-    (136,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 20, 'Physci Building', 'UPLB', 'Building'),
-    (137,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 20, 'Freedom Park', 'UPLB', 'Park'),
-    (138,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 20, 'Freedom Park', 'UPLB', 'Park'),
-    (139,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 20, 'Freedom Park', 'UPLB', 'Park'),
-    (140,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 20,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 21
-  */
-    (141,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 21, 'Baker Hall', 'UPLB', 'Gym'),
-    (142,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 21, 'Copeland Gym','UPLB', 'Gym'),
-    (143,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 21, 'Physci Building', 'UPLB', 'Building'),
-    (144,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 21, 'Freedom Park', 'UPLB', 'Park'),
-    (145,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 21, 'Freedom Park', 'UPLB', 'Park'),
-    (146,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 21, 'Freedom Park', 'UPLB', 'Park'),
-    (147,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 21,'Freedom Park', 'UPLB', 'Park'),
-/*Matches of Game 4*/
-  /*
-    Matches of sport_id 22
-  */
-    (148,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 22, 'Baker Hall', 'UPLB', 'Gym'),
-    (149,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 22, 'Copeland Gym','UPLB', 'Gym'),
-    (150,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 22, 'Physci Building', 'UPLB', 'Building'),
-    (151,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 22, 'Freedom Park', 'UPLB', 'Park'),
-    (152,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 22, 'Freedom Park', 'UPLB', 'Park'),
-    (153,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 22, 'Freedom Park', 'UPLB', 'Park'),
-    (154,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 22,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 23
-  */
-    (155,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 23, 'Baker Hall', 'UPLB', 'Gym'),
-    (156,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 23, 'Copeland Gym','UPLB', 'Gym'),
-    (157,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 23, 'Physci Building', 'UPLB', 'Building'),
-    (158,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 23, 'Freedom Park', 'UPLB', 'Park'),
-    (159,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 23, 'Freedom Park', 'UPLB', 'Park'),
-    (160,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 23, 'Freedom Park', 'UPLB', 'Park'),
-    (161,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 23,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 24
-  */
-    (162,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 24, 'Baker Hall', 'UPLB', 'Gym'),
-    (163,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 24, 'Copeland Gym','UPLB', 'Gym'),
-    (164,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 24, 'Physci Building', 'UPLB', 'Building'),
-    (165,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 24, 'Freedom Park', 'UPLB', 'Park'),
-    (166,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 24, 'Freedom Park', 'UPLB', 'Park'),
-    (167,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 24, 'Freedom Park', 'UPLB', 'Park'),
-    (168,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 24,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 25
-  */
-    (169,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 25, 'Baker Hall', 'UPLB', 'Gym'),
-    (170,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 25, 'Copeland Gym','UPLB', 'Gym'),
-    (171,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 25, 'Physci Building', 'UPLB', 'Building'),
-    (172,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 25, 'Freedom Park', 'UPLB', 'Park'),
-    (173,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 25, 'Freedom Park', 'UPLB', 'Park'),
-    (174,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 25, 'Freedom Park', 'UPLB', 'Park'),
-    (175,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 25,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 26
-  */
-    (176,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 26, 'Baker Hall', 'UPLB', 'Gym'),
-    (177,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 26, 'Copeland Gym','UPLB', 'Gym'),
-    (178,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 26, 'Physci Building', 'UPLB', 'Building'),
-    (179,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 26, 'Freedom Park', 'UPLB', 'Park'),
-    (180,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 26, 'Freedom Park', 'UPLB', 'Park'),
-    (181,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 26, 'Freedom Park', 'UPLB', 'Park'),
-    (182,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 26,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 27
-  */
-    (183,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 27, 'Baker Hall', 'UPLB', 'Gym'),
-    (184,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 27, 'Copeland Gym','UPLB', 'Gym'),
-    (185,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 27, 'Physci Building', 'UPLB', 'Building'),
-    (186,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 27, 'Freedom Park', 'UPLB', 'Park'),
-    (187,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 27, 'Freedom Park', 'UPLB', 'Park'),
-    (188,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 27, 'Freedom Park', 'UPLB', 'Park'),
-    (189,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 27,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 28
-  */
-    (190,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 28, 'Baker Hall', 'UPLB', 'Gym'),
-    (191,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 28, 'Copeland Gym','UPLB', 'Gym'),
-    (192,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 28, 'Physci Building', 'UPLB', 'Building'),
-    (193,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 28, 'Freedom Park', 'UPLB', 'Park'),
-    (194,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 28, 'Freedom Park', 'UPLB', 'Park'),
-    (195,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 28, 'Freedom Park', 'UPLB', 'Park'),
-    (196,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 28,'Freedom Park', 'UPLB', 'Park'),
-/*Matches of Game 5*/
-  /*
-    Matches of sport_id 29
-  */
-    (197,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 29, 'Baker Hall', 'UPLB', 'Gym'),
-    (198,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 29, 'Copeland Gym','UPLB', 'Gym'),
-    (199,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 29, 'Physci Building', 'UPLB', 'Building'),
-    (200,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 29, 'Freedom Park', 'UPLB', 'Park'),
-    (201,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 29, 'Freedom Park', 'UPLB', 'Park'),
-    (202,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 29, 'Freedom Park', 'UPLB', 'Park'),
-    (203,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 29,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 30
-  */
-    (204,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 30, 'Baker Hall', 'UPLB', 'Gym'),
-    (205,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 30, 'Copeland Gym','UPLB', 'Gym'),
-    (206,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 30, 'Physci Building', 'UPLB', 'Building'),
-    (207,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 30, 'Freedom Park', 'UPLB', 'Park'),
-    (208,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 30, 'Freedom Park', 'UPLB', 'Park'),
-    (209,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 30, 'Freedom Park', 'UPLB', 'Park'),
-    (210,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 30,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 31
-  */
-    (211,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 31, 'Baker Hall', 'UPLB', 'Gym'),
-    (212,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 31, 'Copeland Gym','UPLB', 'Gym'),
-    (213,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 31, 'Physci Building', 'UPLB', 'Building'),
-    (214,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 31, 'Freedom Park', 'UPLB', 'Park'),
-    (215,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 31, 'Freedom Park', 'UPLB', 'Park'),
-    (216,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 31, 'Freedom Park', 'UPLB', 'Park'),
-    (217,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 31,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 32
-  */
-    (218,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 32, 'Baker Hall', 'UPLB', 'Gym'),
-    (219,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 32, 'Copeland Gym','UPLB', 'Gym'),
-    (220,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 32, 'Physci Building', 'UPLB', 'Building'),
-    (221,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 32, 'Freedom Park', 'UPLB', 'Park'),
-    (222,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 32, 'Freedom Park', 'UPLB', 'Park'),
-    (223,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 32, 'Freedom Park', 'UPLB', 'Park'),
-    (224,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 32,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 33
-  */
-    (225,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 33, 'Baker Hall', 'UPLB', 'Gym'),
-    (226,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 33, 'Copeland Gym','UPLB', 'Gym'),
-    (227,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 33, 'Physci Building', 'UPLB', 'Building'),
-    (228,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 33, 'Freedom Park', 'UPLB', 'Park'),
-    (229,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 33, 'Freedom Park', 'UPLB', 'Park'),
-    (230,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 33, 'Freedom Park', 'UPLB', 'Park'),
-    (231,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 33,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 34
-  */
-    (232,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 34, 'Baker Hall', 'UPLB', 'Gym'),
-    (233,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 34, 'Copeland Gym','UPLB', 'Gym'),
-    (234,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 34, 'Physci Building', 'UPLB', 'Building'),
-    (235,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 34, 'Freedom Park', 'UPLB', 'Park'),
-    (236,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 34, 'Freedom Park', 'UPLB', 'Park'),
-    (237,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 34, 'Freedom Park', 'UPLB', 'Park'),
-    (238,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 34,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 35
-  */
-    (239,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 35, 'Baker Hall', 'UPLB', 'Gym'),
-    (240,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 35, 'Copeland Gym','UPLB', 'Gym'),
-    (241,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 35, 'Physci Building', 'UPLB', 'Building'),
-    (242,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 35, 'Freedom Park', 'UPLB', 'Park'),
-    (243,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 35, 'Freedom Park', 'UPLB', 'Park'),
-    (244,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 35, 'Freedom Park', 'UPLB', 'Park'),
-    (245,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 35,'Freedom Park', 'UPLB', 'Park'),
-/*Matches of Game 6*/
-  /*
-    Matches of sport_id 36
-  */
-    (246,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 36, 'Baker Hall', 'UPLB', 'Gym'),
-    (247,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 36, 'Copeland Gym','UPLB', 'Gym'),
-    (248,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 36, 'Physci Building', 'UPLB', 'Building'),
-    (249,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 36, 'Freedom Park', 'UPLB', 'Park'),
-    (250,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 36, 'Freedom Park', 'UPLB', 'Park'),
-    (251,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 36, 'Freedom Park', 'UPLB', 'Park'),
-    (252,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 36,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 37
-  */
-    (253,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 37, 'Baker Hall', 'UPLB', 'Gym'),
-    (254,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 37, 'Copeland Gym','UPLB', 'Gym'),
-    (255,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 37, 'Physci Building', 'UPLB', 'Building'),
-    (256,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 37, 'Freedom Park', 'UPLB', 'Park'),
-    (257,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 37, 'Freedom Park', 'UPLB', 'Park'),
-    (258,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 37, 'Freedom Park', 'UPLB', 'Park'),
-    (259,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 37,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 38
-  */
-    (260,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 38, 'Baker Hall', 'UPLB', 'Gym'),
-    (261,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 38, 'Copeland Gym','UPLB', 'Gym'),
-    (262,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 38, 'Physci Building', 'UPLB', 'Building'),
-    (263,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 38, 'Freedom Park', 'UPLB', 'Park'),
-    (264,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 38, 'Freedom Park', 'UPLB', 'Park'),
-    (265,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 38, 'Freedom Park', 'UPLB', 'Park'),
-    (266,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 38,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 39
-  */
-    (267,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 39, 'Baker Hall', 'UPLB', 'Gym'),
-    (268,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 39, 'Copeland Gym','UPLB', 'Gym'),
-    (269,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 39, 'Physci Building', 'UPLB', 'Building'),
-    (270,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 39, 'Freedom Park', 'UPLB', 'Park'),
-    (271,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 39, 'Freedom Park', 'UPLB', 'Park'),
-    (272,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 39, 'Freedom Park', 'UPLB', 'Park'),
-    (273,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 39,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 40
-  */
-    (274,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 40, 'Baker Hall', 'UPLB', 'Gym'),
-    (275,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 40, 'Copeland Gym','UPLB', 'Gym'),
-    (276,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 40, 'Physci Building', 'UPLB', 'Building'),
-    (277,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 40, 'Freedom Park', 'UPLB', 'Park'),
-    (278,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 40, 'Freedom Park', 'UPLB', 'Park'),
-    (279,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 40, 'Freedom Park', 'UPLB', 'Park'),
-    (280,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 40,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 41
-  */
-    (281,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 41, 'Baker Hall', 'UPLB', 'Gym'),
-    (282,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 41, 'Copeland Gym','UPLB', 'Gym'),
-    (283,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 41, 'Physci Building', 'UPLB', 'Building'),
-    (284,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 41, 'Freedom Park', 'UPLB', 'Park'),
-    (285,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 41, 'Freedom Park', 'UPLB', 'Park'),
-    (286,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 41, 'Freedom Park', 'UPLB', 'Park'),
-    (287,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 41,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 42
-  */
-    (288,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 42, 'Baker Hall', 'UPLB', 'Gym'),
-    (289,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 42, 'Copeland Gym','UPLB', 'Gym'),
-    (290,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 42, 'Physci Building', 'UPLB', 'Building'),
-    (291,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 42, 'Freedom Park', 'UPLB', 'Park'),
-    (292,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 42, 'Freedom Park', 'UPLB', 'Park'),
-    (293,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 42, 'Freedom Park', 'UPLB', 'Park'),
-    (294,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 42,'Freedom Park', 'UPLB', 'Park'),
-/*Matches of Game 7*/
-  /*
-    Matches of sport_id 43
-  */
-    (295,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 43, 'Baker Hall', 'UPLB', 'Gym'),
-    (296,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 43, 'Copeland Gym','UPLB', 'Gym'),
-    (297,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 43, 'Physci Building', 'UPLB', 'Building'),
-    (298,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 43, 'Freedom Park', 'UPLB', 'Park'),
-    (299,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 43, 'Freedom Park', 'UPLB', 'Park'),
-    (300,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 43, 'Freedom Park', 'UPLB', 'Park'),
-    (301,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 43,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 44
-  */
-    (302,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 44, 'Baker Hall', 'UPLB', 'Gym'),
-    (303,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 44, 'Copeland Gym','UPLB', 'Gym'),
-    (304,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 44, 'Physci Building', 'UPLB', 'Building'),
-    (305,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 44, 'Freedom Park', 'UPLB', 'Park'),
-    (306,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 44, 'Freedom Park', 'UPLB', 'Park'),
-    (307,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 44, 'Freedom Park', 'UPLB', 'Park'),
-    (308,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 44,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 45
-  */
-    (309,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 45, 'Baker Hall', 'UPLB', 'Gym'),
-    (310,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 45, 'Copeland Gym','UPLB', 'Gym'),
-    (311,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 45, 'Physci Building', 'UPLB', 'Building'),
-    (312,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 45, 'Freedom Park', 'UPLB', 'Park'),
-    (313,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 45, 'Freedom Park', 'UPLB', 'Park'),
-    (314,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 45, 'Freedom Park', 'UPLB', 'Park'),
-    (315,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 45,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 46
-  */
-    (316,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 46, 'Baker Hall', 'UPLB', 'Gym'),
-    (317,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 46, 'Copeland Gym','UPLB', 'Gym'),
-    (318,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 46, 'Physci Building', 'UPLB', 'Building'),
-    (319,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 46, 'Freedom Park', 'UPLB', 'Park'),
-    (320,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 46, 'Freedom Park', 'UPLB', 'Park'),
-    (321,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 46, 'Freedom Park', 'UPLB', 'Park'),
-    (322,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 46,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 47
-  */
-    (323,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 47, 'Baker Hall', 'UPLB', 'Gym'),
-    (324,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 47, 'Copeland Gym','UPLB', 'Gym'),
-    (325,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 47, 'Physci Building', 'UPLB', 'Building'),
-    (326,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 47, 'Freedom Park', 'UPLB', 'Park'),
-    (327,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 47, 'Freedom Park', 'UPLB', 'Park'),
-    (328,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 47, 'Freedom Park', 'UPLB', 'Park'),
-    (329,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 47,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 48
-  */
-    (330,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 48, 'Baker Hall', 'UPLB', 'Gym'),
-    (331,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 48, 'Copeland Gym','UPLB', 'Gym'),
-    (332,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 48, 'Physci Building', 'UPLB', 'Building'),
-    (333,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 48, 'Freedom Park', 'UPLB', 'Park'),
-    (334,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 48, 'Freedom Park', 'UPLB', 'Park'),
-    (335,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 48, 'Freedom Park', 'UPLB', 'Park'),
-    (336,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 48,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 49
-  */
-    (337,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 49, 'Baker Hall', 'UPLB', 'Gym'),
-    (338,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 49, 'Copeland Gym','UPLB', 'Gym'),
-    (339,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 49, 'Physci Building', 'UPLB', 'Building'),
-    (340,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 49, 'Freedom Park', 'UPLB', 'Park'),
-    (341,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 49, 'Freedom Park', 'UPLB', 'Park'),
-    (342,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 49, 'Freedom Park', 'UPLB', 'Park'),
-    (343,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 49,'Freedom Park', 'UPLB', 'Park'),
-/*Matches of Game 8*/
-  /*
-    Matches of sport_id 50
-  */
-    (344,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 50, 'Baker Hall', 'UPLB', 'Gym'),
-    (345,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 50, 'Copeland Gym','UPLB', 'Gym'),
-    (346,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 50, 'Physci Building', 'UPLB', 'Building'),
-    (347,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 50, 'Freedom Park', 'UPLB', 'Park'),
-    (348,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 50, 'Freedom Park', 'UPLB', 'Park'),
-    (349,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 50, 'Freedom Park', 'UPLB', 'Park'),
-    (350,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 50,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 51
-  */
-    (351,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 51, 'Baker Hall', 'UPLB', 'Gym'),
-    (352,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 51, 'Copeland Gym','UPLB', 'Gym'),
-    (353,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 51, 'Physci Building', 'UPLB', 'Building'),
-    (354,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 51, 'Freedom Park', 'UPLB', 'Park'),
-    (355,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 51, 'Freedom Park', 'UPLB', 'Park'),
-    (356,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 51, 'Freedom Park', 'UPLB', 'Park'),
-    (357,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 51,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 52
-  */
-    (358,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 52, 'Baker Hall', 'UPLB', 'Gym'),
-    (359,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 52, 'Copeland Gym','UPLB', 'Gym'),
-    (360,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 52, 'Physci Building', 'UPLB', 'Building'),
-    (361,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 52, 'Freedom Park', 'UPLB', 'Park'),
-    (362,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 52, 'Freedom Park', 'UPLB', 'Park'),
-    (363,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 52, 'Freedom Park', 'UPLB', 'Park'),
-    (364,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 52,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 53
-  */
-    (365,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 53, 'Baker Hall', 'UPLB', 'Gym'),
-    (366,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 53, 'Copeland Gym','UPLB', 'Gym'),
-    (367,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 53, 'Physci Building', 'UPLB', 'Building'),
-    (368,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 53, 'Freedom Park', 'UPLB', 'Park'),
-    (369,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 53, 'Freedom Park', 'UPLB', 'Park'),
-    (370,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 53, 'Freedom Park', 'UPLB', 'Park'),
-    (371,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 53,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 54
-  */
-    (372,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 54, 'Baker Hall', 'UPLB', 'Gym'),
-    (373,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 54, 'Copeland Gym','UPLB', 'Gym'),
-    (374,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 54, 'Physci Building', 'UPLB', 'Building'),
-    (375,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 54, 'Freedom Park', 'UPLB', 'Park'),
-    (376,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 54, 'Freedom Park', 'UPLB', 'Park'),
-    (377,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 54, 'Freedom Park', 'UPLB', 'Park'),
-    (378,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 54,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 55
-  */
-    (379,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 55, 'Baker Hall', 'UPLB', 'Gym'),
-    (380,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 55, 'Copeland Gym','UPLB', 'Gym'),
-    (381,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 55, 'Physci Building', 'UPLB', 'Building'),
-    (382,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 55, 'Freedom Park', 'UPLB', 'Park'),
-    (383,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 55, 'Freedom Park', 'UPLB', 'Park'),
-    (384,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 55, 'Freedom Park', 'UPLB', 'Park'),
-    (385,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 55,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 56
-  */
-    (386,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 56, 'Baker Hall', 'UPLB', 'Gym'),
-    (387,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 56, 'Copeland Gym','UPLB', 'Gym'),
-    (388,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 56, 'Physci Building', 'UPLB', 'Building'),
-    (389,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 56, 'Freedom Park', 'UPLB', 'Park'),
-    (390,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 56, 'Freedom Park', 'UPLB', 'Park'),
-    (391,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 56, 'Freedom Park', 'UPLB', 'Park'),
-    (392,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 56,'Freedom Park', 'UPLB', 'Park'),
-/*Matches of Game 9*/
-  /*
-    Matches of sport_id 57
-  */
-    (393,true, SUBDATE(NOW(), INTERVAL 7 DAY), 57, 'Baker Hall', 'UPLB', 'Gym'),
-    (394,true, SUBDATE(NOW(), INTERVAL 7 DAY), 57, 'Copeland Gym','UPLB', 'Gym'),
-    (395,true, SUBDATE(NOW(), INTERVAL 7 DAY), 57, 'Physci Building', 'UPLB', 'Building'),
-    (396,true, SUBDATE(NOW(), INTERVAL 7 DAY), 57, 'Freedom Park', 'UPLB', 'Park'),
-    (397,true, SUBDATE(NOW(), INTERVAL 7 DAY), 57, 'Freedom Park', 'UPLB', 'Park'),
-    (398,true, SUBDATE(NOW(), INTERVAL 7 DAY), 57, 'Freedom Park', 'UPLB', 'Park'),
-    (399,true, SUBDATE(NOW(), INTERVAL 7 DAY), 57,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 58
-  */
-    (400,true, SUBDATE(NOW(), INTERVAL 7 DAY), 58, 'Baker Hall', 'UPLB', 'Gym'),
-    (401,true, SUBDATE(NOW(), INTERVAL 7 DAY), 58, 'Copeland Gym','UPLB', 'Gym'),
-    (402,true, SUBDATE(NOW(), INTERVAL 7 DAY), 58, 'Physci Building', 'UPLB', 'Building'),
-    (403,true, SUBDATE(NOW(), INTERVAL 7 DAY), 58, 'Freedom Park', 'UPLB', 'Park'),
-    (404,true, SUBDATE(NOW(), INTERVAL 7 DAY), 58, 'Freedom Park', 'UPLB', 'Park'),
-    (405,true, SUBDATE(NOW(), INTERVAL 7 DAY), 58, 'Freedom Park', 'UPLB', 'Park'),
-    (406,true, SUBDATE(NOW(), INTERVAL 7 DAY), 58,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 59
-  */
-    (407,true, SUBDATE(NOW(), INTERVAL 7 DAY), 59, 'Baker Hall', 'UPLB', 'Gym'),
-    (408,true, SUBDATE(NOW(), INTERVAL 7 DAY), 59, 'Copeland Gym','UPLB', 'Gym'),
-    (409,true, SUBDATE(NOW(), INTERVAL 7 DAY), 59, 'Physci Building', 'UPLB', 'Building'),
-    (410,true, SUBDATE(NOW(), INTERVAL 7 DAY), 59, 'Freedom Park', 'UPLB', 'Park'),
-    (411,true, SUBDATE(NOW(), INTERVAL 7 DAY), 59, 'Freedom Park', 'UPLB', 'Park'),
-    (412,true, SUBDATE(NOW(), INTERVAL 7 DAY), 59, 'Freedom Park', 'UPLB', 'Park'),
-    (413,true, SUBDATE(NOW(), INTERVAL 7 DAY), 59,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 60
-  */
-    (414,true, SUBDATE(NOW(), INTERVAL 7 DAY), 60, 'Baker Hall', 'UPLB', 'Gym'),
-    (415,true, SUBDATE(NOW(), INTERVAL 7 DAY), 60, 'Copeland Gym','UPLB', 'Gym'),
-    (416,true, SUBDATE(NOW(), INTERVAL 7 DAY), 60, 'Physci Building', 'UPLB', 'Building'),
-    (417,true, SUBDATE(NOW(), INTERVAL 7 DAY), 60, 'Freedom Park', 'UPLB', 'Park'),
-    (418,true, SUBDATE(NOW(), INTERVAL 7 DAY), 60, 'Freedom Park', 'UPLB', 'Park'),
-    (419,true, SUBDATE(NOW(), INTERVAL 7 DAY), 60, 'Freedom Park', 'UPLB', 'Park'),
-    (420,true, SUBDATE(NOW(), INTERVAL 7 DAY), 60,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 61
-  */
-    (421,true, SUBDATE(NOW(), INTERVAL 7 DAY), 61, 'Baker Hall', 'UPLB', 'Gym'),
-    (422,true, SUBDATE(NOW(), INTERVAL 7 DAY), 61, 'Copeland Gym','UPLB', 'Gym'),
-    (423,true, SUBDATE(NOW(), INTERVAL 7 DAY), 61, 'Physci Building', 'UPLB', 'Building'),
-    (424,true, SUBDATE(NOW(), INTERVAL 7 DAY), 61, 'Freedom Park', 'UPLB', 'Park'),
-    (425,true, SUBDATE(NOW(), INTERVAL 7 DAY), 61, 'Freedom Park', 'UPLB', 'Park'),
-    (426,true, SUBDATE(NOW(), INTERVAL 7 DAY), 61, 'Freedom Park', 'UPLB', 'Park'),
-    (427,true, SUBDATE(NOW(), INTERVAL 7 DAY), 61,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 62
-  */
-    (428,true, SUBDATE(NOW(), INTERVAL 7 DAY), 62, 'Baker Hall', 'UPLB', 'Gym'),
-    (429,true, SUBDATE(NOW(), INTERVAL 7 DAY), 62, 'Copeland Gym','UPLB', 'Gym'),
-    (430,true, SUBDATE(NOW(), INTERVAL 7 DAY), 62, 'Physci Building', 'UPLB', 'Building'),
-    (431,true, SUBDATE(NOW(), INTERVAL 7 DAY), 62, 'Freedom Park', 'UPLB', 'Park'),
-    (432,true, SUBDATE(NOW(), INTERVAL 7 DAY), 62, 'Freedom Park', 'UPLB', 'Park'),
-    (433,true, SUBDATE(NOW(), INTERVAL 7 DAY), 62, 'Freedom Park', 'UPLB', 'Park'),
-    (434,true, SUBDATE(NOW(), INTERVAL 7 DAY), 62,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 63
-  */
-    (435,true, SUBDATE(NOW(), INTERVAL 7 DAY), 63, 'Baker Hall', 'UPLB', 'Gym'),
-    (436,true, SUBDATE(NOW(), INTERVAL 7 DAY), 63, 'Copeland Gym','UPLB', 'Gym'),
-    (437,true, SUBDATE(NOW(), INTERVAL 7 DAY), 63, 'Physci Building', 'UPLB', 'Building'),
-    (438,true, SUBDATE(NOW(), INTERVAL 7 DAY), 63, 'Freedom Park', 'UPLB', 'Park'),
-    (439,true, SUBDATE(NOW(), INTERVAL 7 DAY), 63, 'Freedom Park', 'UPLB', 'Park'),
-    (440,true, SUBDATE(NOW(), INTERVAL 7 DAY), 63, 'Freedom Park', 'UPLB', 'Park'),
-    (441,true, SUBDATE(NOW(), INTERVAL 7 DAY), 63,'Freedom Park', 'UPLB', 'Park'),
-/*Matches of Game 10*/
-  /*
-    Matches of sport_id 64
-  */
-    (442,true, SUBDATE(NOW(), INTERVAL 6 DAY), 64, 'Baker Hall', 'UPLB', 'Gym'),
-    (443,true, SUBDATE(NOW(), INTERVAL 6 DAY), 64, 'Copeland Gym','UPLB', 'Gym'),
-    (444,true, SUBDATE(NOW(), INTERVAL 6 DAY), 64, 'Physci Building', 'UPLB', 'Building'),
-    (445,true, SUBDATE(NOW(), INTERVAL 6 DAY), 64, 'Freedom Park', 'UPLB', 'Park'),
-    (446,true, SUBDATE(NOW(), INTERVAL 6 DAY), 64, 'Freedom Park', 'UPLB', 'Park'),
-    (447,true, SUBDATE(NOW(), INTERVAL 6 DAY), 64, 'Freedom Park', 'UPLB', 'Park'),
-    (448,true, SUBDATE(NOW(), INTERVAL 6 DAY), 64,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 65
-  */
-    (449,true, SUBDATE(NOW(), INTERVAL 6 DAY), 65, 'Baker Hall', 'UPLB', 'Gym'),
-    (450,true, SUBDATE(NOW(), INTERVAL 6 DAY), 65, 'Copeland Gym','UPLB', 'Gym'),
-    (451,true, SUBDATE(NOW(), INTERVAL 6 DAY), 65, 'Physci Building', 'UPLB', 'Building'),
-    (452,true, SUBDATE(NOW(), INTERVAL 6 DAY), 65, 'Freedom Park', 'UPLB', 'Park'),
-    (453,true, SUBDATE(NOW(), INTERVAL 6 DAY), 65, 'Freedom Park', 'UPLB', 'Park'),
-    (454,true, SUBDATE(NOW(), INTERVAL 6 DAY), 65, 'Freedom Park', 'UPLB', 'Park'),
-    (455,true, SUBDATE(NOW(), INTERVAL 6 DAY), 65,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 66
-  */
-    (456,true, SUBDATE(NOW(), INTERVAL 6 DAY), 66, 'Baker Hall', 'UPLB', 'Gym'),
-    (457,true, SUBDATE(NOW(), INTERVAL 6 DAY), 66, 'Copeland Gym','UPLB', 'Gym'),
-    (458,true, SUBDATE(NOW(), INTERVAL 6 DAY), 66, 'Physci Building', 'UPLB', 'Building'),
-    (459,true, SUBDATE(NOW(), INTERVAL 6 DAY), 66, 'Freedom Park', 'UPLB', 'Park'),
-    (460,true, SUBDATE(NOW(), INTERVAL 6 DAY), 66, 'Freedom Park', 'UPLB', 'Park'),
-    (461,true, SUBDATE(NOW(), INTERVAL 6 DAY), 66, 'Freedom Park', 'UPLB', 'Park'),
-    (462,true, SUBDATE(NOW(), INTERVAL 6 DAY), 66,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 67
-  */
-    (463,true, SUBDATE(NOW(), INTERVAL 6 DAY), 67, 'Baker Hall', 'UPLB', 'Gym'),
-    (464,true, SUBDATE(NOW(), INTERVAL 6 DAY), 67, 'Copeland Gym','UPLB', 'Gym'),
-    (465,true, SUBDATE(NOW(), INTERVAL 6 DAY), 67, 'Physci Building', 'UPLB', 'Building'),
-    (466,true, SUBDATE(NOW(), INTERVAL 6 DAY), 67, 'Freedom Park', 'UPLB', 'Park'),
-    (467,true, SUBDATE(NOW(), INTERVAL 6 DAY), 67, 'Freedom Park', 'UPLB', 'Park'),
-    (468,true, SUBDATE(NOW(), INTERVAL 6 DAY), 67, 'Freedom Park', 'UPLB', 'Park'),
-    (469,true, SUBDATE(NOW(), INTERVAL 6 DAY), 67,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 68
-  */
-    (470,true, SUBDATE(NOW(), INTERVAL 6 DAY), 68, 'Baker Hall', 'UPLB', 'Gym'),
-    (471,true, SUBDATE(NOW(), INTERVAL 6 DAY), 68, 'Copeland Gym','UPLB', 'Gym'),
-    (472,true, SUBDATE(NOW(), INTERVAL 6 DAY), 68, 'Physci Building', 'UPLB', 'Building'),
-    (473,true, SUBDATE(NOW(), INTERVAL 6 DAY), 68, 'Freedom Park', 'UPLB', 'Park'),
-    (474,true, SUBDATE(NOW(), INTERVAL 6 DAY), 68, 'Freedom Park', 'UPLB', 'Park'),
-    (475,true, SUBDATE(NOW(), INTERVAL 6 DAY), 68, 'Freedom Park', 'UPLB', 'Park'),
-    (476,true, SUBDATE(NOW(), INTERVAL 6 DAY), 68,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 69
-  */
-    (477,true, SUBDATE(NOW(), INTERVAL 6 DAY), 69, 'Baker Hall', 'UPLB', 'Gym'),
-    (478,true, SUBDATE(NOW(), INTERVAL 6 DAY), 69, 'Copeland Gym','UPLB', 'Gym'),
-    (479,true, SUBDATE(NOW(), INTERVAL 6 DAY), 69, 'Physci Building', 'UPLB', 'Building'),
-    (480,true, SUBDATE(NOW(), INTERVAL 6 DAY), 69, 'Freedom Park', 'UPLB', 'Park'),
-    (481,true, SUBDATE(NOW(), INTERVAL 6 DAY), 69, 'Freedom Park', 'UPLB', 'Park'),
-    (482,true, SUBDATE(NOW(), INTERVAL 6 DAY), 69, 'Freedom Park', 'UPLB', 'Park'),
-    (483,true, SUBDATE(NOW(), INTERVAL 6 DAY), 69,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 70
-  */
-    (484,true, SUBDATE(NOW(), INTERVAL 6 DAY), 70, 'Baker Hall', 'UPLB', 'Gym'),
-    (485,true, SUBDATE(NOW(), INTERVAL 6 DAY), 70, 'Copeland Gym','UPLB', 'Gym'),
-    (486,true, SUBDATE(NOW(), INTERVAL 6 DAY), 70, 'Physci Building', 'UPLB', 'Building'),
-    (487,true, SUBDATE(NOW(), INTERVAL 6 DAY), 70, 'Freedom Park', 'UPLB', 'Park'),
-    (488,true, SUBDATE(NOW(), INTERVAL 6 DAY), 70, 'Freedom Park', 'UPLB', 'Park'),
-    (489,true, SUBDATE(NOW(), INTERVAL 6 DAY), 70, 'Freedom Park', 'UPLB', 'Park'),
-    (490,true, SUBDATE(NOW(), INTERVAL 6 DAY), 70,'Freedom Park', 'UPLB', 'Park'),
-/*Matches of Game 11*/
-  /*
-    Matches of sport_id 71
-  */
-    (491,true, SUBDATE(NOW(), INTERVAL 5 DAY), 71, 'Baker Hall', 'UPLB', 'Gym'),
-    (492,true, SUBDATE(NOW(), INTERVAL 5 DAY), 71, 'Copeland Gym','UPLB', 'Gym'),
-    (493,true, SUBDATE(NOW(), INTERVAL 5 DAY), 71, 'Physci Building', 'UPLB', 'Building'),
-    (494,true, SUBDATE(NOW(), INTERVAL 5 DAY), 71, 'Freedom Park', 'UPLB', 'Park'),
-    (495,true, SUBDATE(NOW(), INTERVAL 5 DAY), 71, 'Freedom Park', 'UPLB', 'Park'),
-    (496,true, SUBDATE(NOW(), INTERVAL 5 DAY), 71, 'Freedom Park', 'UPLB', 'Park'),
-    (497,true, SUBDATE(NOW(), INTERVAL 5 DAY), 71,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 72
-  */
-    (498,true, SUBDATE(NOW(), INTERVAL 5 DAY), 72, 'Baker Hall', 'UPLB', 'Gym'),
-    (499,true, SUBDATE(NOW(), INTERVAL 5 DAY), 72, 'Copeland Gym','UPLB', 'Gym'),
-    (500,true, SUBDATE(NOW(), INTERVAL 5 DAY), 72, 'Physci Building', 'UPLB', 'Building'),
-    (501,true, SUBDATE(NOW(), INTERVAL 5 DAY), 72, 'Freedom Park', 'UPLB', 'Park'),
-    (502,true, SUBDATE(NOW(), INTERVAL 5 DAY), 72, 'Freedom Park', 'UPLB', 'Park'),
-    (503,true, SUBDATE(NOW(), INTERVAL 5 DAY), 72, 'Freedom Park', 'UPLB', 'Park'),
-    (504,true, SUBDATE(NOW(), INTERVAL 5 DAY), 72,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 73
-  */
-    (505,true, SUBDATE(NOW(), INTERVAL 5 DAY), 73, 'Baker Hall', 'UPLB', 'Gym'),
-    (506,true, SUBDATE(NOW(), INTERVAL 5 DAY), 73, 'Copeland Gym','UPLB', 'Gym'),
-    (507,true, SUBDATE(NOW(), INTERVAL 5 DAY), 73, 'Physci Building', 'UPLB', 'Building'),
-    (508,true, SUBDATE(NOW(), INTERVAL 5 DAY), 73, 'Freedom Park', 'UPLB', 'Park'),
-    (509,true, SUBDATE(NOW(), INTERVAL 5 DAY), 73, 'Freedom Park', 'UPLB', 'Park'),
-    (510,true, SUBDATE(NOW(), INTERVAL 5 DAY), 73, 'Freedom Park', 'UPLB', 'Park'),
-    (511,true, SUBDATE(NOW(), INTERVAL 5 DAY), 73,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 74
-  */
-    (512,true, SUBDATE(NOW(), INTERVAL 5 DAY), 74, 'Baker Hall', 'UPLB', 'Gym'),
-    (513,true, SUBDATE(NOW(), INTERVAL 5 DAY), 74, 'Copeland Gym','UPLB', 'Gym'),
-    (514,true, SUBDATE(NOW(), INTERVAL 5 DAY), 74, 'Physci Building', 'UPLB', 'Building'),
-    (515,true, SUBDATE(NOW(), INTERVAL 5 DAY), 74, 'Freedom Park', 'UPLB', 'Park'),
-    (516,true, SUBDATE(NOW(), INTERVAL 5 DAY), 74, 'Freedom Park', 'UPLB', 'Park'),
-    (517,true, SUBDATE(NOW(), INTERVAL 5 DAY), 74, 'Freedom Park', 'UPLB', 'Park'),
-    (518,true, SUBDATE(NOW(), INTERVAL 5 DAY), 74,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 75
-  */
-    (519,true, SUBDATE(NOW(), INTERVAL 5 DAY), 75, 'Baker Hall', 'UPLB', 'Gym'),
-    (520,true, SUBDATE(NOW(), INTERVAL 5 DAY), 75, 'Copeland Gym','UPLB', 'Gym'),
-    (521,true, SUBDATE(NOW(), INTERVAL 5 DAY), 75, 'Physci Building', 'UPLB', 'Building'),
-    (522,true, SUBDATE(NOW(), INTERVAL 5 DAY), 75, 'Freedom Park', 'UPLB', 'Park'),
-    (523,true, SUBDATE(NOW(), INTERVAL 5 DAY), 75, 'Freedom Park', 'UPLB', 'Park'),
-    (524,true, SUBDATE(NOW(), INTERVAL 5 DAY), 75, 'Freedom Park', 'UPLB', 'Park'),
-    (525,true, SUBDATE(NOW(), INTERVAL 5 DAY), 75,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 76
-  */
-    (526,true, SUBDATE(NOW(), INTERVAL 5 DAY), 76, 'Baker Hall', 'UPLB', 'Gym'),
-    (527,true, SUBDATE(NOW(), INTERVAL 5 DAY), 76, 'Copeland Gym','UPLB', 'Gym'),
-    (528,true, SUBDATE(NOW(), INTERVAL 5 DAY), 76, 'Physci Building', 'UPLB', 'Building'),
-    (529,true, SUBDATE(NOW(), INTERVAL 5 DAY), 76, 'Freedom Park', 'UPLB', 'Park'),
-    (530,true, SUBDATE(NOW(), INTERVAL 5 DAY), 76, 'Freedom Park', 'UPLB', 'Park'),
-    (531,true, SUBDATE(NOW(), INTERVAL 5 DAY), 76, 'Freedom Park', 'UPLB', 'Park'),
-    (532,true, SUBDATE(NOW(), INTERVAL 5 DAY), 76,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 77
-  */
-    (533,true, SUBDATE(NOW(), INTERVAL 5 DAY), 77, 'Baker Hall', 'UPLB', 'Gym'),
-    (534,true, SUBDATE(NOW(), INTERVAL 5 DAY), 77, 'Copeland Gym','UPLB', 'Gym'),
-    (535,true, SUBDATE(NOW(), INTERVAL 5 DAY), 77, 'Physci Building', 'UPLB', 'Building'),
-    (536,true, SUBDATE(NOW(), INTERVAL 5 DAY), 77, 'Freedom Park', 'UPLB', 'Park'),
-    (537,true, SUBDATE(NOW(), INTERVAL 5 DAY), 77, 'Freedom Park', 'UPLB', 'Park'),
-    (538,true, SUBDATE(NOW(), INTERVAL 5 DAY), 77, 'Freedom Park', 'UPLB', 'Park'),
-    (539,true, SUBDATE(NOW(), INTERVAL 5 DAY), 77,'Freedom Park', 'UPLB', 'Park'),
-/*Matches of Game 12*/
-  /*
-    Matches of sport_id 78
-  */
-    (540,true, SUBDATE(NOW(), INTERVAL 4 DAY), 78, 'Baker Hall', 'UPLB', 'Gym'),
-    (541,true, SUBDATE(NOW(), INTERVAL 4 DAY), 78, 'Copeland Gym','UPLB', 'Gym'),
-    (542,true, SUBDATE(NOW(), INTERVAL 4 DAY), 78, 'Physci Building', 'UPLB', 'Building'),
-    (543,true, SUBDATE(NOW(), INTERVAL 4 DAY), 78, 'Freedom Park', 'UPLB', 'Park'),
-    (544,true, SUBDATE(NOW(), INTERVAL 4 DAY), 78, 'Freedom Park', 'UPLB', 'Park'),
-    (545,true, SUBDATE(NOW(), INTERVAL 4 DAY), 78, 'Freedom Park', 'UPLB', 'Park'),
-    (546,true, SUBDATE(NOW(), INTERVAL 4 DAY), 78,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 79
-  */
-    (547,true, SUBDATE(NOW(), INTERVAL 4 DAY), 79, 'Baker Hall', 'UPLB', 'Gym'),
-    (548,true, SUBDATE(NOW(), INTERVAL 4 DAY), 79, 'Copeland Gym','UPLB', 'Gym'),
-    (549,true, SUBDATE(NOW(), INTERVAL 4 DAY), 79, 'Physci Building', 'UPLB', 'Building'),
-    (550,true, SUBDATE(NOW(), INTERVAL 4 DAY), 79, 'Freedom Park', 'UPLB', 'Park'),
-    (551,true, SUBDATE(NOW(), INTERVAL 4 DAY), 79, 'Freedom Park', 'UPLB', 'Park'),
-    (552,true, SUBDATE(NOW(), INTERVAL 4 DAY), 79, 'Freedom Park', 'UPLB', 'Park'),
-    (553,true, SUBDATE(NOW(), INTERVAL 4 DAY), 79,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 80
-  */
-    (554,true, SUBDATE(NOW(), INTERVAL 4 DAY), 80, 'Baker Hall', 'UPLB', 'Gym'),
-    (555,true, SUBDATE(NOW(), INTERVAL 4 DAY), 80, 'Copeland Gym','UPLB', 'Gym'),
-    (556,true, SUBDATE(NOW(), INTERVAL 4 DAY), 80, 'Physci Building', 'UPLB', 'Building'),
-    (557,true, SUBDATE(NOW(), INTERVAL 4 DAY), 80, 'Freedom Park', 'UPLB', 'Park'),
-    (558,true, SUBDATE(NOW(), INTERVAL 4 DAY), 80, 'Freedom Park', 'UPLB', 'Park'),
-    (559,true, SUBDATE(NOW(), INTERVAL 4 DAY), 80, 'Freedom Park', 'UPLB', 'Park'),
-    (560,true, SUBDATE(NOW(), INTERVAL 4 DAY), 80,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 81
-  */
-    (561,true, SUBDATE(NOW(), INTERVAL 4 DAY), 81, 'Baker Hall', 'UPLB', 'Gym'),
-    (562,true, SUBDATE(NOW(), INTERVAL 4 DAY), 81, 'Copeland Gym','UPLB', 'Gym'),
-    (563,true, SUBDATE(NOW(), INTERVAL 4 DAY), 81, 'Physci Building', 'UPLB', 'Building'),
-    (564,true, SUBDATE(NOW(), INTERVAL 4 DAY), 81, 'Freedom Park', 'UPLB', 'Park'),
-    (565,true, SUBDATE(NOW(), INTERVAL 4 DAY), 81, 'Freedom Park', 'UPLB', 'Park'),
-    (566,true, SUBDATE(NOW(), INTERVAL 4 DAY), 81, 'Freedom Park', 'UPLB', 'Park'),
-    (567,true, SUBDATE(NOW(), INTERVAL 4 DAY), 81,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 82
-  */
-    (568,true, SUBDATE(NOW(), INTERVAL 4 DAY), 82, 'Baker Hall', 'UPLB', 'Gym'),
-    (569,true, SUBDATE(NOW(), INTERVAL 4 DAY), 82, 'Copeland Gym','UPLB', 'Gym'),
-    (570,true, SUBDATE(NOW(), INTERVAL 4 DAY), 82, 'Physci Building', 'UPLB', 'Building'),
-    (571,true, SUBDATE(NOW(), INTERVAL 4 DAY), 82, 'Freedom Park', 'UPLB', 'Park'),
-    (572,true, SUBDATE(NOW(), INTERVAL 4 DAY), 82, 'Freedom Park', 'UPLB', 'Park'),
-    (573,true, SUBDATE(NOW(), INTERVAL 4 DAY), 82, 'Freedom Park', 'UPLB', 'Park'),
-    (574,true, SUBDATE(NOW(), INTERVAL 4 DAY), 82,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 83
-  */
-    (575,true, SUBDATE(NOW(), INTERVAL 4 DAY), 83, 'Baker Hall', 'UPLB', 'Gym'),
-    (576,true, SUBDATE(NOW(), INTERVAL 4 DAY), 83, 'Copeland Gym','UPLB', 'Gym'),
-    (577,true, SUBDATE(NOW(), INTERVAL 4 DAY), 83, 'Physci Building', 'UPLB', 'Building'),
-    (578,true, SUBDATE(NOW(), INTERVAL 4 DAY), 83, 'Freedom Park', 'UPLB', 'Park'),
-    (579,true, SUBDATE(NOW(), INTERVAL 4 DAY), 83, 'Freedom Park', 'UPLB', 'Park'),
-    (580,true, SUBDATE(NOW(), INTERVAL 4 DAY), 83, 'Freedom Park', 'UPLB', 'Park'),
-    (581,true, SUBDATE(NOW(), INTERVAL 4 DAY), 83,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 84
-  */
-    (582,true, SUBDATE(NOW(), INTERVAL 4 DAY), 84, 'Baker Hall', 'UPLB', 'Gym'),
-    (583,true, SUBDATE(NOW(), INTERVAL 4 DAY), 84, 'Copeland Gym','UPLB', 'Gym'),
-    (584,true, SUBDATE(NOW(), INTERVAL 4 DAY), 84, 'Physci Building', 'UPLB', 'Building'),
-    (585,true, SUBDATE(NOW(), INTERVAL 4 DAY), 84, 'Freedom Park', 'UPLB', 'Park'),
-    (586,true, SUBDATE(NOW(), INTERVAL 4 DAY), 84, 'Freedom Park', 'UPLB', 'Park'),
-    (587,true, SUBDATE(NOW(), INTERVAL 4 DAY), 84, 'Freedom Park', 'UPLB', 'Park'),
-    (588,true, SUBDATE(NOW(), INTERVAL 4 DAY), 84,'Freedom Park', 'UPLB', 'Park'),
-/*Matches of Game 13*/
-  /*
-    Matches of sport_id 85
-  */
-    (589,true, SUBDATE(NOW(), INTERVAL 3 DAY), 85, 'Baker Hall', 'UPLB', 'Gym'),
-    (590,true, SUBDATE(NOW(), INTERVAL 3 DAY), 85, 'Copeland Gym','UPLB', 'Gym'),
-    (591,true, SUBDATE(NOW(), INTERVAL 3 DAY), 85, 'Physci Building', 'UPLB', 'Building'),
-    (592,true, SUBDATE(NOW(), INTERVAL 3 DAY), 85, 'Freedom Park', 'UPLB', 'Park'),
-    (593,true, SUBDATE(NOW(), INTERVAL 3 DAY), 85, 'Freedom Park', 'UPLB', 'Park'),
-    (594,true, SUBDATE(NOW(), INTERVAL 3 DAY), 85, 'Freedom Park', 'UPLB', 'Park'),
-    (595,true, SUBDATE(NOW(), INTERVAL 3 DAY), 85,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 86
-  */
-    (596,true, SUBDATE(NOW(), INTERVAL 3 DAY), 86, 'Baker Hall', 'UPLB', 'Gym'),
-    (597,true, SUBDATE(NOW(), INTERVAL 3 DAY), 86, 'Copeland Gym','UPLB', 'Gym'),
-    (598,true, SUBDATE(NOW(), INTERVAL 3 DAY), 86, 'Physci Building', 'UPLB', 'Building'),
-    (599,true, SUBDATE(NOW(), INTERVAL 3 DAY), 86, 'Freedom Park', 'UPLB', 'Park'),
-    (600,true, SUBDATE(NOW(), INTERVAL 3 DAY), 86, 'Freedom Park', 'UPLB', 'Park'),
-    (601,true, SUBDATE(NOW(), INTERVAL 3 DAY), 86, 'Freedom Park', 'UPLB', 'Park'),
-    (602,true, SUBDATE(NOW(), INTERVAL 3 DAY), 86,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 87
-  */
-    (603,true, SUBDATE(NOW(), INTERVAL 3 DAY), 87, 'Baker Hall', 'UPLB', 'Gym'),
-    (604,true, SUBDATE(NOW(), INTERVAL 3 DAY), 87, 'Copeland Gym','UPLB', 'Gym'),
-    (605,true, SUBDATE(NOW(), INTERVAL 3 DAY), 87, 'Physci Building', 'UPLB', 'Building'),
-    (606,true, SUBDATE(NOW(), INTERVAL 3 DAY), 87, 'Freedom Park', 'UPLB', 'Park'),
-    (607,true, SUBDATE(NOW(), INTERVAL 3 DAY), 87, 'Freedom Park', 'UPLB', 'Park'),
-    (608,true, SUBDATE(NOW(), INTERVAL 3 DAY), 87, 'Freedom Park', 'UPLB', 'Park'),
-    (609,true, SUBDATE(NOW(), INTERVAL 3 DAY), 87,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 88
-  */
-    (610,true, SUBDATE(NOW(), INTERVAL 3 DAY), 88, 'Baker Hall', 'UPLB', 'Gym'),
-    (611,true, SUBDATE(NOW(), INTERVAL 3 DAY), 88, 'Copeland Gym','UPLB', 'Gym'),
-    (612,true, SUBDATE(NOW(), INTERVAL 3 DAY), 88, 'Physci Building', 'UPLB', 'Building'),
-    (613,true, SUBDATE(NOW(), INTERVAL 3 DAY), 88, 'Freedom Park', 'UPLB', 'Park'),
-    (614,true, SUBDATE(NOW(), INTERVAL 3 DAY), 88, 'Freedom Park', 'UPLB', 'Park'),
-    (615,true, SUBDATE(NOW(), INTERVAL 3 DAY), 88, 'Freedom Park', 'UPLB', 'Park'),
-    (616,true, SUBDATE(NOW(), INTERVAL 3 DAY), 88,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 89
-  */
-    (617,true, SUBDATE(NOW(), INTERVAL 3 DAY), 89, 'Baker Hall', 'UPLB', 'Gym'),
-    (618,true, SUBDATE(NOW(), INTERVAL 3 DAY), 89, 'Copeland Gym','UPLB', 'Gym'),
-    (619,true, SUBDATE(NOW(), INTERVAL 3 DAY), 89, 'Physci Building', 'UPLB', 'Building'),
-    (620,true, SUBDATE(NOW(), INTERVAL 3 DAY), 89, 'Freedom Park', 'UPLB', 'Park'),
-    (621,true, SUBDATE(NOW(), INTERVAL 3 DAY), 89, 'Freedom Park', 'UPLB', 'Park'),
-    (622,true, SUBDATE(NOW(), INTERVAL 3 DAY), 89, 'Freedom Park', 'UPLB', 'Park'),
-    (623,true, SUBDATE(NOW(), INTERVAL 3 DAY), 89,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 90
-  */
-    (624,true, SUBDATE(NOW(), INTERVAL 3 DAY), 90, 'Baker Hall', 'UPLB', 'Gym'),
-    (625,true, SUBDATE(NOW(), INTERVAL 3 DAY), 90, 'Copeland Gym','UPLB', 'Gym'),
-    (626,true, SUBDATE(NOW(), INTERVAL 3 DAY), 90, 'Physci Building', 'UPLB', 'Building'),
-    (627,true, SUBDATE(NOW(), INTERVAL 3 DAY), 90, 'Freedom Park', 'UPLB', 'Park'),
-    (628,true, SUBDATE(NOW(), INTERVAL 3 DAY), 90, 'Freedom Park', 'UPLB', 'Park'),
-    (629,true, SUBDATE(NOW(), INTERVAL 3 DAY), 90, 'Freedom Park', 'UPLB', 'Park'),
-    (630,true, SUBDATE(NOW(), INTERVAL 3 DAY), 90,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 91
-  */
-    (631,true, SUBDATE(NOW(), INTERVAL 3 DAY), 91, 'Baker Hall', 'UPLB', 'Gym'),
-    (632,true, SUBDATE(NOW(), INTERVAL 3 DAY), 91, 'Copeland Gym','UPLB', 'Gym'),
-    (633,true, SUBDATE(NOW(), INTERVAL 3 DAY), 91, 'Physci Building', 'UPLB', 'Building'),
-    (634,true, SUBDATE(NOW(), INTERVAL 3 DAY), 91, 'Freedom Park', 'UPLB', 'Park'),
-    (635,true, SUBDATE(NOW(), INTERVAL 3 DAY), 91, 'Freedom Park', 'UPLB', 'Park'),
-    (636,true, SUBDATE(NOW(), INTERVAL 3 DAY), 91, 'Freedom Park', 'UPLB', 'Park'),
-    (637,true, SUBDATE(NOW(), INTERVAL 3 DAY), 91,'Freedom Park', 'UPLB', 'Park'),
-/*Matches of Game 14*/
-  /*
-    Matches of sport_id 92
-  */
-    (638,true, SUBDATE(NOW(), INTERVAL 2 DAY), 92, 'Baker Hall', 'UPLB', 'Gym'),
-    (639,true, SUBDATE(NOW(), INTERVAL 2 DAY), 92, 'Copeland Gym','UPLB', 'Gym'),
-    (640,true, SUBDATE(NOW(), INTERVAL 2 DAY), 92, 'Physci Building', 'UPLB', 'Building'),
-    (641,true, SUBDATE(NOW(), INTERVAL 2 DAY), 92, 'Freedom Park', 'UPLB', 'Park'),
-    (642,true, SUBDATE(NOW(), INTERVAL 2 DAY), 92, 'Freedom Park', 'UPLB', 'Park'),
-    (643,true, SUBDATE(NOW(), INTERVAL 2 DAY), 92, 'Freedom Park', 'UPLB', 'Park'),
-    (644,true, SUBDATE(NOW(), INTERVAL 2 DAY), 92,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 93
-  */
-    (645,true, SUBDATE(NOW(), INTERVAL 2 DAY), 93, 'Baker Hall', 'UPLB', 'Gym'),
-    (646,true, SUBDATE(NOW(), INTERVAL 2 DAY), 93, 'Copeland Gym','UPLB', 'Gym'),
-    (647,true, SUBDATE(NOW(), INTERVAL 2 DAY), 93, 'Physci Building', 'UPLB', 'Building'),
-    (648,true, SUBDATE(NOW(), INTERVAL 2 DAY), 93, 'Freedom Park', 'UPLB', 'Park'),
-    (649,true, SUBDATE(NOW(), INTERVAL 2 DAY), 93, 'Freedom Park', 'UPLB', 'Park'),
-    (650,true, SUBDATE(NOW(), INTERVAL 2 DAY), 93, 'Freedom Park', 'UPLB', 'Park'),
-    (651,true, SUBDATE(NOW(), INTERVAL 2 DAY), 93,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 94
-  */
-    (652,true, SUBDATE(NOW(), INTERVAL 2 DAY), 94, 'Baker Hall', 'UPLB', 'Gym'),
-    (653,true, SUBDATE(NOW(), INTERVAL 2 DAY), 94, 'Copeland Gym','UPLB', 'Gym'),
-    (654,true, SUBDATE(NOW(), INTERVAL 2 DAY), 94, 'Physci Building', 'UPLB', 'Building'),
-    (655,true, SUBDATE(NOW(), INTERVAL 2 DAY), 94, 'Freedom Park', 'UPLB', 'Park'),
-    (656,true, SUBDATE(NOW(), INTERVAL 2 DAY), 94, 'Freedom Park', 'UPLB', 'Park'),
-    (657,true, SUBDATE(NOW(), INTERVAL 2 DAY), 94, 'Freedom Park', 'UPLB', 'Park'),
-    (658,true, SUBDATE(NOW(), INTERVAL 2 DAY), 94,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 95
-  */
-    (659,true, SUBDATE(NOW(), INTERVAL 2 DAY), 95, 'Baker Hall', 'UPLB', 'Gym'),
-    (660,true, SUBDATE(NOW(), INTERVAL 2 DAY), 95, 'Copeland Gym','UPLB', 'Gym'),
-    (661,true, SUBDATE(NOW(), INTERVAL 2 DAY), 95, 'Physci Building', 'UPLB', 'Building'),
-    (662,true, SUBDATE(NOW(), INTERVAL 2 DAY), 95, 'Freedom Park', 'UPLB', 'Park'),
-    (663,true, SUBDATE(NOW(), INTERVAL 2 DAY), 95, 'Freedom Park', 'UPLB', 'Park'),
-    (664,true, SUBDATE(NOW(), INTERVAL 2 DAY), 95, 'Freedom Park', 'UPLB', 'Park'),
-    (665,true, SUBDATE(NOW(), INTERVAL 2 DAY), 95,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 96
-  */
-    (666,true, SUBDATE(NOW(), INTERVAL 2 DAY), 96, 'Baker Hall', 'UPLB', 'Gym'),
-    (667,true, SUBDATE(NOW(), INTERVAL 2 DAY), 96, 'Copeland Gym','UPLB', 'Gym'),
-    (668,true, SUBDATE(NOW(), INTERVAL 2 DAY), 96, 'Physci Building', 'UPLB', 'Building'),
-    (669,true, SUBDATE(NOW(), INTERVAL 2 DAY), 96, 'Freedom Park', 'UPLB', 'Park'),
-    (670,true, SUBDATE(NOW(), INTERVAL 2 DAY), 96, 'Freedom Park', 'UPLB', 'Park'),
-    (671,true, SUBDATE(NOW(), INTERVAL 2 DAY), 96, 'Freedom Park', 'UPLB', 'Park'),
-    (672,true, SUBDATE(NOW(), INTERVAL 2 DAY), 96,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 97
-  */
-    (673,true, SUBDATE(NOW(), INTERVAL 2 DAY), 97, 'Baker Hall', 'UPLB', 'Gym'),
-    (674,true, SUBDATE(NOW(), INTERVAL 2 DAY), 97, 'Copeland Gym','UPLB', 'Gym'),
-    (675,true, SUBDATE(NOW(), INTERVAL 2 DAY), 97, 'Physci Building', 'UPLB', 'Building'),
-    (676,true, SUBDATE(NOW(), INTERVAL 2 DAY), 97, 'Freedom Park', 'UPLB', 'Park'),
-    (677,true, SUBDATE(NOW(), INTERVAL 2 DAY), 97, 'Freedom Park', 'UPLB', 'Park'),
-    (678,true, SUBDATE(NOW(), INTERVAL 2 DAY), 97, 'Freedom Park', 'UPLB', 'Park'),
-    (679,true, SUBDATE(NOW(), INTERVAL 2 DAY), 97,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 98
-  */
-    (680,true, SUBDATE(NOW(), INTERVAL 2 DAY), 98, 'Baker Hall', 'UPLB', 'Gym'),
-    (681,true, SUBDATE(NOW(), INTERVAL 2 DAY), 98, 'Copeland Gym','UPLB', 'Gym'),
-    (682,true, SUBDATE(NOW(), INTERVAL 2 DAY), 98, 'Physci Building', 'UPLB', 'Building'),
-    (683,true, SUBDATE(NOW(), INTERVAL 2 DAY), 98, 'Freedom Park', 'UPLB', 'Park'),
-    (684,true, SUBDATE(NOW(), INTERVAL 2 DAY), 98, 'Freedom Park', 'UPLB', 'Park'),
-    (685,true, SUBDATE(NOW(), INTERVAL 2 DAY), 98, 'Freedom Park', 'UPLB', 'Park'),
-    (686,true, SUBDATE(NOW(), INTERVAL 2 DAY), 98,'Freedom Park', 'UPLB', 'Park'),
-/*Matches of Game 15*/
-  /*
-    Matches of sport_id 99
-  */
-    (687,true, SUBDATE(NOW(), INTERVAL 1 DAY), 99, 'Baker Hall', 'UPLB', 'Gym'),
-    (688,true, SUBDATE(NOW(), INTERVAL 1 DAY), 99, 'Copeland Gym','UPLB', 'Gym'),
-    (689,true, SUBDATE(NOW(), INTERVAL 1 DAY), 99, 'Physci Building', 'UPLB', 'Building'),
-    (690,true, SUBDATE(NOW(), INTERVAL 1 DAY), 99, 'Freedom Park', 'UPLB', 'Park'),
-    (691,true, SUBDATE(NOW(), INTERVAL 1 DAY), 99, 'Freedom Park', 'UPLB', 'Park'),
-    (692,true, SUBDATE(NOW(), INTERVAL 1 DAY), 99, 'Freedom Park', 'UPLB', 'Park'),
-    (693,true, SUBDATE(NOW(), INTERVAL 1 DAY), 99,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 100
-  */
-    (694,true, SUBDATE(NOW(), INTERVAL 1 DAY), 100, 'Baker Hall', 'UPLB', 'Gym'),
-    (695,true, SUBDATE(NOW(), INTERVAL 1 DAY), 100, 'Copeland Gym','UPLB', 'Gym'),
-    (696,true, SUBDATE(NOW(), INTERVAL 1 DAY), 100, 'Physci Building', 'UPLB', 'Building'),
-    (697,true, SUBDATE(NOW(), INTERVAL 1 DAY), 100, 'Freedom Park', 'UPLB', 'Park'),
-    (698,true, SUBDATE(NOW(), INTERVAL 1 DAY), 100, 'Freedom Park', 'UPLB', 'Park'),
-    (699,true, SUBDATE(NOW(), INTERVAL 1 DAY), 100, 'Freedom Park', 'UPLB', 'Park'),
-    (700,true, SUBDATE(NOW(), INTERVAL 1 DAY), 100,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 101
-  */
-    (701,true, SUBDATE(NOW(), INTERVAL 1 DAY), 101, 'Baker Hall', 'UPLB', 'Gym'),
-    (702,true, SUBDATE(NOW(), INTERVAL 1 DAY), 101, 'Copeland Gym','UPLB', 'Gym'),
-    (703,true, SUBDATE(NOW(), INTERVAL 1 DAY), 101, 'Physci Building', 'UPLB', 'Building'),
-    (704,true, SUBDATE(NOW(), INTERVAL 1 DAY), 101, 'Freedom Park', 'UPLB', 'Park'),
-    (705,true, SUBDATE(NOW(), INTERVAL 1 DAY), 101, 'Freedom Park', 'UPLB', 'Park'),
-    (706,true, SUBDATE(NOW(), INTERVAL 1 DAY), 101, 'Freedom Park', 'UPLB', 'Park'),
-    (707,true, SUBDATE(NOW(), INTERVAL 1 DAY), 101,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 102
-  */
-    (708,true, SUBDATE(NOW(), INTERVAL 1 DAY), 102, 'Baker Hall', 'UPLB', 'Gym'),
-    (709,true, SUBDATE(NOW(), INTERVAL 1 DAY), 102, 'Copeland Gym','UPLB', 'Gym'),
-    (710,true, SUBDATE(NOW(), INTERVAL 1 DAY), 102, 'Physci Building', 'UPLB', 'Building'),
-    (711,true, SUBDATE(NOW(), INTERVAL 1 DAY), 102, 'Freedom Park', 'UPLB', 'Park'),
-    (712,true, SUBDATE(NOW(), INTERVAL 1 DAY), 102, 'Freedom Park', 'UPLB', 'Park'),
-    (713,true, SUBDATE(NOW(), INTERVAL 1 DAY), 102, 'Freedom Park', 'UPLB', 'Park'),
-    (714,true, SUBDATE(NOW(), INTERVAL 1 DAY), 102,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 103
-  */
-    (715,true, SUBDATE(NOW(), INTERVAL 1 DAY), 103, 'Baker Hall', 'UPLB', 'Gym'),
-    (716,true, SUBDATE(NOW(), INTERVAL 1 DAY), 103, 'Copeland Gym','UPLB', 'Gym'),
-    (717,true, SUBDATE(NOW(), INTERVAL 1 DAY), 103, 'Physci Building', 'UPLB', 'Building'),
-    (718,true, SUBDATE(NOW(), INTERVAL 1 DAY), 103, 'Freedom Park', 'UPLB', 'Park'),
-    (719,true, SUBDATE(NOW(), INTERVAL 1 DAY), 103, 'Freedom Park', 'UPLB', 'Park'),
-    (720,true, SUBDATE(NOW(), INTERVAL 1 DAY), 103, 'Freedom Park', 'UPLB', 'Park'),
-    (721,true, SUBDATE(NOW(), INTERVAL 1 DAY), 103,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 104
-  */
-    (722,true, SUBDATE(NOW(), INTERVAL 1 DAY), 104, 'Baker Hall', 'UPLB', 'Gym'),
-    (723,true, SUBDATE(NOW(), INTERVAL 1 DAY), 104, 'Copeland Gym','UPLB', 'Gym'),
-    (724,true, SUBDATE(NOW(), INTERVAL 1 DAY), 104, 'Physci Building', 'UPLB', 'Building'),
-    (725,true, SUBDATE(NOW(), INTERVAL 1 DAY), 104, 'Freedom Park', 'UPLB', 'Park'),
-    (726,true, SUBDATE(NOW(), INTERVAL 1 DAY), 104, 'Freedom Park', 'UPLB', 'Park'),
-    (727,true, SUBDATE(NOW(), INTERVAL 1 DAY), 104, 'Freedom Park', 'UPLB', 'Park'),
-    (728,true, SUBDATE(NOW(), INTERVAL 1 DAY), 104,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 105
-  */
-    (729,true, SUBDATE(NOW(), INTERVAL 1 DAY), 105, 'Baker Hall', 'UPLB', 'Gym'),
-    (730,true, SUBDATE(NOW(), INTERVAL 1 DAY), 105, 'Copeland Gym','UPLB', 'Gym'),
-    (731,true, SUBDATE(NOW(), INTERVAL 1 DAY), 105, 'Physci Building', 'UPLB', 'Building'),
-    (732,true, SUBDATE(NOW(), INTERVAL 1 DAY), 105, 'Freedom Park', 'UPLB', 'Park'),
-    (733,true, SUBDATE(NOW(), INTERVAL 1 DAY), 105, 'Freedom Park', 'UPLB', 'Park'),
-    (734,true, SUBDATE(NOW(), INTERVAL 1 DAY), 105, 'Freedom Park', 'UPLB', 'Park'),
-    (735,true, SUBDATE(NOW(), INTERVAL 1 DAY), 105,'Freedom Park', 'UPLB', 'Park'),
-/*Matches of Game 16*/
-  /*
-    Matches of sport_id 106
-  */
-    (736,true, SUBDATE(NOW(), INTERVAL 0 DAY), 106, 'Baker Hall', 'UPLB', 'Gym'),
-    (737,true, SUBDATE(NOW(), INTERVAL 0 DAY), 106, 'Copeland Gym','UPLB', 'Gym'),
-    (738,true, SUBDATE(NOW(), INTERVAL 0 DAY), 106, 'Physci Building', 'UPLB', 'Building'),
-    (739,true, SUBDATE(NOW(), INTERVAL 0 DAY), 106, 'Freedom Park', 'UPLB', 'Park'),
-    (740,true, SUBDATE(NOW(), INTERVAL 0 DAY), 106, 'Freedom Park', 'UPLB', 'Park'),
-    (741,true, SUBDATE(NOW(), INTERVAL 0 DAY), 106, 'Freedom Park', 'UPLB', 'Park'),
-    (742,true, SUBDATE(NOW(), INTERVAL 0 DAY), 106,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 107
-  */
-    (743,true, SUBDATE(NOW(), INTERVAL 0 DAY), 107, 'Baker Hall', 'UPLB', 'Gym'),
-    (744,true, SUBDATE(NOW(), INTERVAL 0 DAY), 107, 'Copeland Gym','UPLB', 'Gym'),
-    (745,true, SUBDATE(NOW(), INTERVAL 0 DAY), 107, 'Physci Building', 'UPLB', 'Building'),
-    (746,true, SUBDATE(NOW(), INTERVAL 0 DAY), 107, 'Freedom Park', 'UPLB', 'Park'),
-    (747,true, SUBDATE(NOW(), INTERVAL 0 DAY), 107, 'Freedom Park', 'UPLB', 'Park'),
-    (748,true, SUBDATE(NOW(), INTERVAL 0 DAY), 107, 'Freedom Park', 'UPLB', 'Park'),
-    (749,true, SUBDATE(NOW(), INTERVAL 0 DAY), 107,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 108
-  */
-    (750,true, SUBDATE(NOW(), INTERVAL 0 DAY), 108, 'Baker Hall', 'UPLB', 'Gym'),
-    (751,true, SUBDATE(NOW(), INTERVAL 0 DAY), 108, 'Copeland Gym','UPLB', 'Gym'),
-    (752,true, SUBDATE(NOW(), INTERVAL 0 DAY), 108, 'Physci Building', 'UPLB', 'Building'),
-    (753,true, SUBDATE(NOW(), INTERVAL 0 DAY), 108, 'Freedom Park', 'UPLB', 'Park'),
-    (754,true, SUBDATE(NOW(), INTERVAL 0 DAY), 108, 'Freedom Park', 'UPLB', 'Park'),
-    (755,true, SUBDATE(NOW(), INTERVAL 0 DAY), 108, 'Freedom Park', 'UPLB', 'Park'),
-    (756,true, SUBDATE(NOW(), INTERVAL 0 DAY), 108,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 109
-  */
-    (757,true, SUBDATE(NOW(), INTERVAL 0 DAY), 109, 'Baker Hall', 'UPLB', 'Gym'),
-    (758,true, SUBDATE(NOW(), INTERVAL 0 DAY), 109, 'Copeland Gym','UPLB', 'Gym'),
-    (759,true, SUBDATE(NOW(), INTERVAL 0 DAY), 109, 'Physci Building', 'UPLB', 'Building'),
-    (760,true, SUBDATE(NOW(), INTERVAL 0 DAY), 109, 'Freedom Park', 'UPLB', 'Park'),
-    (761,true, SUBDATE(NOW(), INTERVAL 0 DAY), 109, 'Freedom Park', 'UPLB', 'Park'),
-    (762,true, SUBDATE(NOW(), INTERVAL 0 DAY), 109, 'Freedom Park', 'UPLB', 'Park'),
-    (763,true, SUBDATE(NOW(), INTERVAL 0 DAY), 109,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 110
-  */
-    (764,true, SUBDATE(NOW(), INTERVAL 0 DAY), 110, 'Baker Hall', 'UPLB', 'Gym'),
-    (765,true, SUBDATE(NOW(), INTERVAL 0 DAY), 110, 'Copeland Gym','UPLB', 'Gym'),
-    (766,true, SUBDATE(NOW(), INTERVAL 0 DAY), 110, 'Physci Building', 'UPLB', 'Building'),
-    (767,true, SUBDATE(NOW(), INTERVAL 0 DAY), 110, 'Freedom Park', 'UPLB', 'Park'),
-    (768,true, SUBDATE(NOW(), INTERVAL 0 DAY), 110, 'Freedom Park', 'UPLB', 'Park'),
-    (769,true, SUBDATE(NOW(), INTERVAL 0 DAY), 110, 'Freedom Park', 'UPLB', 'Park'),
-    (770,true, SUBDATE(NOW(), INTERVAL 0 DAY), 110,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 111
-  */
-    (771,true, SUBDATE(NOW(), INTERVAL 0 DAY), 111, 'Baker Hall', 'UPLB', 'Gym'),
-    (772,true, SUBDATE(NOW(), INTERVAL 0 DAY), 111, 'Copeland Gym','UPLB', 'Gym'),
-    (773,true, SUBDATE(NOW(), INTERVAL 0 DAY), 111, 'Physci Building', 'UPLB', 'Building'),
-    (774,true, SUBDATE(NOW(), INTERVAL 0 DAY), 111, 'Freedom Park', 'UPLB', 'Park'),
-    (775,true, SUBDATE(NOW(), INTERVAL 0 DAY), 111, 'Freedom Park', 'UPLB', 'Park'),
-    (776,true, SUBDATE(NOW(), INTERVAL 0 DAY), 111, 'Freedom Park', 'UPLB', 'Park'),
-    (777,true, SUBDATE(NOW(), INTERVAL 0 DAY), 111,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 112
-  */
-    (778,true, SUBDATE(NOW(), INTERVAL 0 DAY), 112, 'Baker Hall', 'UPLB', 'Gym'),
-    (779,true, SUBDATE(NOW(), INTERVAL 0 DAY), 112, 'Copeland Gym','UPLB', 'Gym'),
-    (780,true, SUBDATE(NOW(), INTERVAL 0 DAY), 112, 'Physci Building', 'UPLB', 'Building'),
-    (781,true, SUBDATE(NOW(), INTERVAL 0 DAY), 112, 'Freedom Park', 'UPLB', 'Park'),
-    (782,true, SUBDATE(NOW(), INTERVAL 0 DAY), 112, 'Freedom Park', 'UPLB', 'Park'),
-    (783,true, SUBDATE(NOW(), INTERVAL 0 DAY), 112, 'Freedom Park', 'UPLB', 'Park'),
-    (784,true, SUBDATE(NOW(), INTERVAL 0 DAY), 112,'Freedom Park', 'UPLB', 'Park'),
-/*Matches of Game 17*/
-  /*
-    Matches of sport_id 113
-  */
-    (785,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 113, 'Baker Hall', 'UPLB', 'Gym'),
-    (786,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 113, 'Copeland Gym','UPLB', 'Gym'),
-    (787,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 113, 'Physci Building', 'UPLB', 'Building'),
-    (788,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 113, 'Freedom Park', 'UPLB', 'Park'),
-    (789,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 113, 'Freedom Park', 'UPLB', 'Park'),
-    (790,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 113, 'Freedom Park', 'UPLB', 'Park'),
-    (791,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 113,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 114
-  */
-    (792,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 114, 'Baker Hall', 'UPLB', 'Gym'),
-    (793,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 114, 'Copeland Gym','UPLB', 'Gym'),
-    (794,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 114, 'Physci Building', 'UPLB', 'Building'),
-    (795,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 114, 'Freedom Park', 'UPLB', 'Park'),
-    (796,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 114, 'Freedom Park', 'UPLB', 'Park'),
-    (797,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 114, 'Freedom Park', 'UPLB', 'Park'),
-    (798,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 114,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 115
-  */
-    (799,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 115, 'Baker Hall', 'UPLB', 'Gym'),
-    (800,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 115, 'Copeland Gym','UPLB', 'Gym'),
-    (801,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 115, 'Physci Building', 'UPLB', 'Building'),
-    (802,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 115, 'Freedom Park', 'UPLB', 'Park'),
-    (803,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 115, 'Freedom Park', 'UPLB', 'Park'),
-    (804,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 115, 'Freedom Park', 'UPLB', 'Park'),
-    (805,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 115,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 116
-  */
-    (806,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 116, 'Baker Hall', 'UPLB', 'Gym'),
-    (807,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 116, 'Copeland Gym','UPLB', 'Gym'),
-    (808,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 116, 'Physci Building', 'UPLB', 'Building'),
-    (809,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 116, 'Freedom Park', 'UPLB', 'Park'),
-    (810,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 116, 'Freedom Park', 'UPLB', 'Park'),
-    (811,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 116, 'Freedom Park', 'UPLB', 'Park'),
-    (812,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 116,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 117
-  */
-    (813,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 117, 'Baker Hall', 'UPLB', 'Gym'),
-    (814,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 117, 'Copeland Gym','UPLB', 'Gym'),
-    (815,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 117, 'Physci Building', 'UPLB', 'Building'),
-    (816,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 117, 'Freedom Park', 'UPLB', 'Park'),
-    (817,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 117, 'Freedom Park', 'UPLB', 'Park'),
-    (818,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 117, 'Freedom Park', 'UPLB', 'Park'),
-    (819,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 117,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 118
-  */
-    (820,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 118, 'Baker Hall', 'UPLB', 'Gym'),
-    (821,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 118, 'Copeland Gym','UPLB', 'Gym'),
-    (822,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 118, 'Physci Building', 'UPLB', 'Building'),
-    (823,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 118, 'Freedom Park', 'UPLB', 'Park'),
-    (824,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 118, 'Freedom Park', 'UPLB', 'Park'),
-    (825,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 118, 'Freedom Park', 'UPLB', 'Park'),
-    (826,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 118,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 119
-  */
-    (827,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 119, 'Baker Hall', 'UPLB', 'Gym'),
-    (828,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 119, 'Copeland Gym','UPLB', 'Gym'),
-    (829,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 119, 'Physci Building', 'UPLB', 'Building'),
-    (830,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 119, 'Freedom Park', 'UPLB', 'Park'),
-    (831,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 119, 'Freedom Park', 'UPLB', 'Park'),
-    (832,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 119, 'Freedom Park', 'UPLB', 'Park'),
-    (833,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 119,'Freedom Park', 'UPLB', 'Park'),
-/*Matches of Game 18*/
-  /*
-    Matches of sport_id 120
-  */
-    (834,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 120, 'Baker Hall', 'UPLB', 'Gym'),
-    (835,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 120, 'Copeland Gym','UPLB', 'Gym'),
-    (836,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 120, 'Physci Building', 'UPLB', 'Building'),
-    (837,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 120, 'Freedom Park', 'UPLB', 'Park'),
-    (838,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 120, 'Freedom Park', 'UPLB', 'Park'),
-    (839,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 120, 'Freedom Park', 'UPLB', 'Park'),
-    (840,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 120,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 121
-  */
-    (841,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 121, 'Baker Hall', 'UPLB', 'Gym'),
-    (842,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 121, 'Copeland Gym','UPLB', 'Gym'),
-    (843,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 121, 'Physci Building', 'UPLB', 'Building'),
-    (844,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 121, 'Freedom Park', 'UPLB', 'Park'),
-    (845,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 121, 'Freedom Park', 'UPLB', 'Park'),
-    (846,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 121, 'Freedom Park', 'UPLB', 'Park'),
-    (847,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 121,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 122
-  */
-    (848,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 122, 'Baker Hall', 'UPLB', 'Gym'),
-    (849,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 122, 'Copeland Gym','UPLB', 'Gym'),
-    (850,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 122, 'Physci Building', 'UPLB', 'Building'),
-    (851,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 122, 'Freedom Park', 'UPLB', 'Park'),
-    (852,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 122, 'Freedom Park', 'UPLB', 'Park'),
-    (853,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 122, 'Freedom Park', 'UPLB', 'Park'),
-    (854,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 122,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 123
-  */
-    (855,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 123, 'Baker Hall', 'UPLB', 'Gym'),
-    (856,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 123, 'Copeland Gym','UPLB', 'Gym'),
-    (857,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 123, 'Physci Building', 'UPLB', 'Building'),
-    (858,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 123, 'Freedom Park', 'UPLB', 'Park'),
-    (859,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 123, 'Freedom Park', 'UPLB', 'Park'),
-    (860,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 123, 'Freedom Park', 'UPLB', 'Park'),
-    (861,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 123,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 124
-  */
-    (862,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 124, 'Baker Hall', 'UPLB', 'Gym'),
-    (863,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 124, 'Copeland Gym','UPLB', 'Gym'),
-    (864,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 124, 'Physci Building', 'UPLB', 'Building'),
-    (865,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 124, 'Freedom Park', 'UPLB', 'Park'),
-    (866,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 124, 'Freedom Park', 'UPLB', 'Park'),
-    (867,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 124, 'Freedom Park', 'UPLB', 'Park'),
-    (868,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 124,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 125
-  */
-    (869,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 125, 'Baker Hall', 'UPLB', 'Gym'),
-    (870,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 125, 'Copeland Gym','UPLB', 'Gym'),
-    (871,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 125, 'Physci Building', 'UPLB', 'Building'),
-    (872,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 125, 'Freedom Park', 'UPLB', 'Park'),
-    (873,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 125, 'Freedom Park', 'UPLB', 'Park'),
-    (874,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 125, 'Freedom Park', 'UPLB', 'Park'),
-    (875,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 125,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 126
-  */
-    (876,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 126, 'Baker Hall', 'UPLB', 'Gym'),
-    (877,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 126, 'Copeland Gym','UPLB', 'Gym'),
-    (878,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 126, 'Physci Building', 'UPLB', 'Building'),
-    (879,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 126, 'Freedom Park', 'UPLB', 'Park'),
-    (880,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 126, 'Freedom Park', 'UPLB', 'Park'),
-    (881,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 126, 'Freedom Park', 'UPLB', 'Park'),
-    (882,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 126,'Freedom Park', 'UPLB', 'Park'),
-/*Matches of Game 19*/
-  /*
-    Matches of sport_id 127
-  */
-    (883,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 127, 'Baker Hall', 'UPLB', 'Gym'),
-    (884,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 127, 'Copeland Gym','UPLB', 'Gym'),
-    (885,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 127, 'Physci Building', 'UPLB', 'Building'),
-    (886,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 127, 'Freedom Park', 'UPLB', 'Park'),
-    (887,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 127, 'Freedom Park', 'UPLB', 'Park'),
-    (888,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 127, 'Freedom Park', 'UPLB', 'Park'),
-    (889,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 127,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 128
-  */
-    (890,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 128, 'Baker Hall', 'UPLB', 'Gym'),
-    (891,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 128, 'Copeland Gym','UPLB', 'Gym'),
-    (892,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 128, 'Physci Building', 'UPLB', 'Building'),
-    (893,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 128, 'Freedom Park', 'UPLB', 'Park'),
-    (894,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 128, 'Freedom Park', 'UPLB', 'Park'),
-    (895,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 128, 'Freedom Park', 'UPLB', 'Park'),
-    (896,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 128,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 129
-  */
-    (897,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 129, 'Baker Hall', 'UPLB', 'Gym'),
-    (898,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 129, 'Copeland Gym','UPLB', 'Gym'),
-    (899,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 129, 'Physci Building', 'UPLB', 'Building'),
-    (900,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 129, 'Freedom Park', 'UPLB', 'Park'),
-    (901,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 129, 'Freedom Park', 'UPLB', 'Park'),
-    (902,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 129, 'Freedom Park', 'UPLB', 'Park'),
-    (903,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 129,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 130
-  */
-    (904,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 130, 'Baker Hall', 'UPLB', 'Gym'),
-    (905,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 130, 'Copeland Gym','UPLB', 'Gym'),
-    (906,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 130, 'Physci Building', 'UPLB', 'Building'),
-    (907,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 130, 'Freedom Park', 'UPLB', 'Park'),
-    (908,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 130, 'Freedom Park', 'UPLB', 'Park'),
-    (909,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 130, 'Freedom Park', 'UPLB', 'Park'),
-    (910,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 130,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 131
-  */
-    (911,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 131, 'Baker Hall', 'UPLB', 'Gym'),
-    (912,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 131, 'Copeland Gym','UPLB', 'Gym'),
-    (913,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 131, 'Physci Building', 'UPLB', 'Building'),
-    (914,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 131, 'Freedom Park', 'UPLB', 'Park'),
-    (915,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 131, 'Freedom Park', 'UPLB', 'Park'),
-    (916,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 131, 'Freedom Park', 'UPLB', 'Park'),
-    (917,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 131,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 132
-  */
-    (918,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 132, 'Baker Hall', 'UPLB', 'Gym'),
-    (919,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 132, 'Copeland Gym','UPLB', 'Gym'),
-    (920,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 132, 'Physci Building', 'UPLB', 'Building'),
-    (921,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 132, 'Freedom Park', 'UPLB', 'Park'),
-    (922,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 132, 'Freedom Park', 'UPLB', 'Park'),
-    (923,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 132, 'Freedom Park', 'UPLB', 'Park'),
-    (924,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 132,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 133
-  */
-    (925,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 133, 'Baker Hall', 'UPLB', 'Gym'),
-    (926,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 133, 'Copeland Gym','UPLB', 'Gym'),
-    (927,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 133, 'Physci Building', 'UPLB', 'Building'),
-    (928,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 133, 'Freedom Park', 'UPLB', 'Park'),
-    (929,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 133, 'Freedom Park', 'UPLB', 'Park'),
-    (930,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 133, 'Freedom Park', 'UPLB', 'Park'),
-    (931,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 133,'Freedom Park', 'UPLB', 'Park'),
-/*Matches of Game 20*/
-  /*
-    Matches of sport_id 134
-  */
-    (932,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 134, 'Baker Hall', 'UPLB', 'Gym'),
-    (933,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 134, 'Copeland Gym','UPLB', 'Gym'),
-    (934,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 134, 'Physci Building', 'UPLB', 'Building'),
-    (935,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 134, 'Freedom Park', 'UPLB', 'Park'),
-    (936,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 134, 'Freedom Park', 'UPLB', 'Park'),
-    (937,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 134, 'Freedom Park', 'UPLB', 'Park'),
-    (938,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 134,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 135
-  */
-    (939,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 135, 'Baker Hall', 'UPLB', 'Gym'),
-    (940,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 135, 'Copeland Gym','UPLB', 'Gym'),
-    (941,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 135, 'Physci Building', 'UPLB', 'Building'),
-    (942,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 135, 'Freedom Park', 'UPLB', 'Park'),
-    (943,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 135, 'Freedom Park', 'UPLB', 'Park'),
-    (944,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 135, 'Freedom Park', 'UPLB', 'Park'),
-    (945,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 135,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 136
-  */
-    (946,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 136, 'Baker Hall', 'UPLB', 'Gym'),
-    (947,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 136, 'Copeland Gym','UPLB', 'Gym'),
-    (948,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 136, 'Physci Building', 'UPLB', 'Building'),
-    (949,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 136, 'Freedom Park', 'UPLB', 'Park'),
-    (950,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 136, 'Freedom Park', 'UPLB', 'Park'),
-    (951,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 136, 'Freedom Park', 'UPLB', 'Park'),
-    (952,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 136,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 137
-  */
-    (953,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 137, 'Baker Hall', 'UPLB', 'Gym'),
-    (954,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 137, 'Copeland Gym','UPLB', 'Gym'),
-    (955,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 137, 'Physci Building', 'UPLB', 'Building'),
-    (956,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 137, 'Freedom Park', 'UPLB', 'Park'),
-    (957,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 137, 'Freedom Park', 'UPLB', 'Park'),
-    (958,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 137, 'Freedom Park', 'UPLB', 'Park'),
-    (959,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 137,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 138
-  */
-    (960,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 138, 'Baker Hall', 'UPLB', 'Gym'),
-    (961,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 138, 'Copeland Gym','UPLB', 'Gym'),
-    (962,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 138, 'Physci Building', 'UPLB', 'Building'),
-    (963,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 138, 'Freedom Park', 'UPLB', 'Park'),
-    (964,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 138, 'Freedom Park', 'UPLB', 'Park'),
-    (965,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 138, 'Freedom Park', 'UPLB', 'Park'),
-    (966,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 138,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 139
-  */
-    (967,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 139, 'Baker Hall', 'UPLB', 'Gym'),
-    (968,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 139, 'Copeland Gym','UPLB', 'Gym'),
-    (969,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 139, 'Physci Building', 'UPLB', 'Building'),
-    (970,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 139, 'Freedom Park', 'UPLB', 'Park'),
-    (971,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 139, 'Freedom Park', 'UPLB', 'Park'),
-    (972,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 139, 'Freedom Park', 'UPLB', 'Park'),
-    (973,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 139,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 140
-  */
-    (974,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 140, 'Baker Hall', 'UPLB', 'Gym'),
-    (975,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 140, 'Copeland Gym','UPLB', 'Gym'),
-    (976,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 140, 'Physci Building', 'UPLB', 'Building'),
-    (977,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 140, 'Freedom Park', 'UPLB', 'Park'),
-    (978,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 140, 'Freedom Park', 'UPLB', 'Park'),
-    (979,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 140, 'Freedom Park', 'UPLB', 'Park'),
-    (980,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 140,'Freedom Park', 'UPLB', 'Park'),
-/*Matches of Game 21*/
-  /*
-    Matches of sport_id 141
-  */
-    (981,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 141, 'Baker Hall', 'UPLB', 'Gym'),
-    (982,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 141, 'Copeland Gym','UPLB', 'Gym'),
-    (983,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 141, 'Physci Building', 'UPLB', 'Building'),
-    (984,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 141, 'Freedom Park', 'UPLB', 'Park'),
-    (985,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 141, 'Freedom Park', 'UPLB', 'Park'),
-    (986,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 141, 'Freedom Park', 'UPLB', 'Park'),
-    (987,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 141,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 142
-  */
-    (988,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 142, 'Baker Hall', 'UPLB', 'Gym'),
-    (989,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 142, 'Copeland Gym','UPLB', 'Gym'),
-    (990,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 142, 'Physci Building', 'UPLB', 'Building'),
-    (991,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 142, 'Freedom Park', 'UPLB', 'Park'),
-    (992,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 142, 'Freedom Park', 'UPLB', 'Park'),
-    (993,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 142, 'Freedom Park', 'UPLB', 'Park'),
-    (994,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 142,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 143
-  */
-    (995,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 143, 'Baker Hall', 'UPLB', 'Gym'),
-    (996,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 143, 'Copeland Gym','UPLB', 'Gym'),
-    (997,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 143, 'Physci Building', 'UPLB', 'Building'),
-    (998,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 143, 'Freedom Park', 'UPLB', 'Park'),
-    (999,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 143, 'Freedom Park', 'UPLB', 'Park'),
-    (1000,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 143, 'Freedom Park', 'UPLB', 'Park'),
-    (1001,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 143,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 144
-  */
-    (1002,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 144, 'Baker Hall', 'UPLB', 'Gym'),
-    (1003,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 144, 'Copeland Gym','UPLB', 'Gym'),
-    (1004,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 144, 'Physci Building', 'UPLB', 'Building'),
-    (1005,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 144, 'Freedom Park', 'UPLB', 'Park'),
-    (1006,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 144, 'Freedom Park', 'UPLB', 'Park'),
-    (1007,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 144, 'Freedom Park', 'UPLB', 'Park'),
-    (1008,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 144,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 145
-  */
-    (1009,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 145, 'Baker Hall', 'UPLB', 'Gym'),
-    (1010,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 145, 'Copeland Gym','UPLB', 'Gym'),
-    (1011,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 145, 'Physci Building', 'UPLB', 'Building'),
-    (1012,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 145, 'Freedom Park', 'UPLB', 'Park'),
-    (1013,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 145, 'Freedom Park', 'UPLB', 'Park'),
-    (1014,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 145, 'Freedom Park', 'UPLB', 'Park'),
-    (1015,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 145,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 146
-  */
-    (1016,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 146, 'Baker Hall', 'UPLB', 'Gym'),
-    (1017,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 146, 'Copeland Gym','UPLB', 'Gym'),
-    (1018,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 146, 'Physci Building', 'UPLB', 'Building'),
-    (1019,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 146, 'Freedom Park', 'UPLB', 'Park'),
-    (1020,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 146, 'Freedom Park', 'UPLB', 'Park'),
-    (1021,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 146, 'Freedom Park', 'UPLB', 'Park'),
-    (1022,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 146,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 147
-  */
-    (1023,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 147, 'Baker Hall', 'UPLB', 'Gym'),
-    (1024,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 147, 'Copeland Gym','UPLB', 'Gym'),
-    (1025,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 147, 'Physci Building', 'UPLB', 'Building'),
-    (1026,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 147, 'Freedom Park', 'UPLB', 'Park'),
-    (1027,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 147, 'Freedom Park', 'UPLB', 'Park'),
-    (1028,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 147, 'Freedom Park', 'UPLB', 'Park'),
-    (1029,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 147,'Freedom Park', 'UPLB', 'Park'),
-/*Matches of Game 22*/
-  /*
-    Matches of sport_id 148
-  */
-    (1030,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 148, 'Baker Hall', 'UPLB', 'Gym'),
-    (1031,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 148, 'Copeland Gym','UPLB', 'Gym'),
-    (1032,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 148, 'Physci Building', 'UPLB', 'Building'),
-    (1033,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 148, 'Freedom Park', 'UPLB', 'Park'),
-    (1034,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 148, 'Freedom Park', 'UPLB', 'Park'),
-    (1035,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 148, 'Freedom Park', 'UPLB', 'Park'),
-    (1036,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 148,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 149
-  */
-    (1037,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 149, 'Baker Hall', 'UPLB', 'Gym'),
-    (1038,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 149, 'Copeland Gym','UPLB', 'Gym'),
-    (1039,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 149, 'Physci Building', 'UPLB', 'Building'),
-    (1040,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 149, 'Freedom Park', 'UPLB', 'Park'),
-    (1041,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 149, 'Freedom Park', 'UPLB', 'Park'),
-    (1042,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 149, 'Freedom Park', 'UPLB', 'Park'),
-    (1043,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 149,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 150
-  */
-    (1044,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 150, 'Baker Hall', 'UPLB', 'Gym'),
-    (1045,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 150, 'Copeland Gym','UPLB', 'Gym'),
-    (1046,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 150, 'Physci Building', 'UPLB', 'Building'),
-    (1047,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 150, 'Freedom Park', 'UPLB', 'Park'),
-    (1048,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 150, 'Freedom Park', 'UPLB', 'Park'),
-    (1049,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 150, 'Freedom Park', 'UPLB', 'Park'),
-    (1050,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 150,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 151
-  */
-    (1051,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 151, 'Baker Hall', 'UPLB', 'Gym'),
-    (1052,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 151, 'Copeland Gym','UPLB', 'Gym'),
-    (1053,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 151, 'Physci Building', 'UPLB', 'Building'),
-    (1054,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 151, 'Freedom Park', 'UPLB', 'Park'),
-    (1055,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 151, 'Freedom Park', 'UPLB', 'Park'),
-    (1056,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 151, 'Freedom Park', 'UPLB', 'Park'),
-    (1057,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 151,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 152
-  */
-    (1058,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 152, 'Baker Hall', 'UPLB', 'Gym'),
-    (1059,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 152, 'Copeland Gym','UPLB', 'Gym'),
-    (1060,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 152, 'Physci Building', 'UPLB', 'Building'),
-    (1061,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 152, 'Freedom Park', 'UPLB', 'Park'),
-    (1062,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 152, 'Freedom Park', 'UPLB', 'Park'),
-    (1063,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 152, 'Freedom Park', 'UPLB', 'Park'),
-    (1064,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 152,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 153
-  */
-    (1065,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 153, 'Baker Hall', 'UPLB', 'Gym'),
-    (1066,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 153, 'Copeland Gym','UPLB', 'Gym'),
-    (1067,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 153, 'Physci Building', 'UPLB', 'Building'),
-    (1068,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 153, 'Freedom Park', 'UPLB', 'Park'),
-    (1069,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 153, 'Freedom Park', 'UPLB', 'Park'),
-    (1070,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 153, 'Freedom Park', 'UPLB', 'Park'),
-    (1071,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 153,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 154
-  */
-    (1072,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 154, 'Baker Hall', 'UPLB', 'Gym'),
-    (1073,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 154, 'Copeland Gym','UPLB', 'Gym'),
-    (1074,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 154, 'Physci Building', 'UPLB', 'Building'),
-    (1075,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 154, 'Freedom Park', 'UPLB', 'Park'),
-    (1076,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 154, 'Freedom Park', 'UPLB', 'Park'),
-    (1077,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 154, 'Freedom Park', 'UPLB', 'Park'),
-    (1078,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 154,'Freedom Park', 'UPLB', 'Park'),
-/*Matches of Game 23*/
-  /*
-    Matches of sport_id 155
-  */
-    (1079,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 155, 'Baker Hall', 'UPLB', 'Gym'),
-    (1080,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 155, 'Copeland Gym','UPLB', 'Gym'),
-    (1081,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 155, 'Physci Building', 'UPLB', 'Building'),
-    (1082,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 155, 'Freedom Park', 'UPLB', 'Park'),
-    (1083,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 155, 'Freedom Park', 'UPLB', 'Park'),
-    (1084,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 155, 'Freedom Park', 'UPLB', 'Park'),
-    (1085,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 155,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 156
-  */
-    (1086,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 156, 'Baker Hall', 'UPLB', 'Gym'),
-    (1087,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 156, 'Copeland Gym','UPLB', 'Gym'),
-    (1088,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 156, 'Physci Building', 'UPLB', 'Building'),
-    (1089,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 156, 'Freedom Park', 'UPLB', 'Park'),
-    (1090,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 156, 'Freedom Park', 'UPLB', 'Park'),
-    (1091,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 156, 'Freedom Park', 'UPLB', 'Park'),
-    (1092,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 156,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 157
-  */
-    (1093,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 157, 'Baker Hall', 'UPLB', 'Gym'),
-    (1094,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 157, 'Copeland Gym','UPLB', 'Gym'),
-    (1095,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 157, 'Physci Building', 'UPLB', 'Building'),
-    (1096,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 157, 'Freedom Park', 'UPLB', 'Park'),
-    (1097,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 157, 'Freedom Park', 'UPLB', 'Park'),
-    (1098,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 157, 'Freedom Park', 'UPLB', 'Park'),
-    (1099,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 157,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 158
-  */
-    (1100,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 158, 'Baker Hall', 'UPLB', 'Gym'),
-    (1101,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 158, 'Copeland Gym','UPLB', 'Gym'),
-    (1102,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 158, 'Physci Building', 'UPLB', 'Building'),
-    (1103,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 158, 'Freedom Park', 'UPLB', 'Park'),
-    (1104,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 158, 'Freedom Park', 'UPLB', 'Park'),
-    (1105,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 158, 'Freedom Park', 'UPLB', 'Park'),
-    (1106,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 158,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 159
-  */
-    (1107,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 159, 'Baker Hall', 'UPLB', 'Gym'),
-    (1108,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 159, 'Copeland Gym','UPLB', 'Gym'),
-    (1109,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 159, 'Physci Building', 'UPLB', 'Building'),
-    (1110,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 159, 'Freedom Park', 'UPLB', 'Park'),
-    (1111,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 159, 'Freedom Park', 'UPLB', 'Park'),
-    (1112,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 159, 'Freedom Park', 'UPLB', 'Park'),
-    (1113,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 159,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 160
-  */
-    (1114,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 160, 'Baker Hall', 'UPLB', 'Gym'),
-    (1115,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 160, 'Copeland Gym','UPLB', 'Gym'),
-    (1116,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 160, 'Physci Building', 'UPLB', 'Building'),
-    (1117,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 160, 'Freedom Park', 'UPLB', 'Park'),
-    (1118,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 160, 'Freedom Park', 'UPLB', 'Park'),
-    (1119,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 160, 'Freedom Park', 'UPLB', 'Park'),
-    (1120,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 160,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 161
-  */
-    (1121,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 161, 'Baker Hall', 'UPLB', 'Gym'),
-    (1122,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 161, 'Copeland Gym','UPLB', 'Gym'),
-    (1123,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 161, 'Physci Building', 'UPLB', 'Building'),
-    (1124,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 161, 'Freedom Park', 'UPLB', 'Park'),
-    (1125,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 161, 'Freedom Park', 'UPLB', 'Park'),
-    (1126,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 161, 'Freedom Park', 'UPLB', 'Park'),
-    (1127,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 161,'Freedom Park', 'UPLB', 'Park'),
-/*Matches of Game 24*/
-  /*
-    Matches of sport_id 162
-  */
-    (1128,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 162, 'Baker Hall', 'UPLB', 'Gym'),
-    (1129,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 162, 'Copeland Gym','UPLB', 'Gym'),
-    (1130,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 162, 'Physci Building', 'UPLB', 'Building'),
-    (1131,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 162, 'Freedom Park', 'UPLB', 'Park'),
-    (1132,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 162, 'Freedom Park', 'UPLB', 'Park'),
-    (1133,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 162, 'Freedom Park', 'UPLB', 'Park'),
-    (1134,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 162,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 163
-  */
-    (1135,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 163, 'Baker Hall', 'UPLB', 'Gym'),
-    (1136,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 163, 'Copeland Gym','UPLB', 'Gym'),
-    (1137,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 163, 'Physci Building', 'UPLB', 'Building'),
-    (1138,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 163, 'Freedom Park', 'UPLB', 'Park'),
-    (1139,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 163, 'Freedom Park', 'UPLB', 'Park'),
-    (1140,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 163, 'Freedom Park', 'UPLB', 'Park'),
-    (1141,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 163,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 164
-  */
-    (1142,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 164, 'Baker Hall', 'UPLB', 'Gym'),
-    (1143,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 164, 'Copeland Gym','UPLB', 'Gym'),
-    (1144,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 164, 'Physci Building', 'UPLB', 'Building'),
-    (1145,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 164, 'Freedom Park', 'UPLB', 'Park'),
-    (1146,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 164, 'Freedom Park', 'UPLB', 'Park'),
-    (1147,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 164, 'Freedom Park', 'UPLB', 'Park'),
-    (1148,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 164,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 165
-  */
-    (1149,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 165, 'Baker Hall', 'UPLB', 'Gym'),
-    (1150,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 165, 'Copeland Gym','UPLB', 'Gym'),
-    (1151,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 165, 'Physci Building', 'UPLB', 'Building'),
-    (1152,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 165, 'Freedom Park', 'UPLB', 'Park'),
-    (1153,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 165, 'Freedom Park', 'UPLB', 'Park'),
-    (1154,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 165, 'Freedom Park', 'UPLB', 'Park'),
-    (1155,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 165,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 166
-  */
-    (1156,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 166, 'Baker Hall', 'UPLB', 'Gym'),
-    (1157,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 166, 'Copeland Gym','UPLB', 'Gym'),
-    (1158,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 166, 'Physci Building', 'UPLB', 'Building'),
-    (1159,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 166, 'Freedom Park', 'UPLB', 'Park'),
-    (1160,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 166, 'Freedom Park', 'UPLB', 'Park'),
-    (1161,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 166, 'Freedom Park', 'UPLB', 'Park'),
-    (1162,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 166,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 167
-  */
-    (1163,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 167, 'Baker Hall', 'UPLB', 'Gym'),
-    (1164,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 167, 'Copeland Gym','UPLB', 'Gym'),
-    (1165,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 167, 'Physci Building', 'UPLB', 'Building'),
-    (1166,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 167, 'Freedom Park', 'UPLB', 'Park'),
-    (1167,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 167, 'Freedom Park', 'UPLB', 'Park'),
-    (1168,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 167, 'Freedom Park', 'UPLB', 'Park'),
-    (1169,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 167,'Freedom Park', 'UPLB', 'Park'),
-  /*
-    Matches of sport_id 168
-  */
-    (1170,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 168, 'Baker Hall', 'UPLB', 'Gym'),
-    (1171,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 168, 'Copeland Gym','UPLB', 'Gym'),
-    (1172,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 168, 'Physci Building', 'UPLB', 'Building'),
-    (1173,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 168, 'Freedom Park', 'UPLB', 'Park'),
-    (1174,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 168, 'Freedom Park', 'UPLB', 'Park'),
-    (1175,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 168, 'Freedom Park', 'UPLB', 'Park'),
-    (1176,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 168,'Freedom Park', 'UPLB', 'Park');
-
-
+  /*Matches of Game 1*/
+    /*
+      Matches of sport_id 1
+    */
+      (1,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 1, 'Baker Hall', 'UPLB', 'Gym'),
+      (2,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 1, 'Copeland Gym','UPLB', 'Gym'),
+      (3,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 1, 'Physci Building', 'UPLB', 'Building'),
+      (4,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 1, 'Freedom Park', 'UPLB', 'Park'),
+      (5,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 1, 'Freedom Park', 'UPLB', 'Park'),
+      (6,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 1, 'Freedom Park', 'UPLB', 'Park'),
+      (7,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 1,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 2
+    */
+      (8,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 2, 'Baker Hall', 'UPLB', 'Gym'),
+      (9,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 2, 'Copeland Gym','UPLB', 'Gym'),
+      (10,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 2, 'Physci Building', 'UPLB', 'Building'),
+      (11,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 2, 'Freedom Park', 'UPLB', 'Park'),
+      (12,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 2, 'Freedom Park', 'UPLB', 'Park'),
+      (13,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 2, 'Freedom Park', 'UPLB', 'Park'),
+      (14,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 2,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 3
+    */
+      (15,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 3, 'Baker Hall', 'UPLB', 'Gym'),
+      (16,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 3, 'Copeland Gym','UPLB', 'Gym'),
+      (17,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 3, 'Physci Building', 'UPLB', 'Building'),
+      (18,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 3, 'Freedom Park', 'UPLB', 'Park'),
+      (19,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 3, 'Freedom Park', 'UPLB', 'Park'),
+      (20,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 3, 'Freedom Park', 'UPLB', 'Park'),
+      (21,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 3,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 4
+    */
+      (22,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 4, 'Baker Hall', 'UPLB', 'Gym'),
+      (23,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 4, 'Copeland Gym','UPLB', 'Gym'),
+      (24,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 4, 'Physci Building', 'UPLB', 'Building'),
+      (25,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 4, 'Freedom Park', 'UPLB', 'Park'),
+      (26,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 4, 'Freedom Park', 'UPLB', 'Park'),
+      (27,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 4, 'Freedom Park', 'UPLB', 'Park'),
+      (28,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 4,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 5
+    */
+      (29,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 5, 'Baker Hall', 'UPLB', 'Gym'),
+      (30,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 5, 'Copeland Gym','UPLB', 'Gym'),
+      (31,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 5, 'Physci Building', 'UPLB', 'Building'),
+      (32,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 5, 'Freedom Park', 'UPLB', 'Park'),
+      (33,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 5, 'Freedom Park', 'UPLB', 'Park'),
+      (34,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 5, 'Freedom Park', 'UPLB', 'Park'),
+      (35,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 5,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 6
+    */
+      (36,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 6, 'Baker Hall', 'UPLB', 'Gym'),
+      (37,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 6, 'Copeland Gym','UPLB', 'Gym'),
+      (38,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 6, 'Physci Building', 'UPLB', 'Building'),
+      (39,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 6, 'Freedom Park', 'UPLB', 'Park'),
+      (40,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 6, 'Freedom Park', 'UPLB', 'Park'),
+      (41,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 6, 'Freedom Park', 'UPLB', 'Park'),
+      (42,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 6,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 7
+    */
+      (43,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 7, 'Baker Hall', 'UPLB', 'Gym'),
+      (44,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 7, 'Copeland Gym','UPLB', 'Gym'),
+      (45,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 7, 'Physci Building', 'UPLB', 'Building'),
+      (46,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 7, 'Freedom Park', 'UPLB', 'Park'),
+      (47,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 7, 'Freedom Park', 'UPLB', 'Park'),
+      (48,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 7, 'Freedom Park', 'UPLB', 'Park'),
+      (49,true, SUBDATE(NOW(), INTERVAL 9 WEEK), 7,'Freedom Park', 'UPLB', 'Park'),
+  /*Matches of Game 2*/
+    /*
+      Matches of sport_id 8
+    */
+      (50,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 8, 'Baker Hall', 'UPLB', 'Gym'),
+      (51,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 8, 'Copeland Gym','UPLB', 'Gym'),
+      (52,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 8, 'Physci Building', 'UPLB', 'Building'),
+      (53,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 8, 'Freedom Park', 'UPLB', 'Park'),
+      (54,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 8, 'Freedom Park', 'UPLB', 'Park'),
+      (55,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 8, 'Freedom Park', 'UPLB', 'Park'),
+      (56,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 8,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 9
+    */
+      (57,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 9, 'Baker Hall', 'UPLB', 'Gym'),
+      (58,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 9, 'Copeland Gym','UPLB', 'Gym'),
+      (59,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 9, 'Physci Building', 'UPLB', 'Building'),
+      (60,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 9, 'Freedom Park', 'UPLB', 'Park'),
+      (61,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 9, 'Freedom Park', 'UPLB', 'Park'),
+      (62,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 9, 'Freedom Park', 'UPLB', 'Park'),
+      (63,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 9,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 10
+    */
+      (64,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 10, 'Baker Hall', 'UPLB', 'Gym'),
+      (65,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 10, 'Copeland Gym','UPLB', 'Gym'),
+      (66,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 10, 'Physci Building', 'UPLB', 'Building'),
+      (67,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 10, 'Freedom Park', 'UPLB', 'Park'),
+      (68,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 10, 'Freedom Park', 'UPLB', 'Park'),
+      (69,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 10, 'Freedom Park', 'UPLB', 'Park'),
+      (70,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 10,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 11
+    */
+      (71,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 11, 'Baker Hall', 'UPLB', 'Gym'),
+      (72,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 11, 'Copeland Gym','UPLB', 'Gym'),
+      (73,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 11, 'Physci Building', 'UPLB', 'Building'),
+      (74,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 11, 'Freedom Park', 'UPLB', 'Park'),
+      (75,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 11, 'Freedom Park', 'UPLB', 'Park'),
+      (76,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 11, 'Freedom Park', 'UPLB', 'Park'),
+      (77,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 11,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 12
+    */
+      (78,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 12, 'Baker Hall', 'UPLB', 'Gym'),
+      (79,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 12, 'Copeland Gym','UPLB', 'Gym'),
+      (80,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 12, 'Physci Building', 'UPLB', 'Building'),
+      (81,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 12, 'Freedom Park', 'UPLB', 'Park'),
+      (82,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 12, 'Freedom Park', 'UPLB', 'Park'),
+      (83,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 12, 'Freedom Park', 'UPLB', 'Park'),
+      (84,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 12,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 13
+    */
+      (85,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 13, 'Baker Hall', 'UPLB', 'Gym'),
+      (86,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 13, 'Copeland Gym','UPLB', 'Gym'),
+      (87,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 13, 'Physci Building', 'UPLB', 'Building'),
+      (88,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 13, 'Freedom Park', 'UPLB', 'Park'),
+      (89,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 13, 'Freedom Park', 'UPLB', 'Park'),
+      (90,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 13, 'Freedom Park', 'UPLB', 'Park'),
+      (91,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 13,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 14
+    */
+      (92,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 14, 'Baker Hall', 'UPLB', 'Gym'),
+      (93,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 14, 'Copeland Gym','UPLB', 'Gym'),
+      (94,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 14, 'Physci Building', 'UPLB', 'Building'),
+      (95,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 14, 'Freedom Park', 'UPLB', 'Park'),
+      (96,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 14, 'Freedom Park', 'UPLB', 'Park'),
+      (97,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 14, 'Freedom Park', 'UPLB', 'Park'),
+      (98,true, SUBDATE(NOW(), INTERVAL 8 WEEK), 14,'Freedom Park', 'UPLB', 'Park'),
+  /*Matches of Game 3*/
+    /*
+      Matches of sport_id 15
+    */
+      (99,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 15, 'Baker Hall', 'UPLB', 'Gym'),
+      (100,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 15, 'Copeland Gym','UPLB', 'Gym'),
+      (101,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 15, 'Physci Building', 'UPLB', 'Building'),
+      (102,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 15, 'Freedom Park', 'UPLB', 'Park'),
+      (103,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 15, 'Freedom Park', 'UPLB', 'Park'),
+      (104,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 15, 'Freedom Park', 'UPLB', 'Park'),
+      (105,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 15,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 16
+    */
+      (106,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 16, 'Baker Hall', 'UPLB', 'Gym'),
+      (107,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 16, 'Copeland Gym','UPLB', 'Gym'),
+      (108,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 16, 'Physci Building', 'UPLB', 'Building'),
+      (109,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 16, 'Freedom Park', 'UPLB', 'Park'),
+      (110,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 16, 'Freedom Park', 'UPLB', 'Park'),
+      (111,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 16, 'Freedom Park', 'UPLB', 'Park'),
+      (112,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 16,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 17
+    */
+      (113,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 17, 'Baker Hall', 'UPLB', 'Gym'),
+      (114,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 17, 'Copeland Gym','UPLB', 'Gym'),
+      (115,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 17, 'Physci Building', 'UPLB', 'Building'),
+      (116,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 17, 'Freedom Park', 'UPLB', 'Park'),
+      (117,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 17, 'Freedom Park', 'UPLB', 'Park'),
+      (118,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 17, 'Freedom Park', 'UPLB', 'Park'),
+      (119,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 17,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 18
+    */
+      (120,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 18, 'Baker Hall', 'UPLB', 'Gym'),
+      (121,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 18, 'Copeland Gym','UPLB', 'Gym'),
+      (122,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 18, 'Physci Building', 'UPLB', 'Building'),
+      (123,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 18, 'Freedom Park', 'UPLB', 'Park'),
+      (124,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 18, 'Freedom Park', 'UPLB', 'Park'),
+      (125,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 18, 'Freedom Park', 'UPLB', 'Park'),
+      (126,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 18,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 19
+    */
+      (127,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 19, 'Baker Hall', 'UPLB', 'Gym'),
+      (128,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 19, 'Copeland Gym','UPLB', 'Gym'),
+      (129,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 19, 'Physci Building', 'UPLB', 'Building'),
+      (130,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 19, 'Freedom Park', 'UPLB', 'Park'),
+      (131,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 19, 'Freedom Park', 'UPLB', 'Park'),
+      (132,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 19, 'Freedom Park', 'UPLB', 'Park'),
+      (133,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 19,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 20
+    */
+      (134,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 20, 'Baker Hall', 'UPLB', 'Gym'),
+      (135,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 20, 'Copeland Gym','UPLB', 'Gym'),
+      (136,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 20, 'Physci Building', 'UPLB', 'Building'),
+      (137,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 20, 'Freedom Park', 'UPLB', 'Park'),
+      (138,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 20, 'Freedom Park', 'UPLB', 'Park'),
+      (139,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 20, 'Freedom Park', 'UPLB', 'Park'),
+      (140,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 20,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 21
+    */
+      (141,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 21, 'Baker Hall', 'UPLB', 'Gym'),
+      (142,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 21, 'Copeland Gym','UPLB', 'Gym'),
+      (143,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 21, 'Physci Building', 'UPLB', 'Building'),
+      (144,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 21, 'Freedom Park', 'UPLB', 'Park'),
+      (145,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 21, 'Freedom Park', 'UPLB', 'Park'),
+      (146,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 21, 'Freedom Park', 'UPLB', 'Park'),
+      (147,true, SUBDATE(NOW(), INTERVAL 7 WEEK), 21,'Freedom Park', 'UPLB', 'Park'),
+  /*Matches of Game 4*/
+    /*
+      Matches of sport_id 22
+    */
+      (148,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 22, 'Baker Hall', 'UPLB', 'Gym'),
+      (149,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 22, 'Copeland Gym','UPLB', 'Gym'),
+      (150,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 22, 'Physci Building', 'UPLB', 'Building'),
+      (151,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 22, 'Freedom Park', 'UPLB', 'Park'),
+      (152,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 22, 'Freedom Park', 'UPLB', 'Park'),
+      (153,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 22, 'Freedom Park', 'UPLB', 'Park'),
+      (154,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 22,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 23
+    */
+      (155,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 23, 'Baker Hall', 'UPLB', 'Gym'),
+      (156,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 23, 'Copeland Gym','UPLB', 'Gym'),
+      (157,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 23, 'Physci Building', 'UPLB', 'Building'),
+      (158,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 23, 'Freedom Park', 'UPLB', 'Park'),
+      (159,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 23, 'Freedom Park', 'UPLB', 'Park'),
+      (160,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 23, 'Freedom Park', 'UPLB', 'Park'),
+      (161,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 23,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 24
+    */
+      (162,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 24, 'Baker Hall', 'UPLB', 'Gym'),
+      (163,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 24, 'Copeland Gym','UPLB', 'Gym'),
+      (164,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 24, 'Physci Building', 'UPLB', 'Building'),
+      (165,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 24, 'Freedom Park', 'UPLB', 'Park'),
+      (166,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 24, 'Freedom Park', 'UPLB', 'Park'),
+      (167,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 24, 'Freedom Park', 'UPLB', 'Park'),
+      (168,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 24,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 25
+    */
+      (169,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 25, 'Baker Hall', 'UPLB', 'Gym'),
+      (170,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 25, 'Copeland Gym','UPLB', 'Gym'),
+      (171,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 25, 'Physci Building', 'UPLB', 'Building'),
+      (172,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 25, 'Freedom Park', 'UPLB', 'Park'),
+      (173,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 25, 'Freedom Park', 'UPLB', 'Park'),
+      (174,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 25, 'Freedom Park', 'UPLB', 'Park'),
+      (175,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 25,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 26
+    */
+      (176,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 26, 'Baker Hall', 'UPLB', 'Gym'),
+      (177,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 26, 'Copeland Gym','UPLB', 'Gym'),
+      (178,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 26, 'Physci Building', 'UPLB', 'Building'),
+      (179,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 26, 'Freedom Park', 'UPLB', 'Park'),
+      (180,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 26, 'Freedom Park', 'UPLB', 'Park'),
+      (181,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 26, 'Freedom Park', 'UPLB', 'Park'),
+      (182,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 26,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 27
+    */
+      (183,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 27, 'Baker Hall', 'UPLB', 'Gym'),
+      (184,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 27, 'Copeland Gym','UPLB', 'Gym'),
+      (185,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 27, 'Physci Building', 'UPLB', 'Building'),
+      (186,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 27, 'Freedom Park', 'UPLB', 'Park'),
+      (187,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 27, 'Freedom Park', 'UPLB', 'Park'),
+      (188,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 27, 'Freedom Park', 'UPLB', 'Park'),
+      (189,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 27,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 28
+    */
+      (190,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 28, 'Baker Hall', 'UPLB', 'Gym'),
+      (191,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 28, 'Copeland Gym','UPLB', 'Gym'),
+      (192,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 28, 'Physci Building', 'UPLB', 'Building'),
+      (193,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 28, 'Freedom Park', 'UPLB', 'Park'),
+      (194,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 28, 'Freedom Park', 'UPLB', 'Park'),
+      (195,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 28, 'Freedom Park', 'UPLB', 'Park'),
+      (196,true, SUBDATE(NOW(), INTERVAL 6 WEEK), 28,'Freedom Park', 'UPLB', 'Park'),
+  /*Matches of Game 5*/
+    /*
+      Matches of sport_id 29
+    */
+      (197,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 29, 'Baker Hall', 'UPLB', 'Gym'),
+      (198,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 29, 'Copeland Gym','UPLB', 'Gym'),
+      (199,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 29, 'Physci Building', 'UPLB', 'Building'),
+      (200,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 29, 'Freedom Park', 'UPLB', 'Park'),
+      (201,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 29, 'Freedom Park', 'UPLB', 'Park'),
+      (202,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 29, 'Freedom Park', 'UPLB', 'Park'),
+      (203,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 29,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 30
+    */
+      (204,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 30, 'Baker Hall', 'UPLB', 'Gym'),
+      (205,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 30, 'Copeland Gym','UPLB', 'Gym'),
+      (206,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 30, 'Physci Building', 'UPLB', 'Building'),
+      (207,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 30, 'Freedom Park', 'UPLB', 'Park'),
+      (208,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 30, 'Freedom Park', 'UPLB', 'Park'),
+      (209,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 30, 'Freedom Park', 'UPLB', 'Park'),
+      (210,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 30,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 31
+    */
+      (211,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 31, 'Baker Hall', 'UPLB', 'Gym'),
+      (212,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 31, 'Copeland Gym','UPLB', 'Gym'),
+      (213,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 31, 'Physci Building', 'UPLB', 'Building'),
+      (214,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 31, 'Freedom Park', 'UPLB', 'Park'),
+      (215,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 31, 'Freedom Park', 'UPLB', 'Park'),
+      (216,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 31, 'Freedom Park', 'UPLB', 'Park'),
+      (217,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 31,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 32
+    */
+      (218,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 32, 'Baker Hall', 'UPLB', 'Gym'),
+      (219,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 32, 'Copeland Gym','UPLB', 'Gym'),
+      (220,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 32, 'Physci Building', 'UPLB', 'Building'),
+      (221,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 32, 'Freedom Park', 'UPLB', 'Park'),
+      (222,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 32, 'Freedom Park', 'UPLB', 'Park'),
+      (223,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 32, 'Freedom Park', 'UPLB', 'Park'),
+      (224,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 32,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 33
+    */
+      (225,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 33, 'Baker Hall', 'UPLB', 'Gym'),
+      (226,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 33, 'Copeland Gym','UPLB', 'Gym'),
+      (227,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 33, 'Physci Building', 'UPLB', 'Building'),
+      (228,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 33, 'Freedom Park', 'UPLB', 'Park'),
+      (229,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 33, 'Freedom Park', 'UPLB', 'Park'),
+      (230,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 33, 'Freedom Park', 'UPLB', 'Park'),
+      (231,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 33,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 34
+    */
+      (232,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 34, 'Baker Hall', 'UPLB', 'Gym'),
+      (233,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 34, 'Copeland Gym','UPLB', 'Gym'),
+      (234,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 34, 'Physci Building', 'UPLB', 'Building'),
+      (235,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 34, 'Freedom Park', 'UPLB', 'Park'),
+      (236,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 34, 'Freedom Park', 'UPLB', 'Park'),
+      (237,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 34, 'Freedom Park', 'UPLB', 'Park'),
+      (238,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 34,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 35
+    */
+      (239,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 35, 'Baker Hall', 'UPLB', 'Gym'),
+      (240,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 35, 'Copeland Gym','UPLB', 'Gym'),
+      (241,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 35, 'Physci Building', 'UPLB', 'Building'),
+      (242,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 35, 'Freedom Park', 'UPLB', 'Park'),
+      (243,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 35, 'Freedom Park', 'UPLB', 'Park'),
+      (244,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 35, 'Freedom Park', 'UPLB', 'Park'),
+      (245,true, SUBDATE(NOW(), INTERVAL 5 WEEK), 35,'Freedom Park', 'UPLB', 'Park'),
+  /*Matches of Game 6*/
+    /*
+      Matches of sport_id 36
+    */
+      (246,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 36, 'Baker Hall', 'UPLB', 'Gym'),
+      (247,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 36, 'Copeland Gym','UPLB', 'Gym'),
+      (248,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 36, 'Physci Building', 'UPLB', 'Building'),
+      (249,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 36, 'Freedom Park', 'UPLB', 'Park'),
+      (250,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 36, 'Freedom Park', 'UPLB', 'Park'),
+      (251,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 36, 'Freedom Park', 'UPLB', 'Park'),
+      (252,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 36,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 37
+    */
+      (253,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 37, 'Baker Hall', 'UPLB', 'Gym'),
+      (254,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 37, 'Copeland Gym','UPLB', 'Gym'),
+      (255,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 37, 'Physci Building', 'UPLB', 'Building'),
+      (256,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 37, 'Freedom Park', 'UPLB', 'Park'),
+      (257,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 37, 'Freedom Park', 'UPLB', 'Park'),
+      (258,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 37, 'Freedom Park', 'UPLB', 'Park'),
+      (259,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 37,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 38
+    */
+      (260,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 38, 'Baker Hall', 'UPLB', 'Gym'),
+      (261,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 38, 'Copeland Gym','UPLB', 'Gym'),
+      (262,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 38, 'Physci Building', 'UPLB', 'Building'),
+      (263,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 38, 'Freedom Park', 'UPLB', 'Park'),
+      (264,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 38, 'Freedom Park', 'UPLB', 'Park'),
+      (265,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 38, 'Freedom Park', 'UPLB', 'Park'),
+      (266,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 38,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 39
+    */
+      (267,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 39, 'Baker Hall', 'UPLB', 'Gym'),
+      (268,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 39, 'Copeland Gym','UPLB', 'Gym'),
+      (269,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 39, 'Physci Building', 'UPLB', 'Building'),
+      (270,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 39, 'Freedom Park', 'UPLB', 'Park'),
+      (271,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 39, 'Freedom Park', 'UPLB', 'Park'),
+      (272,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 39, 'Freedom Park', 'UPLB', 'Park'),
+      (273,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 39,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 40
+    */
+      (274,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 40, 'Baker Hall', 'UPLB', 'Gym'),
+      (275,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 40, 'Copeland Gym','UPLB', 'Gym'),
+      (276,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 40, 'Physci Building', 'UPLB', 'Building'),
+      (277,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 40, 'Freedom Park', 'UPLB', 'Park'),
+      (278,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 40, 'Freedom Park', 'UPLB', 'Park'),
+      (279,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 40, 'Freedom Park', 'UPLB', 'Park'),
+      (280,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 40,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 41
+    */
+      (281,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 41, 'Baker Hall', 'UPLB', 'Gym'),
+      (282,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 41, 'Copeland Gym','UPLB', 'Gym'),
+      (283,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 41, 'Physci Building', 'UPLB', 'Building'),
+      (284,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 41, 'Freedom Park', 'UPLB', 'Park'),
+      (285,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 41, 'Freedom Park', 'UPLB', 'Park'),
+      (286,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 41, 'Freedom Park', 'UPLB', 'Park'),
+      (287,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 41,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 42
+    */
+      (288,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 42, 'Baker Hall', 'UPLB', 'Gym'),
+      (289,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 42, 'Copeland Gym','UPLB', 'Gym'),
+      (290,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 42, 'Physci Building', 'UPLB', 'Building'),
+      (291,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 42, 'Freedom Park', 'UPLB', 'Park'),
+      (292,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 42, 'Freedom Park', 'UPLB', 'Park'),
+      (293,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 42, 'Freedom Park', 'UPLB', 'Park'),
+      (294,true, SUBDATE(NOW(), INTERVAL 4 WEEK), 42,'Freedom Park', 'UPLB', 'Park'),
+  /*Matches of Game 7*/
+    /*
+      Matches of sport_id 43
+    */
+      (295,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 43, 'Baker Hall', 'UPLB', 'Gym'),
+      (296,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 43, 'Copeland Gym','UPLB', 'Gym'),
+      (297,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 43, 'Physci Building', 'UPLB', 'Building'),
+      (298,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 43, 'Freedom Park', 'UPLB', 'Park'),
+      (299,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 43, 'Freedom Park', 'UPLB', 'Park'),
+      (300,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 43, 'Freedom Park', 'UPLB', 'Park'),
+      (301,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 43,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 44
+    */
+      (302,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 44, 'Baker Hall', 'UPLB', 'Gym'),
+      (303,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 44, 'Copeland Gym','UPLB', 'Gym'),
+      (304,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 44, 'Physci Building', 'UPLB', 'Building'),
+      (305,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 44, 'Freedom Park', 'UPLB', 'Park'),
+      (306,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 44, 'Freedom Park', 'UPLB', 'Park'),
+      (307,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 44, 'Freedom Park', 'UPLB', 'Park'),
+      (308,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 44,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 45
+    */
+      (309,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 45, 'Baker Hall', 'UPLB', 'Gym'),
+      (310,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 45, 'Copeland Gym','UPLB', 'Gym'),
+      (311,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 45, 'Physci Building', 'UPLB', 'Building'),
+      (312,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 45, 'Freedom Park', 'UPLB', 'Park'),
+      (313,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 45, 'Freedom Park', 'UPLB', 'Park'),
+      (314,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 45, 'Freedom Park', 'UPLB', 'Park'),
+      (315,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 45,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 46
+    */
+      (316,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 46, 'Baker Hall', 'UPLB', 'Gym'),
+      (317,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 46, 'Copeland Gym','UPLB', 'Gym'),
+      (318,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 46, 'Physci Building', 'UPLB', 'Building'),
+      (319,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 46, 'Freedom Park', 'UPLB', 'Park'),
+      (320,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 46, 'Freedom Park', 'UPLB', 'Park'),
+      (321,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 46, 'Freedom Park', 'UPLB', 'Park'),
+      (322,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 46,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 47
+    */
+      (323,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 47, 'Baker Hall', 'UPLB', 'Gym'),
+      (324,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 47, 'Copeland Gym','UPLB', 'Gym'),
+      (325,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 47, 'Physci Building', 'UPLB', 'Building'),
+      (326,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 47, 'Freedom Park', 'UPLB', 'Park'),
+      (327,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 47, 'Freedom Park', 'UPLB', 'Park'),
+      (328,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 47, 'Freedom Park', 'UPLB', 'Park'),
+      (329,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 47,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 48
+    */
+      (330,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 48, 'Baker Hall', 'UPLB', 'Gym'),
+      (331,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 48, 'Copeland Gym','UPLB', 'Gym'),
+      (332,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 48, 'Physci Building', 'UPLB', 'Building'),
+      (333,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 48, 'Freedom Park', 'UPLB', 'Park'),
+      (334,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 48, 'Freedom Park', 'UPLB', 'Park'),
+      (335,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 48, 'Freedom Park', 'UPLB', 'Park'),
+      (336,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 48,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 49
+    */
+      (337,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 49, 'Baker Hall', 'UPLB', 'Gym'),
+      (338,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 49, 'Copeland Gym','UPLB', 'Gym'),
+      (339,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 49, 'Physci Building', 'UPLB', 'Building'),
+      (340,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 49, 'Freedom Park', 'UPLB', 'Park'),
+      (341,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 49, 'Freedom Park', 'UPLB', 'Park'),
+      (342,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 49, 'Freedom Park', 'UPLB', 'Park'),
+      (343,true, SUBDATE(NOW(), INTERVAL 3 WEEK), 49,'Freedom Park', 'UPLB', 'Park'),
+  /*Matches of Game 8*/
+    /*
+      Matches of sport_id 50
+    */
+      (344,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 50, 'Baker Hall', 'UPLB', 'Gym'),
+      (345,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 50, 'Copeland Gym','UPLB', 'Gym'),
+      (346,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 50, 'Physci Building', 'UPLB', 'Building'),
+      (347,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 50, 'Freedom Park', 'UPLB', 'Park'),
+      (348,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 50, 'Freedom Park', 'UPLB', 'Park'),
+      (349,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 50, 'Freedom Park', 'UPLB', 'Park'),
+      (350,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 50,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 51
+    */
+      (351,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 51, 'Baker Hall', 'UPLB', 'Gym'),
+      (352,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 51, 'Copeland Gym','UPLB', 'Gym'),
+      (353,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 51, 'Physci Building', 'UPLB', 'Building'),
+      (354,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 51, 'Freedom Park', 'UPLB', 'Park'),
+      (355,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 51, 'Freedom Park', 'UPLB', 'Park'),
+      (356,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 51, 'Freedom Park', 'UPLB', 'Park'),
+      (357,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 51,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 52
+    */
+      (358,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 52, 'Baker Hall', 'UPLB', 'Gym'),
+      (359,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 52, 'Copeland Gym','UPLB', 'Gym'),
+      (360,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 52, 'Physci Building', 'UPLB', 'Building'),
+      (361,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 52, 'Freedom Park', 'UPLB', 'Park'),
+      (362,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 52, 'Freedom Park', 'UPLB', 'Park'),
+      (363,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 52, 'Freedom Park', 'UPLB', 'Park'),
+      (364,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 52,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 53
+    */
+      (365,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 53, 'Baker Hall', 'UPLB', 'Gym'),
+      (366,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 53, 'Copeland Gym','UPLB', 'Gym'),
+      (367,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 53, 'Physci Building', 'UPLB', 'Building'),
+      (368,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 53, 'Freedom Park', 'UPLB', 'Park'),
+      (369,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 53, 'Freedom Park', 'UPLB', 'Park'),
+      (370,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 53, 'Freedom Park', 'UPLB', 'Park'),
+      (371,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 53,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 54
+    */
+      (372,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 54, 'Baker Hall', 'UPLB', 'Gym'),
+      (373,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 54, 'Copeland Gym','UPLB', 'Gym'),
+      (374,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 54, 'Physci Building', 'UPLB', 'Building'),
+      (375,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 54, 'Freedom Park', 'UPLB', 'Park'),
+      (376,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 54, 'Freedom Park', 'UPLB', 'Park'),
+      (377,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 54, 'Freedom Park', 'UPLB', 'Park'),
+      (378,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 54,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 55
+    */
+      (379,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 55, 'Baker Hall', 'UPLB', 'Gym'),
+      (380,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 55, 'Copeland Gym','UPLB', 'Gym'),
+      (381,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 55, 'Physci Building', 'UPLB', 'Building'),
+      (382,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 55, 'Freedom Park', 'UPLB', 'Park'),
+      (383,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 55, 'Freedom Park', 'UPLB', 'Park'),
+      (384,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 55, 'Freedom Park', 'UPLB', 'Park'),
+      (385,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 55,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 56
+    */
+      (386,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 56, 'Baker Hall', 'UPLB', 'Gym'),
+      (387,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 56, 'Copeland Gym','UPLB', 'Gym'),
+      (388,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 56, 'Physci Building', 'UPLB', 'Building'),
+      (389,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 56, 'Freedom Park', 'UPLB', 'Park'),
+      (390,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 56, 'Freedom Park', 'UPLB', 'Park'),
+      (391,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 56, 'Freedom Park', 'UPLB', 'Park'),
+      (392,true, SUBDATE(NOW(), INTERVAL 2 WEEK), 56,'Freedom Park', 'UPLB', 'Park'),
+  /*Matches of Game 9*/
+    /*
+      Matches of sport_id 57
+    */
+      (393,true, SUBDATE(NOW(), INTERVAL 7 DAY), 57, 'Baker Hall', 'UPLB', 'Gym'),
+      (394,true, SUBDATE(NOW(), INTERVAL 7 DAY), 57, 'Copeland Gym','UPLB', 'Gym'),
+      (395,true, SUBDATE(NOW(), INTERVAL 7 DAY), 57, 'Physci Building', 'UPLB', 'Building'),
+      (396,true, SUBDATE(NOW(), INTERVAL 7 DAY), 57, 'Freedom Park', 'UPLB', 'Park'),
+      (397,true, SUBDATE(NOW(), INTERVAL 7 DAY), 57, 'Freedom Park', 'UPLB', 'Park'),
+      (398,true, SUBDATE(NOW(), INTERVAL 7 DAY), 57, 'Freedom Park', 'UPLB', 'Park'),
+      (399,true, SUBDATE(NOW(), INTERVAL 7 DAY), 57,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 58
+    */
+      (400,true, SUBDATE(NOW(), INTERVAL 7 DAY), 58, 'Baker Hall', 'UPLB', 'Gym'),
+      (401,true, SUBDATE(NOW(), INTERVAL 7 DAY), 58, 'Copeland Gym','UPLB', 'Gym'),
+      (402,true, SUBDATE(NOW(), INTERVAL 7 DAY), 58, 'Physci Building', 'UPLB', 'Building'),
+      (403,true, SUBDATE(NOW(), INTERVAL 7 DAY), 58, 'Freedom Park', 'UPLB', 'Park'),
+      (404,true, SUBDATE(NOW(), INTERVAL 7 DAY), 58, 'Freedom Park', 'UPLB', 'Park'),
+      (405,true, SUBDATE(NOW(), INTERVAL 7 DAY), 58, 'Freedom Park', 'UPLB', 'Park'),
+      (406,true, SUBDATE(NOW(), INTERVAL 7 DAY), 58,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 59
+    */
+      (407,true, SUBDATE(NOW(), INTERVAL 7 DAY), 59, 'Baker Hall', 'UPLB', 'Gym'),
+      (408,true, SUBDATE(NOW(), INTERVAL 7 DAY), 59, 'Copeland Gym','UPLB', 'Gym'),
+      (409,true, SUBDATE(NOW(), INTERVAL 7 DAY), 59, 'Physci Building', 'UPLB', 'Building'),
+      (410,true, SUBDATE(NOW(), INTERVAL 7 DAY), 59, 'Freedom Park', 'UPLB', 'Park'),
+      (411,true, SUBDATE(NOW(), INTERVAL 7 DAY), 59, 'Freedom Park', 'UPLB', 'Park'),
+      (412,true, SUBDATE(NOW(), INTERVAL 7 DAY), 59, 'Freedom Park', 'UPLB', 'Park'),
+      (413,true, SUBDATE(NOW(), INTERVAL 7 DAY), 59,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 60
+    */
+      (414,true, SUBDATE(NOW(), INTERVAL 7 DAY), 60, 'Baker Hall', 'UPLB', 'Gym'),
+      (415,true, SUBDATE(NOW(), INTERVAL 7 DAY), 60, 'Copeland Gym','UPLB', 'Gym'),
+      (416,true, SUBDATE(NOW(), INTERVAL 7 DAY), 60, 'Physci Building', 'UPLB', 'Building'),
+      (417,true, SUBDATE(NOW(), INTERVAL 7 DAY), 60, 'Freedom Park', 'UPLB', 'Park'),
+      (418,true, SUBDATE(NOW(), INTERVAL 7 DAY), 60, 'Freedom Park', 'UPLB', 'Park'),
+      (419,true, SUBDATE(NOW(), INTERVAL 7 DAY), 60, 'Freedom Park', 'UPLB', 'Park'),
+      (420,true, SUBDATE(NOW(), INTERVAL 7 DAY), 60,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 61
+    */
+      (421,true, SUBDATE(NOW(), INTERVAL 7 DAY), 61, 'Baker Hall', 'UPLB', 'Gym'),
+      (422,true, SUBDATE(NOW(), INTERVAL 7 DAY), 61, 'Copeland Gym','UPLB', 'Gym'),
+      (423,true, SUBDATE(NOW(), INTERVAL 7 DAY), 61, 'Physci Building', 'UPLB', 'Building'),
+      (424,true, SUBDATE(NOW(), INTERVAL 7 DAY), 61, 'Freedom Park', 'UPLB', 'Park'),
+      (425,true, SUBDATE(NOW(), INTERVAL 7 DAY), 61, 'Freedom Park', 'UPLB', 'Park'),
+      (426,true, SUBDATE(NOW(), INTERVAL 7 DAY), 61, 'Freedom Park', 'UPLB', 'Park'),
+      (427,true, SUBDATE(NOW(), INTERVAL 7 DAY), 61,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 62
+    */
+      (428,true, SUBDATE(NOW(), INTERVAL 7 DAY), 62, 'Baker Hall', 'UPLB', 'Gym'),
+      (429,true, SUBDATE(NOW(), INTERVAL 7 DAY), 62, 'Copeland Gym','UPLB', 'Gym'),
+      (430,true, SUBDATE(NOW(), INTERVAL 7 DAY), 62, 'Physci Building', 'UPLB', 'Building'),
+      (431,true, SUBDATE(NOW(), INTERVAL 7 DAY), 62, 'Freedom Park', 'UPLB', 'Park'),
+      (432,true, SUBDATE(NOW(), INTERVAL 7 DAY), 62, 'Freedom Park', 'UPLB', 'Park'),
+      (433,true, SUBDATE(NOW(), INTERVAL 7 DAY), 62, 'Freedom Park', 'UPLB', 'Park'),
+      (434,true, SUBDATE(NOW(), INTERVAL 7 DAY), 62,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 63
+    */
+      (435,true, SUBDATE(NOW(), INTERVAL 7 DAY), 63, 'Baker Hall', 'UPLB', 'Gym'),
+      (436,true, SUBDATE(NOW(), INTERVAL 7 DAY), 63, 'Copeland Gym','UPLB', 'Gym'),
+      (437,true, SUBDATE(NOW(), INTERVAL 7 DAY), 63, 'Physci Building', 'UPLB', 'Building'),
+      (438,true, SUBDATE(NOW(), INTERVAL 7 DAY), 63, 'Freedom Park', 'UPLB', 'Park'),
+      (439,true, SUBDATE(NOW(), INTERVAL 7 DAY), 63, 'Freedom Park', 'UPLB', 'Park'),
+      (440,true, SUBDATE(NOW(), INTERVAL 7 DAY), 63, 'Freedom Park', 'UPLB', 'Park'),
+      (441,true, SUBDATE(NOW(), INTERVAL 7 DAY), 63,'Freedom Park', 'UPLB', 'Park'),
+  /*Matches of Game 10*/
+    /*
+      Matches of sport_id 64
+    */
+      (442,true, SUBDATE(NOW(), INTERVAL 6 DAY), 64, 'Baker Hall', 'UPLB', 'Gym'),
+      (443,true, SUBDATE(NOW(), INTERVAL 6 DAY), 64, 'Copeland Gym','UPLB', 'Gym'),
+      (444,true, SUBDATE(NOW(), INTERVAL 6 DAY), 64, 'Physci Building', 'UPLB', 'Building'),
+      (445,true, SUBDATE(NOW(), INTERVAL 6 DAY), 64, 'Freedom Park', 'UPLB', 'Park'),
+      (446,true, SUBDATE(NOW(), INTERVAL 6 DAY), 64, 'Freedom Park', 'UPLB', 'Park'),
+      (447,true, SUBDATE(NOW(), INTERVAL 6 DAY), 64, 'Freedom Park', 'UPLB', 'Park'),
+      (448,true, SUBDATE(NOW(), INTERVAL 6 DAY), 64,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 65
+    */
+      (449,true, SUBDATE(NOW(), INTERVAL 6 DAY), 65, 'Baker Hall', 'UPLB', 'Gym'),
+      (450,true, SUBDATE(NOW(), INTERVAL 6 DAY), 65, 'Copeland Gym','UPLB', 'Gym'),
+      (451,true, SUBDATE(NOW(), INTERVAL 6 DAY), 65, 'Physci Building', 'UPLB', 'Building'),
+      (452,true, SUBDATE(NOW(), INTERVAL 6 DAY), 65, 'Freedom Park', 'UPLB', 'Park'),
+      (453,true, SUBDATE(NOW(), INTERVAL 6 DAY), 65, 'Freedom Park', 'UPLB', 'Park'),
+      (454,true, SUBDATE(NOW(), INTERVAL 6 DAY), 65, 'Freedom Park', 'UPLB', 'Park'),
+      (455,true, SUBDATE(NOW(), INTERVAL 6 DAY), 65,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 66
+    */
+      (456,true, SUBDATE(NOW(), INTERVAL 6 DAY), 66, 'Baker Hall', 'UPLB', 'Gym'),
+      (457,true, SUBDATE(NOW(), INTERVAL 6 DAY), 66, 'Copeland Gym','UPLB', 'Gym'),
+      (458,true, SUBDATE(NOW(), INTERVAL 6 DAY), 66, 'Physci Building', 'UPLB', 'Building'),
+      (459,true, SUBDATE(NOW(), INTERVAL 6 DAY), 66, 'Freedom Park', 'UPLB', 'Park'),
+      (460,true, SUBDATE(NOW(), INTERVAL 6 DAY), 66, 'Freedom Park', 'UPLB', 'Park'),
+      (461,true, SUBDATE(NOW(), INTERVAL 6 DAY), 66, 'Freedom Park', 'UPLB', 'Park'),
+      (462,true, SUBDATE(NOW(), INTERVAL 6 DAY), 66,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 67
+    */
+      (463,true, SUBDATE(NOW(), INTERVAL 6 DAY), 67, 'Baker Hall', 'UPLB', 'Gym'),
+      (464,true, SUBDATE(NOW(), INTERVAL 6 DAY), 67, 'Copeland Gym','UPLB', 'Gym'),
+      (465,true, SUBDATE(NOW(), INTERVAL 6 DAY), 67, 'Physci Building', 'UPLB', 'Building'),
+      (466,true, SUBDATE(NOW(), INTERVAL 6 DAY), 67, 'Freedom Park', 'UPLB', 'Park'),
+      (467,true, SUBDATE(NOW(), INTERVAL 6 DAY), 67, 'Freedom Park', 'UPLB', 'Park'),
+      (468,true, SUBDATE(NOW(), INTERVAL 6 DAY), 67, 'Freedom Park', 'UPLB', 'Park'),
+      (469,true, SUBDATE(NOW(), INTERVAL 6 DAY), 67,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 68
+    */
+      (470,true, SUBDATE(NOW(), INTERVAL 6 DAY), 68, 'Baker Hall', 'UPLB', 'Gym'),
+      (471,true, SUBDATE(NOW(), INTERVAL 6 DAY), 68, 'Copeland Gym','UPLB', 'Gym'),
+      (472,true, SUBDATE(NOW(), INTERVAL 6 DAY), 68, 'Physci Building', 'UPLB', 'Building'),
+      (473,true, SUBDATE(NOW(), INTERVAL 6 DAY), 68, 'Freedom Park', 'UPLB', 'Park'),
+      (474,true, SUBDATE(NOW(), INTERVAL 6 DAY), 68, 'Freedom Park', 'UPLB', 'Park'),
+      (475,true, SUBDATE(NOW(), INTERVAL 6 DAY), 68, 'Freedom Park', 'UPLB', 'Park'),
+      (476,true, SUBDATE(NOW(), INTERVAL 6 DAY), 68,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 69
+    */
+      (477,true, SUBDATE(NOW(), INTERVAL 6 DAY), 69, 'Baker Hall', 'UPLB', 'Gym'),
+      (478,true, SUBDATE(NOW(), INTERVAL 6 DAY), 69, 'Copeland Gym','UPLB', 'Gym'),
+      (479,true, SUBDATE(NOW(), INTERVAL 6 DAY), 69, 'Physci Building', 'UPLB', 'Building'),
+      (480,true, SUBDATE(NOW(), INTERVAL 6 DAY), 69, 'Freedom Park', 'UPLB', 'Park'),
+      (481,true, SUBDATE(NOW(), INTERVAL 6 DAY), 69, 'Freedom Park', 'UPLB', 'Park'),
+      (482,true, SUBDATE(NOW(), INTERVAL 6 DAY), 69, 'Freedom Park', 'UPLB', 'Park'),
+      (483,true, SUBDATE(NOW(), INTERVAL 6 DAY), 69,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 70
+    */
+      (484,true, SUBDATE(NOW(), INTERVAL 6 DAY), 70, 'Baker Hall', 'UPLB', 'Gym'),
+      (485,true, SUBDATE(NOW(), INTERVAL 6 DAY), 70, 'Copeland Gym','UPLB', 'Gym'),
+      (486,true, SUBDATE(NOW(), INTERVAL 6 DAY), 70, 'Physci Building', 'UPLB', 'Building'),
+      (487,true, SUBDATE(NOW(), INTERVAL 6 DAY), 70, 'Freedom Park', 'UPLB', 'Park'),
+      (488,true, SUBDATE(NOW(), INTERVAL 6 DAY), 70, 'Freedom Park', 'UPLB', 'Park'),
+      (489,true, SUBDATE(NOW(), INTERVAL 6 DAY), 70, 'Freedom Park', 'UPLB', 'Park'),
+      (490,true, SUBDATE(NOW(), INTERVAL 6 DAY), 70,'Freedom Park', 'UPLB', 'Park'),
+  /*Matches of Game 11*/
+    /*
+      Matches of sport_id 71
+    */
+      (491,true, SUBDATE(NOW(), INTERVAL 5 DAY), 71, 'Baker Hall', 'UPLB', 'Gym'),
+      (492,true, SUBDATE(NOW(), INTERVAL 5 DAY), 71, 'Copeland Gym','UPLB', 'Gym'),
+      (493,true, SUBDATE(NOW(), INTERVAL 5 DAY), 71, 'Physci Building', 'UPLB', 'Building'),
+      (494,true, SUBDATE(NOW(), INTERVAL 5 DAY), 71, 'Freedom Park', 'UPLB', 'Park'),
+      (495,true, SUBDATE(NOW(), INTERVAL 5 DAY), 71, 'Freedom Park', 'UPLB', 'Park'),
+      (496,true, SUBDATE(NOW(), INTERVAL 5 DAY), 71, 'Freedom Park', 'UPLB', 'Park'),
+      (497,true, SUBDATE(NOW(), INTERVAL 5 DAY), 71,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 72
+    */
+      (498,true, SUBDATE(NOW(), INTERVAL 5 DAY), 72, 'Baker Hall', 'UPLB', 'Gym'),
+      (499,true, SUBDATE(NOW(), INTERVAL 5 DAY), 72, 'Copeland Gym','UPLB', 'Gym'),
+      (500,true, SUBDATE(NOW(), INTERVAL 5 DAY), 72, 'Physci Building', 'UPLB', 'Building'),
+      (501,true, SUBDATE(NOW(), INTERVAL 5 DAY), 72, 'Freedom Park', 'UPLB', 'Park'),
+      (502,true, SUBDATE(NOW(), INTERVAL 5 DAY), 72, 'Freedom Park', 'UPLB', 'Park'),
+      (503,true, SUBDATE(NOW(), INTERVAL 5 DAY), 72, 'Freedom Park', 'UPLB', 'Park'),
+      (504,true, SUBDATE(NOW(), INTERVAL 5 DAY), 72,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 73
+    */
+      (505,true, SUBDATE(NOW(), INTERVAL 5 DAY), 73, 'Baker Hall', 'UPLB', 'Gym'),
+      (506,true, SUBDATE(NOW(), INTERVAL 5 DAY), 73, 'Copeland Gym','UPLB', 'Gym'),
+      (507,true, SUBDATE(NOW(), INTERVAL 5 DAY), 73, 'Physci Building', 'UPLB', 'Building'),
+      (508,true, SUBDATE(NOW(), INTERVAL 5 DAY), 73, 'Freedom Park', 'UPLB', 'Park'),
+      (509,true, SUBDATE(NOW(), INTERVAL 5 DAY), 73, 'Freedom Park', 'UPLB', 'Park'),
+      (510,true, SUBDATE(NOW(), INTERVAL 5 DAY), 73, 'Freedom Park', 'UPLB', 'Park'),
+      (511,true, SUBDATE(NOW(), INTERVAL 5 DAY), 73,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 74
+    */
+      (512,true, SUBDATE(NOW(), INTERVAL 5 DAY), 74, 'Baker Hall', 'UPLB', 'Gym'),
+      (513,true, SUBDATE(NOW(), INTERVAL 5 DAY), 74, 'Copeland Gym','UPLB', 'Gym'),
+      (514,true, SUBDATE(NOW(), INTERVAL 5 DAY), 74, 'Physci Building', 'UPLB', 'Building'),
+      (515,true, SUBDATE(NOW(), INTERVAL 5 DAY), 74, 'Freedom Park', 'UPLB', 'Park'),
+      (516,true, SUBDATE(NOW(), INTERVAL 5 DAY), 74, 'Freedom Park', 'UPLB', 'Park'),
+      (517,true, SUBDATE(NOW(), INTERVAL 5 DAY), 74, 'Freedom Park', 'UPLB', 'Park'),
+      (518,true, SUBDATE(NOW(), INTERVAL 5 DAY), 74,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 75
+    */
+      (519,true, SUBDATE(NOW(), INTERVAL 5 DAY), 75, 'Baker Hall', 'UPLB', 'Gym'),
+      (520,true, SUBDATE(NOW(), INTERVAL 5 DAY), 75, 'Copeland Gym','UPLB', 'Gym'),
+      (521,true, SUBDATE(NOW(), INTERVAL 5 DAY), 75, 'Physci Building', 'UPLB', 'Building'),
+      (522,true, SUBDATE(NOW(), INTERVAL 5 DAY), 75, 'Freedom Park', 'UPLB', 'Park'),
+      (523,true, SUBDATE(NOW(), INTERVAL 5 DAY), 75, 'Freedom Park', 'UPLB', 'Park'),
+      (524,true, SUBDATE(NOW(), INTERVAL 5 DAY), 75, 'Freedom Park', 'UPLB', 'Park'),
+      (525,true, SUBDATE(NOW(), INTERVAL 5 DAY), 75,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 76
+    */
+      (526,true, SUBDATE(NOW(), INTERVAL 5 DAY), 76, 'Baker Hall', 'UPLB', 'Gym'),
+      (527,true, SUBDATE(NOW(), INTERVAL 5 DAY), 76, 'Copeland Gym','UPLB', 'Gym'),
+      (528,true, SUBDATE(NOW(), INTERVAL 5 DAY), 76, 'Physci Building', 'UPLB', 'Building'),
+      (529,true, SUBDATE(NOW(), INTERVAL 5 DAY), 76, 'Freedom Park', 'UPLB', 'Park'),
+      (530,true, SUBDATE(NOW(), INTERVAL 5 DAY), 76, 'Freedom Park', 'UPLB', 'Park'),
+      (531,true, SUBDATE(NOW(), INTERVAL 5 DAY), 76, 'Freedom Park', 'UPLB', 'Park'),
+      (532,true, SUBDATE(NOW(), INTERVAL 5 DAY), 76,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 77
+    */
+      (533,true, SUBDATE(NOW(), INTERVAL 5 DAY), 77, 'Baker Hall', 'UPLB', 'Gym'),
+      (534,true, SUBDATE(NOW(), INTERVAL 5 DAY), 77, 'Copeland Gym','UPLB', 'Gym'),
+      (535,true, SUBDATE(NOW(), INTERVAL 5 DAY), 77, 'Physci Building', 'UPLB', 'Building'),
+      (536,true, SUBDATE(NOW(), INTERVAL 5 DAY), 77, 'Freedom Park', 'UPLB', 'Park'),
+      (537,true, SUBDATE(NOW(), INTERVAL 5 DAY), 77, 'Freedom Park', 'UPLB', 'Park'),
+      (538,true, SUBDATE(NOW(), INTERVAL 5 DAY), 77, 'Freedom Park', 'UPLB', 'Park'),
+      (539,true, SUBDATE(NOW(), INTERVAL 5 DAY), 77,'Freedom Park', 'UPLB', 'Park'),
+  /*Matches of Game 12*/
+    /*
+      Matches of sport_id 78
+    */
+      (540,true, SUBDATE(NOW(), INTERVAL 4 DAY), 78, 'Baker Hall', 'UPLB', 'Gym'),
+      (541,true, SUBDATE(NOW(), INTERVAL 4 DAY), 78, 'Copeland Gym','UPLB', 'Gym'),
+      (542,true, SUBDATE(NOW(), INTERVAL 4 DAY), 78, 'Physci Building', 'UPLB', 'Building'),
+      (543,true, SUBDATE(NOW(), INTERVAL 4 DAY), 78, 'Freedom Park', 'UPLB', 'Park'),
+      (544,true, SUBDATE(NOW(), INTERVAL 4 DAY), 78, 'Freedom Park', 'UPLB', 'Park'),
+      (545,true, SUBDATE(NOW(), INTERVAL 4 DAY), 78, 'Freedom Park', 'UPLB', 'Park'),
+      (546,true, SUBDATE(NOW(), INTERVAL 4 DAY), 78,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 79
+    */
+      (547,true, SUBDATE(NOW(), INTERVAL 4 DAY), 79, 'Baker Hall', 'UPLB', 'Gym'),
+      (548,true, SUBDATE(NOW(), INTERVAL 4 DAY), 79, 'Copeland Gym','UPLB', 'Gym'),
+      (549,true, SUBDATE(NOW(), INTERVAL 4 DAY), 79, 'Physci Building', 'UPLB', 'Building'),
+      (550,true, SUBDATE(NOW(), INTERVAL 4 DAY), 79, 'Freedom Park', 'UPLB', 'Park'),
+      (551,true, SUBDATE(NOW(), INTERVAL 4 DAY), 79, 'Freedom Park', 'UPLB', 'Park'),
+      (552,true, SUBDATE(NOW(), INTERVAL 4 DAY), 79, 'Freedom Park', 'UPLB', 'Park'),
+      (553,true, SUBDATE(NOW(), INTERVAL 4 DAY), 79,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 80
+    */
+      (554,true, SUBDATE(NOW(), INTERVAL 4 DAY), 80, 'Baker Hall', 'UPLB', 'Gym'),
+      (555,true, SUBDATE(NOW(), INTERVAL 4 DAY), 80, 'Copeland Gym','UPLB', 'Gym'),
+      (556,true, SUBDATE(NOW(), INTERVAL 4 DAY), 80, 'Physci Building', 'UPLB', 'Building'),
+      (557,true, SUBDATE(NOW(), INTERVAL 4 DAY), 80, 'Freedom Park', 'UPLB', 'Park'),
+      (558,true, SUBDATE(NOW(), INTERVAL 4 DAY), 80, 'Freedom Park', 'UPLB', 'Park'),
+      (559,true, SUBDATE(NOW(), INTERVAL 4 DAY), 80, 'Freedom Park', 'UPLB', 'Park'),
+      (560,true, SUBDATE(NOW(), INTERVAL 4 DAY), 80,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 81
+    */
+      (561,true, SUBDATE(NOW(), INTERVAL 4 DAY), 81, 'Baker Hall', 'UPLB', 'Gym'),
+      (562,true, SUBDATE(NOW(), INTERVAL 4 DAY), 81, 'Copeland Gym','UPLB', 'Gym'),
+      (563,true, SUBDATE(NOW(), INTERVAL 4 DAY), 81, 'Physci Building', 'UPLB', 'Building'),
+      (564,true, SUBDATE(NOW(), INTERVAL 4 DAY), 81, 'Freedom Park', 'UPLB', 'Park'),
+      (565,true, SUBDATE(NOW(), INTERVAL 4 DAY), 81, 'Freedom Park', 'UPLB', 'Park'),
+      (566,true, SUBDATE(NOW(), INTERVAL 4 DAY), 81, 'Freedom Park', 'UPLB', 'Park'),
+      (567,true, SUBDATE(NOW(), INTERVAL 4 DAY), 81,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 82
+    */
+      (568,true, SUBDATE(NOW(), INTERVAL 4 DAY), 82, 'Baker Hall', 'UPLB', 'Gym'),
+      (569,true, SUBDATE(NOW(), INTERVAL 4 DAY), 82, 'Copeland Gym','UPLB', 'Gym'),
+      (570,true, SUBDATE(NOW(), INTERVAL 4 DAY), 82, 'Physci Building', 'UPLB', 'Building'),
+      (571,true, SUBDATE(NOW(), INTERVAL 4 DAY), 82, 'Freedom Park', 'UPLB', 'Park'),
+      (572,true, SUBDATE(NOW(), INTERVAL 4 DAY), 82, 'Freedom Park', 'UPLB', 'Park'),
+      (573,true, SUBDATE(NOW(), INTERVAL 4 DAY), 82, 'Freedom Park', 'UPLB', 'Park'),
+      (574,true, SUBDATE(NOW(), INTERVAL 4 DAY), 82,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 83
+    */
+      (575,true, SUBDATE(NOW(), INTERVAL 4 DAY), 83, 'Baker Hall', 'UPLB', 'Gym'),
+      (576,true, SUBDATE(NOW(), INTERVAL 4 DAY), 83, 'Copeland Gym','UPLB', 'Gym'),
+      (577,true, SUBDATE(NOW(), INTERVAL 4 DAY), 83, 'Physci Building', 'UPLB', 'Building'),
+      (578,true, SUBDATE(NOW(), INTERVAL 4 DAY), 83, 'Freedom Park', 'UPLB', 'Park'),
+      (579,true, SUBDATE(NOW(), INTERVAL 4 DAY), 83, 'Freedom Park', 'UPLB', 'Park'),
+      (580,true, SUBDATE(NOW(), INTERVAL 4 DAY), 83, 'Freedom Park', 'UPLB', 'Park'),
+      (581,true, SUBDATE(NOW(), INTERVAL 4 DAY), 83,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 84
+    */
+      (582,true, SUBDATE(NOW(), INTERVAL 4 DAY), 84, 'Baker Hall', 'UPLB', 'Gym'),
+      (583,true, SUBDATE(NOW(), INTERVAL 4 DAY), 84, 'Copeland Gym','UPLB', 'Gym'),
+      (584,true, SUBDATE(NOW(), INTERVAL 4 DAY), 84, 'Physci Building', 'UPLB', 'Building'),
+      (585,true, SUBDATE(NOW(), INTERVAL 4 DAY), 84, 'Freedom Park', 'UPLB', 'Park'),
+      (586,true, SUBDATE(NOW(), INTERVAL 4 DAY), 84, 'Freedom Park', 'UPLB', 'Park'),
+      (587,true, SUBDATE(NOW(), INTERVAL 4 DAY), 84, 'Freedom Park', 'UPLB', 'Park'),
+      (588,true, SUBDATE(NOW(), INTERVAL 4 DAY), 84,'Freedom Park', 'UPLB', 'Park'),
+  /*Matches of Game 13*/
+    /*
+      Matches of sport_id 85
+    */
+      (589,true, SUBDATE(NOW(), INTERVAL 3 DAY), 85, 'Baker Hall', 'UPLB', 'Gym'),
+      (590,true, SUBDATE(NOW(), INTERVAL 3 DAY), 85, 'Copeland Gym','UPLB', 'Gym'),
+      (591,true, SUBDATE(NOW(), INTERVAL 3 DAY), 85, 'Physci Building', 'UPLB', 'Building'),
+      (592,true, SUBDATE(NOW(), INTERVAL 3 DAY), 85, 'Freedom Park', 'UPLB', 'Park'),
+      (593,true, SUBDATE(NOW(), INTERVAL 3 DAY), 85, 'Freedom Park', 'UPLB', 'Park'),
+      (594,true, SUBDATE(NOW(), INTERVAL 3 DAY), 85, 'Freedom Park', 'UPLB', 'Park'),
+      (595,true, SUBDATE(NOW(), INTERVAL 3 DAY), 85,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 86
+    */
+      (596,true, SUBDATE(NOW(), INTERVAL 3 DAY), 86, 'Baker Hall', 'UPLB', 'Gym'),
+      (597,true, SUBDATE(NOW(), INTERVAL 3 DAY), 86, 'Copeland Gym','UPLB', 'Gym'),
+      (598,true, SUBDATE(NOW(), INTERVAL 3 DAY), 86, 'Physci Building', 'UPLB', 'Building'),
+      (599,true, SUBDATE(NOW(), INTERVAL 3 DAY), 86, 'Freedom Park', 'UPLB', 'Park'),
+      (600,true, SUBDATE(NOW(), INTERVAL 3 DAY), 86, 'Freedom Park', 'UPLB', 'Park'),
+      (601,true, SUBDATE(NOW(), INTERVAL 3 DAY), 86, 'Freedom Park', 'UPLB', 'Park'),
+      (602,true, SUBDATE(NOW(), INTERVAL 3 DAY), 86,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 87
+    */
+      (603,true, SUBDATE(NOW(), INTERVAL 3 DAY), 87, 'Baker Hall', 'UPLB', 'Gym'),
+      (604,true, SUBDATE(NOW(), INTERVAL 3 DAY), 87, 'Copeland Gym','UPLB', 'Gym'),
+      (605,true, SUBDATE(NOW(), INTERVAL 3 DAY), 87, 'Physci Building', 'UPLB', 'Building'),
+      (606,true, SUBDATE(NOW(), INTERVAL 3 DAY), 87, 'Freedom Park', 'UPLB', 'Park'),
+      (607,true, SUBDATE(NOW(), INTERVAL 3 DAY), 87, 'Freedom Park', 'UPLB', 'Park'),
+      (608,true, SUBDATE(NOW(), INTERVAL 3 DAY), 87, 'Freedom Park', 'UPLB', 'Park'),
+      (609,true, SUBDATE(NOW(), INTERVAL 3 DAY), 87,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 88
+    */
+      (610,true, SUBDATE(NOW(), INTERVAL 3 DAY), 88, 'Baker Hall', 'UPLB', 'Gym'),
+      (611,true, SUBDATE(NOW(), INTERVAL 3 DAY), 88, 'Copeland Gym','UPLB', 'Gym'),
+      (612,true, SUBDATE(NOW(), INTERVAL 3 DAY), 88, 'Physci Building', 'UPLB', 'Building'),
+      (613,true, SUBDATE(NOW(), INTERVAL 3 DAY), 88, 'Freedom Park', 'UPLB', 'Park'),
+      (614,true, SUBDATE(NOW(), INTERVAL 3 DAY), 88, 'Freedom Park', 'UPLB', 'Park'),
+      (615,true, SUBDATE(NOW(), INTERVAL 3 DAY), 88, 'Freedom Park', 'UPLB', 'Park'),
+      (616,true, SUBDATE(NOW(), INTERVAL 3 DAY), 88,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 89
+    */
+      (617,true, SUBDATE(NOW(), INTERVAL 3 DAY), 89, 'Baker Hall', 'UPLB', 'Gym'),
+      (618,true, SUBDATE(NOW(), INTERVAL 3 DAY), 89, 'Copeland Gym','UPLB', 'Gym'),
+      (619,true, SUBDATE(NOW(), INTERVAL 3 DAY), 89, 'Physci Building', 'UPLB', 'Building'),
+      (620,true, SUBDATE(NOW(), INTERVAL 3 DAY), 89, 'Freedom Park', 'UPLB', 'Park'),
+      (621,true, SUBDATE(NOW(), INTERVAL 3 DAY), 89, 'Freedom Park', 'UPLB', 'Park'),
+      (622,true, SUBDATE(NOW(), INTERVAL 3 DAY), 89, 'Freedom Park', 'UPLB', 'Park'),
+      (623,true, SUBDATE(NOW(), INTERVAL 3 DAY), 89,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 90
+    */
+      (624,true, SUBDATE(NOW(), INTERVAL 3 DAY), 90, 'Baker Hall', 'UPLB', 'Gym'),
+      (625,true, SUBDATE(NOW(), INTERVAL 3 DAY), 90, 'Copeland Gym','UPLB', 'Gym'),
+      (626,true, SUBDATE(NOW(), INTERVAL 3 DAY), 90, 'Physci Building', 'UPLB', 'Building'),
+      (627,true, SUBDATE(NOW(), INTERVAL 3 DAY), 90, 'Freedom Park', 'UPLB', 'Park'),
+      (628,true, SUBDATE(NOW(), INTERVAL 3 DAY), 90, 'Freedom Park', 'UPLB', 'Park'),
+      (629,true, SUBDATE(NOW(), INTERVAL 3 DAY), 90, 'Freedom Park', 'UPLB', 'Park'),
+      (630,true, SUBDATE(NOW(), INTERVAL 3 DAY), 90,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 91
+    */
+      (631,true, SUBDATE(NOW(), INTERVAL 3 DAY), 91, 'Baker Hall', 'UPLB', 'Gym'),
+      (632,true, SUBDATE(NOW(), INTERVAL 3 DAY), 91, 'Copeland Gym','UPLB', 'Gym'),
+      (633,true, SUBDATE(NOW(), INTERVAL 3 DAY), 91, 'Physci Building', 'UPLB', 'Building'),
+      (634,true, SUBDATE(NOW(), INTERVAL 3 DAY), 91, 'Freedom Park', 'UPLB', 'Park'),
+      (635,true, SUBDATE(NOW(), INTERVAL 3 DAY), 91, 'Freedom Park', 'UPLB', 'Park'),
+      (636,true, SUBDATE(NOW(), INTERVAL 3 DAY), 91, 'Freedom Park', 'UPLB', 'Park'),
+      (637,true, SUBDATE(NOW(), INTERVAL 3 DAY), 91,'Freedom Park', 'UPLB', 'Park'),
+  /*Matches of Game 14*/
+    /*
+      Matches of sport_id 92
+    */
+      (638,true, SUBDATE(NOW(), INTERVAL 2 DAY), 92, 'Baker Hall', 'UPLB', 'Gym'),
+      (639,true, SUBDATE(NOW(), INTERVAL 2 DAY), 92, 'Copeland Gym','UPLB', 'Gym'),
+      (640,true, SUBDATE(NOW(), INTERVAL 2 DAY), 92, 'Physci Building', 'UPLB', 'Building'),
+      (641,true, SUBDATE(NOW(), INTERVAL 2 DAY), 92, 'Freedom Park', 'UPLB', 'Park'),
+      (642,true, SUBDATE(NOW(), INTERVAL 2 DAY), 92, 'Freedom Park', 'UPLB', 'Park'),
+      (643,true, SUBDATE(NOW(), INTERVAL 2 DAY), 92, 'Freedom Park', 'UPLB', 'Park'),
+      (644,true, SUBDATE(NOW(), INTERVAL 2 DAY), 92,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 93
+    */
+      (645,true, SUBDATE(NOW(), INTERVAL 2 DAY), 93, 'Baker Hall', 'UPLB', 'Gym'),
+      (646,true, SUBDATE(NOW(), INTERVAL 2 DAY), 93, 'Copeland Gym','UPLB', 'Gym'),
+      (647,true, SUBDATE(NOW(), INTERVAL 2 DAY), 93, 'Physci Building', 'UPLB', 'Building'),
+      (648,true, SUBDATE(NOW(), INTERVAL 2 DAY), 93, 'Freedom Park', 'UPLB', 'Park'),
+      (649,true, SUBDATE(NOW(), INTERVAL 2 DAY), 93, 'Freedom Park', 'UPLB', 'Park'),
+      (650,true, SUBDATE(NOW(), INTERVAL 2 DAY), 93, 'Freedom Park', 'UPLB', 'Park'),
+      (651,true, SUBDATE(NOW(), INTERVAL 2 DAY), 93,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 94
+    */
+      (652,true, SUBDATE(NOW(), INTERVAL 2 DAY), 94, 'Baker Hall', 'UPLB', 'Gym'),
+      (653,true, SUBDATE(NOW(), INTERVAL 2 DAY), 94, 'Copeland Gym','UPLB', 'Gym'),
+      (654,true, SUBDATE(NOW(), INTERVAL 2 DAY), 94, 'Physci Building', 'UPLB', 'Building'),
+      (655,true, SUBDATE(NOW(), INTERVAL 2 DAY), 94, 'Freedom Park', 'UPLB', 'Park'),
+      (656,true, SUBDATE(NOW(), INTERVAL 2 DAY), 94, 'Freedom Park', 'UPLB', 'Park'),
+      (657,true, SUBDATE(NOW(), INTERVAL 2 DAY), 94, 'Freedom Park', 'UPLB', 'Park'),
+      (658,true, SUBDATE(NOW(), INTERVAL 2 DAY), 94,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 95
+    */
+      (659,true, SUBDATE(NOW(), INTERVAL 2 DAY), 95, 'Baker Hall', 'UPLB', 'Gym'),
+      (660,true, SUBDATE(NOW(), INTERVAL 2 DAY), 95, 'Copeland Gym','UPLB', 'Gym'),
+      (661,true, SUBDATE(NOW(), INTERVAL 2 DAY), 95, 'Physci Building', 'UPLB', 'Building'),
+      (662,true, SUBDATE(NOW(), INTERVAL 2 DAY), 95, 'Freedom Park', 'UPLB', 'Park'),
+      (663,true, SUBDATE(NOW(), INTERVAL 2 DAY), 95, 'Freedom Park', 'UPLB', 'Park'),
+      (664,true, SUBDATE(NOW(), INTERVAL 2 DAY), 95, 'Freedom Park', 'UPLB', 'Park'),
+      (665,true, SUBDATE(NOW(), INTERVAL 2 DAY), 95,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 96
+    */
+      (666,true, SUBDATE(NOW(), INTERVAL 2 DAY), 96, 'Baker Hall', 'UPLB', 'Gym'),
+      (667,true, SUBDATE(NOW(), INTERVAL 2 DAY), 96, 'Copeland Gym','UPLB', 'Gym'),
+      (668,true, SUBDATE(NOW(), INTERVAL 2 DAY), 96, 'Physci Building', 'UPLB', 'Building'),
+      (669,true, SUBDATE(NOW(), INTERVAL 2 DAY), 96, 'Freedom Park', 'UPLB', 'Park'),
+      (670,true, SUBDATE(NOW(), INTERVAL 2 DAY), 96, 'Freedom Park', 'UPLB', 'Park'),
+      (671,true, SUBDATE(NOW(), INTERVAL 2 DAY), 96, 'Freedom Park', 'UPLB', 'Park'),
+      (672,true, SUBDATE(NOW(), INTERVAL 2 DAY), 96,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 97
+    */
+      (673,true, SUBDATE(NOW(), INTERVAL 2 DAY), 97, 'Baker Hall', 'UPLB', 'Gym'),
+      (674,true, SUBDATE(NOW(), INTERVAL 2 DAY), 97, 'Copeland Gym','UPLB', 'Gym'),
+      (675,true, SUBDATE(NOW(), INTERVAL 2 DAY), 97, 'Physci Building', 'UPLB', 'Building'),
+      (676,true, SUBDATE(NOW(), INTERVAL 2 DAY), 97, 'Freedom Park', 'UPLB', 'Park'),
+      (677,true, SUBDATE(NOW(), INTERVAL 2 DAY), 97, 'Freedom Park', 'UPLB', 'Park'),
+      (678,true, SUBDATE(NOW(), INTERVAL 2 DAY), 97, 'Freedom Park', 'UPLB', 'Park'),
+      (679,true, SUBDATE(NOW(), INTERVAL 2 DAY), 97,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 98
+    */
+      (680,true, SUBDATE(NOW(), INTERVAL 2 DAY), 98, 'Baker Hall', 'UPLB', 'Gym'),
+      (681,true, SUBDATE(NOW(), INTERVAL 2 DAY), 98, 'Copeland Gym','UPLB', 'Gym'),
+      (682,true, SUBDATE(NOW(), INTERVAL 2 DAY), 98, 'Physci Building', 'UPLB', 'Building'),
+      (683,true, SUBDATE(NOW(), INTERVAL 2 DAY), 98, 'Freedom Park', 'UPLB', 'Park'),
+      (684,true, SUBDATE(NOW(), INTERVAL 2 DAY), 98, 'Freedom Park', 'UPLB', 'Park'),
+      (685,true, SUBDATE(NOW(), INTERVAL 2 DAY), 98, 'Freedom Park', 'UPLB', 'Park'),
+      (686,true, SUBDATE(NOW(), INTERVAL 2 DAY), 98,'Freedom Park', 'UPLB', 'Park'),
+  /*Matches of Game 15*/
+    /*
+      Matches of sport_id 99
+    */
+      (687,true, SUBDATE(NOW(), INTERVAL 1 DAY), 99, 'Baker Hall', 'UPLB', 'Gym'),
+      (688,true, SUBDATE(NOW(), INTERVAL 1 DAY), 99, 'Copeland Gym','UPLB', 'Gym'),
+      (689,true, SUBDATE(NOW(), INTERVAL 1 DAY), 99, 'Physci Building', 'UPLB', 'Building'),
+      (690,true, SUBDATE(NOW(), INTERVAL 1 DAY), 99, 'Freedom Park', 'UPLB', 'Park'),
+      (691,true, SUBDATE(NOW(), INTERVAL 1 DAY), 99, 'Freedom Park', 'UPLB', 'Park'),
+      (692,true, SUBDATE(NOW(), INTERVAL 1 DAY), 99, 'Freedom Park', 'UPLB', 'Park'),
+      (693,true, SUBDATE(NOW(), INTERVAL 1 DAY), 99,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 100
+    */
+      (694,true, SUBDATE(NOW(), INTERVAL 1 DAY), 100, 'Baker Hall', 'UPLB', 'Gym'),
+      (695,true, SUBDATE(NOW(), INTERVAL 1 DAY), 100, 'Copeland Gym','UPLB', 'Gym'),
+      (696,true, SUBDATE(NOW(), INTERVAL 1 DAY), 100, 'Physci Building', 'UPLB', 'Building'),
+      (697,true, SUBDATE(NOW(), INTERVAL 1 DAY), 100, 'Freedom Park', 'UPLB', 'Park'),
+      (698,true, SUBDATE(NOW(), INTERVAL 1 DAY), 100, 'Freedom Park', 'UPLB', 'Park'),
+      (699,true, SUBDATE(NOW(), INTERVAL 1 DAY), 100, 'Freedom Park', 'UPLB', 'Park'),
+      (700,true, SUBDATE(NOW(), INTERVAL 1 DAY), 100,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 101
+    */
+      (701,true, SUBDATE(NOW(), INTERVAL 1 DAY), 101, 'Baker Hall', 'UPLB', 'Gym'),
+      (702,true, SUBDATE(NOW(), INTERVAL 1 DAY), 101, 'Copeland Gym','UPLB', 'Gym'),
+      (703,true, SUBDATE(NOW(), INTERVAL 1 DAY), 101, 'Physci Building', 'UPLB', 'Building'),
+      (704,true, SUBDATE(NOW(), INTERVAL 1 DAY), 101, 'Freedom Park', 'UPLB', 'Park'),
+      (705,true, SUBDATE(NOW(), INTERVAL 1 DAY), 101, 'Freedom Park', 'UPLB', 'Park'),
+      (706,true, SUBDATE(NOW(), INTERVAL 1 DAY), 101, 'Freedom Park', 'UPLB', 'Park'),
+      (707,true, SUBDATE(NOW(), INTERVAL 1 DAY), 101,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 102
+    */
+      (708,true, SUBDATE(NOW(), INTERVAL 1 DAY), 102, 'Baker Hall', 'UPLB', 'Gym'),
+      (709,true, SUBDATE(NOW(), INTERVAL 1 DAY), 102, 'Copeland Gym','UPLB', 'Gym'),
+      (710,true, SUBDATE(NOW(), INTERVAL 1 DAY), 102, 'Physci Building', 'UPLB', 'Building'),
+      (711,true, SUBDATE(NOW(), INTERVAL 1 DAY), 102, 'Freedom Park', 'UPLB', 'Park'),
+      (712,true, SUBDATE(NOW(), INTERVAL 1 DAY), 102, 'Freedom Park', 'UPLB', 'Park'),
+      (713,true, SUBDATE(NOW(), INTERVAL 1 DAY), 102, 'Freedom Park', 'UPLB', 'Park'),
+      (714,true, SUBDATE(NOW(), INTERVAL 1 DAY), 102,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 103
+    */
+      (715,true, SUBDATE(NOW(), INTERVAL 1 DAY), 103, 'Baker Hall', 'UPLB', 'Gym'),
+      (716,true, SUBDATE(NOW(), INTERVAL 1 DAY), 103, 'Copeland Gym','UPLB', 'Gym'),
+      (717,true, SUBDATE(NOW(), INTERVAL 1 DAY), 103, 'Physci Building', 'UPLB', 'Building'),
+      (718,true, SUBDATE(NOW(), INTERVAL 1 DAY), 103, 'Freedom Park', 'UPLB', 'Park'),
+      (719,true, SUBDATE(NOW(), INTERVAL 1 DAY), 103, 'Freedom Park', 'UPLB', 'Park'),
+      (720,true, SUBDATE(NOW(), INTERVAL 1 DAY), 103, 'Freedom Park', 'UPLB', 'Park'),
+      (721,true, SUBDATE(NOW(), INTERVAL 1 DAY), 103,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 104
+    */
+      (722,true, SUBDATE(NOW(), INTERVAL 1 DAY), 104, 'Baker Hall', 'UPLB', 'Gym'),
+      (723,true, SUBDATE(NOW(), INTERVAL 1 DAY), 104, 'Copeland Gym','UPLB', 'Gym'),
+      (724,true, SUBDATE(NOW(), INTERVAL 1 DAY), 104, 'Physci Building', 'UPLB', 'Building'),
+      (725,true, SUBDATE(NOW(), INTERVAL 1 DAY), 104, 'Freedom Park', 'UPLB', 'Park'),
+      (726,true, SUBDATE(NOW(), INTERVAL 1 DAY), 104, 'Freedom Park', 'UPLB', 'Park'),
+      (727,true, SUBDATE(NOW(), INTERVAL 1 DAY), 104, 'Freedom Park', 'UPLB', 'Park'),
+      (728,true, SUBDATE(NOW(), INTERVAL 1 DAY), 104,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 105
+    */
+      (729,true, SUBDATE(NOW(), INTERVAL 1 DAY), 105, 'Baker Hall', 'UPLB', 'Gym'),
+      (730,true, SUBDATE(NOW(), INTERVAL 1 DAY), 105, 'Copeland Gym','UPLB', 'Gym'),
+      (731,true, SUBDATE(NOW(), INTERVAL 1 DAY), 105, 'Physci Building', 'UPLB', 'Building'),
+      (732,true, SUBDATE(NOW(), INTERVAL 1 DAY), 105, 'Freedom Park', 'UPLB', 'Park'),
+      (733,true, SUBDATE(NOW(), INTERVAL 1 DAY), 105, 'Freedom Park', 'UPLB', 'Park'),
+      (734,true, SUBDATE(NOW(), INTERVAL 1 DAY), 105, 'Freedom Park', 'UPLB', 'Park'),
+      (735,true, SUBDATE(NOW(), INTERVAL 1 DAY), 105,'Freedom Park', 'UPLB', 'Park'),
+  /*Matches of Game 16*/
+    /*
+      Matches of sport_id 106
+    */
+      (736,true, SUBDATE(NOW(), INTERVAL 0 DAY), 106, 'Baker Hall', 'UPLB', 'Gym'),
+      (737,true, SUBDATE(NOW(), INTERVAL 0 DAY), 106, 'Copeland Gym','UPLB', 'Gym'),
+      (738,true, SUBDATE(NOW(), INTERVAL 0 DAY), 106, 'Physci Building', 'UPLB', 'Building'),
+      (739,true, SUBDATE(NOW(), INTERVAL 0 DAY), 106, 'Freedom Park', 'UPLB', 'Park'),
+      (740,true, SUBDATE(NOW(), INTERVAL 0 DAY), 106, 'Freedom Park', 'UPLB', 'Park'),
+      (741,true, SUBDATE(NOW(), INTERVAL 0 DAY), 106, 'Freedom Park', 'UPLB', 'Park'),
+      (742,true, SUBDATE(NOW(), INTERVAL 0 DAY), 106,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 107
+    */
+      (743,true, SUBDATE(NOW(), INTERVAL 0 DAY), 107, 'Baker Hall', 'UPLB', 'Gym'),
+      (744,true, SUBDATE(NOW(), INTERVAL 0 DAY), 107, 'Copeland Gym','UPLB', 'Gym'),
+      (745,true, SUBDATE(NOW(), INTERVAL 0 DAY), 107, 'Physci Building', 'UPLB', 'Building'),
+      (746,true, SUBDATE(NOW(), INTERVAL 0 DAY), 107, 'Freedom Park', 'UPLB', 'Park'),
+      (747,true, SUBDATE(NOW(), INTERVAL 0 DAY), 107, 'Freedom Park', 'UPLB', 'Park'),
+      (748,true, SUBDATE(NOW(), INTERVAL 0 DAY), 107, 'Freedom Park', 'UPLB', 'Park'),
+      (749,true, SUBDATE(NOW(), INTERVAL 0 DAY), 107,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 108
+    */
+      (750,true, SUBDATE(NOW(), INTERVAL 0 DAY), 108, 'Baker Hall', 'UPLB', 'Gym'),
+      (751,true, SUBDATE(NOW(), INTERVAL 0 DAY), 108, 'Copeland Gym','UPLB', 'Gym'),
+      (752,true, SUBDATE(NOW(), INTERVAL 0 DAY), 108, 'Physci Building', 'UPLB', 'Building'),
+      (753,true, SUBDATE(NOW(), INTERVAL 0 DAY), 108, 'Freedom Park', 'UPLB', 'Park'),
+      (754,true, SUBDATE(NOW(), INTERVAL 0 DAY), 108, 'Freedom Park', 'UPLB', 'Park'),
+      (755,true, SUBDATE(NOW(), INTERVAL 0 DAY), 108, 'Freedom Park', 'UPLB', 'Park'),
+      (756,true, SUBDATE(NOW(), INTERVAL 0 DAY), 108,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 109
+    */
+      (757,true, SUBDATE(NOW(), INTERVAL 0 DAY), 109, 'Baker Hall', 'UPLB', 'Gym'),
+      (758,true, SUBDATE(NOW(), INTERVAL 0 DAY), 109, 'Copeland Gym','UPLB', 'Gym'),
+      (759,true, SUBDATE(NOW(), INTERVAL 0 DAY), 109, 'Physci Building', 'UPLB', 'Building'),
+      (760,true, SUBDATE(NOW(), INTERVAL 0 DAY), 109, 'Freedom Park', 'UPLB', 'Park'),
+      (761,true, SUBDATE(NOW(), INTERVAL 0 DAY), 109, 'Freedom Park', 'UPLB', 'Park'),
+      (762,true, SUBDATE(NOW(), INTERVAL 0 DAY), 109, 'Freedom Park', 'UPLB', 'Park'),
+      (763,true, SUBDATE(NOW(), INTERVAL 0 DAY), 109,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 110
+    */
+      (764,true, SUBDATE(NOW(), INTERVAL 0 DAY), 110, 'Baker Hall', 'UPLB', 'Gym'),
+      (765,true, SUBDATE(NOW(), INTERVAL 0 DAY), 110, 'Copeland Gym','UPLB', 'Gym'),
+      (766,true, SUBDATE(NOW(), INTERVAL 0 DAY), 110, 'Physci Building', 'UPLB', 'Building'),
+      (767,true, SUBDATE(NOW(), INTERVAL 0 DAY), 110, 'Freedom Park', 'UPLB', 'Park'),
+      (768,true, SUBDATE(NOW(), INTERVAL 0 DAY), 110, 'Freedom Park', 'UPLB', 'Park'),
+      (769,true, SUBDATE(NOW(), INTERVAL 0 DAY), 110, 'Freedom Park', 'UPLB', 'Park'),
+      (770,true, SUBDATE(NOW(), INTERVAL 0 DAY), 110,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 111
+    */
+      (771,true, SUBDATE(NOW(), INTERVAL 0 DAY), 111, 'Baker Hall', 'UPLB', 'Gym'),
+      (772,true, SUBDATE(NOW(), INTERVAL 0 DAY), 111, 'Copeland Gym','UPLB', 'Gym'),
+      (773,true, SUBDATE(NOW(), INTERVAL 0 DAY), 111, 'Physci Building', 'UPLB', 'Building'),
+      (774,true, SUBDATE(NOW(), INTERVAL 0 DAY), 111, 'Freedom Park', 'UPLB', 'Park'),
+      (775,true, SUBDATE(NOW(), INTERVAL 0 DAY), 111, 'Freedom Park', 'UPLB', 'Park'),
+      (776,true, SUBDATE(NOW(), INTERVAL 0 DAY), 111, 'Freedom Park', 'UPLB', 'Park'),
+      (777,true, SUBDATE(NOW(), INTERVAL 0 DAY), 111,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 112
+    */
+      (778,true, SUBDATE(NOW(), INTERVAL 0 DAY), 112, 'Baker Hall', 'UPLB', 'Gym'),
+      (779,true, SUBDATE(NOW(), INTERVAL 0 DAY), 112, 'Copeland Gym','UPLB', 'Gym'),
+      (780,true, SUBDATE(NOW(), INTERVAL 0 DAY), 112, 'Physci Building', 'UPLB', 'Building'),
+      (781,true, SUBDATE(NOW(), INTERVAL 0 DAY), 112, 'Freedom Park', 'UPLB', 'Park'),
+      (782,true, SUBDATE(NOW(), INTERVAL 0 DAY), 112, 'Freedom Park', 'UPLB', 'Park'),
+      (783,true, SUBDATE(NOW(), INTERVAL 0 DAY), 112, 'Freedom Park', 'UPLB', 'Park'),
+      (784,true, SUBDATE(NOW(), INTERVAL 0 DAY), 112,'Freedom Park', 'UPLB', 'Park'),
+  /*Matches of Game 17*/
+    /*
+      Matches of sport_id 113
+    */
+      (785,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 113, 'Baker Hall', 'UPLB', 'Gym'),
+      (786,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 113, 'Copeland Gym','UPLB', 'Gym'),
+      (787,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 113, 'Physci Building', 'UPLB', 'Building'),
+      (788,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 113, 'Freedom Park', 'UPLB', 'Park'),
+      (789,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 113, 'Freedom Park', 'UPLB', 'Park'),
+      (790,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 113, 'Freedom Park', 'UPLB', 'Park'),
+      (791,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 113,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 114
+    */
+      (792,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 114, 'Baker Hall', 'UPLB', 'Gym'),
+      (793,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 114, 'Copeland Gym','UPLB', 'Gym'),
+      (794,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 114, 'Physci Building', 'UPLB', 'Building'),
+      (795,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 114, 'Freedom Park', 'UPLB', 'Park'),
+      (796,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 114, 'Freedom Park', 'UPLB', 'Park'),
+      (797,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 114, 'Freedom Park', 'UPLB', 'Park'),
+      (798,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 114,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 115
+    */
+      (799,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 115, 'Baker Hall', 'UPLB', 'Gym'),
+      (800,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 115, 'Copeland Gym','UPLB', 'Gym'),
+      (801,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 115, 'Physci Building', 'UPLB', 'Building'),
+      (802,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 115, 'Freedom Park', 'UPLB', 'Park'),
+      (803,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 115, 'Freedom Park', 'UPLB', 'Park'),
+      (804,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 115, 'Freedom Park', 'UPLB', 'Park'),
+      (805,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 115,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 116
+    */
+      (806,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 116, 'Baker Hall', 'UPLB', 'Gym'),
+      (807,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 116, 'Copeland Gym','UPLB', 'Gym'),
+      (808,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 116, 'Physci Building', 'UPLB', 'Building'),
+      (809,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 116, 'Freedom Park', 'UPLB', 'Park'),
+      (810,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 116, 'Freedom Park', 'UPLB', 'Park'),
+      (811,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 116, 'Freedom Park', 'UPLB', 'Park'),
+      (812,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 116,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 117
+    */
+      (813,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 117, 'Baker Hall', 'UPLB', 'Gym'),
+      (814,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 117, 'Copeland Gym','UPLB', 'Gym'),
+      (815,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 117, 'Physci Building', 'UPLB', 'Building'),
+      (816,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 117, 'Freedom Park', 'UPLB', 'Park'),
+      (817,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 117, 'Freedom Park', 'UPLB', 'Park'),
+      (818,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 117, 'Freedom Park', 'UPLB', 'Park'),
+      (819,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 117,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 118
+    */
+      (820,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 118, 'Baker Hall', 'UPLB', 'Gym'),
+      (821,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 118, 'Copeland Gym','UPLB', 'Gym'),
+      (822,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 118, 'Physci Building', 'UPLB', 'Building'),
+      (823,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 118, 'Freedom Park', 'UPLB', 'Park'),
+      (824,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 118, 'Freedom Park', 'UPLB', 'Park'),
+      (825,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 118, 'Freedom Park', 'UPLB', 'Park'),
+      (826,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 118,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 119
+    */
+      (827,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 119, 'Baker Hall', 'UPLB', 'Gym'),
+      (828,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 119, 'Copeland Gym','UPLB', 'Gym'),
+      (829,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 119, 'Physci Building', 'UPLB', 'Building'),
+      (830,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 119, 'Freedom Park', 'UPLB', 'Park'),
+      (831,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 119, 'Freedom Park', 'UPLB', 'Park'),
+      (832,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 119, 'Freedom Park', 'UPLB', 'Park'),
+      (833,true, ADDDATE(NOW(), INTERVAL 2 WEEK), 119,'Freedom Park', 'UPLB', 'Park'),
+  /*Matches of Game 18*/
+    /*
+      Matches of sport_id 120
+    */
+      (834,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 120, 'Baker Hall', 'UPLB', 'Gym'),
+      (835,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 120, 'Copeland Gym','UPLB', 'Gym'),
+      (836,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 120, 'Physci Building', 'UPLB', 'Building'),
+      (837,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 120, 'Freedom Park', 'UPLB', 'Park'),
+      (838,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 120, 'Freedom Park', 'UPLB', 'Park'),
+      (839,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 120, 'Freedom Park', 'UPLB', 'Park'),
+      (840,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 120,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 121
+    */
+      (841,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 121, 'Baker Hall', 'UPLB', 'Gym'),
+      (842,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 121, 'Copeland Gym','UPLB', 'Gym'),
+      (843,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 121, 'Physci Building', 'UPLB', 'Building'),
+      (844,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 121, 'Freedom Park', 'UPLB', 'Park'),
+      (845,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 121, 'Freedom Park', 'UPLB', 'Park'),
+      (846,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 121, 'Freedom Park', 'UPLB', 'Park'),
+      (847,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 121,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 122
+    */
+      (848,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 122, 'Baker Hall', 'UPLB', 'Gym'),
+      (849,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 122, 'Copeland Gym','UPLB', 'Gym'),
+      (850,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 122, 'Physci Building', 'UPLB', 'Building'),
+      (851,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 122, 'Freedom Park', 'UPLB', 'Park'),
+      (852,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 122, 'Freedom Park', 'UPLB', 'Park'),
+      (853,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 122, 'Freedom Park', 'UPLB', 'Park'),
+      (854,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 122,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 123
+    */
+      (855,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 123, 'Baker Hall', 'UPLB', 'Gym'),
+      (856,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 123, 'Copeland Gym','UPLB', 'Gym'),
+      (857,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 123, 'Physci Building', 'UPLB', 'Building'),
+      (858,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 123, 'Freedom Park', 'UPLB', 'Park'),
+      (859,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 123, 'Freedom Park', 'UPLB', 'Park'),
+      (860,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 123, 'Freedom Park', 'UPLB', 'Park'),
+      (861,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 123,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 124
+    */
+      (862,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 124, 'Baker Hall', 'UPLB', 'Gym'),
+      (863,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 124, 'Copeland Gym','UPLB', 'Gym'),
+      (864,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 124, 'Physci Building', 'UPLB', 'Building'),
+      (865,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 124, 'Freedom Park', 'UPLB', 'Park'),
+      (866,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 124, 'Freedom Park', 'UPLB', 'Park'),
+      (867,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 124, 'Freedom Park', 'UPLB', 'Park'),
+      (868,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 124,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 125
+    */
+      (869,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 125, 'Baker Hall', 'UPLB', 'Gym'),
+      (870,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 125, 'Copeland Gym','UPLB', 'Gym'),
+      (871,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 125, 'Physci Building', 'UPLB', 'Building'),
+      (872,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 125, 'Freedom Park', 'UPLB', 'Park'),
+      (873,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 125, 'Freedom Park', 'UPLB', 'Park'),
+      (874,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 125, 'Freedom Park', 'UPLB', 'Park'),
+      (875,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 125,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 126
+    */
+      (876,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 126, 'Baker Hall', 'UPLB', 'Gym'),
+      (877,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 126, 'Copeland Gym','UPLB', 'Gym'),
+      (878,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 126, 'Physci Building', 'UPLB', 'Building'),
+      (879,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 126, 'Freedom Park', 'UPLB', 'Park'),
+      (880,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 126, 'Freedom Park', 'UPLB', 'Park'),
+      (881,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 126, 'Freedom Park', 'UPLB', 'Park'),
+      (882,true, ADDDATE(NOW(), INTERVAL 3 WEEK), 126,'Freedom Park', 'UPLB', 'Park'),
+  /*Matches of Game 19*/
+    /*
+      Matches of sport_id 127
+    */
+      (883,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 127, 'Baker Hall', 'UPLB', 'Gym'),
+      (884,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 127, 'Copeland Gym','UPLB', 'Gym'),
+      (885,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 127, 'Physci Building', 'UPLB', 'Building'),
+      (886,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 127, 'Freedom Park', 'UPLB', 'Park'),
+      (887,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 127, 'Freedom Park', 'UPLB', 'Park'),
+      (888,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 127, 'Freedom Park', 'UPLB', 'Park'),
+      (889,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 127,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 128
+    */
+      (890,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 128, 'Baker Hall', 'UPLB', 'Gym'),
+      (891,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 128, 'Copeland Gym','UPLB', 'Gym'),
+      (892,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 128, 'Physci Building', 'UPLB', 'Building'),
+      (893,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 128, 'Freedom Park', 'UPLB', 'Park'),
+      (894,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 128, 'Freedom Park', 'UPLB', 'Park'),
+      (895,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 128, 'Freedom Park', 'UPLB', 'Park'),
+      (896,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 128,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 129
+    */
+      (897,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 129, 'Baker Hall', 'UPLB', 'Gym'),
+      (898,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 129, 'Copeland Gym','UPLB', 'Gym'),
+      (899,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 129, 'Physci Building', 'UPLB', 'Building'),
+      (900,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 129, 'Freedom Park', 'UPLB', 'Park'),
+      (901,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 129, 'Freedom Park', 'UPLB', 'Park'),
+      (902,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 129, 'Freedom Park', 'UPLB', 'Park'),
+      (903,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 129,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 130
+    */
+      (904,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 130, 'Baker Hall', 'UPLB', 'Gym'),
+      (905,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 130, 'Copeland Gym','UPLB', 'Gym'),
+      (906,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 130, 'Physci Building', 'UPLB', 'Building'),
+      (907,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 130, 'Freedom Park', 'UPLB', 'Park'),
+      (908,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 130, 'Freedom Park', 'UPLB', 'Park'),
+      (909,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 130, 'Freedom Park', 'UPLB', 'Park'),
+      (910,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 130,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 131
+    */
+      (911,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 131, 'Baker Hall', 'UPLB', 'Gym'),
+      (912,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 131, 'Copeland Gym','UPLB', 'Gym'),
+      (913,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 131, 'Physci Building', 'UPLB', 'Building'),
+      (914,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 131, 'Freedom Park', 'UPLB', 'Park'),
+      (915,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 131, 'Freedom Park', 'UPLB', 'Park'),
+      (916,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 131, 'Freedom Park', 'UPLB', 'Park'),
+      (917,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 131,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 132
+    */
+      (918,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 132, 'Baker Hall', 'UPLB', 'Gym'),
+      (919,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 132, 'Copeland Gym','UPLB', 'Gym'),
+      (920,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 132, 'Physci Building', 'UPLB', 'Building'),
+      (921,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 132, 'Freedom Park', 'UPLB', 'Park'),
+      (922,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 132, 'Freedom Park', 'UPLB', 'Park'),
+      (923,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 132, 'Freedom Park', 'UPLB', 'Park'),
+      (924,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 132,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 133
+    */
+      (925,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 133, 'Baker Hall', 'UPLB', 'Gym'),
+      (926,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 133, 'Copeland Gym','UPLB', 'Gym'),
+      (927,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 133, 'Physci Building', 'UPLB', 'Building'),
+      (928,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 133, 'Freedom Park', 'UPLB', 'Park'),
+      (929,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 133, 'Freedom Park', 'UPLB', 'Park'),
+      (930,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 133, 'Freedom Park', 'UPLB', 'Park'),
+      (931,true, ADDDATE(NOW(), INTERVAL 4 WEEK), 133,'Freedom Park', 'UPLB', 'Park'),
+  /*Matches of Game 20*/
+    /*
+      Matches of sport_id 134
+    */
+      (932,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 134, 'Baker Hall', 'UPLB', 'Gym'),
+      (933,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 134, 'Copeland Gym','UPLB', 'Gym'),
+      (934,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 134, 'Physci Building', 'UPLB', 'Building'),
+      (935,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 134, 'Freedom Park', 'UPLB', 'Park'),
+      (936,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 134, 'Freedom Park', 'UPLB', 'Park'),
+      (937,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 134, 'Freedom Park', 'UPLB', 'Park'),
+      (938,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 134,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 135
+    */
+      (939,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 135, 'Baker Hall', 'UPLB', 'Gym'),
+      (940,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 135, 'Copeland Gym','UPLB', 'Gym'),
+      (941,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 135, 'Physci Building', 'UPLB', 'Building'),
+      (942,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 135, 'Freedom Park', 'UPLB', 'Park'),
+      (943,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 135, 'Freedom Park', 'UPLB', 'Park'),
+      (944,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 135, 'Freedom Park', 'UPLB', 'Park'),
+      (945,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 135,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 136
+    */
+      (946,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 136, 'Baker Hall', 'UPLB', 'Gym'),
+      (947,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 136, 'Copeland Gym','UPLB', 'Gym'),
+      (948,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 136, 'Physci Building', 'UPLB', 'Building'),
+      (949,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 136, 'Freedom Park', 'UPLB', 'Park'),
+      (950,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 136, 'Freedom Park', 'UPLB', 'Park'),
+      (951,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 136, 'Freedom Park', 'UPLB', 'Park'),
+      (952,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 136,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 137
+    */
+      (953,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 137, 'Baker Hall', 'UPLB', 'Gym'),
+      (954,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 137, 'Copeland Gym','UPLB', 'Gym'),
+      (955,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 137, 'Physci Building', 'UPLB', 'Building'),
+      (956,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 137, 'Freedom Park', 'UPLB', 'Park'),
+      (957,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 137, 'Freedom Park', 'UPLB', 'Park'),
+      (958,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 137, 'Freedom Park', 'UPLB', 'Park'),
+      (959,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 137,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 138
+    */
+      (960,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 138, 'Baker Hall', 'UPLB', 'Gym'),
+      (961,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 138, 'Copeland Gym','UPLB', 'Gym'),
+      (962,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 138, 'Physci Building', 'UPLB', 'Building'),
+      (963,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 138, 'Freedom Park', 'UPLB', 'Park'),
+      (964,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 138, 'Freedom Park', 'UPLB', 'Park'),
+      (965,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 138, 'Freedom Park', 'UPLB', 'Park'),
+      (966,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 138,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 139
+    */
+      (967,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 139, 'Baker Hall', 'UPLB', 'Gym'),
+      (968,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 139, 'Copeland Gym','UPLB', 'Gym'),
+      (969,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 139, 'Physci Building', 'UPLB', 'Building'),
+      (970,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 139, 'Freedom Park', 'UPLB', 'Park'),
+      (971,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 139, 'Freedom Park', 'UPLB', 'Park'),
+      (972,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 139, 'Freedom Park', 'UPLB', 'Park'),
+      (973,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 139,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 140
+    */
+      (974,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 140, 'Baker Hall', 'UPLB', 'Gym'),
+      (975,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 140, 'Copeland Gym','UPLB', 'Gym'),
+      (976,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 140, 'Physci Building', 'UPLB', 'Building'),
+      (977,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 140, 'Freedom Park', 'UPLB', 'Park'),
+      (978,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 140, 'Freedom Park', 'UPLB', 'Park'),
+      (979,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 140, 'Freedom Park', 'UPLB', 'Park'),
+      (980,true, ADDDATE(NOW(), INTERVAL 5 WEEK), 140,'Freedom Park', 'UPLB', 'Park'),
+  /*Matches of Game 21*/
+    /*
+      Matches of sport_id 141
+    */
+      (981,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 141, 'Baker Hall', 'UPLB', 'Gym'),
+      (982,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 141, 'Copeland Gym','UPLB', 'Gym'),
+      (983,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 141, 'Physci Building', 'UPLB', 'Building'),
+      (984,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 141, 'Freedom Park', 'UPLB', 'Park'),
+      (985,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 141, 'Freedom Park', 'UPLB', 'Park'),
+      (986,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 141, 'Freedom Park', 'UPLB', 'Park'),
+      (987,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 141,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 142
+    */
+      (988,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 142, 'Baker Hall', 'UPLB', 'Gym'),
+      (989,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 142, 'Copeland Gym','UPLB', 'Gym'),
+      (990,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 142, 'Physci Building', 'UPLB', 'Building'),
+      (991,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 142, 'Freedom Park', 'UPLB', 'Park'),
+      (992,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 142, 'Freedom Park', 'UPLB', 'Park'),
+      (993,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 142, 'Freedom Park', 'UPLB', 'Park'),
+      (994,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 142,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 143
+    */
+      (995,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 143, 'Baker Hall', 'UPLB', 'Gym'),
+      (996,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 143, 'Copeland Gym','UPLB', 'Gym'),
+      (997,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 143, 'Physci Building', 'UPLB', 'Building'),
+      (998,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 143, 'Freedom Park', 'UPLB', 'Park'),
+      (999,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 143, 'Freedom Park', 'UPLB', 'Park'),
+      (1000,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 143, 'Freedom Park', 'UPLB', 'Park'),
+      (1001,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 143,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 144
+    */
+      (1002,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 144, 'Baker Hall', 'UPLB', 'Gym'),
+      (1003,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 144, 'Copeland Gym','UPLB', 'Gym'),
+      (1004,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 144, 'Physci Building', 'UPLB', 'Building'),
+      (1005,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 144, 'Freedom Park', 'UPLB', 'Park'),
+      (1006,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 144, 'Freedom Park', 'UPLB', 'Park'),
+      (1007,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 144, 'Freedom Park', 'UPLB', 'Park'),
+      (1008,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 144,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 145
+    */
+      (1009,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 145, 'Baker Hall', 'UPLB', 'Gym'),
+      (1010,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 145, 'Copeland Gym','UPLB', 'Gym'),
+      (1011,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 145, 'Physci Building', 'UPLB', 'Building'),
+      (1012,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 145, 'Freedom Park', 'UPLB', 'Park'),
+      (1013,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 145, 'Freedom Park', 'UPLB', 'Park'),
+      (1014,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 145, 'Freedom Park', 'UPLB', 'Park'),
+      (1015,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 145,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 146
+    */
+      (1016,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 146, 'Baker Hall', 'UPLB', 'Gym'),
+      (1017,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 146, 'Copeland Gym','UPLB', 'Gym'),
+      (1018,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 146, 'Physci Building', 'UPLB', 'Building'),
+      (1019,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 146, 'Freedom Park', 'UPLB', 'Park'),
+      (1020,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 146, 'Freedom Park', 'UPLB', 'Park'),
+      (1021,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 146, 'Freedom Park', 'UPLB', 'Park'),
+      (1022,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 146,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 147
+    */
+      (1023,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 147, 'Baker Hall', 'UPLB', 'Gym'),
+      (1024,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 147, 'Copeland Gym','UPLB', 'Gym'),
+      (1025,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 147, 'Physci Building', 'UPLB', 'Building'),
+      (1026,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 147, 'Freedom Park', 'UPLB', 'Park'),
+      (1027,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 147, 'Freedom Park', 'UPLB', 'Park'),
+      (1028,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 147, 'Freedom Park', 'UPLB', 'Park'),
+      (1029,true, ADDDATE(NOW(), INTERVAL 6 WEEK), 147,'Freedom Park', 'UPLB', 'Park'),
+  /*Matches of Game 22*/
+    /*
+      Matches of sport_id 148
+    */
+      (1030,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 148, 'Baker Hall', 'UPLB', 'Gym'),
+      (1031,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 148, 'Copeland Gym','UPLB', 'Gym'),
+      (1032,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 148, 'Physci Building', 'UPLB', 'Building'),
+      (1033,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 148, 'Freedom Park', 'UPLB', 'Park'),
+      (1034,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 148, 'Freedom Park', 'UPLB', 'Park'),
+      (1035,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 148, 'Freedom Park', 'UPLB', 'Park'),
+      (1036,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 148,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 149
+    */
+      (1037,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 149, 'Baker Hall', 'UPLB', 'Gym'),
+      (1038,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 149, 'Copeland Gym','UPLB', 'Gym'),
+      (1039,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 149, 'Physci Building', 'UPLB', 'Building'),
+      (1040,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 149, 'Freedom Park', 'UPLB', 'Park'),
+      (1041,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 149, 'Freedom Park', 'UPLB', 'Park'),
+      (1042,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 149, 'Freedom Park', 'UPLB', 'Park'),
+      (1043,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 149,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 150
+    */
+      (1044,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 150, 'Baker Hall', 'UPLB', 'Gym'),
+      (1045,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 150, 'Copeland Gym','UPLB', 'Gym'),
+      (1046,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 150, 'Physci Building', 'UPLB', 'Building'),
+      (1047,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 150, 'Freedom Park', 'UPLB', 'Park'),
+      (1048,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 150, 'Freedom Park', 'UPLB', 'Park'),
+      (1049,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 150, 'Freedom Park', 'UPLB', 'Park'),
+      (1050,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 150,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 151
+    */
+      (1051,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 151, 'Baker Hall', 'UPLB', 'Gym'),
+      (1052,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 151, 'Copeland Gym','UPLB', 'Gym'),
+      (1053,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 151, 'Physci Building', 'UPLB', 'Building'),
+      (1054,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 151, 'Freedom Park', 'UPLB', 'Park'),
+      (1055,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 151, 'Freedom Park', 'UPLB', 'Park'),
+      (1056,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 151, 'Freedom Park', 'UPLB', 'Park'),
+      (1057,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 151,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 152
+    */
+      (1058,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 152, 'Baker Hall', 'UPLB', 'Gym'),
+      (1059,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 152, 'Copeland Gym','UPLB', 'Gym'),
+      (1060,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 152, 'Physci Building', 'UPLB', 'Building'),
+      (1061,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 152, 'Freedom Park', 'UPLB', 'Park'),
+      (1062,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 152, 'Freedom Park', 'UPLB', 'Park'),
+      (1063,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 152, 'Freedom Park', 'UPLB', 'Park'),
+      (1064,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 152,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 153
+    */
+      (1065,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 153, 'Baker Hall', 'UPLB', 'Gym'),
+      (1066,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 153, 'Copeland Gym','UPLB', 'Gym'),
+      (1067,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 153, 'Physci Building', 'UPLB', 'Building'),
+      (1068,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 153, 'Freedom Park', 'UPLB', 'Park'),
+      (1069,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 153, 'Freedom Park', 'UPLB', 'Park'),
+      (1070,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 153, 'Freedom Park', 'UPLB', 'Park'),
+      (1071,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 153,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 154
+    */
+      (1072,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 154, 'Baker Hall', 'UPLB', 'Gym'),
+      (1073,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 154, 'Copeland Gym','UPLB', 'Gym'),
+      (1074,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 154, 'Physci Building', 'UPLB', 'Building'),
+      (1075,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 154, 'Freedom Park', 'UPLB', 'Park'),
+      (1076,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 154, 'Freedom Park', 'UPLB', 'Park'),
+      (1077,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 154, 'Freedom Park', 'UPLB', 'Park'),
+      (1078,true, ADDDATE(NOW(), INTERVAL 7 WEEK), 154,'Freedom Park', 'UPLB', 'Park'),
+  /*Matches of Game 23*/
+    /*
+      Matches of sport_id 155
+    */
+      (1079,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 155, 'Baker Hall', 'UPLB', 'Gym'),
+      (1080,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 155, 'Copeland Gym','UPLB', 'Gym'),
+      (1081,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 155, 'Physci Building', 'UPLB', 'Building'),
+      (1082,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 155, 'Freedom Park', 'UPLB', 'Park'),
+      (1083,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 155, 'Freedom Park', 'UPLB', 'Park'),
+      (1084,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 155, 'Freedom Park', 'UPLB', 'Park'),
+      (1085,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 155,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 156
+    */
+      (1086,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 156, 'Baker Hall', 'UPLB', 'Gym'),
+      (1087,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 156, 'Copeland Gym','UPLB', 'Gym'),
+      (1088,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 156, 'Physci Building', 'UPLB', 'Building'),
+      (1089,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 156, 'Freedom Park', 'UPLB', 'Park'),
+      (1090,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 156, 'Freedom Park', 'UPLB', 'Park'),
+      (1091,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 156, 'Freedom Park', 'UPLB', 'Park'),
+      (1092,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 156,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 157
+    */
+      (1093,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 157, 'Baker Hall', 'UPLB', 'Gym'),
+      (1094,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 157, 'Copeland Gym','UPLB', 'Gym'),
+      (1095,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 157, 'Physci Building', 'UPLB', 'Building'),
+      (1096,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 157, 'Freedom Park', 'UPLB', 'Park'),
+      (1097,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 157, 'Freedom Park', 'UPLB', 'Park'),
+      (1098,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 157, 'Freedom Park', 'UPLB', 'Park'),
+      (1099,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 157,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 158
+    */
+      (1100,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 158, 'Baker Hall', 'UPLB', 'Gym'),
+      (1101,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 158, 'Copeland Gym','UPLB', 'Gym'),
+      (1102,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 158, 'Physci Building', 'UPLB', 'Building'),
+      (1103,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 158, 'Freedom Park', 'UPLB', 'Park'),
+      (1104,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 158, 'Freedom Park', 'UPLB', 'Park'),
+      (1105,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 158, 'Freedom Park', 'UPLB', 'Park'),
+      (1106,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 158,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 159
+    */
+      (1107,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 159, 'Baker Hall', 'UPLB', 'Gym'),
+      (1108,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 159, 'Copeland Gym','UPLB', 'Gym'),
+      (1109,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 159, 'Physci Building', 'UPLB', 'Building'),
+      (1110,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 159, 'Freedom Park', 'UPLB', 'Park'),
+      (1111,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 159, 'Freedom Park', 'UPLB', 'Park'),
+      (1112,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 159, 'Freedom Park', 'UPLB', 'Park'),
+      (1113,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 159,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 160
+    */
+      (1114,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 160, 'Baker Hall', 'UPLB', 'Gym'),
+      (1115,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 160, 'Copeland Gym','UPLB', 'Gym'),
+      (1116,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 160, 'Physci Building', 'UPLB', 'Building'),
+      (1117,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 160, 'Freedom Park', 'UPLB', 'Park'),
+      (1118,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 160, 'Freedom Park', 'UPLB', 'Park'),
+      (1119,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 160, 'Freedom Park', 'UPLB', 'Park'),
+      (1120,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 160,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 161
+    */
+      (1121,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 161, 'Baker Hall', 'UPLB', 'Gym'),
+      (1122,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 161, 'Copeland Gym','UPLB', 'Gym'),
+      (1123,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 161, 'Physci Building', 'UPLB', 'Building'),
+      (1124,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 161, 'Freedom Park', 'UPLB', 'Park'),
+      (1125,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 161, 'Freedom Park', 'UPLB', 'Park'),
+      (1126,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 161, 'Freedom Park', 'UPLB', 'Park'),
+      (1127,true, ADDDATE(NOW(), INTERVAL 8 WEEK), 161,'Freedom Park', 'UPLB', 'Park'),
+  /*Matches of Game 24*/
+    /*
+      Matches of sport_id 162
+    */
+      (1128,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 162, 'Baker Hall', 'UPLB', 'Gym'),
+      (1129,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 162, 'Copeland Gym','UPLB', 'Gym'),
+      (1130,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 162, 'Physci Building', 'UPLB', 'Building'),
+      (1131,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 162, 'Freedom Park', 'UPLB', 'Park'),
+      (1132,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 162, 'Freedom Park', 'UPLB', 'Park'),
+      (1133,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 162, 'Freedom Park', 'UPLB', 'Park'),
+      (1134,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 162,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 163
+    */
+      (1135,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 163, 'Baker Hall', 'UPLB', 'Gym'),
+      (1136,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 163, 'Copeland Gym','UPLB', 'Gym'),
+      (1137,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 163, 'Physci Building', 'UPLB', 'Building'),
+      (1138,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 163, 'Freedom Park', 'UPLB', 'Park'),
+      (1139,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 163, 'Freedom Park', 'UPLB', 'Park'),
+      (1140,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 163, 'Freedom Park', 'UPLB', 'Park'),
+      (1141,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 163,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 164
+    */
+      (1142,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 164, 'Baker Hall', 'UPLB', 'Gym'),
+      (1143,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 164, 'Copeland Gym','UPLB', 'Gym'),
+      (1144,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 164, 'Physci Building', 'UPLB', 'Building'),
+      (1145,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 164, 'Freedom Park', 'UPLB', 'Park'),
+      (1146,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 164, 'Freedom Park', 'UPLB', 'Park'),
+      (1147,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 164, 'Freedom Park', 'UPLB', 'Park'),
+      (1148,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 164,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 165
+    */
+      (1149,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 165, 'Baker Hall', 'UPLB', 'Gym'),
+      (1150,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 165, 'Copeland Gym','UPLB', 'Gym'),
+      (1151,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 165, 'Physci Building', 'UPLB', 'Building'),
+      (1152,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 165, 'Freedom Park', 'UPLB', 'Park'),
+      (1153,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 165, 'Freedom Park', 'UPLB', 'Park'),
+      (1154,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 165, 'Freedom Park', 'UPLB', 'Park'),
+      (1155,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 165,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 166
+    */
+      (1156,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 166, 'Baker Hall', 'UPLB', 'Gym'),
+      (1157,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 166, 'Copeland Gym','UPLB', 'Gym'),
+      (1158,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 166, 'Physci Building', 'UPLB', 'Building'),
+      (1159,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 166, 'Freedom Park', 'UPLB', 'Park'),
+      (1160,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 166, 'Freedom Park', 'UPLB', 'Park'),
+      (1161,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 166, 'Freedom Park', 'UPLB', 'Park'),
+      (1162,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 166,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 167
+    */
+      (1163,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 167, 'Baker Hall', 'UPLB', 'Gym'),
+      (1164,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 167, 'Copeland Gym','UPLB', 'Gym'),
+      (1165,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 167, 'Physci Building', 'UPLB', 'Building'),
+      (1166,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 167, 'Freedom Park', 'UPLB', 'Park'),
+      (1167,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 167, 'Freedom Park', 'UPLB', 'Park'),
+      (1168,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 167, 'Freedom Park', 'UPLB', 'Park'),
+      (1169,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 167,'Freedom Park', 'UPLB', 'Park'),
+    /*
+      Matches of sport_id 168
+    */
+      (1170,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 168, 'Baker Hall', 'UPLB', 'Gym'),
+      (1171,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 168, 'Copeland Gym','UPLB', 'Gym'),
+      (1172,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 168, 'Physci Building', 'UPLB', 'Building'),
+      (1173,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 168, 'Freedom Park', 'UPLB', 'Park'),
+      (1174,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 168, 'Freedom Park', 'UPLB', 'Park'),
+      (1175,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 168, 'Freedom Park', 'UPLB', 'Park'),
+      (1176,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 168,'Freedom Park', 'UPLB', 'Park');
 
 delete from team;
 /*
@@ -3333,6 +3330,7 @@ VALUES
   ((SELECT account_id FROM account WHERE player_jersey_num = '6'), 94),
   ((SELECT account_id FROM account WHERE player_jersey_num = '7'), 95),
   ((SELECT account_id FROM account WHERE player_jersey_num = '8'), 96),
+/*
   ((SELECT account_id FROM account WHERE player_jersey_num = '1'), 97),
   ((SELECT account_id FROM account WHERE player_jersey_num = '2'), 98),
   ((SELECT account_id FROM account WHERE player_jersey_num = '3'), 99),
@@ -3365,6 +3363,7 @@ VALUES
   ((SELECT account_id FROM account WHERE player_jersey_num = '6'), 126),
   ((SELECT account_id FROM account WHERE player_jersey_num = '7'), 127),
   ((SELECT account_id FROM account WHERE player_jersey_num = '8'), 128),
+*/
   ((SELECT account_id FROM account WHERE player_jersey_num = '1'), 129),
   ((SELECT account_id FROM account WHERE player_jersey_num = '2'), 130),
   ((SELECT account_id FROM account WHERE player_jersey_num = '3'), 131),
@@ -3396,7 +3395,8 @@ VALUES
   ((SELECT account_id FROM account WHERE player_jersey_num = '5'), 157),
   ((SELECT account_id FROM account WHERE player_jersey_num = '6'), 158),
   ((SELECT account_id FROM account WHERE player_jersey_num = '7'), 159),
-  ((SELECT account_id FROM account WHERE player_jersey_num = '8'), 160),
+  ((SELECT account_id FROM account WHERE player_jersey_num = '8'), 160);
+/*
   ((SELECT account_id FROM account WHERE player_jersey_num = '1'), 161),
   ((SELECT account_id FROM account WHERE player_jersey_num = '2'), 162),
   ((SELECT account_id FROM account WHERE player_jersey_num = '3'), 163),
@@ -3429,6 +3429,7 @@ VALUES
   ((SELECT account_id FROM account WHERE player_jersey_num = '6'), 190),
   ((SELECT account_id FROM account WHERE player_jersey_num = '7'), 191),
   ((SELECT account_id FROM account WHERE player_jersey_num = '8'), 192);
+*/
 
 
 delete from match_event_team;
