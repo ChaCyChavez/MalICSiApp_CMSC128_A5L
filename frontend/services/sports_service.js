@@ -92,7 +92,7 @@
 				$http({
 					method: 'POST',
 					data: $httpParamSerializer(data),
-					xhrFields: {withCredentials: false},
+					xhrFields: {withCredentials: true},
 					url: '/api/delete-sport/',
 					headers: headers
 
