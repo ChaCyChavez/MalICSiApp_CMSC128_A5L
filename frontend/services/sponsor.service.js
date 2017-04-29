@@ -67,7 +67,6 @@
 			}
 
 			const delete_sponsors = (data) => {
-				console.log(data);
 				let deferred = $q.defer();
 				$http({
 					method: 'POST',

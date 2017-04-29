@@ -1,10 +1,11 @@
-<div ng-controller="header-controller" ng-init="get_loggedIn()">
+<div ng-controller="header-controller" ng-init="get_loggedIn();">
+	
 	<div class="ui grid">
-		<div ng-if="profile == undefined">
+		<div ng-show="profile == undefined">
 			<div class="computer tablet only row">
 				<div class="ui top fixed menu navbar">
 				  <div class="item">
-				    <a href="javascript:void(0)" class="malicsi-text ui" id="logo-text" ng-click="changeView('#!/')"><i class="fa fa-arrow-left"></i>&nbsp;&nbsp;&nbsp;&nbsp;MALICSI</a>
+				    <span class="malicsi-text ui" ng-click="back()"><i class="fa fa-arrow-left"></i></span><a href="javascript:void(0)" class="malicsi-text ui" id="logo-text" ng-click="changeView('#!/')">&nbsp;&nbsp;&nbsp;&nbsp;MALICSI</a>
 				  </div>
 				  <div class="logo-container">
 				  	<img src="../img/logo-white.png" />
@@ -12,24 +13,15 @@
 
 					  <a class="item right nav-btn register" id="reg">Register</a>
 					  <a class="item nav-btn login" id="log">Login</a>
-
-				  <div class="ui item dropdown right" id="lr-dd">
-	          <i class="fa fa-reorder fa-2x"></i>
-	        	<div class="menu">
-	            <a class="item nav-btn register" id="reg-mob">Register</a>
-				  		<a class="item nav-btn login" id="log-mob">Login</a>
-	          </div>
-	        </div>
-
 				</div>
 			</div>
 		</div>
 
-		<div ng-if="profile != undefined">
+		<div ng-show="profile != undefined">
 			<div class="computer tablet only row">
 				<div class="ui top fixed menu navbar">
 				  <div class="item">
-				    <a href="javascript:void(0)" class="malicsi-text ui" id="logo-text" ng-click="changeView('#!/game-event')"><i class="fa fa-arrow-left"></i>&nbsp;&nbsp;&nbsp;&nbsp;MALICSI</a>
+				     <span class="malicsi-text ui" ng-click="back()"><i class="fa fa-arrow-left"></i></span><a href="javascript:void(0)" class="malicsi-text ui" id="logo-text" ng-click="changeView('#!/game-event')">&nbsp;&nbsp;&nbsp;&nbsp;MALICSI</a>
 				  </div>
 				  <div class="logo-container">
 				  	<img src="../img/logo-white.png" />
@@ -182,37 +174,9 @@
 		  </div>
 		  <p>This is a special notification which you can dismiss if you're bored with it.</p>
 		</div>
-
-
 	</div>
 </div>
 
 <script type="text/javascript">
-	$(document).ready(function() {
-		$('.ui.dropdown').dropdown();
-		$('.ui.modal').modal();
-		$('.ui.checkbox').checkbox();
-		
-		$('.ui.modal-close').click(function() {
-			$('.ui.modal').modal('hide');
-		});
-		
-		$('.register').click(function() {
-			$('#register-modal').modal({
-				onShow: function() {
-					$('#birthday').calendar({
-						type: 'date'
-					});
-				}
-			}).modal('show');
-			
-		});
-
-		$('.login').click(function() {
-			$('#login-modal').modal('show');
-		});
-
-		
-	});
 	
 </script>

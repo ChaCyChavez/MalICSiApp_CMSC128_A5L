@@ -170,7 +170,6 @@
                 .get_match_teams($scope.data)
                 .then(function(res) {
                     $scope.match_teams = res.data[0];
-
                 }, function(err) {
                     swal(err.message);
                 })

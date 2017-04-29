@@ -31,7 +31,6 @@
 				.get_team_profile($scope.team_id)
 				.then(function(res) {
 					$scope.user = res[0];
-					console.log(res);
 				}, function(err) {
 					console.log(err);
 				});
@@ -45,7 +44,6 @@
 				.get_team_match($scope.team_id)
 				.then(function(res) {
 					$scope.team = res[0];
-					console.log($scope.team);
 				}, function(err) {
 					console.log(err);
 				});
@@ -58,7 +56,6 @@
 				.get_team_name($scope.team_id)
 				.then(function(res) {
 					$scope.team_name = res[0][0].team_name;
-					console.log($scope.team_name);
 				}, function(err) {
 					console.log(err);
 				});

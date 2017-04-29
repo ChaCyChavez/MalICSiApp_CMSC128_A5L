@@ -2,7 +2,7 @@
   <!-- Search -->
   <div class="row contents">
     <h3 class="content-header">ACTIVITY LOG</h3>
-    <div class="ui search" ng-if="profile.is_admin == 1">
+    <div class="ui search">
       <div class="ui icon input">
         <input class="prompt" placeholder="Search User" type="text" ng-model="search.text">
         <i class="search icon"></i>
@@ -34,7 +34,7 @@
           </tr>
         </thead>
         <tbody ng-init = "get_log()">
-          <tr ng-repeat = "data in logs | orderBy:'-log_date'">
+          <tr ng-repeat = "data in logs | orderBy:'-log_date' | filter: search.text">
             <td>{{data.log_date | date: 'medium'}}</td>
             <td>{{data.log_description}}</td>
           </tr>

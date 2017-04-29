@@ -14,7 +14,7 @@ const sport = require(__dirname + '/../controller/sport');
 const team = require(__dirname + '/../controller/team');
 const result = require(__dirname +'/../controller/result');
 const game_per_sport = require(__dirname + '/../controller/game_per_sport')
-let path = require('path');
+const path = require('path');
 
 module.exports = (router) => {
 
@@ -39,11 +39,10 @@ module.exports = (router) => {
    router.post('/api/approve-account', account.approve_account);
 
 //game_event routers
+
    //create game_event
    router.post('/api/add-game-event', game_event.add_game_event);
  router.get('/api/get-game-event/:game_id', game_event.get_game_event);
-   //retrieve game_event
-   router.get('/api/search-game-event/:game_name', game_event.search_game_event);
    //update game_event
    router.post('/api/update-game-event', game_event.update_game_event);
    //delete game_event

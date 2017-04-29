@@ -31,7 +31,6 @@
 			}
 			const add_team = (data) => {
 				let deferred = $q.defer();
-				console.log(data);
 				$http({
 					method: 'POST',
 					data: $httpParamSerializer(data),
@@ -69,8 +68,6 @@
 
 			const get_teams = (data) => {
 				let deferred = $q.defer();
-				console.log(data);
-				console.log("service");
 				$http({
 					method: 'GET',
 					data: $httpParamSerializer(data),
@@ -197,8 +194,6 @@
 
 	        const search_game = function(data) {
 				let deferred = $q.defer();
-
-				console.log(data);
 				$http({
 					method: 'GET',
 					params: data,
@@ -218,7 +213,6 @@
 
 			const add_game = function(data) {
 				let deferred = $q.defer();
-				console.log(data);
 				$http({
 					method: 'POST',
 					data: $httpParamSerializer(data),
