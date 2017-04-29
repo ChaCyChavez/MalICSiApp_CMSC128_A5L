@@ -1,4 +1,4 @@
-<div ng-controller="game-event-controller" ng-init="get_upcoming_games(); get_current_games();" onload="init();">
+<div ng-controller="game-event-controller" ng-init="get_upcoming_games(); get_current_games(); init_per_game_sponsors();" onload="init();">
   
   <!-- button for adding new game-->
  
@@ -206,9 +206,10 @@
     </div>
     <div class="content">
       <form class="ui small center form" id="vopt">
-        <div class="ui button inverted modal-close" id="vspn" ng-click="view_sponsor()">View Sponsor</div>
+        <div class="ui button inverted modal-close recognize-sponsor" id="vspn" ng-click="view_per_game_sponsors()">View Sponsor</div>
         <br/>
-        <div class="ui button inverted modal-close" id="vspt" ng-click="view_sports()">View Sports</div>
+        <!-- Pinalitan ko lang yung ng-click. Dating view_sponsor() 'to. Revertable -->
+        <div class="ui button inverted modal-close" id="vspt" ng-click="view_per_game_sponsors()">View Sports</div>
         <br/>
         <div class="ui button inverted modal-close" id="vp" ng-click="view_participant()">View Participants</div>
         <br/>
@@ -216,6 +217,47 @@
       </form>
     </div>
   </div>
+
+  <div id="recognize-sponsor-modal" class="ui modal">
+    <i class="close icon"></i>
+    <div class="header">
+      Game Sponsors
+    </div>
+        <div class="description">
+
+          <div class="ui grid">
+            <div class="four wide column" ng-repeat="spon in sponsors">
+
+              <div class="ui card">
+                <div class="image">
+                  <img src="../img/sponsor.jpg">
+                </div>
+
+                <div class="content">
+                  <a class="header">{{spon.sponsor_name}}</a>
+                  <div class="meta">
+                    <span class="date">{{spon.sponsor_type}}</span>
+                  </div>
+                  <div class="description">
+                    {{spon.sponsor_desc}}
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+     
+
+      <div class="actions">
+      <div class="ui positive right labeled icon button">
+        Back to games
+        <i class="checkmark icon"></i>
+      </div>
+    </div>
+  </div>
+
+
 
   <div id="choose-team-modal" class="ui modal">
     <i class="close icon"></i>
@@ -292,9 +334,6 @@ $(document).ready(function(){
 
   $('.ui.radio.checkbox').checkbox();
 
-  $('.reg-to-game').click(function() {
-    $('#choose-team-modal').modal("show");
-  });
 });
 
 </script>  

@@ -89,6 +89,8 @@ module.exports = (router) => {
     router.post('/api/add-sponsor', sponsor.add_sponsor);
     //retrieve sponsor
     router.get('/api/get-sponsor/:game_id', sponsor.get_sponsor);
+    //retrieve sponsor
+    router.get('api/get-per-game-sponsor/', sponsor.get_per_game_sponsor)
     //update sponsor
     router.post('/api/update-sponsor', sponsor.update_sponsor);
     //delete sponsor

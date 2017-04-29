@@ -218,6 +218,22 @@
 				return deferred.promise;
 			}
 
+			const init_per_game_sponsors = (data) => {
+				let deferred = $q.defer();
+				$http({
+					method: 'GET',
+					url: '/api/get-sponsor/' + 15,
+					headers: headers
+				})
+				.then(function(res) {
+					deferred.resolve(res.data);
+				}, function(err) {
+					deferred.reject(err.data);
+				})
+
+				return deferred.promise;
+			}
+
 
 			let service = {};
 			service.edit_game 	= 				edit_game;
@@ -229,6 +245,7 @@
 			service.add_game 			= 		add_game;
 			service.get_teams 			= 		get_teams;
 			service.add_team 			= 		add_team;
+			service.init_per_game_sponsors = init_per_game_sponsors
 			service.join_account_to_team = 		join_account_to_team;
 			service.get_team_of_account = 		get_team_of_account;
 			return service;

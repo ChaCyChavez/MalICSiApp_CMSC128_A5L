@@ -82,13 +82,28 @@
 		}
 
 		
-
+		$scope.init_per_game_sponsors = () => {
+            GameEventService
+            .init_per_game_sponsors($scope.game_id)
+            .then(function(res) {
+                $scope.sponsors = res[0];
+            }, function(err) {
+                console.log(err.data)   ;
+            })
+        }
 
 		$scope.view_sponsor = () => {
 			$("#modal1").modal('close');
             window.location.href= "#!/sponsor/" + $scope.view.gameid;
             window.location.reload();
         }
+
+        $scope.view_per_game_sponsors = () => {
+			$("#recognize-sponsor-modal").modal("show");
+            //window.location.href= "#!/sponsor/" + $scope.view.gameid;
+            //window.location.reload();
+        }
+
         $scope.view_sports = () => {
             window.location.href= "#!/sports/" +$scope.view.gameid;
             window.location.reload();

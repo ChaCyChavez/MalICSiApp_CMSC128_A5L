@@ -54,6 +54,11 @@ exports.get_sponsor = (req, res, next) => {
 	db.query(query_string, payload, callback);
 };
 
+exports.get_per_game_sponsor = (req, res, next) => {
+
+
+};
+
 exports.update_sponsor = (req, res, next) => {
 	const query_string = 'CALL update_sponsor(?,?,?,?,?,?)';
 
