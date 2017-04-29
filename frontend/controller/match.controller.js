@@ -106,7 +106,7 @@
             MatchService
                 .update_scores(data)
                 .then(function(res) {
-                    console.log(res);
+                    // console.log(res);
                 }, function(err) {
                     console.log(err);
                 })
