@@ -5,9 +5,12 @@
         .module('app')
         .controller('game-event-controller', game_event_controller);
 
+    game_event_controller.$inject = ['$scope', '$window', '$rootScope','$location', 'GameEventService', 'ProfileService'];
+
     function game_event_controller($scope, $window, $rootScope, $location, GameEventService, ProfileService) {
 		$scope.current_games = [];
 		$scope.upcoming_games = [];
+    $scope.past_games = [];
 		$scope.teams = [];
 
 		$scope.ngRepeatFinished = () => {
@@ -69,7 +72,7 @@
 				});
 			},0);
 		};
-		
+
 		$scope.append_fills = () =>{
 			$scope.teams.push(
 			{
@@ -89,7 +92,6 @@
 				}, function(err) {
 				});
 			}
-			
 		}
 
 		$scope.view = {
@@ -103,30 +105,12 @@
 				account_id: undefined,
 				team_id: undefined
 		}
-		
-		$scope.init_per_game_sponsors = () => {
-            GameEventService
-            .init_per_game_sponsors($scope.game_id)
-            .then(function(res) {
-                $scope.sponsors = res[0];
-            }, function(err) {
-                console.log(err.data)   ;
-            })
-        }
-
 
 		$scope.view_sponsor = () => {
 			$("#modal1").modal('close');
             window.location.href= "#!/sponsor/" + $scope.view.gameid;
             window.location.reload();
         }
-
-        $scope.view_per_game_sponsors = () => {
-			$("#recognize-sponsor-modal").modal("show");
-            //window.location.href= "#!/sponsor/" + $scope.view.gameid;
-            //window.location.reload();
-        }
-
         $scope.view_sports = () => {
             window.location.href= "#!/sports/" +$scope.view.gameid;
             window.location.reload();
@@ -157,9 +141,17 @@
 			.get_upcoming_games()
 			.then((data) => {
 				$scope.upcoming_games = data[0];
-				console.log(data[0]);
 			});
 		}
+
+    $scope.get_past_games = () => {
+      GameEventService
+      .get_past_games()
+      .then((data) => {
+        $scope.past_games = data[0];
+      });
+    }
+
 		$scope.edit_game_info = {
 				game_id: undefined,
 				game_starting_time_date: undefined,
@@ -232,6 +224,12 @@
             	})
 		}
 
+    $scope.is_past_game = () => {
+      if ($scope.view.type === "past")
+        return true;
+      return false;
+		}
+
 		$scope.check_if_registered = () => {
 			var data = {
 				account_id: $rootScope.profile.account_id,
@@ -296,20 +294,6 @@
 					break;
 				}
 			}
-
-			var checker = 0;
-			for(var i = 0 ;i < $scope.teams.length; i++){
-				for(var j = i+1 ;j < $scope.teams.length; j++){
-					if($scope.teams[i].team_name == $scope.teams[j].team_name){
-						checker = 1;
-						break;
-					} else if ($scope.teams[i].team_color == $scope.teams[j].team_color) {
-						checker = 2;
-						break;
-					}
-				}
-			}
-
 			if (data.game_name == undefined ||
                 data.game_starting_time_date == "Invalid date" ||
                 data.game_ending_time_date == "Invalid date" || blank == 0) {
@@ -317,19 +301,13 @@
             }
             else if($scope.teams.length < 2){
             	swal("Failed","A game event needs atleast two teams","error");
-            } else if (checker != 0) {
-            	if (checker == 1) {
-            		swal("Failure!", "Team names not unique!", "error");
-            	} else if (checker == 2) {
-            		swal("Failure!", "Team colors not unique!", "error");
-            	}
-            	
             } else {
 				GameEventService
 				.add_game(data)
 				.then(function(res){
 					$scope.add_team(res[0][0]['last_insert_id()']);
 					$scope.get_upcoming_games();
+          $scope.get_past_games();
 					$scope.get_current_games();
             	},function(err){
             		swal(res.error);
@@ -387,6 +365,13 @@
 					});
 				} else if (type === "current"){
 					GameEventService.delete_game({game_id:$scope.current_games[id].game_id}).then((err, data) => {
+						swal("Deleted!", "Event has been deleted.", "success");
+						$scope.current_games.splice(id, 1);
+					}, (err) => {
+						swal("Failure!", "You are not the game head of this game event.", "error");
+					});
+				} else if (type === "past"){
+					GameEventService.delete_game({game_id:$scope.past_games[id].game_id}).then((err, data) => {
 						swal("Deleted!", "Event has been deleted.", "success");
 						$scope.current_games.splice(id, 1);
 					}, (err) => {
