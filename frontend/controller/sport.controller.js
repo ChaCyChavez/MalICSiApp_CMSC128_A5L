@@ -143,7 +143,6 @@
                 .then(function(res) {
                     $scope.match_teams = res.data[0];
 
-                    // console.log(res.data[0].length); 
                 }, function(err) {
                     swal(err.message);
                 })
@@ -154,7 +153,6 @@
                 selectedValues.push($(this).val()); 
             });
             var wow = new Date($('#add-start-match').val());
-            console.log(moment(wow));
             var courttype = "";
             var court = $('#courtJoin').val();
             if (court == "Baker Hall" || court == "Copeland Gym") courttype = "Gym";
