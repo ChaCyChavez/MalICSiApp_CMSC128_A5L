@@ -1,5 +1,5 @@
 'use strict';
- 
+
 (() => {
 	angular
 		.module('app')
@@ -49,7 +49,7 @@
 
 			const join_account_to_team = (data) => {
 				let deferred = $q.defer();
-				
+
 				$http({
 					method: 'POST',
 					data: $httpParamSerializer(data),
@@ -91,6 +91,24 @@
 					data: $httpParamSerializer(data),
 					xhrFields: {withCredentials: false},
 					url: '/api/delete-game-event/',
+					headers: headers
+				})
+				.then(function(res) {
+					deferred.resolve(res.data);
+				}, function(err) {
+					deferred.reject(err.data);
+				})
+
+				return deferred.promise;
+			}
+
+      const get_past_games = (data) => {
+				let deferred = $q.defer();
+
+				$http({
+					method: 'GET',
+					xhrFields: {withCredentials: false},
+					url: '/api/get-past-events/',
 					headers: headers
 				})
 				.then(function(res) {
@@ -212,25 +230,6 @@
 				return deferred.promise;
 			}
 
-			const init_per_game_sponsors = (data) => {
-				let deferred = $q.defer();
-				$http({
-					method: 'GET',
-					url: '/api/get-sponsor/' + 15,
-					headers: headers
-				})
-				.then(function(res) {
-					deferred.resolve(res.data);
-				}, function(err) {
-					deferred.reject(err.data);
-				})
-
-				return deferred.promise;
-			}
-
-
-
-
 			const get_game_event = (data) => {
 				let deferred = $q.defer();
 
@@ -250,19 +249,17 @@
 				return deferred.promise;
 			}
 
-
-
 			let service = {};
 			service.edit_game 	= 				edit_game;
 			service.delete_game = 				delete_game;
 			service.get_current_games 	= 		get_current_games;
 			service.get_upcoming_games 	= 		get_upcoming_games;
+      service.get_past_games 	= 		get_past_games;
 			service.get_games 			= 		get_games;
 			service.search_game 		= 		search_game;
 			service.add_game 			= 		add_game;
 			service.get_teams 			= 		get_teams;
 			service.add_team 			= 		add_team;
-			service.init_per_game_sponsors = init_per_game_sponsors
 			service.join_account_to_team = 		join_account_to_team;
 			service.get_team_of_account = 		get_team_of_account;
 			service.get_game_event 		= 		get_game_event;

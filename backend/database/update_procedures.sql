@@ -99,7 +99,6 @@ delimiter //
     create procedure update_match_event (
         IN _match_id            int(11),
         IN _match_date_time     datetime,
-        IN _series              enum('elimination','semi-finals','finals'),
         IN _court_name          varchar(256),
         IN _court_location      varchar(256),
         IN _court_type          varchar(256)
@@ -109,7 +108,6 @@ delimiter //
             match_event
         SET
             match_date_time = _match_date_time,
-            sport_id = _series,
             court_name = _court_name,
             court_location = _court_location,
             court_type = _court_type

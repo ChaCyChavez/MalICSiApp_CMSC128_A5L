@@ -167,7 +167,6 @@ DROP PROCEDURE IF EXISTS add_match_event//
     CREATE PROCEDURE add_match_event (
         IN _status             boolean,
         IN _match_date_time    datetime,
-        IN _series             enum('elimination','semi-finals','finals'),
         IN _sport_id           int,
         IN _court_name         varchar(256),
         IN _court_type         varchar(256),
@@ -177,7 +176,6 @@ DROP PROCEDURE IF EXISTS add_match_event//
         INSERT INTO match_event(
             status,
             match_date_time,
-            series,
             sport_id,
             court_name,
             court_type,
@@ -185,7 +183,6 @@ DROP PROCEDURE IF EXISTS add_match_event//
         )VALUES(
             _status,
             _match_date_time,
-            _series,
             _sport_id,
             _court_name,
             _court_type,

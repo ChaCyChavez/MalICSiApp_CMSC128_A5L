@@ -229,6 +229,46 @@ exports.get_upcoming_events = (req, res, next) => {
 	db.query(query_string, payload, callback);
 };
 
+exports.get_past_events = (req, res, next) => {
+	const query_string = 'CALL get_past_events()';
+
+	const payload = [];
+
+	const callback = (err, data) => {
+		if (err) {
+			winston.level = 'debug';
+			winston.log('debug', 'Error', prettyjson.render({
+				details: err,
+				origin: "get_past_events in game_event.js",
+				payload: payload,
+				query_string: query_string
+			}));
+			res.status(500).send({ error_code:err.code });
+		} else if (data[0].length == 0) {
+			winston.level = 'info';
+			winston.log('info', '0 rows returned', prettyjson.render({
+				details: data,
+				origin: "get_past_events controller in game_event.js",
+				payload: payload,
+				query_string: query_string
+			}));
+			res.status(200).send(data);
+		} else {
+			winston.level = 'info';
+			winston.log('info', 'Success', prettyjson.render({
+				details: data,
+				origin: "get_past_events controller in game_event.js",
+				payload: payload,
+				query_string: query_string
+			}));
+			res.status(200).send(data);
+		}
+	};
+
+	db.query(query_string, payload, callback);
+};
+
+
 exports.get_events = (req, res, next) => {
 	const query_string = 'CALL get_events()';
 
@@ -430,7 +470,7 @@ exports.join_account_to_team = (req, res, next) => {
 
 	db.query(query_string, payload, callback);
 };
- 
+
 exports.get_team_of_account = (req, res, next) => {
 	const query_string = 'CALL get_team_of_account(?,?)';
 

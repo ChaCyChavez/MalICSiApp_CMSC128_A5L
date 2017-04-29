@@ -151,25 +151,25 @@ DROP PROCEDURE IF EXISTS get_team_match//
       IN _team_id int
   )
   BEGIN
-    SELECT 
-        t.team_name, 
-        m.match_date_time, 
-        m.series, 
+    SELECT
+        t.team_name,
+        m.match_date_time,
+        m.series,
         m.match_id
-    FROM 
-        team t 
-    NATURAL JOIN 
-        match_event_team me 
-    NATURAL JOIN 
+    FROM
+        team t
+    NATURAL JOIN
+        match_event_team me
+    NATURAL JOIN
         match_event m
     WHERE match_id in (
-        SELECT 
+        SELECT
             m.match_id
-        FROM 
-            team t 
-        NATURAL JOIN 
-            match_event_team me 
-        NATURAL JOIN 
+        FROM
+            team t
+        NATURAL JOIN
+            match_event_team me
+        NATURAL JOIN
             match_event m
       WHERE m.match_id = me.match_id && t.team_id = _team_id) && t.team_id != _team_id;
   END;
@@ -180,14 +180,14 @@ DROP PROCEDURE IF EXISTS get_match_teams//
       IN _sport_id int
   )
   BEGIN
-    SELECT 
+    SELECT
         *
-    FROM 
+    FROM
         team
     WHERE game_id = (
-        SELECT 
+        SELECT
             game_id
-        FROM 
+        FROM
             sport
         WHERE
             sport_id = _sport_id
@@ -201,7 +201,7 @@ DROP PROCEDURE IF EXISTS get_team_name//
   )
   BEGIN
     SELECT
-        team_name 
+        team_name
     FROM
         team
     WHERE
@@ -294,7 +294,7 @@ DROP PROCEDURE IF EXISTS get_sport//
             game_id,
             account_id,
             game_starting_time_date,
-            game_ending_time_date 
+            game_ending_time_date
         FROM
             sport
         NATURAL JOIN
@@ -306,7 +306,7 @@ DROP PROCEDURE IF EXISTS get_sport//
 
 DROP PROCEDURE IF EXISTS get_a_sport//
   CREATE PROCEDURE get_a_sport(
-        IN _game_id int, 
+        IN _game_id int,
         IN _sport_type varchar(128),
         IN _division  enum('men','women','mixed')
     )
@@ -373,13 +373,13 @@ drop procedure if exists get_sport_team;
         team t
     NATURAL JOIN
         match_event_team mt
-  NATURAL JOIN
+    NATURAL JOIN
         match_event m
-  NATURAL JOIN
+    NATURAL JOIN
         sport s
-  WHERE
+    WHERE
         s.sport_id = _sport_id;
-  END;
+    END;
 //
 
 /* MATCH_EVENT PROCEDURES */
@@ -392,7 +392,6 @@ DROP PROCEDURE IF EXISTS get_match_event//
         match_id,
         status,
         match_date_time,
-        series,
         sport_id,
         court_name,
         court_location,
@@ -515,7 +514,7 @@ DROP PROCEDURE IF EXISTS get_user_upcoming_events//
     JOIN
         team_account
     WHERE
-        game_event.game_id = team.game_id 
+        game_event.game_id = team.game_id
     AND
         team.team_id = team_account.team_id
     AND
@@ -543,7 +542,7 @@ DROP PROCEDURE IF EXISTS get_user_past_events//
     JOIN
         team_account
     WHERE
-        game_event.game_id = team.game_id 
+        game_event.game_id = team.game_id
     AND
         team.team_id = team_account.team_id
     AND
@@ -601,6 +600,22 @@ DROP PROCEDURE IF EXISTS get_upcoming_events//
   END;
 //
 
+DROP PROCEDURE IF EXISTS get_past_events//
+  CREATE PROCEDURE get_past_events()
+  BEGIN
+    SELECT
+        game_id,
+        game_name,
+        game_starting_time_date,
+        game_ending_time_date,
+        account_id
+    FROM
+        game_event
+    WHERE
+        game_ending_time_date < NOW();
+  END;
+//
+
 DROP PROCEDURE IF EXISTS get_teams_N_scores_of_match//
   CREATE PROCEDURE get_teams_N_scores_of_match(
       IN _match_id int
@@ -609,6 +624,7 @@ DROP PROCEDURE IF EXISTS get_teams_N_scores_of_match//
     SELECT
         team_id,
         team_name,
+        team_color,
         score
     FROM
         team
@@ -629,8 +645,8 @@ DROP PROCEDURE IF EXISTS get_pending_account//
 DROP PROCEDURE IF EXISTS get_game_per_sport//
   CREATE PROCEDURE get_game_per_sport(IN _game_id int)
     BEGIN
-      SELECT match_id, game_id, game_name, division, match_date_time, court_name, team_name, 
-      sport_type FROM match_event NATURAL JOIN sport NATURAL JOIN game_event 
+      SELECT match_id, game_id, game_name, division, match_date_time, court_name, team_name,
+      sport_type FROM match_event NATURAL JOIN sport NATURAL JOIN game_event
       NATURAL JOIN match_event_team NATURAL JOIN team WHERE game_id = _game_id order by match_id asc;
     END;
 //
