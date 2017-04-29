@@ -72,22 +72,6 @@ DROP PROCEDURE IF EXISTS add_activity_log//
     END;
 //
 
-DROP PROCEDURE IF EXISTS register_team_to_game//
-    CREATE PROCEDURE register_team_to_game(
-        IN _team_id             int,
-        IN _game_id             int
-    )
-    BEGIN
-        INSERT INTO game_event_team(
-            team_id,
-            game_id
-        )VALUES(
-            _team_id,
-            _game_id
-        );
-    END;
-//
-
 DROP PROCEDURE IF EXISTS add_team//
     CREATE PROCEDURE add_team (
         IN _team_name           varchar(256),
@@ -97,14 +81,14 @@ DROP PROCEDURE IF EXISTS add_team//
     BEGIN
         INSERT INTO team(
             team_name,
-            team_color
+            team_color,
+            game_id
         )
         VALUES(
             _team_name,
-            _team_color
+            _team_color,
+            _game_id
         );
-        SET @last_id = LAST_INSERT_ID();
-        CALL register_team_to_game(@last_id,_game_id);
     END;
 //
 
@@ -163,21 +147,18 @@ DROP PROCEDURE IF EXISTS add_sport//
     CREATE PROCEDURE add_sport (
         IN _sport_type          varchar(256),
         IN _division            enum('men','women','mixed'),
-        IN _game_id             int,
-        IN _unique_key          varchar(256)
+        IN _game_id             int
     )
     BEGIN
         INSERT INTO sport(
             sport_type,
             division,
-            game_id,
-            unique_key
+            game_id
         )
         VALUES(
             _sport_type,
             _division,
-            _game_id,
-            _unique_key
+            _game_id
         );
     END;
 //

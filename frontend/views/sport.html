@@ -1,5 +1,5 @@
-<div ng-controller="sport-controller">
-  <div class="row contents" id="sport-content" ng-init = "get_matches();get_courts();">
+<div ng-controller="sport-controller" ng-init="init_sport()">
+  <div class="row contents" id="sport-content" ng-init = "get_matches();get_courts();get_game_event_teams()">
     <h3 class="content-header">Sport</h3>
 
       <!-- List of Participants -->
@@ -19,7 +19,7 @@
                 <td>
                   <a href="javascript:void(0)" ng-click="view_team(team.team_id)">
                   <h4 class="trow ui header">
-                    <i class=" fa fa-group fa-2x ui mini rounded"></i>
+                    <i class=" fa fa-group fa-2x ui mini rounded" style="color: {{team.team_color}}"></i>
                     <div class="content">
                       {{team.team_name}}
                         <div class="sub header">{{team.team_color}}</div>
@@ -35,16 +35,16 @@
       <div class="twelve wide column">
         <div class="ui raised very fluid padded container segment">
           <h1>Schedule</h1>
-          <a href="javascript:void(0)" id="add-match" class="ui blue button">Add Match</a>
+          <a href="javascript:void(0)" id="add-match" class="ui blue button" ng-show="profile.is_admin == 1 || is_owner">Add Match</a>
           <a href="javascript:void(0)" id="tourn-brac" ng-click="view_tournament_bracketing(sportid)" class="ui blue button" ng-hide="dis_tourn">View Tournament Bracketing</a>
           <table class="ui single line collapsing table" id="sched-table">
             <tbody>
               <tr ng-repeat="match in matches">
                 <td>
                   <h4 class="trow ui header">
-                    <div class="content sched">
+                    <div class="content">
                       <div>Teams:&nbsp;</div>
-                      <span ng-repeat = "team in match.teams">{{team}} &nbsp;&nbsp;</span>
+                      <span ng-repeat = "team in match.teams"><i style="color: {{team.team_color}}" class="flag icon"></i>{{team.team_name}} &nbsp;&nbsp;</span>
                       <div><i class="fa fa-clock-o"></i>&nbsp;:&nbsp;{{match.date_time | date: "medium"}}</div>
                       <div><i class="fa fa-map"></i>&nbsp;:&nbsp;{{match.court_name}}</div>
                     </div>
@@ -78,7 +78,7 @@
             <label>Teams Joining</label>
             <select id ="teamJoin" name="teams" multiple="" class="ui fluid dropdown">
               <option disabled selected></option>
-              <option ng-repeat = "team in teams" value="{{team.team_id}}">Team {{team.team_name}}</option>
+              <option ng-repeat = "team in match_teams" value="{{team.team_id}}">Team {{team.team_name}}</option>
             </select>
           </div>
           <div class="field">

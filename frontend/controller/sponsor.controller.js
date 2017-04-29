@@ -5,7 +5,7 @@
         .module('app')
         .controller('sponsor-controller', sponsor_controller);
 
-    function sponsor_controller($scope, $location, $window, $routeParams, SponsorService, GameEventService) {
+    function sponsor_controller($scope, $rootScope, $location, $window, $routeParams, SponsorService, GameEventService) {
 
 
     	$scope.sponsors = [];
@@ -29,6 +29,31 @@
             sponsor_desc: "",
             web_address: "",
             game_id: 0
+        }
+
+        $scope.ownership_init = () => {
+            GameEventService.get_game_event({"game_id": $scope.game_id}).then((data) => {
+                $scope.is_owner = data[0][0].account_id == $rootScope.profile.account_id;
+            });
+        }
+
+        $scope.ngRepeatFinished = () => {
+            $('.special.cards .image').dimmer({
+                on: 'hover'
+            });
+            $('.ui.dropdown').dropdown();
+  
+            $("#add-sponsor").click(function() {
+                $("#add-sponsor-modal").modal("show");
+            });
+
+            $(".edit-sponsor").click(function() {
+                $("#edit-sponsor-modal").modal("show");
+            });
+
+            $(".modal-close").click(function() {
+                $(".ui.modal").modal("hide");
+            });
         }
 
         $scope.change_view = (view) => {
@@ -72,15 +97,13 @@
             .then(function(res) {
                 $scope.sponsors = res[0];
             }, function(err) {
-                console.log(err.data)   ;
+                console.log(err.data);
             })
-  
         }
 
         $scope.init_edit_modal = (sponsor_id) => {
             for(var i = 0; i < $scope.sponsors.length; i++) {
                 if($scope.sponsors[i].sponsor_id === sponsor_id) {
-                    $scope.sponsorEdit.sponsor_id = sponsor_id;
                     $scope.sponsorEdit.sponsor_name = $scope.sponsors[i].sponsor_name;
                     $scope.sponsorEdit.sponsor_type = $scope.sponsors[i].sponsor_type;
                     $scope.sponsorEdit.sponsor_desc = $scope.sponsors[i].sponsor_desc;
@@ -92,9 +115,6 @@
         }
 
         $scope.update_sponsor = () => {
-            let e = document.getElementById("sponsorEdit_type");
-            let strUser = e.options[e.selectedIndex].value;
-            $scope.sponsorEdit.sponsor_type = strUser;
             if ($scope.sponsorEdit.sponsor_name == "" ||
                 $scope.sponsorEdit.sponsor_type == "" ||
                 $scope.sponsorEdit.sponsor_desc == "" ||

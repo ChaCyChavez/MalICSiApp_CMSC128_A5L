@@ -7,6 +7,7 @@ const crypto = require('crypto');
 const nodemailer = require('nodemailer');
 const fs = require('fs');
 const config = require('../config/config');
+const prettyjson = require('prettyjson');
 
 const transporter = nodemailer.createTransport(config.TRANSPORTER);
 
@@ -111,7 +112,7 @@ transporter.sendMail(mailOptions, (err, info) =>{
 };
 
 exports.approve_account = (req,res,next) => {
-	if (req.session.user && req.session.user.is_admin == true) {
+	if (req.session.user && req.session.user.is_admin) {
 		const query_string = 'CALL approve_account(?)';
 
 		const payload = [req.body.account_id];
@@ -183,7 +184,7 @@ exports.update_account = (req,res,next) => {
 };
 
 exports.get_account = (req, res, next) => {
-	if (req.session.user) {
+	if (req.session.user || req.params.account_id != undefined) {
 		const query_string = "CALL get_account(?)";
 
 		const payload = [req.params.account_id != undefined ? req.params.account_id : req.session.user.account_id];
@@ -195,11 +196,21 @@ exports.get_account = (req, res, next) => {
 				res.status(500).send({ error_code:err.code });
 			} else if (data[0].length == 0 || payload[0] == undefined) {
 				winston.level = 'info';
-				winston.log('info', 'No account retrieved with account_id:', payload[0]);
+				winston.log('info', '0 rows returned', prettyjson.render({
+					details: data,
+					origin: "get_account controller in account.js",
+					payload: payload,
+					query_string: query_string
+				}));
 				res.status(200).send(data);
 			} else {
 				winston.level = 'info';
-				winston.log('info', 'Successfully retrieved with account_id:', payload[0]);
+				winston.log('info', 'Success', prettyjson.render({
+					details: data,
+					origin: "get_account controller in account.js",
+					payload: payload,
+					query_string: query_string
+				}));
 				res.status(200).send(data);
 			}
 		};

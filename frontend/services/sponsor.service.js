@@ -42,6 +42,7 @@
 					headers: headers
 				})
 				.then(function(res) {
+					// $window.location.href = '/#!/game-event';
 					deferred.resolve(res.data);
 				}, function(err) {
 					deferred.reject(err.data);

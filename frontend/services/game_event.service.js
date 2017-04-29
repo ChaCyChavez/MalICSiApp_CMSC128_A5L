@@ -14,7 +14,6 @@
 		function GameEventService($window, $http, $q, $httpParamSerializer) {
 			const edit_game = (data) => {
 				let deferred = $q.defer();
-				console.log(data);
 				$http({
 					method: 'POST',
 					data: $httpParamSerializer(data),
@@ -87,6 +86,7 @@
 
 				return deferred.promise;
 			}
+
 			const delete_game = (data) => {
 				let deferred = $q.defer();
 				$http({
@@ -218,11 +218,22 @@
 				return deferred.promise;
 			}
 
+<<<<<<< HEAD
 			const init_per_game_sponsors = (data) => {
 				let deferred = $q.defer();
 				$http({
 					method: 'GET',
 					url: '/api/get-sponsor/' + 15,
+=======
+			const get_game_event = (data) => {
+				let deferred = $q.defer();
+
+				$http({
+					method: 'GET',
+					data: $httpParamSerializer(data),
+					xhrFields: {withCredentials: false},
+					url: '/api/get-game-event/' + data.game_id,
+>>>>>>> 62eeb6e52122f327a9b8657290a2f16d2bbc9d58
 					headers: headers
 				})
 				.then(function(res) {
@@ -233,7 +244,10 @@
 
 				return deferred.promise;
 			}
+<<<<<<< HEAD
 
+=======
+>>>>>>> 62eeb6e52122f327a9b8657290a2f16d2bbc9d58
 
 			let service = {};
 			service.edit_game 	= 				edit_game;
@@ -248,6 +262,7 @@
 			service.init_per_game_sponsors = init_per_game_sponsors
 			service.join_account_to_team = 		join_account_to_team;
 			service.get_team_of_account = 		get_team_of_account;
+			service.get_game_event 		= 		get_game_event;
 			return service;
 		}
 })();

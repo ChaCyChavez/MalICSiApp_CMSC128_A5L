@@ -96,14 +96,26 @@ DELIMITER ;
 drop procedure if exists delete_sport;
 DELIMITER //
   CREATE PROCEDURE delete_sport(
-      IN _sport_id int
+      IN _sport_id int,
+      IN _account_id int
   )
   BEGIN
-    DELETE
-    FROM
-        sport
-    WHERE
-        sport_id = _sport_id;
+    SET @account_type = (SELECT is_admin FROM account WHERE account_id = _account_id);
+    IF @account_type = 1 THEN
+      DELETE FROM
+          sport
+      WHERE
+          sport_id = _sport_id;
+    ELSE
+      DELETE FROM
+          sport
+      WHERE
+          sport_id = _sport_id
+      AND
+          game_id 
+      IN 
+          (SELECT game_id FROM game_event WHERE account_id = _account_id);
+    END IF;
   END;
 //
 DELIMITER ;

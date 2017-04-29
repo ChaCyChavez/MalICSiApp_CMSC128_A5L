@@ -1,7 +1,7 @@
-<div ng-controller="sponsor-controller" ng-init="init_sponsor()">
+<div ng-controller="sponsor-controller" ng-init="ownership_init(); init_sponsor()">
 
-  <a class="add-btn" ng-show="profile.is_admin == 1" ng-click="reset_add_modal()" id="add-sponsor" href="javascript:void(0)"><i class="fa fa-plus fa-3x"></i></a>
-
+  <a class="add-btn" ng-show="profile.is_admin == 1 || is_owner" ng-click="reset_add_modal()" id="add-sponsor" href="javascript:void(0)"><i class="fa fa-plus fa-3x"></i></a>
+  
   <div class="row contents">
     <h3 class="content-header">SPONSORS</h3>
     <div class="ui two top attached buttons" id="butt-container">
@@ -15,9 +15,9 @@
       </button>
     </div>
     <h2 class="center-align" ng-if="sponsors.length == 0">No Sponsor Available</h2>
-    <div class="ui three stackable special cards" id="spons" ng-if="profile.is_admin == 1">
-        <div class="card" ng-repeat="spon in sponsors">
-          <div class="blurring dimmable image">
+    <div class="ui three stackable special cards" id="spons" >
+        <div class="card" ng-repeat="spon in sponsors" ng-init="$last && (profile.is_admin || is_owner) ? ngRepeatFinished() : null">
+          <div class='blurring dimmable image'>
             <div class="ui dimmer">
               <div class="content">
                 <div class="center">
@@ -26,25 +26,6 @@
                 </div>
               </div>
             </div>
-            <img src="../img/sponsor.jpg">
-          </div>
-          <div class="content">
-            <span class="header">{{spon.sponsor_name}}</span>
-            <div class="meta">
-              <span>{{spon.sponsor_type}}</span>
-              <br/>
-              <p>{{spon.sponsor_desc}}</p>
-            </div>
-          </div>
-          <div class="extra content">
-            <a href="javascript:void(0)" ng-click="visit_site(spon.web_address)">Visit Website</a>
-          </div>
-        </div>  
-    </div>
-
-    <div class="ui three stackable cards" id="spons" ng-if="profile.is_admin != 1">
-        <div class="card" ng-repeat="spon in sponsors">
-          <div class="image">
             <img src="../img/sponsor.jpg">
           </div>
           <div class="content">
@@ -135,27 +116,13 @@
   </div>
 </div>
 
-
- <script type="text/javascript">
+<script type="text/javascript">
 $(document).ready(function(){
-  $('.special.cards .image').dimmer({
-    on: 'hover'
-  });
-
-  $('.ui.dropdown').dropdown();
-  
   $("#add-sponsor").click(function() {
     $("#add-sponsor-modal").modal("show");
   });
-
-  $(".edit-sponsor").click(function() {
-    $("#edit-sponsor-modal").modal("show");
+  $('.modal-close').click(function() {
+    $('.ui.modal').modal('hide');
   });
-
-  $(".modal-close").click(function() {
-    $(".ui.modal").modal("hide");
-  });
-
-  
 });
 </script>

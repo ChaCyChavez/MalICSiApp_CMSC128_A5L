@@ -1,7 +1,7 @@
-<div ng-controller="sports-controller" ng-init="get_sports()">
+<div ng-controller="sports-controller" ng-init="ownership_init(); get_sports()">
 
-  <a class="add-btn" id="add-sport" ng-show="profile.is_admin == 1" href="javascript:void(0)"><i class="fa fa-plus fa-3x"></i></a>
 
+  <a class="add-btn" id="add-sport" ng-show="profile.is_admin == 1 || is_owner" href="javascript:void(0)"><i class="fa fa-plus fa-3x"></i></a>
   <div class="row contents">
     <h3 class="content-header">SPORTS</h3>
     <div class="ui two top attached buttons" id="butt-container">
@@ -15,8 +15,8 @@
       </button>
     </div>
     <div class="ui four stackable special cards" id="sports">
-        <div class="card" ng-repeat="sport in sports track by $index" >
-          <div class="blurring dimmable image" ng-if="profile.is_game_head = 1">
+        <div class="card" ng-repeat="sport in sports track by $index" ng-init="$last && (profile.is_admin || is_owner) ? ngRepeatFinished() : null">
+          <div class="blurring dimmable image">
             <div class="ui dimmer">
               <div class="content">
                 <div class="center">
@@ -84,14 +84,6 @@
             <option value="mixed">Mixed</option>
           </select>
         </div>
-        <div class="field">
-          <label>Time</label>
-          <input placeholder="Sport Time" type="time">
-        </div>
-        <div class="field">
-          <label>Sport Venue</label>
-          <input placeholder="Sport Venue" type="text">
-        </div>
       </form>
     </div>
     <div class="actions">
@@ -101,23 +93,8 @@
   </div>
 </div>
 
-<script type="text/javascript">
-  $(document).ready(function(){
-    $("#add-sport").click(function() {
-      $("#add-sport-modal").modal("show");
-    });
-
-    $(".edit-sport").click(function() {
-      $("#edit-sport-modal").modal("show");
-    });
-
-    $(".modal-close").click(function() {
-      $(".ui.modal").modal("hide");
-    });
-
-    $('.special.cards .image').dimmer({
-      on: 'hover'
-    });
-    $('.ui.dropdown').dropdown();
+<script>
+  $("#add-sport").click(function() {
+    $("#add-sport-modal").modal("show");
   });
 </script>
