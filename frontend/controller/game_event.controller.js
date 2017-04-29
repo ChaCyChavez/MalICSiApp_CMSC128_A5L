@@ -175,11 +175,6 @@
 		}
 
 		$scope.edit_game = () => {
-			if ($scope.edit_type === "upcoming") {
-				$scope.upcoming_games[$scope.edit_id] = $scope.edit_game_info;
-			} else if ($scope.edit_type == "current") {
-				$scope.current_games[$scope.edit_id] = $scope.edit_game_info;
-			}
 			$scope.edit_game_info.game_starting_time_date = $('#edit_start_game').val();
 			$scope.edit_game_info.game_ending_time_date = $('#edit_end_game').val();
 			$scope.edit_game_info.game_starting_time_date = moment($scope.edit_game_info.game_starting_time_date).format("YYYY-MM-DD");
@@ -200,10 +195,16 @@
 					       location.reload();
 					   }
 					);
+					if ($scope.edit_type === "upcoming") {
+						$scope.upcoming_games[$scope.edit_id] = $scope.edit_game_info;
+					} else if ($scope.edit_type == "current") {
+						$scope.current_games[$scope.edit_id] = $scope.edit_game_info;
+					}
 				}, (err) => {
 					swal("Failure!", "You are not the game head of this game event.", "error");
 				});
 			}
+
 		}
 
 		$scope.select_team = (teamid) => {
