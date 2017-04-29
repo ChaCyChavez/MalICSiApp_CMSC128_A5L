@@ -198,7 +198,11 @@
 				GameEventService
 				.edit_game($scope.edit_game_info)
 				.then((data) => {
-					swal("Success!", "Event has been edited.", "success");
+					swal({title: "Success!", text: "Event has been edited.", type: "success"},
+					   function(){ 
+					       location.reload();
+					   }
+					);
 				}, (err) => {
 					swal("Failure!", "You are not the game head of this game event.", "error");
 				});
