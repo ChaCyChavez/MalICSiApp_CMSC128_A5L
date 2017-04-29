@@ -91,6 +91,7 @@
 				}, function(err) {
 				});
 			}
+			
 		}
 
 		$scope.view = {
@@ -297,6 +298,20 @@
 					break;
 				}
 			}
+
+			var checker = 0;
+			for(var i = 0 ;i < $scope.teams.length; i++){
+				for(var j = i+1 ;j < $scope.teams.length; j++){
+					if($scope.teams[i].team_name == $scope.teams[j].team_name){
+						checker = 1;
+						break;
+					} else if ($scope.teams[i].team_color == $scope.teams[j].team_color) {
+						checker = 2;
+						break;
+					}
+				}
+			}
+
 			if (data.game_name == undefined ||
                 data.game_starting_time_date == "Invalid date" ||
                 data.game_ending_time_date == "Invalid date" || blank == 0) {
@@ -304,6 +319,13 @@
             }
             else if($scope.teams.length < 2){
             	swal("Failed","A game event needs atleast two teams","error");
+            } else if (checker != 0) {
+            	if (checker == 1) {
+            		swal("Failure!", "Team names not unique!", "error");
+            	} else if (checker == 2) {
+            		swal("Failure!", "Team colors not unique!", "error");
+            	}
+            	
             } else {
 				GameEventService
 				.add_game(data)
