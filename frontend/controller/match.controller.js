@@ -89,6 +89,8 @@
             $scope.editing = false;
         }
 
+        
+
         $scope.cancel = () => {
             var counter = 0;
             $('.scores').prop('contentEditable', false);

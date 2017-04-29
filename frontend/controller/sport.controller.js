@@ -50,7 +50,7 @@
                 $scope.ending_date = $scope.sport.game_ending_time_date;
             });
         }
-
+        $scope.matches = []
         $scope.get_matches = () => {
             let data = {
                 sport_id: sportid
@@ -113,6 +113,7 @@
                         matches.push(obj);
                     });
                     $scope.matches = matches;
+                    console.log($scope.matches);
                     $scope.teams = team_list;
                     let BreakException = {};
                     try{
@@ -131,6 +132,33 @@
                 });
         }
 
+        $scope.delete_match = (id,index) => {
+            let data = {
+                match_id: id
+            }
+            swal({
+                  type: "warning",
+                  title: "Are you sure?",
+                  showCancelButton: true,
+                  confirmButtonColor: "#DD6B55",
+                  confirmButtonText: "Yes, delete it!",
+                  closeOnConfirm: true
+                },
+                function(){
+                    SportService
+                        .delete_match(data).
+                        then(function(res) {
+                            $scope.matches.splice(index, 1);
+                            swal("Deleted!", "Sport has been successfully removed.", "success");
+                        }, function(err) {
+                            swal(err.message);
+                        });
+
+                });
+
+
+
+        }
         $scope.match_teams = [];
 
         $scope.data = {}

@@ -65,7 +65,7 @@
 
 			$('.ui.dropdown').dropdown();
         }
-
+ 
         $scope.delete_sport = (index) => {
                 var data = {
                     sport_id: $scope.sports[index].sport_id
