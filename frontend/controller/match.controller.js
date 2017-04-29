@@ -9,26 +9,21 @@
 
         $scope.view_profile = () => {
             window.location.href="#!/profile";
-            $window.location.reload();
         }
         $scope.view_user = () => {
             window.location.href="#!/user";
-            $window.location.reload();
         }
 
         $scope.logout = () => {
             window.location.href="#!/";
-            $window.location.reload();
         }
         
         $scope.back_to_home = () => {
             window.location.href="#!/game-event";
-            $window.location.reload();
         }
 
         $scope.view_team = (team_id) => {
             window.location.href="#!/team/" + team_id;
-            $window.location.reload();
         }
         
         let x = $location.path().toString().split("/");
@@ -106,7 +101,6 @@
             MatchService
                 .update_scores(data)
                 .then(function(res) {
-                    console.log(res);
                 }, function(err) {
                     console.log(err);
                 })

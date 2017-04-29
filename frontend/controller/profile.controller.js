@@ -25,7 +25,6 @@
             ProfileService
                 .get_user_upcoming_events()
                 .then((data) => {
-                    console.log("wow user_upcoming_events");
                     if (data[0].length != 0) {
                         $scope.user_upcoming_events = data[0];
                     }
@@ -34,7 +33,6 @@
             ProfileService
                 .get_user_past_events()
                 .then((data) => {
-                    console.log("wow user_past_events");
                     if (data[0].length != 0) {
                         $scope.user_past_events = data[0];
                     }

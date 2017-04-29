@@ -12,7 +12,6 @@
 				.get_log()
 				.then(function(res){
 					$scope.logs = res[0];
-					console.log($scope.logs);
 				},function(err){
 					console.log(err);
 				})
@@ -23,7 +22,6 @@
 				.get_all_logs()
 				.then(function(res){
 					$scope.logs = res[0];
-					console.log($scope.logs);
 				},function(err){
 					console.log(err);
 				})

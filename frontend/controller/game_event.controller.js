@@ -110,7 +110,7 @@
             .then(function(res) {
                 $scope.sponsors = res[0];
             }, function(err) {
-                console.log(err.data)   ;
+                console.log(err.data);
             })
         }
 
@@ -118,18 +118,14 @@
 		$scope.view_sponsor = () => {
 			$("#modal1").modal('close');
             window.location.href= "#!/sponsor/" + $scope.view.gameid;
-            window.location.reload();
         }
 
         $scope.view_per_game_sponsors = () => {
 			$("#recognize-sponsor-modal").modal("show");
-            //window.location.href= "#!/sponsor/" + $scope.view.gameid;
-            //window.location.reload();
         }
 
         $scope.view_sports = () => {
             window.location.href= "#!/sports/" +$scope.view.gameid;
-            window.location.reload();
         }
 
         $scope.view_setup = (gameid, id,type) =>{
@@ -140,8 +136,7 @@
 
 	    $scope.view_participant = () => {
 	    	$("#modal1").modal('close');
-	        window.location.href="#!/participant/" + $scope.view.gameid;
-	        window.location.reload();
+	        window.location.href= "#!/participant/" + $scope.view.gameid;
 	    }
 
 		$scope.get_current_games = () => {
@@ -157,7 +152,6 @@
 			.get_upcoming_games()
 			.then((data) => {
 				$scope.upcoming_games = data[0];
-				console.log(data[0]);
 			});
 		}
 		$scope.edit_game_info = {
@@ -176,12 +170,10 @@
 				$scope.edit_game_info =JSON.parse(JSON.stringify($scope.upcoming_games[id]));
 				$scope.edit_game_info.game_starting_time_date = new Date($scope.edit_game_info.game_starting_time_date);
 				$scope.edit_game_info.game_ending_time_date = new Date($scope.edit_game_info.game_ending_time_date);
-				console.log($scope.edit_game_info);
 			} else if (type === 'current') {
 				$scope.edit_game_info =JSON.parse(JSON.stringify($scope.current_games[id]));
 				$scope.edit_game_info.game_starting_time_date = new Date($scope.edit_game_info.game_starting_time_date);
 				$scope.edit_game_info.game_ending_time_date = new Date($scope.edit_game_info.game_ending_time_date);
-				console.log($scope.edit_game_info);
 			}
 		}
 
@@ -222,7 +214,6 @@
 			var data = {
 				game_id: $scope.view.gameid
 			}
-			console.log(data);
 			GameEventService
 				.get_teams(data)
 				.then(function(res){
@@ -240,11 +231,7 @@
 			GameEventService
 				.get_team_of_account(data)
 				.then(function(res){
-					if (res[0] == "") {
-						$scope.is_registered = true;
-					} else {
-						$scope.is_registered = false;
-					}
+					$scope.is_registered = res[0] == "";
             	},function(err){
                 	console.log(err);
             	})
@@ -263,7 +250,6 @@
 				.join_account_to_team(data)
 				.then(function(res){
 					swal("Success!", "Successfully joined the team.", "success");
-					console.log(res);
             	},function(err){
                 	console.log(err);
             	})
@@ -355,13 +341,10 @@
 			var data = {
 				game_name: $scope.gameSearched
 			}
-
-			console.log(data);
             GameEventService
             .search_game(data)
             .then(function(res){
                 $scope.allGames = res[0];
-                console.log($scope.allGames);
             },function(err){
                 console.log(err);
             })

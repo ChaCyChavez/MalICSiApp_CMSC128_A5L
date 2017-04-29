@@ -56,7 +56,6 @@
 
         $scope.change_view = (view) => {
             window.location.href= view + $scope.game_id;
-            $window.location.reload();
         }
 
         $scope.view_profile = () => {

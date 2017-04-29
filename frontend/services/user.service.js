@@ -47,7 +47,6 @@
 
 			const approve_account = function(data) {
 				let deferred = $q.defer();
-				console.log(data);
 				$http({
 					method: 'POST',
 					data: $httpParamSerializer(data),
@@ -66,7 +65,6 @@
 
 			const disapprove_account = function(data) {
 				let deferred = $q.defer();
-				console.log(data);
 				$http({
 					method: 'POST',
 					data: $httpParamSerializer(data),

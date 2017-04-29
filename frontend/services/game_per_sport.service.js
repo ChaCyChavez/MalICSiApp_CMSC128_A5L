@@ -31,9 +31,6 @@
 
 			const get_all_sport = (data) => {
 				let deferred = $q.defer();
-				console.log(data);
-				console.log("In service\n");
-
 				$http({
 					method: 'GET',
 					data: $httpParamSerializer(data),
@@ -42,7 +39,6 @@
 					headers: headers
 				})
 				.then(function(res) {
-					console.log(res.data);
 					deferred.resolve(res.data);
 				}, function(err) {
 					deferred.reject(err.data);
