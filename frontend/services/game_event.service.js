@@ -218,22 +218,11 @@
 				return deferred.promise;
 			}
 
-<<<<<<< HEAD
 			const init_per_game_sponsors = (data) => {
 				let deferred = $q.defer();
 				$http({
 					method: 'GET',
 					url: '/api/get-sponsor/' + 15,
-=======
-			const get_game_event = (data) => {
-				let deferred = $q.defer();
-
-				$http({
-					method: 'GET',
-					data: $httpParamSerializer(data),
-					xhrFields: {withCredentials: false},
-					url: '/api/get-game-event/' + data.game_id,
->>>>>>> 62eeb6e52122f327a9b8657290a2f16d2bbc9d58
 					headers: headers
 				})
 				.then(function(res) {
@@ -244,10 +233,30 @@
 
 				return deferred.promise;
 			}
-<<<<<<< HEAD
 
-=======
->>>>>>> 62eeb6e52122f327a9b8657290a2f16d2bbc9d58
+
+
+
+			const get_game_event = (data) => {
+				let deferred = $q.defer();
+
+				$http({
+					method: 'GET',
+					data: $httpParamSerializer(data),
+					xhrFields: {withCredentials: false},
+					url: '/api/get-game-event/' + data.game_id,
+					headers: headers
+				})
+				.then(function(res) {
+					deferred.resolve(res.data);
+				}, function(err) {
+					deferred.reject(err.data);
+				})
+
+				return deferred.promise;
+			}
+
+
 
 			let service = {};
 			service.edit_game 	= 				edit_game;

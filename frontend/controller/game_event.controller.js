@@ -104,8 +104,6 @@
 				account_id: undefined,
 				team_id: undefined
 		}
-
-<<<<<<< HEAD
 		
 		$scope.init_per_game_sponsors = () => {
             GameEventService
@@ -117,8 +115,7 @@
             })
         }
 
-=======
->>>>>>> 62eeb6e52122f327a9b8657290a2f16d2bbc9d58
+
 		$scope.view_sponsor = () => {
 			$("#modal1").modal('close');
             window.location.href= "#!/sponsor/" + $scope.view.gameid;
