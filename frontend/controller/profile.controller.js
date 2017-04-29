@@ -6,12 +6,6 @@
         .controller('profile-controller', profile_controller);
 
     function profile_controller($scope, $location, $routeParams, ProfileService) {
-    /*
-        $scope.info = 1
-        $scope.profile = {}
-        $scope.user_upcoming_events = {}
-        $scope.user_past_events = {}
-    */
 
         $scope.get_profile_info = () => {
             ProfileService
@@ -35,6 +29,14 @@
                 .then((data) => {
                     if (data[0].length != 0) {
                         $scope.user_past_events = data[0];
+                    }
+                });
+
+            ProfileService
+                .get_user_ongoing_events()
+                .then((data) => {
+                    if (data[0].length != 0) {
+                        $scope.user_ongoing_events = data[0];
                     }
                 });
         }
@@ -61,6 +63,14 @@
                 .then((data) => {
                     if (data[0].length != 0) {
                         $scope.user_past_events = data[0];
+                    }
+                });
+
+            ProfileService
+                .get_user_ongoing_events2(account_id)
+                .then((data) => {
+                    if (data[0].length != 0) {
+                        $scope.user_ongoing_events = data[0];
                     }
                 });
         }    
