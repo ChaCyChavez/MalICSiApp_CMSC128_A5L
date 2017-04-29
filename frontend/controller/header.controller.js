@@ -38,23 +38,7 @@
 			password : undefined
 		}
 
-		$scope.data = {
-			username: undefined,
-			password: undefined,
-			firstname: undefined,
-			middlename: undefined,
-			lastname: undefined,
-			college: undefined,
-			course: undefined,
-			email: undefined,
-			position: undefined,
-			birthday: undefined,
-			is_player: undefined,
-			is_game_head: undefined,
-			player_jersey_num: 0,
-			player_role: undefined
-		}
-
+		$scope.data = {}
 		$rootScope.changeView = (view) => {
 			$window.location.href = view;
 		}
@@ -150,36 +134,23 @@
 			window.history.back();
 		}
 
+		$scope.update_is_player = () => {
+			$scope.data.is_player = $scope.data.is_player ? 0 : 1;
+		}
+
+		$scope.update_is_game_head = () => {
+			$scope.data.is_game_head = $scope.data.is_game_head ? 1 : 0;
+		}
+
 		$scope.register = () => {
 			let NAME_REGEX = /^[A-Za-z\s]+$/;
 			let USERNAME_REGEX = /^[a-zA-Z0-9]+$/;
 			let EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-			let isplayer = $("#is_player").is(":checked");
-			let isgamehead = $("#is_game_head").is(":checked");
 			let e = document.getElementById("college");
 			let strUser = e.options[e.selectedIndex].value;
 			$scope.data.birthday = $('#birthday').calendar('get date');
 			$scope.data.birthday = moment($scope.data.birthday).format('YYYY-MM-DD');
 			$scope.data.college = strUser;
-
-			if (isplayer)
-			{
-				$scope.data.is_player = 1;
-			}
-			else
-			{
-				$scope.data.is_player = 0;
-			}
-
-			if (isgamehead)
-			{
-				$scope.data.is_game_head = 1;
-			}
-			else
-			{
-				$scope.data.is_game_head = 0;
-			}
-
 			if ($scope.data.username === undefined ||
 				$scope.data.username === '' ||
 				$scope.data.password === undefined ||
@@ -199,9 +170,7 @@
 				$scope.data.birthday === undefined ||
 				$scope.data.birthday === '' ||
 				$scope.data.position === undefined ||
-				$scope.data.position === '' ||
-				$scope.data.player_role === undefined ||
-				$scope.data.player_role === '') {
+				$scope.data.position === '') {
 				$.uiAlert({
 					textHead: "Registration error", // header
 					text: 'Please fill-out all the fields', // Text
