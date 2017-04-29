@@ -3,11 +3,10 @@
 (() =>{
 	angular
 		.module('app')
-		.controller('LogController',LogCtrl);
+		.controller('log-controller',LogCtrl);
 
-		LogCtrl.$inject = ['$scope', '$location', 'LogService'];
-
-		function LogCtrl($scope, $location, LogService) {
+		function LogCtrl($scope, $location, LogService, $interval) {
+			$scope.search = {}
 			$scope.get_log = function(){
 				LogService
 				.get_log()
@@ -29,8 +28,5 @@
 					console.log(err);
 				})
 			}
-
-
 		}
- 
 })();

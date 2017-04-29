@@ -175,7 +175,7 @@
         <br/>
         <div class="ui button inverted modal-close" id="vp" ng-click="view_participant()">View Participants</div>
         <br/>
-        <div class="ui button inverted modal-close reg-to-game" ng-if="!profile.is_admin" id="rttg" ng-show="is_registered" ng-click="get_teams()">Register to this Game</div>
+        <div class="ui button inverted modal-close reg-to-game" ng-if="profile.is_player" id="rttg" ng-show="is_registered" ng-click="get_teams()">Register to this Game</div>
       </form>
     </div>
   </div>
