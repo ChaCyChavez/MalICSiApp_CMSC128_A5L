@@ -392,7 +392,6 @@ DROP PROCEDURE IF EXISTS get_match_event//
         match_id,
         status,
         match_date_time,
-        series,
         sport_id,
         court_name,
         court_location,
