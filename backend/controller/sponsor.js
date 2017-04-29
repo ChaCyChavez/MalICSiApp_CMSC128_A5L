@@ -54,6 +54,11 @@ exports.get_sponsor = (req, res, next) => {
 	db.query(query_string, payload, callback);
 };
 
+exports.get_per_game_sponsor = (req, res, next) => {
+
+
+};
+
 exports.update_sponsor = (req, res, next) => {
 	const query_string = 'CALL update_sponsor(?,?,?,?,?,?)';
 
@@ -65,12 +70,16 @@ exports.update_sponsor = (req, res, next) => {
 		req.body.sponsor_desc,
 		req.body.web_address
 	];
-
+	
 	const callback = (err, data) => {
 		if (err) {
 		  winston.level = 'debug';
 		  winston.log('debug', 'err: ', err);
 		  res.status(500).send({ error_code: err.code });
+		} else if (data.affectedRows == 0) {
+				winston.level = 'info';
+				winston.log('info', 'Not found! Update failed');
+				res.status(404).send();
 		} else {
 		  winston.level = 'info';
 		  winston.log('info', 'Successfully updated sponsor!');

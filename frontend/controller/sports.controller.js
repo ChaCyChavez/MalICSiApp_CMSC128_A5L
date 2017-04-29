@@ -4,9 +4,7 @@
     angular
         .module('app')
         .controller('sports-controller', sports_controller);
-
-    sports_controller.$inject = ['$scope', '$rootScope', '$window', '$location', '$routeParams','$interval', 'SportsService', 'GameEventService'];
-
+        
     function sports_controller($scope, $rootScope, $window, $location, $routeParams, $interval, SportsService, GameEventService) {
 
 
@@ -67,7 +65,7 @@
 
 			$('.ui.dropdown').dropdown();
         }
-
+ 
         $scope.delete_sport = (index) => {
                 var data = {
                     sport_id: $scope.sports[index].sport_id

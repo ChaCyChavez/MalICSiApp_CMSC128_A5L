@@ -10,6 +10,7 @@
     function game_event_controller($scope, $window, $rootScope, $location, GameEventService, ProfileService) {
 		$scope.current_games = [];
 		$scope.upcoming_games = [];
+    $scope.past_games = [];
 		$scope.teams = [];
 
 		$scope.ngRepeatFinished = () => {
@@ -71,7 +72,7 @@
 				});
 			},0);
 		};
-		
+
 		$scope.append_fills = () =>{
 			$scope.teams.push(
 			{
@@ -140,9 +141,17 @@
 			.get_upcoming_games()
 			.then((data) => {
 				$scope.upcoming_games = data[0];
-				console.log(data[0]);
 			});
 		}
+
+    $scope.get_past_games = () => {
+      GameEventService
+      .get_past_games()
+      .then((data) => {
+        $scope.past_games = data[0];
+      });
+    }
+
 		$scope.edit_game_info = {
 				game_id: undefined,
 				game_starting_time_date: undefined,
@@ -189,7 +198,11 @@
 				GameEventService
 				.edit_game($scope.edit_game_info)
 				.then((data) => {
-					swal("Success!", "Event has been edited.", "success");
+					swal({title: "Success!", text: "Event has been edited.", type: "success"},
+					   function(){ 
+					       location.reload();
+					   }
+					);
 				}, (err) => {
 					swal("Failure!", "You are not the game head of this game event.", "error");
 				});
@@ -213,6 +226,12 @@
             	},function(err){
                 	console.log(err);
             	})
+		}
+
+    $scope.is_past_game = () => {
+      if ($scope.view.type === "past")
+        return true;
+      return false;
 		}
 
 		$scope.check_if_registered = () => {
@@ -292,6 +311,7 @@
 				.then(function(res){
 					$scope.add_team(res[0][0]['last_insert_id()']);
 					$scope.get_upcoming_games();
+          $scope.get_past_games();
 					$scope.get_current_games();
             	},function(err){
             		swal(res.error);
@@ -349,6 +369,13 @@
 					});
 				} else if (type === "current"){
 					GameEventService.delete_game({game_id:$scope.current_games[id].game_id}).then((err, data) => {
+						swal("Deleted!", "Event has been deleted.", "success");
+						$scope.current_games.splice(id, 1);
+					}, (err) => {
+						swal("Failure!", "You are not the game head of this game event.", "error");
+					});
+				} else if (type === "past"){
+					GameEventService.delete_game({game_id:$scope.past_games[id].game_id}).then((err, data) => {
 						swal("Deleted!", "Event has been deleted.", "success");
 						$scope.current_games.splice(id, 1);
 					}, (err) => {

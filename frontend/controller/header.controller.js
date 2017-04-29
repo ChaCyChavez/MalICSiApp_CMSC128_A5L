@@ -5,8 +5,6 @@
         .module('app')
         .controller('header-controller', header_controller);
 
-    header_controller.$inject = ['$scope', '$location', '$window', '$routeParams', '$rootScope', 'ProfileService', 'LoginRegisterService'];
-
     function header_controller($scope, $location, $window, $routeParams, $rootScope, ProfileService, LoginRegisterService) {
 
 		$scope.info = {

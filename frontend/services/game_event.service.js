@@ -1,5 +1,5 @@
 'use strict';
- 
+
 (() => {
 	angular
 		.module('app')
@@ -50,7 +50,7 @@
 
 			const join_account_to_team = (data) => {
 				let deferred = $q.defer();
-				
+
 				$http({
 					method: 'POST',
 					data: $httpParamSerializer(data),
@@ -94,6 +94,24 @@
 					data: $httpParamSerializer(data),
 					xhrFields: {withCredentials: false},
 					url: '/api/delete-game-event/',
+					headers: headers
+				})
+				.then(function(res) {
+					deferred.resolve(res.data);
+				}, function(err) {
+					deferred.reject(err.data);
+				})
+
+				return deferred.promise;
+			}
+
+      const get_past_games = (data) => {
+				let deferred = $q.defer();
+
+				$http({
+					method: 'GET',
+					xhrFields: {withCredentials: false},
+					url: '/api/get-past-events/',
 					headers: headers
 				})
 				.then(function(res) {
@@ -242,6 +260,7 @@
 			service.delete_game = 				delete_game;
 			service.get_current_games 	= 		get_current_games;
 			service.get_upcoming_games 	= 		get_upcoming_games;
+      service.get_past_games 	= 		get_past_games;
 			service.get_games 			= 		get_games;
 			service.search_game 		= 		search_game;
 			service.add_game 			= 		add_game;

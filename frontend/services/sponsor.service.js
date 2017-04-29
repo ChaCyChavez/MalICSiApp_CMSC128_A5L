@@ -32,7 +32,6 @@
 			}
 
 			const update_sponsors = function(data) {
-				console.log(data);
 				let deferred = $q.defer();
 				$http({
 					method: 'POST',

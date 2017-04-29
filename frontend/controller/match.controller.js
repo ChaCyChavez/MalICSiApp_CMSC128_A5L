@@ -89,6 +89,8 @@
             $scope.editing = false;
         }
 
+        
+
         $scope.cancel = () => {
             var counter = 0;
             $('.scores').prop('contentEditable', false);
@@ -106,7 +108,7 @@
             MatchService
                 .update_scores(data)
                 .then(function(res) {
-                    console.log(res);
+                    // console.log(res);
                 }, function(err) {
                     console.log(err);
                 })

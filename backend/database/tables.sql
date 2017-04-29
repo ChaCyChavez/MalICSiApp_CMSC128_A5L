@@ -97,7 +97,6 @@ CREATE TABLE match_event (
     match_id            int NOT NULL AUTO_INCREMENT,
     status              boolean NOT NULL,
     match_date_time     datetime NOT NULL,
-    series              enum('elimination','semi-finals','finals') NOT NULL,
     sport_id            int NOT NULL,
 	court_name          varchar(256) NOT NULL,
     court_location      varchar(256) NOT NULL,

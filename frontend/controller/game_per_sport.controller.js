@@ -18,7 +18,6 @@ localhost:8000/#!/game-per-sport/:sport-id
             .get_game_per_sport(gamid)
             .then(
                 function(res){
-                    console.log(res);
                     $scope.sprts = res[0];
                     $scope.name = res[0][0].game_name;
                     $scope.size = res[0].length;
@@ -28,7 +27,6 @@ localhost:8000/#!/game-per-sport/:sport-id
                     console.log(err.data);
                 });
 
-        console.log($scope.sprts);
 
         $scope.range = function(size) {
             var ret = [];

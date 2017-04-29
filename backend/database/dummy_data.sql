@@ -2903,6 +2903,7 @@ VALUES
     (1176,true, ADDDATE(NOW(), INTERVAL 9 WEEK), 'finals', 168,'Freedom Park', 'UPLB', 'Park');
 
 
+
 delete from team;
 /*
   create teams

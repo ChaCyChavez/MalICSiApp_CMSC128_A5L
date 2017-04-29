@@ -6,8 +6,6 @@
         .controller('sponsor-controller', sponsor_controller);
 
     function sponsor_controller($scope, $rootScope, $location, $window, $routeParams, SponsorService, GameEventService) {
-
-
     	$scope.sponsors = [];
         $scope.game_id = $routeParams.game_id;
         $scope.hcpurl;
@@ -104,6 +102,7 @@
         $scope.init_edit_modal = (sponsor_id) => {
             for(var i = 0; i < $scope.sponsors.length; i++) {
                 if($scope.sponsors[i].sponsor_id === sponsor_id) {
+                    $scope.sponsorEdit.sponsor_id = sponsor_id;
                     $scope.sponsorEdit.sponsor_name = $scope.sponsors[i].sponsor_name;
                     $scope.sponsorEdit.sponsor_type = $scope.sponsors[i].sponsor_type;
                     $scope.sponsorEdit.sponsor_desc = $scope.sponsors[i].sponsor_desc;
@@ -121,6 +120,7 @@
                 $scope.sponsorEdit.web_address == "") {
                 swal("Please fill up all fields");
             } else { 
+
                 SponsorService
                     .update_sponsors($scope.sponsorEdit)
                     .then(function(res) {
