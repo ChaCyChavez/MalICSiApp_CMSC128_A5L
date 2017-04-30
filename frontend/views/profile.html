@@ -30,6 +30,7 @@
 						<div class="content">
 							<h5>Start: {{ user_ongoing_event.game_starting_time_date | date: 'fullDate'}}</h5>
 							<h5>End: {{ user_ongoing_event.game_ending_time_date | date: 'fullDate'}}</h5>
+							<a href="#!/sports/{{user_ongoing_event.game_id}}"><button class="ui button">View Game</button></a>
 						</div>
 					</div>
 				</div>
@@ -43,6 +44,7 @@
 						<div class="content">
 							<h5>Start: {{ user_upcoming_event.game_starting_time_date | date: 'fullDate'}}</h5>
 							<h5>End: {{ user_upcoming_event.game_ending_time_date | date: 'fullDate'}}</h5>
+							<a href="#!/sports/{{user_upcoming_event.game_id}}"><button class="ui button">View Game</button></a>
 						</div>
 					</div>
 				</div>
@@ -56,6 +58,7 @@
 						<div class="content">
 							<h5>Start: {{ user_past_event.game_starting_time_date | date: 'fullDate'}}</h5>
 							<h5>End: {{ user_past_event.game_ending_time_date | date: 'fullDate'}}</h5>
+							<a href="#!/sports/{{user_past_event.game_id}}"><button class="ui button">View Game</button></a>
 						</div>
 					</div>
 				</div>
