@@ -32,7 +32,7 @@
     </form> -->
     <h2 class="center-align" ng-if="participants.length == 0">No Participants</h2>
     <table class="ui very basic selectable collapsing celled table" id="ru-table">
-      <tr ng-repeat="participant gin participants | filter: partic" >
+      <tr ng-repeat="participant in participants | filter: partic" >
         <td href="javascript:void(0)">
           <h4 class="trow ui header">
             <i class=" fa fa-user fa-2x ui mini rounded"></i>
