@@ -34,12 +34,14 @@
     <table class="ui very basic selectable collapsing celled table" id="ru-table">
       <tr ng-repeat="participant in participants | filter: partic" >
         <td href="javascript:void(0)">
-          <h4 class="trow ui header">
-            <i class=" fa fa-user fa-2x ui mini rounded"></i>
-            <div class="content">
-              {{participant.firstname}} {{participant.middlename}} {{participant.lastname}}
-            </div>
-          </h4>
+         <a href="#!/profile/{{participant.account_id}}">
+            <h4 class="trow ui header">
+              <i class=" fa fa-user fa-2x ui mini rounded"></i>
+              <div class="content">
+                {{participant.firstname}} {{participant.middlename}} {{participant.lastname}}
+              </div>
+            </h4>
+          </a>
         </td>
       </tr>
     </table>

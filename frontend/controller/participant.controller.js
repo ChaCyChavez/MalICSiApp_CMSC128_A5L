@@ -5,7 +5,7 @@
   .module('app')
   .controller('participant-controller', participant_controller);
 
-  function participant_controller($scope, $window, $location, $routeParams, $interval, SportsService, ParticipantService) {
+  function participant_controller($scope, $window, $location, $routeParams, $interval, SportsService, TeamService, ParticipantService) {
 
     var gameid = $routeParams.game_id;
     $scope.sports = [
@@ -23,7 +23,7 @@
       window.location.href="#!/profile";
     }
     $scope.view_user = () => {
-      window.location.href="#!/user";
+      window.location.href="#!/user";reg
     }
 
     $scope.logout = () => {
@@ -71,13 +71,34 @@
     }
 
     $scope.load_participants = () => {
-      ParticipantService
-        .get_participants(gameid)
-        .then((data) => {
-          if (data[0].length != 0) {
-            $scope.participants = data[0];
-          }
-        });
+      $scope.participants = [];
+      var s = [];
+      var profiles = [];
+
+      let data = {
+        game_id: gameid
+      }
+
+      SportsService
+      .get_sports_game(data).
+      then(function(res) {
+        if ($scope.selected != 0) {
+          s.push({sport_id: $scope.selected.sport_id});
+          $scope.sport = $scope.selected.sport_type + " - " + $scope.selected.division;
+        }
+        else {
+          $scope.sport = "All Sports";
+          res.data[0].forEach(function(sport){  
+            s.push({sport_id: sport.sport_id});
+          });
+        }
+      }, function(err) {
+        console.log(err);
+      });
+      
+      ParticipantService.get_participants(gameid).then((data) => {
+        $scope.participants = data[0];
+      });
     }
   }
 })();

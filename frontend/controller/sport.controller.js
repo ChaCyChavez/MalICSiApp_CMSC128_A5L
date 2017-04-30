@@ -50,6 +50,7 @@
                 $scope.ending_date = $scope.sport.game_ending_time_date;
             });
         }
+        
         $scope.matches = []
         $scope.get_matches = () => {
             let data = {
