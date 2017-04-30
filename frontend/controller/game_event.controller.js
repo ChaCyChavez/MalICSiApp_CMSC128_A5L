@@ -10,7 +10,7 @@
     function game_event_controller($scope, $window, $rootScope, $location, GameEventService, ProfileService) {
 		$scope.current_games = [];
 		$scope.upcoming_games = [];
-    $scope.past_games = [];
+    	$scope.past_games = [];
 		$scope.teams = [];
 
 		$scope.ngRepeatFinished = () => {
@@ -228,22 +228,26 @@
     $scope.is_past_game = () => {
       if ($scope.view.type === "past")
         return true;
-      return false;
-		}
+      	return false;
+	}
 
-		$scope.check_if_registered = () => {
-			var data = {
-				account_id: $rootScope.profile.account_id,
-				game_id: $scope.view.gameid
-			}
-			GameEventService
-				.get_team_of_account(data)
-				.then(function(res){
-					$scope.is_registered = res[0] == "";
-            	},function(err){
-                	console.log(err);
-            	})
+	$scope.check_if_registered = () => {
+		if($scope.is_past_game() || $rootScope.profile.is_player == 0) {
+			$scope.is_registered = false;
+			return;
 		}
+		var data = {
+			account_id: $rootScope.profile.account_id,
+			game_id: $scope.view.gameid
+		}
+		GameEventService
+			.get_team_of_account(data)
+			.then(function(res){
+				$scope.is_registered = res[0] == "";
+        	},function(err){
+            	console.log(err);
+        })
+	}
 
 		$scope.join_account_to_team = (team) => {
 			var data = {
