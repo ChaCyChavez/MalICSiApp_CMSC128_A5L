@@ -115,9 +115,8 @@
         $scope.update_sponsor = () => {
             if ($scope.sponsorEdit.sponsor_name == "" ||
                 $scope.sponsorEdit.sponsor_type == "" ||
-                $scope.sponsorEdit.sponsor_desc == "" ||
-                $scope.sponsorEdit.web_address == "") {
-                swal("Please fill up all fields");
+                $scope.sponsorEdit.sponsor_desc == "") {
+                swal("Error!", "Please fill up all fields", "error")
             } else { 
 
                 SponsorService
@@ -166,9 +165,8 @@
             $scope.sponsor.sponsor_type = strUser;
             if ($scope.sponsor.sponsor_name == "" ||
                 $scope.sponsor.sponsor_type == "" ||
-                $scope.sponsor.sponsor_desc == "" ||
-                $scope.sponsor.web_address == "") {
-                swal("Please fill up all fields");
+                $scope.sponsor.sponsor_desc == "") {
+                swal("Error!", "Please fill up all fields", "error")
                 
             }
             else {
