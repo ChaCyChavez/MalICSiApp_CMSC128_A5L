@@ -1,4 +1,4 @@
-<div ng-controller="participant-controller" ng-init="get_sports(); load_participants()">
+<div ng-controller="participant-controller" ng-init="load_participants()">
   <div class="row contents">
     <h3 class="content-header"> PARTICIPANTS in {{sport}}</h3>
 
@@ -22,17 +22,9 @@
     </div>
     
     <div class="ui raised very fluid padded container segment" id="ru-table">
-      
-    <!-- <form>
-      <div class= "container">
-        <select class="ui dropdown" ng-model="selected" ng-change="load_participants()" ng-options="sport.sport_type + ' - ' + sport.division for sport in sports">
-          <option value="">Select Sport...</option>
-        </select>
-      </div>
-    </form> -->
     <h2 class="center-align" ng-if="participants.length == 0">No Participants</h2>
     <table class="ui very basic selectable collapsing celled table" id="ru-table">
-      <tr ng-repeat="participant gin participants | filter: partic" >
+      <tr ng-repeat="participant in participants | filter: partic" >
         <td href="javascript:void(0)">
           <h4 class="trow ui header">
             <i class=" fa fa-user fa-2x ui mini rounded"></i>

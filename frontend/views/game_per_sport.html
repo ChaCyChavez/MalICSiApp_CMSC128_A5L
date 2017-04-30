@@ -1,6 +1,6 @@
-<div class="row contents">
+<div class="row contents" ng-init="init_sponsor(); get_sports(); get_matches()">
 	<h3 class="content-header">{{name | uppercase}}</h3>
-	<div class="ui four stackable cards">
+	<!-- <div class="ui four stackable cards">
         <div class="card" ng-repeat="i in loop">
           <div class="image">
             <img src="../img/games.png">
@@ -15,5 +15,49 @@
             </div>
           </div>
         </div>  
+    </div> -->
+    <div class="ui raised very fluid padded container segment" ng-repeat="s in sports">
+    	<h1>{{s.division | uppercase}} {{s.sport_type | uppercase}}</h1>
+    	<table class="ui tablet stackable table">
+		  <thead>
+		    <tr>
+		      <th>Team 1</th>
+		      <th>Team 2</th>
+		      <th>Court Name</th>
+		      <th>Match Date/Time</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr ng-repeat="m in s.matches">
+		      <td><i class=" fa fa-group fa ui mini rounded" style="color: {{m.teams[0].team_color}}"></i>&nbsp;{{m.teams[0].team_name}}</td>
+		      <td><i class=" fa fa-group fa ui mini rounded" style="color: {{m.teams[1].team_color}}"></i>&nbsp;{{m.teams[1].team_name}}</td>
+		      <td>{{m.court_name}}</td>
+		      <td>{{m.date_time | date: 'MMM d, yyyy h:mm a'}}</td>
+		    </tr>
+		  </tbody>
+		</table>
     </div>
+
+    <h1 class="header ui">Sponsors</h1>
+    <div class="ui raised very fluid padded container segment">
+    	<h1>SPONSOR</h1>
+	    <div class="ui four stackable cards">
+	        <div class="card" ng-repeat="spon in sponsors">
+	          <div class="image">
+	            <img src="../img/sponsor.jpg">
+	          </div>
+	          <div class="content">
+	            <span class="header">{{spon.sponsor_name}}</span>
+	            <div class="meta">
+	              <span>{{spon.sponsor_type}}</span>
+	              <br/>
+	              <p>{{spon.sponsor_desc}}</p>
+	            </div>
+	          </div>
+	          <div class="extra content">
+	            <a href="javascript:void(0)" ng-click="visit_site(spon.web_address)">Visit Website</a>
+	          </div>
+	        </div>  
+	    </div>
+	</div>
 </div>
