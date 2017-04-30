@@ -730,6 +730,7 @@ DROP PROCEDURE IF EXISTS get_participants//
   CREATE PROCEDURE get_participants (IN _game_id int)
     BEGIN
       SELECT 
+        account_id,
         firstname, 
         middlename, 
         lastname
@@ -739,8 +740,16 @@ DROP PROCEDURE IF EXISTS get_participants//
         account
       WHERE team_id 
       IN (
-          SELECT team_id 
-          FROM game_event natural join team 
+          SELECT
+            team_id 
+          FROM
+            game_event
+          NATURAL JOIN
+            sport
+          NATURAL JOIN
+            match_event
+          NATURAL JOIN
+            match_event_team
           WHERE game_id = _game_id
       );
     END;
