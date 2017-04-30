@@ -7,7 +7,7 @@ localhost:8000/#!/game-per-sport/:sport-id
         .module('app')
         .controller('game-per-sport-controller', game_per_sport_controller);
 
-    function game_per_sport_controller($scope, $location, $routeParams, GamePerSportService, SponsorService, SportsService) {
+    function game_per_sport_controller($scope, $location, $routeParams, GamePerSportService, SponsorService, SportsService, SportService) {
         $scope.sprts = [];
         $scope.size = 0;
         $scope.loop = [];
@@ -96,7 +96,7 @@ localhost:8000/#!/game-per-sport/:sport-id
                 });
         }
 
-        $scope.get_matches = () => {
+        $scope.get_matches = (sportid) => {
             let data = {
                 sport_id: sportid
             } 
