@@ -43,12 +43,6 @@
                 });
         }
 
-        $scope.ngRepeatFinished = () => {
-            setTimeout(() => {
-                $('.ui.accordion').accordion();
-            }, 0);
-        }
-
         $scope.get_profile_info2 = (account_id) => {
             ProfileService
                 .get_profile2(account_id)
