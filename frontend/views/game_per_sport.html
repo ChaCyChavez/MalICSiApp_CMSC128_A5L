@@ -16,26 +16,31 @@
           </div>
         </div>  
     </div> -->
-    <div class="ui raised very fluid padded container segment" ng-repeat="s in sports">
-    	<h1>{{s.division | uppercase}} {{s.sport_type | uppercase}}</h1>
-    	<table class="ui tablet stackable table">
-		  <thead>
-		    <tr>
-		      <th>Team 1</th>
-		      <th>Team 2</th>
-		      <th>Court Name</th>
-		      <th>Match Date/Time</th>
-		    </tr>
-		  </thead>
-		  <tbody>
-		    <tr ng-repeat="m in s.matches">
-		      <td><i class=" fa fa-group fa ui mini rounded" style="color: {{m.teams[0].team_color}}"></i>&nbsp;{{m.teams[0].team_name}}</td>
-		      <td><i class=" fa fa-group fa ui mini rounded" style="color: {{m.teams[1].team_color}}"></i>&nbsp;{{m.teams[1].team_name}}</td>
-		      <td>{{m.court_name}}</td>
-		      <td>{{m.date_time | date: 'MMM d, yyyy h:mm a'}}</td>
-		    </tr>
-		  </tbody>
-		</table>
+    <div class="ui raised very fluid padded container segment styled accordion" ng-repeat="s in sports" ng-init="$last ? ngRepeatFinished() : null">
+    	<h1 class="title">{{s.division | uppercase}}<span ng-if="s.division != 'mixed'">'s</span> {{s.sport_type | uppercase}}</h1>
+	 	<div class="content">
+		<div class="ui four stackable padded cards">
+	        <div class="card" ng-repeat="m in s.matches">
+	          <div class="content">
+	          	<div class="ui grid">
+	          			<div class="eight wide column">
+			     			<span class="left floated"><i class="fa fa-group fa ui mini rounded" style="color: {{m.teams[0].team_color}}"></i>&nbsp;{{m.teams[0].team_name}}</span><br>
+					    	<span class="left floated" style="color: {{m.teams[0].team_color}}">{{m.scores[0]}}</span>
+	          			</div>
+	          			<div class="eight wide column">
+			     			<span class="right floated"><i class="fa fa-group fa ui mini rounded" style="color: {{m.teams[1].team_color}}"></i>&nbsp;{{m.teams[1].team_name}}</span><br>
+					    	<span class="right floated" style="color: {{m.teams[1].team_color}}">{{m.scores[1]}}</span>
+	          			</div>
+	          		</div>
+	          	<div class="center floated">
+	          	  {{m.court_name}}<br>
+			      {{m.date_time | date: 'MMM d, yyyy h:mm a'}}
+	          	</div>
+	          	</div>
+	          </div>
+	        </div>  
+	    </div>
+		</div>
     </div>
 
     <h1 class="header ui">Sponsors</h1>
