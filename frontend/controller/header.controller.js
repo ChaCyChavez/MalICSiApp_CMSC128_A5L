@@ -151,6 +151,7 @@
 			$scope.data.birthday = $('#birthday').calendar('get date');
 			$scope.data.birthday = moment($scope.data.birthday).format('YYYY-MM-DD');
 			$scope.data.college = strUser;
+			console.log($scope.data.position)
 			if ($scope.data.username === undefined ||
 				$scope.data.username === '' ||
 				$scope.data.password === undefined ||
@@ -191,6 +192,21 @@
 				$scope.data.birthday = '';
 				$scope.data.position = '';
 				$scope.data.player_role = '';
+			} else if($scope.data.is_player == 1 && (
+				$scope.data.player_role === '' ||
+				$scope.data.player_role === undefined ||
+				$scope.data.player_jersey_num === '' ||
+				$scope.data.player_jersey_num === undefined)){
+				$.uiAlert({
+					textHead: "Login error", // header
+					text: 'Please fill-out all the fields', // Text
+					bgcolor: '#DB2828', // background-color
+					textcolor: '#fff', // color
+					position: 'top-center',// position . top And bottom ||  left / center / right
+					icon: 'remove circle', // icon in semantic-UI
+					time: 3, // time
+				});
+
 			} else if (!NAME_REGEX.test($scope.data.firsname) || 
 						!NAME_REGEX.test($scope.data.middlename) ||
 						!NAME_REGEX.test($scope.data.lastname)) {
