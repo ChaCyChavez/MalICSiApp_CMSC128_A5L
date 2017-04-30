@@ -154,7 +154,6 @@ DROP PROCEDURE IF EXISTS get_team_match//
     SELECT
         t.team_name,
         m.match_date_time,
-        m.series,
         m.match_id
     FROM
         team t
