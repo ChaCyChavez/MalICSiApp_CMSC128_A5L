@@ -59,6 +59,8 @@ localhost:8000/#!/game-per-sport/:sport-id
                 });
         }
 
+         $scope.matches = [];
+
         $scope.get_sports = () => {
             let data = {
                 game_id : gamid
@@ -72,33 +74,24 @@ localhost:8000/#!/game-per-sport/:sport-id
                             sport_id: element.sport_id,
                             sport_type: element.sport_type,
                             division: element.division,
-                            teams: []
+                            matches: []
                         };
-                        get_teams_of_sport(element, function(arr){
-                            arr.forEach(function(ob){
-                                if(!obj2.teams.includes(ob.team_name)){
-                                    obj2.teams.push(ob.team_name);
-                                }
-                            });
-
-                            if(obj2.teams.length <= 0){
-                                obj2.teams.push("No participating teams.");;
-                            }
-                        });
+                        // console.log(obj2);
+                        get_matches(obj2);
                         ret_sport.push(obj2);
                     });
                     $scope.sports = ret_sport;
 
-                    console.log($scope.sports);
+                    console.log($scope.sports)
 
                 }, function(err) {
                     console.log(err);
                 });
         }
 
-        $scope.get_matches = (sportid) => {
+        var get_matches = (sport) => {
             let data = {
-                sport_id: sportid
+                sport_id: sport.sport_id
             } 
             let ret_match = [];
             SportService
@@ -124,9 +117,9 @@ localhost:8000/#!/game-per-sport/:sport-id
 
                                 if(teamname === element.team_name){
                                     let ob = {
-                                        "team_id": element.team_id,
-                                        "team_name": element.team_name,
-                                        "team_color": element.team_color.toLowerCase()
+                                        team_id: element.team_id,
+                                        team_name: element.team_name,
+                                        team_color: element.team_color.toLowerCase()
                                     }
                                     team_list.push(ob);
                                     throw BreakException;
@@ -139,26 +132,25 @@ localhost:8000/#!/game-per-sport/:sport-id
 
                     match_ids.forEach(function(i){
                         let obj = {
-                            ["match_id"]:i,
-                            ["date_time"]: null,
-                            ["court_name"]: null,
-                            ["teams"]: []
+                           match_id:i,
+                           date_time: null,
+                           court_name: null,
+                           teams: []
                         }
                         arr.forEach(function(j){
                             if(j.match_id === i){
-                                obj["match_id"] = j.match_id;
-                                obj["date_time"] = j.match_date_time;
-                                obj["court_name"] = j.court_name;
-                                if(!obj["teams"].includes(j.team_name)){
+                                obj.match_id = j.match_id;
+                                obj.date_time = j.match_date_time;
+                                obj.court_name = j.court_name;
+                                if(!obj.teams.includes(j.team_name)){
                                     j.team_color = j.team_color.toLowerCase();
-                                    obj["teams"].push(j);
+                                    obj.teams.push(j);
                                 }
                             }
                         });
                         matches.push(obj);
                     });
-                    $scope.matches = matches;
-                    console.log($scope.matches);
+                    sport.matches = matches;
                     $scope.teams = team_list;
                     let BreakException = {};
                     try{
