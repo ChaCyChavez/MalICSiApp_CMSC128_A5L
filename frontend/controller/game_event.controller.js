@@ -235,9 +235,8 @@
 		}
 
     $scope.is_past_game = () => {
-      if ($scope.view.type === "past")
-        return true;
-      	return false;
+      if ($scope.view.type === "past") return true;
+      return false;
 	}
 
 	$scope.check_if_registered = () => {
