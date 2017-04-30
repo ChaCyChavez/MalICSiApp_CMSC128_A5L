@@ -53,7 +53,8 @@
 			LoginRegisterService
 		        .logout()
 		        .then(function(res) {
-					$window.location.href = "#!/"
+					$window.location.href = "#!/";
+					location.reload();
 					$rootScope.profile = undefined;
 					setTimeout($scope.init_jquery(), 0);
 		        }, function(err) {
