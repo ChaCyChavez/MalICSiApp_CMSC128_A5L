@@ -34,42 +34,6 @@
       window.location.href="#!/game-event";
     }
 
-    // $scope.go_to_profile = (data) => {
-    //   window.location.href="#!/profile"
-    // }
-
-    $scope.get_sports = () => {
-      let data = {
-        game_id : gameid
-      }
-      let ret_sport = [];
-      SportsService
-      .get_sports_game(data).
-      then(function(res) {
-        res.data[0].forEach(function(element){
-          let obj2 = {
-            sport_id: element.sport_id,
-            sport_type: element.sport_type,
-            division: element.division,
-          };
-          ret_sport.push(obj2);
-        });
-        $scope.sports = ret_sport;
-      }, function(err) {
-        console.log(err);
-      });
-    }
-
-    var check_duplicates = (arr, element) => {
-      let duplicate_found = false;
-      arr.forEach(function(item) {
-        if (item.account_id == element.account_id) {
-          duplicate_found = true;
-        }
-      });
-      return duplicate_found;
-    }
-
     $scope.load_participants = () => {
       $scope.participants = [];
       var s = [];
