@@ -381,7 +381,7 @@
 				} else if (type === "past"){
 					GameEventService.delete_game({game_id:$scope.past_games[id].game_id}).then((err, data) => {
 						swal("Deleted!", "Event has been deleted.", "success");
-						$scope.current_games.splice(id, 1);
+						$scope.past_games.splice(id, 1);
 					}, (err) => {
 						swal("Failure!", "You are not the game head of this game event.", "error");
 					});
