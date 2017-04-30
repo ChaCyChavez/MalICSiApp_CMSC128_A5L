@@ -4,15 +4,17 @@
     angular
         .module('app')
         .controller('profile-controller', profile_controller);
+        
+    profile_controller.$inject = ['$scope', '$rootScope','$location', '$routeParams', 'ProfileService'];
 
-    function profile_controller($scope, $location, $routeParams, ProfileService) {
+    function profile_controller($scope, $rootScope, $location, $routeParams, ProfileService) {
 
         $scope.get_profile_info = () => {
             ProfileService
                 .get_profile()
                 .then((data) => {
                     if (data[0].length != 0) {
-                        $scope.profile = data[0][0];
+                        $scope.userprofile = data[0][0];
                     }
                 });
 
@@ -52,7 +54,7 @@
                 .get_profile2(account_id)
                 .then((data) => {
                     if (data[0].length != 0) {
-                        $scope.profile = data[0][0];
+                        $scope.userprofile = data[0][0];
                     }
                 });
 
