@@ -683,6 +683,17 @@ DROP PROCEDURE IF EXISTS get_game_per_sport//
     END;
 //
 
+DROP PROCEDURE IF EXISTS get_sport_matches//
+  CREATE PROCEDURE get_sport_matches(IN _sport_id int)
+    BEGIN
+      SELECT * FROM match_event_team, match_event, team WHERE
+          match_event_team.match_id = match_event.match_id
+          && match_event_team.team_id = team.team_id
+          && match_event.sport_id = _sport_id
+          ORDER BY match_event.match_id;
+    END;
+//
+
 DROP PROCEDURE IF EXISTS get_elimination_matches//
   CREATE PROCEDURE get_elimination_matches(IN _sport_id int)
     BEGIN

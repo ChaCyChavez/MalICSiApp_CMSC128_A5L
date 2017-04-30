@@ -1,12 +1,12 @@
-<div ng-controller="result-controller" ng-init = "init_matches()">
+<div ng-controller="result-controller" ng-init = "init_all_matches()">
   <!-- Tournament Bracketing-->
   <div class="row contents">
     <div class="col s12 m12 l12">&nbsp;</div>
     <div class="col s12 m12 l12">
       <div class="card-panel">
-        <h1 class = "tournament-bracket">Tournament Bracketing</h1>
+        <!-- <h1 class = "tournament-bracket">Tournament Bracketing</h1> -->
           <!-- table goes here -->
-          <main id="tournament">
+          <!-- <main id="tournament">
           	<ul class="round round-1">
               <div  ng-repeat="ematches in elimination_matches">
                 <li class="spacer">&nbsp;</li>
@@ -42,7 +42,26 @@
             		<li class="spacer">&nbsp;</li>
               </div>
           	</ul>
-          </main>
+          </main> -->
+        <h1 class = "sport-summ">Sport Results Summary</h1>
+        <table class="ui four column selectable celled table">
+          <thead>
+            <tr>
+              <th>Team</th>
+              <th>Win</th>
+              <th>Loss</th>
+              <th>Draw</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="team in teams" ng-click="view_team(team.id)">
+              <td>{{team.name}}</td>
+              <td>{{team.win}}</td>
+              <td>{{team.loss}}</td>
+              <td>{{team.draw}}</td>
+            </tr>
+          </tbody>
+        </table>         
       </div>
     </div>
   </div>
