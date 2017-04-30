@@ -122,8 +122,10 @@
             window.location.reload();
         }
 
-        $scope.view_per_game_sponsors = () => {
+        $scope.view_per_game_sponsors = (game_id) => {
 			$("#recognize-sponsor-modal").modal("show");
+			console.log(game_id);
+
             //window.location.href= "#!/sponsor/" + $scope.view.gameid;
             //window.location.reload();
         }
