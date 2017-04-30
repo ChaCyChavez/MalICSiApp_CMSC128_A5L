@@ -21,15 +21,17 @@
 				});
 
 				$('.ui.dropdown').dropdown();
-
+				var minDate = new Date();	
 				$("#add-game").click(function() {
 					$('#add-game-modal').modal({
 					onShow: function(){
 						$('#start-date').calendar({
-						type: 'date'
+							type: 'date',
+							minDate: minDate
 						});
 						$('#end-date').calendar({
-						type: 'date'
+							type: 'date',
+							minDate: minDate
 						});
 					}
 					}).modal('show');
