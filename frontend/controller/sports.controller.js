@@ -4,9 +4,7 @@
     angular
         .module('app')
         .controller('sports-controller', sports_controller);
-
-    sports_controller.$inject = ['$scope', '$rootScope', '$window', '$location', '$routeParams','$interval', 'SportsService', 'GameEventService'];
-
+        
     function sports_controller($scope, $rootScope, $window, $location, $routeParams, $interval, SportsService, GameEventService) {
 
 
@@ -29,27 +27,22 @@
 
         $scope.view_sport = (sport_id) => {
             window.location.href="#!/sport/" + sport_id;
-            $window.location.reload();
         }
 
         $scope.view_profile = () => {
             window.location.href="#!/profile";
-            $window.location.reload();
         }
 
         $scope.view_user = () => {
             window.location.href="#!/user";
-            $window.location.reload();
         }
 
         $scope.logout = () => {
             window.location.href="#!/";
-            $window.location.reload();
         }
 
         $scope.back_to_home = () => {
             window.location.href="#!/game-event";
-            $window.location.reload();
         }
 
         $scope.ngRepeatFinished = () => {
@@ -67,7 +60,7 @@
 
 			$('.ui.dropdown').dropdown();
         }
-
+ 
         $scope.delete_sport = (index) => {
                 var data = {
                     sport_id: $scope.sports[index].sport_id

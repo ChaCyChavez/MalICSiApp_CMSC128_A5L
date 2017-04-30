@@ -53,7 +53,8 @@ mainApp.config(function($routeProvider, $locationProvider) {
 			controller: 'team-controller'
 		})
 		.when('/activity-log', {
-			templateUrl: 'views/activity_log.html'
+			templateUrl: 'views/activity_log.html',
+			controller: 'log-controller'
 		})
 		.when('/error_404', {
 			templateUrl: 'views/error_404.html',

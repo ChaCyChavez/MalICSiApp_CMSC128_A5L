@@ -9,22 +9,18 @@
       let data = [];
     	$scope.view_profile = () => {
             window.location.href="#!/profile";
-            $window.location.reload();
         }
 
         $scope.view_user = () => {
             window.location.href="#!/user";
-            $window.location.reload();
         }
 
         $scope.logout = () => {
             window.location.href="#!/";
-            $window.location.reload();
         }
 
         $scope.back_to_home = () => {
             window.location.href="#!/game-event";
-            $window.location.reload();
         }
 
         $scope.elimination_matches = [];
@@ -46,7 +42,6 @@
                         player2: res[0][i+1]
                       })
                     }
-                    console.log($scope.elimination_matches);
                 }, function(err) {
                     console.log(err.data);
                 })
@@ -65,7 +60,6 @@
                       player2: res[0][i+1]
                     })
                   }
-                    console.log($scope.semis_matches);
                 }, function(err) {
                     console.log(err.data);
                 })
@@ -84,7 +78,6 @@
                       player2: res[0][i+1]
                     })
                   }
-                  console.log($scope.finals_matches);
                 }, function(err) {
                     console.log(err.data);
                 })

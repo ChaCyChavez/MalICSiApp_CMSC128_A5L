@@ -1,10 +1,10 @@
-<div class="main-container" ng-controller="LogController">
+<div class="main-container">
   <!-- Search -->
   <div class="row contents">
     <h3 class="content-header">ACTIVITY LOG</h3>
-    <div class="ui search" ng-if="profile.is_admin == 1">
+    <div class="ui search">
       <div class="ui icon input">
-        <input class="prompt" placeholder="Search User" type="text" ng-model="naming">
+        <input class="prompt" placeholder="Search User" type="text" ng-model="search.text">
         <i class="search icon"></i>
       </div>
       <div class="results"></div>
@@ -20,7 +20,7 @@
           </tr>
         </thead>
         <tbody ng-init = "get_all_logs()">
-          <tr ng-repeat = "data in logs | orderBy:'-log_date' | filter: naming">
+          <tr ng-repeat = "data in logs | orderBy:'-log_date' | filter: search.text">
             <td>{{data.log_date | date: 'medium'}}</td>
             <td>{{data.log_description}}</td>
           </tr>
@@ -34,7 +34,7 @@
           </tr>
         </thead>
         <tbody ng-init = "get_log()">
-          <tr ng-repeat = "data in logs | orderBy:'-log_date'">
+          <tr ng-repeat = "data in logs | orderBy:'-log_date' | filter: search.text">
             <td>{{data.log_date | date: 'medium'}}</td>
             <td>{{data.log_description}}</td>
           </tr>

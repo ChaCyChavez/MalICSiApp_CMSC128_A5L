@@ -10,6 +10,7 @@
     function game_event_controller($scope, $window, $rootScope, $location, GameEventService, ProfileService) {
 		$scope.current_games = [];
 		$scope.upcoming_games = [];
+    $scope.past_games = [];
 		$scope.teams = [];
 
 		$scope.ngRepeatFinished = () => {
@@ -71,7 +72,7 @@
 				});
 			},0);
 		};
-		
+
 		$scope.append_fills = () =>{
 			$scope.teams.push(
 			{
@@ -104,16 +105,6 @@
 				account_id: undefined,
 				team_id: undefined
 		}
-		
-		$scope.init_per_game_sponsors = () => {
-            GameEventService
-            .init_per_game_sponsors($scope.game_id)
-            .then(function(res) {
-                $scope.sponsors = res[0];
-            }, function(err) {
-                console.log(err.data)   ;
-            })
-        }
 
 
 		$scope.view_sponsor = () => {
@@ -132,7 +123,6 @@
 
         $scope.view_sports = () => {
             window.location.href= "#!/sports/" +$scope.view.gameid;
-            window.location.reload();
         }
 
         $scope.view_setup = (gameid, id,type) =>{
@@ -143,8 +133,7 @@
 
 	    $scope.view_participant = () => {
 	    	$("#modal1").modal('close');
-	        window.location.href="#!/participant/" + $scope.view.gameid;
-	        window.location.reload();
+	        window.location.href= "#!/participant/" + $scope.view.gameid;
 	    }
 
 		$scope.get_current_games = () => {
@@ -160,9 +149,17 @@
 			.get_upcoming_games()
 			.then((data) => {
 				$scope.upcoming_games = data[0];
-				console.log(data[0]);
 			});
 		}
+
+    $scope.get_past_games = () => {
+      GameEventService
+      .get_past_games()
+      .then((data) => {
+        $scope.past_games = data[0];
+      });
+    }
+
 		$scope.edit_game_info = {
 				game_id: undefined,
 				game_starting_time_date: undefined,
@@ -179,21 +176,14 @@
 				$scope.edit_game_info =JSON.parse(JSON.stringify($scope.upcoming_games[id]));
 				$scope.edit_game_info.game_starting_time_date = new Date($scope.edit_game_info.game_starting_time_date);
 				$scope.edit_game_info.game_ending_time_date = new Date($scope.edit_game_info.game_ending_time_date);
-				console.log($scope.edit_game_info);
 			} else if (type === 'current') {
 				$scope.edit_game_info =JSON.parse(JSON.stringify($scope.current_games[id]));
 				$scope.edit_game_info.game_starting_time_date = new Date($scope.edit_game_info.game_starting_time_date);
 				$scope.edit_game_info.game_ending_time_date = new Date($scope.edit_game_info.game_ending_time_date);
-				console.log($scope.edit_game_info);
 			}
 		}
 
 		$scope.edit_game = () => {
-			if ($scope.edit_type === "upcoming") {
-				$scope.upcoming_games[$scope.edit_id] = $scope.edit_game_info;
-			} else if ($scope.edit_type == "current") {
-				$scope.current_games[$scope.edit_id] = $scope.edit_game_info;
-			}
 			$scope.edit_game_info.game_starting_time_date = $('#edit_start_game').val();
 			$scope.edit_game_info.game_ending_time_date = $('#edit_end_game').val();
 			$scope.edit_game_info.game_starting_time_date = moment($scope.edit_game_info.game_starting_time_date).format("YYYY-MM-DD");
@@ -209,11 +199,21 @@
 				GameEventService
 				.edit_game($scope.edit_game_info)
 				.then((data) => {
-					swal("Success!", "Event has been edited.", "success");
+					swal({title: "Success!", text: "Event has been edited.", type: "success"},
+					   function(){ 
+					       location.reload();
+					   }
+					);
+					if ($scope.edit_type === "upcoming") {
+						$scope.upcoming_games[$scope.edit_id] = $scope.edit_game_info;
+					} else if ($scope.edit_type == "current") {
+						$scope.current_games[$scope.edit_id] = $scope.edit_game_info;
+					}
 				}, (err) => {
 					swal("Failure!", "You are not the game head of this game event.", "error");
 				});
 			}
+
 		}
 
 		$scope.select_team = (teamid) => {
@@ -225,7 +225,6 @@
 			var data = {
 				game_id: $scope.view.gameid
 			}
-			console.log(data);
 			GameEventService
 				.get_teams(data)
 				.then(function(res){
@@ -233,6 +232,12 @@
             	},function(err){
                 	console.log(err);
             	})
+		}
+
+    $scope.is_past_game = () => {
+      if ($scope.view.type === "past")
+        return true;
+      return false;
 		}
 
 		$scope.check_if_registered = () => {
@@ -243,11 +248,7 @@
 			GameEventService
 				.get_team_of_account(data)
 				.then(function(res){
-					if (res[0] == "") {
-						$scope.is_registered = true;
-					} else {
-						$scope.is_registered = false;
-					}
+					$scope.is_registered = res[0] == "";
             	},function(err){
                 	console.log(err);
             	})
@@ -266,7 +267,6 @@
 				.join_account_to_team(data)
 				.then(function(res){
 					swal("Success!", "Successfully joined the team.", "success");
-					console.log(res);
             	},function(err){
                 	console.log(err);
             	})
@@ -312,6 +312,7 @@
 				.then(function(res){
 					$scope.add_team(res[0][0]['last_insert_id()']);
 					$scope.get_upcoming_games();
+          $scope.get_past_games();
 					$scope.get_current_games();
             	},function(err){
             		swal(res.error);
@@ -337,13 +338,10 @@
 			var data = {
 				game_name: $scope.gameSearched
 			}
-
-			console.log(data);
             GameEventService
             .search_game(data)
             .then(function(res){
                 $scope.allGames = res[0];
-                console.log($scope.allGames);
             },function(err){
                 console.log(err);
             })
@@ -369,6 +367,13 @@
 					});
 				} else if (type === "current"){
 					GameEventService.delete_game({game_id:$scope.current_games[id].game_id}).then((err, data) => {
+						swal("Deleted!", "Event has been deleted.", "success");
+						$scope.current_games.splice(id, 1);
+					}, (err) => {
+						swal("Failure!", "You are not the game head of this game event.", "error");
+					});
+				} else if (type === "past"){
+					GameEventService.delete_game({game_id:$scope.past_games[id].game_id}).then((err, data) => {
 						swal("Deleted!", "Event has been deleted.", "success");
 						$scope.current_games.splice(id, 1);
 					}, (err) => {

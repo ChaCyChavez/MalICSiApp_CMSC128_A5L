@@ -3,17 +3,15 @@
 (() =>{
 	angular
 		.module('app')
-		.controller('LogController',LogCtrl);
+		.controller('log-controller',LogCtrl);
 
-		LogCtrl.$inject = ['$scope', '$location', 'LogService'];
-
-		function LogCtrl($scope, $location, LogService) {
+		function LogCtrl($scope, $location, LogService, $interval) {
+			$scope.search = {}
 			$scope.get_log = function(){
 				LogService
 				.get_log()
 				.then(function(res){
 					$scope.logs = res[0];
-					console.log($scope.logs);
 				},function(err){
 					console.log(err);
 				})
@@ -24,13 +22,9 @@
 				.get_all_logs()
 				.then(function(res){
 					$scope.logs = res[0];
-					console.log($scope.logs);
 				},function(err){
 					console.log(err);
 				})
 			}
-
-
 		}
- 
 })();

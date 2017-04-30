@@ -92,7 +92,7 @@
 				$http({
 					method: 'POST',
 					data: $httpParamSerializer(data),
-					xhrFields: {withCredentials: false},
+					xhrFields: {withCredentials: true},
 					url: '/api/delete-sport/',
 					headers: headers
 
@@ -127,7 +127,6 @@
 
 			const get_teams_sport = function (data) {
 				let deferred = $q.defer();
-				console.log(data.sport_id);
 				$http({
 					method: 'GET',
 					xhrFields: {withCredentials: true},

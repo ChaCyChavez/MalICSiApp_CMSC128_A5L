@@ -18,7 +18,9 @@
                 </thead>
                 <tbody ng-repeat="team_score in match_teams_scores">
                   <tr ng-class="{gold: team_score.is_winner}">
-                    <td>{{team_score.team_name}}&nbsp;
+                    <td>
+                        <i style="color: {{team_score.team_color}}" class="flag icon" ></i>
+                        {{team_score.team_name}}&nbsp;
                         <i ng-if="team_score.is_winner" class="fa fa-trophy">
                     </td>
                     <td class="scores">{{team_score.score}}</td>

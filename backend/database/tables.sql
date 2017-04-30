@@ -71,7 +71,7 @@ CREATE TABLE sponsor (
     sponsor_logo        varchar(256) DEFAULT NULL,
     sponsor_type        enum('minor','major','official partner') NOT NULL,
     sponsor_desc        varchar(256) NOT NULL,
-    web_address         varchar(256) NOT NULL,
+    web_address         varchar(256) DEFAULT NULL,
     game_id             int NOT NULL,
     PRIMARY KEY         (sponsor_id),
     CONSTRAINT          `fk_game_sponsored`
@@ -97,7 +97,6 @@ CREATE TABLE match_event (
     match_id            int NOT NULL AUTO_INCREMENT,
     status              boolean NOT NULL,
     match_date_time     datetime NOT NULL,
-    series              enum('elimination','semi-finals','finals') NOT NULL,
     sport_id            int NOT NULL,
 	court_name          varchar(256) NOT NULL,
     court_location      varchar(256) NOT NULL,

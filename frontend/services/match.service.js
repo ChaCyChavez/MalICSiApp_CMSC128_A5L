@@ -101,7 +101,6 @@
 					data[i].is_winner = false;
 					if (data[i].score > winnerScore) indexOfWinner = i;
 				}
-				console.log(indexOfWinner);
 				data[indexOfWinner].is_winner = true;
 			}
 

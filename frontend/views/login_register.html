@@ -1,5 +1,4 @@
 <div ng-controller="login-register-controller" ng-init="get_currGames(); get_loggedIn()">
-
   <!-- Swiper -->
    <div class="swiper-container">
     <div class="swiper-wrapper">
@@ -72,7 +71,7 @@
           <span>{{game.game_ending_time_date | date: 'fullDate'}}</span>
         </div>
         <div class="extra content">
-          <a href="javascript:void(0)" class="fluid ui blue button view-sports-guest" ng-click="view_sports_guest(game.game_id)">View Sports</a>
+          <a href="javascript:void(0)" class="fluid ui blue button view-sports-guest" ng-click="view_sports_guest(game.game_id)">View Game Event</a>
         </div>
       </div> 
     </div>  

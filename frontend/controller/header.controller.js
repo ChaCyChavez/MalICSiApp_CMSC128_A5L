@@ -5,35 +5,42 @@
         .module('app')
         .controller('header-controller', header_controller);
 
-    header_controller.$inject = ['$scope', '$location', '$window', '$routeParams', '$rootScope', 'ProfileService', 'LoginRegisterService'];
-
     function header_controller($scope, $location, $window, $routeParams, $rootScope, ProfileService, LoginRegisterService) {
+		$scope.init_jquery = () => {
+			$('.ui.dropdown').dropdown();
+			$('.ui.modal').modal();
+			$('.ui.checkbox').checkbox();
+			
+			$('.ui.modal-close').click(function() {
+				$('.ui.modal').modal('hide');
+			});
+			var maxDate = new Date();
+			maxDate.setFullYear(maxDate.getFullYear() - 14);
+			$('.register').click(function() {
+				$('#register-modal').modal({
+					onShow: function() {
+						$('#birthday').calendar({
+							type: 'date',
+							maxDate: maxDate
+						});
+					}
+				}).modal('show');
+				
+			});
+
+			$('.login').click(function() {
+				$('#login-modal').modal('show');
+			});
+		}
 
 		$scope.info = {
 			username : undefined,
 			password : undefined
 		}
 
-		$scope.data = {
-			username: undefined,
-			password: undefined,
-			firstname: undefined,
-			middlename: undefined,
-			lastname: undefined,
-			college: undefined,
-			course: undefined,
-			email: undefined,
-			position: undefined,
-			birthday: undefined,
-			is_player: undefined,
-			is_game_head: undefined,
-			player_jersey_num: 0,
-			player_role: undefined
-		}
-
+		$scope.data = {}
 		$rootScope.changeView = (view) => {
 			$window.location.href = view;
-			$window.location.reload();
 		}
 
 		$rootScope.ngRepeatFinished = () => {
@@ -46,13 +53,11 @@
 			LoginRegisterService
 		        .logout()
 		        .then(function(res) {
-					// Materialize.toast(res.message, 4000, 'teal');
 					$window.location.href = "#!/"
-					window.location.reload();
+					$rootScope.profile = undefined;
+					setTimeout($scope.init_jquery(), 0);
 		        }, function(err) {
-					// Materialize.toast('Logout unsuccessful!', 4000, 'teal');
 		        })
-
 		}
 
 		$rootScope.activate = () => {
@@ -66,7 +71,6 @@
 	            if (data[0].length != 0) {
 	                $rootScope.profile = data[0][0];
 	            } else {
-	            	$window.location.href = "#!/";
 					$rootScope.profile = {
 						account_id: undefined,
 						is_admin: false,
@@ -74,8 +78,10 @@
 						is_game_head: false
 					};
 	            }
+				setTimeout($scope.init_jquery, 0);
 	        }, (err) => {
 				window.location.href = "#!/"
+				setTimeout($scope.init_jquery, 0);
 			});
 	    }
 
@@ -104,7 +110,7 @@
 					.then(function(res) {
 						$("#modal-login").modal('close');
 						$window.location.href = '#!/game-event';
-						location.reload();
+						$scope.get_loggedIn();
 					}, function(err) {
 						$.uiAlert({
 							textHead: "Login error", // header
@@ -120,36 +126,31 @@
 						$scope.info.username = undefined;
 						$scope.info.password = undefined;
 					})
+				
 			}
 		}
 
+		$scope.back = () => {
+			window.history.back();
+		}
+
+		$scope.update_is_player = () => {
+			$scope.data.is_player = $scope.data.is_player ? 0 : 1;
+		}
+
+		$scope.update_is_game_head = () => {
+			$scope.data.is_game_head = $scope.data.is_game_head ? 1 : 0;
+		}
+
 		$scope.register = () => {
-			let isplayer = $("#is_player").is(":checked");
-			let isgamehead = $("#is_game_head").is(":checked");
+			let NAME_REGEX = /^[A-Za-z\s]+$/;
+			let USERNAME_REGEX = /^[a-zA-Z0-9]+$/;
+			let EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 			let e = document.getElementById("college");
 			let strUser = e.options[e.selectedIndex].value;
 			$scope.data.birthday = $('#birthday').calendar('get date');
 			$scope.data.birthday = moment($scope.data.birthday).format('YYYY-MM-DD');
 			$scope.data.college = strUser;
-
-			if (isplayer)
-			{
-				$scope.data.is_player = 1;
-			}
-			else
-			{
-				$scope.data.is_player = 0;
-			}
-
-			if (isgamehead)
-			{
-				$scope.data.is_game_head = 1;
-			}
-			else
-			{
-				$scope.data.is_game_head = 0;
-			}
-
 			if ($scope.data.username === undefined ||
 				$scope.data.username === '' ||
 				$scope.data.password === undefined ||
@@ -169,9 +170,7 @@
 				$scope.data.birthday === undefined ||
 				$scope.data.birthday === '' ||
 				$scope.data.position === undefined ||
-				$scope.data.position === '' ||
-				$scope.data.player_role === undefined ||
-				$scope.data.player_role === '') {
+				$scope.data.position === '') {
 				$.uiAlert({
 					textHead: "Registration error", // header
 					text: 'Please fill-out all the fields', // Text
@@ -192,6 +191,38 @@
 				$scope.data.birthday = '';
 				$scope.data.position = '';
 				$scope.data.player_role = '';
+			} else if (!NAME_REGEX.test($scope.data.firsname) || 
+						!NAME_REGEX.test($scope.data.middlename) ||
+						!NAME_REGEX.test($scope.data.lastname)) {
+				$.uiAlert({
+					textHead: "Invalid name", // header
+					text: 'Please only use latin letters for your name.', // Text
+					bgcolor: '#DB2828', // background-color
+					textcolor: '#fff', // color
+					position: 'top-center',// position . top And bottom ||  left / center / right
+					icon: 'remove circle', // icon in semantic-UI
+					time: 3, // time
+				});
+			} else if (!USERNAME_REGEX.test($scope.data.username)) {
+				$.uiAlert({
+					textHead: "Invalid username", // header
+					text: 'Please only use alphanumeric characters for your username.', // Text
+					bgcolor: '#DB2828', // background-color
+					textcolor: '#fff', // color
+					position: 'top-center',// position . top And bottom ||  left / center / right
+					icon: 'remove circle', // icon in semantic-UI
+					time: 3, // time
+				});
+			} else if (!EMAIL_REGEX.test($scope.data.email)) {
+				$.uiAlert({
+					textHead: "Invalid email", // header
+					text: 'Please enter valid email.', // Text
+					bgcolor: '#DB2828', // background-color
+					textcolor: '#fff', // color
+					position: 'top-center',// position . top And bottom ||  left / center / right
+					icon: 'remove circle', // icon in semantic-UI
+					time: 3, // time
+				});
 			} else {
 				LoginRegisterService
 					.register_account($scope.data)
