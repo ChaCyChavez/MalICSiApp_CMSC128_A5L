@@ -55,7 +55,7 @@ DROP TRIGGER IF EXISTS team_accountCreate//
     CREATE TRIGGER team_accountCreate
     AFTER INSERT ON team_account 
     FOR EACH ROW
-    CALL add_activity_log(CONCAT(" joined Team ", (SELECT team_name from team where team_id = NEW.team_id), "!"), NEW.account_id);
+    CALL add_activity_log(CONCAT(" joined team named '", (SELECT team_name from team where team_id = NEW.team_id), "'!"), NEW.account_id);
 //
 
 -- trigger after a player updated which team he/she joined
@@ -63,7 +63,7 @@ DROP TRIGGER IF EXISTS team_accountUpdate//
     CREATE TRIGGER team_accountUpdate
     AFTER UPDATE ON team_account
     FOR EACH ROW
-    CALL add_activity_log(CONCAT(" updated Team ", (SELECT team_name from team where team_id = NEW.team_id), "!"), NEW.account_id);
+    CALL add_activity_log(CONCAT(" updated team named '", (SELECT team_name from team where team_id = NEW.team_id), "'!"), NEW.account_id);
 //
 
 -- trigger after a player deleted which team he/she joined
@@ -71,7 +71,7 @@ DROP TRIGGER IF EXISTS team_accountDelete//
     CREATE TRIGGER team_accountDelete
     AFTER DELETE ON team_account
     FOR EACH ROW
-    CALL add_activity_log(CONCAT(" deleted Team ", (SELECT team_name from team where team_id = OLD.team_id), "!"), OLD.account_id);
+    CALL add_activity_log(CONCAT(" deleted team named '", (SELECT team_name from team where team_id = OLD.team_id), "'!"), OLD.account_id);
 //
 \d ; 
 
