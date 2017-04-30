@@ -148,7 +148,8 @@
                     SportService
                         .delete_match(data).
                         then(function(res) {
-                            $scope.matches.splice(index, 1);
+                            // $scope.matches.splice(index, 1);
+                            $scope.get_matches();
                             swal("Deleted!", "Sport has been successfully removed.", "success");
                         }, function(err) {
                             swal(err.message);

@@ -53,7 +53,7 @@
                 <td>
                   <div class="view-match-container">
                     <a href="javascript:void(0)" class="ui button" ng-click="view_match(match.match_id)">View Match</a>
-                    <a href="javascript:void(0)" id="add-match" class="ui blue button" ng-show="profile.is_admin == 1 || is_owner" ng-click="delete_match(match.match_id,$index)">Delete Match</a>
+                    <a href="javascript:void(0)" id="add-match" class="ui red button" ng-show="profile.is_admin == 1 || is_owner" ng-click="delete_match(match.match_id,$index)">Delete Match</a>
                   </div>
                 </td>
               </tr>
