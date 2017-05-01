@@ -120,7 +120,6 @@
 	$scope.edit_match_info = {};
 	$scope.edit_id = -1;
         $scope.setup_edit_modal = (id) => {
-//            $scope.edit_match_info = JSON.parse(JSON.stringify($scope.match[id]));
 	    $scope.edit_match_info = $scope.match;
 	    $scope.edit_id = id;
         }
@@ -128,11 +127,15 @@
 	$scope.edit_match = () => {
             $scope.edit_match_info.match_id = $scope.match_id;
 	    $scope.edit_match_info.court = $scope.court_id;
-	    if ($scope.edit_match_info.court_name == "" ||
-                $scope.edit_match_info.court_type == "" ||
-                $scope.edit_match_info.court_location == "") {
+	    if ($scope.edit_match_info.court_name === undefined ||
+                $scope.edit_match_info.court_type === undefined ||
+                $scope.edit_match_info.court_location === undefined) {
                 swal("Error!", "Please fill up all fields", "error")
-            } else { 
+            } else if ($scope.edit_match_info.court_name === "" ||
+                $scope.edit_match_info.court_type === "" ||
+                $scope.edit_match_info.court_location === "") {
+                swal("Error!", "Please fill up all fields", "error") 
+	    } else { 
 		    MatchService
 		        .init_match($scope.edit_match_info.match_id)
 		        .then(function(res) {
