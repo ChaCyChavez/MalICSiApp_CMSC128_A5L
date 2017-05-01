@@ -677,7 +677,7 @@ DROP PROCEDURE IF EXISTS get_game_per_sport//
   CREATE PROCEDURE get_game_per_sport(IN _game_id int)
     BEGIN
       SELECT match_id, game_id, game_name, division, match_date_time, court_name, team_name,
-      sport_type FROM match_event NATURAL JOIN sport NATURAL JOIN game_event
+      sport_type, score FROM match_event NATURAL JOIN sport NATURAL JOIN game_event
       NATURAL JOIN match_event_team NATURAL JOIN team WHERE game_id = _game_id order by match_id asc;
     END;
 //

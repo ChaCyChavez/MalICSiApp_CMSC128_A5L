@@ -47,6 +47,23 @@
 				return deferred.promise;
 			}
 
+			const get_scores = (data) => {
+				let deferred = $q.defer();
+
+				$http({
+					method: 'GET',
+					url: '/api/get-teams-N-scores-of-match/' + data,
+					headers: headers
+				})  
+				.then(function(res) {
+					deferred.resolve(res.data);
+				}, function(err) {
+					deferred.reject(err.data);
+				})
+
+				return deferred.promise;
+			}
+
 			const init_sponsors = (data) => {
 				let deferred = $q.defer();
 				$http({
@@ -107,6 +124,7 @@
 			service.init_sponsors = init_sponsors;
 			service.get_sports = get_sports;
 			service.get_match = get_match;
+			service.get_scores = get_scores;
 			return service;
 		}
 })();

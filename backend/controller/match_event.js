@@ -187,7 +187,7 @@ exports.get_all_match_event = (req, res, next) => {
 
 
 exports.get_teams_N_scores_of_match = (req, res, next) => {
-	if (req.session.user) {
+	// if (req.session.user) {
 		const query_string ='CALL get_teams_N_scores_of_match(?)';
 
 		const payload = [req.params.match_id];
@@ -209,9 +209,9 @@ exports.get_teams_N_scores_of_match = (req, res, next) => {
 		};
 
 		db.query(query_string, payload, callback);
-	} else {
-		res.status(401).send({message:"You must be logged in."});
-	}
+	// } else {
+	// 	// res.status(401).send({message:"You must be logged in."});
+	// }
 };
 
 exports.update_match_score = (req, res, next) => {

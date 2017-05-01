@@ -1,6 +1,6 @@
 'use strict';
 /*
-localhost:8000/#!/game-per-sport/:sport-id
+localhost:8000/#!/game-per-sport/:game-id
 */
 (() => {
     angular
@@ -82,7 +82,7 @@ localhost:8000/#!/game-per-sport/:sport-id
                     });
                     $scope.sports = ret_sport;
 
-                    console.log($scope.sports)
+                    // console.log($scope.sports)
 
                 }, function(err) {
                     console.log(err);
@@ -92,7 +92,8 @@ localhost:8000/#!/game-per-sport/:sport-id
         var get_matches = (sport) => {
             let data = {
                 sport_id: sport.sport_id
-            } 
+            }
+
             let ret_match = [];
             SportService
                 .get_match(data).
@@ -135,8 +136,23 @@ localhost:8000/#!/game-per-sport/:sport-id
                            match_id:i,
                            date_time: null,
                            court_name: null,
-                           teams: []
+                           teams: [],
+                           scores: []
                         }
+
+                        var param = i;
+
+                        GamePerSportService
+                            .get_scores(param).
+                            then(function(res) {
+                                var ayy = res[0];
+                                ayy.forEach(function(k){
+                                    obj.scores.push(k.score);
+                                })
+                            }, function(err) {
+                                console.log(err);
+                            });
+
                         arr.forEach(function(j){
                             if(j.match_id === i){
                                 obj.match_id = j.match_id;
@@ -175,6 +191,12 @@ localhost:8000/#!/game-per-sport/:sport-id
 
         $scope.back_to_home = () => {
             window.location.href="#!/";
+        }
+
+        $scope.ngRepeatFinished = () => {
+            setTimeout(() => {
+                $('.ui.accordion').accordion();
+            }, 0);
         }
     }
 })();
