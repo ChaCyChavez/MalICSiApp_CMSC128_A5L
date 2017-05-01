@@ -17,7 +17,7 @@
 				<div class="info-field">Email: {{ userprofile.email }}</div>
 				<div class="info-field" ng-show="userprofile.is_player">Jersey Number: #{{ userprofile.player_jersey_num }}</div>
 				<div class="info-field" ng-show="userprofile.is_player">Player Role: {{ userprofile.player_role }}</div>
-				<div class="info-field" ng-show="userprofile.is_game_head || userprofile.is_admin">Position: {{ profile.position }}</div>
+				<div class="info-field" ng-show="userprofile.is_game_head || userprofile.is_admin">Position: {{ userprofile.position }}</div>
 			</div>
 		</div>
 

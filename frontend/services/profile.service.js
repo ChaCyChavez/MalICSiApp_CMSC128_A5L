@@ -148,6 +148,23 @@
 				return deferred.promise;
 			}
 
+			const remove_user = () => {
+				let deferred = $q.defer();
+				$http({
+					method: 'POST',
+					xhrFields: {withCredentials: false},
+					url: '/api/delete-account/',
+					headers: headers
+				})
+				.then(function(res) {
+					 deferred.resolve(res.data);
+				}, function(err) {
+					deferred.reject(err.data);
+				})
+
+				return deferred.promise;
+			}
+
 			let service = {};
 			service.get_profile 				= get_profile;
 			service.get_user_past_events 		= get_user_past_events;
@@ -157,6 +174,7 @@
 			service.get_user_upcoming_events2 	= get_user_upcoming_events2;
 			service.get_user_ongoing_events2 	= get_user_ongoing_events2;
 			service.get_user_ongoing_events 	= get_user_ongoing_events;
+			service.remove_user					= remove_user;
 			return service;
 		}
 })();

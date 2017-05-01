@@ -250,10 +250,10 @@ exports.get_all_account = (req, res, next) => {
 };
 
 exports.delete_account = (req, res, next) => {
-	if (req.session.user && (req.session.user.account_id == req.body.account_id || req.session.user.is_admin)) {
+	if (req.session.user || req.session.user.is_admin) {
 		const query_string ='CALL delete_account(?)';
 
-		const payload = [req.body.account_id];
+		const payload = [req.session.user.account_id];
 
 		const callback = (err, data) => {
 			if (err) {
@@ -262,15 +262,23 @@ exports.delete_account = (req, res, next) => {
 				res.status(500).send({ error_code:err.code });
 			} else if (data.affectedRows == 0) {
 				winston.level = 'info';
-				winston.log('info', 'Not found! Delete failed');
+				winston.log('info', '0 rows returned', prettyjson.render({
+					details: data,
+					origin: "delete_account controller in account.js",
+					payload: payload,
+					query_string: query_string
+				}));
 				res.status(404).send({ message: 'Not found! Delete failed'});
 			} else {
 				winston.level = 'info';
-				winston.log('info', 'Successfully deleted account!');
+				winston.log('info', 'Success', prettyjson.render({
+					details: data,
+					origin: "delete_account controller in account.js",
+					payload: payload,
+					query_string: query_string
+				}));
 				res.status(200).send(data);
-				if (req.session.user.account_id == req.body.account_id) {
-					req.session.destroy();
-				}
+				req.session.destroy();
 			}
 		};
 

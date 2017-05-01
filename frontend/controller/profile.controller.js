@@ -5,9 +5,9 @@
         .module('app')
         .controller('profile-controller', profile_controller);
         
-    profile_controller.$inject = ['$scope', '$rootScope','$location', '$routeParams', 'ProfileService'];
+    profile_controller.$inject = ['$window', '$scope', '$rootScope','$location', '$routeParams', 'ProfileService'];
 
-    function profile_controller($scope, $rootScope, $location, $routeParams, ProfileService) {
+    function profile_controller($window, $scope, $rootScope, $location, $routeParams, ProfileService) {
 
         $scope.get_profile_info = () => {
             ProfileService
@@ -83,6 +83,29 @@
            } else {
             $scope.get_profile_info();
            }
+        }
+
+        $scope.remove_profile = () => {
+          swal({
+            title: "Are you sure?",
+            text: "You will not be able to recover your account!",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Yes, delete it!",
+            closeOnConfirm: false
+          },
+          function(){
+            ProfileService
+              .remove_user()
+              .then((err, data) => {
+                  swal("Deleted!", "Your account has been deleted.", "success");
+                  location.reload();
+                  $window.location.href = "#!/";
+              }, (err) => {
+                swal("Failure!", "Cannot delete your account.", "error");
+              });
+          });
         }
     }
 })();
