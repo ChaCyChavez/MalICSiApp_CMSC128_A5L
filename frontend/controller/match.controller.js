@@ -57,7 +57,8 @@
 
         $scope.edit_scores = () => {
             $('.scores').prop('contentEditable', true);
-            $(".scores").keypress(function(e){ return e.which != 13; });
+            $(".scores").keypress(function(e){ return (e.which != 13)});
+            $(".scores").keypress(function(e){(e.which >= 48 || e.which <=57)});
             $scope.not_editing = false;
             $scope.editing = true;
         }
