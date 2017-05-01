@@ -31,6 +31,10 @@
 			$('.login').click(function() {
 				$('#login-modal').modal('show');
 			});
+
+			$('.close').click(function() {
+				$('.ui.message').hide();
+			});
 		}
 
 		$scope.info = {
