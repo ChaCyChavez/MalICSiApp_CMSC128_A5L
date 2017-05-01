@@ -35,7 +35,7 @@
       <div class="twelve wide column">
         <div class="ui raised very fluid padded container segment">
           <h1>Schedule</h1>
-          <a href="javascript:void(0)" id="add-match" class="ui blue button" ng-show="(profile.is_admin == 1 || is_owner) && is_past_game_event">Add Match</a>
+          <a href="javascript:void(0)" id="add-match" class="ui blue button" ng-show="(profile.is_admin == 1 || is_owner) && is_not_done">Add Match</a>
           <a href="javascript:void(0)" id="tourn-brac" ng-click="view_tournament_bracketing(sportid)" class="ui blue button">View Results Summary</a>
           <table class="ui single line collapsing table" id="sched-table">
             <tbody>

@@ -1,7 +1,7 @@
-<div ng-controller="sports-controller" ng-init="ownership_init(); get_sports()">
+<div ng-controller="sports-controller" ng-init="ownership_init(); get_sports(); check_if_past_game_event()">
 
 
-  <a class="add-btn" id="add-sport" ng-show="profile.is_admin == 1 || is_owner" href="javascript:void(0)"><i class="fa fa-plus fa-3x"></i></a>
+  <a class="add-btn" id="add-sport" ng-show="(profile.is_admin == 1 || is_owner) && is_not_done" href="javascript:void(0)"><i class="fa fa-plus fa-3x"></i></a>
   <div class="row contents">
     <h3 class="content-header">SPORTS</h3>
     <div class="ui two top attached buttons" id="butt-container">

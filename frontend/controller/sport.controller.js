@@ -43,7 +43,7 @@
         
         $scope.starting_date = "";
         $scope.ending_date = "";
-        $scope.is_past_game_event = undefined;
+        $scope.is_not_done = true;
 
         $scope.init_sport = () => {
             SportService.get_sport({"sport_id":$scope.sportid}).then((data) => {
@@ -53,7 +53,7 @@
                 $scope.ending_date = $scope.sport.game_ending_time_date;
 
                 let d = new Date();
-                $scope.is_past_game_event = $scope.sport.game_ending_time_date > d.toISOString();
+                $scope.is_not_done = $scope.sport.game_ending_time_date > d.toISOString();
             });
         }
         
