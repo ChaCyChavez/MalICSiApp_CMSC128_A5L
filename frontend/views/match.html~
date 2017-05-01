@@ -61,9 +61,9 @@
           <label>Court Type</label>
           <select class="ui dropdown" ng-model="edit_match_info.court_type">
               <option value="" disabled selected>Type</option>
-              <option value="Gym">Gym</option>
-              <option value="Park">Park</option>
-              <option value="Building">Building</option>
+              <option value="minor">Gym</option>
+              <option value="major">Park</option>
+              <option value="major">Building</option>
             </select>
         </div>
 	<div class="field">

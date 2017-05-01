@@ -253,8 +253,8 @@ exports.update_match_court = (req, res, next) => {
 		const payload = [
 			req.body.match_id,
 			req.body.court_name,
-			req.body.court_type,
-			req.body.court_location
+			req.body.court_location,
+			req.body.court_type
 		];
 
 		const callback = (err, data) => {

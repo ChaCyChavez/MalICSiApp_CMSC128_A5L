@@ -246,7 +246,7 @@ delimiter //
         IN _match_id    int(11),
         IN _court_name  varchar(256),
         IN _court_type  varchar(256),
-        IN _court_location  varchar(256)
+        IN _court_location  varchar(256),
     )
     BEGIN
         UPDATE

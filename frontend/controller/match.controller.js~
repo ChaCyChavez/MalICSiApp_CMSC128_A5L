@@ -139,7 +139,7 @@
 		                MatchService
 		                    .update_match($scope.edit_match_info)
 		                    .then(function(res){
-		                        $scope.court = $scope.edit_match_info.court;
+		                        $scope.court = $scope.edit_match_info;
 		                        swal("Success!" ,"Match has been successfully edited.", "success");
 		                    } , function(err){
 		                        console.log(err)
