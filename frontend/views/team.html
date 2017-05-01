@@ -2,7 +2,9 @@
 
   
   <div class="row contents">
-    <h3 class="content-header" ng-init="get_team_name()">Team {{team_name}}</h3>
+    <h3>
+    <i class=" fa fa-group fa-2x ui mini rounded" style="color: {{currTeam.team_color}}"></i>
+    <span class="content-header" ng-init="get_team()">Team {{currTeam.team_name}}</span></h3>
     <div class="ui two column doubling stackable grid container">
       <div class="column" ng-init="get_team_profile()">
         <div class="ui raised very fluid padded container segment">

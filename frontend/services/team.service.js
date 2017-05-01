@@ -41,11 +41,11 @@
 				return deferred.promise;
 			}
 
-			const get_team_name = (data) => {
+			const get_team = (data) => {
 				let deferred = $q.defer();
 				$http({
 					method: 'GET',
-					url: '/api/get-team-name/' + data,
+					url: '/api/get-team/' + data,
 					headers: headers
 				})
 				.then(function(res) {
@@ -58,7 +58,7 @@
 			let service = {};
 			service.get_team_match = get_team_match;
 			service.get_team_profile = get_team_profile;
-			service.get_team_name = get_team_name;
+			service.get_team = get_team;
 			return service;
 		}
 })();
