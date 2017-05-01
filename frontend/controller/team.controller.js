@@ -51,11 +51,12 @@
 
 		$scope.team_id = $routeParams.team_id;
 
-		$scope.get_team_name= () => {
+		$scope.get_team= () => {
 			TeamService
-				.get_team_name($scope.team_id)
+				.get_team($scope.team_id)
 				.then(function(res) {
-					$scope.team_name = res[0][0].team_name;
+					$scope.currTeam = res[0][0];
+					console.log(res[0][0])
 				}, function(err) {
 					console.log(err);
 				});

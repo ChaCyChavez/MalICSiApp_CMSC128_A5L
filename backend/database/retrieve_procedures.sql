@@ -194,13 +194,13 @@ DROP PROCEDURE IF EXISTS get_match_teams//
   END;
 //
 
-DROP PROCEDURE IF EXISTS get_team_name//
-  CREATE PROCEDURE get_team_name(
+DROP PROCEDURE IF EXISTS get_team//
+  CREATE PROCEDURE get_team(
       IN _team_id int
   )
   BEGIN
     SELECT
-        team_name
+        *
     FROM
         team
     WHERE
