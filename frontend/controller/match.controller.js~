@@ -57,8 +57,7 @@
 
         $scope.edit_scores = () => {
             $('.scores').prop('contentEditable', true);
-            $(".scores").keypress(function(e){ return (e.which != 13)});
-            $(".scores").keypress(function(e){(e.which >= 48 || e.which <=57)});
+            $(".scores").keypress(function(e){ return e.which != 13; });
             $scope.not_editing = false;
             $scope.editing = true;
         }
@@ -121,6 +120,7 @@
 	$scope.edit_match_info = {};
 	$scope.edit_id = -1;
         $scope.setup_edit_modal = (id) => {
+//            $scope.edit_match_info = JSON.parse(JSON.stringify($scope.match[id]));
 	    $scope.edit_match_info = $scope.match;
 	    $scope.edit_id = id;
         }
@@ -128,22 +128,18 @@
 	$scope.edit_match = () => {
             $scope.edit_match_info.match_id = $scope.match_id;
 	    $scope.edit_match_info.court = $scope.court_id;
-	    if ($scope.edit_match_info.court_name === undefined ||
-                $scope.edit_match_info.court_type === undefined ||
-                $scope.edit_match_info.court_location === undefined) {
+	    if ($scope.edit_match_info.court_name == "" ||
+                $scope.edit_match_info.court_type == "" ||
+                $scope.edit_match_info.court_location == "") {
                 swal("Error!", "Please fill up all fields", "error")
-            } else if ($scope.edit_match_info.court_name === "" ||
-                $scope.edit_match_info.court_type === "" ||
-                $scope.edit_match_info.court_location === "") {
-                swal("Error!", "Please fill up all fields", "error") 
-	    } else { 
+            } else { 
 		    MatchService
 		        .init_match($scope.edit_match_info.match_id)
 		        .then(function(res) {
 		                MatchService
 		                    .update_match($scope.edit_match_info)
 		                    .then(function(res){
-		                        $scope.court = $scope.edit_match_info.court;
+		                        $scope.court = $scope.edit_match_info;
 		                        swal("Success!" ,"Match has been successfully edited.", "success");
 		                    } , function(err){
 		                        console.log(err)
