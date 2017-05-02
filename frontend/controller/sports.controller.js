@@ -12,14 +12,13 @@
         $scope.teams = [];
         var gameid = $routeParams.game_id;
         $scope.is_owner = false;
+        $scope.is_not_done = true;
 
         $scope.ownership_init = () => {
             GameEventService.get_game_event({"game_id": gameid}).then((data) => {
                 $scope.is_owner = data[0][0].account_id == $rootScope.profile.account_id;
             });
         }
-
-        $scope.sports = [];
 
         $scope.change_view = (view) => {
             window.location.href= view + gameid;
@@ -59,6 +58,18 @@
 			});
 
 			$('.ui.dropdown').dropdown();
+        }
+
+        $scope.check_if_past_game_event = () => {
+            GameEventService.
+                get_past_games()
+                .then(function(res) {
+                    res[0].forEach(function(x) {
+                        if (x.game_id == gameid) $scope.is_not_done = false;
+                    })
+                }, function(err) {
+                    console.log(err);
+                });
         }
  
         $scope.delete_sport = (index) => {

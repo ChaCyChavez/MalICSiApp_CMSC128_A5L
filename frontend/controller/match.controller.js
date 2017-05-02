@@ -33,12 +33,15 @@
         $scope.not_editing = true;
         $scope.editing = false;
         $scope.match_teams_scores = [];
+        $scope.is_not_done = undefined;
 
         $scope.init_match = () => {
             MatchService
                 .init_match($scope.match_id)
                 .then(function(res) {
                     $scope.match = res[0][0];
+                    let d = new Date();
+                    $scope.is_not_done = $scope.match.game_ending_time_date > d.toISOString();
                 }, function(err) {
                     window.location.href = "#!/error_404"
                 })

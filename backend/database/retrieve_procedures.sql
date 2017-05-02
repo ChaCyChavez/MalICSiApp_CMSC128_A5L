@@ -395,7 +395,8 @@ DROP PROCEDURE IF EXISTS get_match_event//
         court_name,
         court_location,
         court_type,
-        game_event.account_id
+        account_id,
+        game_ending_time_date
     FROM
         match_event
     NATURAL JOIN

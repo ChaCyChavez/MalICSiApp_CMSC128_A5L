@@ -2,10 +2,10 @@
   <!-- Contents -->
   <div class="row contents" id="match-content">
     <div class="ui two column doubling stackable grid container">
-      <div class="eight wide column">
+      <div class="column">
         <div class="ui raised very fluid padded container segment">
           <h1>MATCH RESULTS</h1>
-          <a href="javascript:void(0)" id="edit-scores" class="ui blue button" ng-show="not_editing" ng-click="edit_scores()" ng-if="profile.account_id == match.account_id || profile.is_admin">Edit Scores</a>
+          <a href="javascript:void(0)" id="edit-scores" class="ui blue button" ng-show="not_editing" ng-click="edit_scores()" ng-if="(profile.account_id == match.account_id || profile.is_admin) && is_not_done">Edit Scores</a>
           <a href="javascript:void(0)" id="save-scores" class="ui blue button" ng-show="editing" ng-click="save_scores()">Save Scores</a>
           <a href="javascript:void(0)" id="cancel" class="ui blue button" ng-show="editing" ng-click="cancel()">Cancel</a>
           <div class="ui raised very fluid padded container segment">
@@ -30,7 +30,7 @@
           </div>
         </div>
       </div>
-      <div class="eight wide column">
+      <div class="column">
         <div class="ui raised very fluid padded container segment">
           <h1>MATCH DETAILS</h1>
           <div class="content">
@@ -41,7 +41,7 @@
               <div>Court Type: {{match.court_type}}</div>
               <div>Court Location: {{match.court_location}}</div>
             </h3>
-	    <a href="javascript:void(0)" class="ui blue button edit-match" ng-click = "setup_edit_modal($index)">Edit Match Details</a>
+	    <a href="javascript:void(0)" class="ui blue button edit-match" ng-click = "setup_edit_modal($index)" ng-if="is_not_done">Edit Match Details</a>
           </div>
         </div>
       </div>
