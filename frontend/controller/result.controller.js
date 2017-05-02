@@ -153,5 +153,8 @@
           console.log($scope.teams);          
         }
 
+        $scope.sortType = "name";
+        $scope.sortReverse = false;
+
     }
 })();

@@ -47,14 +47,34 @@
         <table class="ui four column selectable celled table">
           <thead>
             <tr>
-              <th>Team</th>
-              <th>Win</th>
-              <th>Loss</th>
-              <th>Draw</th>
+              <th><a href="javascript:void(0)" ng-click="sortType= 'name'; sortReverse = !sortReverse">
+                Team
+                <i ng-show="sortType != 'name'" class="sort icon"></i>
+                <i ng-show="sortType == 'name' && !sortReverse" class="sort alphabet ascending icon"></i>
+                <i ng-show="sortType == 'name' && sortReverse" class="sort alphabet descending icon"></i>
+              </a></th>
+              <th><a href="javascript:void(0)" ng-click="sortType= 'win'; sortReverse = !sortReverse">
+                Win
+                <i ng-show="sortType != 'win'" class="sort icon"></i>
+                <i ng-show="sortType == 'win' && !sortReverse" class="sort numeric ascending icon"></i>
+                <i ng-show="sortType == 'win' && sortReverse" class="sort numeric descending icon"></i>
+              </a></th>
+              <th><a href="javascript:void(0)" ng-click="sortType= 'loss'; sortReverse = !sortReverse">
+                Loss
+                <i ng-show="sortType != 'loss'" class="sort icon"></i>
+                <i ng-show="sortType == 'loss' && !sortReverse" class="sort numeric ascending icon"></i>
+                <i ng-show="sortType == 'loss' && sortReverse" class="sort numeric descending icon"></i>
+              </a></th>
+              <th><a href="javascript:void(0)" ng-click="sortType= 'draw'; sortReverse = !sortReverse">
+                Draw
+                <i ng-show="sortType != 'draw'" class="sort icon"></i>
+                <i ng-show="sortType == 'draw' && !sortReverse" class="sort numeric ascending icon"></i>
+                <i ng-show="sortType == 'draw' && sortReverse" class="sort numeric descending icon"></i>
+              </a></th>
             </tr>
           </thead>
           <tbody>
-            <tr ng-repeat="team in teams" ng-click="view_team(team.id)">
+            <tr ng-repeat="team in teams | orderBy:sortType:sortReverse" ng-click="view_team(team.id)">
               <td>{{team.name}}</td>
               <td>{{team.win}}</td>
               <td>{{team.loss}}</td>
