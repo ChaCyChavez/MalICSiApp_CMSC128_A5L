@@ -188,6 +188,7 @@
                 selectedValues.push($(this).val()); 
             });
             var wow = new Date($('#add-start-match').val());
+            console.log(wow);
             var courttype = "";
             var court = $('#courtJoin').val();
             if (court == "Baker Hall" || court == "Copeland Gym") courttype = "Gym";
