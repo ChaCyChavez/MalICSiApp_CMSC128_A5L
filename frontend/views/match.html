@@ -11,7 +11,7 @@
           <div class="ui raised very fluid padded container segment">
             <table class="ui very basic selectable collapsing celled table" id="team-table">
               <thead>
-                  <tr>
+                  <tr> 
                     <th><h5>TEAM</h5></th>
                     <th><h5>SCORE</h5></th>
                   </tr>
@@ -41,34 +41,34 @@
               <div>Court Type: {{match.court_type}}</div>
               <div>Court Location: {{match.court_location}}</div>
             </h3>
-	    <a href="javascript:void(0)" class="ui blue button edit-match" ng-click = "setup_edit_modal($index)" ng-if="is_not_done">Edit Match Details</a>
+	    <a id = "edit-match" href="javascript:void(0)" class="ui blue button edit-match" ng-click = "setup_edit_modal()"  ng-if="is_not_done">Edit Match Details</a>
           </div>
         </div>
       </div>
     </div>
   </div>
-
+ 
   <div class="ui modal" id="edit-match-modal">
     <i class="close icon"></i>
     <div class="header">Edit Match</div>
     <div class="content">
       <form class="ui big form">
         <div class="field">
-          <label>Court Name</label>
-          <input placeholder="Court Name" type="text" ng-model="edit_match_info.court_name">
-        </div>
-        <div class="field">
-          <label>Court Type</label>
-          <select class="ui dropdown" ng-model="edit_match_info.court_type">
-              <option value="" disabled selected>Type</option>
-              <option value="Gym">Gym</option>
-              <option value="Park">Park</option>
-              <option value="Building">Building</option>
+            <label>Court</label>
+            <select id = "courtJoin" class="ui dropdown">
+              <option disabled selected></option>
+              <option value="Copeland">Copeland</option>
+              <option value="Baker Hall">Baker Hall</option>
+              <option value="Freedom Park">Freedom Park</option>
+              <option value="Physci Building">Physci Building</option>
             </select>
         </div>
-	<div class="field">
-          <label>Court Location</label>
-          <input placeholder="Court Location" type="text" ng-model="edit_match_info.court_location">
+        <div class="ui calendar field" id="match-date">
+            <label>Match Date</label>
+            <div class="ui input left icon">
+              <i class="calendar icon"></i>
+              <input type="text" placeholder="Date" onKeypress="if(event.keyCode){return false;}" ng-model = "edit_match_info.match_date_time" id="edit-match-date">
+            </div>
         </div>
       </form>
     </div>
@@ -81,6 +81,15 @@
 
 <script type="text/javascript">
   $(document).ready(function(){
-
+    $("#edit-match").click(function() {
+      console.log("wow");
+      $("#edit-match-modal").modal({
+        onShow: function() {
+          $('#match-date').calendar({
+            type: 'datetime'
+          });
+        } 
+      }).modal("show");
+    });
   });
 </script>

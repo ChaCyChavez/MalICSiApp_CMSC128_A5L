@@ -396,6 +396,7 @@ DROP PROCEDURE IF EXISTS get_match_event//
         court_location,
         court_type,
         account_id,
+        game_starting_time_date,
         game_ending_time_date
     FROM
         match_event
