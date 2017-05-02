@@ -173,13 +173,13 @@
 		}
         }
 
-	$(".edit-match").click(function() {
-	$("#edit-match-modal").modal("show");
-	});
+	// $("#edit-match").click(function() {
+	// $("#edit-match-modal").modal("show");
+	// });
 
-	$(".modal-close").click(function() {
-	$(".ui.modal").modal("hide");
-	});
+	// $(".modal-close").click(function() {
+	// $(".ui.modal").modal("hide");
+	// });
 
     }
 })();

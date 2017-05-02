@@ -1,9 +1,9 @@
 <div ng-controller="user-controller" ng-init="get_pending_accounts(); get_accounts()">
   <div class="row contents">
-    <h3 class="content-header">User</h3>
+    <h3 class="content-header">USER</h3>
     <h3 ng-if="profile.is_admin == 1">Pending User</h3>
     <h4 ng-if="pending_accounts.length == 0 && profile.is_admin == 1">No Pending User</h4>
-    <div class="ui four stackable cards" ng-if="profile.is_admin == 1">
+    <div class="ui four stackable special cards" ng-if="profile.is_admin == 1">
       <div class="card" ng-class="{active:!$index}" ng-repeat="(index, account) in pending_accounts">
         <div class="blurring dimmable image">
           <div class="ui dimmer">
@@ -29,7 +29,7 @@
       </div>  
     </div>
 
-    <h3>Regular User</h3>
+    <h3>Regular Users</h3>
     <div class="ui four stackable special cards" ng-if="profile.is_admin == 1">
       <div class="card" ng-class="{active:!$index}" ng-repeat="(index, account) in accounts | filter: {is_approved: 1}">
         <div class="blurring dimmable image">
