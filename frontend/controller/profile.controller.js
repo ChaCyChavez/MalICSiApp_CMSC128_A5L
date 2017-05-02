@@ -99,9 +99,9 @@
             ProfileService
               .remove_user()
               .then((err, data) => {
-                  swal("Deleted!", "Your account has been deleted.", "success");
-                  location.reload();
-                  $window.location.href = "#!/";
+                swal("Deleted!", "Your account has been deleted.", "success");
+                location.reload();
+                $window.location.href = "#!/";
               }, (err) => {
                 swal("Failure!", "Cannot delete your account.", "error");
               });
