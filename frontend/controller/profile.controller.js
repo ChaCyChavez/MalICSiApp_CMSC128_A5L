@@ -123,6 +123,8 @@
           .remove_others_profile(account_id)
           .then((data) => {
             swal("Deleted!", "The account has been deleted.", "success");
+            location.reload();
+            window.location.href = "#!/user"
           }, (err) => {
             swal("Failure!", "Cannot delete your account.", "error");
           });
