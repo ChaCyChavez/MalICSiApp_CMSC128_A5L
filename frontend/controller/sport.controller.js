@@ -181,7 +181,7 @@
                 }, function(err) {
                     swal(err.message);
                 })
-        }
+        } 
         $scope.add_match = () => {
             var selectedValues = [];    
             $("#teamJoin :selected").each(function(){
@@ -198,13 +198,13 @@
                 match_date_time: wow.getFullYear() + '-' + (wow.getMonth()+1) + 
                                  '-' + wow.getDate()  + ' ' + wow.getHours() +
                                  ':' + wow.getMinutes(),
-                series: $('#series').val(),
                 sport_id: sportid,
                 court_name: court,
                 court_location: 'UPLB',
                 court_type: courttype
             }
-            if(data.match_date_time == undefined || data.series == undefined ||
+            console.log(data);
+            if(data.match_date_time == undefined ||
                 data.court_name == undefined){
                 swal("Failed!", "Please fill up all fields", "error");
             }
