@@ -250,10 +250,10 @@ exports.get_all_account = (req, res, next) => {
 };
 
 exports.delete_account = (req, res, next) => {
-	if (req.session.user || req.session.user.is_admin) {
+	if (req.session.user && (req.session.user.is_admin || req.params.account_id != undefined)) {
 		const query_string ='CALL delete_account(?)';
 
-		const payload = [req.session.user.account_id];
+		const payload = [req.params.account_id != undefined ? req.params.account_id : req.session.user.account_id];
 
 		const callback = (err, data) => {
 			if (err) {
@@ -278,7 +278,9 @@ exports.delete_account = (req, res, next) => {
 					query_string: query_string
 				}));
 				res.status(200).send(data);
-				req.session.destroy();
+				if (req.params.account_id == undefined)	{
+					req.session.destroy();
+				}
 			}
 		};
 

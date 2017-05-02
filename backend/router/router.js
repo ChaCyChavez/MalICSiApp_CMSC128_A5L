@@ -34,7 +34,7 @@ module.exports = (router) => {
    //update account
    router.post('/api/update-account', account.update_account);
    //delete account
-   router.post('/api/delete-account', account.delete_account);
+   router.post('/api/delete-account/:account_id?', account.delete_account);
    //approve
    router.post('/api/approve-account', account.approve_account);
 
