@@ -35,7 +35,7 @@
     }
 
     $scope.load_participants = () => {
-      if($rootScope.profile === undefined){
+      if($window.sessionStorage.profile == "undefined"){
         window.location.href="#!/";
         return;
       }

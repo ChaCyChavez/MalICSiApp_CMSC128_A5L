@@ -35,7 +35,7 @@
         $scope.is_not_done = undefined;
 
         $scope.init_match = () => {
-            if($rootScope.profile === undefined){
+            if($window.sessionStorage.profile == "undefined"){
                 window.location.href="#!/";
                 return;
             }

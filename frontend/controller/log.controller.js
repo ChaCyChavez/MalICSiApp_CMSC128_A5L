@@ -8,10 +8,10 @@
 		function LogCtrl($scope, $rootScope, $location, LogService, $interval) {
 			$scope.search = {}
 			$scope.get_log = function(){
-				if($rootScope.profile === undefined){
-                	window.location.href="#!/";
-                	return;
-            	}
+				if($window.sessionStorage.profile == "undefined"){
+	            	window.location.href="#!/";
+		        	return;
+	        	}
 				LogService
 				.get_log()
 				.then(function(res){
