@@ -36,5 +36,14 @@
 
             });
         }
+
+        $scope.restrict = () => {
+            LoginRegisterService
+            .get_session()
+            .then((data) => {}, (err) => {
+                window.location.href = "#!/";
+
+            });
+        }
     }
 })();

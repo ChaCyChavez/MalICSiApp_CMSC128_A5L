@@ -54,6 +54,16 @@ exports.logout = function(req, res, next) {
 exports.add_account = (req,res,next) => {
 	const query_string = 'CALL add_account(?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
 
+	var regex = /^[a-zA-Z]*$/;
+
+	if (!regex.test(req.body.firstname))
+		res.status(406).send({message: "Invalid name input!"});
+	if (!regex.test(req.body.middlename))
+		res.status(406).send({message: "Invalid name input!"});
+	if (!regex.test(req.body.lastname))
+		res.status(406).send({message: "Invalid name input!"});
+
+
 	const payload = [
 		req.body.firstname,
 		req.body.middlename,
