@@ -28,6 +28,7 @@ body {
 }
 
 .main-content {
+    margin-top: 5% !important;
     flex: 1 0 auto !important;
 }
 
