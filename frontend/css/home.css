@@ -24,11 +24,10 @@ body {
 
 .contents {
     text-align: center;
-    margin: 1% 5% 1% 5%;
+    margin: 5% 5% 1% 5% !important;
 }
 
 .main-content {
-    margin-top: 5% !important;
     flex: 1 0 auto !important;
 }
 
