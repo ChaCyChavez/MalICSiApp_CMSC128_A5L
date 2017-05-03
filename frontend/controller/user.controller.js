@@ -5,12 +5,16 @@
         .module('app')
         .controller('user-controller', user_controller);
 
-    function user_controller($scope, $location, UserService) {
+    function user_controller($scope, $window, $location, UserService) {
 
         $scope.accounts = [];
         $scope.pending_accounts = [];
 
         $scope.get_accounts = () => {
+          if($window.sessionStorage.profile == "undefined"){
+              window.location.href="#!/";
+            return;
+          }
             UserService
                 .get_all_account()
                 .then(function(res) {

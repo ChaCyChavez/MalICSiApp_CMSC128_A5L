@@ -57,10 +57,10 @@
 			LoginRegisterService
 		        .logout()
 		        .then(function(res) {
-					$window.location.href = "#!/";
-					location.reload();
 					$rootScope.profile = undefined;
 					$window.sessionStorage.profile = $rootScope.profile;
+					$window.location.href = "#!/";
+					location.reload();
 					setTimeout($scope.init_jquery(), 0);
 		        }, function(err) {
 		        })
@@ -77,6 +77,8 @@
 	            if (data[0].length != 0) {
 	                $rootScope.profile = data[0][0];
 					$window.sessionStorage.profile =  data[0][0];
+					$window.location.href = '#!/game-event';
+
 	            } else {
 					$rootScope.profile = {
 						account_id: undefined,
@@ -116,7 +118,6 @@
 					.retrieve_account($scope.info)
 					.then(function(res) {
 						$("#modal-login").modal('close');
-						$window.location.href = '#!/game-event';
 						$scope.get_loggedIn();
 					}, function(err) {
 						$.uiAlert({

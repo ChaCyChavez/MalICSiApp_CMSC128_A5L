@@ -5,7 +5,7 @@
 		.module('app')
 		.controller('log-controller',LogCtrl);
 
-		function LogCtrl($scope, $rootScope, $location, LogService, $interval) {
+		function LogCtrl($scope, $window, $rootScope, $location, LogService, $interval) {
 			$scope.search = {}
 			$scope.get_log = function(){
 				if($window.sessionStorage.profile == "undefined"){

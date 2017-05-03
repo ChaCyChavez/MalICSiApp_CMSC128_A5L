@@ -5,7 +5,7 @@
         .module('app')
         .controller('sport-controller', sport_controller);
 
-    function sport_controller($scope, $rootScope, $location, $routeParams, SportService) {
+    function sport_controller($scope, $window, $rootScope, $location, $routeParams, SportService) {
 
         var sportid = $routeParams.sport_id;
         $scope.sportid = $routeParams.sport_id;
@@ -46,6 +46,10 @@
         $scope.is_not_done = true;
 
         $scope.init_sport = () => {
+            if($window.sessionStorage.profile == "undefined"){
+                window.location.href="#!/";
+                return;
+            }
             SportService.get_sport({"sport_id":$scope.sportid}).then((data) => {
                 $scope.sport = data[0][0];
                 $scope.is_owner = $scope.sport.account_id == $rootScope.profile.account_id;
