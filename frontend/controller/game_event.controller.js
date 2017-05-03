@@ -14,7 +14,6 @@
 		$scope.teams = [];
 
 		$scope.ngRepeatFinished = () => {
-			//http://stackoverflow.com/questions/24437658/angular-ng-if-how-to-callback-after-ng-if-template-has-been-rendered
 			setTimeout(() => {
 				$('.special.cards .image').dimmer({
                 on: 'hover'
@@ -147,6 +146,10 @@
 		};
 
 		$scope.get_upcoming_games = () => {
+			if($window.sessionStorage.profile == "undefined"){
+            	window.location.href="#!/";
+	        	return;
+        	}
 			GameEventService
 			.get_upcoming_games()
 			.then((data) => {

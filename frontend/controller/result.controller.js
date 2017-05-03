@@ -143,6 +143,10 @@
         }
 
         $scope.init_all_matches = () => {
+            if($window.sessionStorage.profile == "undefined"){
+                window.location.href="#!/";
+                return;
+            }
           // $scope.init_elimination_matches();
           // $scope.init_semis_matches();
           // $scope.init_finals_matches();
@@ -152,6 +156,9 @@
           $scope.init_matches();
           console.log($scope.teams);          
         }
+
+        $scope.sortType = "name";
+        $scope.sortReverse = false;
 
     }
 })();

@@ -15,6 +15,10 @@
         $scope.is_not_done = true;
 
         $scope.ownership_init = () => {
+            if($rootScope.profile === undefined){
+                window.location.href="#!/";
+                return;
+            }
             GameEventService.get_game_event({"game_id": gameid}).then((data) => {
                 $scope.is_owner = data[0][0].account_id == $rootScope.profile.account_id;
             });
@@ -140,6 +144,7 @@
         }
 
         $scope.get_sports = () => {
+
 			let data = {
 				game_id : gameid
 			}

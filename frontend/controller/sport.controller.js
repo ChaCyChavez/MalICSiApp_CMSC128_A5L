@@ -5,7 +5,7 @@
         .module('app')
         .controller('sport-controller', sport_controller);
 
-    function sport_controller($scope, $rootScope, $location, $routeParams, SportService) {
+    function sport_controller($scope, $window, $rootScope, $location, $routeParams, SportService) {
 
         var sportid = $routeParams.sport_id;
         $scope.sportid = $routeParams.sport_id;
@@ -46,6 +46,10 @@
         $scope.is_not_done = true;
 
         $scope.init_sport = () => {
+            if($window.sessionStorage.profile == "undefined"){
+                window.location.href="#!/";
+                return;
+            }
             SportService.get_sport({"sport_id":$scope.sportid}).then((data) => {
                 $scope.sport = data[0][0];
                 $scope.is_owner = $scope.sport.account_id == $rootScope.profile.account_id;
@@ -181,13 +185,14 @@
                 }, function(err) {
                     swal(err.message);
                 })
-        }
+        } 
         $scope.add_match = () => {
             var selectedValues = [];    
             $("#teamJoin :selected").each(function(){
                 selectedValues.push($(this).val()); 
             });
             var wow = new Date($('#add-start-match').val());
+            console.log(wow);
             var courttype = "";
             var court = $('#courtJoin').val();
             if (court == "Baker Hall" || court == "Copeland Gym") courttype = "Gym";
@@ -198,13 +203,13 @@
                 match_date_time: wow.getFullYear() + '-' + (wow.getMonth()+1) + 
                                  '-' + wow.getDate()  + ' ' + wow.getHours() +
                                  ':' + wow.getMinutes(),
-                series: $('#series').val(),
                 sport_id: sportid,
                 court_name: court,
                 court_location: 'UPLB',
                 court_type: courttype
             }
-            if(data.match_date_time == undefined || data.series == undefined ||
+            console.log(data);
+            if(data.match_date_time == undefined ||
                 data.court_name == undefined){
                 swal("Failed!", "Please fill up all fields", "error");
             }

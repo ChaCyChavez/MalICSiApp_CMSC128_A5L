@@ -5,7 +5,7 @@
 		.module('app')
 		.controller('team-controller', team_controller);
 
-	function team_controller($scope, $location, $routeParams, TeamService) {
+	function team_controller($scope, $window, $location, $routeParams, TeamService) {
 
         $scope.view_profile = () => {
             window.location.href="#!/profile";
@@ -27,6 +27,10 @@
 		$scope.team_id = $routeParams.team_id;
 
 		$scope.get_team_profile = () => {
+			if($window.sessionStorage.profile == "undefined"){
+            	window.location.href="#!/";
+	        	return;
+        	}
 			TeamService
 				.get_team_profile($scope.team_id)
 				.then(function(res) {

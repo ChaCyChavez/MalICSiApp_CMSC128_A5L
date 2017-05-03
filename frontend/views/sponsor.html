@@ -1,3 +1,4 @@
+<div ng-controller="login-register-controller" ng-init="restrict()"></div>
 <div ng-controller="sponsor-controller" ng-init="ownership_init(); init_sponsor()">
 
   <a class="add-btn" ng-show="profile.is_admin == 1 || is_owner" ng-click="reset_add_modal()" id="add-sponsor" href="javascript:void(0)"><i class="fa fa-plus fa-3x"></i></a>

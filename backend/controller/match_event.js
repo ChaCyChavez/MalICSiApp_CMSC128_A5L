@@ -6,12 +6,11 @@ const winston = require('winston');
 exports.add_match_event = (req, res, next) => {
 	if (req.session.user && req.session.user.is_game_head) {
 		// to do, check if game_head is owner of match_event
-		const query_string = 'CALL add_match_event(?,?,?,?,?,?,?)';
+		const query_string = 'CALL add_match_event(?,?,?,?,?,?)';
 
 		const payload = [
 			req.body.status,
 			req.body.match_date_time,
-			req.body.series,
 			req.body.sport_id,
 			req.body.court_name,
 			req.body.court_location,

@@ -1,9 +1,9 @@
+<div ng-controller="login-register-controller" ng-init="restrict()"></div>
 <div ng-controller="sport-controller" ng-init="init_sport()">
   <div class="row contents" id="sport-content" ng-init = "get_matches();get_courts();get_game_event_teams()">
-    <h3 class="content-header">Sport</h3>
-
+    <h3 class="content-header">SPORT</h3>
       <!-- List of Participants -->
-    <div class="ui two column doubling stackable grid container">
+    <div class="ui two column doubling stackable grid">
       <div class="four wide column">
         <div class="ui raised very fluid padded container segment">
           <table class="ui very basic selectable collapsing celled table" id="team-table">
@@ -72,7 +72,7 @@
             <label>Match Date</label>
             <div class="ui input left icon">
               <i class="calendar icon"></i>
-              <input type="text" placeholder="Date" id="add-start-match">
+              <input type="text" placeholder="Date" onKeypress="if(event.keyCode){return false;}" id="add-start-match">
             </div>
           </div>
           <div class="field">

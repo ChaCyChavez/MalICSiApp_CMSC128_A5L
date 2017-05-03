@@ -54,6 +54,16 @@ exports.logout = function(req, res, next) {
 exports.add_account = (req,res,next) => {
 	const query_string = 'CALL add_account(?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
 
+	var regex = /^[a-zA-Z]*$/;
+
+	if (!regex.test(req.body.firstname))
+		res.status(406).send({message: "Invalid name input!"});
+	if (!regex.test(req.body.middlename))
+		res.status(406).send({message: "Invalid name input!"});
+	if (!regex.test(req.body.lastname))
+		res.status(406).send({message: "Invalid name input!"});
+
+
 	const payload = [
 		req.body.firstname,
 		req.body.middlename,
@@ -111,6 +121,18 @@ transporter.sendMail(mailOptions, (err, info) =>{
 */
 };
 
+exports.retrieve_session = function(req, res, next) {
+    
+    if (req.session.user == undefined) {
+        return res.status(404).send("No active session!");
+    }
+
+    function start() {
+        return res.status(200).send(req.session.user);
+    }
+    start();
+}
+
 exports.approve_account = (req,res,next) => {
 	if (req.session.user && req.session.user.is_admin) {
 		const query_string = 'CALL approve_account(?)';
@@ -138,7 +160,6 @@ exports.approve_account = (req,res,next) => {
 		res.status(401).send({message: "You must be an admin."});
 	}
 };
-
 
 exports.update_account = (req,res,next) => {
 	if (req.session.user && req.session.user.account_id == req.body.account_id) {

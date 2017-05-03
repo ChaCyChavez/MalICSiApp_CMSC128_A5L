@@ -29,6 +29,10 @@
     }
     
     $scope.get_profile_info = () => {
+      if($window.sessionStorage.profile == "undefined"){
+        window.location.href="#!/";
+        return;
+      }
       ProfileService
         .get_profile()
         .then((userprofile) => {

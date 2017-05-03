@@ -5,7 +5,7 @@
   .module('app')
   .controller('participant-controller', participant_controller);
 
-  function participant_controller($scope, $window, $location, $routeParams, $interval, SportsService, TeamService, ParticipantService) {
+  function participant_controller($scope, $window, $rootScope, $location, $routeParams, $interval, SportsService, TeamService, ParticipantService) {
 
     var gameid = $routeParams.game_id;
     $scope.sports = [
@@ -35,6 +35,10 @@
     }
 
     $scope.load_participants = () => {
+      if($window.sessionStorage.profile == "undefined"){
+        window.location.href="#!/";
+        return;
+      }
       $scope.participants = [];
       var s = [];
       var profiles = [];

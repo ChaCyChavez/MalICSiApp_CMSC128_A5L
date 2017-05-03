@@ -30,6 +30,10 @@
         }
 
         $scope.ownership_init = () => {
+            if($window.sessionStorage.profile == "undefined"){
+                window.location.href="#!/";
+                return;
+            }
             GameEventService.get_game_event({"game_id": $scope.game_id}).then((data) => {
                 $scope.is_owner = data[0][0].account_id == $rootScope.profile.account_id;
             });
@@ -89,12 +93,13 @@
 
 
         $scope.init_sponsor = () => {
+            
             SponsorService
             .init_sponsors($scope.game_id)
             .then(function(res) {
                 $scope.sponsors = res[0];
             }, function(err) {
-                console.log(err.data);
+                // console.log(err.data);
             })
         }
 
