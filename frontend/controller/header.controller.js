@@ -119,6 +119,10 @@
 					.then(function(res) {
 						$("#modal-login").modal('close');
 						$scope.get_loggedIn();
+						$scope.info.username = '';
+						$scope.info.password = '';
+						$scope.info.username = undefined;
+						$scope.info.password = undefined;
 					}, function(err) {
 						$.uiAlert({
 							textHead: "Login error", // header
