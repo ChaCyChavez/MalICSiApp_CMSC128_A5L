@@ -1,3 +1,11 @@
 .ui.grid {
 	padding: 5% !important;
 }
+
+#gps_spon {
+	text-align: center;
+}
+
+#spon_board {
+	width: 90% !important;
+}

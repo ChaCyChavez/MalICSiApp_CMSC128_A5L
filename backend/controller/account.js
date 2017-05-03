@@ -111,6 +111,18 @@ transporter.sendMail(mailOptions, (err, info) =>{
 */
 };
 
+exports.retrieve_session = function(req, res, next) {
+    
+    if (req.session.user == undefined) {
+        return res.status(404).send("No active session!");
+    }
+
+    function start() {
+        return res.status(200).send(req.session.user);
+    }
+    start();
+}
+
 exports.approve_account = (req,res,next) => {
 	if (req.session.user && req.session.user.is_admin) {
 		const query_string = 'CALL approve_account(?)';
@@ -138,7 +150,6 @@ exports.approve_account = (req,res,next) => {
 		res.status(401).send({message: "You must be an admin."});
 	}
 };
-
 
 exports.update_account = (req,res,next) => {
 	if (req.session.user && req.session.user.account_id == req.body.account_id) {

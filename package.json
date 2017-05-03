@@ -4,7 +4,8 @@
   "description": "PalICSihan Sports Scheduling and Event App",
   "main": "server.js",
   "scripts": {
-    "start": "redis-server & nodemon backend/server.js"
+    "start": "redis-server & nodemon backend/server.js",
+    "test": "mocha backend/test --recursive"
   },
   "repository": {
     "type": "git",
@@ -36,5 +37,9 @@
     "prettyjson": "^1.2.1",
     "redis": "^2.6.5",
     "winston": "^2.3.1"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "supertest": "^3.0.0"
   }
 }

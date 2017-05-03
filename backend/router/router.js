@@ -37,6 +37,8 @@ module.exports = (router) => {
    router.post('/api/delete-account/:account_id?', account.delete_account);
    //approve
    router.post('/api/approve-account', account.approve_account);
+   //get session
+   router.get('/api/get-session', account.retrieve_session);
 
 //game_event routers
 

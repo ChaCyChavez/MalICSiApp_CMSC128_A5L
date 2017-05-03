@@ -10,10 +10,6 @@
 
 
        $scope.get_currGames = () => {
-            if($window.sessionStorage.profile != "undefined"){
-                window.location.href="#!/game-event";
-                return;
-            }
             LoginRegisterService
             .get_currGames().then((data) => {
                 $scope.current_games = data[0];
@@ -28,6 +24,17 @@
             window.location.href = "#!/game-per-sport/" + sportid;
             $("#view-sports-modal").modal("hide");
 
+        }
+
+        $scope.get_loggedIn = () => {
+            LoginRegisterService
+            .get_session()
+            .then((data) => {
+                window.location.href = "#!/game-event/";
+            }, (err) => {
+                window.location.href = "#!/";
+
+            });
         }
     }
 })();
