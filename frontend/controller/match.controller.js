@@ -34,11 +34,17 @@
         $scope.match_teams_scores = [];
         $scope.is_not_done = undefined;
 
+        $scope.edit_modal = () => {
+            $("#edit-match-modal").modal({
+                onShow: function() {
+                  $('#match-date').calendar({
+                    type: 'datetime'
+                  });
+                } 
+              }).modal("show");
+        }
+
         $scope.init_match = () => {
-            if($window.sessionStorage.profile == "undefined"){
-                window.location.href="#!/";
-                return;
-            }
             MatchService
                 .init_match($scope.match_id)
                 .then(function(res) {

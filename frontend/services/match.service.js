@@ -105,6 +105,14 @@
 					if (data[i].score > winnerScore) indexOfWinner = i;
 				}
 				data[indexOfWinner].is_winner = true;
+				let allEqual = true;
+				for (let i = 0; i<data.length; i++) {
+					if(data[i].score != data[indexOfWinner].score){
+						allEqual = false;
+						break;
+					}
+				}
+				data[indexOfWinner].is_winner = allEqual == true? false:true;
 			}
 
 			const update_scores = function(data) {

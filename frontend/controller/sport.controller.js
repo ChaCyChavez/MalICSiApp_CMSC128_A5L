@@ -229,7 +229,7 @@
                         for(var i = 0; i < selectedValues.length; i++){
                             data = {
                                 team_id: selectedValues[i],
-                                score: Math.floor(Math.random() * (100 - 0 + 1)) + 0
+                                score:0
                             }
                             SportService
                                 .add_team_to_match(data)
