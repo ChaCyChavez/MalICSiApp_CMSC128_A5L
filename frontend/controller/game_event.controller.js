@@ -147,7 +147,7 @@
 		};
 
 		$scope.get_upcoming_games = () => {
-			if($rootScope.profile === undefined){
+			if($window.sessionStorage.profile == "undefined"){
             	window.location.href="#!/";
 	        	return;
         	}

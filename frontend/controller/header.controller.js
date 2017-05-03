@@ -60,6 +60,7 @@
 					$window.location.href = "#!/";
 					location.reload();
 					$rootScope.profile = undefined;
+					$window.sessionStorage.profile = $rootScope.profile;
 					setTimeout($scope.init_jquery(), 0);
 		        }, function(err) {
 		        })
@@ -75,6 +76,7 @@
 	            .then((data) => {
 	            if (data[0].length != 0) {
 	                $rootScope.profile = data[0][0];
+					$window.sessionStorage.profile =  data[0][0];
 	            } else {
 					$rootScope.profile = {
 						account_id: undefined,

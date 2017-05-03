@@ -10,10 +10,6 @@
   function profile_controller($window, $scope, $rootScope, $location, $routeParams, ProfileService) {
 
     $scope.get_profile_info = () => {
-      if($rootScope.profile === undefined){
-        window.location.href="#!/";
-        return;
-      }
       ProfileService
         .get_profile()
         .then((data) => {
