@@ -35,6 +35,10 @@
     }
 
     $scope.load_participants = () => {
+      if($rootScope.profile === undefined){
+        window.location.href="#!/";
+        return;
+      }
       $scope.participants = [];
       var s = [];
       var profiles = [];
