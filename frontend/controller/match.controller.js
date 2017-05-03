@@ -35,6 +35,10 @@
         $scope.is_not_done = undefined;
 
         $scope.init_match = () => {
+            if($rootScope.profile === undefined){
+                window.location.href="#!/";
+                return;
+            }
             MatchService
                 .init_match($scope.match_id)
                 .then(function(res) {
