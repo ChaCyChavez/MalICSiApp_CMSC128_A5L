@@ -5,7 +5,7 @@
         .module('app')
         .controller('match-controller', match_controller);
 
-    function match_controller($scope, $window, $location, MatchService) {
+    function match_controller($scope, $window, $rootScope, $location, MatchService) {
         $scope.view_profile = () => {
             window.location.href="#!/profile";
         }
