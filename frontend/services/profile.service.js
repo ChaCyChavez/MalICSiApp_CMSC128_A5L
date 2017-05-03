@@ -182,6 +182,24 @@
 				return deferred.promise;
 			}
 
+			const edit_profile = (data) => {
+				let deferred = $q.defer();
+				$http({
+					method: 'POST',
+					data: $httpParamSerializer(data),
+					xhrFields: {withCredentials: false},
+					url: '/api/update-account/',
+					headers: headers
+				})
+				.then(function(res) {
+					 deferred.resolve(res.data);
+				}, function(err) {
+					deferred.reject(err.data);
+				})
+
+				return deferred.promise;
+			}
+
 			let service = {};
 			service.get_profile 				= get_profile;
 			service.get_user_past_events 		= get_user_past_events;
@@ -193,6 +211,7 @@
 			service.get_user_ongoing_events 	= get_user_ongoing_events;
 			service.remove_own_profile			= remove_own_profile;
 			service.remove_others_profile		= remove_others_profile;
+			service.edit_profile				= edit_profile;
 			return service;
 		}
 })();
