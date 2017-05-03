@@ -26,6 +26,7 @@ describe('Account (login)', () => {
             .end((err, res) => {
                 should.not.exist(err);          // these two
                 should.exist(res);              // are always existing at the call of the end function
+                res.body.message.should.equal('Wrong username or password!');
                 done();                         // DO NOT FORGET TO CALL THE DONE CALLBACK WHEN THE MODULE TEST IS DONE
             });
     });
