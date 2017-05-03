@@ -168,11 +168,21 @@ exports.update_account = (req,res,next) => {
 				res.status(500).send({ error_code:err.code });
 			} else if (data.affectedRows == 0) {
 				winston.level = 'info';
-				winston.log('info', 'Not found! Update failed');
+				winston.log('info', '0 rows returned', prettyjson.render({
+					details: data,
+					origin: "update_account controller in account.js",
+					payload: payload,
+					query_string: query_string
+				}));
 				res.status(404).send();
 			} else {
 				winston.level = 'info';
-				winston.log('info', 'Successfully updated account!');
+				winston.log('info', 'Success', prettyjson.render({
+					details: data,
+					origin: "update_account controller in account.js",
+					payload: payload,
+					query_string: query_string
+				}));
 				res.status(200).send(data);
 			}
 		};
