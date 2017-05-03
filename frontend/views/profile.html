@@ -96,15 +96,9 @@
           <label>Email Address</label>
           <input placeholder="Email Address" type="text" ng-model="userprofile.email">
         </div>
-        <div class="two fields">
-          <div class="field">
-            <label>Username</label>
-            <input placeholder="Username" type="text" ng-model="userprofile.username">
-          </div>
-          <div class="field">
-            <label>Password</label>
-            <input placeholder="Password" type="password" ng-model="userprofile.password">
-          </div>
+        <div class="field">
+          <label>Username</label>
+          <input placeholder="Username" type="text" ng-model="userprofile.username">
         </div>
         <div class="three fields">
           <div class="ui calendar field" id="edit-birthday">
@@ -150,21 +144,6 @@
           <div ng-show="userprofile.is_player" class="field">
             <label>Jersey Number</label>
             <input placeholder="Player Role" type="number" ng-model="userprofile.player_jersey_num">
-          </div>
-        </div>
-        <div class="two fields">
-          <div class="inline field">
-            <div class="ui checkbox" ng-click="update_is_player()">
-              <input tabindex="0" id="is_player" class="hidden" type="checkbox" ng-model="userprofile.is_player">
-              <label>Are you a player?</label>
-            </div>
-          </div>
-          
-          <div class="inline field">
-            <div class="ui checkbox" ng-click="update_is_game_head()">
-              <input tabindex="0" id="is_game_head" class="hidden" type="checkbox" ng-model="userprofile.is_game_head">
-              <label>Are you a game head?</label>
-            </div>
           </div>
         </div>
       </form>

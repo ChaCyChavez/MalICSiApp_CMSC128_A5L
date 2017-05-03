@@ -163,7 +163,14 @@ exports.approve_account = (req,res,next) => {
 
 exports.update_account = (req,res,next) => {
 	if (req.session.user && req.session.user.account_id == req.body.account_id) {
-		const query_string = 'CALL update_account(?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
+		const query_string = 'CALL update_account(?,?,?,?,?,?,?,?,?,?,?,?,?)';
+		if (req.body.player_jersey_num == undefined) {
+			req.body.player_jersey_num = null;
+		} 
+		if (req.body.player_role == undefined) {
+			req.body.player_role = null;
+		} 
+
 
 		const payload = [
 			req.body.firstname,
@@ -171,7 +178,6 @@ exports.update_account = (req,res,next) => {
 		    req.body.lastname,
 			req.body.username,
 			req.body.email,
-			crypto.createHash('sha256').update(req.body.password).digest('base64'),
 			req.body.course,
 		    req.body.birthday,
 			req.body.college,
@@ -182,10 +188,16 @@ exports.update_account = (req,res,next) => {
 		    req.body.account_id
 		];
 
+
 		const callback = (err, data) => {
 			if (err) {
 				winston.level = 'debug';
-				winston.log('debug', 'err: ', err);
+				winston.log('debug', 'err: ', prettyjson.render({
+					details: data,
+					origin: "update_account controller in account.js",
+					payload: payload,
+					query_string: query_string
+				}));
 				res.status(500).send({ error_code:err.code });
 			} else if (data.affectedRows == 0) {
 				winston.level = 'info';
@@ -208,6 +220,7 @@ exports.update_account = (req,res,next) => {
 			}
 		};
 
+		console.log(payload);
 		db.query(query_string, payload, callback);
 	} else {
 		res.status(401).send({message: "You must be owner of account."});

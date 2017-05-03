@@ -180,29 +180,62 @@
       let USERNAME_REGEX = /^[a-zA-Z0-9]+$/;
       let EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       let e = document.getElementById("college");
-      let strUser = e.options[e.selectedIndex].value;
-      $scope.userprofile.birthday = $('#birthday').calendar('get date');
+      let strUser = e.options[e.selectedIndex].value !== "" ? e.options[e.selectedIndex].value:$scope.userprofile.college;
+      $scope.userprofile.birthday = $('#edit-birthday').calendar('get date');
       $scope.userprofile.birthday = moment($scope.userprofile.birthday).format('YYYY-MM-DD');
       $scope.userprofile.college = strUser;
-      console.log($scope.userprofile);
-      ProfileService
-        .edit_profile($scope.userprofile)
-        .then(function(res) {
-          // Materialize.toast("Register successful!", 4000, 'teal');
-          // Materialize.toast("Your registration is now on process", 4000, 'teal');
-          $.uiAlert({
-            textHead: "Edit profile successful", // header
-            text: 'Your profile is now edited', // Text
-            bgcolor: '#19c3aa', // background-color
-            textcolor: '#fff', // color
-            position: 'top-center',// position . top And bottom ||  left / center / right
-            icon: 'remove circle', // icon in semantic-UI
-            time: 3, // time
-          });
-        }, function(err) {
-          // Materialize.toast(err.message, 4000, 'teal');
-          swal("Failed!",err.message,"error")
-        })
+      if (!NAME_REGEX.test($scope.userprofile.firsname) || 
+            !NAME_REGEX.test($scope.userprofile.middlename) ||
+            !NAME_REGEX.test($scope.userprofile.lastname)) {
+        $.uiAlert({
+          textHead: "Invalid name", // header
+          text: 'Please only use latin letters for your name.', // Text
+          bgcolor: '#DB2828', // background-color
+          textcolor: '#fff', // color
+          position: 'top-center',// position . top And bottom ||  left / center / right
+          icon: 'remove circle', // icon in semantic-UI
+          time: 3, // time
+        });
+      } else if (!USERNAME_REGEX.test($scope.userprofile.username)) {
+        $.uiAlert({
+          textHead: "Invalid username", // header
+          text: 'Please only use alphanumeric characters for your username.', // Text
+          bgcolor: '#DB2828', // background-color
+          textcolor: '#fff', // color
+          position: 'top-center',// position . top And bottom ||  left / center / right
+          icon: 'remove circle', // icon in semantic-UI
+          time: 3, // time
+        });
+      } else if (!EMAIL_REGEX.test($scope.userprofile.email)) {
+        $.uiAlert({
+          textHead: "Invalid email", // header
+          text: 'Please enter valid email.', // Text
+          bgcolor: '#DB2828', // background-color
+          textcolor: '#fff', // color
+          position: 'top-center',// position . top And bottom ||  left / center / right
+          icon: 'remove circle', // icon in semantic-UI
+          time: 3, // time
+        });
+      } else {
+        ProfileService
+          .edit_profile($scope.userprofile)
+          .then(function(res) {
+            // Materialize.toast("Register successful!", 4000, 'teal');
+            // Materialize.toast("Your registration is now on process", 4000, 'teal');
+            $.uiAlert({
+              textHead: "Edit profile successful", // header
+              text: 'Your profile is now edited', // Text
+              bgcolor: '#19c3aa', // background-color
+              textcolor: '#fff', // color
+              position: 'top-center',// position . top And bottom ||  left / center / right
+              icon: 'remove circle', // icon in semantic-UI
+              time: 3, // time
+            });
+          }, function(err) {
+            // Materialize.toast(err.message, 4000, 'teal');
+            swal("Failed!",err.message,"error")
+          })
+      }
     }
   }
 })();
