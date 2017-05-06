@@ -16,11 +16,11 @@
     </div>
     <br>
     <div class="ui fluid accordion">
-      <h2 class="ui title toggle huge button fluid">
+      <h2 class="ui title active toggle huge button fluid">
         Current Games
         <i class="chevron down icon"></i>
       </h2>
-      <div class="content">
+      <div class="content active">
         <h3 ng-if="current_games.length == 0">No Current Games</h3>
         <div class="ui four stackable special cards centered">
           <div class="card" ng-repeat="game in current_games | filter: {game_name: gamesearch}" ng-init="$last ? ngRepeatFinished() : null">
@@ -254,7 +254,7 @@ $(document).ready(function(){
   });
 
   $('.ui.dropdown').dropdown();
-  $('.ui.accordion').accordion();
+  $('.ui.accordion').accordion('active');
 
   $("#add-game").click(function() {
     $('#add-game-modal').modal({
