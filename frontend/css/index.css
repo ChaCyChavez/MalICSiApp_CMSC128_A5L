@@ -13,7 +13,14 @@
 }
 
 .content-header {
-	
     font-size: 64px;
     text-align: center
+}
+
+@media only screen and (max-width: 767px) {
+  .content-header {
+    font-size: 44px;
+    text-align: center
+	}
+
 }
