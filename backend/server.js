@@ -31,6 +31,7 @@ start = () => {
     // setting the environment for express
     app.set('case sensitive routing', true);
     app.set('x-powered-by', false);
+    app.set('view engine', 'ejs');
     // incorporating the session to the app for usage
     app.use(session({
         secret: config.COOKIE_SECRET,
@@ -54,7 +55,7 @@ start = () => {
     app.use(helmet);
     // this will start app
     winston.log('info', 'Server listening on port', config.PORT);
-    return app.listen(config.PORT, config.IP);
+    return app.listen(process.env.PORT || config.PORT);
 
 }
 
