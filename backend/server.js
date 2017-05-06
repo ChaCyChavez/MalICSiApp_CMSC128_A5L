@@ -54,7 +54,7 @@ start = () => {
     app.use(router(express.Router()));
     app.use(helmet);
     // this will start app
-    winston.log('info', 'Server listening on port', config.PORT);
+    winston.log('info', 'Server listening on port', (process.env.PORT || config.PORT));
     return app.listen(process.env.PORT || config.PORT);
 
 }
