@@ -58,7 +58,6 @@
 		        .logout()
 		        .then(function(res) {
 					$rootScope.profile = undefined;
-					$window.sessionStorage.profile = $rootScope.profile;
 					$window.location.href = "#!/";
 					location.reload();
 					setTimeout($scope.init_jquery(), 0);
@@ -76,7 +75,6 @@
 	            .then((data) => {
 	            if (data[0].length != 0) {
 	                $rootScope.profile = data[0][0];
-					$window.sessionStorage.profile =  data[0][0];
 					$window.location.href = '#!/game-event';
 
 	            } else {

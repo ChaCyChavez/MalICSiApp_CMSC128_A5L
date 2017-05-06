@@ -11,10 +11,6 @@
         $scope.pending_accounts = [];
 
         $scope.get_accounts = () => {
-          if($window.sessionStorage.profile == "undefined"){
-              window.location.href="#!/";
-            return;
-          }
             UserService
                 .get_all_account()
                 .then(function(res) {

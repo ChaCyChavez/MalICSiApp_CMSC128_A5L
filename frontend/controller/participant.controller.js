@@ -35,10 +35,6 @@
     }
 
     $scope.load_participants = () => {
-      if($window.sessionStorage.profile == "undefined"){
-        window.location.href="#!/";
-        return;
-      }
       $scope.participants = [];
       var s = [];
       var profiles = [];
