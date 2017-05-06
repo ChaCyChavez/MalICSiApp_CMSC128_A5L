@@ -5,7 +5,7 @@
         .module('app')
         .controller('match-controller', match_controller);
 
-    function match_controller($scope, $window, $rootScope, $location, MatchService) {
+    function match_controller($scope, $window, $rootScope, $location, $filter, MatchService) {
         $scope.view_profile = () => {
             window.location.href="#!/profile";
         }
@@ -34,16 +34,6 @@
         $scope.match_teams_scores = [];
         $scope.is_not_done = undefined;
 
-        $scope.edit_modal = () => {
-            $("#edit-match-modal").modal({
-                onShow: function() {
-                  $('#match-date').calendar({
-                    type: 'datetime'
-                  });
-                } 
-              }).modal("show");
-        }
-
         $scope.init_match = () => {
             MatchService
                 .init_match($scope.match_id)
@@ -52,7 +42,15 @@
                     console.log($scope.match);
                     let d = new Date();
                     $scope.is_not_done = $scope.match.game_ending_time_date > d.toISOString();
-                    console.log()
+
+                    let date = new Date($scope.match.match_date_time);
+                    $scope.edit_match_info.match_date_time = $filter('date')(date, 'MMMM d, y h:mm a');
+                    $scope.edit_match_info.match_id = $scope.match_id;
+                    $scope.edit_match_info.court_name = $scope.match.court_name;
+                    $scope.edit_match_info.court_type = $scope.match.court_type;
+
+                    $('ui.dropdown').dropdown();
+                    
                 }, function(err) {
                     window.location.href = "#!/error_404"
                 })
@@ -123,7 +121,7 @@
                 })
         }
 
-	$scope.update_match_event = (data) => {
+        $scope.update_match_event = (data) => {
             MatchService
                 .update_match_event(data)
                 .then(function(res) {
@@ -132,64 +130,66 @@
                 })
         }
 	
-	$scope.edit_match_info = {};
-	$scope.edit_id = -1;
-    $scope.setup_edit_modal = () => {
-        $scope.edit_match_info.match_date_time = new Date($scope.match.match_date_time);
-        $scope.edit_match_info.match_id = $scope.match_id;
-        $scope.edit_match_info.court_name = $scope.match.court_name;
-        $scope.edit_match_info.court_type = $scope.match.court_type;
-        console.log($scope.edit_match_info);
-    }
+    	$scope.edit_match_info = {};
+    	$scope.edit_id = -1;
 
-	$scope.edit_match = () => {
-	    var court = $('#courtJoin').val();
-        var court_type = "";
-        $scope.edit_match_info.court_name = court;
-        if (court == "Baker Hall" || court == "Copeland Gym") court_type = "Gym";
-        else if (court == "Physci Building") court_type = "Building";
-        else court_type = "Park";
-        $scope.edit_match_info.court_type = court_type;
-        var wow = new Date($('#edit-match-date').val());
-	    $scope.edit_match_info.match_date_time = 
-            wow.getFullYear() + '-' + (wow.getMonth()+1) + 
-             '-' + wow.getDate()  + ' ' + wow.getHours() +
-             ':' + wow.getMinutes();
-        console.log($scope.edit_match_info);
-        if ($scope.edit_match_info.court_name === undefined ||
-                $scope.edit_match_info.court_type === undefined ||
-                $scope.edit_match_info.court_location === undefined) {
-                swal("Error!", "Please fill up all fields", "error")
-            } else if ($scope.edit_match_info.court_name === "" ||
-                $scope.edit_match_info.court_type === "" ||
-                $scope.edit_match_info.court_location === "") {
-                swal("Error!", "Please fill up all fields", "error") 
-	    } else { 
-		    MatchService
-		        .init_match($scope.edit_match_info.match_id)
-		        .then(function(res) {
-		                MatchService
-		                    .update_match($scope.edit_match_info)
-		                    .then(function(res){
-		                        $scope.court = $scope.edit_match_info.court;
-		                        swal("Success!" ,"Match has been successfully edited.", "success");
-		                    } , function(err){
-		                        console.log(err)
-		                        swal(err.message);
-		                    });
-		        }, function(err) {
-		            swal(err.message);
-		        })
-		}
+        $scope.setup_edit_modal = () => {
+            let d1 = new Date($scope.match.game_starting_time_date);
+            let d2 = new Date($scope.match.game_ending_time_date);
+
+            $("#edit-match-modal").modal({
+                onShow: function() {
+                    console.log("fafa");
+                    $('#match-date').calendar({
+                        type: 'datetime',
+                        minDate: d1,
+                        maxDate: d2
+                    }).calendar('set date', $scope.edit_match_info.match_date_time);
+                }
+            });
+            $("#edit-match-modal").modal("show");
         }
 
-	// $("#edit-match").click(function() {
-	// $("#edit-match-modal").modal("show");
-	// });
-
-	// $(".modal-close").click(function() {
-	// $(".ui.modal").modal("hide");
-	// });
+    	$scope.edit_match = () => {
+    	    var court = $('#courtJoin').val();
+            var court_type = "";
+            $scope.edit_match_info.court_name = court;
+            if (court == "Baker Hall" || court == "Copeland Gym") court_type = "Gym";
+            else if (court == "Physci Building") court_type = "Building";
+            else court_type = "Park";
+            $scope.edit_match_info.court_type = court_type;
+            var wow = new Date($('#edit-match-date').val());
+    	    $scope.edit_match_info.match_date_time = 
+                wow.getFullYear() + '-' + (wow.getMonth()+1) + 
+                 '-' + wow.getDate()  + ' ' + wow.getHours() +
+                 ':' + wow.getMinutes();
+            console.log($scope.edit_match_info);
+            if ($scope.edit_match_info.court_name === undefined ||
+                    $scope.edit_match_info.court_type === undefined ||
+                    $scope.edit_match_info.court_location === undefined) {
+                    swal("Error!", "Please fill up all fields", "error")
+                } else if ($scope.edit_match_info.court_name === "" ||
+                    $scope.edit_match_info.court_type === "" ||
+                    $scope.edit_match_info.court_location === "") {
+                    swal("Error!", "Please fill up all fields", "error") 
+    	    } else { 
+    		    MatchService
+    		        .init_match($scope.edit_match_info.match_id)
+    		        .then(function(res) {
+    		                MatchService
+    		                    .update_match($scope.edit_match_info)
+    		                    .then(function(res){
+    		                        $scope.court = $scope.edit_match_info.court;
+    		                        swal("Success!" ,"Match has been successfully edited.", "success");
+    		                    } , function(err){
+    		                        console.log(err)
+    		                        swal(err.message);
+    		                    });
+    		        }, function(err) {
+    		            swal(err.message);
+    		        })
+    		}
+        }
 
     }
 })();

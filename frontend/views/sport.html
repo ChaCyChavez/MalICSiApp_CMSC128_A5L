@@ -35,7 +35,7 @@
       <div class="twelve wide column">
         <div class="ui raised very fluid padded container segment">
           <h1>Schedule</h1>
-          <a href="javascript:void(0)" id="add-match" class="ui blue button" ng-show="(profile.is_admin == 1 || is_owner) && is_not_done" ng-click ="add_modal()">Add Match</a>
+          <a href="javascript:void(0)" id="add-match" class="ui blue button" ng-show="(profile.is_admin == 1 || is_owner) && is_not_done">Add Match</a>
           <a href="javascript:void(0)" id="tourn-brac" ng-click="view_tournament_bracketing(sportid)" class="ui blue button">View Results Summary</a>
           <table class="ui single line collapsing table" id="sched-table">
             <tbody>
@@ -68,11 +68,11 @@
       <div class="header">Add Match</div>
       <div class="content">
         <form class="ui big form">
-          <div class="ui calendar field" id="match-date">
+          <div class="ui calendar field" id="add-match-date-field">
             <label>Match Date</label>
             <div class="ui input left icon">
               <i class="calendar icon"></i>
-              <input type="text" placeholder="Date" onKeypress="if(event.keyCode){return false;}" id="add-start-match">
+              <input type="text" placeholder="Date" onKeypress="if(event.keyCode){return false;}" id="add-match-date">
             </div>
           </div>
           <div class="field">
@@ -105,13 +105,7 @@
 <script type="text/javascript">
 $(document).ready(function(){
   $("#add-match").click(function() {
-    $("#add-match-modal").modal({
-      onShow: function() {
-        $('#match-date').calendar({
-          type: 'datetime'
-        });
-      }
-    }).modal("show");
+    $("#add-match-modal").modal("show");
   });
   
   $('.ui.dropdown').dropdown();
