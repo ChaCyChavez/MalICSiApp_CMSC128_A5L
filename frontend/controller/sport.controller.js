@@ -54,6 +54,19 @@
 
                 let d = new Date();
                 $scope.is_not_done = $scope.sport.game_ending_time_date > d.toISOString();
+
+                let d1 = new Date($scope.sport.game_starting_time_date);
+                let d2 = new Date($scope.sport.game_ending_time_date);
+
+                $("#add-match-modal").modal({
+                    onShow: function() {
+                        $('#add-match-date-field').calendar({
+                            type: 'datetime',
+                            minDate: d1,
+                            maxDate: d2
+                        });
+                    }
+                });
             });
         }
         
@@ -187,8 +200,7 @@
             $("#teamJoin :selected").each(function(){
                 selectedValues.push($(this).val()); 
             });
-            var wow = new Date($('#add-start-match').val());
-            console.log(wow);
+            var wow = new Date($('#add-match-date').val());
             var courttype = "";
             var court = $('#courtJoin').val();
             if (court == "Baker Hall" || court == "Copeland Gym") courttype = "Gym";
@@ -204,7 +216,6 @@
                 court_location: 'UPLB',
                 court_type: courttype
             }
-            console.log(data);
             if(data.match_date_time == undefined ||
                 data.court_name == undefined){
                 swal("Failed!", "Please fill up all fields", "error");
