@@ -1,0 +1,14 @@
+{
+  "name": "simple-scrollbar",
+  "homepage": "https://github.com/airwave-development/simple-scrollbar",
+  "version": "0.2.1",
+  "_release": "0.2.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.2.1",
+    "commit": "c07ff4e261d5c650be295b9863d673f631fa6170"
+  },
+  "_source": "https://github.com/airwave-development/simple-scrollbar.git",
+  "_target": "^0.2.1",
+  "_originalSource": "simple-scrollbar"
+}

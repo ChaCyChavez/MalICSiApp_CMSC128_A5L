@@ -1,0 +1,13 @@
+{
+  "name": "Semantic-UI-AlertJS",
+  "_cacheHeaders": {
+    "ETag": "\"521ea03425bc427a60b6e16ff937c241b4b1a753\"",
+    "Content-Length": "767",
+    "Content-Type": "text/plain; charset=utf-8"
+  },
+  "_release": "e-tag:521ea0342",
+  "main": "index.js",
+  "_source": "https://raw.githubusercontent.com/diw112/semanticUiAlert/master/Semantic-UI-Alert.js",
+  "_target": "*",
+  "_originalSource": "https://raw.githubusercontent.com/diw112/semanticUiAlert/master/Semantic-UI-Alert.js"
+}
