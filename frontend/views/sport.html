@@ -35,7 +35,7 @@
       <div class="twelve wide column">
         <div class="ui raised very fluid padded container segment">
           <h1>Schedule</h1>
-          <a href="javascript:void(0)" id="add-match" class="ui blue button" ng-show="(profile.is_admin == 1 || is_owner) && is_not_done">Add Match</a>
+          <a href="javascript:void(0)" id="add-match" class="ui blue button" ng-show="(profile.is_admin == 1 || is_owner) && is_not_done" ng-click ="add_modal()">Add Match</a>
           <a href="javascript:void(0)" id="tourn-brac" ng-click="view_tournament_bracketing(sportid)" class="ui blue button">View Results Summary</a>
           <table class="ui single line collapsing table" id="sched-table">
             <tbody>
@@ -53,7 +53,7 @@
                 <td>
                   <div class="view-match-container">
                     <a href="javascript:void(0)" class="ui button" ng-click="view_match(match.match_id)">View Match</a>
-                    <a href="javascript:void(0)" id="add-match" class="ui red button" ng-show="(profile.is_admin == 1 || is_owner) && is_not_done" ng-click="delete_match(match.match_id,$index)">Delete Match</a>
+                    <a href="javascript:void(0)" id="del-match" class="ui red button" ng-show="(profile.is_admin == 1 || is_owner) && is_not_done" ng-click="delete_match(match.match_id,$index)">Delete Match</a>
                   </div>
                 </td>
               </tr>
@@ -62,7 +62,7 @@
         </div>
       </div>
     </div>
-
+ 
     <div class="ui modal" id="add-match-modal">
       <i class="close icon"></i>
       <div class="header">Add Match</div>
