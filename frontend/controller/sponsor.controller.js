@@ -35,6 +35,10 @@
             });
         }
 
+        $scope.isEven = (num) => {
+            return num % 2 == 0
+        }
+
         $scope.ngRepeatFinished = () => {
             $('.special.cards .image').dimmer({
                 on: 'hover'
