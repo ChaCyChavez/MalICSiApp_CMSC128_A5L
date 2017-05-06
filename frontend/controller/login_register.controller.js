@@ -42,7 +42,7 @@
             .get_session()
             .then((data) => {}, (err) => {
                 window.location.href = "#!/";
-
+                console.log("true");
             });
         }
     }

@@ -30,10 +30,6 @@
         }
 
         $scope.ownership_init = () => {
-            if($window.sessionStorage.profile == "undefined"){
-                window.location.href="#!/";
-                return;
-            }
             GameEventService.get_game_event({"game_id": $scope.game_id}).then((data) => {
                 $scope.is_owner = data[0][0].account_id == $rootScope.profile.account_id;
             });

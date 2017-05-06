@@ -46,10 +46,6 @@
         $scope.is_not_done = true;
 
         $scope.init_sport = () => {
-            if($window.sessionStorage.profile == "undefined"){
-                window.location.href="#!/";
-                return;
-            }
             SportService.get_sport({"sport_id":$scope.sportid}).then((data) => {
                 $scope.sport = data[0][0];
                 $scope.is_owner = $scope.sport.account_id == $rootScope.profile.account_id;

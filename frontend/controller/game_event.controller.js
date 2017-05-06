@@ -145,10 +145,6 @@
 		};
 
 		$scope.get_upcoming_games = () => {
-			if($window.sessionStorage.profile == "undefined"){
-            	window.location.href="#!/";
-	        	return;
-        	}
 			GameEventService
 			.get_upcoming_games()
 			.then((data) => {
