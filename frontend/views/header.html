@@ -5,14 +5,20 @@
 			<div class="computer tablet only row">
 				<div class="ui top fixed menu navbar">
 				  <div class="item">
-				    <span class="malicsi-text ui" ng-click="back()"><i class="fa fa-arrow-left"></i></span><a href="javascript:void(0)" class="malicsi-text ui" id="logo-text" ng-click="changeView('#!/')">&nbsp;&nbsp;&nbsp;&nbsp;MALICSI</a>
+				    <span class="malicsi-text ui" ng-click="back()"><i class="fa fa-arrow-left" ng-show="profile != undefined"></i></span><a href="javascript:void(0)" class="malicsi-text ui" id="logo-text" ng-click="changeView('#!/')">&nbsp;&nbsp;&nbsp;&nbsp;MALICSI</a>
 				  </div>
 				  <div class="logo-container">
 				  	<img src="../img/logo-white.png" />
 				  </div>
-
 					  <a class="item right nav-btn register" id="reg">Register</a>
 					  <a class="item nav-btn login" id="log">Login</a>
+					  <div class="ui item dropdown right log-dd" id="lr-dd">
+	          			<i class="fa fa-reorder fa-2x"></i>
+	        			<div class="menu">
+	           			<a class="item right nav-btn register" id="reg-dd">Register</a>
+				  		<a class="item nav-btn login" id="log-dd">Login</a>
+	          		</div>
+	        	  </div>
 				</div>
 			</div>
 		</div>
@@ -21,21 +27,21 @@
 			<div class="computer tablet only row">
 				<div class="ui top fixed menu navbar">
 				  <div class="item">
-				     <span class="malicsi-text ui" ng-click="back()"><i class="fa fa-arrow-left"></i></span><a href="javascript:void(0)" class="malicsi-text ui" id="logo-text" ng-click="changeView('#!/game-event')">&nbsp;&nbsp;&nbsp;&nbsp;MALICSI</a>
+				     <span class="malicsi-text ui" ng-click="back()"><i class="fa fa-arrow-left" ng-show="profile != undefined"></i></span><a href="javascript:void(0)" class="malicsi-text ui" id="logo-text" ng-click="changeView('#!/game-event')">&nbsp;&nbsp;&nbsp;&nbsp;MALICSI</a>
 				  </div>
 				  <div class="logo-container">
 				  	<img src="../img/logo-white.png" />
 				  </div>
 				  <div class="ui item dropdown right log-dd">
-				 		<span id="username">Hi, {{profile.username}}</span>
-	          <i class="fa fa-reorder fa-2x"></i>
-	        	<div class="menu">
-	            <a class="item nav-btn" id="vp-mob" ng-click="changeView('#!/profile')">View Profile</a>
+				 	<span id="username">Hi, {{profile.username}}</span>
+	          			<i class="fa fa-reorder fa-2x"></i>
+	        			<div class="menu">
+	           			<a class="item nav-btn" id="vp-mob" ng-click="changeView('#!/profile')">View Profile</a>
 				  		<a class="item nav-btn" id="vu-mob" ng-click="changeView('#!/user')">View User</a>
 				  		<a class="item nav-btn" id="va-mob" ng-click="changeView('#!/activity-log')">View Activity Log</a>
 				  		<a class="item nav-btn red" id="logo-mob" ng-click="logout()">Logout</a>
-	          </div>
-	        </div>
+	          		</div>
+	        	  </div>
 				</div>
 			</div>
 		</div>
@@ -171,13 +177,6 @@
 		  </div>
 		</div>
 
-		<div class="ui message">
-		  <i class="close icon"></i>
-		  <div class="header">
-		    Welcome back!
-		  </div>
-		  <p>This is a special notification which you can dismiss if you're bored with it.</p>
-		</div>
 	</div>
 </div>
 

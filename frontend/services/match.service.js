@@ -48,11 +48,13 @@
 				return deferred.promise;
 			}
 
-			const init_match = (data) => {
+			const update_match = function (data) {
 				let deferred = $q.defer();
 				$http({
-					method: 'GET',
-					url: '/api/get-match-event/' + data,
+					method: 'POST',
+					data: $httpParamSerializer(data),
+					xhrFields: {withCredentials: false},
+					url: '/api/update-match-court',
 					headers: headers
 				})
 				.then(function(res) {
@@ -60,14 +62,15 @@
 				}, function(err) {
 					deferred.reject(err.data);
 				})
+
 				return deferred.promise;
 			}
 
-			const init_match_court = (data) => {
+			const init_match = (data) => {
 				let deferred = $q.defer();
 				$http({
 					method: 'GET',
-					url: '/api/get-court-of-match/' + data,
+					url: '/api/get-match-event/' + data,
 					headers: headers
 				})
 				.then(function(res) {
@@ -102,6 +105,14 @@
 					if (data[i].score > winnerScore) indexOfWinner = i;
 				}
 				data[indexOfWinner].is_winner = true;
+				let allEqual = true;
+				for (let i = 0; i<data.length; i++) {
+					if(data[i].score != data[indexOfWinner].score){
+						allEqual = false;
+						break;
+					}
+				}
+				data[indexOfWinner].is_winner = allEqual == true? false:true;
 			}
 
 			const update_scores = function(data) {
@@ -126,7 +137,7 @@
 			service.add_match = add_match;
 			service.delete_match = delete_match;
 			service.init_match = init_match;
-			service.init_match_court = init_match_court;
+			service.update_match = update_match;
 			service.init_match_teams_scores = init_match_teams_scores;
 			service.determine_winner = determine_winner;
 			service.update_scores = update_scores;

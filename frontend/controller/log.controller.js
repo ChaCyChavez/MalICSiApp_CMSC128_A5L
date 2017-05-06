@@ -5,7 +5,7 @@
 		.module('app')
 		.controller('log-controller',LogCtrl);
 
-		function LogCtrl($scope, $location, LogService, $interval) {
+		function LogCtrl($scope, $window, $rootScope, $location, LogService, $interval) {
 			$scope.search = {}
 			$scope.get_log = function(){
 				LogService
@@ -18,6 +18,10 @@
 			}
 
 			$scope.get_all_logs = function(){
+				if($rootScope.profile === undefined){
+                	window.location.href="#!/";
+                	return;
+            	}
 				LogService
 				.get_all_logs()
 				.then(function(res){

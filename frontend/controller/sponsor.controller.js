@@ -89,12 +89,13 @@
 
 
         $scope.init_sponsor = () => {
+            
             SponsorService
             .init_sponsors($scope.game_id)
             .then(function(res) {
                 $scope.sponsors = res[0];
             }, function(err) {
-                console.log(err.data);
+                // console.log(err.data);
             })
         }
 

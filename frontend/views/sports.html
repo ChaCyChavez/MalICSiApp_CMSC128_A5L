@@ -1,7 +1,8 @@
-<div ng-controller="sports-controller" ng-init="ownership_init(); get_sports()">
+<div ng-controller="login-register-controller" ng-init="restrict()"></div>
+<div ng-controller="sports-controller" ng-init="ownership_init(); get_sports(); check_if_past_game_event()">
 
 
-  <a class="add-btn" id="add-sport" ng-show="profile.is_admin == 1 || is_owner" href="javascript:void(0)"><i class="fa fa-plus fa-3x"></i></a>
+  <a class="add-btn" id="add-sport" ng-show="(profile.is_admin == 1 || is_owner) && is_not_done" href="javascript:void(0)"><i class="fa fa-plus fa-3x"></i></a>
   <div class="row contents">
     <h3 class="content-header">SPORTS</h3>
     <div class="ui two top attached buttons" id="butt-container">
@@ -20,8 +21,8 @@
             <div class="ui dimmer">
               <div class="content">
                 <div class="center">
-                  <a href="javascript:void(0)" class="ui inverted button edit-sport" ng-click = "setup_edit_modal($index)">Edit</a>
-                  <a href="javascript:void(0)" class="ui inverted red button" ng-click = "delete_sport($index)">Remove</a>
+                  <a href="javascript:void(0)" class="ui inverted button edit-sport" ng-show="is_not_done" ng-click = "setup_edit_modal($index)">Edit</a>
+                  <a href="javascript:void(0)" class="ui inverted red button" ng-show="is_not_done" ng-click = "delete_sport($index)">Remove</a>
                 </div>
               </div>
             </div>

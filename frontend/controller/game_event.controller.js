@@ -14,7 +14,6 @@
 		$scope.teams = [];
 
 		$scope.ngRepeatFinished = () => {
-			//http://stackoverflow.com/questions/24437658/angular-ng-if-how-to-callback-after-ng-if-template-has-been-rendered
 			setTimeout(() => {
 				$('.special.cards .image').dimmer({
                 on: 'hover'
@@ -112,7 +111,6 @@
 		$scope.view_sponsor = () => {
 			$("#modal1").modal('close');
             window.location.href= "#!/sponsor/" + $scope.view.gameid;
-            window.location.reload();
         }
 
         $scope.view_per_game_sponsors = (game_id) => {

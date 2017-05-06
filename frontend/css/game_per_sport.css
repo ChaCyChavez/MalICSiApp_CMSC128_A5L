@@ -1,11 +1,16 @@
-#aaaa {
-	margin-top: 5%;
+#gps_spon {
+	text-align: center;
 }
 
-.card {
-	padding: 3%;
+#spon_board {
+	width: 90% !important;
 }
 
-.col {
-	font-size: 150%;
+.title {
+	font-size: 20px !important;
+}
+
+
+.content.matches {
+	font-size: 17px! important;
 }

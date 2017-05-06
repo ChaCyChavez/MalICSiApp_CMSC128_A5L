@@ -1,5 +1,6 @@
+<div ng-controller="login-register-controller" ng-init="restrict()"></div>
 <div ng-controller="profile-controller" ng-init="init_profile()">
- 	
+
 	<div class="row contents">
 		<div class="ui raised very padded text segment" id="personal-info">
 			<div class="profile-pic">
@@ -20,49 +21,157 @@
 			</div>
 		</div>
 
-		<div class="ui three column doubling stackable grid container" ng-show="userprofile.is_player">
-			<div class="column">
-				<div class="ui raised very padded text container segment" id="events_played">
-					<h1 class="ui header">ONGOING EVENTS</h1>
-					<div class="ui fluid styled accordion" ng-repeat="user_ongoing_event in user_ongoing_events" ng-init="$last ? ngRepeatFinished() : null">
-						<h5 class="title">{{ user_ongoing_event.game_name }}</h5>
-						<div class="content">
-							<h5>Start: {{ user_ongoing_event.game_starting_time_date | date: 'fullDate'}}</h5>
-							<h5>End: {{ user_ongoing_event.game_ending_time_date | date: 'fullDate'}}</h5>
-							<a href="#!/sports/{{user_ongoing_event.game_id}}"><button class="ui button">View Game</button></a>
-						</div>
-					</div>
-				</div>
-			</div>
+    <div class="ui three column doubling stackable grid container" ng-show="userprofile.is_player">
+      <div class="column">
+        <div class="ui raised very padded text container segment" id="events_played">
+          <h1 class="ui header">ONGOING EVENTS</h1>
+          <div class="ui fluid styled accordion">
+            <div ng-repeat="user_ongoing_event in user_ongoing_events">
+              <h5 class="title">{{ user_ongoing_event.game_name }}</h5>
+              <div class="content">
+                <h5>Start: {{ user_ongoing_event.game_starting_time_date | date: 'fullDate'}}</h5>
+                <h5>End: {{ user_ongoing_event.game_ending_time_date | date: 'fullDate'}}</h5>
+                <a href="#!/sports/{{user_ongoing_event.game_id}}"><button class="ui blue button">View Game</button></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-			<div class="column">
-				<div class="ui raised very padded text container segment" id="upcoming_events">
-					<h1 class="ui header">UPCOMING EVENTS</h1>
-					<div class="ui fluid styled accordion" ng-repeat="user_upcoming_event in user_upcoming_events" ng-init="$last ? ngRepeatFinished() : null">
-						<h5 class="title">{{ user_upcoming_event.game_name }}</h5>
-						<div class="content">
-							<h5>Start: {{ user_upcoming_event.game_starting_time_date | date: 'fullDate'}}</h5>
-							<h5>End: {{ user_upcoming_event.game_ending_time_date | date: 'fullDate'}}</h5>
-							<a href="#!/sports/{{user_upcoming_event.game_id}}"><button class="ui button">View Game</button></a>
-						</div>
-					</div>
-				</div>
-			</div>
+      <div class="column">
+        <div class="ui raised very padded text container segment" id="upcoming_events">
+          <h1 class="ui header">UPCOMING EVENTS</h1>
+          <div class="ui fluid styled accordion">
+            <div ng-repeat="user_upcoming_event in user_upcoming_events">
+              <h5 class="title">{{ user_upcoming_event.game_name }}</h5>
+              <div class="content">
+                <h5>Start: {{ user_upcoming_event.game_starting_time_date | date: 'fullDate'}}</h5>
+                <h5>End: {{ user_upcoming_event.game_ending_time_date | date: 'fullDate'}}</h5>
+                <a href="#!/sports/{{user_upcoming_event.game_id}}"><button class="ui blue button">View Game</button></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-			<div class="column">
-				<div class="ui raised very padded text container segment" id="events_played">
-					<h1 class="ui header">PLAYED EVENTS</h1>
-					<div class="ui fluid styled accordion" ng-repeat="user_past_event in user_past_events" ng-init="$last ? ngRepeatFinished() : null">
-						<h5 class="title">{{ user_past_event.game_name }}</h5>
-						<div class="content">
-							<h5>Start: {{ user_past_event.game_starting_time_date | date: 'fullDate'}}</h5>
-							<h5>End: {{ user_past_event.game_ending_time_date | date: 'fullDate'}}</h5>
-							<a href="#!/sports/{{user_past_event.game_id}}"><button class="ui button">View Game</button></a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+      <div class="column">
+        <div class="ui raised very padded text container segment" id="events_played">
+          <h1 class="ui header">PLAYED EVENTS</h1>
+          <div class="ui fluid styled accordion">
+            <div ng-repeat="user_past_event in user_past_events">
+              <h5 class="title">{{ user_past_event.game_name }}</h5>
+              <div class="content">
+                <h5>Start: {{ user_past_event.game_starting_time_date | date: 'fullDate'}}</h5>
+                <h5>End: {{ user_past_event.game_ending_time_date | date: 'fullDate'}}</h5>
+                <a href="#!/sports/{{user_past_event.game_id}}"><button class="ui blue button">View Game</button></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <div class="ui modal" id="edit-profile-modal">
+    <i class="close icon"></i>
+    <div class="header edit-profile-header">Edit Profile</div>
+    <div class="content">
+      <form class="ui big form">
+        <div class="three fields">
+          <div class="field">
+            <label>First name</label>
+            <input placeholder="First Name" type="text" ng-model="userprofile.firstname">
+          </div>
+          <div class="field">
+            <label>Middle name</label>
+            <input placeholder="Middle Name" type="text" ng-model="userprofile.middlename">
+          </div>
+          <div class="field">
+            <label>Last name</label>
+            <input placeholder="Last Name" type="text" ng-model="userprofile.lastname">
+          </div>
+        </div>
+        <div class="field">
+          <label>Email Address</label>
+          <input placeholder="Email Address" type="text" ng-model="userprofile.email">
+        </div>
+        <div class="field">
+          <label>Username</label>
+          <input placeholder="Username" type="text" ng-model="userprofile.username">
+        </div>
+        <div class="three fields">
+          <div class="ui calendar field" id="edit-birthday">
+            <label>Birthday</label>
+            <div class="ui input left icon">
+              <i class="calendar icon"></i>
+              <input type="text" placeholder="Date" ng-model="userprofile.birthday">
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Course</label>
+            <input placeholder="Course" type="text" ng-model="userprofile.course">
+          </div>
+
+          <div class="field">
+            <label>College</label>
+            <select class="ui dropdown" id="college" ng-model="userprofile.college">
+              <option value="">College</option>
+              <option value="CA">CA</option>
+              <option value="CAS">CAS</option>
+              <option value="CDC">CDC</option>
+              <option value="CEAT">CEAT</option>
+              <option value="CEM">CEM</option>
+              <option value="CFNR">CFNR</option>
+              <option value="CHE">CHE</option>
+              <option value="CPAf">CPAf</option>
+              <option value="CVM">CVM</option>
+              <option value="SESAM">SESAM</option>
+              <option value="GS">GS</option>
+            </select>
+          </div>
+        </div>
+        <div class="field" ng-show="userprofile.is_game_head">
+          <label>Position</label>
+          <input placeholder="Position" type="text" ng-model="userprofile.position">
+        </div>
+        <div class="two fields">
+          <div ng-show="userprofile.is_player" class="field">
+            <label>Player Role</label>
+            <input placeholder="Player Role" type="text" ng-model="userprofile.player_role">
+          </div>
+          <div ng-show="userprofile.is_player" class="field">
+            <label>Jersey Number</label>
+            <input placeholder="Jersey Number" type="number" ng-model="userprofile.player_jersey_num">
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="actions">
+      <div class="ui button modal-close">Cancel</div>
+      <div class="ui button green modal-close" ng-click="edit_profile()">Submit</div>
+    </div>
+  </div>
 </div>
+
+<script type="text/javascript">
+$(document).ready(function(){  
+  $('.ui.accordion').accordion();
+
+  var maxDate = new Date();
+  maxDate.setFullYear(maxDate.getFullYear() - 14);
+  $(".edit-profile")
+    .click(function() {
+      $("#edit-profile-modal")
+        .modal({
+          onShow: function() {
+            $('#edit-birthday').calendar({
+              type: 'date',
+              maxDate: maxDate
+            });
+          }
+        })
+        .modal("show");
+    });
+});
+</script>

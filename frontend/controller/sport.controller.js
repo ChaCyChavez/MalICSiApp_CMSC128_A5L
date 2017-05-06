@@ -5,7 +5,7 @@
         .module('app')
         .controller('sport-controller', sport_controller);
 
-    function sport_controller($scope, $rootScope, $location, $routeParams, SportService) {
+    function sport_controller($scope, $window, $rootScope, $location, $routeParams, SportService) {
 
         var sportid = $routeParams.sport_id;
         $scope.sportid = $routeParams.sport_id;
@@ -40,14 +40,33 @@
         $scope.back_to_home = () => {
             window.location.href="#!/game-event";
         }
+        
         $scope.starting_date = "";
         $scope.ending_date = "";
+        $scope.is_not_done = true;
+
         $scope.init_sport = () => {
             SportService.get_sport({"sport_id":$scope.sportid}).then((data) => {
                 $scope.sport = data[0][0];
                 $scope.is_owner = $scope.sport.account_id == $rootScope.profile.account_id;
                 $scope.starting_date = $scope.sport.game_starting_time_date;
                 $scope.ending_date = $scope.sport.game_ending_time_date;
+
+                let d = new Date();
+                $scope.is_not_done = $scope.sport.game_ending_time_date > d.toISOString();
+
+                let d1 = new Date($scope.sport.game_starting_time_date);
+                let d2 = new Date($scope.sport.game_ending_time_date);
+
+                $("#add-match-modal").modal({
+                    onShow: function() {
+                        $('#add-match-date-field').calendar({
+                            type: 'datetime',
+                            minDate: d1,
+                            maxDate: d2
+                        });
+                    }
+                });
             });
         }
         
@@ -149,7 +168,8 @@
                     SportService
                         .delete_match(data).
                         then(function(res) {
-                            $scope.matches.splice(index, 1);
+                            // $scope.matches.splice(index, 1);
+                            $scope.get_matches();
                             swal("Deleted!", "Sport has been successfully removed.", "success");
                         }, function(err) {
                             swal(err.message);
@@ -174,13 +194,13 @@
                 }, function(err) {
                     swal(err.message);
                 })
-        }
+        } 
         $scope.add_match = () => {
             var selectedValues = [];    
             $("#teamJoin :selected").each(function(){
                 selectedValues.push($(this).val()); 
             });
-            var wow = new Date($('#add-start-match').val());
+            var wow = new Date($('#add-match-date').val());
             var courttype = "";
             var court = $('#courtJoin').val();
             if (court == "Baker Hall" || court == "Copeland Gym") courttype = "Gym";
@@ -191,13 +211,12 @@
                 match_date_time: wow.getFullYear() + '-' + (wow.getMonth()+1) + 
                                  '-' + wow.getDate()  + ' ' + wow.getHours() +
                                  ':' + wow.getMinutes(),
-                series: $('#series').val(),
                 sport_id: sportid,
                 court_name: court,
                 court_location: 'UPLB',
                 court_type: courttype
             }
-            if(data.match_date_time == undefined || data.series == undefined ||
+            if(data.match_date_time == undefined ||
                 data.court_name == undefined){
                 swal("Failed!", "Please fill up all fields", "error");
             }
@@ -217,7 +236,7 @@
                         for(var i = 0; i < selectedValues.length; i++){
                             data = {
                                 team_id: selectedValues[i],
-                                score: Math.floor(Math.random() * (100 - 0 + 1)) + 0
+                                score:0
                             }
                             SportService
                                 .add_team_to_match(data)

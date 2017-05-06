@@ -154,7 +154,6 @@ DROP PROCEDURE IF EXISTS get_team_match//
     SELECT
         t.team_name,
         m.match_date_time,
-        m.series,
         m.match_id
     FROM
         team t
@@ -195,13 +194,13 @@ DROP PROCEDURE IF EXISTS get_match_teams//
   END;
 //
 
-DROP PROCEDURE IF EXISTS get_team_name//
-  CREATE PROCEDURE get_team_name(
+DROP PROCEDURE IF EXISTS get_team//
+  CREATE PROCEDURE get_team(
       IN _team_id int
   )
   BEGIN
     SELECT
-        team_name
+        *
     FROM
         team
     WHERE
@@ -396,7 +395,9 @@ DROP PROCEDURE IF EXISTS get_match_event//
         court_name,
         court_location,
         court_type,
-        game_event.account_id
+        account_id,
+        game_starting_time_date,
+        game_ending_time_date
     FROM
         match_event
     NATURAL JOIN
@@ -678,8 +679,19 @@ DROP PROCEDURE IF EXISTS get_game_per_sport//
   CREATE PROCEDURE get_game_per_sport(IN _game_id int)
     BEGIN
       SELECT match_id, game_id, game_name, division, match_date_time, court_name, team_name,
-      sport_type FROM match_event NATURAL JOIN sport NATURAL JOIN game_event
+      sport_type, score FROM match_event NATURAL JOIN sport NATURAL JOIN game_event
       NATURAL JOIN match_event_team NATURAL JOIN team WHERE game_id = _game_id order by match_id asc;
+    END;
+//
+
+DROP PROCEDURE IF EXISTS get_sport_matches//
+  CREATE PROCEDURE get_sport_matches(IN _sport_id int)
+    BEGIN
+      SELECT * FROM match_event_team, match_event, team WHERE
+          match_event_team.match_id = match_event.match_id
+          && match_event_team.team_id = team.team_id
+          && match_event.sport_id = _sport_id
+          ORDER BY match_event.match_id;
     END;
 //
 

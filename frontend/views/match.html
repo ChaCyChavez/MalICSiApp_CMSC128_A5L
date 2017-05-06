@@ -1,11 +1,12 @@
-<div ng-controller="match-controller" ng-init="init_match(); init_match_teams()">
+<div ng-controller="login-register-controller" ng-init="restrict()"></div>
+<div ng-controller="match-controller" ng-init="init_match(); init_match_teams();">
   <!-- Contents -->
   <div class="row contents" id="match-content">
-    <div class="ui two column doubling stackable grid container">
-      <div class="eight wide column">
-        <div class="ui raised very fluid padded container segment">
+    <div class="ui two column doubling stackable grid">
+      <div class="column">
+        <div class="ui raised very fluid padded segment">
           <h1>MATCH RESULTS</h1>
-          <a href="javascript:void(0)" id="edit-scores" class="ui blue button" ng-show="not_editing" ng-click="edit_scores()" ng-if="profile.account_id == match.account_id || profile.is_admin">Edit Scores</a>
+          <a href="javascript:void(0)" id="edit-scores" class="ui blue button" ng-show="not_editing" ng-click="edit_scores()" ng-if="(profile.account_id == match.account_id || profile.is_admin) && is_not_done">Edit Scores</a>
           <a href="javascript:void(0)" id="save-scores" class="ui blue button" ng-show="editing" ng-click="save_scores()">Save Scores</a>
           <a href="javascript:void(0)" id="cancel" class="ui blue button" ng-show="editing" ng-click="cancel()">Cancel</a>
           <div class="ui raised very fluid padded container segment">
@@ -21,35 +22,69 @@
                     <td>
                         <i style="color: {{team_score.team_color}}" class="flag icon" ></i>
                         {{team_score.team_name}}&nbsp;
-                        <i ng-if="team_score.is_winner" class="fa fa-trophy">
+                        <i ng-if="team_score.is_winner" class="fa fa-trophy"></i>
                     </td>
-                    <td class="scores">{{team_score.score}}</td>
+                    <td class="scores" onKeypress="if(event.keyCode < 48 || event.keyCode > 57){return false;}">{{team_score.score}}</td>
                   </tr>
                 </tbody>
             </table>
           </div>
         </div>
       </div>
-      <div class="eight wide column">
-        <div class="ui raised very fluid padded container segment">
+      <div class="column">
+        <div class="ui raised very fluid padded segment">
           <h1>MATCH DETAILS</h1>
           <div class="content">
             <h3><i class="fa fa-clock-o"></i>&nbsp;:&nbsp;{{match.match_date_time | date: "medium"}}</h3>
             <h3>
               <i class="fa fa-map"></i>
-              <div>Court Name : {{match.court_name}}</div>
+              <div>Venue : {{match.court_name}}</div>
               <div>Court Type: {{match.court_type}}</div>
               <div>Court Location: {{match.court_location}}</div>
             </h3>
+            <a ng-if="is_not_done" href="javascript:void(0)" class="ui blue button" id="edit-match" ng-click="setup_edit_modal()" >Edit Match Details</a>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+ 
+  <div id="edit-match-modal" class="ui modal">
+    <i class="close icon"></i>
+    <div class="header">Edit Match</div>
+    <div class="content">
+      <form class="ui big form">
+        <div class="field">
+            <label>Court</label>
+            <select id = "courtJoin" class="ui dropdown">
+              <option disabled selected></option>
+              <option value="Copeland">Copeland</option>
+              <option value="Baker Hall">Baker Hall</option>
+              <option value="Freedom Park">Freedom Park</option>
+              <option value="Physci Building">Physci Building</option>
+            </select>
+        </div>
+        <div class="ui calendar field" id="match-date">
+            <label>Match Date</label>
+            <div class="ui input left icon">
+              <i class="calendar icon"></i>
+              <input type="text" placeholder="Date" onKeypress="if(event.keyCode){return false;}" ng-model = "edit_match_info.match_date_time" id="edit-match-date">
+            </div>
+        </div>
+      </form>
+    </div>
+    <div class="actions">
+      <div class="ui button modal-close" id="cancel">Cancel</div>
+      <div class="ui button modal-close" ng-click="edit_match()">Submit</div>
     </div>
   </div>
 </div>
 
 <script type="text/javascript">
   $(document).ready(function(){
-
+    $('.modal-close').click(function() {
+      $('.ui.modal').modal('hide');
+    });
+ 
   });
 </script>

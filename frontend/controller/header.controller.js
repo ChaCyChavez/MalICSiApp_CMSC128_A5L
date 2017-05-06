@@ -31,6 +31,10 @@
 			$('.login').click(function() {
 				$('#login-modal').modal('show');
 			});
+
+			$('.close').click(function() {
+				$('.ui.message').hide();
+			});
 		}
 
 		$scope.info = {
@@ -53,8 +57,9 @@
 			LoginRegisterService
 		        .logout()
 		        .then(function(res) {
-					$window.location.href = "#!/"
 					$rootScope.profile = undefined;
+					$window.location.href = "#!/";
+					location.reload();
 					setTimeout($scope.init_jquery(), 0);
 		        }, function(err) {
 		        })
@@ -70,6 +75,8 @@
 	            .then((data) => {
 	            if (data[0].length != 0) {
 	                $rootScope.profile = data[0][0];
+					$window.location.href = '#!/game-event';
+
 	            } else {
 					$rootScope.profile = {
 						account_id: undefined,
@@ -109,8 +116,11 @@
 					.retrieve_account($scope.info)
 					.then(function(res) {
 						$("#modal-login").modal('close');
-						$window.location.href = '#!/game-event';
 						$scope.get_loggedIn();
+						$scope.info.username = '';
+						$scope.info.password = '';
+						$scope.info.username = undefined;
+						$scope.info.password = undefined;
 					}, function(err) {
 						$.uiAlert({
 							textHead: "Login error", // header

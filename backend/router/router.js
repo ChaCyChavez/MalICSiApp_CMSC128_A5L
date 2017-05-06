@@ -34,9 +34,11 @@ module.exports = (router) => {
    //update account
    router.post('/api/update-account', account.update_account);
    //delete account
-   router.post('/api/delete-account', account.delete_account);
+   router.post('/api/delete-account/:account_id?', account.delete_account);
    //approve
    router.post('/api/approve-account', account.approve_account);
+   //get session
+   router.get('/api/get-session', account.retrieve_session);
 
 //game_event routers
 
@@ -82,6 +84,7 @@ module.exports = (router) => {
    // retrieve teams and their scores in match event
    router.get('/api/get-teams-N-scores-of-match/:match_id', match_event.get_teams_N_scores_of_match);
    router.post('/api/update-match-score', match_event.update_match_score);
+   router.post('/api/update-match-court', match_event.update_match_court);
 
 // match_event_team router
    router.post('/api/add-match-event-team', match_event.add_match_event_team);
@@ -121,7 +124,7 @@ module.exports = (router) => {
    //create team
    router.post('/api/add-team', team.add_team);
    //retrieve team
-   router.get('/api/get-team-name/:team_id', team.get_team_name);
+   router.get('/api/get-team/:team_id', team.get_team);
    //retrieve team_profile
    router.get('/api/get-team-profile/:team_id', team.get_team_profile);
    //retrieve team_match
@@ -133,6 +136,7 @@ module.exports = (router) => {
 
 // result router
    // get all elimination matches
+   router.get('/api/get-sport-matches/:sport_id', result.get_sport_matches);   
    router.get('/api/get-elimination-matches/:sport_id', result.get_elimination_matches);
    router.get('/api/get-semis-matches/:sport_id', result.get_semis_matches);
    router.get('/api/get-finals-matches/:sport_id', result.get_finals_matches);

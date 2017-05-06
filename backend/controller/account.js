@@ -54,6 +54,16 @@ exports.logout = function(req, res, next) {
 exports.add_account = (req,res,next) => {
 	const query_string = 'CALL add_account(?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
 
+	var regex = /^[a-zA-Z]*$/;
+
+	if (!regex.test(req.body.firstname))
+		res.status(406).send({message: "Invalid name input!"});
+	if (!regex.test(req.body.middlename))
+		res.status(406).send({message: "Invalid name input!"});
+	if (!regex.test(req.body.lastname))
+		res.status(406).send({message: "Invalid name input!"});
+
+
 	const payload = [
 		req.body.firstname,
 		req.body.middlename,
@@ -111,6 +121,18 @@ transporter.sendMail(mailOptions, (err, info) =>{
 */
 };
 
+exports.retrieve_session = function(req, res, next) {
+    
+    if (req.session.user == undefined) {
+        return res.status(404).send("No active session!");
+    }
+
+    function start() {
+        return res.status(200).send(req.session.user);
+    }
+    start();
+}
+
 exports.approve_account = (req,res,next) => {
 	if (req.session.user && req.session.user.is_admin) {
 		const query_string = 'CALL approve_account(?)';
@@ -139,10 +161,16 @@ exports.approve_account = (req,res,next) => {
 	}
 };
 
-
 exports.update_account = (req,res,next) => {
 	if (req.session.user && req.session.user.account_id == req.body.account_id) {
-		const query_string = 'CALL update_account(?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
+		const query_string = 'CALL update_account(?,?,?,?,?,?,?,?,?,?,?,?,?)';
+		if (req.body.player_jersey_num == undefined) {
+			req.body.player_jersey_num = null;
+		} 
+		if (req.body.player_role == undefined) {
+			req.body.player_role = null;
+		} 
+
 
 		const payload = [
 			req.body.firstname,
@@ -150,7 +178,6 @@ exports.update_account = (req,res,next) => {
 		    req.body.lastname,
 			req.body.username,
 			req.body.email,
-			crypto.createHash('sha256').update(req.body.password).digest('base64'),
 			req.body.course,
 		    req.body.birthday,
 			req.body.college,
@@ -161,22 +188,39 @@ exports.update_account = (req,res,next) => {
 		    req.body.account_id
 		];
 
+
 		const callback = (err, data) => {
 			if (err) {
 				winston.level = 'debug';
-				winston.log('debug', 'err: ', err);
+				winston.log('debug', 'err: ', prettyjson.render({
+					details: data,
+					origin: "update_account controller in account.js",
+					payload: payload,
+					query_string: query_string
+				}));
 				res.status(500).send({ error_code:err.code });
 			} else if (data.affectedRows == 0) {
 				winston.level = 'info';
-				winston.log('info', 'Not found! Update failed');
+				winston.log('info', '0 rows returned', prettyjson.render({
+					details: data,
+					origin: "update_account controller in account.js",
+					payload: payload,
+					query_string: query_string
+				}));
 				res.status(404).send();
 			} else {
 				winston.level = 'info';
-				winston.log('info', 'Successfully updated account!');
+				winston.log('info', 'Success', prettyjson.render({
+					details: data,
+					origin: "update_account controller in account.js",
+					payload: payload,
+					query_string: query_string
+				}));
 				res.status(200).send(data);
 			}
 		};
 
+		console.log(payload);
 		db.query(query_string, payload, callback);
 	} else {
 		res.status(401).send({message: "You must be owner of account."});
@@ -250,10 +294,10 @@ exports.get_all_account = (req, res, next) => {
 };
 
 exports.delete_account = (req, res, next) => {
-	if (req.session.user && (req.session.user.account_id == req.body.account_id || req.session.user.is_admin)) {
+	if (req.session.user && (req.session.user.is_admin || req.params.account_id != undefined)) {
 		const query_string ='CALL delete_account(?)';
 
-		const payload = [req.body.account_id];
+		const payload = [req.params.account_id != undefined ? req.params.account_id : req.session.user.account_id];
 
 		const callback = (err, data) => {
 			if (err) {
@@ -262,13 +306,23 @@ exports.delete_account = (req, res, next) => {
 				res.status(500).send({ error_code:err.code });
 			} else if (data.affectedRows == 0) {
 				winston.level = 'info';
-				winston.log('info', 'Not found! Delete failed');
+				winston.log('info', '0 rows returned', prettyjson.render({
+					details: data,
+					origin: "delete_account controller in account.js",
+					payload: payload,
+					query_string: query_string
+				}));
 				res.status(404).send({ message: 'Not found! Delete failed'});
 			} else {
 				winston.level = 'info';
-				winston.log('info', 'Successfully deleted account!');
+				winston.log('info', 'Success', prettyjson.render({
+					details: data,
+					origin: "delete_account controller in account.js",
+					payload: payload,
+					query_string: query_string
+				}));
 				res.status(200).send(data);
-				if (req.session.user.account_id == req.body.account_id) {
+				if (req.params.account_id == undefined)	{
 					req.session.destroy();
 				}
 			}

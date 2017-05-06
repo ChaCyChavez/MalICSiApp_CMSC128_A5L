@@ -148,6 +148,58 @@
 				return deferred.promise;
 			}
 
+			const remove_own_profile = () => {
+				let deferred = $q.defer();
+				$http({
+					method: 'POST',
+					xhrFields: {withCredentials: false},
+					url: '/api/delete-account/',
+					headers: headers
+				})
+				.then(function(res) {
+					 deferred.resolve(res.data);
+				}, function(err) {
+					deferred.reject(err.data);
+				})
+
+				return deferred.promise;
+			}
+
+			const remove_others_profile = (data) => {
+				let deferred = $q.defer();
+				$http({
+					method: 'POST',
+					xhrFields: {withCredentials: false},
+					url: '/api/delete-account/' + data,
+					headers: headers
+				})
+				.then(function(res) {
+					 deferred.resolve(res.data);
+				}, function(err) {
+					deferred.reject(err.data);
+				})
+
+				return deferred.promise;
+			}
+
+			const edit_profile = (data) => {
+				let deferred = $q.defer();
+				$http({
+					method: 'POST',
+					data: $httpParamSerializer(data),
+					xhrFields: {withCredentials: false},
+					url: '/api/update-account/',
+					headers: headers
+				})
+				.then(function(res) {
+					 deferred.resolve(res.data);
+				}, function(err) {
+					deferred.reject(err.data);
+				})
+
+				return deferred.promise;
+			}
+
 			let service = {};
 			service.get_profile 				= get_profile;
 			service.get_user_past_events 		= get_user_past_events;
@@ -157,6 +209,9 @@
 			service.get_user_upcoming_events2 	= get_user_upcoming_events2;
 			service.get_user_ongoing_events2 	= get_user_ongoing_events2;
 			service.get_user_ongoing_events 	= get_user_ongoing_events;
+			service.remove_own_profile			= remove_own_profile;
+			service.remove_others_profile		= remove_others_profile;
+			service.edit_profile				= edit_profile;
 			return service;
 		}
 })();

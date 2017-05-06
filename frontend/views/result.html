@@ -1,12 +1,13 @@
-<div ng-controller="result-controller" ng-init = "init_matches()">
+<div ng-controller="login-register-controller" ng-init="restrict()"></div>
+<div ng-controller="result-controller" ng-init = "init_all_matches()">
   <!-- Tournament Bracketing-->
   <div class="row contents">
     <div class="col s12 m12 l12">&nbsp;</div>
     <div class="col s12 m12 l12">
       <div class="card-panel">
-        <h1 class = "tournament-bracket">Tournament Bracketing</h1>
+        <!-- <h1 class = "tournament-bracket">Tournament Bracketing</h1> -->
           <!-- table goes here -->
-          <main id="tournament">
+          <!-- <main id="tournament">
           	<ul class="round round-1">
               <div  ng-repeat="ematches in elimination_matches">
                 <li class="spacer">&nbsp;</li>
@@ -42,7 +43,46 @@
             		<li class="spacer">&nbsp;</li>
               </div>
           	</ul>
-          </main>
+          </main> -->
+        <h1 class = "sport-summ">Sport Results Summary</h1>
+        <table class="ui four column selectable celled table">
+          <thead>
+            <tr>
+              <th><a href="javascript:void(0)" ng-click="sortType= 'name'; sortReverse = !sortReverse">
+                Team
+                <i ng-show="sortType != 'name'" class="sort icon"></i>
+                <i ng-show="sortType == 'name' && !sortReverse" class="sort alphabet ascending icon"></i>
+                <i ng-show="sortType == 'name' && sortReverse" class="sort alphabet descending icon"></i>
+              </a></th>
+              <th><a href="javascript:void(0)" ng-click="sortType= 'win'; sortReverse = !sortReverse">
+                Win
+                <i ng-show="sortType != 'win'" class="sort icon"></i>
+                <i ng-show="sortType == 'win' && !sortReverse" class="sort numeric ascending icon"></i>
+                <i ng-show="sortType == 'win' && sortReverse" class="sort numeric descending icon"></i>
+              </a></th>
+              <th><a href="javascript:void(0)" ng-click="sortType= 'loss'; sortReverse = !sortReverse">
+                Loss
+                <i ng-show="sortType != 'loss'" class="sort icon"></i>
+                <i ng-show="sortType == 'loss' && !sortReverse" class="sort numeric ascending icon"></i>
+                <i ng-show="sortType == 'loss' && sortReverse" class="sort numeric descending icon"></i>
+              </a></th>
+              <th><a href="javascript:void(0)" ng-click="sortType= 'draw'; sortReverse = !sortReverse">
+                Draw
+                <i ng-show="sortType != 'draw'" class="sort icon"></i>
+                <i ng-show="sortType == 'draw' && !sortReverse" class="sort numeric ascending icon"></i>
+                <i ng-show="sortType == 'draw' && sortReverse" class="sort numeric descending icon"></i>
+              </a></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="team in teams | orderBy:sortType:sortReverse" ng-click="view_team(team.id)">
+              <td>{{team.name}}</td>
+              <td>{{team.win}}</td>
+              <td>{{team.loss}}</td>
+              <td>{{team.draw}}</td>
+            </tr>
+          </tbody>
+        </table>         
       </div>
     </div>
   </div>

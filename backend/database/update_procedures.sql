@@ -8,7 +8,6 @@ delimiter //
         IN _lastname            varchar(256),
         IN _username            varchar(256),
         IN _email               varchar(256),
-        IN _password            varchar(256),
         IN _course              varchar(256),
         IN _birthday            date,
         IN _college             enum('CA','CAS','CDC','CEAT','CEM','CFNR','CHE','CPAf','CVM','SESAM','GS'),
@@ -27,7 +26,6 @@ delimiter //
             lastname = _lastname,
             email = _email,
             username = _username,
-            password = _password,
             course = _course,
             birthday = _birthday,
             college = _college,
@@ -235,6 +233,27 @@ delimiter //
             score = _score
         WHERE
             team_id = _team_id AND
+            match_id = _match_id;
+    END;
+//
+delimiter ;
+
+drop procedure if exists update_match_court;
+delimiter //
+    create procedure update_match_court (
+        IN _match_id    int(11),
+        IN _court_name  varchar(256),
+        IN _court_type  varchar(256),
+        IN _court_location  varchar(256)
+    )
+    BEGIN
+        UPDATE
+            match_event
+        SET
+            court_name = _court_name,
+            court_location = _court_location,
+            court_type = _court_type
+        WHERE
             match_id = _match_id;
     END;
 //

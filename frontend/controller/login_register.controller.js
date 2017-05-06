@@ -8,6 +8,7 @@
     function login_register_controller($scope, $location, $window, $routeParams, $rootScope, ProfileService, LoginRegisterService) {
         $scope.sports_guest = {};
 
+
        $scope.get_currGames = () => {
             LoginRegisterService
             .get_currGames().then((data) => {
@@ -23,6 +24,26 @@
             window.location.href = "#!/game-per-sport/" + sportid;
             $("#view-sports-modal").modal("hide");
 
+        }
+
+        $scope.get_loggedIn = () => {
+            LoginRegisterService
+            .get_session()
+            .then((data) => {
+                window.location.href = "#!/game-event/";
+            }, (err) => {
+                window.location.href = "#!/";
+
+            });
+        }
+
+        $scope.restrict = () => {
+            LoginRegisterService
+            .get_session()
+            .then((data) => {}, (err) => {
+                window.location.href = "#!/";
+                console.log("true");
+            });
         }
     }
 })();
