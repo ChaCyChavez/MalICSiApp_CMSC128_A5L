@@ -42,7 +42,7 @@
               <div>Court Type: {{match.court_type}}</div>
               <div>Court Location: {{match.court_location}}</div>
             </h3>
-            <a ng-if="is_not_done" href="javascript:void(0)" class="ui blue button edit-match" ng-click="edit_modal()" >Edit Match Details</a>
+            <a ng-if="is_not_done" href="javascript:void(0)" class="ui blue button" id="edit-match" ng-click="setup_edit_modal()" >Edit Match Details</a>
           </div>
         </div>
       </div>
@@ -82,16 +82,6 @@
 
 <script type="text/javascript">
   $(document).ready(function(){
-    $(".edit-match").click(function() {
-      $("#edit-match-modal").modal({
-        onShow: function() {
-          $('#match-date').calendar({
-            type: 'datetime'
-          });
-        } 
-      }).modal("show");
-    });
-
     $('.modal-close').click(function() {
       $('.ui.modal').modal('hide');
     });
