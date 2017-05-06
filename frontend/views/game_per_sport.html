@@ -1,27 +1,11 @@
 <div class="row contents" ng-init="init_sponsor(); get_sports(); get_matches()">
 	<h3 class="content-header">{{name | uppercase}}</h3>
-	<!-- <div class="ui four stackable cards">
-        <div class="card" ng-repeat="i in loop">
-          <div class="image">
-            <img src="../img/games.png">
-          </div>
-          <div class="content">
-            <span class="header game-title">{{sprts[i].team_name | uppercase}} vs. {{sprts[i+1].team_name | uppercase}}</span>
-            <div class="meta">
-				{{sprts[i].division | uppercase}}<span ng-if="sprts[i].division == 'men' || sprts[i].division == 'women'">'s</span> DIVISION <br>
-				{{sprts[i].sport_type}}<br>
-				{{sprts[i].court_name}}<br>
-				{{sprts[i].match_date_time | date: 'MMM d, yyyy h:mm a'}}<br>
-            </div>
-          </div>
-        </div>  
-    </div> -->
-    <div class="ui raised very fluid padded container segment styled accordion" ng-repeat="s in sports" ng-init="$last ? ngRepeatFinished() : null">
-    	<h1 class="title">{{s.division | uppercase}}<span ng-if="s.division != 'mixed'">'s</span> {{s.sport_type | uppercase}}</h1>
-	 	<div class="content">
+    <div class="ui raised very fluid padded container segment styled accordion sports" ng-repeat="s in sports" ng-init="$last ? ngRepeatFinished() : null">
+    	<h1 class="title">{{s.division | uppercase}}<span ng-if="s.division != 'mixed'">'s</span> {{s.sport_type | uppercase}} <i class="fa fa-chevron-down"></i></h1>
+	 	<div class="content active">
 		<div class="ui four stackable padded cards">
 	        <div class="card" ng-repeat="m in s.matches">
-	          <div class="content">
+	          <div class="content matches">
 	          	<div class="ui grid">
 	          			<div class="eight wide column">
 			     			<span class="left floated"><i class="fa fa-group fa ui mini rounded" style="color: {{m.teams[0].team_color}}"></i>&nbsp;{{m.teams[0].team_name}}</span><br>
@@ -42,8 +26,10 @@
 	    </div>
 		</div>
     </div>
+    <br/>
 
     <h1 id="gps_spon" class="header ui">Sponsors</h1>
+
     <div id="spon_board" class="ui raised very fluid padded container segment">
 	    <div class="ui four stackable cards">
 	        <div class="card" ng-repeat="spon in sponsors">

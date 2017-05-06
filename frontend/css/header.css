@@ -50,7 +50,7 @@
 	margin-right: 10px;
 }
 
-#log-mob, #reg-mob, #va-mob, #vu-mob, #vp-mob, #logo-mob {
+#log-dd, #reg-dd, #va-mob, #vu-mob, #vp-mob, #logo-mob {
 	font-size: 20px !important;
 }
 
@@ -59,6 +59,10 @@
 }
 
 #lr-dd {
+	display: none;
+}
+
+#logreg-dd {
 	display: none;
 }
 
@@ -79,4 +83,6 @@
   #lr-dd {
   	display: inherit;
   }
+
+  #logreg-dd
 }
