@@ -1,0 +1,4 @@
+*.log
+*dump.rdb
+**/.git/**/*
+node_modules/**/*
