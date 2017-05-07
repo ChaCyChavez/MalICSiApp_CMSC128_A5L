@@ -75,8 +75,6 @@
 	            .then((data) => {
 	            if (data[0].length != 0) {
 	                $rootScope.profile = data[0][0];
-					$window.location.href = '#!/game-event';
-
 	            } else {
 					$rootScope.profile = {
 						account_id: undefined,

@@ -150,15 +150,19 @@
         }
 
     	$scope.edit_match = (data) => {
-            console.log(data);
-            var court = $('#c').val();
-            console.log(court);
+            var court = $('#court').val();
             var court_type = "";
             $scope.edit_match_info.court_name = court;
-            if (court == "Baker Hall" || court == "Copeland Gym") court_type = "Gym";
-            else if (court == "Physci Building") court_type = "Building";
-            else court_type = "Park";
+            
+            if (court == "Baker Hall" || court == "Copeland Gym")
+                court_type = "Gym";
+            else if (court == "Physci Building")
+                court_type = "Building";
+            else
+                court_type = "Park";
+
             $scope.edit_match_info.court_type = court_type;
+
             var wow = new Date($('#edit-match-date').val());
     	    $scope.edit_match_info.match_date_time = 
                 wow.getFullYear() + '-' + (wow.getMonth()+1) + 
