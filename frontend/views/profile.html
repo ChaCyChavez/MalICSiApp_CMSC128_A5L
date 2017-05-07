@@ -6,7 +6,7 @@
 			<div class="profile-pic">
 				<img src="../img/user.png">
 				<div>
-					<a href="javascript:void(0)" class="ui inverted blue button edit-profile" ng-if="profile.is_admin==1 || userprofile.account_id==profile.account_id" ng-click="edit_profile()">Edit</a>
+					<a href="javascript:void(0)" class="ui inverted blue button edit-profile" ng-if="profile.is_admin==1 || userprofile.account_id==profile.account_id" ng-click="setup_edit_profile()">Edit</a>
 					<a href="javascript:void(0)" class="ui inverted red button remove-profile" ng-if="profile.is_admin==1 || userprofile.account_id==profile.account_id" ng-click="remove_profile()">Remove</a>
 				</div>
 			</div>
@@ -159,7 +159,7 @@ $(document).ready(function(){
   $('.ui.accordion').accordion();
 
   var maxDate = new Date();
-  maxDate.setFullYear(maxDate.getFullYear() - 14);
+  maxDate.setFullYear(maxDate.getFullYear());
   $(".edit-profile")
     .click(function() {
       $("#edit-profile-modal")

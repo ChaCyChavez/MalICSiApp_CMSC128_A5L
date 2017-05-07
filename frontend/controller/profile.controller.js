@@ -12,7 +12,7 @@
       $('.ui.accordion').accordion();
 
         var maxDate = new Date();
-        maxDate.setFullYear(maxDate.getFullYear() - 14);
+        maxDate.setFullYear(maxDate.getFullYear());
         $(".edit-profile")
           .click(function() {
             $("#edit-profile-modal")
@@ -166,10 +166,6 @@
     $scope.update_is_game_head = () => {
       $scope.userprofile.is_game_head = $scope.userprofile.is_game_head ? 1 : 0;
     }
-
-    /*$scope.setup_edit_profile = () => {
-      $scope.userprofile
-    }*/
 
     $scope.edit_profile = () => {
       let NAME_REGEX = /^[A-Za-z\s]+$/;
