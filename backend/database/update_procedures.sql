@@ -98,7 +98,6 @@ delimiter //
         IN _match_id            int(11),
         IN _match_date_time     datetime,
         IN _court_name          varchar(256),
-        IN _court_location      varchar(256),
         IN _court_type          varchar(256)
     )
     BEGIN
@@ -107,7 +106,6 @@ delimiter //
         SET
             match_date_time = _match_date_time,
             court_name = _court_name,
-            court_location = _court_location,
             court_type = _court_type
         WHERE
             match_id = _match_id;
