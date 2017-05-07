@@ -129,7 +129,7 @@
                     console.log(err);
                 })
         }
-	
+	 
     	$scope.edit_match_info = {};
     	$scope.edit_id = -1;
 
@@ -139,7 +139,6 @@
 
             $("#edit-match-modal").modal({
                 onShow: function() {
-                    console.log("fafa");
                     $('#match-date').calendar({
                         type: 'datetime',
                         minDate: d1,
@@ -150,8 +149,10 @@
             $("#edit-match-modal").modal("show");
         }
 
-    	$scope.edit_match = () => {
-    	    var court = $('#courtJoin').val();
+    	$scope.edit_match = (data) => {
+            console.log(data);
+            var court = $('#c').val();
+            console.log(court);
             var court_type = "";
             $scope.edit_match_info.court_name = court;
             if (court == "Baker Hall" || court == "Copeland Gym") court_type = "Gym";

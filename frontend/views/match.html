@@ -48,7 +48,7 @@
       </div>
     </div>
   </div>
- 
+  
   <div id="edit-match-modal" class="ui modal">
     <i class="close icon"></i>
     <div class="header">Edit Match</div>
@@ -56,14 +56,14 @@
       <form class="ui big form">
         <div class="field">
             <label>Court</label>
-            <select id = "courtJoin" class="ui dropdown">
+            <select id = "court" class="ui dropdown">
               <option disabled selected></option>
               <option value="Copeland">Copeland</option>
               <option value="Baker Hall">Baker Hall</option>
               <option value="Freedom Park">Freedom Park</option>
               <option value="Physci Building">Physci Building</option>
             </select>
-        </div>
+          </div>
         <div class="ui calendar field" id="match-date">
             <label>Match Date</label>
             <div class="ui input left icon">
@@ -75,7 +75,7 @@
     </div>
     <div class="actions">
       <div class="ui button modal-close" id="cancel">Cancel</div>
-      <div class="ui button modal-close" ng-click="edit_match()">Submit</div>
+      <div href="javascript:void(0)" class="ui button modal-close" ng-click= "edit_match()">Submit</div>
     </div>
   </div>
 </div>
