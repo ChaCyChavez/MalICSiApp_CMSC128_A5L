@@ -160,6 +160,7 @@
     }
     $scope.setup_edit_profile = () =>{
       $scope.edit_profile =JSON.parse(JSON.stringify($scope.userprofile));
+      $scope.edit_profile.college = "";
     }
     $scope.update_is_player = () => {
       $scope.userprofile.is_player = $scope.userprofile.is_player ? 0 : 1;
@@ -171,7 +172,7 @@
 
     $scope.edit_prof = () => {
       let NAME_REGEX = /^[A-Za-z\s]+$/;
-      let USERNAME_REGEX = /^[a-zA-Z0-9]+$/;
+      let USERNAME_REGEX = /^[a-zA-Z0-9_]+$/;
       let EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       let e = document.getElementById("college");
       let strUser = e.options[e.selectedIndex].value !== "" ? e.options[e.selectedIndex].value:$scope.edit_profile.college;
