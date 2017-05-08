@@ -11,6 +11,7 @@
 				</div>
 			</div>
 			<div id="info">
+        <div class="info-field">Name: {{ userprofile.firstname + " " + userprofile.middlename + " " +userprofile.lastname}}</div>
 				<div class="info-field">College: {{ userprofile.college }}</div>
 				<div class="info-field">Course: {{ userprofile.course }}</div>
 				<div class="info-field">Birthday: {{ userprofile.birthday | date: 'longDate'}}</div>
