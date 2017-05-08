@@ -1,5 +1,5 @@
 'use strict';
-
+ 
 (() => {
   angular
     .module('app')
@@ -158,7 +158,9 @@
         $scope.remove_own_profile();
       }
     }
-
+    $scope.setup_edit_profile = () =>{
+      $scope.edit_profile =JSON.parse(JSON.stringify($scope.userprofile));
+    }
     $scope.update_is_player = () => {
       $scope.userprofile.is_player = $scope.userprofile.is_player ? 0 : 1;
     }
@@ -167,18 +169,63 @@
       $scope.userprofile.is_game_head = $scope.userprofile.is_game_head ? 1 : 0;
     }
 
-    $scope.edit_profile = () => {
+    $scope.edit_prof = () => {
       let NAME_REGEX = /^[A-Za-z\s]+$/;
       let USERNAME_REGEX = /^[a-zA-Z0-9]+$/;
       let EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       let e = document.getElementById("college");
-      let strUser = e.options[e.selectedIndex].value !== "" ? e.options[e.selectedIndex].value:$scope.userprofile.college;
-      $scope.userprofile.birthday = $('#edit-birthday').calendar('get date');
-      $scope.userprofile.birthday = moment($scope.userprofile.birthday).format('YYYY-MM-DD');
-      $scope.userprofile.college = strUser;
-      if (!NAME_REGEX.test($scope.userprofile.firsname) || 
-            !NAME_REGEX.test($scope.userprofile.middlename) ||
-            !NAME_REGEX.test($scope.userprofile.lastname)) {
+      let strUser = e.options[e.selectedIndex].value !== "" ? e.options[e.selectedIndex].value:$scope.edit_profile.college;
+      $scope.edit_profile.birthday = $('#edit-birthday').calendar('get date');
+      $scope.edit_profile.birthday = moment($scope.edit_profile.birthday).format('YYYY-MM-DD');
+      $scope.edit_profile.college = strUser;
+      console.log($scope.edit_profile);
+      if ($scope.edit_profile.username === undefined ||
+        $scope.edit_profile.username === '' ||
+        $scope.edit_profile.firstname === undefined ||
+        $scope.edit_profile.firstname === '' ||
+        $scope.edit_profile.middlename === undefined ||
+        $scope.edit_profile.middlename === '' ||
+        $scope.edit_profile.lastname === undefined ||
+        $scope.edit_profile.lastname === '' ||
+        $scope.edit_profile.college === undefined ||
+        $scope.edit_profile.college === '' ||
+        $scope.edit_profile.course === undefined ||
+        $scope.edit_profile.course === '' ||
+        $scope.edit_profile.email === undefined ||
+        $scope.edit_profile.email === '' ||
+        $scope.edit_profile.birthday === undefined ||
+        $scope.edit_profile.birthday === '' ||
+        $scope.edit_profile.position === undefined ||
+        $scope.edit_profile.position === '') {
+        console.log("dito talaga");
+        $.uiAlert({
+          textHead: "Registration error", // header
+          text: 'Please fill-out all the fields', // Text
+          bgcolor: '#DB2828', // background-color
+          textcolor: '#fff', // color
+          position: 'top-center',// position . top And bottom ||  left / center / right
+          icon: 'remove circle', // icon in semantic-UI
+          time: 3, // time
+        });
+      } else if($scope.edit_profile.is_player == 1 && (
+        $scope.edit_profile.player_role === '' ||
+        $scope.edit_profile.player_role === undefined ||
+        $scope.edit_profile.player_jersey_num === '' ||
+        $scope.edit_profile.player_jersey_num === undefined)){
+        console.log("dito")
+        $.uiAlert({
+          textHead: "Login error", // header
+          text: 'Please fill-out all the fields', // Text
+          bgcolor: '#DB2828', // background-color
+          textcolor: '#fff', // color
+          position: 'top-center',// position . top And bottom ||  left / center / right
+          icon: 'remove circle', // icon in semantic-UI
+          time: 3, // time
+        });
+
+      } else if (!NAME_REGEX.test($scope.edit_profile.firsname) || 
+            !NAME_REGEX.test($scope.edit_profile.middlename) ||
+            !NAME_REGEX.test($scope.edit_profile.lastname)) {
         $.uiAlert({
           textHead: "Invalid name", // header
           text: 'Please only use latin letters for your name.', // Text
@@ -188,7 +235,7 @@
           icon: 'remove circle', // icon in semantic-UI
           time: 3, // time
         });
-      } else if (!USERNAME_REGEX.test($scope.userprofile.username)) {
+      } else if (!USERNAME_REGEX.test($scope.edit_profile.username)) {
         $.uiAlert({
           textHead: "Invalid username", // header
           text: 'Please only use alphanumeric characters for your username.', // Text
@@ -198,7 +245,7 @@
           icon: 'remove circle', // icon in semantic-UI
           time: 3, // time
         });
-      } else if (!EMAIL_REGEX.test($scope.userprofile.email)) {
+      } else if (!EMAIL_REGEX.test($scope.edit_profile.email)) {
         $.uiAlert({
           textHead: "Invalid email", // header
           text: 'Please enter valid email.', // Text
@@ -210,7 +257,7 @@
         });
       } else {
         ProfileService
-          .edit_profile($scope.userprofile)
+          .edit_profile($scope.edit_profile)
           .then(function(res) {
             // Materialize.toast("Register successful!", 4000, 'teal');
             // Materialize.toast("Your registration is now on process", 4000, 'teal');
@@ -223,6 +270,7 @@
               icon: 'remove circle', // icon in semantic-UI
               time: 3, // time
             });
+            $scope.get_profile_info();
           }, function(err) {
             // Materialize.toast(err.message, 4000, 'teal');
             swal("Failed!",err.message,"error")
