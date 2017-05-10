@@ -40,8 +40,8 @@ start = () => {
         saveUninitialized: true,
         cookie: {maxAge: 60 * 1000 * 60 * 2 },
         store: new redis_store({
-            host: 'ec2-34-206-77-235.compute-1.amazonaws.com',
-            port: '18479',
+            host: 'redis-12382.c9.us-east-1-4.ec2.cloud.redislabs.com',
+            port: '12382',
             client: client
         })
     }))

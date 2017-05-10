@@ -1,4 +1,4 @@
-
+use malicsi;
 delete from account;
 /*
   create admin account
