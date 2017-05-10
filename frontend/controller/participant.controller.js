@@ -42,23 +42,6 @@
       let data = {
         game_id: gameid
       }
-
-      SportsService
-      .get_sports_game(data).
-      then(function(res) {
-        if ($scope.selected != 0) {
-          s.push({sport_id: $scope.selected.sport_id});
-          $scope.sport = $scope.selected.sport_type + " - " + $scope.selected.division;
-        }
-        else {
-          $scope.sport = "All Sports";
-          res.data[0].forEach(function(sport){  
-            s.push({sport_id: sport.sport_id});
-          });
-        }
-      }, function(err) {
-        console.log(err);
-      });
       
       ParticipantService.get_participants(gameid).then((data) => {
         $scope.participants = data[0];
