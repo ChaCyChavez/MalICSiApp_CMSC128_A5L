@@ -41,7 +41,6 @@ start = () => {
         store: new redis_store({
             host: 'redis-12382.c9.us-east-1-4.ec2.cloud.redislabs.com',
             port: '12382',
-            pass: 'P3uAWJVIp6pJ1AY1',
             client: client
         })
     }))
