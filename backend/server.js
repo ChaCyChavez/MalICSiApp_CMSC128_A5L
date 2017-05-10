@@ -37,11 +37,10 @@ start = () => {
         secret: config.COOKIE_SECRET,
         resave: false,
         saveUninitialized: true,
-        password: 'P3uAWJVIp6pJ1AY1',
         cookie: {maxAge: 60 * 1000 * 60 * 2 },
         store: new redis_store({
-            host: 'redis-12382.c9.us-east-1-4.ec2.cloud.redislabs.com',
-            port: '12382',
+            host: 'ec2-34-206-77-235.compute-1.amazonaws.com',
+            port: '18479',
             client: client
         })
     }))
