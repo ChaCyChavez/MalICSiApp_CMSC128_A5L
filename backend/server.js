@@ -2,7 +2,6 @@
 
 const config        = require(__dirname + '/config/config');
 const router        = require(__dirname + '/router/router');
-const users	        = require(__dirname + '/config/session');
 const express       = require('express');
 const session       = require('express-session');
 const body_parser   = require('body-parser');
@@ -45,7 +44,6 @@ start = () => {
             client: client
         })
     }))
-    app.use(users(app));
     // other packages that is needed to make the app secured and stable
     winston.log('verbose', 'Binding 3rd-party middlewares');
     app.use(express.static(__dirname + '/../frontend/'));
