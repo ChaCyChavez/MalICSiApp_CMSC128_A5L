@@ -11,7 +11,7 @@ module.exports = {
     IP: '127.0.0.1',
 
     DEVELOPMENT: {
-        host: ' jlg7sfncbhyvga14.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+        host: 'jlg7sfncbhyvga14.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
         user: 'go0d6ii51ptlohgt',
         password: 'hpvsd33ryxza9fzg',
         database: 'qwr752n6nujvmxpe'

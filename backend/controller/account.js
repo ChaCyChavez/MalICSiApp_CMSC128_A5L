@@ -228,7 +228,6 @@ exports.update_account = (req,res,next) => {
 };
 
 exports.get_account = (req, res, next) => {
-	console.log(req.session.user);
 	if (req.session.user || req.params.account_id != undefined) {
 		const query_string = "CALL get_account(?)";
 
