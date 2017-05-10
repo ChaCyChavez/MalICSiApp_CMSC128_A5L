@@ -234,13 +234,9 @@
             	})
 		}
 
-    $scope.is_past_game = () => {
-      if ($scope.view.type === "past") return true;
-      return false;
-	}
-
 	$scope.check_if_registered = () => {
-		if($scope.is_past_game() || $rootScope.profile.is_player == 0) {
+		console.log($scope.view.type);
+		if($scope.view.type == 'past' || $rootScope.profile.is_player == 0) {
 			$scope.is_registered = false;
 			return;
 		}
