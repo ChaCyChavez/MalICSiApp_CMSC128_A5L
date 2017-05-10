@@ -41,6 +41,7 @@ start = () => {
         store: new redis_store({
             host: 'localhost',
             port: '6379',
+            password: 'P3uAWJVIp6pJ1AY1',
             client: client
         })
     }))
