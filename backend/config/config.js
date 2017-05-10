@@ -11,10 +11,10 @@ module.exports = {
     IP: '127.0.0.1',
 
     DEVELOPMENT: {
-        host: 'localhost',
-        user: 'CMSC128',
-        password: 'project128',
-        database: 'malicsi'
+        host: 'us-cdbr-iron-east-03.cleardb.net',
+        user: 'b864dc3bc8f491',
+        password: '9be6af20',
+        database: 'heroku_f7866e1a371723b'
     },
 
     ASSETS_DIR: path.normalize(__dirname + '/../front-end'),

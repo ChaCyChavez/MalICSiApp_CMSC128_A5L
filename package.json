@@ -41,5 +41,9 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "supertest": "^3.0.0"
+  },
+  "engines": {
+    "node": "7.10.0",
+    "npm": "4.2.0"
   }
 }
