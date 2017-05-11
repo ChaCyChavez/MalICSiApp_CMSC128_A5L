@@ -6,11 +6,12 @@
 			<div class="profile-pic">
 				<img src="../img/user.png">
 				<div>
-					<a href="javascript:void(0)" class="ui inverted blue button edit-profile" ng-if="profile.is_admin==1 || userprofile.account_id==profile.account_id" ng-click="edit_profile()">Edit</a>
+					<a href="javascript:void(0)" class="ui inverted blue button edit-profile" ng-if="profile.is_admin==1 || userprofile.account_id==profile.account_id" ng-click="setup_edit_profile()">Edit</a>
 					<a href="javascript:void(0)" class="ui inverted red button remove-profile" ng-if="profile.is_admin==1 || userprofile.account_id==profile.account_id" ng-click="remove_profile()">Remove</a>
 				</div>
 			</div>
 			<div id="info">
+        <div class="info-field">Name: {{ userprofile.firstname + " " + userprofile.middlename + " " +userprofile.lastname}}</div>
 				<div class="info-field">College: {{ userprofile.college }}</div>
 				<div class="info-field">Course: {{ userprofile.course }}</div>
 				<div class="info-field">Birthday: {{ userprofile.birthday | date: 'longDate'}}</div>
@@ -80,42 +81,42 @@
         <div class="three fields">
           <div class="field">
             <label>First name</label>
-            <input placeholder="First Name" type="text" ng-model="userprofile.firstname">
+            <input placeholder="First Name" type="text" ng-model="edit_profile.firstname">
           </div>
           <div class="field">
             <label>Middle name</label>
-            <input placeholder="Middle Name" type="text" ng-model="userprofile.middlename">
+            <input placeholder="Middle Name" type="text" ng-model="edit_profile.middlename">
           </div>
           <div class="field">
             <label>Last name</label>
-            <input placeholder="Last Name" type="text" ng-model="userprofile.lastname">
+            <input placeholder="Last Name" type="text" ng-model="edit_profile.lastname">
           </div>
         </div>
         <div class="field">
           <label>Email Address</label>
-          <input placeholder="Email Address" type="text" ng-model="userprofile.email">
+          <input placeholder="Email Address" type="text" ng-model="edit_profile.email">
         </div>
         <div class="field">
           <label>Username</label>
-          <input placeholder="Username" type="text" ng-model="userprofile.username">
+          <input placeholder="Username" type="text" ng-model="edit_profile.username">
         </div>
         <div class="three fields">
           <div class="ui calendar field" id="edit-birthday">
             <label>Birthday</label>
             <div class="ui input left icon">
               <i class="calendar icon"></i>
-              <input type="text" placeholder="Date" ng-model="userprofile.birthday">
+              <input type="text" placeholder="Date" ng-model="edit_profile.birthday">
             </div>
           </div>
 
           <div class="field">
             <label>Course</label>
-            <input placeholder="Course" type="text" ng-model="userprofile.course">
+            <input placeholder="Course" type="text" ng-model="edit_profile.course">
           </div>
 
           <div class="field">
             <label>College</label>
-            <select class="ui dropdown" id="college" ng-model="userprofile.college">
+            <select class="ui dropdown" id="college" ng-model="edit_profile.college">
               <option value="">College</option>
               <option value="CA">CA</option>
               <option value="CAS">CAS</option>
@@ -131,25 +132,25 @@
             </select>
           </div>
         </div>
-        <div class="field" ng-show="userprofile.is_game_head">
+        <div class="field" ng-show="edit_profile.is_game_head">
           <label>Position</label>
-          <input placeholder="Position" type="text" ng-model="userprofile.position">
+          <input placeholder="Position" type="text" ng-model="edit_profile.position">
         </div>
         <div class="two fields">
-          <div ng-show="userprofile.is_player" class="field">
+          <div ng-show="edit_profile.is_player" class="field">
             <label>Player Role</label>
-            <input placeholder="Player Role" type="text" ng-model="userprofile.player_role">
+            <input placeholder="Player Role" type="text" ng-model="edit_profile.player_role">
           </div>
-          <div ng-show="userprofile.is_player" class="field">
+          <div ng-show="edit_profile.is_player" class="field">
             <label>Jersey Number</label>
-            <input placeholder="Jersey Number" type="number" ng-model="userprofile.player_jersey_num">
+            <input placeholder="Jersey Number" type="number" ng-model="edit_profile.player_jersey_num">
           </div>
         </div>
       </form>
     </div>
     <div class="actions">
       <div class="ui button modal-close">Cancel</div>
-      <div class="ui button green modal-close" ng-click="edit_profile()">Submit</div>
+      <div class="ui button green modal-close" ng-click="edit_prof()">Submit</div>
     </div>
   </div>
 </div>
@@ -159,7 +160,7 @@ $(document).ready(function(){
   $('.ui.accordion').accordion();
 
   var maxDate = new Date();
-  maxDate.setFullYear(maxDate.getFullYear() - 14);
+  maxDate.setFullYear(maxDate.getFullYear());
   $(".edit-profile")
     .click(function() {
       $("#edit-profile-modal")

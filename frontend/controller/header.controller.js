@@ -75,8 +75,6 @@
 	            .then((data) => {
 	            if (data[0].length != 0) {
 	                $rootScope.profile = data[0][0];
-					$window.location.href = '#!/game-event';
-
 	            } else {
 					$rootScope.profile = {
 						account_id: undefined,
@@ -154,7 +152,7 @@
 
 		$scope.register = () => {
 			let NAME_REGEX = /^[A-Za-z\s]+$/;
-			let USERNAME_REGEX = /^[a-zA-Z0-9]+$/;
+			let USERNAME_REGEX = /^[a-zA-Z0-9_]+$/;
 			let EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 			let e = document.getElementById("college");
 			let strUser = e.options[e.selectedIndex].value;

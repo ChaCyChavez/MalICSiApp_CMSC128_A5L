@@ -99,9 +99,7 @@ exports.update_match_event = (req, res, next) => {
 		const payload = [
 			req.body.match_id,
 			req.body.match_date_time,
-			req.body.series,
 			req.body.court_name,
-			req.body.court_location,
 			req.body.court_type
 		];
 
@@ -120,7 +118,6 @@ exports.update_match_event = (req, res, next) => {
 				res.status(200).send(data);
 			}
 		};
-
 		db.query(query_string, payload, callback);
 	} else {
 		res.status(401).send({message:"You must be logged in."});
