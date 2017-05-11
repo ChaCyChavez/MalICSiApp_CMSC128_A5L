@@ -122,7 +122,7 @@ transporter.sendMail(mailOptions, (err, info) =>{
 };
 
 exports.retrieve_session = function(req, res, next) {
-    console.log(req);
+    console.log(req.session);
     if (req.session.user == undefined) {
         return res.status(404).send("No active session!");
     }
