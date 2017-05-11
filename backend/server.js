@@ -44,15 +44,7 @@ start = () => {
             port: '12382',
             client: client
         })
-    }));
-
-    app.use(function (req, res, next) {
-      if (!req.session) {
-        return next(new Error('oh no')) // handle error
-      }
-      next() // otherwise continue
-    });
-    
+    }));    
     // other packages that is needed to make the app secured and stable
     winston.log('verbose', 'Binding 3rd-party middlewares');
     app.use(express.static(__dirname + '/../frontend/'));
