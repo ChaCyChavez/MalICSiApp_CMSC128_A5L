@@ -19,7 +19,7 @@ module.exports = {
 
     ASSETS_DIR: path.normalize(__dirname + '/../front-end'),
 
-    COOKIE_SECRET: 'm4L1cSi_a5L',
+    COOKIE_SECRET: process.env.CLIENT_SECRET || 'm4L1cSi_a5L',
     COOKIE_NAME: '__t0p_S3cR3T',
     COOKIE_DOMAIN: '.malICSi.io',
 
