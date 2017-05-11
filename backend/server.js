@@ -33,7 +33,6 @@ start = () => {
     app.set('x-powered-by', false);
     app.set('view engine', 'ejs');
     // incorporating the session to the app for usage
-    app.use(cookie_parser);
     app.use(session({
         secret: config.COOKIE_SECRET,
         resave: true,
