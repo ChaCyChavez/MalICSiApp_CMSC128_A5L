@@ -1,19 +1,21 @@
 'use strict'
 
 const config        = require(__dirname + '/config/config');
-const router	    = require(__dirname + '/router/router');
+const router        = require(__dirname + '/router/router');
 const express       = require('express');
+const cookieParser  = require('cookie-parser')
 const session       = require('express-session');
 const body_parser   = require('body-parser');
 const redis         = require('redis');
 const redis_store   = require('connect-redis')(session);
-const client        = redis.createClient();
+const client        = redis.createClient({port: '12382', host: 'redis-12382.c9.us-east-1-4.ec2.cloud.redislabs.com', password: 'P3uAWJVIp6pJ1AY1'});
 const winston       = require('winston');
 const helmet        = require('helmet');
 
 let start;
 let handler;
 let app;
+
 
 start = () => {
 
@@ -33,17 +35,24 @@ start = () => {
     app.set('x-powered-by', false);
     app.set('view engine', 'ejs');
     // incorporating the session to the app for usage
+    app.use(cookieParser());
     app.use(session({
         secret: config.COOKIE_SECRET,
-        resave: false,
-        saveUninitialized: true,
-        cookie: {maxAge: 60 * 1000 * 60 * 2 },
+        resave: true,
+        saveUninitialized: true,        
+        cookie: {maxAge: 60 * 1000 * 60 * 2},
         store: new redis_store({
-            host: 'localhost',
-            port: config.PORT,
+            host: 'redis-12382.c9.us-east-1-4.ec2.cloud.redislabs.com',
+            port: '12382',
+            pass: 'P3uAWJVIp6pJ1AY1',
             client: client
         })
-    }))
+    }));
+
+    client.on('error', function(err) {
+         console.error(err);
+    });
+
     // other packages that is needed to make the app secured and stable
     winston.log('verbose', 'Binding 3rd-party middlewares');
     app.use(express.static(__dirname + '/../frontend/'));
