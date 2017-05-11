@@ -37,9 +37,10 @@ start = () => {
     // incorporating the session to the app for usage
     app.use(session({
         secret: config.COOKIE_SECRET,
-        resave: false,
+        resave: true,
         saveUninitialized: true,
-        cookie: {maxAge: 60 * 1000 * 60 * 2, secure: true},
+        
+        cookie: {httpOnly: true, maxAge: 60 * 1000 * 60 * 2},
         store: new redis_store({
             host: 'redis-12382.c9.us-east-1-4.ec2.cloud.redislabs.com',
             port: '12382',
