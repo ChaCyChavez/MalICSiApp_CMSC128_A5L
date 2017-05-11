@@ -3,6 +3,7 @@
 const config        = require(__dirname + '/config/config');
 const router        = require(__dirname + '/router/router');
 const express       = require('express');
+const cookieParser  = require('cookie-parser')
 const session       = require('express-session');
 const body_parser   = require('body-parser');
 const redis         = require('redis');
@@ -34,6 +35,7 @@ start = () => {
     app.set('x-powered-by', false);
     app.set('view engine', 'ejs');
     // incorporating the session to the app for usage
+    app.use(cookieParser());
     app.use(session({
         secret: config.COOKIE_SECRET,
         resave: true,
@@ -49,7 +51,7 @@ start = () => {
     client.on('error', function(err) {
          console.error(err);
     });
-    
+
     // other packages that is needed to make the app secured and stable
     winston.log('verbose', 'Binding 3rd-party middlewares');
     app.use(express.static(__dirname + '/../frontend/'));
