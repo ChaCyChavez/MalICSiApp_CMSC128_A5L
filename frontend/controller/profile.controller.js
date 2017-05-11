@@ -161,16 +161,6 @@
     $scope.setup_edit_profile = () =>{
       $scope.edit_profile =JSON.parse(JSON.stringify($scope.userprofile));
       $scope.edit_profile.college = "";
-      $("#edit-profile-modal")
-        .modal({
-          onShow: function() {
-            $('#edit-birthday').calendar({
-              type: 'date',
-              maxDate: maxDate
-            });
-          }
-        })
-        .modal("show");
     }
     $scope.update_is_player = () => {
       $scope.userprofile.is_player = $scope.userprofile.is_player ? 0 : 1;
