@@ -4,7 +4,7 @@ const path  = require('path');
 
 module.exports = {
     APP_NAME: 'MalICSi App: A PalICSihan Sport Scheduling App',
-    APP_URL: 'http://localhost:800',
+    APP_URL: 'http://localhost:8000',
 
     PORT: 8000,
     STATIC_PORT: 8080,
