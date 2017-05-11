@@ -5,7 +5,6 @@ const router        = require(__dirname + '/router/router');
 const express       = require('express');
 const session       = require('express-session');
 const body_parser   = require('body-parser');
-const cookie_parser = require('cookie-parser')(config.COOKIE_SECRET);
 const redis         = require('redis');
 const redis_store   = require('connect-redis')(session);
 const client        = redis.createClient();
@@ -34,14 +33,11 @@ start = () => {
     app.set('x-powered-by', false);
     app.set('view engine', 'ejs');
     // incorporating the session to the app for usage
-    app.use(cookie_parser);
-    app.enable('trust proxy');
     app.use(session({
         secret: config.COOKIE_SECRET,
         resave: false,
         saveUninitialized: true,
         cookie: {maxAge: 60 * 1000 * 60 * 2, secure: true},
-        proxy: true,
         store: new redis_store({
             host: 'redis-12382.c9.us-east-1-4.ec2.cloud.redislabs.com',
             port: '12382',
