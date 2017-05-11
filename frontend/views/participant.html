@@ -1,7 +1,7 @@
 <div ng-controller="login-register-controller" ng-init="restrict()"></div>
 <div ng-controller="participant-controller" ng-init="load_participants()">
   <div class="row contents">
-    <h3 class="content-header"> PARTICIPANTS in {{sport}}</h3>
+    <h3 class="content-header"> PARTICIPANTS</h3>
 
     <div class="ui two top attached buttons" id="butt-container">
       <button class="ui left labeled icon blue button" id="vsp-button" ng-click="change_view('#!/sports/')">
@@ -14,7 +14,7 @@
       </button>
     </div>
 
-    <div class="ui fluid category search" id="searh-part" style="margin-top: 25px !important;">
+    <div class="ui fluid category search" id="search-part" style="margin-top: 25px !important;">
       <div class="ui icon input">
         <input class="prompt" placeholder="Search Participant" type="text" ng-model="partic">
         <i class="search icon"></i>

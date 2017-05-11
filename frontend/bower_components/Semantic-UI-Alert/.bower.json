@@ -1,0 +1,13 @@
+{
+  "name": "Semantic-UI-Alert",
+  "_cacheHeaders": {
+    "ETag": "\"deb1d19193629c23c30af6bbf1e10e1720615607\"",
+    "Content-Length": "222",
+    "Content-Type": "text/plain; charset=utf-8"
+  },
+  "_release": "e-tag:deb1d1919",
+  "main": "index.css",
+  "_source": "https://raw.githubusercontent.com/diw112/semanticUiAlert/master/Semantic-UI-Alert.css",
+  "_target": "*",
+  "_originalSource": "https://raw.githubusercontent.com/diw112/semanticUiAlert/master/Semantic-UI-Alert.css"
+}

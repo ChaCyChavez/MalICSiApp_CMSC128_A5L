@@ -81,7 +81,7 @@
                 <span>{{game.game_ending_time_date | date: 'fullDate'}}</span>
               </div>
             </div>
-            <div class="ui buttom attached blue button view-more" ng-click="view_setup(game.game_id, current_games.indexOf(game), 'current'); check_if_registered()">
+            <div class="ui buttom attached blue button view-more" ng-click="view_setup(game.game_id, current_games.indexOf(game), 'upcoming'); check_if_registered()">
               View More
             </div>
           </div>
@@ -116,7 +116,7 @@
                 <span>{{game.game_ending_time_date | date: 'fullDate'}}</span>
               </div>
             </div>
-            <div class="ui buttom attached blue button view-more" ng-click="view_setup(game.game_id, current_games.indexOf(game), 'current'); check_if_registered()">
+            <div class="ui buttom attached blue button view-more" ng-click="view_setup(game.game_id, current_games.indexOf(game), 'past'); check_if_registered()">
               View More
             </div>
           </div>
