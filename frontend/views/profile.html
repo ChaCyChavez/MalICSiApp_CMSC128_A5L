@@ -159,20 +159,6 @@
 $(document).ready(function(){  
   $('.ui.accordion').accordion();
 
-  var maxDate = new Date();
-  maxDate.setFullYear(maxDate.getFullYear());
-  $(".edit-profile")
-    .click(function() {
-      $("#edit-profile-modal")
-        .modal({
-          onShow: function() {
-            $('#edit-birthday').calendar({
-              type: 'date',
-              maxDate: maxDate
-            });
-          }
-        })
-        .modal("show");
-    });
+  
 });
 </script>
