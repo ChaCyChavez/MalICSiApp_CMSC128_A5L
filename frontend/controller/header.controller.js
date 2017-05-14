@@ -179,9 +179,7 @@
 				$scope.data.email === undefined ||
 				$scope.data.email === '' ||
 				$scope.data.birthday === undefined ||
-				$scope.data.birthday === '' ||
-				$scope.data.position === undefined ||
-				$scope.data.position === '') {
+				$scope.data.birthday === ''){
 				$.uiAlert({
 					textHead: "Registration error", // header
 					text: 'Please fill-out all the fields', // Text
@@ -207,6 +205,19 @@
 				$scope.data.player_role === undefined ||
 				$scope.data.player_jersey_num === '' ||
 				$scope.data.player_jersey_num === undefined)){
+				$.uiAlert({
+					textHead: "Login error", // header
+					text: 'Please fill-out all the fields', // Text
+					bgcolor: '#DB2828', // background-color
+					textcolor: '#fff', // color
+					position: 'top-center',// position . top And bottom ||  left / center / right
+					icon: 'remove circle', // icon in semantic-UI
+					time: 3, // time
+				});
+
+			} else if($scope.data.is_game_head == 1 && (
+				$scope.data.position === '' ||
+				$scope.data.position === undefined)){
 				$.uiAlert({
 					textHead: "Login error", // header
 					text: 'Please fill-out all the fields', // Text

@@ -118,7 +118,7 @@
 				  </div>
 				  
 				  <div class="two fields">
-				  	<div class="field">
+				  	<div ng-show="data.is_game_head" class="field">
 					  	<label>Position</label>
 					    <input placeholder="Position" type="text" ng-model="data.position">
 					  </div>
@@ -134,15 +134,15 @@
 				  </div>
 				  <div class="two fields">
 				  	<div class="inline field">
-					    <div class="ui checkbox" ng-click="update_is_player()">
-					      <input tabindex="0" id="is_player" class="hidden" type="checkbox">
-					      <label>Are you a player?</label>
-					    </div>
-					  </div>
 					  <div class="inline field">
 					    <div class="ui checkbox" ng-click="update_is_game_head()">
 					      <input tabindex="0" id="is_game_head" class="hidden" type="checkbox">
 					      <label>Planning to head a game event?</label>
+					    </div>
+					  </div>
+				      <div class="ui checkbox" ng-click="update_is_player()">
+					      <input tabindex="0" id="is_player" class="hidden" type="checkbox">
+					      <label>Are you a player?</label>
 					    </div>
 					  </div>
 				  </div>
