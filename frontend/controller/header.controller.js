@@ -151,6 +151,7 @@
 		}
 
 		$scope.register = () => {
+
 			let NAME_REGEX = /^[A-Za-z\s]+$/;
 			let USERNAME_REGEX = /^[a-zA-Z0-9_]+$/;
 			let USERNAME_LENGTH_REGEX = /^[a-zA-Z0-9_]{5,}$/;
@@ -161,7 +162,6 @@
 			$scope.data.birthday = $('#birthday').calendar('get date');
 			$scope.data.birthday = moment($scope.data.birthday).format('YYYY-MM-DD');
 			$scope.data.college = strUser;
-			console.log($scope.data.position)
 			if ($scope.data.username === undefined ||
 				$scope.data.username === '' ||
 				$scope.data.password === undefined ||
@@ -316,6 +316,8 @@
 						// Materialize.toast(err.message, 4000, 'teal');
 					})
 			}
+			$('#is_player').attr('checked', false); // Unchecks it
+			$('#is_game_head').attr('checked', false); // Unchecks it
 		}
     }
 })();
