@@ -8,7 +8,7 @@
 				<div class="ui four stackable padded cards">
 			        <div class="card" ng-repeat="m in s.matches">
 			          <div class="content matches">
-			          	<div class="ui grid">
+			          	<!-- <div class="ui grid">
 		          			<div class="eight wide column">
 				     			<span class="left floated"><i class="fa fa-group fa ui mini rounded" style="color: {{m.teams[0].team_color}}"></i>&nbsp;{{m.teams[0].team_name}}</span><br>
 						    	<span class="left floated" style="color: {{m.teams[0].team_color}}">{{m.scores[0]}}</span>
@@ -17,11 +17,32 @@
 				     			<span class="right floated"><i class="fa fa-group fa ui mini rounded" style="color: {{m.teams[1].team_color}}"></i>&nbsp;{{m.teams[1].team_name}}</span><br>
 						    	<span class="right floated" style="color: {{m.teams[1].team_color}}">{{m.scores[1]}}</span>
 		          			</div>
-			          		</div>
+			          		</div>-->
 			          	<div class="center floated">
 			          	  {{m.court_name}}<br>
 					      {{m.date_time | date: 'MMM d, yyyy h:mm a'}}
 			          	</div>
+			          	<hr/>
+			          	<table class="ui very basic collapsing celled table">
+						  <thead>
+						    <tr><th>Team</th>
+						    <th>Score</th>
+						  </tr></thead>
+						  <tbody>
+						    <tr ng-repeat="t in m.teams" ng-init="i = 0">
+						      <td>
+						        <h4 class="ui image header">
+						          <i class="fa fa-group fa ui mini rounded" style="color: {{t.team_color}}"></i>
+						          <div class="content">
+						            {{t.team_name}}
+						        </div>
+						      </h4></td>
+						      <td>
+						      {{m.scores[$index]}}
+						      </td>
+						    </tr>
+						  </tbody>
+						</table>
 			          	</div>
 			          </div>
 			        </div>  
