@@ -316,8 +316,8 @@
 						// Materialize.toast(err.message, 4000, 'teal');
 					})
 			}
-			$('#is_player').attr('checked', false); // Unchecks it
-			$('#is_game_head').attr('checked', false); // Unchecks it
+			$('#is_player').prop('checked', false); // Unchecks it
+			$('#is_game_head').prop('checked', false); // Unchecks it
 		}
     }
 })();
