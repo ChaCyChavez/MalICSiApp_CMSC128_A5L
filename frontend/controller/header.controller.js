@@ -153,9 +153,9 @@
 		$scope.register = () => {
 			let NAME_REGEX = /^[A-Za-z\s]+$/;
 			let USERNAME_REGEX = /^[a-zA-Z0-9_]+$/;
-			let USERNAME_LENGTH_REGEX = /^[a-zA-Z0-9_]{4,}$/;
+			let USERNAME_LENGTH_REGEX = /^[a-zA-Z0-9_]{5,}$/;
 			let EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-			let PASSWORD_REGEX = /^.{8,}$/;
+			let PASSWORD_REGEX = /^.{4,}$/;
 			let e = document.getElementById("college");
 			let strUser = e.options[e.selectedIndex].value;
 			$scope.data.birthday = $('#birthday').calendar('get date');
