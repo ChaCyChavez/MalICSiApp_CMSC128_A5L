@@ -35,7 +35,7 @@
     }
     $scope.visit_profile= (data) => {
       // console.log(data);
-      window.location.href="#!/profile/" + data;
+      window.location.href="#!/profile/" ;
     }
 
     $scope.load_participants = () => {
