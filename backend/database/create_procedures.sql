@@ -1,4 +1,4 @@
-USE malicsi;
+-- USE malicsi;
 
 \d //
 

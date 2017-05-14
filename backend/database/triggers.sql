@@ -1,5 +1,5 @@
 
-use malicsi;
+-- use malicsi;
 
 -- trigger after creating an account 
 \d //
