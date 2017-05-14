@@ -308,16 +308,16 @@
 						$scope.data.email = undefined;
 						$scope.data.position = undefined;
 						$scope.data.birthday = undefined;
-						$scope.data.is_player = undefined;
-						$scope.data.is_game_head = undefined;
+						$scope.data.is_player = 0;
+						$scope.data.is_game_head = 0;
 						$scope.data.player_jersey_num = 0;
 						$scope.data.player_role = undefined;
 					}, function(err) {
 						// Materialize.toast(err.message, 4000, 'teal');
 					})
 			}
-			$scope.data.is_player = false;
-			$scope.data.is_game_head = false;
+			$scope.data.is_player = 0;
+			$scope.data.is_game_head = 0;
 			document.getElementById("is_game_head").checked = false;
 			document.getElementById("is_player").checked = false;
 		}
