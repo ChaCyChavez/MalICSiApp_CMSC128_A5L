@@ -147,7 +147,7 @@
 		}
 
 		$scope.update_is_game_head = () => {
-			$scope.data.is_game_head = $scope.data.is_game_head ? 1 : 0;
+			$scope.data.is_game_head = document.getElementById("is_game_head").checked == true ? 1 : 0;
 		}
 
 		$scope.register = () => {
