@@ -23,7 +23,7 @@
       window.location.href="#!/profile";
     }
     $scope.view_user = () => {
-      window.location.href="#!/user";reg
+      window.location.href="#!/user";
     }
 
     $scope.logout = () => {
