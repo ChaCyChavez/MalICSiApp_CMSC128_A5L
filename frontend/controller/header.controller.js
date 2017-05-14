@@ -316,10 +316,10 @@
 						// Materialize.toast(err.message, 4000, 'teal');
 					})
 			}
+			$scope.data.is_player = false;
+			$scope.data.is_game_head = false;
 			document.getElementById("is_game_head").checked = false;
 			document.getElementById("is_player").checked = false;
-			$('#is_player').prop('checked', false); // Unchecks it
-			$('#is_game_head').prop('checked', false); // Unchecks it
 		}
     }
 })();
