@@ -123,11 +123,11 @@
 					    <input placeholder="Position" type="text" ng-model="data.position">
 					  </div>
 
-					  <div ng-show="data.is_player" class="field">
+					  <div ng-if="data.is_player == true" class="field">
 					  	<label>Player Role</label>
 					    <input placeholder="Player Role" type="text" ng-model="data.player_role">
 					  </div>
-					  <div ng-show="data.is_player" class="field">
+					  <div ng-if="data.is_player == true" class="field">
 					  	<label>Jersey Number</label>
 					    <input placeholder="Player Role" type="number" ng-model="data.player_jersey_num">
 					  </div>
