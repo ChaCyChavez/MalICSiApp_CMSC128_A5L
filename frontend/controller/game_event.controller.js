@@ -151,7 +151,7 @@
 				$scope.upcoming_games = data[0];
 			});
 		}
-
+ 
     $scope.get_past_games = () => {
       GameEventService
       .get_past_games()
@@ -235,7 +235,6 @@
 		}
 
 	$scope.check_if_registered = () => {
-		console.log($scope.view.type);
 		if($scope.view.type == 'past' || $rootScope.profile.is_player == 0) {
 			$scope.is_registered = false;
 			return;

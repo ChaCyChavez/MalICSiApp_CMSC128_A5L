@@ -153,7 +153,9 @@
 		$scope.register = () => {
 			let NAME_REGEX = /^[A-Za-z\s]+$/;
 			let USERNAME_REGEX = /^[a-zA-Z0-9_]+$/;
+			let USERNAME_LENGTH_REGEX = /^[a-zA-Z0-9_]{4,}$/;
 			let EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+			let PASSWORD_REGEX = /^.{8,}$/;
 			let e = document.getElementById("college");
 			let strUser = e.options[e.selectedIndex].value;
 			$scope.data.birthday = $('#birthday').calendar('get date');
@@ -237,10 +239,30 @@
 					icon: 'remove circle', // icon in semantic-UI
 					time: 3, // time
 				});
+			} else if (!USERNAME_LENGTH_REGEX.test($scope.data.username)) {
+				$.uiAlert({
+					textHead: "Invalid username", // header
+					text: 'Username must be atleast 5 characters', // Text
+					bgcolor: '#DB2828', // background-color
+					textcolor: '#fff', // color
+					position: 'top-center',// position . top And bottom ||  left / center / right
+					icon: 'remove circle', // icon in semantic-UI
+					time: 3, // time
+				});
 			} else if (!EMAIL_REGEX.test($scope.data.email)) {
 				$.uiAlert({
 					textHead: "Invalid email", // header
 					text: 'Please enter valid email.', // Text
+					bgcolor: '#DB2828', // background-color
+					textcolor: '#fff', // color
+					position: 'top-center',// position . top And bottom ||  left / center / right
+					icon: 'remove circle', // icon in semantic-UI
+					time: 3, // time
+				});
+			} else if (!PASSWORD_REGEX.test($scope.data.password)) {
+				$.uiAlert({
+					textHead: "Invalid password", // header
+					text: 'Password must be atleast 4 characters.', // Text
 					bgcolor: '#DB2828', // background-color
 					textcolor: '#fff', // color
 					position: 'top-center',// position . top And bottom ||  left / center / right
