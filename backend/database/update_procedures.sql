@@ -1,4 +1,4 @@
-use malicsi;
+-- use malicsi;
 
 drop procedure if exists update_account;
 delimiter //

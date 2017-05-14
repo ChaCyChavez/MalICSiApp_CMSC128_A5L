@@ -1,11 +1,11 @@
-DROP USER IF EXISTS 'CMSC128'@'localhost';
-CREATE USER 'CMSC128'@'localhost' IDENTIFIED BY 'project128';
-DROP DATABASE IF EXISTS malicsi;
-CREATE DATABASE malicsi;
-GRANT SUPER ON *.* TO 'CMSC128'@'localhost';
-GRANT ALL PRIVILEGES ON malicsi.* TO 'CMSC128'@'localhost' WITH GRANT OPTION;
+-- DROP USER IF EXISTS 'CMSC128'@'localhost';
+-- CREATE USER 'CMSC128'@'localhost' IDENTIFIED BY 'project128';
+-- DROP DATABASE IF EXISTS malicsi;
+-- CREATE DATABASE malicsi;
+-- GRANT SUPER ON *.* TO 'CMSC128'@'localhost';
+-- GRANT ALL PRIVILEGES ON malicsi.* TO 'CMSC128'@'localhost' WITH GRANT OPTION;
 
-USE malicsi;
+-- USE malicsi;
 
 DROP TABLE IF EXISTS account;
 CREATE TABLE account (
