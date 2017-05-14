@@ -25,11 +25,11 @@
     <div class="ui raised very fluid padded container segment" id="ru-table">
     <h2 class="center-align" ng-if="participants.length == 0">No Participants</h2>
     <table class="ui very basic selectable collapsing celled table" id="ru-table">
-      <tr ng-repeat="participant in participants | filter: partic" >
+      <tr ng-repeat="participant in participants | filter: partic" ng-click ="visit_profile(participant.account_id)">
         <td href="javascript:void(0)">
           <h4 class="trow ui header">
             <i class=" fa fa-user fa-2x ui mini rounded"></i>
-            <div class="content" ng-click ="visit_profile(participant.account_id)">
+            <div class="content">
               {{participant.firstname}} {{participant.middlename}} {{participant.lastname}}
             </div>
           </h4>
