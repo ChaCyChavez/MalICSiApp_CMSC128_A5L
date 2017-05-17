@@ -57,7 +57,8 @@
                 UserService
                 .disapprove_account({account_id:$scope.pending_accounts[data].account_id})
                 .then((res) => {
-					       $scope.pending_accounts.splice(data, 1);
+                 $scope.get_pending_accounts();
+                 $scope.pending_accounts.splice(data, 1);
       					 swal("Disapproved!", "Account has been disapproved!", "error");
                 }, (err) => {
 					       alert("Internal Server Error. Dev please debug.");
